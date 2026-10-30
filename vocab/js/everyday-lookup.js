@@ -175,6 +175,40 @@ function lookupChinese(query) {
   return question ? chinese.get(chineseKey(question[1])) : undefined;
 }
 
+function everydayResult(row) {
+  return {
+    term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
+    source: row.dictionarySource || SOURCE, license: LICENSE, url: SOURCE_URL,
+    ...(row.retainedCanonicalAlternatives?.length ? { alternatives: row.retainedCanonicalAlternatives.map(retainedProjection) } : {}),
+  };
+}
+
+/** The same finite whole-query aliases as ordinary lookup. A question wrapper
+ * is removed only when its complete subject is already an approved alias. */
+export function everydayChineseQuery(input) {
+  const normal = safeInput(input);
+  if (!normal || !HAN.test(normal)) return null;
+  const query = chineseKey(normal);
+  if (chinese.has(query)) return query;
+  const question = query.match(/^(?:请问(?:一下)?[，,:：]?)?(.+?)(?:的英文是什么|的英语是什么|的英文怎么说|的英语怎么说|用英语怎么说|用英文怎么说|英文是什么|的英文|的英语|英文怎么说|英语怎么说)$/u);
+  const subject = question && chineseKey(question[1]);
+  return subject && chinese.has(subject) ? subject : null;
+}
+
+/** Public, validated packaged display rows for the unified reverse index.
+ * Fresh arrays/DTOs prevent callers from editing the packaged source tables.
+ * Aliases are explicit complete queries, not generated translations. */
+export function everydayChineseEntries() {
+  const aliases = new Map();
+  for (const [alias, rows] of chinese) for (const row of rows) {
+    const values = aliases.get(row) || []; values.push(alias); aliases.set(row, values);
+  }
+  return [...canonicalEnglish.values()].map(row => ({
+    aliases: [...(aliases.get(row) || [])], result: everydayResult(row),
+    reviewedCanonicalSense: row.reviewedCanonicalSense === true,
+  }));
+}
+
 /** Small, exact whole-query vocabulary lookup. No requests or word splitting. */
 export function searchEverydayDictionary(input, { limit = 20, offset, allowDottedFallback = false } = {}) {
   const normal = safeInput(input);
@@ -201,9 +235,7 @@ export function searchEverydayDictionary(input, { limit = 20, offset, allowDotte
   return {
     query,
     results: page.map(row => ({
-      term: row.term, partOfSpeech: row.partOfSpeech, meaning: row.meaning,
-      source: row.dictionarySource || SOURCE, license: LICENSE, url: SOURCE_URL,
-      ...(row.retainedCanonicalAlternatives?.length ? { alternatives: row.retainedCanonicalAlternatives.map(retainedProjection) } : {}),
+      ...everydayResult(row),
       ...(!HAN.test(normal) && query !== englishKey(row.term) ? { matchedForm: form } : {}),
     })),
     hasMore: rows.length > start + page.length,

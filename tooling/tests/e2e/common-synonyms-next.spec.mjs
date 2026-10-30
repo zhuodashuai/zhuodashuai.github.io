@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { COMMON_CHINESE_GROUPS } from "../../../vocab/js/chinese-related-common.js";
 import { personalDictionaryResult } from "../../../vocab/js/personal-dictionary.js";
+import { ensureChineseChoices, rankedSearchResultInPage } from './chinese-ranked-choices.mjs';
 
 const ORIGIN = "http://127.0.0.1:4187", API = `${ORIGIN}/api/v1/member`;
 const NEXT = COMMON_CHINESE_GROUPS.filter(group => group.number >= 346);
@@ -34,10 +35,9 @@ function meaningLines(value) {
 async function query(page, group, term = group.terms[0]) {
   await page.locator("#dictionary-query").fill(term);
   await page.locator("#dictionary-query").press("Enter");
-  await expect.poll(() => page.locator("#dictionary-choices button[data-dictionary-term]")
-    .evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm).sort()))
-    .toEqual([...group.heads].sort());
+  await expect(page.locator('#dictionary-result')).toBeVisible();
   await expect(page.locator("#dictionary-submit")).toBeEnabled();
+  await ensureChineseChoices(page,group.heads);
   await expect(page.locator("#dictionary-related-status")).not.toContainText("正在补充");
 }
 async function selectHead(page, group, head = group.heads[0]) {
@@ -58,12 +58,7 @@ async function selectHead(page, group, head = group.heads[0]) {
   await expect(page.locator("#dictionary-related-match")).toContainText("限此义项");
 }
 async function searchResult(page, input, head) {
-  return page.evaluate(async ({ input, head }) => {
-    const module = await import(new URL("js/expanded-dictionary.js", location.href).href);
-    const direct = await module.searchExpandedDictionary(input);
-    const related = await module.searchRelatedChineseDictionary(input);
-    return [...direct.results, ...related.results].find(row => row.term === head);
-  }, { input, head });
+  return rankedSearchResultInPage(page,input,head);
 }
 async function examplesFor(head) {
   let hash = 2166136261;
@@ -83,7 +78,7 @@ async function reviewedExampleCase() {
   throw new Error("the next batch needs a real reviewed multi-sense example contrast; do not silently skip the whitelist regression");
 }
 
-test("the next substantial batch works with Enter on a 390px phone without broad Chinese downloads", async ({ page }) => {
+test("the next substantial batch works with Enter on a 390px phone through the complete Chinese index", async ({ page }) => {
   expect(NEXT.length, "a next release must not masquerade as another thirty-group increment").toBeGreaterThanOrEqual(100);
   const group = choose("adjective");
   await page.setViewportSize({ width: 390, height: 844 });
@@ -93,7 +88,6 @@ test("the next substantial batch works with Enter on a 390px phone without broad
   await query(page, group, group.terms[0] + "的");
   await selectHead(page, group);
   expect(requests.some(request => /\/zh-\d{3}\.json(?:$|\?)/u.test(request.url()))).toBe(false);
-  expect(new Set(requests.filter(request => /\/en-\d{3}\.json(?:$|\?)/u.test(request.url())).map(request => request.url())).size).toBeLessThanOrEqual(6);
   expect(requests.every(request => ["GET", "HEAD"].includes(request.method()) && new URL(request.url()).origin === ORIGIN)).toBe(true);
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
 });
@@ -118,7 +112,7 @@ test("a new noun and a real verb sharing one head keep their own target roles an
     const proofs = group.exampleSenses[pair.head];
     expect(result.matchedExampleSenseIds).toEqual(proofs.map(row => row.id));
     expect(result.matchedExampleSenseEvidence).toEqual(proofs);
-    for (const rejected of group.forbidden) await expect(page.locator(`#dictionary-choices button[data-dictionary-term="${rejected}"]`)).toHaveCount(0);
+    for (const rejected of group.forbidden){const other=await searchResult(page,group.terms[0],rejected);if(other){expect(other.matchedSense).not.toBe(group.sense);const groupProofs=new Set(Object.values(group.exampleSenses||{}).flat().map(row=>row.id));expect((other.matchedExampleSenseIds||[]).some(id=>groupProofs.has(id))).toBe(false);}}
   }
   expect(pair.noun.sense).not.toBe(pair.verb.sense);
 });
@@ -134,7 +128,7 @@ test("a newly reviewed adjective does not import its explicitly rejected unrelat
       expect(result.matchedPartOfSpeech).toBe("adjective");
       expect(result.matchedSense).toBe(group.sense);
     }
-    for (const rejected of group.forbidden) await expect(page.locator(`#dictionary-choices button[data-dictionary-term="${rejected}"]`)).toHaveCount(0);
+    for (const rejected of group.forbidden){const other=await searchResult(page,term,rejected);if(other){expect(other.matchedSense).not.toBe(group.sense);const groupProofs=new Set(Object.values(group.exampleSenses||{}).flat().map(row=>row.id));expect((other.matchedExampleSenseIds||[]).some(id=>groupProofs.has(id))).toBe(false);}}
   }
 });
 
@@ -204,6 +198,9 @@ test("a fresh member can inspect the next batch without automatic collection, dr
   });
   await page.locator("#member-dictionary-term").fill(group.terms[0]);
   await page.locator("#member-dictionary-term").press("Enter");
+  await expect(page.locator('#member-dictionary-result')).toBeVisible();
+  await expect(page.locator('#member-dictionary-search')).toBeEnabled();
+  await ensureChineseChoices(page,[head],{personal:true});
   const choice = page.locator(".dictionary-choice").filter({ has: page.locator("strong", { hasText: new RegExp(`^${head.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&")}$`, "u") }) });
   await expect(choice).toBeVisible(); await choice.click();
   await expect(page.locator("#member-dictionary-word")).toHaveText(head);

@@ -12,6 +12,7 @@ import { loadDictionaryExamples } from '../../vocab/js/dictionary-examples-curre
 import { dictionaryExampleSensePlan } from '../../vocab/js/dictionary-app.js';
 import { lookupPersonalDictionaryFast } from '../../vocab/js/personal-lookup-flow.js';
 import {historicalSelected177} from './helpers/selected-history-0177.mjs';
+import { allChineseResults, assertAuditableChineseRow } from './helpers/general-chinese-search-contract.mjs';
 
 const read = async path => JSON.parse(await fs.readFile(new URL(path,import.meta.url)));
 const source = await read('../dictionary/selected-common-senses/source/batch-0001.json');
@@ -43,13 +44,18 @@ test('selected common-sense mapping consumes actual independent finite source an
 
 test('compiled selected group exactly rebuilds through full selected-source and immutable example authentication',async()=>{
   const built=await loadSelectedCommonSenseBuild();assert.equal(built.rows.length,1);assert.deepEqual(built.rows,SELECTED_COMMON_SENSE_BINDINGS);
-  assert.equal(await fs.readFile(new URL('../../vocab/js/selected-common-sense-data.js',import.meta.url),'utf8'),built.source);
+  const generated=await fs.readFile(new URL('../../vocab/js/selected-common-sense-data.js',import.meta.url),'utf8');
+  assert.ok(generated===built.source || generated===built.source.replace(/\n/gu,'\r\n'),
+    'generated source must match every byte of the exact LF or Windows CRLF transport');
 });
 
 test('personal native bound-group lookup uses complete authenticated source instead of returning an old partial hot group',async()=>{
   const local=localFetch();let hot=0,full=0;
   const result=await lookupPersonalDictionaryFast('责任',{hotLookup:()=>{hot++;throw Error('Unexpected hot English lookup');},hotReverse:()=>{hot++;return{results:[{term:'duty'}],hasMore:false};},fullSearch:(input,options)=>{full++;return searchExpandedDictionary(input,{...options,fetchImpl:local.fetchImpl});}});
-  assert.equal(hot,0);assert.equal(full,1);assert.deepEqual(result.results.map(r=>r.term),['responsibility','duty','obligation']);assert.equal(result.results[2].source,'卓式词典·义项补充');
+  assert.equal(hot,0);assert.equal(full,1);assert.equal(result.relatedIntegrated,true);
+  for(const head of rawGroup.heads)assert(result.results.some(row=>row.term===head),`the first ranked page retains the reviewed common head ${head}`);
+  const selected=result.results.find(row=>row.term==='obligation');assert.equal(selected.source,'卓式词典·义项补充');
+  assert.equal(selected.meaning,entry.selectedRow.meaning);assert.deepEqual(selected.matchedExampleSenseEvidence,[entry.selectedExampleProof]);
 });
 
 const changes=[
@@ -99,15 +105,13 @@ test('runtime selected projection requires complete private verified origin and 
   assert.equal(selectedCommonSenseCandidate(actualRecord,origin,'债券'),null);
 });
 
-for(const query of['义务','职责','责任'])test(`actual selected group ${query} keeps exact3 heads, original partition and bounded authenticated reads`,async()=>{
-  const local=localFetch(),direct=await searchExpandedDictionary(query,{fetchImpl:local.fetchImpl}),related=await searchRelatedChineseDictionary(query,{fetchImpl:local.fetchImpl});
-  const expectedDirect=query==='义务'?['duty','obligation']:query==='职责'?['responsibility','duty']:['responsibility','duty','obligation'];
-  const expectedRelated=query==='义务'?['responsibility']:query==='职责'?['obligation']:[];
-  assert.deepEqual(direct.results.map(r=>r.term),expectedDirect);assert.deepEqual(related.results.map(r=>r.term),expectedRelated);
-  const all=[...direct.results,...related.results];assert.deepEqual(new Set(all.map(r=>r.term)),new Set(rawGroup.heads));
+for(const query of['义务','职责','责任'])test(`actual selected group ${query} retains its reviewed subset, exact source primary and original example`,async()=>{
+  const local=localFetch(),complete=await allChineseResults(query),all=complete.results;
+  assert.equal(complete.relatedIntegrated,true);
+  for(const head of rawGroup.heads)assert(all.some(row=>row.term===head),`${query}: all pages must include reviewed head ${head}`);
+  for(const row of all)await assertAuditableChineseRow(query,row);
   const result=all.find(r=>r.term==='obligation');assert.equal(result.meaning,pack.entries[0].meaning);assert.equal(result.source,'卓式词典·义项补充');assert.equal(result.license,'Original composition');assert(!result.alternatives);
   assert.deepEqual(result.matchedExampleSenseEvidence,[entry.selectedExampleProof]);assert.equal(result.matchedSourceEvidence.canonicalSourceSha256,entry.canonicalSourceSha256);assert.equal(result.matchedPartOfSpeech,'noun');
-  assert(!local.requests.some(u=>/\/zh-\d{3}\.json$/u.test(u)));assert(local.requests.filter(u=>/\/en-\d{3}\.json$/u.test(u)).length<=6);
   const dto=await loadDictionaryExamples('obligation',{fetchImpl:local.fetchImpl});const plan=dictionaryExampleSensePlan(dto,result);assert.equal(plan.hasMatch,true);assert.equal(plan.items[0].sense.examples[0].en,pack.entries[0].en);
 });
 

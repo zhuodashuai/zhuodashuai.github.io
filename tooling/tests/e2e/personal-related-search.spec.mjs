@@ -1,9 +1,10 @@
 import { test, expect } from "@playwright/test";
 import { createHash } from "node:crypto";
+import {ensureChineseChoices} from './chinese-ranked-choices.mjs';
 
 const ORIGIN = "http://127.0.0.1:4187";
 const API = `${ORIGIN}/api/v1/member`;
-const RELATED_POSTING = "**/data/expanded-dictionary/**/zh-041.json*"; // 高兴, not the direct 开心 posting.
+const COMPLETE_RANKING = "**/data/chinese-search-ranking/**/*.bin*";
 test.use({ serviceWorkers: "block" });
 
 test.beforeEach(async ({ context, page }, info) => {
@@ -40,24 +41,24 @@ function choice(page, term) {
   return page.locator(".dictionary-choice").filter({ has: page.locator("strong", { hasText: new RegExp(`^${term}$`, "u") }) });
 }
 
-async function holdRelatedPosting(page) {
+async function holdCompleteRanking(page) {
   let release, reached;
   const gate = new Promise(resolve => { release = resolve; });
   const seen = new Promise(resolve => { reached = resolve; });
-  await page.route(RELATED_POSTING, async route => {
+  await page.route(COMPLETE_RANKING, async route => {
     const response = await route.fetch(); reached(); await gate;
-    try { await route.fulfill({ response }); } catch { /* Editing/logout intentionally cancels the optional caller. */ }
+    try { await route.fulfill({ response }); } catch { /* Editing/logout intentionally cancels the old caller. */ }
   });
   return { release, seen };
 }
 
-test("mobile Chinese synonym choices keep source definitions, direct-first order and explicit private saving", async ({ context, page }) => {
+test("mobile Chinese synonym choices keep source definitions, ranked order and explicit private saving", async ({ context, page }) => {
   await page.setViewportSize({ width: 390, height: 844 }); await openMember(context, page);
   const calls = [];
   page.on("request", request => calls.push({ url: request.url(), method: request.method() }));
   await query(page, "开心");
   await expect(choice(page, "happy")).toBeVisible();
-  await expect(choice(page, "happy")).toContainText("近义关联：高兴");
+  await expect(choice(page, "happy")).toContainText(/近义关联：(高兴|快乐|愉快)/u);
   await expect(page.locator(".dictionary-choice strong").first()).toHaveText("chuffed");
   const words = await page.locator(".dictionary-choice strong").allTextContents();
   expect(new Set(words).size).toBe(words.length);
@@ -65,8 +66,8 @@ test("mobile Chinese synonym choices keep source definitions, direct-first order
   await choice(page, "happy").click();
   await expect(page.locator("#member-dictionary-word")).toHaveText("happy");
   await expect(page.locator("#member-dictionary-pos")).toContainText("adjective");
-  await expect(page.locator("#member-dictionary-meaning")).toContainText("高兴");
-  await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：高兴");
+  await expect(page.locator("#member-dictionary-meaning")).toContainText("快乐");
+  await expect(page.locator("#member-dictionary-status")).toContainText(/近义关联：(高兴|快乐|愉快)/u);
   await expect(page.locator("#member-term")).toHaveValue("");
   const entries = await context.request.get(`${API}/entries`, { headers: { "X-Wordbook-Auth": "member", "X-Wordbook-Fields": "partOfSpeech" } });
   expect((await entries.json()).entries).toEqual([]);
@@ -130,25 +131,31 @@ test("owner colloquial doctor preview is read-only and clicking its related choi
   expect(link.origin).toBe(ORIGIN); expect(link.searchParams.get("entry")).toBe(doctor.id);
 });
 
-test("optional related downloads never delay the direct card or replace a selected direct meaning", async ({ context, page }) => {
-  const held = await holdRelatedPosting(page);
+test("complete Chinese results wait for authentication and later ranked pages preserve the selected meaning", async ({ context, page }) => {
+  const held = await holdCompleteRanking(page);
   try {
-    await openMember(context, page); await query(page, "开心"); await held.seen;
+    await openMember(context, page);
+    await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
+    await expect(page.locator('#member-dictionary-result')).toBeHidden();
+    held.release();await expect(choice(page,'happy')).toBeVisible();
+    await expect(page.locator('#member-dictionary-search')).toBeEnabled();
+    await choice(page,'chuffed').click();
     await expect(page.locator("#member-dictionary-word")).toHaveText("chuffed");
     await expect(page.locator("#member-dictionary-use")).toBeEnabled();
-    await expect(choice(page, "happy")).toHaveCount(0);
     const meaning = await page.locator("#member-dictionary-meaning").textContent();
-    held.release(); await expect(choice(page, "happy")).toBeVisible();
+    const before=await page.locator('.dictionary-choice').count();await page.locator('#member-dictionary-more').click();
+    await expect.poll(()=>page.locator('.dictionary-choice').count()).toBeGreaterThan(before);
     await expect(page.locator("#member-dictionary-word")).toHaveText("chuffed");
     await expect(page.locator("#member-dictionary-meaning")).toHaveText(meaning);
     await expect(page.locator("#member-dictionary-status")).not.toContainText("近义关联");
+    await expect(page.locator('#member-term')).toHaveValue('');await expect(page.locator('.personal-entry')).toHaveCount(0);
   } finally { held.release(); }
 });
 
-test("editing after a direct Chinese result discards late optional choices", async ({ context, page }) => {
-  const held = await holdRelatedPosting(page);
+test("editing during a complete Chinese download discards its late ranked choices", async ({ context, page }) => {
+  const held = await holdCompleteRanking(page);
   try {
-    await openMember(context, page); await query(page, "开心"); await held.seen;
+    await openMember(context, page);await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
     await query(page, "apple"); held.release(); await page.waitForLoadState("networkidle");
     await expect(page.locator("#member-dictionary-word")).toHaveText("apple");
     await expect(page.locator("#member-dictionary-choices")).toBeHidden();
@@ -157,10 +164,10 @@ test("editing after a direct Chinese result discards late optional choices", asy
   } finally { held.release(); }
 });
 
-test("logout discards late optional Chinese choices without restoring private UI", async ({ context, page }) => {
-  const held = await holdRelatedPosting(page);
+test("logout discards a late complete Chinese download without restoring private UI", async ({ context, page }) => {
+  const held = await holdCompleteRanking(page);
   try {
-    await openMember(context, page); await query(page, "开心"); await held.seen;
+    await openMember(context, page);await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
     await page.locator("#member-logout").click();
     await expect(page.locator("#member-workspace")).toBeHidden(); held.release(); await page.waitForLoadState("networkidle");
     await expect(page.locator("#member-dictionary-result")).toBeHidden();
@@ -169,15 +176,17 @@ test("logout discards late optional Chinese choices without restoring private UI
   } finally { held.release(); }
 });
 
-test("a failed optional synonym posting leaves direct lookup and use controls intact", async ({ context, page }) => {
+test("a complete index outage keeps only verified known aliases with explicit partial coverage", async ({ context, page }) => {
   let failed = false;
-  await page.route(RELATED_POSTING, route => { failed = true; return route.fulfill({ status: 503, body: "synthetic optional outage" }); });
-  await openMember(context, page); await query(page, "开心");
+  await page.route(COMPLETE_RANKING, route => { failed = true; return route.fulfill({ status: 503, body: "synthetic complete index outage" }); });
+  await openMember(context, page); await query(page, "人工客服");
   await expect.poll(() => failed).toBe(true);
-  await expect(page.locator("#member-dictionary-word")).toHaveText("chuffed");
+  await expect(page.locator("#member-dictionary-word")).toHaveText("live agent");
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
   await expect(page.locator("#member-dictionary-use")).toBeEnabled();
-  await expect(page.locator("#member-dictionary-status")).not.toContainText(/失败|AI|近义关联/u);
+  await expect(page.locator("#member-dictionary-status")).toContainText("非完整搜索");
+  await expect(page.locator('#member-dictionary-more')).toBeHidden();await expect(page.locator('#member-dictionary-full')).toBeVisible();
+  await expect(page.locator('#member-term')).toHaveValue('');await expect(page.locator('.personal-entry')).toHaveCount(0);
   await expect(choice(page, "happy")).toHaveCount(0);
 });
 
@@ -199,6 +208,7 @@ test("owner empty-direct lookup may preview a related meaning but never auto-pub
 
 test("choosing a different source sense removes an association unsupported by that sense", async ({ context, page }) => {
   await openMember(context, page); await query(page, "疲倦");
+  await ensureChineseChoices(page,['beat'],{personal:true});
   await expect(choice(page, "beat")).toBeVisible(); await choice(page, "beat").click();
   await expect(page.locator("#member-dictionary-status")).toContainText("近义关联：疲乏");
   const alternate = page.locator("#member-dictionary-alternatives details").filter({ hasText: "卓式原创释义" });

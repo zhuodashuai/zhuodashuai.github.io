@@ -1,8 +1,8 @@
 import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
 import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
-  isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js";
-import { chineseSearchPlan } from './chinese-search.js?v=111';
+  isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=112";
+import { chineseSearchPlan } from './chinese-search.js?v=112';
 import { hasSelectedCommonSensePlan } from './selected-common-sense.js';
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
@@ -25,16 +25,34 @@ function knownExact(input, result) {
   return (sameSource || reviewedCore) && !value.matchedForm && normalizeEnglish(value.term) === normalizeEnglish(input);
 }
 
+/** Keep a unified ranked page in server order; legacy sidecars stay last. */
+export function mergePersonalDictionaryPage(current, page, { relatedIntegrated = false } = {}) {
+  const integrated = relatedIntegrated || page.relatedIntegrated === true;
+  const ordered = integrated ? [...current, ...page.results] : [
+    ...current.filter(row => row.matchType !== "related"), ...page.results,
+    ...current.filter(row => row.matchType === "related")
+  ];
+  const seen = new Set();
+  return ordered.filter(row => {
+    const key = normalizeEnglish(row.term);
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  });
+}
+
 /** Race public sources only; a slow shared warmup cannot hold up another caller. */
 export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, hotReverse, fullSearch,
   full = false, preferCompleteChinese = false, hotGraceMs = 750, chineseDelayMs = 1000, formWaitMs = 1500 } = {}) {
   if (signal?.aborted) throw abortError();
+  const chinese = /\p{Script=Han}/u.test(input);
   const everyday = searchEverydayDictionary(input);
   const literalFirst = !everyday && searchEverydayDictionary(input, { allowDottedFallback: true });
   const groupPlan = typeof input === 'string' && /\p{Script=Han}/u.test(input)
     ? chineseSearchPlan(input.normalize('NFKC').replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu,'').trim()) : null;
   const completeSelectedGroup = groupPlan && hasSelectedCommonSensePlan(groupPlan.term);
-  if (everyday && !completeSelectedGroup) return everyday;
+  // A known Chinese alias is evidence for one source, not a complete search.
+  // English literal heads retain their existing exact, offline shortcut.
+  if (everyday && !chinese && !completeSelectedGroup) return everyday;
   const hotController = new AbortController(), fullController = new AbortController();
   const timers = new Set();
   let rejectAbort;
@@ -55,6 +73,7 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
     if (full || completeSelectedGroup || literalFirst) return await race([Promise.resolve().then(fullLookup)]);
     if (/\p{Script=Han}/u.test(input)) {
       const hot = settled(async () => {
+        if (everyday) return { result: everyday, retainedMismatch: false };
         const found = await hotReverse(input, { signal: hotController.signal });
         let retainedMismatch = false;
         const results = found.results.map(item => {
@@ -64,7 +83,8 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
         }).filter(row => row && !isSupersededChineseSenseHead(row.term));
         return { result: { ...found, results }, retainedMismatch };
       });
-      const basic = value => ({ ...value.result, coverage: "basic" });
+      const basic = value => ({ ...value.result, coverage: "basic",
+        ...(everyday ? { relatedIntegrated: true, hasMore: false, nextOffset: null, offset: 0 } : {}) });
       const retainedFull = async (expanded, hotValue) => {
         // A compact projection with different provenance cannot authorize an
         // old retained sense. Even alongside ordinary hits, try the verified
@@ -96,7 +116,7 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
       // The current Chinese UI uses the complete ranked index. Keep the small
       // source only as a verified, explicitly partial offline fallback. Legacy
       // callers may still opt into their original compact-first behavior.
-      const ranked = preferCompleteChinese ? settled(fullLookup) : null;
+      const ranked = preferCompleteChinese || everyday ? settled(fullLookup) : null;
       if (ranked) {
         const complete = await bounded(ranked, 15_000);
         // The same verified query must have the same ranking/count regardless

@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { gunzipSync } from "node:zlib";
-import { chineseVariantRank, parseChineseRanking } from "../js/chinese-ranking.js";
+import { chineseVariantRank, parseChineseRanking, normalizeChineseRankingQuery, createChineseRankingContext } from "../js/chinese-ranking.js";
 import { CHINESE_RANKING_RELEASE } from "../js/chinese-ranking-release.js";
 import { searchExpandedDictionary } from "../js/expanded-dictionary.js";
 
@@ -34,7 +34,10 @@ test("temperature ranking uses source atoms, not emotional or technical overlaps
     assert.ok(chineseVariantRank(noise, "热") > weather, noise);
   }
   assert.ok(chineseVariantRank("[医] 高温, 热", "热") > weather);
-  assert.equal(chineseVariantRank("adj. 闷热的, 热得难受的", "热的"), 1);
+  const records = new Map([[1, { term: "source", partOfSpeech: "adjective", meaning: "adj. 热的" }]]);
+  const normalized = normalizeChineseRankingQuery("热的", records);
+  const context = createChineseRankingContext(normalized.term, records, normalized);
+  assert.equal(chineseVariantRank("adj. 闷热的, 热得难受的", normalized.term, "adjective", { context }), 1);
 });
 
 test("global real-data search finds later temperature senses before truncation and reads no English shards", async () => {
@@ -72,27 +75,30 @@ test("all Chinese pages are stable, disjoint and complete beyond the old fifty-r
   assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
 });
 
-test("global ranking preserves existing curated source evidence and whole-query negation", async () => {
+test("global ranking retains source POS beyond old curated heads and preserves whole-query negation", async () => {
   const data = fileTransport();
   const doctors = await searchExpandedDictionary("医生", data);
   assert.equal(doctors.ranking, "global");
-  assert.ok(doctors.results.every(row => ["doctor", "physician", "medical man", "practitioner", "medic", "medico"].includes(row.term)));
-  assert.ok(!doctors.results.some(row => row.term === "medical"));
+  assert.equal(doctors.relatedIntegrated, true); assert.equal(doctors.results[0].term, "doctor");
+  assert.ok(doctors.total > 6);
+  assert.ok(doctors.results.some(row => row.term === "surgeon" && /外科医生/u.test(row.meaning)));
   const positive = await searchExpandedDictionary("开心", data), negative = await searchExpandedDictionary("不开心", data);
   assert.ok(!positive.results.some(row => /^(?:unhappy|sad)$/u.test(row.term)));
   assert.ok(!negative.results.some(row => /^(?:happy|glad)$/u.test(row.term)));
 });
 
-test("finite reviewed heads have complete stable pages without downloading the broad-query sidecar", async () => {
+test("formerly finite reviewed queries use the complete sidecar and stable global pages", async () => {
   const data = fileTransport();
   const first = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: 0 });
   assert.equal(first.ranking, "global"); assert.equal(first.results[0].term, "doctor");
   assert.ok(first.hasMore); assert.equal(first.nextOffset, 1);
   const second = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: first.nextOffset });
   assert.equal(second.ranking, "global"); assert.notEqual(second.results[0].term, first.results[0].term);
-  assert.equal(second.hasMore, false);
-  assert.equal(data.requests.filter(item => /\.bin$/u.test(item.url)).length, 0);
-  assert.ok(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length <= 6);
+  assert.equal(second.total, first.total); assert.ok(second.hasMore);
+  const end = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: first.total });
+  assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
+  assert.equal(data.requests.filter(item => /\.bin$/u.test(item.url)).length, 1);
+  assert.equal(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length, 0);
   assert.equal(data.requests.filter(item => /\/zh-\d{3}\.json$/u.test(item.url)).length, 0);
 });
 
@@ -177,13 +183,17 @@ test("English lookups and aborted calls do not load the Chinese sidecar", async 
   assert.equal(data.requests.filter(item => /\.bin$/u.test(item.url)).length, 0);
 });
 
-test("expanded daily-phrase lookup forwards offsets without fetching the large dictionary", async () => {
-  const fetchImpl = () => { throw new Error("Daily aliases should not fetch any dictionary data."); };
-  const first = await searchExpandedDictionary("人工客服", { fetchImpl, limit: 1, offset: 0 });
-  const second = await searchExpandedDictionary("人工客服", { fetchImpl, limit: 1, offset: first.nextOffset });
+test("daily Chinese aliases join complete pages while offline known rows stay explicitly partial", async () => {
+  const data = fileTransport();
+  const first = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: 0 });
+  const second = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: first.nextOffset });
   assert.equal(first.offset, 0); assert.equal(first.nextOffset, 1); assert.ok(first.hasMore);
   assert.equal(second.offset, 1); assert.notEqual(first.results[0].term, second.results[0].term);
   assert.equal(second.total, first.total);
-  const end = await searchExpandedDictionary("人工客服", { fetchImpl, limit: 1, offset: first.total });
+  assert.equal(first.relatedIntegrated, true); assert.equal(first.ranking, "global");
+  assert.equal(data.requests.filter(row => /\.bin$/u.test(row.url)).length, 1);
+  const end = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: first.total });
   assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
+  const offline = await searchExpandedDictionary("人工客服", { fetchImpl: () => { throw new Error("offline"); } });
+  assert.equal(offline.coverage, "basic"); assert.equal(offline.nextOffset, null); assert.equal(offline.hasMore, false);
 });

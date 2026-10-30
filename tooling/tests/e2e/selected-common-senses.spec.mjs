@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import {ensureChineseChoices} from './chinese-ranked-choices.mjs';
 
 const source=JSON.parse(await readFile(new URL('../../dictionary/selected-common-senses/source/batch-0001.json',import.meta.url)));
 expect(createHash('sha256').update(JSON.stringify(source)).digest('hex')).toBe('13ed10586ce3be0c64d3cb8d00d11dc400e53d30bab1c7f65aafe412dc18ab76');
@@ -18,8 +19,11 @@ for(const width of[390,1280])test(`selected common duty sense preserves full gro
   const observations=[];
   for(const query of['义务','职责','责任']){
     await page.locator('#dictionary-query').fill(query);await page.locator('#dictionary-query').press('Enter');
-    await expect.poll(()=>page.locator('#dictionary-choices button[data-dictionary-term]').evaluateAll(nodes=>nodes.map(n=>n.dataset.dictionaryTerm).sort())).toEqual(['duty','obligation','responsibility']);
-    const first=await page.locator('#dictionary-term').textContent();expect(first).toBe(query==='义务'?'duty':'responsibility');
+    await expect(page.locator('#dictionary-result')).toBeVisible();await expect(page.locator('#dictionary-submit')).toBeEnabled();
+    await ensureChineseChoices(page,['duty','obligation','responsibility']);
+    const first=await page.locator('#dictionary-term').textContent();
+    const expectedFirst=await page.evaluate(async query=>{const runtime=await import('/js/expanded-dictionary.js');return(await runtime.searchExpandedDictionary(query,{limit:1})).results[0].term;},query);
+    expect(first).toBe(expectedFirst);
     const disclosure=page.locator('#dictionary-choice-disclosure');if(!await disclosure.evaluate(n=>n.open))await disclosure.locator('summary').click();
     await page.locator('#dictionary-choices button[data-dictionary-term="obligation"]').click();
     await expect(page.locator('#dictionary-meaning')).toHaveText(entry.selectedRow.meaning.replaceAll('\n',''));
@@ -31,21 +35,25 @@ for(const width of[390,1280])test(`selected common duty sense preserves full gro
     observations.push({query,first,selected:'obligation',newPair:true});
   }
   const native=await page.evaluate(async entry=>{
-    const load=p=>import(new URL(p,document.baseURI).href),[flow,hot,expanded,examples,ui]=await Promise.all([load('js/personal-lookup-flow.js'),load('js/personal-dictionary.js?v=97'),load('js/expanded-dictionary.js?v=111'),load('js/dictionary-examples-current-v4.js'),load('js/dictionary-examples-ui-v108.js')]);
+    const load=p=>import(new URL(p,document.baseURI).href),[flow,hot,expanded,examples,ui]=await Promise.all([load('js/personal-lookup-flow.js'),load('js/personal-dictionary.js?v=97'),load('js/expanded-dictionary.js'),load('js/dictionary-examples-current-v4.js'),load('js/dictionary-examples-ui-v108.js')]);
     const assert=(ok,message)=>{if(!ok)throw Error(message);},same=(a,b)=>JSON.stringify(a)===JSON.stringify(b),groups=[];let hotCalls=0,fullCalls=0;
     for(const query of['义务','职责','责任']){
-      const result=await flow.lookupPersonalDictionaryFast(query,{hotLookup:(q,o)=>{hotCalls++;return hot.lookupPersonalDictionary(q,o);},hotReverse:(q,o)=>{hotCalls++;return hot.searchPersonalDictionaryChinese(q,o);},fullSearch:(q,o)=>{fullCalls++;return expanded.searchExpandedDictionary(q,o);}}),related=await expanded.searchRelatedChineseDictionary(query);
-      const expectedDirect=query==='义务'?['duty','obligation']:query==='职责'?['responsibility','duty']:['responsibility','duty','obligation'],expectedRelated=query==='义务'?['responsibility']:query==='职责'?['obligation']:[];
-      assert(same(result.results.map(r=>r.term),expectedDirect),'native direct partition changed');assert(same(related.results.map(r=>r.term),expectedRelated),'native related partition changed');
-      assert(result.ranking==='global'&&result.total===expectedDirect.length,'native finite-group global metadata lost');
+      const result=await flow.lookupPersonalDictionaryFast(query,{hotLookup:(q,o)=>{hotCalls++;return hot.lookupPersonalDictionary(q,o);},hotReverse:(q,o)=>{hotCalls++;return hot.searchPersonalDictionaryChinese(q,o);},fullSearch:(q,o)=>{fullCalls++;return expanded.searchExpandedDictionary(q,o);}});
+      const all=[];let start=0;
+      for(let page=0;page<100;page++){const next=await expanded.searchExpandedDictionary(query,{limit:50,offset:start});assert(next.relatedIntegrated===true&&next.ranking==='global','integrated source ranking lost');assert(next.offset===start&&next.nextOffset===start+next.results.length,'complete offset changed');all.push(...next.results);if(!next.hasMore)break;assert(next.nextOffset>start,'paging stalled');start=next.nextOffset;}
+      assert(new Set(all.map(r=>r.term)).size===all.length,'full stream duplicated heads');
+      for(const head of ['duty','obligation','responsibility'])assert(all.some(row=>row.term===head),'reviewed group head lost: '+head);
+      assert(same(result.results,all.slice(0,20)),'personal first page must equal complete source order');
+      assert(result.ranking==='global'&&result.relatedIntegrated===true&&result.total===all.length,'native complete global metadata lost');
+      const selected=all.find(row=>row.term==='obligation');assert(selected.meaning===entry.selectedRow.meaning&&selected.partOfSpeech===entry.selectedRow.partOfSpeech&&selected.source==='卓式词典·义项补充','selected complete tuple or attribution changed');assert(selected.matchedSourceEvidence?.kind==='reviewed-canonical-primary','selected source authentication lost');
       const pages=[];for(let offset=0;offset<=result.total;offset++){
         const current=await expanded.searchExpandedDictionary(query,{limit:1,offset});
         assert(current.ranking==='global'&&current.total===result.total&&current.offset===offset,'finite pagination metadata changed');
         assert(current.nextOffset===Math.min(offset+1,result.total)&&current.hasMore===(offset+1<result.total),'finite pagination endpoint changed');
-        assert(same(current.results,result.results.slice(offset,offset+1)),'finite page differs from full globally ranked source');
+        assert(same(current.results,all.slice(offset,offset+1)),'page differs from full globally ranked source');
         pages.push({offset,nextOffset:current.nextOffset,hasMore:current.hasMore,heads:current.results.map(r=>r.term)});
       }
-      groups.push({query,direct:expectedDirect,related:expectedRelated,ranking:result.ranking,total:result.total,pages});
+      groups.push({query,heads:all.map(row=>row.term),ranking:result.ranking,total:result.total,pages});
     }
     assert(hotCalls===0&&fullCalls===3,'new source group used old hot answer');
     const contexts=[{term:'obligation',partOfSpeech:'noun',meaning:entry.selectedRow.meaning,kind:'new'},...entry.legacySavedContexts.map(c=>({...c,kind:'old'})),{term:'obligation',partOfSpeech:'noun',meaning:'义务',kind:'old'}],accepted=[];

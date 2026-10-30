@@ -3,10 +3,9 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { COMMON_CHINESE_GROUPS } from "../../vocab/js/chinese-related-common.js";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSenseMeaning } from "../../vocab/js/chinese-search.js";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "../../vocab/js/expanded-dictionary.js";
 import { personalDictionaryResult } from "../../vocab/js/personal-dictionary.js";
 import { dictionaryExampleSensePlan } from "../../vocab/js/dictionary-app.js";
-import { isPinnedChineseRankingFixture } from "./helpers/chinese-ranking-fixture-asset.mjs";
+import { allChineseResults, assertAuditableChineseRow, sharedChineseTransport } from "./helpers/general-chinese-search-contract.mjs";
 import { SELECTED_COMMON_SENSE_BINDINGS } from '../../vocab/js/selected-common-sense-data.js';
 
 const manifest = JSON.parse(await readFile(new URL("../../vocab/data/expanded-dictionary/manifest.json", import.meta.url), "utf8"));
@@ -157,7 +156,7 @@ test("sense matching binds grammatical labels locally and does not manufacture n
   assert.equal(matchesChineseSenseMeaning("稳定", "稳定", "noun · adjective", "adjective"), false);
 });
 
-for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${group.terms.join(" / ")} has exact local evidence and bounded complete lookup`, async () => {
+for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${group.terms.join(" / ")} retains exact reviewed evidence inside complete global lookup`, async () => {
   for (const head of group.forbidden || []) {
     assert.ok(!group.heads.includes(fold(head)), `${group.id}: a forbidden example cannot also be a permitted head`);
     const shard = await shardFor(head);
@@ -178,44 +177,34 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
       assert.equal(matchesChineseSearchEntry("not-a-reviewed-head", evidence.meaning, term, evidence.partOfSpeech, evidence.source), false);
     }
   }
-  const requests = [];
-  const fetchImpl = async (url, options) => {
-    const target = new URL(url);
-    assert.equal(target.protocol, "file:"); assert.equal(target.search, "");
-    assert.ok(/\/vocab\/data\/expanded-dictionary\//u.test(target.pathname) || isPinnedChineseRankingFixture(target));
-    assert.equal(options.credentials, "omit"); assert.ok(!options.method || options.method === "GET");
-    requests.push(String(target));
-    if (!bytes.has(String(target))) bytes.set(String(target), readFile(target));
-    return new Response(await bytes.get(String(target)));
-  };
+  const requestStart = sharedChineseTransport.requests.length;
   const suffix = group.pos === "adjective" ? "的" : group.pos === "adverb" ? "地" : "";
   for (const term of group.terms) {
     for (const input of suffix ? [term, term + suffix] : [term]) {
-      const requestStart = requests.length;
-      const direct = await searchExpandedDictionary(input, { fetchImpl });
-      const related = await searchRelatedChineseDictionary(input, { fetchImpl });
-      const found = [...direct.results, ...related.results], names = found.map(row => row.term);
-      assert.equal(new Set(names).size, names.length, `${input}: repeated canonical card`);
-      assert.deepEqual(new Set(names), new Set(group.heads), `${input}: reviewed English sense group must be complete, without unrelated extra heads`);
-      assert.equal(direct.hasMore, false); assert.equal(related.hasMore, false);
+      const complete = await allChineseResults(input), found = complete.results, names = found.map(row => row.term);
+      for (const head of group.heads) assert.ok(names.includes(head), `${input}: all pages must retain reviewed head ${head}`);
       for (const item of found) {
-        assert.equal(item.matchedPartOfSpeech, group.pos, `${input}/${item.term}: retain the reviewed target POS independently from the original record summary`);
-        assert.equal(item.matchedSense, group.sense, `${input}/${item.term}: retain the reviewed sense boundary`);
-        const selected = SELECTED_COMMON_SENSE_BINDINGS.find(row => row.groupId === group.id && row.head === item.term);
-        const proofs = selected ? [selected.selectedExampleProof] : group.exampleSenses[item.term];
-        assert.deepEqual(item.matchedExampleSenseEvidence, proofs);
-        assert.deepEqual(item.matchedExampleSenseIds, proofs.map(row => row.id));
+        await assertAuditableChineseRow(input, item);
+        const evidence = resultEvidence(group, item, [item.matchedChinese || term]);
+        if (evidence) {
+          assert.equal(item.matchedPartOfSpeech, group.pos, `${input}/${item.term}: reviewed POS remains local to the exact approved primary`);
+          assert.equal(item.matchedSense, group.sense, `${input}/${item.term}: retain the approved sense boundary`);
+          const selected = SELECTED_COMMON_SENSE_BINDINGS.find(row => row.groupId === group.id && row.head === item.term);
+          const proofs = selected ? [selected.selectedExampleProof] : group.exampleSenses[item.term];
+          assert.deepEqual(item.matchedExampleSenseEvidence, proofs);
+          assert.deepEqual(item.matchedExampleSenseIds, proofs.map(row => row.id));
+        } else {
+          assert.notEqual(item.matchedSense, group.sense, `${input}/${item.term}: another source/POS must not inherit this group's approval`);
+          assert.notEqual(item.matchedSourceEvidence?.groupId, group.id);
+        }
       }
-      for (const item of direct.results) assert.ok(resultEvidence(group, item, [term]), `${input}/${item.term}: direct result must retain its exact evidence variant and provenance`);
-      for (const item of related.results) {
-        assert.equal(item.matchType, "related"); assert.ok(group.terms.includes(item.matchedChinese));
-        assert.notEqual(item.matchedChinese, term);
-        assert.ok(resultEvidence(group, item, [item.matchedChinese]), `${input}/${item.term}: related result must retain its exact evidence variant and provenance`);
+      for (const forbidden of group.forbidden || []) {
+        const item = found.find(row => row.term === forbidden);
+        if (item) {
+          assert.notEqual(item.matchedSense, group.sense, `${input}/${forbidden}: catalogue rejection forbids scope approval, not every independent sense`);
+          assert.notEqual(item.matchedSourceEvidence?.groupId, group.id);
+        }
       }
-      for (const forbidden of group.forbidden || []) assert.ok(!names.includes(forbidden), `${input}: forbidden unrelated sense ${forbidden}`);
-      const newRequests = requests.slice(requestStart);
-      assert.ok(!newRequests.some(url => /\/zh-\d{3}\.json$/u.test(url)), `${input}: no broad Chinese-posting download`);
-      assert.ok(newRequests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length <= 6, `${input}: bounded English-shard budget`);
     }
     for (const rejectedSuffix of group.pos === "adjective" ? ["地"] : group.pos === "adverb" ? ["的"] : ["的", "地"]) {
       const input = term + rejectedSuffix;
@@ -231,8 +220,8 @@ for (const group of COMMON_CHINESE_GROUPS) test(`common sense ${group.id}: ${gro
       assert.notDeepEqual(chineseSearchPlan(input), chineseSearchPlan(term), `${input}: no negation stripping, tail matching, prefix matching or control bypass`);
     }
   }
-  const english = requests.filter(url => /\/en-\d{3}\.json$/u.test(url));
-  assert.equal(english.length, new Set(group.heads.map(bucket)).size, `${group.id}: reuse validated English shards across all aliases`);
-  assert.equal(new Set(english).size, english.length);
-  assert.equal(requests.filter(url => url.endsWith("/manifest.json")).length, 1);
+  const reads = sharedChineseTransport.requests.slice(requestStart);
+  assert.ok(reads.every(url => !new URL(url).search), "shared source reads never transmit a query");
+  assert.ok(sharedChineseTransport.requests.filter(url => /\.bin$/u.test(url)).length <= 1,
+    "all catalogue groups share one authenticated ranking load rather than reparsing it for every group");
 });

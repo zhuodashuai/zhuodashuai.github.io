@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { lookupPersonalDictionaryFast } from "../js/personal-lookup-flow.js";
+import { lookupPersonalDictionaryFast, mergePersonalDictionaryPage } from "../js/personal-lookup-flow.js";
 import { applyCorePosCorrection, isReviewedCoreDictionaryResult, personalDictionaryResult } from "../js/personal-dictionary.js?v=95";
 import { CORE_POS_CORRECTIONS } from "../js/core-pos-corrections.js?v=88";
 
@@ -165,6 +165,44 @@ test("Chinese hot matches are explicitly partial and do not start the large sear
   const result = await lookupPersonalDictionaryFast("苹果", options({ hotReverse: async () => response(row("apple")),
     fullSearch: async () => { fullCalls++; return response(row("other")); } }));
   assert.equal(result.coverage, "basic"); assert.equal(result.results[0].term, "apple"); assert.equal(fullCalls, 0);
+});
+
+test("Chinese known aliases no longer bypass the unified complete query or its pagination metadata", async () => {
+  for (const input of ["人工客服", "USB充电头", "人工客服的英文是什么"]) {
+    let fullCalls = 0, hotCalls = 0;
+    const verified = { ...response(row("ranked-head"), row("another-exact-head")), hasMore: true,
+      relatedIntegrated: true, offset: 0, nextOffset: 2, total: 7 };
+    const result = await lookupPersonalDictionaryFast(input, options({ preferCompleteChinese: true,
+      hotReverse: async () => { hotCalls++; return response(row("unrelated compact hit")); },
+      fullSearch: async () => { fullCalls++; return later(verified, 10); } }));
+    assert.deepEqual(result, verified); assert.equal(fullCalls, 1); assert.equal(hotCalls, 0);
+  }
+});
+
+test("known Chinese aliases remain safe, explicitly partial fallback only after complete search fails", async () => {
+  const result = await lookupPersonalDictionaryFast("人工客服", options({ preferCompleteChinese: true,
+    hotReverse: async () => { throw new Error("Not needed for an exact verified alias"); },
+    fullSearch: async () => { throw new Error("offline"); } }));
+  assert.equal(result.coverage, "basic"); assert.equal(result.relatedIntegrated, true);
+  assert.equal(result.nextOffset, null); assert.equal(result.hasMore, false);
+  assert.ok(result.results.some(item => item.term === "live agent"));
+  assert.ok(result.results.every(item => item.source === "卓的日常词组"));
+});
+
+test("personal unified pages preserve the ranked order, selected object, source metadata and original arrays", () => {
+  const direct = row("direct"), related = { ...row("related-first"), matchType: "related", matchedChinese: "高兴" };
+  const current = [direct, related], page = { relatedIntegrated: true,
+    results: [related, row("ranked-next"), { ...row("related-last"), matchType: "related", matchedChinese: "快乐" }] };
+  const before = structuredClone({ current, page });
+  for (const item of [...current, ...page.results]) Object.freeze(item);
+  Object.freeze(current); Object.freeze(page.results); Object.freeze(page);
+  const merged = mergePersonalDictionaryPage(current, page);
+  assert.deepEqual(merged.map(item => item.term), ["direct", "related-first", "ranked-next", "related-last"]);
+  assert.equal(merged[1], related); assert.deepEqual({ current, page }, before);
+  const legacy = mergePersonalDictionaryPage(current, { results: [row("legacy-next")] });
+  assert.deepEqual(legacy.map(item => item.term), ["direct", "legacy-next", "related-first"]);
+  const integratedState = mergePersonalDictionaryPage(current, { results: [row("ranked-next")] }, { relatedIntegrated: true });
+  assert.deepEqual(integratedState.map(item => item.term), ["direct", "related-first", "ranked-next"]);
 });
 
 test("current Chinese UI prefers complete ranked results over early compact hits and preserves paging metadata", async () => {

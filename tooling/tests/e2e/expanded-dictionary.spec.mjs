@@ -122,7 +122,7 @@ test("logout discards a delayed expanded lookup without resurrecting old results
   const held = new Promise(resolve => { release = resolve; });
   const reached = new Promise(resolve => { seen = resolve; });
   const settled = new Promise(resolve => { finished = resolve; });
-  await page.route("**/data/expanded-dictionary/**/zh-*.json*", async route => {
+  await page.route("**/data/chinese-search-ranking/**/*.bin*", async route => {
     const response = await route.fetch(); seen(); await held;
     try { await route.fulfill({ response }); } catch { /* Logout intentionally aborts lookup. */ }
     finally { finished(); }

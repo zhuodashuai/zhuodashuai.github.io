@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { searchExpandedDictionary } from '../../vocab/js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../../vocab/js/personal-lookup-flow.js';
 import { SELECTED_COMMON_SENSE_BINDINGS } from '../../vocab/js/selected-common-sense-data.js';
+import { allChineseResults, assertAuditableChineseRow, sharedChineseTransport } from './helpers/general-chinese-search-contract.mjs';
 
 const root = new URL('../../', import.meta.url);
 const read = async name => JSON.parse(await readFile(new URL(name, root)));
@@ -13,8 +14,8 @@ const source = await read('tooling/dictionary/selected-common-senses/source/batc
 const entry = source.entries.find(row => row.head === binding.head);
 const manifest = await read('vocab/data/expanded-dictionary/manifest.json');
 const canonical = new Map();
-// The three immutable canonical buckets are evidence for ordering, rather than
-// the former result-array order or a new priority assigned to the curated head.
+// Keep the original immutable canonical identities behind the selected scope
+// proof while the complete result stream also includes other valid sources.
 for (const [head, bucket] of [['duty', 81], ['responsibility', 27], ['obligation', 41]]) {
   const descriptor = manifest.english.shards[bucket];
   const bytes = await readFile(new URL('vocab/data/expanded-dictionary/' + descriptor.file, root));
@@ -31,49 +32,40 @@ function transport(transform) {
     return new Response(transform ? transform(url, bytes) : bytes);
   } };
 }
-function directHeads(query) {
-  return [...new Set(binding.runtimeGroup.evidence.filter(row => row.terms.includes(query)).map(row => row.head))]
-    .sort((a, b) => canonical.get(a).id - canonical.get(b).id);
-}
-
-for (const query of binding.groupTerms) test(`global finite selected-group ${query} paginates exact source-ranked direct heads`, async () => {
-  const data = transport(), expected = directHeads(query);
-  const full = await searchExpandedDictionary(query, { ...data, limit: 50 });
-  assert.equal(full.ranking, 'global'); assert.equal(full.total, expected.length);
-  assert.deepEqual(full.results.map(row => row.term), expected);
+for (const query of binding.groupTerms) test(`selected-group ${query} retains exact approved primary inside complete globally ranked pages`, async () => {
+  const full = await allChineseResults(query), expected = binding.runtimeGroup.heads;
+  assert.equal(full.ranking, 'global'); assert.equal(full.relatedIntegrated, true);
+  for (const head of expected) assert(full.results.some(row => row.term === head), `${query}: preserve reviewed head ${head}`);
+  for (const row of full.results) await assertAuditableChineseRow(query, row);
   const pages = [];
-  for (let offset = 0; offset <= expected.length; offset++) {
-    const page = await searchExpandedDictionary(query, { ...data, limit: 1, offset });
-    assert.equal(page.ranking, 'global'); assert.equal(page.offset, offset);
-    assert.equal(page.total, expected.length);
-    assert.equal(page.nextOffset, Math.min(offset + 1, expected.length));
-    assert.equal(page.hasMore, offset + 1 < expected.length);
-    assert.deepEqual(page.results, full.results.slice(offset, offset + 1));
-    pages.push(...page.results);
+  for (let offset = 0; offset <= full.total; offset++) {
+    const page = await searchExpandedDictionary(query, { ...sharedChineseTransport, limit: 1, offset });
+    assert.equal(page.ranking, 'global'); assert.equal(page.offset, offset); assert.equal(page.total, full.total);
+    assert.equal(page.nextOffset, Math.min(offset + 1, full.total));
+    assert.equal(page.hasMore, offset + 1 < full.total);
+    assert.deepEqual(page.results, full.results.slice(offset, offset + 1)); pages.push(...page.results);
   }
-  assert.equal(new Set(pages.map(row => row.term)).size, expected.length);
-  if (expected.includes(binding.head)) {
-    const curated = pages.find(row => row.term === binding.head);
-    assert.equal(curated.source, '卓式词典·义项补充');
-    assert.equal(curated.meaning, entry.selectedRow.meaning);
-    assert.equal(curated.matchedSourceEvidence.kind, 'reviewed-canonical-primary');
-    assert.equal(curated.matchedSourceEvidence.canonicalId, canonical.get(binding.head).id);
-    assert.deepEqual(curated.matchedExampleSenseEvidence, [entry.selectedExampleProof]);
-    assert(!curated.alternatives); assert(!curated.meaning.includes('恩惠'));
-  }
-  assert.equal(data.requests.filter(url => /\/zh-\d{3}\.json$/u.test(url)).length, 0);
-  assert.equal(data.requests.filter(url => /\.bin$/u.test(url)).length, 0);
-  assert(data.requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length <= 6);
+  assert.equal(new Set(pages.map(row => row.term)).size, full.total);
+  const curated = pages.find(row => row.term === binding.head);
+  assert.equal(curated.source, '卓式词典·义项补充'); assert.equal(curated.meaning, entry.selectedRow.meaning);
+  assert.equal(curated.matchedSourceEvidence.kind, 'reviewed-canonical-primary');
+  assert.equal(curated.matchedSourceEvidence.canonicalId, canonical.get(binding.head).id);
+  assert.deepEqual(curated.matchedExampleSenseEvidence, [entry.selectedExampleProof]);
+  assert(!curated.alternatives); assert(!curated.meaning.includes('恩惠'));
+  assert.equal(sharedChineseTransport.requests.filter(url => /\.bin$/u.test(url)).length, 1);
 });
 
-test('nearby free Chinese queries retain broad global ranking without activating finite source bindings', async () => {
+test('source-supported suffix queries keep exact bound scope while unrelated text cannot activate it', async () => {
   for (const query of ['义务的', '义务相关']) {
-    const data = transport(), result = await searchExpandedDictionary(query, { ...data, limit: 50 });
-    assert.equal(result.ranking, 'global');
-    assert(result.results.every(row => !row.matchedSourceEvidence));
-    assert(!result.results.some(row => row.term === binding.head && row.source === '卓式词典·义项补充'));
-    assert.equal(data.requests.filter(url => /\.bin$/u.test(url)).length, 1);
-    assert.equal(data.requests.filter(url => /\/en-\d{3}\.json$/u.test(url)).length, 0);
+    const result = await allChineseResults(query);
+    for (const row of result.results) await assertAuditableChineseRow(query, row);
+    if (query === '义务相关') assert(result.results.every(row => !row.matchedSourceEvidence), 'an unapproved longer phrase cannot borrow the group binding');
+    const curated = result.results.find(row => row.term === binding.head && row.matchedSourceEvidence);
+    if (curated) {
+      assert.equal(curated.partOfSpeech, entry.selectedRow.partOfSpeech);
+      assert.equal(curated.meaning, entry.selectedRow.meaning);
+      assert.deepEqual(curated.matchedExampleSenseEvidence, [entry.selectedExampleProof]);
+    }
   }
 });
 
@@ -88,14 +80,15 @@ test('global finite source projection cannot accept a modified complete English 
 });
 
 test('bound-group complete personal lookup preserves global pagination and never races an old compact group', async () => {
-  const data = transport(); let hotCalls = 0;
+  const data = sharedChineseTransport; let hotCalls = 0;
   const forbiddenHot = () => { hotCalls++; throw Error('old compact group must not replace verified finite source'); };
   const first = await lookupPersonalDictionaryFast('责任', {
     hotLookup: forbiddenHot, hotReverse: forbiddenHot, preferCompleteChinese: true,
     fullSearch: (query, options) => searchExpandedDictionary(query, { ...options, ...data, limit: 1 })
   });
   assert.equal(hotCalls, 0); assert.equal(first.ranking, 'global');
-  assert.equal(first.total, 3); assert.equal(first.offset, 0); assert.equal(first.nextOffset, 1);
+  assert.ok(first.total >= binding.runtimeGroup.heads.length); assert.equal(first.offset, 0); assert.equal(first.nextOffset, 1);
+  assert.equal(first.relatedIntegrated, true);
   const second = await searchExpandedDictionary('责任', { ...data, limit: 1, offset: first.nextOffset });
   assert.equal(second.total, first.total); assert.notEqual(second.results[0].term, first.results[0].term);
 });

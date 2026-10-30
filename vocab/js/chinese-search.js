@@ -256,6 +256,50 @@ export function chineseMeaningAtoms(meaning) {
   return definitionSegments(value).map(stripEditorialPrefix).filter(Boolean);
 }
 
+const RANKING_CLOSED_ROLES = new Map([["pronoun", "pronoun"], ["pron", "pronoun"], ["代词", "pronoun"],
+  ["determiner", "determiner"], ["det", "determiner"], ["限定词", "determiner"],
+  ["preposition", "preposition"], ["prep", "preposition"], ["prepositional phrase", "preposition"], ["介词", "preposition"],
+  ["conjunction", "conjunction"], ["conj", "conjunction"], ["连词", "conjunction"],
+  ["interjection", "interjection"], ["interj", "interjection"], ["numeral", "numeral"]]);
+
+/** Source atoms with their own grammatical/domain scope, for relevance only.
+ * This never edits the displayed definition or changes the curated matcher. */
+export function chineseDefinitionAtoms(meaning, partOfSpeech = "") {
+  if (typeof meaning !== "string" || meaning.length > 20_000 || BODY_CONTROL.test(meaning)) return [];
+  const role = value => unambiguousPartOfSpeech(value)
+    || unambiguousPartOfSpeech(typeof value === "string" ? value.replace(/\b(noun|adjective|adverb) phrase\b/giu, "$1") : value)
+    || (typeof value === "string" ? RANKING_CLOSED_ROLES.get(value.normalize("NFKC").toLowerCase().replace(/[.\s]+$/gu, "").trim()) : null) || null;
+  const phrasePrefix = /^(noun phrase|adjective phrase|adverb phrase)\s*[.:：]\s*/iu;
+  const value = meaning.replace(/[①-⑳]/gu, char => `${char.codePointAt(0) - 0x245f}. `).normalize("NFKC");
+  const result = []; let currentPos = role(partOfSpeech), senseOrdinal = 1;
+  for (const line of value.split(/\r?\n/u)) {
+    let domain = null;
+    for (const raw of definitionSegments(line)) {
+      let text = raw.trim();
+      // A fresh numbered sense or explicit POS starts a new scope. A domain
+      // written on this atom is then reapplied by the prefix loop below.
+      if (NUMBER_PREFIX.test(text) || POS_PREFIX.test(text) || phrasePrefix.test(text)) domain = null;
+      for (let count = 0; count < 6; count++) {
+        const previous = text, number = text.match(NUMBER_PREFIX);
+        const digits = number?.[0].match(/\d+/u)?.[0];
+        if (digits && Number(digits) > 0) senseOrdinal = Number(digits);
+        text = text.replace(NUMBER_PREFIX, "").trim();
+        const label = text.match(POS_PREFIX) || text.match(phrasePrefix);
+        if (label) { currentPos = role(label[0].replace(/[.:：\s]+$/gu, "")); text = text.slice(label[0].length).trim(); }
+        const mark = text.match(DOMAIN_PREFIX);
+        if (mark && DOMAIN_LABELS.has(mark[1])) { domain = mark[1]; text = text.slice(mark[0].length).trim(); }
+        if (text === previous) break;
+      }
+      if (!text) continue;
+      const match = text.match(/^([\p{Script=Han}]+)(?:\s*(?:\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】))?[.．]?$/u);
+      const annotation = (match?.[2] || match?.[3] || match?.[4] || "").trim();
+      const lexical = match && !/^(?:使(?:人|某人)?|令(?:人|某人)?|让(?:人|某人)?|并非|不|无|未|非)/u.test(annotation) ? match[1] : null;
+      result.push({ text, lexical, annotation, partOfSpeech: currentPos, domain, senseOrdinal });
+    }
+  }
+  return result;
+}
+
 /** Match a definition atom, not a mention in an explanation or a compound. */
 export function matchesChineseSearchMeaning(meaning, term) {
   if (typeof meaning !== "string" || meaning.length > 20_000 || BODY_CONTROL.test(meaning)

@@ -186,7 +186,7 @@ async function injectedRuntime(rows) {
 async function injectedConsumer(relative, runtimeUrl) {
   const original = new URL(relative, import.meta.url);
   const code = (await readFile(original, 'utf8')).replace(/from (["'])(\.{1,2}\/[^"']+)\1/gu, (match, quote, specifier) =>
-    'from ' + JSON.stringify(['./everyday-lookup.js', './everyday-lookup.js?v=111'].includes(specifier)
+    'from ' + JSON.stringify(/^\.\/everyday-lookup[.]js(?:[?]v=\d+)?$/u.test(specifier)
       ? runtimeUrl : new URL(specifier, original).href))
     .replaceAll('import.meta.url', JSON.stringify(original.href));
   return import('data:text/javascript,' + encodeURIComponent(code));

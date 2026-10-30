@@ -18,13 +18,23 @@ async function publicQuery(page, term) {
   expect(group, term + " must belong to the reviewed catalogue").toBeTruthy();
   await page.locator("#dictionary-query").fill(term);
   await page.locator("#dictionary-query").press("Enter");
-  // Some aliases already match every reviewed head directly. A completed
-  // search then correctly has no supplementary related-results message.
-  await expect.poll(async () => page.locator("#dictionary-choices button[data-dictionary-term]")
-    .evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm).sort()))
-    .toEqual([...group.heads].sort());
+  await expect(page.locator('#dictionary-result')).toBeVisible();
   await expect(page.locator("#dictionary-submit")).toBeEnabled();
+  await ensureReviewedHeads(page, group.heads);
   await expect(page.locator("#dictionary-related-status")).not.toContainText("正在补充");
+}
+
+async function ensureReviewedHeads(page, expected) {
+  const choices=page.locator('#dictionary-choices button[data-dictionary-term]'), more=page.locator('#dictionary-more');
+  for(let pageNumber=0;pageNumber<100;pageNumber++){
+    const terms=await choices.evaluateAll(nodes=>nodes.map(node=>node.dataset.dictionaryTerm));
+    expect(new Set(terms).size).toBe(terms.length);
+    if(expected.every(term=>terms.includes(term)))return;
+    await page.locator('#dictionary-choice-disclosure').evaluate(node=>{node.open=true;});
+    await expect(more).toBeVisible();
+    await more.click();await expect.poll(()=>choices.count()).toBeGreaterThan(terms.length);
+  }
+  throw Error('Reviewed heads were not reachable through complete pagination');
 }
 
 function memberChoice(page, term) {
@@ -77,7 +87,7 @@ test("the first catalogue group opens a real dictionary query and preserves sour
   await expect(page.locator("#dictionary-meaning")).toContainText(/勤勉|勤奋/u);
 });
 
-test("new humility and loneliness associations reject misleading legacy senses", async ({ page }) => {
+test("reviewed humility and loneliness choices preserve their independent source meanings", async ({ page }) => {
   await page.goto("/dictionary.html");
   for (const [term, expected, rejected, source, license] of [
     ["谦逊", "humble", "condescend", "ECDICT · 已上线核心整理", "MIT and project editorial additions"],
@@ -86,15 +96,18 @@ test("new humility and loneliness associations reject misleading legacy senses",
     ["孤独", "lonely", "autistic", "卓式原创释义（AI复核，精选义项）", "Project original content; AI-reviewed, not human-certified"]
   ]) {
     await publicQuery(page, term);
-    if (term === "谦逊") await expect(page.locator("#dictionary-related-status")).toBeHidden();
     const terms = await page.locator("#dictionary-choices button[data-dictionary-term]").evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm));
-    expect(terms).toContain(expected); expect(terms).not.toContain(rejected);
+    expect(terms).toContain(expected);
     expect(new Set(terms).size).toBe(terms.length);
     const card = page.locator(`#dictionary-choices button[data-dictionary-term="${expected}"]`);
     await card.click();
     await expect(page.locator("#dictionary-term")).toHaveText(expected);
     await expect(page.locator("#dictionary-source")).toContainText(source);
     await expect(page.locator("#dictionary-source")).toContainText(license);
+    // A broader literal source hit may share the query. Its unrelated old
+    // sense must never inherit this catalogue's approved POS/example scope.
+    const other=page.locator(`#dictionary-choices button[data-dictionary-term="${rejected}"]`);
+    if(await other.count()){await other.click();await expect(page.locator('#dictionary-related-match')).not.toContainText('限此义项');}
   }
 });
 
@@ -150,9 +163,9 @@ test("the fourth batch's first manual link finds its complete reviewed group wit
   await page.locator("#chinese-related-catalogue > summary").click();
   await page.locator('#chinese-related-catalogue table[data-related-batch="004"] tbody a').first().click();
   await expect(page.locator("#dictionary-query")).toHaveValue(group.terms[0]);
-  await expect.poll(async () => page.locator("#dictionary-choices button[data-dictionary-term]")
-    .evaluateAll(nodes => nodes.map(node => node.dataset.dictionaryTerm).sort()))
-    .toEqual([...group.heads].sort());
+  await expect(page.locator('#dictionary-result')).toBeVisible();
+  await expect(page.locator('#dictionary-submit')).toBeEnabled();
+  await ensureReviewedHeads(page,group.heads);
   const honest = page.locator('#dictionary-choices button[data-dictionary-term="honest"]');
   await honest.click();
   await expect(page.locator("#dictionary-term")).toHaveText("honest");
@@ -160,7 +173,7 @@ test("the fourth batch's first manual link finds its complete reviewed group wit
   await expect(page.locator("#dictionary-meaning")).toContainText("诚实");
   await expect(page.locator("#dictionary-source")).toContainText("ECDICT · 已上线核心整理");
   await expect(page.locator("#dictionary-source")).toContainText("MIT and project editorial additions");
-  for (const forbidden of group.forbidden) await expect(page.locator(`#dictionary-choices button[data-dictionary-term="${forbidden}"]`)).toHaveCount(0);
+  for (const forbidden of group.forbidden){const choice=page.locator(`#dictionary-choices button[data-dictionary-term="${forbidden}"]`);if(await choice.count()){await choice.click();await expect(page.locator('#dictionary-related-match')).not.toContainText('限此义项');}}
   await publicQuery(page, group.terms[1]);
   // This query intentionally promotes the existing original variant because
   // the ECDICT primary gloss does not contain the requested 有耐心 atom.
