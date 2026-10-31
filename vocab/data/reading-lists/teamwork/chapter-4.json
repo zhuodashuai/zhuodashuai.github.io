@@ -1,0 +1,3369 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-4",
+    "number": 4,
+    "title": "The Secrets of Great Teamwork"
+  },
+  "sourceTitle": "Teamwork — The Secrets of Great Teamwork",
+  "articleTitle": "The Secrets of Great Teamwork",
+  "authors": "Martine Haas; Mark Mortensen",
+  "issue": "June 2016",
+  "sourceUrl": "https://hbr.org/2016/06/the-secrets-of-great-teamwork",
+  "sourcePdfSha256": "d9f95bfe64491bd7816064a11d4f2ed69962aac4310e5d0b0717e2962f704dee",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 92,
+  "curation": {
+    "difficulty": "upper-intermediate-and-advanced",
+    "originalItemCount": 103,
+    "selectionStandard": "保留较难词、专业表达、习语及熟词生义；排除明显基础词和重复的透明组合。",
+    "excludedItems": [
+      {
+        "term": "supportive context",
+        "pdfPage": 4,
+        "reason": "支持性环境是本文框架标签，在 enabling conditions 中完整解释，不另建含义透明的卡。"
+      },
+      {
+        "term": "dissimilar",
+        "pdfPage": 4,
+        "reason": "与 similar 的否定构词直观，省去一般性描述词。"
+      },
+      {
+        "term": "punctuality",
+        "pdfPage": 5,
+        "reason": "守时为较常见一般词，本文无额外专业义。"
+      },
+      {
+        "term": "division of labor",
+        "pdfPage": 5,
+        "reason": "分工含义较透明，本文任务重分配的难点另由 repartition 和 ownership 讲解。"
+      },
+      {
+        "term": "the task at hand",
+        "pdfPage": 8,
+        "reason": "眼前任务为较常见表达，优先保留更难的管理词汇。"
+      },
+      {
+        "term": "at home",
+        "pdfPage": 7,
+        "reason": "明显基础日常场所表达，按此前要求排除。"
+      },
+      {
+        "term": "deadline",
+        "pdfPage": 6,
+        "reason": "常见职场基础词；本文使用一般截止期限义。"
+      },
+      {
+        "term": "headquarters",
+        "pdfPage": 6,
+        "reason": "常见机构基础词；本文无特殊新义。"
+      },
+      {
+        "term": "training",
+        "pdfPage": 6,
+        "reason": "基础工作学习词，本文无特殊义。"
+      },
+      {
+        "term": "get together",
+        "pdfPage": 8,
+        "reason": "基础聚集表达，不单独建立学习卡。"
+      },
+      {
+        "term": "on track",
+        "pdfPage": 8,
+        "reason": "常见进度表达，沿用既有Teamwork精简标准排除。"
+      }
+    ]
+  },
+  "items": [
+    {
+      "term": "dispersed",
+      "originalInput": "dispersed",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 分散在不同地点的；本文指成员跨地域分布，而非集中办公。",
+      "definitionEn": "Located in several separate places rather than gathered in one place.",
+      "usage": "常用 geographically dispersed teams/members。本文讨论跨地点成员如何保持共同目标和信息共享。",
+      "exampleEn": "Dispersed team members needed a shared schedule so that decisions made overnight would reach everyone before work began.",
+      "exampleZh": "分散在各地的团队成员需要一份共享日程，以便夜间作出的决定能在开工前传达给每个人。",
+      "forms": [],
+      "collocations": [
+        "geographically dispersed teams",
+        "dispersed team members",
+        "a dispersed workforce"
+      ],
+      "confusedWith": [
+        "dispersed 强调地点分散；diverse 强调背景、特征等多样。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "跨地域协作"
+      ],
+      "pdfPage": 3,
+      "printedPage": 3,
+      "category": "跨地域协作",
+      "phonetic": "",
+      "order": 1,
+      "reuseExistingEntryId": "public-teamwork-dispersed-28a933f6",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "hurdle",
+      "originalInput": "hurdles",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 障碍；实现目标时必须克服的实际困难。",
+      "definitionEn": "A difficulty that must be overcome before progress is possible.",
+      "usage": "常用 face/overcome a hurdle。本文把现代团队的新困难比作需要跨越的障碍。",
+      "exampleEn": "Different approval procedures created unexpected hurdles, but the two departments agreed on a simpler process before the project started.",
+      "exampleZh": "不同的审批程序带来了意想不到的障碍，但两个部门在项目开始前商定了更简单的流程。",
+      "forms": [
+        "hurdles"
+      ],
+      "collocations": [
+        "overcome a hurdle",
+        "a major hurdle",
+        "face new hurdles"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 3,
+      "printedPage": 3,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 2,
+      "reuseExistingEntryId": "public-teamwork-c4-hurdle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "hinge on",
+      "originalInput": "hinges on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 取决于；成败或结果主要有赖于某个关键因素。",
+      "definitionEn": "To depend critically on a particular factor or condition.",
+      "usage": "结构为 hinge on/upon something。本文说团队成功仍取决于少数协作基本条件。",
+      "exampleEn": "The launch hinges on whether our suppliers can deliver the parts before the factory closes for its annual maintenance.",
+      "exampleZh": "这次产品发布取决于供应商能否在工厂因年度维护停工前交付零件。",
+      "forms": [
+        "hinges on",
+        "hinged on",
+        "hinging on"
+      ],
+      "collocations": [
+        "success hinges on",
+        "hinge on cooperation",
+        "hinge on a decision"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 3,
+      "printedPage": 3,
+      "category": "成功条件",
+      "phonetic": "",
+      "order": 3,
+      "reuseExistingEntryId": "public-teamwork-c4-hinge-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "groundbreaking",
+      "originalInput": "groundbreaking",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 开创性的；带来重要新认识或重大突破的。",
+      "definitionEn": "Introducing an important new idea or a major advance.",
+      "usage": "常修饰 research、study、insight。本文形容研究者对团队成功条件的开创性认识。",
+      "exampleEn": "The study offered a groundbreaking explanation of why technically talented teams can still struggle to collaborate effectively.",
+      "exampleZh": "这项研究对技术人才出众的团队为何仍可能难以有效协作，提出了开创性的解释。",
+      "forms": [],
+      "collocations": [
+        "groundbreaking research",
+        "a groundbreaking study",
+        "a groundbreaking insight"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "研究与评估"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "研究与评估",
+      "phonetic": "",
+      "order": 4,
+      "reuseExistingEntryId": "public-teamwork-c4-groundbreaking",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "enabling conditions",
+      "originalInput": "enabling conditions",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 促成成功的必要支持条件；本文指帮助团队有效协作的一组环境和组织条件。",
+      "definitionEn": "Conditions that make effective action and successful collaboration possible.",
+      "usage": "本文的四项条件是 compelling direction（有激励力的方向）、strong structure（合理的结构）、supportive context（支持性环境）和 shared mindset（共同认知）。enabling 强调使有效协作成为可能。",
+      "exampleEn": "Before blaming individual members, the manager checked whether the team had the enabling conditions needed for effective collaboration.",
+      "exampleZh": "在责怪个别成员之前，经理先检查团队是否具备有效协作所需的促成条件。",
+      "forms": [],
+      "collocations": [
+        "create enabling conditions",
+        "establish enabling conditions",
+        "the four enabling conditions"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "成功条件",
+      "phonetic": "",
+      "order": 5,
+      "reuseExistingEntryId": "public-teamwork-c4-enabling-conditions",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "compelling direction",
+      "originalInput": "compelling direction",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 有吸引力、能激励成员投入的共同方向或目标。",
+      "definitionEn": "A shared direction that gives people a strong reason to contribute.",
+      "usage": "本文的 direction 是共同目标和行动方向。compelling 强调令人愿意投入；目标还须明确、有挑战性并值得实现。",
+      "exampleEn": "A compelling direction helped the designers connect routine testing tasks with the wider goal of making transport safer.",
+      "exampleZh": "一个有激励力的共同方向，帮助设计人员把日常测试任务与提高交通安全这一更大的目标联系起来。",
+      "forms": [
+        "compelling directions"
+      ],
+      "collocations": [
+        "provide a compelling direction",
+        "establish a compelling direction",
+        "a clear and compelling direction"
+      ],
+      "confusedWith": [
+        "compelling 在此不是 compulsory（强制的）。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 6,
+      "reuseExistingEntryId": "public-teamwork-c4-compelling-direction",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "corrosive",
+      "originalInput": "corrosive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 逐渐侵蚀、破坏关系或运作的；具有持续负面作用的。",
+      "definitionEn": "Gradually damaging trust, relationships, or the ability to work together.",
+      "usage": "本文用腐蚀作比喻，形容“我们对他们”的对立思维和信息不完整对团队的破坏。常见 a corrosive effect。",
+      "exampleEn": "Repeated accusations had a corrosive effect on trust, making employees less willing to share unfinished ideas with their colleagues.",
+      "exampleZh": "反复的指责逐渐侵蚀了信任，使员工更不愿意与同事分享尚未完善的想法。",
+      "forms": [],
+      "collocations": [
+        "a corrosive effect",
+        "corrosive behavior",
+        "corrosive problems"
+      ],
+      "confusedWith": [
+        "本文是比喻义，不是在描述物质的化学腐蚀性。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 7,
+      "reuseExistingEntryId": "public-teamwork-c4-corrosive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "pitfall",
+      "originalInput": "pitfalls",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 隐患；看似可行的做法中容易使人陷入困难或失败的问题。",
+      "definitionEn": "A risk or difficulty that can cause an approach to fail.",
+      "usage": "常用 avoid a pitfall、a common pitfall。本文提醒领导者识别会破坏协作的潜在陷阱。",
+      "exampleEn": "One common pitfall in remote projects is assuming that silence means agreement when colleagues may simply lack the necessary information.",
+      "exampleZh": "远程项目中的一个常见隐患，是把沉默当作同意，而同事可能只是缺少必要信息。",
+      "forms": [
+        "pitfalls"
+      ],
+      "collocations": [
+        "avoid common pitfalls",
+        "a potential pitfall",
+        "the pitfalls of teamwork"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 8,
+      "reuseExistingEntryId": "public-hierarchy-pitfall-c4a30a06",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "shared mindset",
+      "originalInput": "shared mindset",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 共同认知；成员对团队身份、工作目标及彼此处境形成的共同认识。",
+      "definitionEn": "A common understanding of the team and its members' working circumstances.",
+      "usage": "本文强调共同身份与相互理解，帮助成员把团队看作“我们”。这不要求所有人观点一致，也不等于压制不同意见。",
+      "exampleEn": "Regular conversations about local working conditions helped the international team develop a shared mindset without losing its different perspectives.",
+      "exampleZh": "定期交流各地的工作条件，帮助这个国际团队在保留不同视角的同时形成共同认知。",
+      "forms": [
+        "shared mindsets"
+      ],
+      "collocations": [
+        "develop a shared mindset",
+        "foster a shared mindset",
+        "a shared mindset among members"
+      ],
+      "confusedWith": [
+        "shared mindset 强调共同理解；groupthink 指过度求同而损害独立判断。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "共同认知",
+      "phonetic": "",
+      "order": 9,
+      "reuseExistingEntryId": "public-teamwork-c4-shared-mindset",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "outsized impact",
+      "originalInput": "outsized impact",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 不成比例地大的影响；相对于因素本身的数量或规模，作用格外显著。",
+      "definitionEn": "An effect that is unusually large relative to its source.",
+      "usage": "常用 have an outsized impact on something。本文指出少数关键因素对团队成败有格外大的作用。",
+      "exampleEn": "A brief clarification of decision rights had an outsized impact on the project because it removed weeks of repeated arguments.",
+      "exampleZh": "对决策权限的一次简短澄清，对项目产生了格外大的影响，因为它消除了持续数周的反复争论。",
+      "forms": [
+        "outsized impacts"
+      ],
+      "collocations": [
+        "have an outsized impact",
+        "an outsized impact on performance",
+        "an outsized impact on success"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "成功条件",
+      "phonetic": "",
+      "order": 10,
+      "reuseExistingEntryId": "public-teamwork-c4-outsized-impact",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "dispirited",
+      "originalInput": "dispirited",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 灰心丧气的；因困难或挫折而失去信心和动力的。",
+      "definitionEn": "Having lost confidence, enthusiasm, or the motivation to continue.",
+      "usage": "本文提醒目标不能难到使团队失去斗志。常用 become/feel dispirited、a dispirited team。",
+      "exampleEn": "After several impossible deadlines, the team became dispirited, so its leader negotiated a realistic schedule and smaller milestones.",
+      "exampleZh": "经历数次无法完成的截止期限后，团队变得灰心丧气，因此负责人协商了现实的进度安排和更小的阶段目标。",
+      "forms": [],
+      "collocations": [
+        "feel dispirited",
+        "become dispirited",
+        "a dispirited team"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 11,
+      "reuseExistingEntryId": "public-teamwork-c4-dispirited",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "consequential",
+      "originalInput": "consequential",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 重要的；能够产生实质影响、因而值得人们重视和投入的。",
+      "definitionEn": "Important because it can produce meaningful effects or results.",
+      "usage": "本文说目标必须 consequential，即成员确实在意达成它的结果；不只是完成一个无关紧要的指标。",
+      "exampleEn": "The team chose a consequential goal: reducing errors that forced patients to repeat their appointments and delay their treatment.",
+      "exampleZh": "团队选择了一个具有实质意义的目标：减少那些迫使患者重复就诊、延误治疗的错误。",
+      "forms": [],
+      "collocations": [
+        "a consequential goal",
+        "a consequential decision",
+        "a consequential change"
+      ],
+      "confusedWith": [
+        "consequential 在此指影响重大，不是 subsequent（随后的）。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 12,
+      "reuseExistingEntryId": "public-teamwork-c4-consequential",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "stand to gain",
+      "originalInput": "stand to gain",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 有望获益；处于可能从某事中得到好处的情境。",
+      "definitionEn": "To be in a position to receive a benefit from something.",
+      "usage": "结构为 stand to gain something 或 stand to gain from something。本文涉及成员可能获得的外在和内在回报。",
+      "exampleEn": "Both departments stand to gain from sharing customer feedback, since each sees problems that remain invisible to the other.",
+      "exampleZh": "两个部门都有望从共享客户反馈中获益，因为各自都能看到对方察觉不到的问题。",
+      "forms": [
+        "stands to gain",
+        "stood to gain"
+      ],
+      "collocations": [
+        "stand to gain from cooperation",
+        "stand to gain recognition",
+        "stand to gain the most"
+      ],
+      "confusedWith": [
+        "stand 在此不是“站立”；与 stand to lose（有遭受损失的可能）形成对照。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 13,
+      "reuseExistingEntryId": "public-teamwork-c4-stand-to-gain",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "extrinsic reward",
+      "originalInput": "extrinsic rewards",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 外在回报；由工作本身之外的因素带来的奖励，如薪酬、晋升或他人认可。",
+      "definitionEn": "A benefit provided externally rather than by the experience of doing the work.",
+      "usage": "本文把 recognition、pay、promotions 归为 extrinsic rewards。理解来源时，重点是外部给予，而不是任务本身带来的满足。",
+      "exampleEn": "The company offered bonuses as extrinsic rewards, but managers also explained why completing the project would benefit the community.",
+      "exampleZh": "公司把奖金作为外在回报，同时经理们也解释了完成项目为什么会使社区受益。",
+      "forms": [
+        "extrinsic rewards"
+      ],
+      "collocations": [
+        "offer extrinsic rewards",
+        "receive extrinsic rewards",
+        "extrinsic rewards for performance"
+      ],
+      "confusedWith": [
+        "extrinsic reward 是外部提供的回报；intrinsic reward 来自活动本身的体验。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 14,
+      "reuseExistingEntryId": "public-teamwork-c4-extrinsic-reward",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "intrinsic reward",
+      "originalInput": "intrinsic rewards",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 内在回报；来自工作活动本身的满足、成就感或意义感。",
+      "definitionEn": "A benefit experienced through the work itself, such as meaning or satisfaction.",
+      "usage": "本文举 satisfaction 和 a sense of meaning。与薪酬等外在回报不同，内在回报来自完成任务时的体验。",
+      "exampleEn": "Solving a difficult customer problem gave the engineer an intrinsic reward that went beyond the praise she received afterward.",
+      "exampleZh": "解决一个棘手的客户问题，给这位工程师带来了超越事后表扬的内在满足。",
+      "forms": [
+        "intrinsic rewards"
+      ],
+      "collocations": [
+        "the intrinsic rewards of work",
+        "experience intrinsic rewards",
+        "intrinsic rewards from solving problems"
+      ],
+      "confusedWith": [
+        "intrinsic reward 不等于所有无形奖励；他人的表扬仍可以是外在回报。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "目标与激励"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "目标与激励",
+      "phonetic": "",
+      "order": 15,
+      "reuseExistingEntryId": "public-teamwork-c4-intrinsic-reward",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "far-flung",
+      "originalInput": "far-flung",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 相距遥远、分布广泛的；本文指成员分散在不同地区。",
+      "definitionEn": "Spread across places that are a long distance from one another.",
+      "usage": "通常置于名词前，如 far-flung members/offices。本文关注远距离成员如何理解共同目标。",
+      "exampleEn": "The coordinator sent the same project summary to far-flung offices so that local teams could interpret the priorities consistently.",
+      "exampleZh": "协调员向相距遥远的各地办公室发送了同一份项目摘要，以便当地团队一致地理解工作重点。",
+      "forms": [],
+      "collocations": [
+        "far-flung team members",
+        "far-flung offices",
+        "far-flung locations"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "跨地域协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "跨地域协作",
+      "phonetic": "",
+      "order": 16,
+      "reuseExistingEntryId": "public-teamwork-far-flung-0246a301",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "reach consensus",
+      "originalInput": "reach consensus",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 达成共识；经过讨论，对某个问题形成共同认可。",
+      "definitionEn": "To arrive at a position that the group can collectively accept.",
+      "usage": "常用 reach consensus on/about something；consensus 通常不加 a。本文指团队就“服务客户”具体意味着什么达成共同认识。",
+      "exampleEn": "Before choosing a design, the team needed to reach consensus on whether speed or accuracy mattered more to the client.",
+      "exampleZh": "在选择设计方案之前，团队需要就速度还是准确性对客户更重要达成共识。",
+      "forms": [
+        "reaches consensus",
+        "reached consensus",
+        "reaching consensus"
+      ],
+      "collocations": [
+        "reach consensus on priorities",
+        "reach consensus through discussion",
+        "reach a broad consensus"
+      ],
+      "confusedWith": [
+        "consensus 是共同认可；不一定意味着每个人最初或私下的偏好完全相同。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "共同认知",
+      "phonetic": "",
+      "order": 17,
+      "reuseExistingEntryId": "public-teamwork-c4-reach-consensus",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "norm",
+      "originalInput": "norms",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 群体行为规范；成员共同遵守、用来指导日常互动的准则。",
+      "definitionEn": "A shared expectation about how members of a group should behave.",
+      "usage": "本文把 norms 解释为少量明确的必做和禁做事项，例如守时、轮流发言和不打断别人。",
+      "exampleEn": "The team established a norm that everyone should explain their reasoning before the group committed to a major decision.",
+      "exampleZh": "团队确立了一项规范：在集体作出重大决定之前，每个人都应说明自己的理由。",
+      "forms": [
+        "norms"
+      ],
+      "collocations": [
+        "establish clear norms",
+        "team norms",
+        "reinforce group norms"
+      ],
+      "confusedWith": [
+        "此处是行为准则，不是统计学中的常模或数学中的范数。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队规范"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队规范",
+      "phonetic": "",
+      "order": 18,
+      "reuseExistingEntryId": "public-hierarchy-norm-733859c1",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "superlative",
+      "originalInput": "superlative",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 极其出色的；达到很高水平的。",
+      "definitionEn": "Exceptionally good or impressive in quality or ability.",
+      "usage": "本文说不必要求每位成员同时具有顶尖的技术与社交能力，而应看团队整体的技能组合。",
+      "exampleEn": "One member had superlative technical skills, while another understood the customers well enough to challenge the proposed design.",
+      "exampleZh": "一位成员具有极其出色的技术能力，另一位则充分了解客户，能够质疑拟议的设计。",
+      "forms": [],
+      "collocations": [
+        "superlative technical skills",
+        "superlative performance",
+        "superlative quality"
+      ],
+      "confusedWith": [
+        "superlative 在这里是“极出色的”这个形容词义，不是在说形容词的语法最高级。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 19,
+      "reuseExistingEntryId": "public-teamwork-c4-superlative",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "a healthy dose of",
+      "originalInput": "a healthy dose of",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 相当且适量的某种特质；比喻团队需要充分具备某种有益能力。",
+      "definitionEn": "A useful and substantial amount of a quality or characteristic.",
+      "usage": "结构为 a healthy dose of + 名词。本文把两类技能比作剂量，强调团队整体需要兼具技术能力与社交能力。",
+      "exampleEn": "A healthy dose of curiosity helped the analysts question their assumptions and notice information that the first report had overlooked.",
+      "exampleZh": "相当程度的好奇心，帮助分析人员质疑自己的假设，并注意到首份报告遗漏的信息。",
+      "forms": [],
+      "collocations": [
+        "a healthy dose of curiosity",
+        "a healthy dose of skepticism",
+        "a healthy dose of humor"
+      ],
+      "confusedWith": [
+        "本文的 dose 是比喻量，不是实际药物剂量；healthy 也不是身体健康的字面意思。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 20,
+      "reuseExistingEntryId": "public-teamwork-c4-a-healthy-dose-of",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "groupthink",
+      "originalInput": "groupthink",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 群体思维；群体过度追求一致、从而削弱独立判断和不同意见的倾向。",
+      "definitionEn": "A pattern in which pressure for agreement weakens independent group judgment.",
+      "usage": "本文指出，知识、背景与视角的多样性有助于避免 groupthink。共同目标并不要求放弃建设性的不同意见。",
+      "exampleEn": "To avoid groupthink, the leader invited each member to raise one concern before anyone defended the preferred proposal.",
+      "exampleZh": "为避免群体思维，负责人请每位成员先提出一个担忧，再让大家为首选方案辩护。",
+      "forms": [],
+      "collocations": [
+        "avoid groupthink",
+        "the risk of groupthink",
+        "guard against groupthink"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 21,
+      "reuseExistingEntryId": "public-teamwork-c4-groupthink",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "cosmopolitan",
+      "originalInput": "cosmopolitan",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 具有国际视野和跨文化经验的；本文指曾在多个国家生活、能跨语言工作的成员。",
+      "definitionEn": "Familiar with several countries and cultures through broad international experience.",
+      "usage": "本文将 cosmopolitan members 与深谙当地情况的 local members 搭配，说明两类知识可以互补。",
+      "exampleEn": "Cosmopolitan team members recognized patterns from other markets, while local colleagues explained which assumptions would fail in this city.",
+      "exampleZh": "具有国际经验的团队成员识别出了其他市场中的类似情况，而当地同事解释了哪些假设在这座城市行不通。",
+      "forms": [],
+      "collocations": [
+        "cosmopolitan team members",
+        "a cosmopolitan outlook",
+        "a cosmopolitan background"
+      ],
+      "confusedWith": [
+        "此处强调人的跨国生活经验和国际视野，与深谙当地情况的 local members 互补。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "跨地域协作"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "跨地域协作",
+      "phonetic": "",
+      "order": 22,
+      "reuseExistingEntryId": "public-teamwork-c4-cosmopolitan",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "slum",
+      "originalInput": "urban slum",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 贫民区；住房拥挤、居住条件或公共服务较差的城区。",
+      "definitionEn": "An urban area where housing and living conditions are severely inadequate.",
+      "usage": "本文提到改善西非城市贫民区的项目，语境涉及供水、卫生设施和居民支付能力。",
+      "exampleEn": "The project improved drainage in the slum, but residents also needed affordable ways to pay for the new services.",
+      "exampleZh": "该项目改善了贫民区的排水状况，但居民也需要负担得起的新服务付费方式。",
+      "forms": [
+        "slums"
+      ],
+      "collocations": [
+        "an urban slum",
+        "slum residents",
+        "upgrade a slum"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "发展与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "发展与资源",
+      "phonetic": "",
+      "order": 23,
+      "reuseExistingEntryId": "public-teamwork-c4-slum",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "microcredit",
+      "originalInput": "microcredit",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 小额信贷；向资金有限的个人或小规模经营者提供的小额贷款。",
+      "definitionEn": "Small loans offered to people with limited access to conventional credit.",
+      "usage": "本文当地成员建议采用 microcredit scheme，帮助居民支付新的供水与卫生服务费用。microcredit 通常作不可数名词。",
+      "exampleEn": "A microcredit scheme allowed residents to spread the cost of connecting their homes to the new water supply system.",
+      "exampleZh": "一项小额信贷计划，使居民能够分期承担将住房接入新供水系统的费用。",
+      "forms": [],
+      "collocations": [
+        "a microcredit scheme",
+        "provide microcredit",
+        "access to microcredit"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "发展与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "发展与资源",
+      "phonetic": "",
+      "order": 24,
+      "reuseExistingEntryId": "public-teamwork-c4-microcredit",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "sanitation",
+      "originalInput": "sanitation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 公共卫生和卫生设施服务；尤其涉及污水、排泄物及废弃物的安全处理。",
+      "definitionEn": "Facilities and practices that keep human waste and wastewater from harming health.",
+      "usage": "本文 water and sanitation services 指供水及配套卫生服务。sanitation 的范围包括设施和处理体系，不只是打扫卫生。",
+      "exampleEn": "Reliable sanitation services protected public health, but the planning team first had to understand what local households could afford.",
+      "exampleZh": "可靠的卫生设施服务保护了公共健康，但规划团队首先必须了解当地家庭的负担能力。",
+      "forms": [],
+      "collocations": [
+        "sanitation services",
+        "improve sanitation",
+        "water and sanitation"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "发展与资源"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "发展与资源",
+      "phonetic": "",
+      "order": 25,
+      "reuseExistingEntryId": "public-teamwork-c4-sanitation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "requisite",
+      "originalInput": "requisite",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 必要的；为完成任务或满足要求所不可缺少的。",
+      "definitionEn": "Needed for a particular purpose or to meet a requirement.",
+      "usage": "常用 the requisite skills/knowledge/resources。本文提醒，招募人员是取得必需技能的一种方式，但人数增加也有代价。",
+      "exampleEn": "Before adding another specialist, the manager checked whether someone already on the team possessed the requisite knowledge for the task.",
+      "exampleZh": "在增加另一位专家之前，经理先检查团队中现有成员是否已经具备完成任务所必需的知识。",
+      "forms": [],
+      "collocations": [
+        "the requisite skills",
+        "the requisite knowledge",
+        "the requisite resources"
+      ],
+      "confusedWith": [
+        "requisite 强调所需条件；不是 request（请求）。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 26,
+      "reuseExistingEntryId": "public-teamwork-c4-requisite",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "fragmentation",
+      "originalInput": "fragmentation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 碎片化；整体分裂成相互分离、难以协调的部分。",
+      "definitionEn": "The breaking of a whole into separate, poorly connected parts.",
+      "usage": "本文讨论团队规模扩大可能导致沟通不畅和内部碎片化。可用 fragmentation within/of a team。",
+      "exampleEn": "As the project expanded, fragmentation increased because separate groups used different plans and rarely explained their decisions to one another.",
+      "exampleZh": "随着项目扩大，碎片化加剧，因为不同小组采用各自的计划，也很少向彼此解释决定。",
+      "forms": [],
+      "collocations": [
+        "team fragmentation",
+        "organizational fragmentation",
+        "reduce fragmentation"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 27,
+      "reuseExistingEntryId": "public-teamwork-c4-fragmentation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "free riding",
+      "originalInput": "free riding",
+      "entryType": "phrase",
+      "partOfSpeech": "noun",
+      "meaning": "① 搭便车；不承担相应工作或责任，却享用他人贡献带来的成果。",
+      "definitionEn": "Benefiting from a group's effort without making a fair contribution.",
+      "usage": "本文把 free riding 与缺乏 accountability 联系起来。这里是团队贡献失衡的现象，不是免费乘坐交通工具。",
+      "exampleEn": "Clear task records reduced free riding because every member could see who had completed each assignment before the review meeting.",
+      "exampleZh": "明确的任务记录减少了搭便车，因为在复盘会议前，每位成员都能看出是谁完成了各项任务。",
+      "forms": [],
+      "collocations": [
+        "reduce free riding",
+        "discourage free riding",
+        "free riding in teams"
+      ],
+      "confusedWith": [
+        "free riding 是搭便车现象；a free ride 可指无偿享用好处，也可能有交通语境的字面义。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "责任与分工"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "责任与分工",
+      "phonetic": "",
+      "order": 28,
+      "reuseExistingEntryId": "public-teamwork-c4-free-riding",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "accountability",
+      "originalInput": "accountability",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 责任承担和可追责性；成员需要解释并对自己的工作结果负责。",
+      "definitionEn": "The obligation to answer for actions, decisions, and results.",
+      "usage": "常用 accountability for something、hold someone accountable for something。本文强调贡献不清、责任不明可能导致搭便车。",
+      "exampleEn": "The new reporting process improved accountability by making each decision owner explain both the result and the reasoning behind it.",
+      "exampleZh": "新的汇报流程提高了责任透明度和可追责性，要求每项决定的负责人解释结果及其背后的理由。",
+      "forms": [],
+      "collocations": [
+        "ensure accountability",
+        "accountability for results",
+        "a lack of accountability"
+      ],
+      "confusedWith": [
+        "responsibility 常强调被分配的职责；accountability 进一步强调需要说明和承担结果。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "责任与分工"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "责任与分工",
+      "phonetic": "",
+      "order": 29,
+      "reuseExistingEntryId": "public-teamwork-c4-accountability",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "lament",
+      "originalInput": "lament",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 为某种令人遗憾的情况感到惋惜并表达不满或抱怨。",
+      "definitionEn": "To express regret or frustration about an undesirable situation.",
+      "usage": "本文 managers lament that... 表示经理们抱怨团队因不断加人而变得臃肿。可直接接 that 从句或名词。",
+      "exampleEn": "Several supervisors lamented that larger teams spent more time coordinating calendars than solving the customer problems they were created to address.",
+      "exampleZh": "几位主管抱怨，更大的团队花在协调日程上的时间，竟比解决其成立时旨在处理的客户问题还多。",
+      "forms": [
+        "laments",
+        "lamented",
+        "lamenting"
+      ],
+      "collocations": [
+        "lament a lack of resources",
+        "lament the loss of trust",
+        "lament that decisions take too long"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 30,
+      "reuseExistingEntryId": "public-teamwork-c4-lament",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "bloated",
+      "originalInput": "bloated",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 臃肿的；因规模膨胀、人员或环节过多而效率低下的。",
+      "definitionEn": "Too large or overloaded to operate efficiently.",
+      "usage": "本文 teams become bloated 指为了加入各方代表而不断扩大人数。此处借用身体膨胀的形象描述组织问题。",
+      "exampleEn": "The committee became bloated after every division added a representative, leaving members unsure who could actually make a final decision.",
+      "exampleZh": "每个部门都增加一名代表后，委员会变得臃肿，成员反而不清楚谁真正有权作最终决定。",
+      "forms": [],
+      "collocations": [
+        "a bloated team",
+        "a bloated organization",
+        "bloated management structures"
+      ],
+      "confusedWith": [
+        "本文不是身体浮肿的字面义，而是在说组织规模失当。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 31,
+      "reuseExistingEntryId": "public-teamwork-c4-bloated",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "buy-in",
+      "originalInput": "buy-in",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 对计划、变革或决定的认同与支持；愿意配合其实施。",
+      "definitionEn": "Acceptance of a plan and willingness to support its implementation.",
+      "usage": "常用 gain/secure/increase buy-in from stakeholders。本文说增加各地、各部门成员往往是为了争取他们的支持。",
+      "exampleEn": "The team sought buy-in from regional managers by explaining the proposed changes and asking which local constraints the plan had missed.",
+      "exampleZh": "团队通过解释拟议变革，并询问计划遗漏了哪些地方性限制，来争取区域经理的认同与支持。",
+      "forms": [],
+      "collocations": [
+        "gain buy-in",
+        "secure stakeholder buy-in",
+        "buy-in from local managers"
+      ],
+      "confusedWith": [
+        "buy-in 在这里不是购买行为；buy in 作动词时形式和用法不同。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "共同认知",
+      "phonetic": "",
+      "order": 32,
+      "reuseExistingEntryId": "public-teamwork-c4-buy-in",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "vigilant",
+      "originalInput": "vigilant",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 保持警惕、审慎留意的；持续注意可能出现的问题。",
+      "definitionEn": "Carefully watchful for potential problems or unnecessary risks.",
+      "usage": "本文 be vigilant about adding members 指对增员保持审慎，只在确有需要时加入新成员。",
+      "exampleEn": "A vigilant team leader noticed that three specialists were duplicating the same analysis and clarified their roles before adding another member.",
+      "exampleZh": "一位保持警觉的团队负责人注意到三位专家在重复同一项分析，于是在增加成员之前先明确了他们的分工。",
+      "forms": [],
+      "collocations": [
+        "remain vigilant",
+        "be vigilant about risks",
+        "a vigilant team leader"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-vigilant-82cacc9d",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "at capacity",
+      "originalInput": "at capacity",
+      "entryType": "phrase",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "① 达到容量上限；人数、工作量或资源利用已满。",
+      "definitionEn": "At the maximum level that a team or system can accommodate.",
+      "usage": "常用 be/operate at capacity。本文团队已达到适宜人数上限时，增加一人可能需要让现有成员退出。",
+      "exampleEn": "The support team was already at capacity, so the manager postponed a new assignment rather than promise an impossible deadline.",
+      "exampleZh": "支持团队已经满负荷运转，因此经理推迟了新任务，而没有承诺一个无法实现的截止期限。",
+      "forms": [],
+      "collocations": [
+        "be at capacity",
+        "operate at capacity",
+        "already at capacity"
+      ],
+      "confusedWith": [
+        "capacity 此处是承载或处理上限，不只是个人“能力”。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队结构"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队结构",
+      "phonetic": "",
+      "order": 34,
+      "reuseExistingEntryId": "public-teamwork-c4-at-capacity",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "drudgery",
+      "originalInput": "drudgery",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 苦差事；枯燥、繁重、重复而缺少趣味的工作。",
+      "definitionEn": "Tiring and repetitive work that offers little enjoyment or stimulation.",
+      "usage": "本文指出并非每项工作都富有创意，某些任务不可避免地包含 drudgery。通常作不可数名词。",
+      "exampleEn": "Automating the weekly data transfer removed much of the drudgery and gave analysts more time to investigate unusual results.",
+      "exampleZh": "将每周的数据传输自动化，消除了大量枯燥繁重的工作，让分析人员有更多时间调查异常结果。",
+      "forms": [],
+      "collocations": [
+        "routine drudgery",
+        "reduce drudgery",
+        "the drudgery of repetitive work"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "工作设计"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "工作设计",
+      "phonetic": "",
+      "order": 35,
+      "reuseExistingEntryId": "public-teamwork-c4-drudgery",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "autonomy",
+      "originalInput": "autonomy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 自主权；在职责范围内自行决定如何安排和完成工作的空间。",
+      "definitionEn": "Freedom to decide how to organize and carry out one's work.",
+      "usage": "常用 autonomy in doing something 或 autonomy over something。本文将自主权与完整任务、反馈一起作为提高工作动力的设计要素。",
+      "exampleEn": "Giving the team autonomy over its testing schedule increased motivation because members could adjust the work when new evidence appeared.",
+      "exampleZh": "让团队自主安排测试进度，提高了成员的积极性，因为他们能在新证据出现时调整工作。",
+      "forms": [],
+      "collocations": [
+        "give a team autonomy",
+        "autonomy over decisions",
+        "autonomy in managing work"
+      ],
+      "confusedWith": [
+        "autonomy 不等于没有责任或无需协调，而是拥有完成职责时的决定空间。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "工作设计"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "工作设计",
+      "phonetic": "",
+      "order": 36,
+      "reuseExistingEntryId": "public-teamwork-c4-autonomy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "counterpart",
+      "originalInput": "counterparts",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 对口人员；在另一地点、组织或部门中担任相应职务或负责对应工作的人。",
+      "definitionEn": "A person in another group who has a corresponding role or responsibility.",
+      "usage": "常用 one's counterparts in another office。本文指印度的开发人员与美国团队承担相互衔接的工作。",
+      "exampleEn": "The finance manager met her counterpart in the overseas office to understand why the same reporting process required twice as long.",
+      "exampleZh": "财务经理与海外办公室的对口负责人会面，以了解同一汇报流程为什么在那里需要两倍的时间。",
+      "forms": [
+        "counterparts"
+      ],
+      "collocations": [
+        "overseas counterparts",
+        "counterparts in another office",
+        "work with one's counterparts"
+      ],
+      "confusedWith": [
+        "counterpart 是对应角色的人或事物，不是对手 competitor。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "跨地域协作"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "跨地域协作",
+      "phonetic": "",
+      "order": 37,
+      "reuseExistingEntryId": "public-teamwork-counterpart-9b828e2f",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "repartition",
+      "originalInput": "Repartitioning",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 重新划分、重新分配；把整体任务再次分成不同的责任单元。",
+      "definitionEn": "To divide an existing whole into parts in a different way.",
+      "usage": "本文 repartitioning the work 指重新划分工作，让印度团队负责完整模块，而非只修改零散代码。",
+      "exampleEn": "The manager repartitioned the work so that each small team owned a complete module instead of a disconnected series of tasks.",
+      "exampleZh": "经理重新划分了工作，让每个小团队负责一个完整模块，而不是一连串彼此脱节的任务。",
+      "forms": [
+        "repartitions",
+        "repartitioned",
+        "repartitioning"
+      ],
+      "collocations": [
+        "repartition the work",
+        "repartition a project",
+        "repartition responsibilities"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "责任与分工"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "责任与分工",
+      "phonetic": "",
+      "order": 38,
+      "reuseExistingEntryId": "public-teamwork-c4-repartition",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "ownership",
+      "originalInput": "ownership",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 对任务的主导责任与负责感；能够把工作作为完整单元加以管理并对结果负责。",
+      "definitionEn": "Meaningful responsibility and control over a task and its outcome.",
+      "usage": "常用 take ownership of something、give someone ownership over something。本文指让成员对整个模块负责；不是代码或资产的法律产权。",
+      "exampleEn": "Ownership of the entire module helped the developers understand customer needs and take responsibility for the quality of the final release.",
+      "exampleZh": "对整个模块的主导责任，帮助开发人员理解客户需求，并对最终发布版本的质量负责。",
+      "forms": [],
+      "collocations": [
+        "take ownership of a task",
+        "ownership over an entire module",
+        "a sense of ownership"
+      ],
+      "confusedWith": [
+        "本文的 ownership 是工作责任和主导权，不是财产所有权。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "责任与分工"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "责任与分工",
+      "phonetic": "",
+      "order": 39,
+      "reuseExistingEntryId": "public-teamwork-c4-ownership",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "undermine",
+      "originalInput": "undermine",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 逐渐削弱、损害；使合作、信任或成果的基础受到破坏。",
+      "definitionEn": "To weaken something by damaging the support it depends on.",
+      "usage": "常用 undermine trust/confidence/collaboration。本文 destructive dynamics undermine collaborative efforts 指破坏性互动损害协作努力。",
+      "exampleEn": "Frequent private criticism undermined the new partnership because neither department trusted the information shared by the other during planning.",
+      "exampleZh": "频繁的私下批评损害了新的合作关系，因为在规划过程中，两个部门都不信任对方分享的信息。",
+      "forms": [
+        "undermines",
+        "undermined",
+        "undermining"
+      ],
+      "collocations": [
+        "undermine collaboration",
+        "undermine trust",
+        "undermine confidence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 40,
+      "reuseExistingEntryId": "public-nlmg-c13-undermine",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "withhold",
+      "originalInput": "withhold",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 故意不提供、扣住；把本应分享的信息或资源留在自己手中。",
+      "definitionEn": "To deliberately keep something from a person who might need or expect it.",
+      "usage": "结构为 withhold something from someone。本文指成员隐瞒信息，妨碍其他人理解任务或作出决定。",
+      "exampleEn": "When members withhold information to protect their own status, the whole team may make decisions based on an incomplete picture.",
+      "exampleZh": "当成员为了维护自身地位而隐瞒信息时，整个团队可能依据不完整的情况作出决定。",
+      "forms": [
+        "withholds",
+        "withheld",
+        "withholding"
+      ],
+      "collocations": [
+        "withhold information",
+        "withhold information from colleagues",
+        "withhold approval"
+      ],
+      "confusedWith": [
+        "withhold 强调有意不提供；不等于单纯忘记或不知道。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "信息共享"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "信息共享",
+      "phonetic": "",
+      "order": 41,
+      "reuseExistingEntryId": "public-teamwork-c4-withhold",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "conform",
+      "originalInput": "conform",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 遵从群体要求；按既定规则或多数人的方式行事。",
+      "definitionEn": "To act in accordance with a group's expectations or established rules.",
+      "usage": "通常用 conform to norms/expectations。本文 pressure people to conform 指逼迫他人从众，可能压制有效的不同意见。",
+      "exampleEn": "Junior employees felt pressure to conform to the majority view even when their testing results suggested that the proposal needed revision.",
+      "exampleZh": "即使测试结果表明方案需要修改，初级员工仍感到必须顺从多数人意见的压力。",
+      "forms": [
+        "conforms",
+        "conformed",
+        "conforming"
+      ],
+      "collocations": [
+        "conform to expectations",
+        "conform to group norms",
+        "pressure someone to conform"
+      ],
+      "confusedWith": [
+        "本文强调从众压力；遵守合理规范与不加判断地求同需要区分。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队规范",
+      "phonetic": "",
+      "order": 42,
+      "reuseExistingEntryId": "public-teamwork-c4-conform",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "cast blame",
+      "originalInput": "cast blame",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 归咎、指责；把过错或责任推向某人，而不是共同分析问题。",
+      "definitionEn": "To direct fault or responsibility toward someone when something goes wrong.",
+      "usage": "常见 cast blame on someone。本文列出这种互动会破坏协作；blame 在此作不可数名词。",
+      "exampleEn": "Instead of casting blame on the remote office, the leader asked whether both locations had received the same instructions.",
+      "exampleZh": "负责人没有把责任推给远程办公室，而是询问两个地点是否都收到了相同的指示。",
+      "forms": [
+        "casts blame",
+        "casting blame"
+      ],
+      "collocations": [
+        "cast blame on others",
+        "avoid casting blame",
+        "be quick to cast blame"
+      ],
+      "confusedWith": [
+        "cast 的过去式和过去分词仍为 cast；不要写 casted blame。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作障碍"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "协作障碍",
+      "phonetic": "",
+      "order": 43,
+      "reuseExistingEntryId": "public-teamwork-c4-cast-blame",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "dysfunction",
+      "originalInput": "dysfunction",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 运作失调；团队的行为、流程或关系无法正常发挥作用。",
+      "definitionEn": "A failure of a group or system to function effectively.",
+      "usage": "本文通过明确规范来降低 dysfunction 的风险。它不只是意见不同，而是协作过程出现持续性问题。",
+      "exampleEn": "The review exposed dysfunction in the handover process: nobody knew who should resolve errors discovered after the original team had left.",
+      "exampleZh": "复盘暴露了交接流程的运作失调：原团队离开后，没有人知道应由谁解决后来发现的错误。",
+      "forms": [
+        "dysfunctions"
+      ],
+      "collocations": [
+        "team dysfunction",
+        "organizational dysfunction",
+        "reduce dysfunction"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队规范",
+      "phonetic": "",
+      "order": 44,
+      "reuseExistingEntryId": "public-teamwork-c4-dysfunction",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "spell out",
+      "originalInput": "spell out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 明确、详细地说明；把要求或规则讲清楚，避免依赖猜测。",
+      "definitionEn": "To explain something clearly and explicitly rather than leave it implied.",
+      "usage": "可用 spell out the rules 或 spell the rules out；代词通常放中间，如 spell them out。本文指明确必须做和禁止做的事项。",
+      "exampleEn": "The project agreement spelled out who could approve changes, so urgent requests no longer circulated between departments without a clear owner.",
+      "exampleZh": "项目协议明确规定了谁有权批准变更，因此紧急请求不再因缺少明确负责人而在部门之间来回流转。",
+      "forms": [
+        "spells out",
+        "spelled out",
+        "spelling out",
+        "spelt out"
+      ],
+      "collocations": [
+        "spell out the rules",
+        "spell out expectations",
+        "spell out responsibilities"
+      ],
+      "confusedWith": [
+        "本文是“讲明白”的比喻义，不是逐个字母拼写单词。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队规范",
+      "phonetic": "",
+      "order": 45,
+      "reuseExistingEntryId": "public-teamwork-c4-spell-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "instill",
+      "originalInput": "Instilling",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 逐渐灌输；通过反复实践使某种规范、习惯或信念扎根。",
+      "definitionEn": "To gradually establish an idea, value, or habit in someone.",
+      "usage": "结构为 instill something in someone。本文 instilling such norms 指使守时、轮流发言等行为规范真正成为成员习惯。",
+      "exampleEn": "The supervisor tried to instill a habit of asking questions early, before small misunderstandings developed into expensive mistakes.",
+      "exampleZh": "主管努力培养员工及早提问的习惯，以免小误解发展成代价高昂的错误。",
+      "forms": [
+        "instills",
+        "instilled",
+        "instilling"
+      ],
+      "collocations": [
+        "instill a sense of responsibility",
+        "instill confidence",
+        "instill good habits"
+      ],
+      "confusedWith": [
+        "本文用美式 instill；英式常写 instil，相应形式为 instils、instilled、instilling。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队规范",
+      "phonetic": "",
+      "order": 46,
+      "reuseExistingEntryId": "public-teamwork-c4-instill",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "fluid",
+      "originalInput": "fluid",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 流动的；不断变化的。本文指团队成员构成经常变化，并不固定。",
+      "definitionEn": "Changing readily rather than remaining fixed in composition or arrangement.",
+      "usage": "本文 membership is fluid 指成员不断加入或离开；因此团队需要定期重申规范。常用于人员构成、安排或形势的变化。",
+      "exampleEn": "Because team membership remains fluid, we explain our decision rules whenever a new colleague joins the project.",
+      "exampleZh": "由于团队成员构成持续变化，每当新同事加入项目时，我们都会解释决策规则。",
+      "forms": [],
+      "collocations": [
+        "fluid membership",
+        "a fluid situation",
+        "fluid team boundaries"
+      ],
+      "confusedWith": [
+        "fluid 作名词可指液体；本文是形容词，描述成员构成不固定。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队构成与规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队构成与规范",
+      "phonetic": "",
+      "order": 47,
+      "reuseExistingEntryId": "public-teamwork-c4-fluid",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "reiterate",
+      "originalInput": "reiterating",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 重申；再次明确强调。本文指在团队成员变化时，定期重申共同规范。",
+      "definitionEn": "To state something again so that it remains clear and understood.",
+      "usage": "及物动词：reiterate the rules / reiterate that...。本文强调反复明确规范，以保持成员对行为要求的一致理解。",
+      "exampleEn": "The project leader reiterated that every department must share significant risks before the weekly planning meeting.",
+      "exampleZh": "项目负责人重申，各部门必须在每周计划会议前分享重大风险。",
+      "forms": [
+        "reiterates",
+        "reiterated",
+        "reiterating"
+      ],
+      "collocations": [
+        "reiterate team norms",
+        "reiterate a commitment",
+        "reiterate that"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队构成与规范"
+      ],
+      "pdfPage": 5,
+      "printedPage": 5,
+      "category": "团队构成与规范",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 48,
+      "reuseExistingEntryId": "public-teamwork-c4-reiterate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "secure",
+      "originalInput": "securing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 设法获得并落实所需资源。本文指取得完成工作必需的资金、技术支持等条件。",
+      "definitionEn": "To obtain something needed, often through deliberate effort or negotiation.",
+      "usage": "本文为及物动词 secure resources，表示争取到并确保资源可用。常接 funding、support、approval；并非形容词“安全的”。",
+      "exampleEn": "Before promising an earlier launch, the manager secured additional funding and technical support for the regional team.",
+      "exampleZh": "在承诺提前推出产品之前，经理为地区团队争取到了额外资金和技术支持。",
+      "forms": [
+        "secures",
+        "secured",
+        "securing"
+      ],
+      "collocations": [
+        "secure funding",
+        "secure essential resources",
+        "secure technical support"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "资源与支持"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "资源与支持",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 49,
+      "reuseExistingEntryId": "public-teamwork-c4-secure",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "head off",
+      "originalInput": "head off",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 提前阻止、化解尚未发生的问题，避免其进一步发展。",
+      "definitionEn": "To prevent a developing problem before it causes serious difficulty.",
+      "usage": "本文 head off problems 指在项目开始时备齐关键支持，防患于未然。可说 head off a problem 或 head a problem off。",
+      "exampleEn": "We can head off confusion by agreeing on responsibilities before the two offices begin working together.",
+      "exampleZh": "我们可以在两个办公室开始合作前商定职责，从而提前避免混乱。",
+      "forms": [
+        "heads off",
+        "headed off",
+        "heading off"
+      ],
+      "collocations": [
+        "head off problems",
+        "head off a crisis",
+        "head off conflict"
+      ],
+      "confusedWith": [
+        "head off a problem 是提前阻止问题；head off to a meeting 才是出发去开会。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "资源与支持"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "资源与支持",
+      "phonetic": "",
+      "order": 50,
+      "reuseExistingEntryId": "public-teamwork-c4-head-off",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "wholly owned subsidiary",
+      "originalInput": "wholly owned subsidiary",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 全资子公司；全部股权由母公司拥有的公司。",
+      "definitionEn": "A company all of whose shares are owned by another company.",
+      "usage": "本文指墨西哥的一家全资子公司，其资源条件与美国总部不同。结构为 a wholly owned subsidiary of a parent company。",
+      "exampleEn": "Our wholly owned subsidiary manages local distribution, while the parent company provides financial oversight and technical expertise.",
+      "exampleZh": "我们的全资子公司负责当地分销，母公司则提供财务监督和专业技术支持。",
+      "forms": [
+        "wholly owned subsidiaries"
+      ],
+      "collocations": [
+        "a wholly owned subsidiary of",
+        "establish a wholly owned subsidiary",
+        "operate through a wholly owned subsidiary"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "组织结构"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "组织结构",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 51,
+      "reuseExistingEntryId": "public-teamwork-c4-wholly-owned-subsidiary",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "friction",
+      "originalInput": "friction",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 人际或组织之间的摩擦、矛盾。本文指团队未能按时完成工作所引发的关系紧张。",
+      "definitionEn": "Tension or disagreement that makes relationships and cooperation more difficult.",
+      "usage": "此义通常作不可数名词；常用 friction between A and B。本文起初被认为是文化问题的摩擦，实际与资源差异有关。",
+      "exampleEn": "Different assumptions about response times created friction between the sales team and the engineers supporting the account.",
+      "exampleZh": "对回复时限的不同预期，使销售团队与负责该客户的工程师之间产生了摩擦。",
+      "forms": [],
+      "collocations": [
+        "cause friction",
+        "reduce friction",
+        "friction between departments"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作冲突"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "协作冲突",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 52,
+      "reuseExistingEntryId": "public-teamwork-friction-b0de598f",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "strapped",
+      "originalInput": "strapped",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 资源紧张的；缺乏所需资金、人员等。本文指墨西哥团队既缺钱又缺人。",
+      "definitionEn": "Having too little money, time, or another resource that is needed.",
+      "usage": "常用 be strapped for + 资源。本文为 strapped for both capital and people；也常见 strapped for cash / time。",
+      "exampleEn": "The regional office is strapped for staff, so headquarters will provide temporary support during the product launch.",
+      "exampleZh": "地区办公室人手紧张，因此总部将在产品推出期间提供临时支持。",
+      "forms": [],
+      "collocations": [
+        "strapped for cash",
+        "strapped for staff",
+        "strapped for time"
+      ],
+      "confusedWith": [
+        "本文 strapped 是资源不足的状态，不是“被绑住”；strap 作动词时才涉及用带子固定。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "资源与支持"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "资源与支持",
+      "phonetic": "",
+      "order": 53,
+      "reuseExistingEntryId": "public-teamwork-c4-strapped",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "pave the way for",
+      "originalInput": "pave the way for",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 为……创造条件；为后续进展或成功铺平道路。",
+      "definitionEn": "To create conditions that make a later development easier or possible.",
+      "usage": "for 后接名词或动名词。本文指先建立三个支持性条件，为团队成功奠定基础；强调先行工作带来的有利条件。",
+      "exampleEn": "Clear ownership of each task will pave the way for smoother cooperation when the new partners join.",
+      "exampleZh": "明确每项任务的负责人，将为新合作伙伴加入后的顺畅协作铺平道路。",
+      "forms": [
+        "paves the way for",
+        "paved the way for",
+        "paving the way for"
+      ],
+      "collocations": [
+        "pave the way for success",
+        "pave the way for cooperation",
+        "pave the way for change"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "成功条件",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 54,
+      "reuseExistingEntryId": "public-teamwork-c4-pave-the-way-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "prone to",
+      "originalInput": "prone to",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "① 容易出现某类不良情况的；易受某类问题影响的。",
+      "definitionEn": "Likely to experience a particular problem or behave in an undesirable way.",
+      "usage": "常用 be prone to + 名词或动名词；to 为介词。本文指现代团队容易产生群体对立和信息不完整的问题。",
+      "exampleEn": "Teams with unclear reporting lines are prone to duplication, especially when several departments serve the same client.",
+      "exampleZh": "汇报关系不清的团队容易重复劳动，尤其是在多个部门服务同一客户时。",
+      "forms": [],
+      "collocations": [
+        "prone to errors",
+        "prone to conflict",
+        "prone to misunderstanding"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作风险"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "协作风险",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 55,
+      "reuseExistingEntryId": "public-teamwork-prone-to-85f0bdee",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "foster",
+      "originalInput": "fostering",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 促进、培养某种有益的关系或认识。本文指培养共同身份认同和共同理解。",
+      "definitionEn": "To encourage the gradual development of a useful quality or relationship.",
+      "usage": "及物动词，直接接要培养的事物，如 trust、cooperation、shared understanding。本文强调领导者主动创造条件，而非等待认同自然产生。",
+      "exampleEn": "Regular conversations about local challenges can foster trust between colleagues who rarely have the opportunity to meet.",
+      "exampleZh": "定期交流当地工作中的困难，可以培养很少有机会见面的同事之间的信任。",
+      "forms": [
+        "fosters",
+        "fostered",
+        "fostering"
+      ],
+      "collocations": [
+        "foster trust",
+        "foster a common identity",
+        "foster shared understanding"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 56,
+      "reuseExistingEntryId": "public-teamwork-c4-foster",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "homogeneous",
+      "originalInput": "homogeneous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 同质的；组成成员在背景或特征上较为相似的。",
+      "definitionEn": "Consisting of members that are similar in relevant characteristics or backgrounds.",
+      "usage": "本文形容过去的团队成员背景比较相似。描述的是组成的相似程度，本身不表示团队是否合作顺畅或有凝聚力。",
+      "exampleEn": "A homogeneous leadership team may overlook customer needs that colleagues from different cultural backgrounds would immediately notice.",
+      "exampleZh": "成员背景相似的领导团队，可能会忽略来自不同文化背景的同事能立即注意到的客户需求。",
+      "forms": [],
+      "collocations": [
+        "a homogeneous group",
+        "homogeneous membership",
+        "a relatively homogeneous team"
+      ],
+      "confusedWith": [
+        "homogeneous 指成员相似；cohesive 指团队团结、有凝聚力。多元团队同样可以 cohesive。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队构成与规范"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "团队构成与规范",
+      "phonetic": "",
+      "order": 57,
+      "reuseExistingEntryId": "public-teamwork-c4-homogeneous",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "cohesive",
+      "originalInput": "cohesive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 有凝聚力的；成员相互联系，能够作为一个整体协作的。",
+      "definitionEn": "United by strong connections that allow members to work as a whole.",
+      "usage": "本文与多个彼此分离的小团体形成对照，强调成员把自己看作同一个团队。常修饰 team、group、unit。",
+      "exampleEn": "The manager built a cohesive team by recognising each office's contribution and giving everyone responsibility for shared results.",
+      "exampleZh": "经理通过认可各办公室的贡献，并让所有人共同对成果负责，建立了一支有凝聚力的团队。",
+      "forms": [],
+      "collocations": [
+        "a cohesive team",
+        "a cohesive group",
+        "a cohesive unit"
+      ],
+      "confusedWith": [
+        "cohesive 强调团结协作；homogeneous 强调组成相似，两者不是同一个判断维度。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "order": 58,
+      "reuseExistingEntryId": "public-teamwork-c4-cohesive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "cognitive shortcut",
+      "originalInput": "cognitive shortcuts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 认知捷径；为快速理解或判断复杂情况而采用的简化思考方式。",
+      "definitionEn": "A simplified mental approach used to make judgments quickly and with less effort.",
+      "usage": "本文以把人归入不同类别为例，说明认知捷径如何帮助简化复杂世界，又可能带来群体偏见。shortcut 在此为思考上的捷径。",
+      "exampleEn": "Assuming that remote colleagues are less committed is a cognitive shortcut that can damage cooperation across offices.",
+      "exampleZh": "认定远程同事投入较少，是一种可能损害办公室之间合作的认知捷径。",
+      "forms": [
+        "cognitive shortcuts"
+      ],
+      "collocations": [
+        "use cognitive shortcuts",
+        "rely on cognitive shortcuts",
+        "a misleading cognitive shortcut"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "认知与偏见"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "认知与偏见",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 59,
+      "reuseExistingEntryId": "public-teamwork-c4-cognitive-shortcut",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "lump into",
+      "originalInput": "lump people into categories",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 不加细致区分地把人或事物归入同一类别。",
+      "definitionEn": "To place people or things in a category without considering their differences.",
+      "usage": "结构为 lump somebody/something into a category，宾语放在 lump 与 into 之间。本文指按部门、地区或文化给成员分类。",
+      "exampleEn": "We should not lump colleagues into categories based on location when their experience and working conditions vary considerably.",
+      "exampleZh": "同事的经验和工作条件差异很大时，我们不应仅按所在地把他们归类。",
+      "forms": [
+        "lumps into",
+        "lumped into",
+        "lumping into"
+      ],
+      "collocations": [
+        "lump people into categories",
+        "lump everyone into one group",
+        "be lumped into a category"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "认知与偏见"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "认知与偏见",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 60,
+      "reuseExistingEntryId": "public-teamwork-c4-lump-into",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "skepticism",
+      "originalInput": "skepticism",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 怀疑态度；对他人的能力、意图或说法缺少信任。本文指两个小组彼此不信任。",
+      "definitionEn": "Doubt about whether someone or something is reliable, capable, or convincing.",
+      "usage": "通常作不可数名词。本文 viewed each other with skepticism 表示带着怀疑看待对方；也常用 skepticism about / toward。",
+      "exampleEn": "Initial skepticism about the overseas team's proposal faded after both groups reviewed the evidence and discussed implementation risks.",
+      "exampleZh": "两个小组一起审视证据并讨论实施风险后，最初对海外团队提案的怀疑逐渐消退。",
+      "forms": [],
+      "collocations": [
+        "express skepticism",
+        "meet with skepticism",
+        "skepticism about a proposal"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 61,
+      "reuseExistingEntryId": "public-teamwork-c4-skepticism",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "apprehension",
+      "originalInput": "apprehension",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 忧虑、戒惧；对可能出现的问题感到不安。本文指两个小组面对彼此时的担心和戒备。",
+      "definitionEn": "An uneasy feeling that something difficult or unpleasant may happen.",
+      "usage": "本文与 skepticism 并列。apprehension 偏向不安和戒惧，skepticism 偏向怀疑。常用 apprehension about / over，或 with apprehension。",
+      "exampleEn": "Several employees expressed apprehension about the merger because they did not know how their responsibilities would change.",
+      "exampleZh": "几名员工对合并表示担忧，因为他们不知道自己的职责将如何变化。",
+      "forms": [],
+      "collocations": [
+        "express apprehension",
+        "apprehension about change",
+        "view something with apprehension"
+      ],
+      "confusedWith": [
+        "apprehension 本文是忧虑、戒惧，不是另一些语境中的理解或逮捕。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "order": 62,
+      "reuseExistingEntryId": "public-teamwork-c4-apprehension",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "keep someone up to speed",
+      "originalInput": "keep all members up to speed",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 使某人及时掌握最新情况，了解工作进展或当前要求。",
+      "definitionEn": "To ensure that someone has the current information needed to follow developments.",
+      "usage": "结构为 keep somebody up to speed on something。本文 on 后接 strategies、priorities 和 roles，强调持续同步信息。",
+      "exampleEn": "A short written update keeps everyone up to speed on changing priorities without requiring another lengthy meeting.",
+      "exampleZh": "一份简短的书面更新就能让所有人及时了解优先事项的变化，无须再开一次冗长的会议。",
+      "forms": [
+        "keeps someone up to speed",
+        "kept someone up to speed",
+        "keeping someone up to speed"
+      ],
+      "collocations": [
+        "keep everyone up to speed",
+        "keep someone up to speed on priorities",
+        "keep colleagues up to speed on progress"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "信息交流"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "信息交流",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 63,
+      "reuseExistingEntryId": "public-teamwork-c4-keep-someone-up-to-speed",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "prevalent",
+      "originalInput": "prevalent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 普遍存在的；在某一群体或环境中相当常见的。",
+      "definitionEn": "Existing widely or occurring frequently within a particular group or setting.",
+      "usage": "常用 be prevalent in / among。本文说信息不完整在现代分布式团队中更为常见；比较程度用 more prevalent。",
+      "exampleEn": "Incomplete handovers are particularly prevalent in teams where staff rotate frequently and important decisions remain undocumented.",
+      "exampleZh": "在员工频繁轮换、重要决策又缺少记录的团队中，交接不完整的问题尤其常见。",
+      "forms": [],
+      "collocations": [
+        "widely prevalent",
+        "prevalent in teams",
+        "a prevalent problem"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "协作风险"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "协作风险",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 64,
+      "reuseExistingEntryId": "public-teamwork-prevalent-6666c872",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "cornerstone",
+      "originalInput": "cornerstone",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 基石；某项活动或成果赖以成立的重要基础。本文指共享知识是有效协作的基础。",
+      "definitionEn": "An essential foundation on which a successful activity or system depends.",
+      "usage": "可数名词，常用 the cornerstone of something。本文为比喻义，强调共享知识的基础作用。",
+      "exampleEn": "Reliable information sharing is the cornerstone of our partnership, especially when decisions affect teams in several countries.",
+      "exampleZh": "可靠的信息共享是我们合作关系的基石，尤其是在决策涉及多个国家的团队时。",
+      "forms": [
+        "cornerstones"
+      ],
+      "collocations": [
+        "the cornerstone of collaboration",
+        "a cornerstone of success",
+        "form the cornerstone of"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 6,
+      "printedPage": 6,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 65,
+      "reuseExistingEntryId": "public-teamwork-c4-cornerstone",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "frame of reference",
+      "originalInput": "frame of reference",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 参照框架；用来理解情境、解释信息和作出判断的一套背景认识。",
+      "definitionEn": "The background knowledge and assumptions used to interpret situations and make judgments.",
+      "usage": "本文指共享知识给团队提供共同参照框架，帮助成员正确理解情境和决策。常说 a shared frame of reference。",
+      "exampleEn": "Agreeing on what customer success means gives both departments a shared frame of reference for evaluating tradeoffs.",
+      "exampleZh": "就客户成功的含义达成一致，能为两个部门评估各种取舍提供共同的参照框架。",
+      "forms": [
+        "frames of reference"
+      ],
+      "collocations": [
+        "a shared frame of reference",
+        "a common frame of reference",
+        "provide a frame of reference"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "共同认知与信任"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "共同认知与信任",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 66,
+      "reuseExistingEntryId": "public-teamwork-c4-frame-of-reference",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "impede",
+      "originalInput": "impedes",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 阻碍；使某个过程难以顺利进行。本文指对数字沟通的依赖妨碍信息交流。",
+      "definitionEn": "To slow or obstruct the progress of an activity or process.",
+      "usage": "及物动词，直接接 information exchange、progress 等，不加 from。它可表示造成阻碍，不一定意味着完全阻止。",
+      "exampleEn": "Limited access to project data can impede cooperation even when everyone is willing to help the other team.",
+      "exampleZh": "即使所有人都愿意帮助另一支团队，项目数据访问受限仍可能妨碍合作。",
+      "forms": [
+        "impedes",
+        "impeded",
+        "impeding"
+      ],
+      "collocations": [
+        "impede information exchange",
+        "impede progress",
+        "impede collaboration"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "信息交流"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "信息交流",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 67,
+      "reuseExistingEntryId": "public-nlmg-c22-impede",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "contextual cue",
+      "originalInput": "contextual cues",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 情境线索；由周围环境、背景或现场氛围提供、帮助人理解情况的信息。",
+      "definitionEn": "A signal from the surrounding situation that helps explain meaning or behaviour.",
+      "usage": "本文将 nonverbal and contextual cues 并列，说明面对面沟通能传递情绪和现场信息。contextual 强调信息依赖具体情境。",
+      "exampleEn": "Video meetings provide some contextual cues, but they may not reveal the interruptions affecting a colleague's concentration.",
+      "exampleZh": "视频会议能提供一些情境线索，但未必能反映出影响同事专注度的各种干扰。",
+      "forms": [
+        "contextual cues"
+      ],
+      "collocations": [
+        "interpret contextual cues",
+        "rely on contextual cues",
+        "nonverbal and contextual cues"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "信息交流"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "信息交流",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 68,
+      "reuseExistingEntryId": "public-teamwork-c4-contextual-cue",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "tailor",
+      "originalInput": "tailor",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 按具体需要或情况调整。本文指根据现场感知到的情绪，调整之后的互动方式。",
+      "definitionEn": "To adapt something so that it suits a particular situation or need.",
+      "usage": "常用 tailor something to somebody/something。本文 tailor subsequent interactions 指据情境调整沟通方式；这里是动词熟词生义。",
+      "exampleEn": "Effective managers tailor their feedback to each colleague's experience while keeping performance expectations clear and consistent.",
+      "exampleZh": "有效的管理者会根据每位同事的经验调整反馈方式，同时保持清晰一致的绩效预期。",
+      "forms": [
+        "tailors",
+        "tailored",
+        "tailoring"
+      ],
+      "collocations": [
+        "tailor communication to the audience",
+        "tailor feedback",
+        "tailor an approach to specific needs"
+      ],
+      "confusedWith": [
+        "tailor 作名词可指裁缝；本文是“调整使适合”的动词，不涉及制作衣服。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "沟通方式"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "沟通方式",
+      "phonetic": "",
+      "order": 69,
+      "reuseExistingEntryId": "public-teamwork-c4-tailor",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "erode",
+      "originalInput": "erodes",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 逐渐削弱、损害。本文指依赖数字沟通，使重要情境信息的传递受到削弱。",
+      "definitionEn": "To gradually weaken or reduce something valuable or useful.",
+      "usage": "本文为及物动词的比喻义，宾语是 the transmission of...intelligence。常与 trust、confidence、cooperation 搭配，强调累积性削弱。",
+      "exampleEn": "Repeatedly ignoring the smaller office's concerns can erode trust and make future coordination much harder for everyone.",
+      "exampleZh": "反复忽视较小办公室的顾虑，会逐渐削弱信任，使今后的协调对所有人都更加困难。",
+      "forms": [
+        "erodes",
+        "eroded",
+        "eroding"
+      ],
+      "collocations": [
+        "erode trust",
+        "erode confidence",
+        "erode cooperation"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "沟通方式"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "沟通方式",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 70,
+      "reuseExistingEntryId": "public-teamwork-c4-erode",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "come to light",
+      "originalInput": "came to light",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 被发现；显现出来。原先不为人知的事实或问题得到揭示。",
+      "definitionEn": "To become known after previously being hidden or unnoticed.",
+      "usage": "通常由 facts、problems、effects 等作主语，不用被动式。本文指一次管理培训讨论揭示了信息不完整带来的影响。",
+      "exampleEn": "Several overlooked resource constraints came to light when colleagues compared their working conditions during the joint workshop.",
+      "exampleZh": "同事们在联合研讨会上比较工作条件时，一些此前被忽视的资源限制显现了出来。",
+      "forms": [
+        "comes to light",
+        "came to light",
+        "coming to light"
+      ],
+      "collocations": [
+        "new information comes to light",
+        "problems come to light",
+        "evidence comes to light"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "问题识别"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "问题识别",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 71,
+      "reuseExistingEntryId": "public-teamwork-c4-come-to-light",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "alternate",
+      "originalInput": "alternated",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 使安排在两种时间或选项之间交替、轮换。本文指轮流让不同时区承担深夜会议。",
+      "definitionEn": "To switch repeatedly between two arrangements or options in turn.",
+      "usage": "本文 alternate the scheduling of calls between...and... 指轮换会议安排；也可说 alternate between A and B。",
+      "exampleEn": "We alternate meeting times between morning and evening so that neither regional team always bears the inconvenience.",
+      "exampleZh": "我们把会议时间在早晨和晚上轮换安排，避免某个地区团队始终承担不便。",
+      "forms": [
+        "alternates",
+        "alternated",
+        "alternating"
+      ],
+      "collocations": [
+        "alternate meeting times",
+        "alternate between two options",
+        "alternate responsibilities"
+      ],
+      "confusedWith": [
+        "alternate 本文是动词“交替”；alternative 通常表示可供选择的方案或替代的。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "跨时区协作"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "跨时区协作",
+      "phonetic": "",
+      "order": 72,
+      "reuseExistingEntryId": "public-teamwork-c4-alternate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "run something by someone",
+      "originalInput": "run language questions by coworkers",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 把想法、问题或方案拿给某人听取意见、请其核实。",
+      "definitionEn": "To present an idea or question to someone for an opinion or check.",
+      "usage": "结构为 run + 事情 + by + 人。本文指向同事核实语言方面的问题；常用 Can I run this by you? 征求意见。",
+      "exampleEn": "Before we send the revised proposal, I would like to run the pricing assumptions by our finance manager.",
+      "exampleZh": "在发送修改后的提案前，我想请财务经理看一下定价假设。",
+      "forms": [
+        "runs something by someone",
+        "ran something by someone",
+        "running something by someone"
+      ],
+      "collocations": [
+        "run an idea by someone",
+        "run a proposal by someone",
+        "run a question by a colleague"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "征求意见"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "征求意见",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 73,
+      "reuseExistingEntryId": "public-teamwork-c4-run-something-by-someone",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "measure up",
+      "originalInput": "Measure Up",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 达到要求或预期标准；表现合格。本文用于询问团队的表现是否达标。",
+      "definitionEn": "To be good enough when judged against an expected standard.",
+      "usage": "可单独使用，也可接 to + 标准或期待。本文标题 Does Your Team Measure Up? 引出对团队成效和支持条件的评估。",
+      "exampleEn": "Our output improved this quarter, but we still need to assess whether our collaboration measures up to expectations.",
+      "exampleZh": "本季度我们的产出有所改善，但仍需评估协作是否达到了预期。",
+      "forms": [
+        "measures up",
+        "measured up",
+        "measuring up"
+      ],
+      "collocations": [
+        "measure up to expectations",
+        "measure up to a standard",
+        "assess how a team measures up"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "团队评估",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 74,
+      "reuseExistingEntryId": "public-teamwork-c4-measure-up",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "seminal",
+      "originalInput": "seminal",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "① 具有奠基影响的；为后来大量研究或发展提供重要启发的。",
+      "definitionEn": "Providing influential ideas that shape later research, thinking, or development.",
+      "usage": "本文修饰 Hackman 的研究，强调其对后来团队研究的奠基作用。常搭配 research、work、study、paper，不只是“重要的”。",
+      "exampleEn": "The training programme draws on seminal research about team effectiveness and asks managers to test its ideas in practice.",
+      "exampleZh": "这项培训借鉴了有关团队效能的奠基性研究，并要求管理者在实践中检验其中的观点。",
+      "forms": [],
+      "collocations": [
+        "seminal research",
+        "a seminal study",
+        "a seminal contribution"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "管理研究"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "管理研究",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 75,
+      "reuseExistingEntryId": "public-teamwork-c4-seminal",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "chip away at",
+      "originalInput": "chipping away at",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 一点点削弱或消除。本文指逐步打破团队内部的隔阂。",
+      "definitionEn": "To gradually reduce or weaken something through a series of small actions.",
+      "usage": "at 后接要削弱的对象，如 barriers、distrust。本文 chipping away at its internal wall 为比喻，强调多次努力累积的作用。",
+      "exampleEn": "Working on small joint tasks helped chip away at the distrust that had developed between the two departments.",
+      "exampleZh": "一起完成小型任务，帮助两个部门逐步消除了此前形成的不信任。",
+      "forms": [
+        "chips away at",
+        "chipped away at",
+        "chipping away at"
+      ],
+      "collocations": [
+        "chip away at barriers",
+        "chip away at distrust",
+        "chip away at resistance"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "关系改善"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "关系改善",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 76,
+      "reuseExistingEntryId": "public-teamwork-c4-chip-away-at",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "build bridges",
+      "originalInput": "build more bridges",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 改善不同群体的关系；建立理解、信任和联系。",
+      "definitionEn": "To develop understanding and positive connections between people or groups.",
+      "usage": "本文通过共同经历和交流，连接来自两个办公室的小组。可用 build bridges between A and B；是关系层面的比喻表达。",
+      "exampleEn": "The joint mentoring programme aims to build bridges between technical specialists and colleagues working directly with customers.",
+      "exampleZh": "这项联合导师计划旨在加强技术专家与直接服务客户的同事之间的理解和联系。",
+      "forms": [
+        "builds bridges",
+        "built bridges",
+        "building bridges"
+      ],
+      "collocations": [
+        "build bridges between teams",
+        "build bridges across departments",
+        "build bridges with colleagues"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "关系改善"
+      ],
+      "pdfPage": 7,
+      "printedPage": 7,
+      "category": "关系改善",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 77,
+      "reuseExistingEntryId": "public-teamwork-c4-build-bridges",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "structured unstructured time",
+      "originalInput": "structured unstructured time",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 有意在日程中安排的自由交流时段；时间预先留出，谈话内容由成员自由选择。",
+      "definitionEn": "Scheduled time for informal conversation without a predetermined discussion agenda.",
+      "usage": "本文的 structured 指预留时间并明确交流目的和规范，unstructured 指不预设具体话题；例如团队会议开头留出十分钟自由交流。",
+      "exampleEn": "We reserve ten minutes of structured unstructured time each Friday so remote colleagues can discuss everyday work experiences.",
+      "exampleZh": "每周五我们预留十分钟自由交流时段，让远程同事谈谈日常工作经历。",
+      "forms": [],
+      "collocations": [
+        "schedule structured unstructured time",
+        "reserve structured unstructured time",
+        "use structured unstructured time"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "非正式交流"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "非正式交流",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 78,
+      "reuseExistingEntryId": "public-teamwork-c4-structured-unstructured-time",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "pan",
+      "originalInput": "panning",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 转动摄像机，使画面扫过一个区域。本文指转动摄像头，向远程同事展示工作环境。",
+      "definitionEn": "To turn a camera so that its view moves across an area.",
+      "usage": "本文 pan the camera around the room 指让画面扫过房间；可用 pan across / around。词尾变化双写 n：panned、panning。",
+      "exampleEn": "During the video call, she panned the camera around the office to show colleagues the nearby sources of noise.",
+      "exampleZh": "视频通话中，她转动摄像头展示办公室，让同事们看到附近的噪声来源。",
+      "forms": [
+        "pans",
+        "panned",
+        "panning"
+      ],
+      "collocations": [
+        "pan the camera",
+        "pan across the room",
+        "pan around the workspace"
+      ],
+      "confusedWith": [
+        "pan 本文是摄像动作的动词；名词 pan 才可指平底锅。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "远程沟通"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "远程沟通",
+      "phonetic": "",
+      "order": 79,
+      "reuseExistingEntryId": "public-teamwork-c4-pan",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "recipe for",
+      "originalInput": "recipe",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 产生某种结果的一套方法或要素。本文指建立有效团队所需的条件组合。",
+      "definitionEn": "A combination of conditions or actions likely to produce a particular result.",
+      "usage": "结构为 a recipe for + 名词或动名词。本文 a recipe for building an effective team 为比喻；同一结构也可用于不良结果。",
+      "exampleEn": "Clear goals, adequate resources, and regular feedback provide a practical recipe for building a team that can adapt.",
+      "exampleZh": "清晰的目标、充足的资源和定期反馈，共同构成了建立适应力强的团队的实用方法。",
+      "forms": [
+        "recipes for"
+      ],
+      "collocations": [
+        "a recipe for success",
+        "a recipe for effective teamwork",
+        "a recipe for conflict"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "成功条件",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 80,
+      "reuseExistingEntryId": "public-teamwork-c4-recipe-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "from scratch",
+      "originalInput": "from scratch",
+      "entryType": "idiom",
+      "partOfSpeech": "adverb phrase",
+      "meaning": "① 从零开始；在没有现成基础或成品的情况下着手建立。",
+      "definitionEn": "Starting without an existing structure or finished work to build upon.",
+      "usage": "本文 building an effective team from scratch 指从头组建团队，与接手既有团队形成对照。常跟 build、create、design 等动词。",
+      "exampleEn": "Rather than copy the previous department's procedures, we designed the new team's reporting process from scratch.",
+      "exampleZh": "我们没有照搬原部门的流程，而是从零开始设计了新团队的汇报程序。",
+      "forms": [],
+      "collocations": [
+        "build a team from scratch",
+        "design a process from scratch",
+        "start from scratch"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队组建"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队组建",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 81,
+      "reuseExistingEntryId": "public-nlmg-c22-from-scratch",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡包含相同核心义；保留全部旧内容，仅新增本文语境、页码和来源。"
+      }
+    },
+    {
+      "term": "set the stage for",
+      "originalInput": "set the stage for",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 为后续发展创造有利条件；为……做好准备。本文指为接手的团队创造成功条件。",
+      "definitionEn": "To establish conditions that allow a later development to take place.",
+      "usage": "for 后接名词或动名词；本文通过落实四项基本条件，为团队成功做好铺垫。set 的过去式和过去分词仍为 set。",
+      "exampleEn": "An honest discussion of resource constraints can set the stage for a more realistic and successful project plan.",
+      "exampleZh": "坦诚讨论资源限制，可以为制定更切实可行、也更有望成功的项目计划创造条件。",
+      "forms": [
+        "sets the stage for",
+        "setting the stage for"
+      ],
+      "collocations": [
+        "set the stage for success",
+        "set the stage for change",
+        "set the stage for cooperation"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "成功条件",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 82,
+      "reuseExistingEntryId": "public-teamwork-c4-set-the-stage-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "calibrate",
+      "originalInput": "calibrate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 依据标准和评估结果校准、调整。本文指持续检查团队，并据此调整团队运作。",
+      "definitionEn": "To make careful adjustments using a standard or evidence about performance.",
+      "usage": "本文 use these criteria to calibrate their teams over time 为管理上的比喻义，强调根据产出、协作能力和个人发展持续调整。",
+      "exampleEn": "Managers can calibrate their expectations by comparing delivery results with the staffing and resources actually available.",
+      "exampleZh": "管理者可以将交付成果与实际可用的人手和资源相比较，以校准自己的预期。",
+      "forms": [
+        "calibrates",
+        "calibrated",
+        "calibrating"
+      ],
+      "collocations": [
+        "calibrate expectations",
+        "calibrate a team's approach",
+        "calibrate against agreed criteria"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 83,
+      "reuseExistingEntryId": "public-teamwork-c4-calibrate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "light-touch monitoring",
+      "originalInput": "light-touch monitoring",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 轻量、不过度干预的持续监测；用简便检查掌握团队运作状态。",
+      "definitionEn": "Regular oversight that uses simple checks without excessive intervention or reporting demands.",
+      "usage": "本文将定期的轻量监测与问题出现时较深入的检查结合。light-touch 修饰 monitoring，表示干预和检查负担较小，不表示完全不管理。",
+      "exampleEn": "Light-touch monitoring helps us notice emerging problems without asking every team member to complete lengthy weekly reports.",
+      "exampleZh": "轻量监测帮助我们发现正在出现的问题，无须让每位成员每周填写冗长的报告。",
+      "forms": [],
+      "collocations": [
+        "regular light-touch monitoring",
+        "use light-touch monitoring",
+        "combine light-touch monitoring with deeper checks"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 84,
+      "reuseExistingEntryId": "public-teamwork-c4-light-touch-monitoring",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "preventive maintenance",
+      "originalInput": "preventive maintenance",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 预防性维护。本文比喻通过日常检查及时调整团队，避免问题积累后才处理。",
+      "definitionEn": "Routine attention intended to prevent problems before they cause disruption.",
+      "usage": "通常为不可数名词短语。本文把团队管理比作维护，强调持续的小检查和预防，而非等严重故障出现再补救。",
+      "exampleEn": "Treating regular team reviews as preventive maintenance allows us to address minor coordination issues before they affect customers.",
+      "exampleZh": "把定期团队评估当作预防性维护，使我们能够在小的协调问题影响客户之前加以处理。",
+      "forms": [],
+      "collocations": [
+        "carry out preventive maintenance",
+        "regular preventive maintenance",
+        "preventive maintenance for team effectiveness"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 85,
+      "reuseExistingEntryId": "public-teamwork-c4-preventive-maintenance",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "temperature check",
+      "originalInput": "temperature check",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 团队状态的快速检查；用简短评估了解团队目前运行得如何。",
+      "definitionEn": "A brief check used to understand a team's current condition or concerns.",
+      "usage": "本文是比喻用法：每隔几个月对四项支持条件和三项效能标准评分，识别偏弱之处；与更深入的 intervention assessment 区分。",
+      "exampleEn": "Before changing the meeting schedule, we conducted a temperature check to understand how each office experienced the current arrangement.",
+      "exampleZh": "在调整会议日程之前，我们做了一次快速状态检查，了解各办公室对现有安排的实际感受。",
+      "forms": [
+        "temperature checks"
+      ],
+      "collocations": [
+        "conduct a temperature check",
+        "a quick temperature check",
+        "a regular team temperature check"
+      ],
+      "confusedWith": [
+        "本文不是测量人体温度，而是快速诊断团队的状态和问题。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "order": 86,
+      "reuseExistingEntryId": "public-teamwork-c4-temperature-check",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "brew",
+      "originalInput": "brewing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "① 酝酿；逐渐形成。本文指问题正在发展，尚未全面暴露。",
+      "definitionEn": "To begin developing, especially when an unwelcome situation is not yet obvious.",
+      "usage": "此义常用问题、冲突或危机作主语，见 problems may be brewing。进行时突出正在形成的不良局面；本文不是制作饮料的意思。",
+      "exampleEn": "A disagreement was brewing between the two departments, but a timely conversation prevented it from disrupting the launch.",
+      "exampleZh": "两个部门之间正在酝酿分歧，但一次及时的沟通避免了它影响产品推出。",
+      "forms": [
+        "brews",
+        "brewed",
+        "brewing"
+      ],
+      "collocations": [
+        "problems are brewing",
+        "trouble is brewing",
+        "a conflict is brewing"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "问题识别"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "问题识别",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 87,
+      "reuseExistingEntryId": "public-teamwork-c4-brew",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "block out",
+      "originalInput": "block out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "① 在日程中专门预留一段时间，供某项活动使用。",
+      "definitionEn": "To reserve a period in a schedule for a particular activity.",
+      "usage": "本文 block out an hour or more 指为深入评估留出整段时间。结构可用 block out time for something / to do something。",
+      "exampleEn": "Please block out an hour next Tuesday so that the whole team can compare its assessments without interruptions.",
+      "exampleZh": "请在下周二预留一个小时，让整个团队能够不受打扰地比较各自的评估。",
+      "forms": [
+        "blocks out",
+        "blocked out",
+        "blocking out"
+      ],
+      "collocations": [
+        "block out an hour",
+        "block out time for discussion",
+        "block out time in a calendar"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "时间安排"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "时间安排",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 88,
+      "reuseExistingEntryId": "public-teamwork-c4-block-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "intervention assessment",
+      "originalInput": "intervention assessment",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 为诊断和处理团队问题而开展的深入评估；重点分析团队条件与效能表现之间的联系。",
+      "definitionEn": "A detailed evaluation used to diagnose team problems and guide corrective action.",
+      "usage": "本文建议在绩效较差或发生危机时使用，并重点比较最低分的支持条件与效能标准。可由领导者单独开展，也可组织全员研讨。",
+      "exampleEn": "After repeated delivery failures, the director requested an intervention assessment to examine how staffing constraints affected the team's performance.",
+      "exampleZh": "在多次交付失败后，主管要求开展深入干预评估，分析人员限制如何影响团队绩效。",
+      "forms": [
+        "intervention assessments"
+      ],
+      "collocations": [
+        "conduct an intervention assessment",
+        "a deeper intervention assessment",
+        "a team-based intervention assessment"
+      ],
+      "confusedWith": [
+        "temperature check 是简短定期检查；intervention assessment 更深入，用于诊断问题并寻找改进方向。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "order": 89,
+      "reuseExistingEntryId": "public-teamwork-c4-intervention-assessment",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "alignment",
+      "originalInput": "alignment",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "① 一致程度；团队成员对团队条件、工作状态和表现的认识是否相符。",
+      "definitionEn": "The degree to which people's understanding, judgments, or priorities agree.",
+      "usage": "本文通过让成员独立评分，再比较结果，评估 overall alignment。这里不仅指目标相同，也关乎成员对团队现状的判断是否一致。",
+      "exampleEn": "Comparing individual ratings revealed limited alignment between managers and frontline staff about the resources needed to meet delivery targets.",
+      "exampleZh": "比较个人评分后发现，管理者与一线员工对完成交付目标所需资源的看法一致程度不高。",
+      "forms": [],
+      "collocations": [
+        "assess overall alignment",
+        "alignment between team members",
+        "improve alignment on priorities"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "团队评估"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "团队评估",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 90,
+      "reuseExistingEntryId": "public-teamwork-c4-alignment",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "blind spot",
+      "originalInput": "blind spots",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "① 盲点；个人或团队尚未察觉、理解或纳入考虑的重要问题。",
+      "definitionEn": "An important issue or perspective that someone fails to notice or understand.",
+      "usage": "本文比较成员评估，能揭示领导者或其他成员未看见的问题。常用 identify / reveal / address blind spots，强调认识上的遗漏。",
+      "exampleEn": "Inviting colleagues from every location to review the plan helped us identify blind spots in our staffing assumptions.",
+      "exampleZh": "邀请各地同事审视计划，帮助我们发现了人员配置假设中的盲点。",
+      "forms": [
+        "blind spots"
+      ],
+      "collocations": [
+        "identify blind spots",
+        "reveal a blind spot",
+        "address blind spots"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "问题识别"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "问题识别",
+      "phonetic": "",
+      "confusedWith": [],
+      "order": 91,
+      "reuseExistingEntryId": "public-teamwork-c4-blind-spot",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    },
+    {
+      "term": "prime for",
+      "originalInput": "prime it for success",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "① 使充分准备好，以迎接某项任务或取得某种成果。本文指为既有团队的成功做好准备。",
+      "definitionEn": "To prepare someone or something so that it is ready for a future outcome.",
+      "usage": "结构为 prime somebody/something for + 名词。本文 prime it for success 中 it 指接手的团队；prime 在此为及物动词。",
+      "exampleEn": "Clear responsibilities and adequate support can prime the new team for success before it takes on major client work.",
+      "exampleZh": "明确的职责和充足的支持，可以在新团队承接重要客户工作之前，为其成功做好准备。",
+      "forms": [
+        "primes for",
+        "primed for",
+        "priming for"
+      ],
+      "collocations": [
+        "prime a team for success",
+        "prime an organisation for change",
+        "be primed for action"
+      ],
+      "confusedWith": [
+        "prime 本文为动词“使准备好”，不是数学中的 prime number（质数），也不是形容词“首要的”。"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "成功条件"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "成功条件",
+      "phonetic": "",
+      "order": 92,
+      "reuseExistingEntryId": "public-teamwork-c4-prime-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无此标准词条或完整表达，新增本篇学习词卡。"
+      }
+    }
+  ]
+}
