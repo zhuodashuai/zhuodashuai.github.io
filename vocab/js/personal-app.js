@@ -13,8 +13,7 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=97";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=113";
-import { mergePersonalDictionaryPage, createPersonalSpellingSuggestions } from "./personal-lookup-flow.js?v=113";
+import { lookupPersonalDictionaryFast, mergePersonalDictionaryPage, createPersonalSpellingSuggestions } from "./personal-lookup-flow.js?v=113";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
 import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=113";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
