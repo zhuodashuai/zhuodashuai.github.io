@@ -18,7 +18,7 @@ const fixture = JSON.parse(fixtureBytes), prepared = prepareSevenHeadFixture(fix
 expect(prepared.queryCount).toBe(45);
 
 test.use({ serviceWorkers: 'block', storageState: { cookies: [], origins: [] } });
-for (const width of [390, 1280]) test(`exact seven heads: all 45 queries, native flows and saved-context separation at ${width}px`, async ({ context }, testInfo) => {
+for (const width of [390, 1280]) test(`exact seven heads: all 45 identity queries, native flows and saved-context separation at ${width}px`, async ({ context }, testInfo) => {
   test.setTimeout(180000);
   const base = 'http://127.0.0.1:4187/', report = freshSevenHeadReport();
   await watchAnonymousStaticContext(context, base, report, expect);

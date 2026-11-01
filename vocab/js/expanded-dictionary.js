@@ -540,7 +540,10 @@ async function integratedChineseMatches(query, ranking, context) {
       }
       if (declaredAliases?.includes(alias)) matches.push({ score: 0.25, matchedChinese: alias, related: true });
     }
-    for (const match of matches) keep({ term: record.term, record, selected, dto, sourcePriority, order, ...match });
+    // Editorial aliases approve complete query intentions. A word merely
+    // appearing in an editorial gloss does not give it priority for that query.
+    const intentPriority = sourcePriority === 0 && declaredAliases?.some(alias => alias === term || aliases.includes(alias)) ? 0 : 1;
+    for (const match of matches) keep({ term: record.term, record, selected, dto, sourcePriority, intentPriority, order, ...match });
   };
   for (const { record, variants } of prepared.sourceRows) {
     for (const selected of variants) score(record, selected, null, null, 1, record.id);
@@ -550,8 +553,11 @@ async function integratedChineseMatches(query, ranking, context) {
     const record = canonical || { term: dto.term, id: 30_000_001 + index };
     score(record, dto, dto, entry.aliases, 0, record.id);
   });
+  // Resolve equal strong matches with explicitly approved query intentions,
+  // preserving keep()'s source selection. Qualified aliases cannot steal a
+  // broader intention, and weak compound/explanatory matches get no boost.
   const matches = [...best.values()].sort((a, b) => a.score - b.score || Number(a.related) - Number(b.related)
-    || a.order - b.order || a.term.localeCompare(b.term, "en"));
+    || (a.score < 1 ? a.intentPriority - b.intentPriority : 0) || a.order - b.order || a.term.localeCompare(b.term, "en"));
   const value = { query, normalized, matches, common };
   ranking.lastChineseQuery = value;
   return value;

@@ -1,3 +1,4 @@
+import {queryRequiredDictionaryResult} from './required-dictionary-result.mjs';
 import {test,expect} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import {REVIEWED_SENSE_ENTRIES} from '../../../vocab/js/reviewed-senses-data.js';
@@ -14,9 +15,9 @@ for(const width of [390,1280])test(`same-head original pairs retain their specif
     await page.setViewportSize({width,height:844});await page.goto(new URL('dictionary.html',base).href,{waitUntil:'domcontentloaded'});
     let queries=0;
     for(const row of rows)for(const query of [row.source.term,row.source.term.toUpperCase(),...row.source.englishForms,...row.source.chineseAliases]){
-      await page.locator('#dictionary-query').fill(query);await page.locator('#dictionary-query').press('Enter');
-      await expect(page.locator('#dictionary-status')).toHaveAttribute('data-phase','ready');
-      await expect(page.locator('#dictionary-term')).toHaveText(row.source.term);await expect(page.locator('#dictionary-pos')).toHaveText(row.source.partOfSpeech);
+      const selection=await queryRequiredDictionaryResult(page,query,row.source.term,expect);
+      report.queries.push({query,term:row.source.term,...selection});
+      await expect(page.locator('#dictionary-pos')).toHaveText(row.source.partOfSpeech);
       await expect(page.locator('#dictionary-meaning .meaning-line')).toHaveText(row.source.meaning.split('\n'));
       const original=row.original.senses[0];
       await expect(page.locator('#dictionary-example-content summary')).toHaveText('1. '+original.partOfSpeech+' · '+original.meaningZh);
