@@ -13,10 +13,10 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=97";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=112";
-import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=112";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=113";
+import { mergePersonalDictionaryPage, createPersonalSpellingSuggestions } from "./personal-lookup-flow.js?v=113";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=112";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=113";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js";
@@ -77,6 +77,7 @@ const state = {
   entrySort: normalizeEntrySort(new URLSearchParams(window.location.search).get("sort") === "source" ? null : new URLSearchParams(window.location.search).get("sort")),
   lastArchivedFolderId: null, dictionaryPrivateReceipt: null
 };
+const dictionarySpelling = createPersonalSpellingSuggestions({ onChange: renderDictionarySuggestions });
 const dictionaryCollector = createDictionaryCollectionQueue({
   collect: (body, { signal, csrfToken }) => api.collectDictionary(body, csrfToken, { signal }),
   onChange(value) {
@@ -662,6 +663,7 @@ function selectOptions(element, options, selected) {
 }
 
 function resetDictionary() {
+  dictionarySpelling.clear();
   clearDictionaryPrivateReceipt();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
@@ -763,6 +765,35 @@ function showDictionaryChoices(results, hasMore) {
   if (focused) [...choices.querySelectorAll("button[data-dictionary-term]")].find(button => button.dataset.dictionaryTerm === focused)?.focus({ preventScroll: true });
 }
 
+function renderDictionarySuggestions(value) {
+  const choices = $("member-dictionary-choices");
+  if (value.phase === "idle") {
+    if (!state.dictionaryResults.length) { choices.replaceChildren(); choices.hidden = true; }
+    return;
+  }
+  if (state.phase !== "ready" || !state.user || value.query !== $("member-dictionary-term").value) return;
+  choices.replaceChildren();
+  const visible = value.phase !== "ready" || value.suggestions.length > 0;
+  choices.hidden = !visible;
+  if (!visible) return;
+  const caption = document.createElement("p"); caption.className = "field-note";
+  caption.textContent = value.phase === "loading" ? "正在查找相近拼写，不影响继续输入…"
+    : value.phase === "error" ? "拼写建议暂不可用；可修改输入或按 Enter 重试。" : "你是不是想查：";
+  choices.append(caption);
+  for (const candidate of value.suggestions) {
+    const button = document.createElement("button"); button.type = "button"; button.className = "dictionary-choice";
+    button.lang = "en"; button.textContent = candidate.term; button.dataset.dictionarySuggestion = candidate.term;
+    button.addEventListener("click", () => {
+      if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
+      $("member-dictionary-term").value = candidate.term;
+      // An explicit candidate choice starts a fresh exact lookup. Rendering a
+      // suggestion never changes the input or supplies a guessed definition.
+      void queryDictionary({ preventDefault() {} });
+    });
+    choices.append(button);
+  }
+}
+
 function startDictionaryRelations(query, direct, { token, sequence }) {
   if (direct.relatedIntegrated === true) return;
   if (!/\p{Script=Han}/u.test(query)) return;
@@ -823,6 +854,10 @@ async function queryDictionary(event, { full = false } = {}) {
       $("member-dictionary-status").textContent = result.hasMore
         ? "相关候选较多，暂未定位到匹配项；请输入更具体的中文释义再查。"
         : "本站词典与已发布词条中未找到可用释义。请核对拼写，也可先记下这个词，稍后补充；不会编造释义。";
+      if (!result.hasMore && !["limited", "basic"].includes(result.coverage)) {
+        void dictionarySpelling.show(query, { isCurrent: () => scope.current(token) && sequence === dictionarySequence
+          && state.phase === "ready" && Boolean(state.user) && query === $("member-dictionary-term").value });
+      }
       return;
     }
     showDictionaryChoices(results, state.dictionaryHasMore);

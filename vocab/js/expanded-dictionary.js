@@ -1,11 +1,12 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=112";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning,
+  requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=113";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
   literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=112";
 import { chineseVariantRank, parseChineseRanking, normalizeChineseRankingQuery,
-  createChineseRankingContext } from "./chinese-ranking.js?v=112";
+  createChineseRankingContext } from "./chinese-ranking.js?v=113";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
 import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
 
@@ -320,19 +321,46 @@ async function englishSearch(query, context) {
   // punctuation. The schema's editor normalizer intentionally treats phrases
   // more narrowly; dictionary search can ignore a final comma without changing
   // the saved headword, internal apostrophes, hyphens, plus signs or slashes.
-  const literal = fold(query), unwrapped = query.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
-  const canonical = fold(canonicalizeLookupInput(unwrapped || query));
-  const wanted = context.literalOnly ? [literal] : [...new Set([literal, canonical])];
+  const literal = fold(query);
+  let decorated = exactQuery;
+  // A copied "e.g.," contains a lexical period followed by a sentence comma.
+  // Try removing only the decoration before the older, broader punctuation
+  // fallback. Keep the spelling's case alongside each key for proper names.
+  for (let pass = 0; pass < 2; pass++) {
+    decorated = decorated.replace(/^["']+|["']+$/gu, "").trim()
+      .replace(/[!,?;:，。！？；：]+$/gu, "").trim();
+  }
+  const unwrapped = exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
+  const canonical = canonicalizeLookupInput(unwrapped || exactQuery);
+  const candidates = [{ key: literal, exact: exactQuery }];
+  if (!context.literalOnly) {
+    candidates.push({ key: fold(decorated), exact: decorated }, { key: fold(canonical), exact: canonical });
+    // PDF/nonbreaking hyphens and modifier apostrophes are lookup fallbacks,
+    // never edits to stored heads. A genuine literal Unicode head above wins.
+    for (const value of [decorated, canonical]) {
+      const ordinary = value.replace(/[\u2010\u2011]/gu, "-").replace(/[\u201b\u02bc]/gu, "'");
+      candidates.push({ key: fold(ordinary), exact: ordinary, typographyFallback: ordinary !== value });
+    }
+  }
+  const seen = new Set(), wanted = candidates.filter(candidate => {
+    if (!candidate.key || seen.has(candidate.key)) return false;
+    seen.add(candidate.key); return true;
+  });
   const rows = [];
   for (let index = 0; index < wanted.length; index++) {
     // A true literal head needs no normalized alternative. Loading that shard
     // first would let an unrelated failure or timeout hide a healthy exact hit.
     // Keep a literal form/context pending until the normalized canonical check.
-    const key = wanted[index], shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
+    const { key, exact: exactSpelling, typographyFallback } = wanted[index];
+    // A local phrase may have no expanded-source row. Its ASCII spelling has
+    // the same packaged priority as a direct ASCII lookup, but only after the
+    // original literal has been authenticated and found not to be a head.
+    const packaged = typographyFallback && searchEverydayDictionary(exactSpelling);
+    if (packaged) return packaged;
+    const shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
     const row = { refs: shard.lookup.get(key) || [], shard }; rows.push(row);
     const canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
     if (canonicalRefs.length) {
-      const exactSpelling = index === 0 ? exactQuery : canonicalizeLookupInput(exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim());
       const precise = canonicalRefs.filter(ref => spelling(row.shard.records.get(ref.id).term) === exactSpelling);
       const options = precise.length ? precise : canonicalRefs;
       if (new Set(options.map(ref => ref.id)).size > 1) throw ambiguous();
@@ -495,12 +523,17 @@ async function integratedChineseMatches(query, ranking, context) {
     const matches = [];
     const direct = chineseVariantRank(selected.meaning, term, selected.partOfSpeech,
       { context: rankContext, partOfSpeechHint: normalized.partOfSpeechHint });
-    if (direct !== null) matches.push({ score: direct, matchedChinese: term, related: false });
+    if (direct !== null && (!requiresWholeChineseSourceAtom(term) || matchesWholeChineseSourceAtom(selected.meaning, term, selected.partOfSpeech))) {
+      matches.push({ score: direct, matchedChinese: term, related: false });
+    }
     if (declaredAliases?.includes(term)) matches.push({ score: 0.25, matchedChinese: term, related: true });
     for (const alias of aliases) {
       // Associations require complete source atoms (or an explicitly approved
       // complete alias). A compound or negated mention cannot grant a synonym.
-      if (matchesChineseSearchMeaning(selected.meaning, alias)) {
+      const sourceMatch = requiresWholeChineseSourceAtom(alias)
+        ? matchesWholeChineseSourceAtom(selected.meaning, alias, selected.partOfSpeech)
+        : matchesChineseSearchMeaning(selected.meaning, alias);
+      if (sourceMatch) {
         const rank = chineseVariantRank(selected.meaning, alias, selected.partOfSpeech,
           { partOfSpeechHint: normalized.partOfSpeechHint });
         if (rank !== null) matches.push({ score: rank + 0.25, matchedChinese: alias, related: true });

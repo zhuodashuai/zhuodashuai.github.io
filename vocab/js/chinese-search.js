@@ -165,6 +165,18 @@ export function chineseSearchHeads(term) {
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
+// A reviewed medical-examination query family, not a list of English heads.
+// Source: https://dictionary.cambridge.org/dictionary/english/check-up
+// All results still require an affirmative complete noun atom in one source
+// sense. 尸体检查 and 晶体检波器 cannot supply the shorter word 体检.
+const WHOLE_SOURCE_FAMILY = Object.freeze(["体检", "体格检查", "健康检查"]);
+const wholeSourcePlans = new Map(WHOLE_SOURCE_FAMILY.map(term => [term,
+  Object.freeze({ term, aliases: Object.freeze(WHOLE_SOURCE_FAMILY.filter(alias => alias !== term)) })]));
+
+export function requiresWholeChineseSourceAtom(term) {
+  return typeof term === "string" && wholeSourcePlans.has(term);
+}
+
 const plans = new Map();
 for (const group of GROUPS) for (const term of group) {
   plans.set(term, Object.freeze({ term, aliases: Object.freeze(group.filter(alias => alias !== term)) }));
@@ -177,7 +189,7 @@ for (const group of COMMON_CHINESE_GROUPS) {
   if (!Array.isArray(group.terms) || !Array.isArray(group.heads) || !Array.isArray(group.evidence)
     || !group.terms.length || new Set(group.terms).size !== group.terms.length
     || group.terms.some(term => typeof term !== "string" || !/^\p{Script=Han}{1,50}$/u.test(term)
-      || plans.has(term) || commonPlans.has(term))) continue;
+      || plans.has(term) || wholeSourcePlans.has(term) || commonPlans.has(term))) continue;
   for (const term of group.terms) {
     commonPlans.set(term, Object.freeze({ term, aliases: Object.freeze(group.terms.filter(alias => alias !== term)) }));
     COMMON_GROUPS_BY_TERM.set(term, group);
@@ -188,7 +200,7 @@ for (const group of COMMON_CHINESE_GROUPS) {
 export function chineseSearchPlan(query) {
   if (typeof query !== "string" || query.length > 50 || CONTROL.test(query)) return null;
   const term = query.normalize("NFKC").trim();
-  const exact = plans.get(term) || commonPlans.get(term);
+  const exact = plans.get(term) || wholeSourcePlans.get(term) || commonPlans.get(term);
   if (exact) return exact;
   if (!/[的地]$/u.test(term)) return null;
   const base = term.slice(0, -1), established = plans.get(base);
@@ -298,6 +310,19 @@ export function chineseDefinitionAtoms(meaning, partOfSpeech = "") {
     }
   }
   return result;
+}
+
+/** Source-evidenced noun match for the finite medical-examination family.
+ * [网络] is harmless editorial metadata only here; recognising it must not
+ * promote all legacy network glosses or discard arbitrary usage operators. */
+export function matchesWholeChineseSourceAtom(meaning, term, partOfSpeech = "") {
+  if (!requiresWholeChineseSourceAtom(term)) return false;
+  return chineseDefinitionAtoms(meaning, partOfSpeech).some(atom => {
+    if (atom.partOfSpeech !== "noun") return false;
+    if (atom.lexical === term) return true;
+    const editorial = atom.text.match(/^\[网络\]\s*([\p{Script=Han}]+)$/u);
+    return editorial?.[1] === term;
+  });
 }
 
 /** Match a definition atom, not a mention in an explanation or a compound. */
