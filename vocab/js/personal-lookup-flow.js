@@ -2,7 +2,7 @@ import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
 import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=112";
-import { chineseSearchPlan } from './chinese-search.js?v=112';
+import { chineseSearchPlan } from './chinese-search.js?v=113';
 import { hasSelectedCommonSensePlan } from './selected-common-sense.js';
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
@@ -91,7 +91,7 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
         // source once; retain only ordinary basic hits if it is unavailable.
         const outcome = await bounded(expanded, 15_000);
         if (outcome.pending || outcome.error) {
-          if (outcome.error?.name === "AbortError") throw outcome.error;
+          if (outcome.error?.name === "AbortError" || failedClosed(outcome.error)) throw outcome.error;
           if (hotValue.result.results.length) return basic(hotValue);
           if (outcome.error) throw outcome.error;
           throw new Error("完整词典读取超时，请重试。");
@@ -123,7 +123,9 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
         // of which cache was quicker. Compact-only cards are an offline
         // fallback, never silently appended to an otherwise complete page.
         if (complete.value) return complete.value;
-        if (complete.error?.name === "AbortError") throw complete.error;
+        // Network failure can use a verified partial source. Corruption or an
+        // unresolved source identity must retain the public lookup's rejection.
+        if (complete.error?.name === "AbortError" || failedClosed(complete.error)) throw complete.error;
         const fallback = await bounded(hot, chineseDelayMs);
         if (fallback.value?.result.results.length) return basic(fallback.value);
         if (complete.error) throw complete.error;
@@ -177,4 +179,62 @@ export async function lookupPersonalDictionaryFast(input, { signal, hotLookup, h
     hotController.abort(); fullController.abort();
     for (const timer of timers) clearTimeout(timer);
   }
+}
+
+async function personalSpellingCandidates(input, { signal } = {}) {
+  const [suggestions, dictionary] = await Promise.all([
+    import("./dictionary-suggestions.js?v=89"), import("./expanded-dictionary.js?v=113")
+  ]);
+  if (signal?.aborted) throw abortError();
+  const manifest = await dictionary.preloadExpandedDictionary({ signal, timeoutMs: 3000 });
+  return suggestions.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
+}
+
+/** Optional candidates only; no definition, input replacement or write authority. */
+export function createPersonalSpellingSuggestions({ suggest = personalSpellingCandidates,
+  onChange = () => {}, timeoutMs = 10_000 } = {}) {
+  let sequence = 0, pending = null;
+  let state = { phase: "idle", query: "", suggestions: [] };
+  const publish = next => { state = next; onChange(state); };
+  function clear() {
+    sequence++; pending?.abort(); pending = null;
+    publish({ phase: "idle", query: "", suggestions: [] });
+  }
+  function show(input, { isCurrent = () => true } = {}) {
+    clear();
+    if (typeof input !== "string" || input.length > 200 || !/[A-Za-z]/u.test(input.normalize("NFKC"))
+      || /[\p{Script=Han}\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(input) || !isCurrent()) return Promise.resolve(false);
+    const current = sequence, controller = new AbortController(); pending = controller;
+    const valid = () => current === sequence && !controller.signal.aborted && isCurrent();
+    publish({ phase: "loading", query: input, suggestions: [] });
+    let timer;
+    const duration = Number.isFinite(timeoutMs) && timeoutMs > 0 ? Math.min(timeoutMs, 10_000) : 10_000;
+    const deadline = new Promise((_, reject) => { timer = setTimeout(() => {
+      reject(new Error("Optional spelling lookup timed out")); controller.abort();
+    }, duration); });
+    let stop;
+    const cancelled = new Promise((_, reject) => {
+      stop = () => reject(abortError()); controller.signal.addEventListener("abort", stop, { once: true });
+    });
+    return Promise.race([Promise.resolve().then(() => {
+      if (!valid()) return [];
+      return suggest(input, { signal: controller.signal, limit: 5, timeoutMs: 3000 });
+    }), deadline, cancelled]).then(candidates => {
+      if (!valid()) return false;
+      const seen = new Set();
+      const rows = (Array.isArray(candidates) ? candidates : []).filter(candidate => {
+        const term = candidate?.term;
+        if (typeof term !== "string" || !term.trim() || term.length > 200
+          || /[<>\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(term)) return false;
+        const key = normalizeEnglish(term); if (seen.has(key)) return false;
+        seen.add(key); return true;
+      }).slice(0, 5).map(candidate => ({ term: candidate.term }));
+      publish({ phase: "ready", query: input, suggestions: rows }); return true;
+    }).catch(() => {
+      if (current === sequence && isCurrent()) publish({ phase: "error", query: input, suggestions: [] });
+      return false;
+    }).finally(() => { clearTimeout(timer); controller.signal.removeEventListener("abort", stop);
+      if (pending === controller) pending = null; });
+  }
+  return { show, clear, getState: () => state };
 }

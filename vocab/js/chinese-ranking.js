@@ -1,10 +1,11 @@
-import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=112";
+import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=113";
 
 const TECHNICAL = new Set(["计", "医", "经", "法", "电", "化", "化学", "生", "生物", "植", "植物", "动", "动物",
   "地", "地理", "物", "物理", "心", "心理", "军", "数", "数学", "商", "金融", "工程", "电工", "航", "航海", "航天", "天", "天文"]);
 const NEGATIVE_PREFIX = /^(?:不|非|无|未|没|莫|勿|别|缺乏|并非|不是)/u;
 const NEGATION_BEFORE = /(?:并不|并非|不是|没有|尚未|未曾|缺乏|缺少|欠缺|难以|无需|无须|毋须|不用|不必|不要|不得|不可|不能|切勿|勿|莫|不|非|无|未|没|欠)(?:太|很|甚|够|完全|怎么|那么|如此|再|能|曾经|曾|过于|过分|过度|十分|非常|特别|格外|更加|极其){0,3}$/u;
-const EXCLUSION_BEFORE = /(?:不指|并非指|不是指|不表示|不意味着|不代表|不等于|不等同于|不同于|区别于|有别于|不包括|不包含|不属于|不含|不添加|不加)([^,，;；。.!?！？\n]{0,30})$/u;
+const EXCLUSION_BEFORE = /(?:不特指|不专指|不指|并非指|不是指|不是|并非|不表示|不意味着|不代表|不等于|不等同于|不同于|区别于|有别于|不包括|不包含|不属于|不含|不添加|不加)([^,，;；。.!?！？\n]{0,30})$/u;
+const CONTRAST_BOUNDARY = /(?:而是|但是|然而|不过|但|却|而指|应指|实指|实际上|实为)/u;
 // 别 is an imperative only at a clause/pronoun/adverb boundary. Merely ending
 // another word in 别 does not negate it (e.g. an ordinary degree modifier).
 const IMPERATIVE_BEFORE = /(?:^|请|切|千万|万万|务必|一定|就|也|可|再|人|你|我|他|她|它)别(?:太|很|过于|过分|过度|特别|格外|再){0,3}$/u;
@@ -21,9 +22,13 @@ function hasAffirmedOccurrence(text, query) {
     // Querying 不/没有 themselves is an ordinary literal query: there is no
     // preceding operator at offset zero. Never remove a query's own negation.
     const before = value.slice(0, at);
-    const exclusion = before.match(EXCLUSION_BEFORE);
-    const excluded = exclusion && !/(?:而是|但是|然而|不过|但|却|而指|应指|实指|实际上|实为)/u.test(exclusion[1]);
-    if (at === 0 || !NEGATION_BEFORE.test(before) && !IMPERATIVE_BEFORE.test(before) && !excluded) return true;
+    // A definition can explicitly exclude a modified noun, e.g. 不是普通手洗
+    // 洗洁精 or 不特指给手机充电的充电宝. Those mentions cannot translate the
+    // query. Keep the scope bounded to this atom and restart after a contrast;
+    // a later exclusion still applies in 不是甲但也不是乙.
+    const scope = before.split(CONTRAST_BOUNDARY).at(-1);
+    const excluded = EXCLUSION_BEFORE.test(scope);
+    if (at === 0 || !NEGATION_BEFORE.test(scope) && !IMPERATIVE_BEFORE.test(scope) && !excluded) return true;
   }
   return false;
 }

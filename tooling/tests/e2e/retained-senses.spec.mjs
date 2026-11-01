@@ -1,11 +1,12 @@
+import {queryRequiredDictionaryResult} from './required-dictionary-result.mjs';
 import {test,expect} from '@playwright/test';
 const ORIGIN='http://127.0.0.1:4187';
 test.use({serviceWorkers:'block',viewport:{width:390,height:844}});
 async function query(page,value){
- await page.locator('#dictionary-query').fill(value);await page.locator('#dictionary-query').press('Enter');
- await expect(page.locator('#dictionary-status')).toHaveAttribute('data-phase','ready');
- await expect.poll(()=>page.evaluate(()=>new URLSearchParams(location.hash.slice(1)).get('q'))).toBe(value);
+ const target=value==='大学'||value==='印度联合新闻社'?'uni':value==='受雇于同一老板的拳击手'?'stablemate':value==='vats'?'VAT':value;
+ const selection=await queryRequiredDictionaryResult(page,value,target,expect);
  await expect(page.locator('#dictionary-result')).toBeVisible();
+ await test.info().attach('retained-query-'+value+'.json',{body:Buffer.from(JSON.stringify({query:value,requiredTerm:target,...selection})),contentType:'application/json'});
 }
 test('a retained barrel form cannot open the VAT tax example and the ordinary new sense remains usable',async({page})=>{
  const requests=[];page.on('request',r=>requests.push({url:r.url(),method:r.method()}));await page.goto('/dictionary.html');

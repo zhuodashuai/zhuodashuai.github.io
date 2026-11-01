@@ -4,6 +4,8 @@ import { readFile } from "node:fs/promises";
 import { lookupPersonalDictionaryFast, mergePersonalDictionaryPage } from "../js/personal-lookup-flow.js";
 import { applyCorePosCorrection, isReviewedCoreDictionaryResult, personalDictionaryResult } from "../js/personal-dictionary.js?v=95";
 import { CORE_POS_CORRECTIONS } from "../js/core-pos-corrections.js?v=88";
+import { searchExpandedDictionary, resetExpandedDictionaryCacheForTests } from "../js/expanded-dictionary.js";
+import { EVERYDAY_LOOKUP_ENTRIES } from "../js/everyday-lookup-data.js";
 
 const row = (term, extra = {}) => ({ term, partOfSpeech: "noun", meaning: "测试释义", source: "ECDICT", ...extra });
 const response = (...results) => ({ results, hasMore: false });
@@ -242,6 +244,53 @@ test("ranked Chinese cancellation never turns a partial hit into a completed sea
     hotReverse: async () => response(row("hot")), fullSearch: never }));
   await later(null, 5); controller.abort();
   await assert.rejects(pending, error => error.name === "AbortError");
+});
+
+test("ranked Chinese integrity and ambiguous-source failures stay fail-closed at both alias and compact entry points", async () => {
+  for (const input of ["人工客服", "热"]) {
+    for (const code of ["invalid_dictionary_data", "ambiguous_dictionary_match", "unreviewed_dictionary_form"]) {
+      const failure = Object.assign(new Error("Untrusted complete source"), { code });
+      await assert.rejects(lookupPersonalDictionaryFast(input, options({ preferCompleteChinese: true,
+        hotReverse: async () => response(row("hot")), fullSearch: async () => { throw failure; } })), error => error === failure);
+    }
+  }
+});
+
+test("retained-source Chinese fallback cannot hide a corrupt or ambiguous complete index behind an unrelated hot hit", async () => {
+  const retained = EVERYDAY_LOOKUP_ENTRIES.find(value => value.retainedCanonicalAlternatives?.length);
+  assert.ok(retained, "the shipped retained-source preservation path must be exercised");
+  const original = response(row(retained.term, { source: "different unverified source" }), row("safe-ordinary-hot"));
+  const before = structuredClone(original);
+  for (const code of ["invalid_dictionary_data", "ambiguous_dictionary_match", "unreviewed_dictionary_form"]) {
+    const failure = Object.assign(new Error("Untrusted retained source"), { code });
+    await assert.rejects(lookupPersonalDictionaryFast("测试查找未知中文释义", options({
+      hotReverse: async () => original, fullSearch: async () => { throw failure; } })), error => error === failure);
+  }
+  assert.deepEqual(original, before);
+});
+
+test("an actually corrupted ranking asset is rejected identically by public and personal Chinese lookup", async () => {
+  let corruptReads = 0;
+  const localRoot = new URL("../../", import.meta.url);
+  const corruptStatic = async input => {
+    const url = new URL(input);
+    assert.equal(url.protocol, "file:");
+    assert.ok(url.href.startsWith(localRoot.href), "this regression must read only checked-in public assets");
+    const bytes = await readFile(url);
+    if (url.pathname.includes("/chinese-search-ranking/") && url.pathname.endsWith(".bin")) {
+      bytes[0] ^= 1; corruptReads++;
+    }
+    return new Response(bytes);
+  };
+  resetExpandedDictionaryCacheForTests();
+  const complete = (query, extra = {}) => searchExpandedDictionary(query, { ...extra, fetchImpl: corruptStatic });
+  try {
+    await assert.rejects(complete("人工客服"), error => error.code === "invalid_dictionary_data");
+    await assert.rejects(lookupPersonalDictionaryFast("人工客服", options({ preferCompleteChinese: true,
+      hotReverse: async () => { throw Error("The approved alias already supplies the safe partial row"); }, fullSearch: complete })),
+      error => error.code === "invalid_dictionary_data");
+    assert.equal(corruptReads, 2, "both real callers must actually reach and reject the altered asset");
+  } finally { resetExpandedDictionaryCacheForTests(); }
 });
 
 test("mid-load hot Chinese can win after full search starts; its caller is cancelled without any later replacement", async () => {

@@ -1,3 +1,4 @@
+// Refresh source-scoped search, pasted spelling and personal suggestions; retain saved data and warmed shards.
 // Reuse twelve authenticated original pairs with their specific labels; keep saved data and warmed shards.
 // Add three classroom-theme expressions; retain warmed dictionary and private learning data.
 // Refresh four reviewed classroom supplements; preserve original senses and learning data.
@@ -19,6 +20,10 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/chinese-search.js?v=113", "./js/chinese-ranking.js?v=113",
+  "./js/expanded-dictionary.js?v=113", "./js/dictionary-app.js?v=113",
+  "./js/library-lookup-controller.js?v=113", "./js/library-lookup-ui.js?v=113",
+  "./js/personal-lookup-flow.js?v=113",
   "./js/chinese-search.js?v=112", "./js/chinese-ranking.js?v=112",
   "./js/expanded-dictionary.js?v=112", "./js/everyday-lookup.js?v=112",
   "./js/dictionary-app.js?v=112", "./js/library-lookup-controller.js?v=112",

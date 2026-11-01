@@ -12,8 +12,8 @@ test("dictionary direct entry initializes PWA without blocking lookup or forcing
   assert.match(html, /id="apply-update"/u);
   assert.match(app, /import \{ setupPwa \} from "\.\/pwa\.js\?v=77"/u);
   assert.match(app, /import \{ installDictionaryOfflineWarm \} from "\.\/dictionary-offline-warm\.js\?v=102"/u);
-  assert.match(app, /import "\.\/dictionary-app\.js\?v=104"/u);
-  assert.ok(app.indexOf('import "./dictionary-app.js?v=104"') < app.indexOf("setupPwa({"));
+  assert.match(app, /import "\.\/dictionary-app\.js\?v=113"/u);
+  assert.ok(app.indexOf('import "./dictionary-app.js?v=113"') < app.indexOf("setupPwa({"));
   const initialization = app.slice(app.lastIndexOf('if (typeof document !== "undefined"'));
   assert.ok(initialization.indexOf("installDictionaryOfflineWarm()") < initialization.indexOf("setupPwa({"));
   assert.doesNotMatch(initialization, /autoApplyUpdate:\s*true|await navigator\.serviceWorker\.ready/u);
