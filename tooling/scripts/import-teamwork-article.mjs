@@ -10,7 +10,7 @@ import { createBlankEntry, entryLookupKeys, normalizeEnglish, parsePublicSnapsho
 import { pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 
 const ROOT = resolve(import.meta.dirname, "../..");
-const MAX_BYTES = 5_000_000;
+export const TEAMWORK_SNAPSHOT_MAX_BYTES = 6_000_000;
 const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 const unique = values => [...new Set(values)];
 const text = value => typeof value === "string" && value.trim().length > 0;
@@ -110,7 +110,7 @@ function newEntry(item, source, timestamp) {
 
 export function serializeTeamworkSnapshot(snapshot) {
   const serialized = `${JSON.stringify(snapshot)}\n`;
-  assert(Buffer.byteLength(serialized) <= MAX_BYTES, "The article snapshot exceeds the production 5,000,000-byte limit.");
+  assert(Buffer.byteLength(serialized) <= TEAMWORK_SNAPSHOT_MAX_BYTES, "The article snapshot exceeds the production 6,000,000-byte limit.");
   return serialized;
 }
 

@@ -1,4 +1,5 @@
 import { PUBLIC_SCHEMA_VERSION, validateSnapshot, type PublicSnapshot } from "./schema";
+import { MAX_SNAPSHOT_BYTES } from "./public-snapshot-limits";
 
 export interface PublicSnapshotRecord {
   snapshot: PublicSnapshot;
@@ -13,7 +14,6 @@ const HEAD_KEY = `${PREFIX}head`;
 // Leave substantial space below SQLite Durable Objects' 2 MiB per-value limit,
 // including serialization overhead. Split UTF-8 bytes, not JS code units.
 const CHUNK_BYTES = 240 * 1024;
-const MAX_SNAPSHOT_BYTES = 5_000_000;
 const MAX_RECORD_BYTES = MAX_SNAPSHOT_BYTES + 16_384;
 const MAX_CHUNKS = Math.ceil(MAX_RECORD_BYTES / CHUNK_BYTES);
 const encoder = new TextEncoder();

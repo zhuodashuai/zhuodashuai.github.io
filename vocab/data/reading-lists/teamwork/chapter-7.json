@@ -1,0 +1,2879 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-7",
+    "number": 7,
+    "title": "A Leader’s Framework for Decision Making"
+  },
+  "sourceTitle": "Teamwork — A Leader’s Framework for Decision Making",
+  "articleTitle": "A Leader’s Framework for Decision Making",
+  "authors": "David J. Snowden; Mary E. Boone",
+  "issue": "November 2007",
+  "sourceUrl": "https://hbr.org/2007/11/a-leaders-framework-for-decision-making",
+  "sourcePdfSha256": "56f8007fa04bc2d8cb34cf612c0fb52742a0e0ea3394ff6e6e60bef20ce58f3d",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 86,
+  "curation": {
+    "difficulty": "upper-intermediate-and-advanced",
+    "originalItemCount": 94,
+    "selectionStandard": "保留中高级难词、专业概念、习语及熟词生义；排除基础词与透明组合。",
+    "excludedItems": [
+      {
+        "term": "cope with",
+        "pdfPage": 3,
+        "reason": "常见应对表达，优先保留更难的动词和习语。"
+      },
+      {
+        "term": "in the midst of",
+        "pdfPage": 3,
+        "reason": "常见介词短语，本文无特殊新义。"
+      },
+      {
+        "term": "brainstorming",
+        "pdfPage": 6,
+        "reason": "基础团队讨论词，本文无独特词义。"
+      },
+      {
+        "term": "come up with",
+        "pdfPage": 6,
+        "reason": "常见提出想法表达，不单列。"
+      },
+      {
+        "term": "at hand",
+        "pdfPage": 7,
+        "reason": "常见现有或手边表达，不单列。"
+      },
+      {
+        "term": "take turns",
+        "pdfPage": 8,
+        "reason": "基础轮流表达，不单列。"
+      },
+      {
+        "term": "on time",
+        "pdfPage": 8,
+        "reason": "基础时间表达，不单列。"
+      },
+      {
+        "term": "carry on",
+        "pdfPage": 10,
+        "reason": "常见继续表达，保留更有难度的上下文词汇。"
+      }
+    ]
+  },
+  "items": [
+    {
+      "term": "inundate",
+      "originalInput": "inundated",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使应接不暇；大量涌入或挤满。",
+      "definitionEn": "To overwhelm a person or place with a large amount of something.",
+      "usage": "常用 be inundated with；本文指媒体人员大量涌入。",
+      "exampleEn": "After the announcement, the support team was inundated with questions from customers.",
+      "exampleZh": "公告发布后，大量客户问题涌向客服团队。",
+      "forms": [
+        "inundates",
+        "inundated",
+        "inundating"
+      ],
+      "collocations": [
+        "be inundated with requests",
+        "inundate a team with questions"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 1,
+      "reuseExistingEntryId": "public-teamwork-c7-inundate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "juggle",
+      "originalInput": "juggling",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "同时应付多项任务或相互竞争的要求。",
+      "definitionEn": "To manage several competing tasks or demands at the same time.",
+      "usage": "本文搭配 multiple demands，指兼顾多项要求。",
+      "exampleEn": "The project manager juggled urgent repairs and preparations for the next product launch.",
+      "exampleZh": "项目经理同时应付紧急维修和下一次产品发布的准备工作。",
+      "forms": [
+        "juggles",
+        "juggled",
+        "juggling"
+      ],
+      "collocations": [
+        "juggle competing demands",
+        "juggle responsibilities"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 2,
+      "reuseExistingEntryId": "public-teamwork-c7-juggle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "fall short",
+      "originalInput": "fall short",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "未达到预期或要求；效果不足。",
+      "definitionEn": "To fail to reach an expected standard or desired result.",
+      "usage": "常用 fall short of；本文指管理方法换了情境便效果不足。",
+      "exampleEn": "The new process reduced delays but still fell short of the team's reliability target.",
+      "exampleZh": "新流程缩短了延误，但仍未达到团队的可靠性目标。",
+      "forms": [
+        "falls short",
+        "fell short",
+        "fallen short",
+        "falling short"
+      ],
+      "collocations": [
+        "fall short of expectations",
+        "fall short of a target"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 3,
+      "reuseExistingEntryId": "public-teamwork-c7-fall-short",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "prevail",
+      "originalInput": "prevail",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "奏效；占上风并取得成功。",
+      "definitionEn": "To prove stronger or more successful in a particular situation.",
+      "usage": "本文指看似应当奏效的方法；也可指某观点最终占上风。",
+      "exampleEn": "A convincing explanation does not guarantee that the proposed solution will prevail in practice.",
+      "exampleZh": "解释有说服力，并不保证所提出的方案实际会奏效。",
+      "forms": [
+        "prevails",
+        "prevailed",
+        "prevailing"
+      ],
+      "collocations": [
+        "prevail in practice",
+        "reason prevails"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 4,
+      "reuseExistingEntryId": "public-teamwork-c7-prevail",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "assimilate",
+      "originalInput": "assimilate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "吸收并理解新信息或观念。",
+      "definitionEn": "To absorb new information and integrate it into one's understanding.",
+      "usage": "本文搭配 complex concepts；不是文化同化义。",
+      "exampleEn": "New members need time to assimilate unfamiliar technical concepts before making recommendations.",
+      "exampleZh": "新成员需要时间理解陌生的技术概念，然后才能提出建议。",
+      "forms": [
+        "assimilates",
+        "assimilated",
+        "assimilating"
+      ],
+      "collocations": [
+        "assimilate information",
+        "assimilate new concepts"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 5,
+      "reuseExistingEntryId": "public-teamwork-c7-assimilate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "disorder",
+      "originalInput": "disorder",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "失序或未分类状态；尚不清楚应采用哪一种情境判断。",
+      "definitionEn": "The state of not knowing which decision-making context applies to a situation.",
+      "usage": "Cynefin 的第五类；不同于 chaotic，先拆分问题再判断。",
+      "exampleEn": "The discussion remained in disorder because participants disagreed about what kind of problem they faced.",
+      "exampleZh": "参与者对问题类型意见不一，因此讨论仍未能确定所属情境。",
+      "forms": [],
+      "collocations": [
+        "a state of disorder",
+        "move out of disorder"
+      ],
+      "confusedWith": [
+        "disorder 是尚未确定所属情境；chaotic context 是必须先行动恢复秩序的混乱情境。"
+      ],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 6,
+      "reuseExistingEntryId": "public-teamwork-c7-disorder",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "predominant",
+      "originalInput": "predominant",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "占主导地位的；最显著或最常见的。",
+      "definitionEn": "More influential, noticeable, or common than the alternatives.",
+      "usage": "本文指尚不能确定四类情境中的哪一种占主导。",
+      "exampleEn": "The facilitator first asked which type of uncertainty was predominant in the project.",
+      "exampleZh": "主持人首先询问，项目中哪一类不确定性占主导。",
+      "forms": [],
+      "collocations": [
+        "a predominant influence",
+        "the predominant context"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 7,
+      "reuseExistingEntryId": "public-teamwork-c7-predominant",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "counterintuitive",
+      "originalInput": "counterintuitive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "违反直觉的；与通常预期相反的。",
+      "definitionEn": "Contrary to what someone would naturally expect or assume.",
+      "usage": "本文指复杂情境有时需要反常规的管理反应。",
+      "exampleEn": "Allowing limited experimentation may seem counterintuitive when a manager wants tighter control.",
+      "exampleZh": "当经理希望加强控制时，允许有限试验可能显得违反直觉。",
+      "forms": [],
+      "collocations": [
+        "a counterintuitive response",
+        "seem counterintuitive"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 8,
+      "reuseExistingEntryId": "public-teamwork-c5-counterintuitive",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      }
+    },
+    {
+      "term": "simple context",
+      "originalInput": "Simple Contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "简单情境；因果关系明显，可按已知流程处理的情境。",
+      "definitionEn": "A setting with obvious cause-and-effect relationships that supports established procedures.",
+      "usage": "Cynefin 使用 sense, categorize, respond；并非所有问题都适合此类。",
+      "exampleEn": "Routine invoice checks usually belong to a simple context with clear rules and predictable outcomes.",
+      "exampleZh": "常规发票核查通常属于规则清楚、结果可预期的简单情境。",
+      "forms": [
+        "simple contexts"
+      ],
+      "collocations": [
+        "a simple context",
+        "classify a context as simple"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 9,
+      "reuseExistingEntryId": "public-teamwork-c7-simple-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "discernible",
+      "originalInput": "discernible",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "可辨认的；能够察觉或看出的。",
+      "definitionEn": "Clear enough to be recognized or detected.",
+      "usage": "常用 discernible to；本文指因果关系是否容易识别。",
+      "exampleEn": "The first trial produced no discernible improvement, so the team revised its assumptions.",
+      "exampleZh": "首次试验没有产生可察觉的改善，因此团队修正了假设。",
+      "forms": [],
+      "collocations": [
+        "a discernible pattern",
+        "clearly discernible"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 10,
+      "reuseExistingEntryId": "public-teamwork-c7-discernible",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "self-evident",
+      "originalInput": "self-evident",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "不言自明的；无需额外证明便能看出的。",
+      "definitionEn": "Obvious without needing further explanation or evidence.",
+      "usage": "本文形容简单情境中的答案，不代表所有判断都显而易见。",
+      "exampleEn": "What seems self-evident to an expert may require explanation for a new colleague.",
+      "exampleZh": "专家认为不言自明的事，对新同事来说可能仍需解释。",
+      "forms": [],
+      "collocations": [
+        "a self-evident answer",
+        "seem self-evident"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 11,
+      "reuseExistingEntryId": "public-teamwork-c7-self-evident",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "fulfillment",
+      "originalInput": "fulfillment",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "订单履行；备货并交付商品，以完成客户订单的过程。",
+      "definitionEn": "The process of preparing and delivering goods to complete customers' orders.",
+      "usage": "本文 order processing and fulfillment 指按既定流程处理并完成订单，不是成就感义。",
+      "exampleEn": "Reliable order fulfillment requires clear procedures for picking, packing, and shipping the correct products.",
+      "exampleZh": "可靠的订单履行需要明确流程，以拣选、包装并发运正确的商品。",
+      "forms": [
+        "fulfilment"
+      ],
+      "collocations": [
+        "order fulfillment",
+        "a fulfillment process"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 12,
+      "reuseExistingEntryId": "public-teamwork-c7-fulfillment",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "order processing and fulfillment"
+    },
+    {
+      "term": "go awry",
+      "originalInput": "goes awry",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "出岔子；偏离原定计划。",
+      "definitionEn": "To develop unexpectedly in an unsuccessful or problematic way.",
+      "usage": "awry 通常作表语；常见 something goes awry。",
+      "exampleEn": "When the delivery plan went awry, the coordinator used the agreed escalation procedure.",
+      "exampleZh": "配送计划出岔子时，协调员采用了事先约定的升级处理流程。",
+      "forms": [
+        "goes awry",
+        "went awry",
+        "gone awry",
+        "going awry"
+      ],
+      "collocations": [
+        "a plan goes awry",
+        "something goes awry"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 13,
+      "reuseExistingEntryId": "public-teamwork-c7-go-awry",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "command-and-control",
+      "originalInput": "command-and-control",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective",
+      "meaning": "命令与控制式的；由上级直接发号施令并控制执行的。",
+      "definitionEn": "Based on centralized authority that gives instructions and controls execution.",
+      "usage": "本文区分适用情境；危机中有效不代表应长期沿用。",
+      "exampleEn": "A command-and-control approach helped stabilize the emergency but later restricted useful local experimentation.",
+      "exampleZh": "命令与控制式的方法有助于稳定危机，但后来限制了有用的局部试验。",
+      "forms": [],
+      "collocations": [
+        "a command-and-control style",
+        "command-and-control management"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 14,
+      "reuseExistingEntryId": "public-teamwork-c7-command-and-control",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "exhaustive",
+      "originalInput": "Exhaustive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "详尽无遗的；尽可能涵盖所有相关方面的。",
+      "definitionEn": "Extremely thorough and covering all relevant details.",
+      "usage": "本文指出简单情境未必需要详尽的互动沟通。",
+      "exampleEn": "The team conducted an exhaustive review before making a decision with long-term consequences.",
+      "exampleZh": "团队在作出影响长远的决定前进行了详尽审查。",
+      "forms": [],
+      "collocations": [
+        "an exhaustive review",
+        "an exhaustive analysis"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 15,
+      "reuseExistingEntryId": "public-teamwork-c7-exhaustive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "susceptible to",
+      "originalInput": "susceptible to",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "容易受某事影响的；易陷入某种问题的。",
+      "definitionEn": "Likely to be affected or influenced by something.",
+      "usage": "后接名词或动名词；本文指易受固化思维影响。",
+      "exampleEn": "Even experienced analysts are susceptible to habits that prevent them from noticing changing conditions.",
+      "exampleZh": "即使经验丰富的分析师，也容易受习惯影响而忽略情况变化。",
+      "forms": [],
+      "collocations": [
+        "susceptible to bias",
+        "susceptible to pressure"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 16,
+      "reuseExistingEntryId": "public-teamwork-susceptible-to-dcb07cb4",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    },
+    {
+      "term": "entrained thinking",
+      "originalInput": "entrained thinking",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "固化思维；被既往训练、经验或成功塑造的惯性判断。",
+      "definitionEn": "Thinking fixed by past experience or training that blocks alternative interpretations.",
+      "usage": "本文明确指条件化反应，不是一般的认真思考。",
+      "exampleEn": "Entrained thinking led the experts to reject a useful idea from an unfamiliar field.",
+      "exampleZh": "固化思维使专家们否定了一个来自陌生领域的有用想法。",
+      "forms": [],
+      "collocations": [
+        "challenge entrained thinking",
+        "overcome entrained thinking"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 4,
+      "printedPage": 2,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 17,
+      "reuseExistingEntryId": "public-teamwork-c7-entrained-thinking",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "complacency",
+      "originalInput": "complacency",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "自满；因过去成功而放松警惕的状态。",
+      "definitionEn": "Uncritical satisfaction with current success that reduces attention to possible problems.",
+      "usage": "本文警告，自满可能使管理者在情境变化后反应太迟。",
+      "exampleEn": "Several successful launches created complacency, and warning signs received less attention than they deserved.",
+      "exampleZh": "数次成功发布让团队产生自满，预警信号没有得到应有重视。",
+      "forms": [],
+      "collocations": [
+        "breed complacency",
+        "guard against complacency"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 18,
+      "reuseExistingEntryId": "public-teamwork-c7-complacency",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "catastrophic",
+      "originalInput": "catastrophic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "灾难性的；造成极其严重的损害或失败的。",
+      "definitionEn": "Causing or involving extremely serious damage or failure.",
+      "usage": "本文 catastrophic failure 指情境变化而领导者仍自满时可能发生的严重失败。",
+      "exampleEn": "Ignoring repeated warning signs could turn a manageable problem into a catastrophic failure.",
+      "exampleZh": "忽视反复出现的预警信号，可能使可控问题演变为灾难性失败。",
+      "forms": [],
+      "collocations": [
+        "catastrophic failure",
+        "catastrophic consequences"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 19,
+      "reuseExistingEntryId": "public-teamwork-c7-catastrophic",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "catastrophic failure"
+    },
+    {
+      "term": "buck",
+      "originalInput": "bucking",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "反抗或挑战惯例、规则或既定做法。",
+      "definitionEn": "To resist or act against an established practice or expectation.",
+      "usage": "本文 buck the process 指质疑失灵流程；不是货币俗称。",
+      "exampleEn": "The engineer chose to buck convention and test a less familiar design.",
+      "exampleZh": "这位工程师决定挑战惯例，测试一种不太熟悉的设计。",
+      "forms": [
+        "bucks",
+        "bucked",
+        "bucking"
+      ],
+      "collocations": [
+        "buck the trend",
+        "buck convention"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 20,
+      "reuseExistingEntryId": "public-teamwork-c7-buck",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "hindsight",
+      "originalInput": "hindsight",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "事后认识；在结果已知后形成的理解。",
+      "definitionEn": "Understanding gained after an event and its outcome are known.",
+      "usage": "常用 with hindsight；知道过去原因不等于能预测未来。",
+      "exampleEn": "With hindsight, the warning signs looked obvious, but the team had missed them initially.",
+      "exampleZh": "事后看来，预警信号很明显，但团队起初没有注意到。",
+      "forms": [],
+      "collocations": [
+        "with hindsight",
+        "the benefit of hindsight"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 21,
+      "reuseExistingEntryId": "public-teamwork-c7-hindsight",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "foresight",
+      "originalInput": "foresight",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "预见；事先判断未来需要或后果的能力。",
+      "definitionEn": "The ability to anticipate future developments or consequences.",
+      "usage": "与 hindsight 对照，事后解释未必带来事前预测。",
+      "exampleEn": "The team showed foresight by recording assumptions before the next phase of testing.",
+      "exampleZh": "团队在下一轮测试前记录了假设，体现了预见性。",
+      "forms": [],
+      "collocations": [
+        "show foresight",
+        "strategic foresight"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 22,
+      "reuseExistingEntryId": "public-teamwork-c7-foresight",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "complicated context",
+      "originalInput": "Complicated contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "繁杂但可分析的情境；需要专家找出可辨认的因果关系。",
+      "definitionEn": "A setting whose cause-and-effect relationships can be discovered through expert analysis.",
+      "usage": "Cynefin 使用 sense, analyze, respond；可能有多个合理答案。",
+      "exampleEn": "Diagnosing a known machine fault is a complicated context that requires specialist analysis.",
+      "exampleZh": "诊断已知机器故障属于需要专业分析的繁杂情境。",
+      "forms": [
+        "complicated contexts"
+      ],
+      "collocations": [
+        "a complicated context",
+        "expert analysis in a complicated context"
+      ],
+      "confusedWith": [
+        "complicated 的因果关系可由专家分析发现；complex 的可用模式需通过试探与互动逐步涌现。"
+      ],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 23,
+      "reuseExistingEntryId": "public-teamwork-c7-complicated-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "poised",
+      "originalInput": "poised",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "准备就绪的；处于即将采取行动或发生变化的状态。",
+      "definitionEn": "Ready or positioned to do something or undergo a change.",
+      "usage": "常见 be poised to do；本文指复杂性科学有望帮助领导者。",
+      "exampleEn": "The team was poised to expand the pilot once the remaining technical questions were resolved.",
+      "exampleZh": "剩余技术问题解决后，团队已准备扩大试点。",
+      "forms": [],
+      "collocations": [
+        "be poised to expand",
+        "poised for growth"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 24,
+      "reuseExistingEntryId": "public-teamwork-c7-poised",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "intricate",
+      "originalInput": "intricate",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "错综复杂的；由许多相互关联的细节构成的。",
+      "definitionEn": "Containing many small, closely connected details or parts.",
+      "usage": "本文修饰 markets；不直接等同 Cynefin 的 complex 技术分类。",
+      "exampleEn": "The proposal depended on an intricate network of suppliers with different delivery constraints.",
+      "exampleZh": "这份提案依赖一个错综复杂的供应商网络，各家有不同交付限制。",
+      "forms": [],
+      "collocations": [
+        "an intricate network",
+        "intricate details"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 25,
+      "reuseExistingEntryId": "public-teamwork-c7-intricate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "epoch",
+      "originalInput": "epoch",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "时代；具有重要特征或变化的历史时期。",
+      "definitionEn": "A significant period of time marked by distinctive developments.",
+      "usage": "比普通 period 更强调历史阶段和重大变化。",
+      "exampleEn": "The new technology marked an epoch in how the industry collected and shared information.",
+      "exampleZh": "这项新技术标志着行业收集和共享信息方式的一个新时代。",
+      "forms": [
+        "epochs"
+      ],
+      "collocations": [
+        "a new epoch",
+        "an epoch in history"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 26,
+      "reuseExistingEntryId": "public-teamwork-c7-epoch",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "disproportionately",
+      "originalInput": "disproportionately",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "不成比例地；影响远大于或小于变化本身的程度。",
+      "definitionEn": "To a degree that is unusually large or small relative to something else.",
+      "usage": "本文形容小变化可能带来远大的后果。",
+      "exampleEn": "A minor software change had a disproportionately large effect on the system's response time.",
+      "exampleZh": "一处很小的软件修改对系统响应时间产生了不成比例的巨大影响。",
+      "forms": [],
+      "collocations": [
+        "a disproportionately large effect",
+        "disproportionately affect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 27,
+      "reuseExistingEntryId": "public-teamwork-disproportionately-43aa4b38",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    },
+    {
+      "term": "emergence",
+      "originalInput": "emergence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "涌现；互动中逐步形成事先难以确定的模式或结果。",
+      "definitionEn": "The development of patterns or outcomes through interactions rather than predetermined design.",
+      "usage": "复杂情境的重要概念，强调创造条件并观察模式形成。",
+      "exampleEn": "The facilitator encouraged experimentation and watched for the emergence of workable coordination patterns.",
+      "exampleZh": "主持人鼓励试验，并观察可行协作模式的涌现。",
+      "forms": [],
+      "collocations": [
+        "the emergence of patterns",
+        "monitor for emergence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 28,
+      "reuseExistingEntryId": "public-teamwork-c7-emergence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "irreversible",
+      "originalInput": "irreversible",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "不可逆的；无法恢复到原先状态的。",
+      "definitionEn": "Unable to be reversed or restored to an earlier state.",
+      "usage": "本文指系统与环境共同演化产生的不可逆变化。",
+      "exampleEn": "The decision caused an irreversible change in how the two departments shared information.",
+      "exampleZh": "这一决定不可逆地改变了两个部门共享信息的方式。",
+      "forms": [],
+      "collocations": [
+        "an irreversible change",
+        "an irreversible process"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 29,
+      "reuseExistingEntryId": "public-teamwork-c7-irreversible",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "in retrospect",
+      "originalInput": "in retrospect",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "回顾起来；事后再看。",
+      "definitionEn": "When looking back at past events with knowledge of their outcomes.",
+      "usage": "常用于事后解释；本文提醒其不等于事前可预测。",
+      "exampleEn": "In retrospect, the trial revealed a pattern that no one had anticipated beforehand.",
+      "exampleZh": "回顾起来，那次试验揭示了一个事前无人预料到的模式。",
+      "forms": [],
+      "collocations": [
+        "clear in retrospect",
+        "obvious in retrospect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 30,
+      "reuseExistingEntryId": "public-teamwork-c7-in-retrospect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "in isolation",
+      "originalInput": "in isolation",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "孤立地；脱离其他因素或单独实施时。",
+      "definitionEn": "Separately from other relevant factors or influences.",
+      "usage": "本文指仅靠简单规则理论，未能单独兑现早期承诺。",
+      "exampleEn": "A metric considered in isolation can hide important differences between customer groups.",
+      "exampleZh": "孤立地看某个指标，可能掩盖客户群体之间的重要差异。",
+      "forms": [],
+      "collocations": [
+        "consider something in isolation",
+        "work in isolation"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 31,
+      "reuseExistingEntryId": "public-teamwork-c7-in-isolation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "equilibrium",
+      "originalInput": "equilibrium",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "均衡状态；相互作用的力量达到相对平衡的状态。",
+      "definitionEn": "A state of balance among interacting forces or influences.",
+      "usage": "本文用 equilibrium states 描述人为建立的可预测状态。",
+      "exampleEn": "The process reached a temporary equilibrium after the team adjusted the workload distribution.",
+      "exampleZh": "团队调整工作量分配后，流程达到了暂时的均衡。",
+      "forms": [],
+      "collocations": [
+        "reach equilibrium",
+        "an equilibrium state"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 32,
+      "reuseExistingEntryId": "public-teamwork-c7-equilibrium",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "maverick",
+      "originalInput": "maverick",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "不墨守成规的；独立于主流思路的。",
+      "definitionEn": "Independent of conventional views or established ways of doing things.",
+      "usage": "本文 maverick concepts 指专家体系之外的新思路；亦可作名词。",
+      "exampleEn": "The panel invited a maverick researcher to question assumptions behind the standard design.",
+      "exampleZh": "评审组邀请了一位不墨守成规的研究者质疑标准设计背后的假设。",
+      "forms": [],
+      "collocations": [
+        "maverick ideas",
+        "a maverick thinker"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-c7-maverick",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "analysis paralysis",
+      "originalInput": "analysis paralysis",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "分析瘫痪；因过度分析或争论而无法决策。",
+      "definitionEn": "Failure to decide or act because analysis or discussion continues without resolution.",
+      "usage": "本文指专家因固化思维或自我立场而陷入僵局。",
+      "exampleEn": "The team avoided analysis paralysis by setting a deadline for choosing among acceptable options.",
+      "exampleZh": "团队为可接受方案的选择设定了期限，从而避免分析瘫痪。",
+      "forms": [],
+      "collocations": [
+        "avoid analysis paralysis",
+        "fall into analysis paralysis"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 34,
+      "reuseExistingEntryId": "public-teamwork-c7-analysis-paralysis",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "stalemate",
+      "originalInput": "stalemate",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "僵局；各方均无法推动进展的局面。",
+      "definitionEn": "A situation in which disagreement prevents further progress.",
+      "usage": "常用 reach/hit a stalemate；本文指专家无法就答案达成一致。",
+      "exampleEn": "The specialists reached a stalemate until new test results challenged their competing assumptions.",
+      "exampleZh": "专家们一度陷入僵局，直到新测试结果对各自的假设提出质疑。",
+      "forms": [
+        "stalemates"
+      ],
+      "collocations": [
+        "reach a stalemate",
+        "break a stalemate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 35,
+      "reuseExistingEntryId": "public-hierarchy-stalemate-c71bfae2",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    },
+    {
+      "term": "disaffected",
+      "originalInput": "disaffected",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "不满并疏离的；失去忠诚或支持意愿的。",
+      "definitionEn": "Dissatisfied with and no longer supportive of an organization or authority.",
+      "usage": "本文指可能流失的客户，不只是短暂不高兴。",
+      "exampleEn": "Interviews with disaffected customers revealed problems that the sales reports had not captured.",
+      "exampleZh": "对心生不满的客户进行访谈，揭示了销售报告未能反映的问题。",
+      "forms": [],
+      "collocations": [
+        "disaffected customers",
+        "disaffected employees"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 36,
+      "reuseExistingEntryId": "public-teamwork-c7-disaffected",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "ballistic",
+      "originalInput": "ballistic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "弹道的；与发射体的弹道飞行有关的。",
+      "definitionEn": "Relating to the flight of projectiles, especially after their initial propulsion has ended.",
+      "usage": "本文 ballistic missiles 指弹道导弹；不是 go ballistic（勃然大怒）的习语义。",
+      "exampleEn": "The exercise tested whether analysts could detect early warnings of incoming ballistic missiles.",
+      "exampleZh": "这次演练测试了分析人员能否发现来袭弹道导弹的早期预警。",
+      "forms": [],
+      "collocations": [
+        "ballistic missiles",
+        "a ballistic trajectory"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 37,
+      "reuseExistingEntryId": "public-teamwork-c7-ballistic",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "incoming ballistic missiles"
+    },
+    {
+      "term": "perceptible",
+      "originalInput": "perceptible",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "可察觉的；能够通过观察辨认出来的。",
+      "definitionEn": "Able to be noticed or recognized through observation.",
+      "usage": "本文指有序情境中的因果关系可以辨认，不等于每个人都立即看得出。",
+      "exampleEn": "A slight but perceptible improvement followed the team's first adjustment to the process.",
+      "exampleZh": "团队首次调整流程后，出现了轻微但可察觉的改善。",
+      "forms": [],
+      "collocations": [
+        "a perceptible improvement",
+        "perceptible changes"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 38,
+      "reuseExistingEntryId": "public-teamwork-c7-perceptible",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "cause-and-effect relationships are perceptible"
+    },
+    {
+      "term": "jostle for",
+      "originalInput": "jostle for",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "争抢或竞争，以取得注意、地位或优势。",
+      "definitionEn": "To compete energetically for attention, position, or advantage.",
+      "usage": "本文 multiple perspectives jostle for prominence 指观点竞逐主导位置。",
+      "exampleEn": "Several competing proposals jostled for attention during the discussion of next year's priorities.",
+      "exampleZh": "讨论明年优先事项时，几份相互竞争的提案争相获得关注。",
+      "forms": [
+        "jostles for",
+        "jostled for",
+        "jostling for"
+      ],
+      "collocations": [
+        "jostle for attention",
+        "jostle for prominence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 39,
+      "reuseExistingEntryId": "public-teamwork-c7-jostle-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "cacophony",
+      "originalInput": "cacophony",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "刺耳的杂音；众声喧哗、彼此冲突的混乱局面。",
+      "definitionEn": "A harsh mixture of sounds or conflicting voices that is difficult to make sense of.",
+      "usage": "本文比喻各派争论导致的混乱，而非有序的多元讨论。",
+      "exampleEn": "The discussion became a cacophony of competing demands until the facilitator separated the issues.",
+      "exampleZh": "主持人将议题拆分前，讨论变成了各种相互竞争要求的嘈杂混战。",
+      "forms": [
+        "cacophonies"
+      ],
+      "collocations": [
+        "a cacophony of voices",
+        "a cacophony of demands"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 40,
+      "reuseExistingEntryId": "public-teamwork-c7-cacophony",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "constituent",
+      "originalInput": "constituent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "组成的；构成整体的。",
+      "definitionEn": "Forming one part of a larger whole.",
+      "usage": "本文 constituent parts 指将未分类情境拆成组成部分。",
+      "exampleEn": "The analyst divided the proposal into its constituent parts before assessing the risks.",
+      "exampleZh": "分析师先把提案拆成组成部分，再评估风险。",
+      "forms": [],
+      "collocations": [
+        "constituent parts",
+        "constituent elements"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 41,
+      "reuseExistingEntryId": "public-teamwork-c7-constituent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "unfettered",
+      "originalInput": "unfettered",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "不受束缚的；没有不必要限制的。",
+      "definitionEn": "Not restricted by controls or conventional limits.",
+      "usage": "本文指尽量纳入多种观点的分析，不是无证据判断。",
+      "exampleEn": "The workshop encouraged unfettered discussion before the team evaluated the feasibility of each suggestion.",
+      "exampleZh": "研讨会先鼓励自由讨论，再由团队评估每项建议的可行性。",
+      "forms": [],
+      "collocations": [
+        "unfettered analysis",
+        "unfettered discussion"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 42,
+      "reuseExistingEntryId": "public-teamwork-c7-unfettered",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "trade-off",
+      "originalInput": "trade-off",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "权衡；得到某种好处时必须放弃另一种好处。",
+      "definitionEn": "A compromise in which gaining one benefit involves giving up another.",
+      "usage": "常用 a trade-off between A and B；本文权衡答案质量与决策速度。",
+      "exampleEn": "There is a trade-off between collecting more evidence and making a timely decision.",
+      "exampleZh": "收集更多证据与及时作出决定之间存在权衡。",
+      "forms": [
+        "trade-offs"
+      ],
+      "collocations": [
+        "a trade-off between speed and accuracy",
+        "evaluate a trade-off"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 43,
+      "reuseExistingEntryId": "public-teamwork-c7-trade-off",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "elusive",
+      "originalInput": "elusive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "难以找到、确定或实现的。",
+      "definitionEn": "Difficult to find, define, or achieve despite attempts.",
+      "usage": "本文 right answer is elusive 指难以确定合适答案。",
+      "exampleEn": "A reliable explanation remained elusive until the researchers compared several unexpected failures.",
+      "exampleZh": "研究者比较了几次意外失效后，才找到了此前难以确定的可靠解释。",
+      "forms": [],
+      "collocations": [
+        "an elusive answer",
+        "remain elusive"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 44,
+      "reuseExistingEntryId": "public-teamwork-c7-elusive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "complex context",
+      "originalInput": "Complex Contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "复杂涌现情境；需通过试探和互动逐步识别模式的情境。",
+      "definitionEn": "A setting where useful patterns emerge through interaction and experimentation rather than advance analysis alone.",
+      "usage": "Cynefin 使用 probe, sense, respond；不同于专家分析可得解的情境。",
+      "exampleEn": "Entering an unfamiliar market can create a complex context that calls for small experiments.",
+      "exampleZh": "进入陌生市场可能形成需要小规模试验的复杂情境。",
+      "forms": [
+        "complex contexts"
+      ],
+      "collocations": [
+        "a complex context",
+        "experimentation in a complex context"
+      ],
+      "confusedWith": [
+        "complex 不仅是难度高；在此指不能仅靠事前分析确定答案、需要观察涌现模式的情境。"
+      ],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 45,
+      "reuseExistingEntryId": "public-teamwork-c7-complex-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "ferret out",
+      "originalInput": "ferreted out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "搜寻出；经过仔细调查找出隐藏或难寻的信息。",
+      "definitionEn": "To discover something hidden or difficult to find through persistent investigation.",
+      "usage": "本文指出，复杂情境的答案不能简单靠搜查分析找出。",
+      "exampleEn": "The review team tried to ferret out hidden assumptions before approving the proposal.",
+      "exampleZh": "评审团队试图在批准提案前查明隐藏的假设。",
+      "forms": [
+        "ferrets out",
+        "ferreted out",
+        "ferreting out"
+      ],
+      "collocations": [
+        "ferret out the truth",
+        "ferret out hidden assumptions"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 46,
+      "reuseExistingEntryId": "public-teamwork-c7-ferret-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "flux",
+      "originalInput": "flux",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "持续变化；不断变动、尚未稳定的状态。",
+      "definitionEn": "A state of continuing change or instability.",
+      "usage": "常见 in flux / constant flux，本文形容生态和组织情境。",
+      "exampleEn": "With customer needs in flux, the team reviewed its assumptions after every small trial.",
+      "exampleZh": "客户需求不断变化，因此团队在每次小试验后都复核假设。",
+      "forms": [],
+      "collocations": [
+        "in flux",
+        "constant flux"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 47,
+      "reuseExistingEntryId": "public-teamwork-c7-flux",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "safe to fail",
+      "originalInput": "safe to fail",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "允许失败且失败后果可控的；用于探索性试验。",
+      "definitionEn": "Permitting unsuccessful experiments without unacceptable consequences.",
+      "usage": "本文 experiments that are safe to fail；不同于 fail-safe。",
+      "exampleEn": "The team designed a trial that was safe to fail before changing the entire service.",
+      "exampleZh": "团队在调整整个服务前，设计了一项即使失败也能控制后果的试验。",
+      "forms": [],
+      "collocations": [
+        "experiments that are safe to fail",
+        "a safe-to-fail probe"
+      ],
+      "confusedWith": [
+        "safe to fail 强调允许小试验失败且后果可控；fail-safe 强调防止失败或故障时仍保持安全。"
+      ],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 48,
+      "reuseExistingEntryId": "public-teamwork-c7-safe-to-fail",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "probe",
+      "originalInput": "probe",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "开展探索性试验；通过小规模尝试了解情境。",
+      "definitionEn": "To explore a situation through limited tests before choosing a larger response.",
+      "usage": "本文 probe, sense, respond 的第一步，不只是口头追问。",
+      "exampleEn": "Before scaling the service, managers probed the market with several small pilot projects.",
+      "exampleZh": "在扩大服务前，管理者通过几项小型试点探索了市场。",
+      "forms": [
+        "probes",
+        "probed",
+        "probing"
+      ],
+      "collocations": [
+        "probe a situation",
+        "probe before responding"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 49,
+      "reuseExistingEntryId": "public-nlmg-c2-probe",
+      "duplicateDecision": {
+        "action": "reuse-distinct-context",
+        "reason": "现有词卡为探问义；保留原义，新增本文小规模探索试验语境。"
+      }
+    },
+    {
+      "term": "mishmash",
+      "originalInput": "mishmash",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "杂乱的混合物；拼凑在一起的不同东西。",
+      "definitionEn": "A disorganized mixture of different things.",
+      "usage": "常用 a mishmash of；本文指现有材料的杂乱组合。",
+      "exampleEn": "The initial plan was a mishmash of suggestions without a clear way to test them.",
+      "exampleZh": "最初的计划是各种建议的杂乱拼凑，缺少清晰的测试办法。",
+      "forms": [
+        "mishmashes"
+      ],
+      "collocations": [
+        "a mishmash of ideas",
+        "a mishmash of materials"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 50,
+      "reuseExistingEntryId": "public-teamwork-c7-mishmash",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "odds and ends",
+      "originalInput": "odds and ends",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "零星杂物；剩下的各种小东西。",
+      "definitionEn": "Various small items left over or gathered without a clear arrangement.",
+      "usage": "作整体复数表达；本文指可用于应急方案的零散材料。",
+      "exampleEn": "The prototype used odds and ends from the workshop rather than newly purchased components.",
+      "exampleZh": "原型使用了车间里的零星材料，而不是新购零件。",
+      "forms": [],
+      "collocations": [
+        "collect odds and ends",
+        "use odds and ends"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 51,
+      "reuseExistingEntryId": "public-teamwork-c7-odds-and-ends",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "a priori",
+      "originalInput": "a priori",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "事先地；未经此次实际观察或试验便作出的判断。",
+      "definitionEn": "Before direct observation or testing of the particular situation.",
+      "usage": "本文 knew a priori 指试验之前就知道；亦可修饰 reasoning。",
+      "exampleEn": "We could not know a priori which testing strategy would uncover the unfamiliar failure.",
+      "exampleZh": "未经实际测试，我们无法预先知道哪种策略会发现这种陌生失效。",
+      "forms": [],
+      "collocations": [
+        "know a priori",
+        "a priori reasoning"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 52,
+      "reuseExistingEntryId": "public-teamwork-c7-a-priori",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "augment",
+      "originalInput": "augment",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "增加或加强已有事物的规模、能力或效果。",
+      "definitionEn": "To increase or strengthen something by adding to it.",
+      "usage": "本文指支持并扩大已经涌现的使用模式。",
+      "exampleEn": "The company used customer feedback to augment the value of its existing platform.",
+      "exampleZh": "公司利用客户反馈提升了现有平台的价值。",
+      "forms": [
+        "augments",
+        "augmented",
+        "augmenting"
+      ],
+      "collocations": [
+        "augment existing capabilities",
+        "augment the value of something"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 53,
+      "reuseExistingEntryId": "public-teamwork-c7-augment",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "hopeful",
+      "originalInput": "hopefuls",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "有望获选或成功的候选人；争取某职位的人。",
+      "definitionEn": "A person seeking or hoping to obtain a particular position or achievement.",
+      "usage": "本文 presidential hopefuls 指总统职位的竞逐者，不是形容词。",
+      "exampleEn": "Several leadership hopefuls presented different plans for improving cooperation between departments.",
+      "exampleZh": "几位争取领导职位的候选人提出了改善部门合作的不同计划。",
+      "forms": [
+        "hopefuls"
+      ],
+      "collocations": [
+        "presidential hopefuls",
+        "leadership hopefuls"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 54,
+      "reuseExistingEntryId": "public-teamwork-c7-hopeful",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "feed",
+      "originalInput": "feeds",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "连续传送的信息或音视频流。",
+      "definitionEn": "A continuous supply of information, images, or video sent to a receiving system.",
+      "usage": "本文 video feeds 指视频信号流，不是喂养义。",
+      "exampleEn": "The monitoring dashboard combined video feeds from several locations to support the response team.",
+      "exampleZh": "监控面板汇集多个地点的视频流，为应急团队提供支持。",
+      "forms": [
+        "feeds"
+      ],
+      "collocations": [
+        "a video feed",
+        "a live feed"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 55,
+      "reuseExistingEntryId": "public-teamwork-c7-feed",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "preempt",
+      "originalInput": "preempt",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "预先阻止；抢先行动而使后续机会无法出现。",
+      "definitionEn": "To prevent something by acting before it can happen.",
+      "usage": "本文指过度控制会阻碍新模式出现；亦拼作 pre-empt。",
+      "exampleEn": "Excessive control can preempt useful experimentation before the team has learned anything.",
+      "exampleZh": "过度控制可能在团队获得任何认识前就扼杀有用的试验。",
+      "forms": [
+        "preempts",
+        "preempted",
+        "preempting",
+        "pre-empt"
+      ],
+      "collocations": [
+        "preempt an opportunity",
+        "preempt a discussion"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 56,
+      "reuseExistingEntryId": "public-teamwork-c7-preempt",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "chaotic context",
+      "originalInput": "Chaotic Contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "混乱危机情境；尚无可用模式，必须先行动恢复秩序的情境。",
+      "definitionEn": "A setting with no usable stable patterns that requires immediate action to establish order.",
+      "usage": "Cynefin 使用 act, sense, respond；恢复后需重新判断领导方式。",
+      "exampleEn": "During the initial emergency, leaders faced a chaotic context and acted to restore basic order.",
+      "exampleZh": "在紧急事件初期，领导者面对混乱情境，先采取行动恢复基本秩序。",
+      "forms": [
+        "chaotic contexts"
+      ],
+      "collocations": [
+        "a chaotic context",
+        "restore order in a chaotic context"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 57,
+      "reuseExistingEntryId": "public-teamwork-c7-chaotic-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "turbulence",
+      "originalInput": "turbulence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "动荡；由难以预测的变化造成的不稳定状态。",
+      "definitionEn": "A state of instability marked by unpredictable or disruptive changes.",
+      "usage": "本文用于 chaotic context，强调持续变化下缺乏可管理的模式；不是气流颠簸义。",
+      "exampleEn": "Amid severe market turbulence, the company first acted to stabilize its essential operations.",
+      "exampleZh": "市场严重动荡时，公司先采取行动稳定关键业务。",
+      "forms": [],
+      "collocations": [
+        "market turbulence",
+        "a period of turbulence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 58,
+      "reuseExistingEntryId": "public-teamwork-c7-turbulence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "only turbulence"
+    },
+    {
+      "term": "stanch the bleeding",
+      "originalInput": "stanch the bleeding",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "先止损、控制危机继续恶化。",
+      "definitionEn": "To take immediate steps to stop damage from continuing or worsening.",
+      "usage": "借止血比喻危机处置；stanch 亦可拼作 staunch。",
+      "exampleEn": "The manager paused the faulty rollout to stanch the bleeding before investigating the deeper causes.",
+      "exampleZh": "经理暂停了有问题的上线，以先控制损失，再调查深层原因。",
+      "forms": [
+        "staunch the bleeding"
+      ],
+      "collocations": [
+        "stanch the bleeding",
+        "act to stanch the bleeding"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 59,
+      "reuseExistingEntryId": "public-teamwork-c7-stanch-the-bleeding",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "imperative",
+      "originalInput": "imperative",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "迫切必要的；必须立即做到的。",
+      "definitionEn": "Extremely important and necessary in the circumstances.",
+      "usage": "常见 it is imperative that；本文强调危机中直接沟通的必要性。",
+      "exampleEn": "Clear communication was imperative while the response team worked to restore essential services.",
+      "exampleZh": "应急团队恢复基本服务时，清晰沟通至关重要。",
+      "forms": [],
+      "collocations": [
+        "it is imperative that",
+        "an imperative need"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 60,
+      "reuseExistingEntryId": "public-teamwork-c7-imperative",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "mercifully",
+      "originalInput": "mercifully",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "幸而；令人庆幸地。",
+      "definitionEn": "Fortunately, especially because something unpleasant is limited or avoided.",
+      "usage": "本文 mercifully rare 表示庆幸混乱危机并不常见。",
+      "exampleEn": "The equipment failure was mercifully brief, and essential services resumed before demand increased.",
+      "exampleZh": "幸好设备故障持续时间很短，基本服务在需求增加前恢复了。",
+      "forms": [],
+      "collocations": [
+        "mercifully rare",
+        "mercifully brief"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 61,
+      "reuseExistingEntryId": "public-teamwork-c7-mercifully",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "overinflated",
+      "originalInput": "overinflated",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "夸大过头的；过度膨胀的。",
+      "definitionEn": "Exaggerated beyond a reasonable or accurate level.",
+      "usage": "本文修饰 self-image，指危机成功后过高的自我评价。",
+      "exampleEn": "Repeated praise gave the leader an overinflated view of his ability to handle every situation.",
+      "exampleZh": "反复的赞扬让这位领导者过高估计了自己应对各种情况的能力。",
+      "forms": [],
+      "collocations": [
+        "an overinflated self-image",
+        "an overinflated estimate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 62,
+      "reuseExistingEntryId": "public-teamwork-c7-overinflated",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "a legend in one's own mind",
+      "originalInput": "legends in their own minds",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "自以为是的传奇人物；过分高估自身成就或重要性的人。",
+      "definitionEn": "Someone with an exaggerated belief in their own greatness or importance.",
+      "usage": "带讽刺意味；本文指危机成功后自我膨胀的领导者。",
+      "exampleEn": "After one successful launch, the director became a legend in his own mind and ignored criticism.",
+      "exampleZh": "一次成功发布后，主任便自视非凡，无视他人的批评。",
+      "forms": [
+        "legends in their own minds",
+        "a legend in his own mind",
+        "a legend in her own mind"
+      ],
+      "collocations": [
+        "become a legend in one's own mind",
+        "a legend in his own mind"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 63,
+      "reuseExistingEntryId": "public-teamwork-c7-a-legend-in-one-s-own-mind",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "cultlike adoration",
+      "originalInput": "cultlike adoration",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "近乎个人崇拜的狂热敬仰。",
+      "definitionEn": "Intense, unquestioning admiration resembling devotion within a cult.",
+      "usage": "本文批评这种崇拜会使领导者失去准确反馈。",
+      "exampleEn": "Cultlike adoration discouraged advisers from challenging the leader's increasingly risky decisions.",
+      "exampleZh": "近乎个人崇拜的敬仰让顾问不敢质疑领导者日益冒险的决定。",
+      "forms": [],
+      "collocations": [
+        "generate cultlike adoration",
+        "encourage cultlike adoration"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 64,
+      "reuseExistingEntryId": "public-teamwork-c7-cultlike-adoration",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "positive deviance",
+      "originalInput": "positive deviance",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "积极偏离；从群体内部少数人的有效非常规做法中寻找改进办法。",
+      "definitionEn": "Unusual successful behavior within a group that offers locally workable solutions.",
+      "usage": "本文为群体讨论方法；deviance 在此不是不良越轨行为。",
+      "exampleEn": "The hospital studied positive deviance to learn why a few wards achieved better infection control.",
+      "exampleZh": "医院研究内部的积极偏离现象，以了解少数病区为何感染控制更好。",
+      "forms": [],
+      "collocations": [
+        "identify positive deviance",
+        "learn from positive deviance"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 65,
+      "reuseExistingEntryId": "public-teamwork-c7-positive-deviance",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "delineate",
+      "originalInput": "delineate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "划定或明确描述界限、范围或特点。",
+      "definitionEn": "To define or describe the limits or features of something clearly.",
+      "usage": "本文 barriers delineate behavior 指设定行为边界。",
+      "exampleEn": "The project charter delineated which decisions the team could make without further approval.",
+      "exampleZh": "项目章程明确了团队无需再次审批即可作出的决定范围。",
+      "forms": [
+        "delineates",
+        "delineated",
+        "delineating"
+      ],
+      "collocations": [
+        "delineate responsibilities",
+        "delineate boundaries"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 66,
+      "reuseExistingEntryId": "public-teamwork-c5-delineate",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      }
+    },
+    {
+      "term": "self-regulate",
+      "originalInput": "self-regulate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "自我调节；在既定边界内自行维持行为或运作。",
+      "definitionEn": "To control one's own behavior or functioning within established limits.",
+      "usage": "本文指规则设定后系统可在边界内自行调节。",
+      "exampleEn": "With clear boundaries and timely feedback, the team could self-regulate much of its daily work.",
+      "exampleZh": "有了明确边界和及时反馈，团队能自主调节大部分日常工作。",
+      "forms": [
+        "self-regulates",
+        "self-regulated",
+        "self-regulating"
+      ],
+      "collocations": [
+        "a self-regulating system",
+        "allow a team to self-regulate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 67,
+      "reuseExistingEntryId": "public-teamwork-c7-self-regulate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "attractor",
+      "originalInput": "attractors",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "吸引模式；试探引发共鸣后形成并吸引持续参与的现象。",
+      "definitionEn": "An emerging pattern that draws participation and provides structure after exploratory actions resonate.",
+      "usage": "此处为管理语境，不等同于数学中严格定义的吸引子。",
+      "exampleEn": "A small trial became an attractor as more teams voluntarily adopted the new exchange platform.",
+      "exampleZh": "随着更多团队自愿采用新的交流平台，一个小试点形成了持续吸引参与的模式。",
+      "forms": [
+        "attractors"
+      ],
+      "collocations": [
+        "stimulate attractors",
+        "an emerging attractor"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 68,
+      "reuseExistingEntryId": "public-teamwork-c7-attractor",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "resonate with",
+      "originalInput": "resonate with",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "引起共鸣；与某人的兴趣、经验或需要相契合。",
+      "definitionEn": "To connect strongly with someone's feelings, interests, or experience.",
+      "usage": "本文指小规模试探契合参与者需要，从而得到响应。",
+      "exampleEn": "The proposed service resonated with users because it addressed a recurring difficulty in their work.",
+      "exampleZh": "拟议的服务回应了用户工作中的反复难题，因此引起了共鸣。",
+      "forms": [
+        "resonates with",
+        "resonated with",
+        "resonating with"
+      ],
+      "collocations": [
+        "resonate with customers",
+        "resonate with an audience"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 69,
+      "reuseExistingEntryId": "public-teamwork-c7-resonate-with",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "coherence",
+      "originalInput": "coherence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "连贯性；不同部分形成有意义整体的协调状态。",
+      "definitionEn": "A quality of fitting together as a consistent and understandable whole.",
+      "usage": "本文指涌现的吸引模式提供结构与整体协调。",
+      "exampleEn": "A shared explanation gave coherence to the team's otherwise disconnected observations.",
+      "exampleZh": "一个共同的解释让团队原本零散的观察形成了连贯整体。",
+      "forms": [],
+      "collocations": [
+        "provide coherence",
+        "internal coherence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 70,
+      "reuseExistingEntryId": "public-teamwork-c7-coherence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "ritual dissent",
+      "originalInput": "ritual dissent",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "仪式化异议；以固定轮换程序让各组严格批评彼此方案。",
+      "definitionEn": "A structured method in which teams critically examine other teams' proposals through repeated rounds.",
+      "usage": "本文要求发言者背向批评者倾听；重点是方案改进。",
+      "exampleEn": "The workshop used ritual dissent to expose weaknesses in proposals before resources were committed.",
+      "exampleZh": "研讨会采用仪式化异议，在投入资源前揭示提案的弱点。",
+      "forms": [],
+      "collocations": [
+        "use ritual dissent",
+        "a ritual dissent session"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 71,
+      "reuseExistingEntryId": "public-teamwork-c7-ritual-dissent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "rip into",
+      "originalInput": "rips into",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "严厉批评；猛烈抨击。",
+      "definitionEn": "To criticize someone or something very harshly.",
+      "usage": "本文指对方案提出尖锐批评；不是撕开物体。",
+      "exampleEn": "Reviewers ripped into the proposal's unsupported assumptions while the author listened without interrupting.",
+      "exampleZh": "评审者严厉批评了提案中缺乏依据的假设，作者则不打断地倾听。",
+      "forms": [
+        "rips into",
+        "ripped into",
+        "ripping into"
+      ],
+      "collocations": [
+        "rip into a proposal",
+        "rip into an argument"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 72,
+      "reuseExistingEntryId": "public-teamwork-c7-rip-into",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "no holds barred",
+      "originalInput": "no holds barred",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "毫无保留地；不设限制地直言或交锋。",
+      "definitionEn": "Without restrictions on how strongly criticism or debate is expressed.",
+      "usage": "本文修饰严格批评；应聚焦方案，不表示允许人身攻击。",
+      "exampleEn": "The team held a no-holds-barred debate about the plan's risks before choosing a direction.",
+      "exampleZh": "团队在确定方向前，围绕计划风险进行了毫无保留的辩论。",
+      "forms": [
+        "no-holds-barred"
+      ],
+      "collocations": [
+        "a no-holds-barred debate",
+        "no-holds-barred criticism"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 73,
+      "reuseExistingEntryId": "public-teamwork-c7-no-holds-barred",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "dissect",
+      "originalInput": "dissected",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "仔细剖析；逐项检查想法、论证或方案。",
+      "definitionEn": "To examine something in detail by separating it into its parts.",
+      "usage": "本文指方案经过严格讨论被逐项分析；不是实际解剖。",
+      "exampleEn": "The review panel dissected the argument to identify which conclusions lacked supporting evidence.",
+      "exampleZh": "评审组逐项剖析论证，以找出哪些结论缺乏证据。",
+      "forms": [
+        "dissects",
+        "dissected",
+        "dissecting"
+      ],
+      "collocations": [
+        "dissect an argument",
+        "dissect a proposal"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 74,
+      "reuseExistingEntryId": "public-teamwork-c7-dissect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "hone",
+      "originalInput": "honed",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "磨炼；通过反复修改使技能或想法更精进。",
+      "definitionEn": "To improve a skill or idea through careful practice or refinement.",
+      "usage": "本文指方案经多轮批评后被打磨完善。",
+      "exampleEn": "Constructive criticism helped the team hone its proposal before presenting it to senior management.",
+      "exampleZh": "建设性的批评帮助团队在向高层展示前完善了提案。",
+      "forms": [
+        "hones",
+        "honed",
+        "honing"
+      ],
+      "collocations": [
+        "hone a proposal",
+        "hone one's skills"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 75,
+      "reuseExistingEntryId": "public-teamwork-hone-6528f84b",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    },
+    {
+      "term": "runaway success",
+      "originalInput": "runaway success",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "巨大成功；极为成功的事物或结果。",
+      "definitionEn": "A very great success.",
+      "usage": "本文形容 Post-it Note；runaway 在此不是逃跑的人。",
+      "exampleEn": "What began as a small internal tool became a runaway success across the company.",
+      "exampleZh": "一个起初规模很小的内部工具，后来在全公司大获成功。",
+      "forms": [],
+      "collocations": [
+        "become a runaway success",
+        "an unexpected runaway success"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 76,
+      "reuseExistingEntryId": "public-teamwork-c7-runaway-success",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "efficacy",
+      "originalInput": "efficacy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "效力；达到预期效果的能力。",
+      "definitionEn": "The ability of an action or method to produce its intended effect.",
+      "usage": "本文指专家可能过度相信旧方案的效力。",
+      "exampleEn": "The researchers questioned the efficacy of a testing method that repeatedly missed rare failures.",
+      "exampleZh": "一种测试方法反复漏掉罕见失效，因此研究者质疑其效力。",
+      "forms": [],
+      "collocations": [
+        "the efficacy of a method",
+        "assess efficacy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 77,
+      "reuseExistingEntryId": "public-teamwork-c7-efficacy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "orthodoxy",
+      "originalInput": "orthodoxy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "正统观念；被普遍接受而少受质疑的信条或做法。",
+      "definitionEn": "A set of accepted beliefs or practices treated as authoritative.",
+      "usage": "本文鼓励设立沟通渠道，使人能够质疑既定观念。",
+      "exampleEn": "The new evidence challenged the orthodoxy that every approval needed senior management's involvement.",
+      "exampleZh": "新证据质疑了每次审批都需要高层参与这一正统观念。",
+      "forms": [
+        "orthodoxies"
+      ],
+      "collocations": [
+        "challenge orthodoxy",
+        "prevailing orthodoxy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 78,
+      "reuseExistingEntryId": "public-teamwork-c7-orthodoxy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "unabated",
+      "originalInput": "unabated",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "未减弱的；仍在持续的。",
+      "definitionEn": "Continuing without becoming weaker or less intense.",
+      "usage": "本文 Chaos unabated 指混乱仍未得到控制。",
+      "exampleEn": "Public concern continued unabated because the company had not addressed the underlying problem.",
+      "exampleZh": "公司未解决根本问题，因此公众担忧持续未减。",
+      "forms": [],
+      "collocations": [
+        "continue unabated",
+        "remain unabated"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 79,
+      "reuseExistingEntryId": "public-teamwork-c7-unabated",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "impel",
+      "originalInput": "impel",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "推动；促使某人采取行动。",
+      "definitionEn": "To drive or strongly motivate someone to act.",
+      "usage": "常见 impel someone to do；本文指危机中的创新推动。",
+      "exampleEn": "Unexpected test failures impelled the researchers to question assumptions they had previously accepted.",
+      "exampleZh": "意外的测试失效促使研究者质疑此前接受的假设。",
+      "forms": [
+        "impels",
+        "impelled",
+        "impelling"
+      ],
+      "collocations": [
+        "impel innovation",
+        "impel someone to act"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 80,
+      "reuseExistingEntryId": "public-teamwork-c7-impel",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "adept",
+      "originalInput": "adept",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "熟练的；善于灵活处理某事的。",
+      "definitionEn": "Highly skilled at dealing with a particular activity or situation.",
+      "usage": "常见 adept at / in；本文指能够切换领导方式的领导者。",
+      "exampleEn": "An adept facilitator changed the discussion format when the group needed fresh perspectives.",
+      "exampleZh": "一位熟练的主持人在小组需要新视角时调整了讨论形式。",
+      "forms": [],
+      "collocations": [
+        "adept at adapting",
+        "an adept leader"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 81,
+      "reuseExistingEntryId": "public-teamwork-c7-adept",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "stem the tide",
+      "originalInput": "stem the tide",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "遏制不断扩大的趋势或浪潮。",
+      "definitionEn": "To stop or slow the spread of a growing problem or trend.",
+      "usage": "常用 stem the tide of；本文指遏制最初的恐慌。",
+      "exampleEn": "Regular factual updates helped stem the tide of rumors during the disruption.",
+      "exampleZh": "中断期间定期发布事实更新，有助于遏制谣言蔓延。",
+      "forms": [
+        "stems the tide",
+        "stemmed the tide",
+        "stemming the tide"
+      ],
+      "collocations": [
+        "stem the tide of panic",
+        "stem the tide of rumors"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 82,
+      "reuseExistingEntryId": "public-teamwork-stem-the-tide-5d66da7e",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    },
+    {
+      "term": "charisma",
+      "originalInput": "charisma",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "个人魅力；吸引他人并激发敬仰或支持的特质。",
+      "definitionEn": "A personal quality that attracts others and inspires admiration or support.",
+      "usage": "本文指出仅靠直觉、才智和个人魅力不足以领导复杂情境。",
+      "exampleEn": "The founder's charisma attracted supporters, but the board still required evidence for major decisions.",
+      "exampleZh": "创始人的个人魅力吸引了支持者，但董事会仍要求重大决策有证据依据。",
+      "forms": [],
+      "collocations": [
+        "personal charisma",
+        "a leader's charisma"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 83,
+      "reuseExistingEntryId": "public-teamwork-c7-charisma",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇难点词卡。"
+      },
+      "sourceFragment": "intuition, intellect, and charisma"
+    },
+    {
+      "term": "wield",
+      "originalInput": "wield",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "掌握并运用权力、影响力或工具。",
+      "definitionEn": "To exercise power or influence, or to use a tool effectively.",
+      "usage": "本文指何时共享权力、何时独自运用权力。",
+      "exampleEn": "Leaders should consider the context before deciding how much authority to wield directly.",
+      "exampleZh": "领导者应先考虑情境，再决定直接运用多大权力。",
+      "forms": [
+        "wields",
+        "wielded",
+        "wielding"
+      ],
+      "collocations": [
+        "wield power",
+        "wield influence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 84,
+      "reuseExistingEntryId": "public-teamwork-c5-wield",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      }
+    },
+    {
+      "term": "take one's own counsel",
+      "originalInput": "take their own counsel",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "独立斟酌并自行判断；依自己的考虑作决定。",
+      "definitionEn": "To rely on one's own judgment when considering what to do.",
+      "usage": "本文与听取群体智慧相对，不是说永远拒绝他人意见。",
+      "exampleEn": "After hearing the panel's concerns, the director took her own counsel before making the final decision.",
+      "exampleZh": "听取评审组的担忧后，主任独立斟酌，再作最终决定。",
+      "forms": [
+        "take their own counsel",
+        "took her own counsel",
+        "take your own counsel"
+      ],
+      "collocations": [
+        "take one's own counsel",
+        "take his own counsel"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 85,
+      "reuseExistingEntryId": "public-teamwork-c7-take-one-s-own-counsel",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      }
+    },
+    {
+      "term": "paradox",
+      "originalInput": "paradox",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "悖论；表面矛盾却可能同时成立的情况。",
+      "definitionEn": "A situation or statement that seems contradictory but may reveal a valid insight.",
+      "usage": "本文指领导者需接受复杂性中的张力与表面矛盾。",
+      "exampleEn": "The team faced a paradox; greater local freedom required clearer shared boundaries.",
+      "exampleZh": "团队面临一种悖论；更大的局部自由需要更清晰的共同边界。",
+      "forms": [
+        "paradoxes"
+      ],
+      "collocations": [
+        "embrace paradox",
+        "a leadership paradox"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "文章难词与表达",
+      "phonetic": "",
+      "order": 86,
+      "reuseExistingEntryId": "public-hierarchy-paradox-45066dd9",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有同义词卡，保留旧释义和例句，仅补本文语境。"
+      }
+    }
+  ]
+}

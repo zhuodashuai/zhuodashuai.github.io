@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 import { createBlankEntry, contextualizeReadingEntry, entryLookupKeys, parsePublicSnapshot } from "../../vocab/js/wordbook-schema.js";
 import { buildCollectionCatalog } from "../../vocab/js/collections.js";
 import { entrySynonymFingerprint, pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
-import { importTeamworkArticle, planTeamworkArticleImport, serializeTeamworkSnapshot,
+import { TEAMWORK_SNAPSHOT_MAX_BYTES, importTeamworkArticle, planTeamworkArticleImport, serializeTeamworkSnapshot,
   teamworkArticleEntryId } from "../scripts/import-teamwork-article.mjs";
 
 const oldDate = "2026-10-01T12:00:00.000Z", now = "2026-10-31T12:00:00.000Z";
@@ -153,7 +153,14 @@ test("an existing chapter context cannot be silently changed by a later source r
 });
 
 test("compact serialization enforces the actual production byte boundary", () => {
-  assert.throws(() => serializeTeamworkSnapshot({ large: "中".repeat(1_700_000) }), /5,000,000-byte/u);
+  assert.doesNotThrow(() => serializeTeamworkSnapshot({ large: "中".repeat(1_700_000) }));
+  assert.throws(() => serializeTeamworkSnapshot({ large: "中".repeat(Math.floor(TEAMWORK_SNAPSHOT_MAX_BYTES / 3) + 1) }), /6,000,000-byte/u);
+});
+
+test("article imports and both Worker snapshot paths use the same bounded capacity", async () => {
+  const limits = await readFile(new URL("../../wordbook-api/src/public-snapshot-limits.ts", import.meta.url), "utf8");
+  const capacity = Number(limits.match(/MAX_SNAPSHOT_BYTES\s*=\s*([\d_]+)/u)[1].replaceAll("_", ""));
+  assert.equal(TEAMWORK_SNAPSHOT_MAX_BYTES, capacity);
 });
 
 test("file import defaults to dry-run, refuses a stale baseline, and writes atomically only with both baseline pins", async () => {

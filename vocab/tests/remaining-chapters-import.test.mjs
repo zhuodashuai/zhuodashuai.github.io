@@ -175,8 +175,8 @@ test("the published snapshot has unique identities and remains within the produc
   assert.equal(new Set(snapshot.entries.map(entry => entry.id)).size, snapshot.entries.length);
   assert.equal(new Set(snapshot.entries.map(entry => entry.normalized)).size, snapshot.entries.length);
   const raw = await readFile(snapshotUrl);
-  assert.ok(raw.byteLength < 5_000_000, "the complete source must fit the production GitHub 5 MB snapshot reader");
-  assert.ok(Buffer.byteLength(JSON.stringify(snapshot), "utf8") < 5_000_000);
+  assert.ok(raw.byteLength < 6_000_000, "the complete source must fit the production GitHub 6 MB snapshot reader");
+  assert.ok(Buffer.byteLength(JSON.stringify(snapshot), "utf8") < 6_000_000);
 });
 
 test("every remaining chapter card projects exactly its own source content, page and retained original form", async () => {

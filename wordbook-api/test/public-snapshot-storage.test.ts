@@ -5,6 +5,7 @@ import publishedSnapshot from "../../vocab/data/owner-wordbook.json";
 import { readPublicSnapshotRecord, writePublicSnapshotRecord, type PublicSnapshotRecord } from "../src/public-snapshot-cache";
 import { validateSnapshot } from "../src/schema";
 import { entry, snapshot } from "./fixtures";
+import { MAX_SNAPSHOT_BYTES } from "../src/public-snapshot-limits";
 
 const LEGACY = "public-snapshot:latest";
 const PREFIX = "public-snapshot:chunked:v1:";
@@ -165,7 +166,7 @@ describe("bounded atomic public snapshot storage", () => {
         id: `public-oversized-${index}`, term: `oversized fixture ${index}`, meaning: "汉".repeat(1400)
       }))));
       expect(validateSnapshot(oversized.snapshot)).toEqual(oversized.snapshot);
-      expect(encoder.encode(JSON.stringify(oversized.snapshot)).byteLength).toBeGreaterThan(5_000_000);
+      expect(encoder.encode(JSON.stringify(oversized.snapshot)).byteLength).toBeGreaterThan(MAX_SNAPSHOT_BYTES);
       const invalid = [
         { ...current, githubRefreshTokenCipher: "not-public" },
         { ...current, snapshot: { ...snapshot(), entries: [entry(), entry()] } },
