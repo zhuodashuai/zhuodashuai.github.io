@@ -3,6 +3,7 @@ import { readingChapterTitle } from "./reading-source.js";
 
 export const COLLECTION_TAG_PREFIX = "collection:";
 export const MAIN_COLLECTION_ID = "main";
+export const MAIN_READING_HOME_TAG = "reading-home:main";
 
 const MEMBERSHIP_PATTERN = /^collection:([a-z0-9]+(?:-[a-z0-9]+)*):(chapter-(\d+))$/u;
 
@@ -30,7 +31,7 @@ export function collectionMemberships(entry) {
 }
 
 export function visibleEntryTags(entry) {
-  return (Array.isArray(entry?.tags) ? entry.tags : []).filter((tag) => !String(tag).startsWith(COLLECTION_TAG_PREFIX));
+  return (Array.isArray(entry?.tags) ? entry.tags : []).filter((tag) => tag !== MAIN_READING_HOME_TAG && !String(tag).startsWith(COLLECTION_TAG_PREFIX));
 }
 
 export function splitChineseMeaningPoints(value) {
@@ -41,7 +42,7 @@ export function splitChineseMeaningPoints(value) {
 }
 
 export function preserveCollectionTags(ownerTags, replacementTags, maximum = 30) {
-  const preserved = (Array.isArray(ownerTags) ? ownerTags : []).filter((tag) => String(tag).startsWith(COLLECTION_TAG_PREFIX));
+  const preserved = (Array.isArray(ownerTags) ? ownerTags : []).filter((tag) => tag === MAIN_READING_HOME_TAG || String(tag).startsWith(COLLECTION_TAG_PREFIX));
   return [...new Set([...preserved, ...(Array.isArray(replacementTags) ? replacementTags : [])])].slice(0, maximum);
 }
 
@@ -115,6 +116,8 @@ export function filterEntriesByCollection(entries, collectionId = "all", chapter
 }
 
 export function collectionContextForEntry(entry, collectionId = "", chapterId = "") {
+  if (entry?.tags?.includes(MAIN_READING_HOME_TAG)
+    && (!collectionId || collectionId === "all" || collectionId === MAIN_COLLECTION_ID)) return null;
   const memberships = collectionMemberships(entry);
   const membership = memberships.find((candidate) => (
     (!collectionId || collectionId === "all" || candidate.collectionId === collectionId)

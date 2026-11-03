@@ -14,11 +14,16 @@
 // public dictionary/example shards already warmed for offline reading. The
 // install fetches each shell asset with cache:reload; the revised lookup graph
 // uses the additive v108 graph while legacy aliases and warmed shards remain.
+// Refresh the reversible reading-card policy and optional frequency metadata.
 const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js", "./js/entry-detail-v113.js", "./js/chapter-quiz-ui.js?v=113",
+  "./js/reading-card-policy.js", "./js/reading-frequency.js", "./reading-frequency.css",
+  "./js/collections.js?v=113",
+  "./data/reading-lists/teamwork/frequency.json",
   "./js/chinese-search.js?v=112", "./js/chinese-ranking.js?v=112",
   "./js/expanded-dictionary.js?v=112", "./js/everyday-lookup.js?v=112",
   "./js/dictionary-app.js?v=112", "./js/library-lookup-controller.js?v=112",
@@ -245,7 +250,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request, fallback));
     return;
   }
-  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/data/expanded-dictionary/manifest.json") || url.pathname.endsWith("/data/dictionary-suggestions/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest-v2.json") || url.pathname.endsWith("/quality/generated-report.json")) {
+  if (url.pathname.endsWith("/data/owner-wordbook.json") || url.pathname.endsWith("/data/reading-lists/teamwork/frequency.json") || url.pathname.endsWith("/data/book-passages.json") || url.pathname.endsWith("/data/expanded-dictionary/manifest.json") || url.pathname.endsWith("/data/dictionary-suggestions/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest.json") || url.pathname.endsWith("/data/dictionary-examples/manifest-v2.json") || url.pathname.endsWith("/quality/generated-report.json")) {
     // Manifest revalidation is not a corrupt-shard repair. Readers use reload
     // for mutable directories too; a healthy cached directory must work offline.
     event.respondWith(networkFirst(request));

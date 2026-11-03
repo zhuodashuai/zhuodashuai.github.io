@@ -1,16 +1,18 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail.js?v=96";
+import { createEntryDetailController } from "./entry-detail-v113.js";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
 import { mountLibraryLookup } from "./library-lookup-ui.js?v=112";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
-import { buildCollectionCatalog, collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";
+import { collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
+import { buildLearningCatalog, filterLearningEntries } from "./reading-card-policy.js";
+import { createReadingFrequencyIndex, readingFrequencyText, readRepeatedReadingPreference, saveRepeatedReadingPreference } from "./reading-frequency.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
 import { buildSynonymGroups } from "./synonym-groups.js?v=82";
 import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
-import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=82";
+import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=113";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=82";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
@@ -34,6 +36,7 @@ const state = {
   filter: "all",
   query: "",
   liveEtag: "",
+  showRepeated: readRepeatedReadingPreference(),
   sort: initialParameters.has("sort") ? normalizeEntrySort(initialParameters.get("sort")) : null,
   collectionId: pendingEntryId ? "all" : initialParameters.get("book") || "all",
   chapterId: pendingEntryId ? "all" : initialParameters.get("chapter") || "all",
@@ -49,6 +52,27 @@ const state = {
   entryViewToken: 0,
   reviewBusy: false
 };
+const repeatControls = document.createElement("div");
+repeatControls.className = "reading-card-controls";
+repeatControls.id = "reading-card-controls";
+const repeatLabel = document.createElement("label");
+repeatLabel.className = "reading-repeat-toggle";
+refs.showRepeated = document.createElement("input");
+refs.showRepeated.type = "checkbox";
+refs.showRepeated.id = "show-repeated-reading-cards";
+refs.showRepeated.checked = state.showRepeated;
+repeatLabel.append(refs.showRepeated, "显示重复词");
+repeatLabel.title = "只影响词卡展示和本轮学习范围；此浏览器可随时切换。";
+refs.repeatNote = document.createElement("p");
+refs.repeatNote.className = "reading-repeat-note";
+refs.repeatNote.id = "reading-repeat-note";
+refs.repeatNote.setAttribute("role", "status");
+repeatControls.append(repeatLabel, refs.repeatNote);
+refs.compactNavigation.after(repeatControls);
+const frequencyStyles = document.createElement("link");
+frequencyStyles.rel = "stylesheet";
+frequencyStyles.href = "reading-frequency.css";
+document.head.append(frequencyStyles);
 // A cached or still-propagating snapshot may not contain a newly shared chapter.
 // Keep that initial intent until it appears, unless the reader navigates away.
 let requestedCollectionScope = state.collectionId === "all" ? null : {
@@ -84,6 +108,16 @@ adjustOptions();
 compactMedia.addEventListener("change", adjustOptions);
 let publicConfirmations = [];
 let libraryLookup = null;
+const readingFrequency = createReadingFrequencyIndex({ onChange: () => {
+  const entries = new Map(publicEntries().map(entry => [entry.id, entry]));
+  refs.entryGrid.querySelectorAll("[data-reading-frequency-entry]").forEach(element => {
+    const entry = entries.get(element.dataset.readingFrequencyEntry);
+    const text = entry ? readingFrequencyText(entry, readingFrequency.get(entry.id), { repeatedOnly: true }) : "";
+    element.textContent = text;
+    element.hidden = !text;
+  });
+  entryDetail.refreshReadingFrequency();
+} });
 function publicEntries() {
   const base = state.snapshot?.entries || [];
   const merged = new Map(ownerPublicEntries(state.snapshot, publicConfirmations).map(entry => [entry.id, entry]));
@@ -95,6 +129,7 @@ function publicEntries() {
 }
 const entryDetail = createEntryDetailController({
   getEntries: publicEntries,
+  getReadingFrequency: (id) => readingFrequency.get(id),
   contextualizeEntry: (entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId),
   onNavigate: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
 });
@@ -105,12 +140,13 @@ let cacheChecked = false;
 let navigationKey = "";
 let pendingReviewSave = null;
 const chapterQuiz = setupChapterQuiz({
+  respectCurrentScope: true,
   launchButton: document.getElementById("chapter-quiz-button"),
   dialog: document.getElementById("chapter-quiz-dialog"),
   onOpenEntry: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker),
   getScope: () => {
-    if (!state.snapshot || state.collectionId === "all" || state.chapterId === "all") return null;
-    const collection = buildCollectionCatalog(state.snapshot.entries).find((item) => item.id === state.collectionId);
+    if (!state.snapshot || state.collectionId === "all" || state.chapterId === "all" || state.studyScopeEntries.length === 0) return null;
+    const collection = buildLearningCatalog(state.snapshot.entries, { showRepeated: state.showRepeated }).find((item) => item.id === state.collectionId);
     const chapter = collection?.chapters.find((item) => item.id === state.chapterId);
     return chapter ? {
       bookId: collection.id, bookTitle: collection.title,
@@ -199,9 +235,9 @@ function navigationOption(value, label, selected) {
 }
 
 function renderCollectionNavigation(entries) {
-  const key = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}`;
+  const key = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}:${state.showRepeated}`;
   if (key === navigationKey) return;
-  const catalog = buildCollectionCatalog(entries);
+  const catalog = buildLearningCatalog(entries, { showRepeated: state.showRepeated });
   const available = new Map(catalog.map((collection) => [collection.id, collection]));
   if (requestedCollectionScope) {
     const requestedCollection = available.get(requestedCollectionScope.collectionId);
@@ -267,7 +303,7 @@ function renderCollectionNavigation(entries) {
   refs.chapterNext.disabled = !chapters.length || chapterIndex === chapters.length - 1;
   refs.chapterPrevious.dataset.target = chapters[chapterIndex - 1]?.id || "";
   refs.chapterNext.dataset.target = chapters[chapterIndex + 1]?.id || "";
-  navigationKey = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}`;
+  navigationKey = `${state.snapshot?.revisionId || ""}:${state.collectionId}:${state.chapterId}:${state.showRepeated}`;
   requestAnimationFrame(() => { revealSelectedTab(refs.collectionTabs); revealSelectedTab(refs.chapterTabs); });
 }
 
@@ -395,8 +431,17 @@ async function saveReviewRating(entryId, rating) {
 function render() {
   const entries = publicEntries();
   renderCollectionNavigation(entries);
-  const collectionEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId)
+  const collectionEntries = filterLearningEntries(entries, state.collectionId, state.chapterId, { showRepeated: state.showRepeated })
     .map((entry) => contextualizeReadingEntry(entry, state.collectionId, state.chapterId));
+  const recordedEntries = filterEntriesByCollection(entries, state.collectionId, state.chapterId);
+  const hiddenRepeats = recordedEntries.length - collectionEntries.length;
+  repeatControls.hidden = !entries.length || state.view === "passages";
+  refs.repeatNote.textContent = state.showRepeated
+    ? "正在显示各章收录语境；复习进度仍共用同一张词卡。"
+    : hiddenRepeats > 0
+      ? `已隐藏 ${hiddenRepeats} 个以前收录的词；频率和来源保留在原卡。`
+      : "默认只在首次收录位置显示词卡；重复出现继续累计频率和来源。";
+  if (entries.some(entry => entry.tags?.some(tag => tag.startsWith("collection:teamwork:")))) void readingFrequency.load();
   state.studyScopeEntries = collectionEntries;
   chapterQuiz.updateScope();
   // Filter the current chapter, not the current search result. Empty categories
@@ -481,6 +526,11 @@ function render() {
       .flatMap((group) => group.members.filter((member) => member.entry.id !== entry.id).map((member) => member.entry.term)))] : [];
     synonyms.hidden = linkedTerms.length === 0;
     synonyms.textContent = linkedTerms.length ? `已收录近义词：${linkedTerms.join("；")} · 点开查看辨析` : "";
+    const frequency = document.createElement("p");
+    frequency.className = "card-reading-frequency";
+    frequency.dataset.readingFrequencyEntry = entry.id;
+    frequency.textContent = readingFrequencyText(entry, readingFrequency.get(entry.id), { repeatedOnly: true });
+    frequency.hidden = !frequency.textContent;
     const tags = document.createElement("div");
     tags.className = "tag-list";
     const shownTags = visibleEntryTags(entry).slice(0, 3);
@@ -493,7 +543,7 @@ function render() {
     button.dataset.entryAction = "detail";
     button.setAttribute("aria-label", `查看 ${entry.term} 的完整词条`);
     button.addEventListener("click", () => openEntry(entry, button));
-    article.append(kicker, titleRow, phonetic, meaning, synonyms, tags, button);
+    article.append(kicker, titleRow, phonetic, meaning, synonyms, frequency, tags, button);
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
@@ -512,7 +562,10 @@ function render() {
     const limited = state.collectionId !== "all";
     refs.searchEmptyTitle.textContent = `${state.chapterId !== "all" ? "本章" : limited ? "本词本" : "已发布词库"}未找到“${displayQuery}”。`;
     const outside = entries.filter((entry) => !scopeIds.has(entry.id) && publicEntryMatchesQuery(entry, query)).length;
-    refs.searchEmptyMessage.textContent = outside ? `其他章节或词本中找到 ${outside} 个相关词条。` : "可以检查拼写，或扩大搜索范围。";
+    const repeatedMatch = !state.showRepeated && recordedEntries.some(entry => publicEntryMatchesQuery(entry, query));
+    refs.searchEmptyMessage.textContent = repeatedMatch
+      ? "这个词以前已收录。打开“显示重复词”可查看本章语境，或搜索全部词本查看原卡。"
+      : outside ? `其他章节或词本中找到 ${outside} 个相关词条。` : "可以检查拼写，或扩大搜索范围。";
     refs.searchWholeBook.hidden = !limited;
     refs.searchWholeBook.textContent = state.chapterId !== "all" ? "搜索全书" : "搜索全部词本";
   }
@@ -679,6 +732,14 @@ refs.librarySort.addEventListener("change", () => {
   pronunciation.stop();
   state.sort = normalizeEntrySort(refs.librarySort.value);
   updateCollectionUrl();
+  render();
+});
+refs.showRepeated.addEventListener("change", () => {
+  pronunciation.stop();
+  state.showRepeated = refs.showRepeated.checked;
+  saveRepeatedReadingPreference(state.showRepeated);
+  state.studyQueue = [];
+  state.studyQueueTotal = 0;
   render();
 });
 refs.viewControls.addEventListener("click", (event) => {

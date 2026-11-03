@@ -1,0 +1,8 @@
+.reading-card-controls { display: flex; align-items: center; gap: .3rem 1rem; flex-wrap: wrap; margin: .4rem 0 .2rem; color: var(--muted); font-size: .8rem; }
+.reading-repeat-toggle { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; cursor: pointer; }
+.reading-repeat-toggle input { width: 19px; height: 19px; min-height: 19px; margin: 0; padding: 0; accent-color: var(--green); }
+.reading-repeat-note { margin: 0; flex: 1 1 17rem; }
+.card-reading-frequency { margin: .3rem 0; color: var(--muted); font-size: .76rem; }
+.reading-frequency-sources { padding-left: 1.2rem; }
+.reading-frequency-sources li { margin: .45rem 0; }
+.reading-frequency-sources small { display: block; color: var(--muted); }

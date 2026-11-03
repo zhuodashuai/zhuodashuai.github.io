@@ -20,8 +20,17 @@ function dateLabel(value) {
   return new Date(value).toLocaleString("zh-CN", { dateStyle: "medium", timeStyle: "short" });
 }
 
+/** Preserve historical attempts, but do not resume questions outside today's learning scope. */
+export function quizAttemptMatchesScope(record, entries) {
+  const ids = new Set((Array.isArray(entries) ? entries : []).map(entry => entry.id));
+  return Array.isArray(record?.questions) && record.questions.length > 0 && record.questions.every(question => (
+    ids.has(question.entryId) && Array.isArray(question.options)
+    && question.options.every(option => ids.has(option.sourceEntryId))
+  ));
+}
+
 /** A private, device-local quiz. It never updates cards or the spaced-review schedule. */
-export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }) {
+export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry, respectCurrentScope = false }) {
   // An installed older shell can briefly coexist with revalidated modules.
   // Keep its reader working until the new HTML arrives instead of making the
   // optional quiz a fatal dependency for the whole wordbook.
@@ -68,6 +77,8 @@ export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }
     const current = getScope();
     return current?.bookId === scope.bookId && current.chapterId === scope.chapterId ? current.entries : scope.entries;
   }
+
+  const canResume = record => !respectCurrentScope || quizAttemptMatchesScope(record, currentEntries());
 
   function wrongWordList(items, id) {
     const list = element("ul", "", "quiz-wrong-list");
@@ -153,7 +164,8 @@ export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }
       const records = await quizStorage.listAttempts(scope);
       if (token !== generation || !dialog.open) return;
       saveFailed = false;
-      const unfinished = records.find((record) => !record.completedAt);
+      const unfinished = records.find((record) => !record.completedAt && canResume(record));
+      const differentScope = records.some(record => !record.completedAt && !canResume(record));
       const mistakes = unresolvedQuizMistakes(records);
       const actions = element("div", "", "quiz-actions");
       if (unfinished) {
@@ -170,6 +182,7 @@ export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }
       const detail = element("p", `范围：本章 ${scope.entries.length} 个词条，不受搜索或类型筛选影响。`, "quiz-muted");
       const note = element("p", "每题自动保存，可中途退出。成绩仅存本机，不改原有复习进度。", "quiz-muted quiz-small");
       content.append(detail, actions, note);
+      if (differentScope) content.append(element("p", "部分旧测试包含当前已隐藏的词，记录仍保留在测试记录中；新一轮按当前词卡范围出题。", "quiz-muted quiz-small"));
     } catch (error) {
       if (token !== generation || !dialog.open) return;
       message.textContent = `暂时无法读取本机测试记录，未开始测试。${error?.message || ""}`;
@@ -250,13 +263,14 @@ export function setupChapterQuiz({ launchButton, dialog, getScope, onOpenEntry }
     const date = element("p", `${dateLabel(record.startedAt)} 开始 · ${record.completedAt ? "已完成" : "未完成，正确率仅按已答题计算"}`, "quiz-muted quiz-small");
     const wrongList = wrongWordList(summary.wrongWords, "quiz-wrong-list");
     const actions = element("div", "", "quiz-actions");
-    if (!record.completedAt) actions.append(control("继续这次测试", "quiz-resume", () => { attempt = record; showQuestion(); }, "primary-button"));
+    if (!record.completedAt && canResume(record)) actions.append(control("继续这次测试", "quiz-resume", () => { attempt = record; showQuestion(); }, "primary-button"));
     if (summary.wrongWords.length) actions.append(practiceButton(summary.wrongWords, { id: "quiz-practice-attempt", label: "只练本轮错词", sourceAttemptId: record.id }));
     actions.append(control(record.kind === "mistakes" ? "再练本轮词" : "再测一次", "quiz-restart", () => {
       void start(record.kind === "mistakes" ? { kind: "mistakes", targetEntryIds: record.questions.map((question) => question.entryId),
         ...(record.practiceSourceAttemptId ? { practiceSourceAttemptId: record.practiceSourceAttemptId } : {}) } : {});
     }, record.completedAt ? "primary-button" : ""), control("测试记录", "quiz-history", () => { void showHistory(); }), menuButton());
     replace(label, score, count, date, actions, element("h4", summary.wrongWords.length ? "下次先复习这些词" : summary.answered ? "目前没有错词，继续保持。" : "完成答题后，这里会整理错词。"), wrongList, omissions(record));
+    if (!record.completedAt && !canResume(record)) content.append(element("p", "这轮旧测试使用不同的词卡范围，题目和成绩仍保留；可按当前范围开始新一轮。", "quiz-muted quiz-small"));
   }
 
   async function showMistakes() {

@@ -83,6 +83,20 @@ test("repeated import is an exact no-op despite a later requested timestamp", ()
   assert.deepEqual(repeat.snapshot, first.snapshot);
 });
 
+test("a reused main-book word retains its original learning home after its first article source", () => {
+  const input = fixture();
+  input.existing.tags = [];
+  input.existing.readingContexts = [];
+  const before = structuredClone(input.existing);
+  const result = planTeamworkArticleImport({ ...input, timestamp: now });
+  const saved = result.snapshot.entries.find(entry => entry.id === input.existing.id);
+  assert.ok(saved.tags.includes("reading-home:main"));
+  assert.ok(saved.tags.includes("collection:teamwork:chapter-4"));
+  assert.equal(saved.readingContexts.length, 1);
+  for (const field of ["term", "meaning", "definition", "exampleEn", "exampleZh", "senses", "sourceTitle", "sourceWork", "sourceUrl"]) assert.deepEqual(saved[field], before[field]);
+  assert.equal(planTeamworkArticleImport({ source: input.source, snapshot: result.snapshot, timestamp: now }).changed, false);
+});
+
 test("adding a reading context invalidates only the touched card's old synonym scan", () => {
   const input = fixture();
   input.existing.synonymScan = pendingSynonymScan(input.existing, input.snapshot.entries, oldDate, "prior_scan");
