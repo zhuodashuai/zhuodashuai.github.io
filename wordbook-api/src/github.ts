@@ -2,16 +2,16 @@ import type { AppConfig } from "./config";
 import { GITHUB_API_VERSION, OWNER_LOGIN, OWNER_REPOSITORY_ID, OWNER_USER_ID } from "./config";
 import { ApiError } from "./security";
 import { validateSnapshot, type PublicSnapshot } from "./schema";
+import { MAX_GITHUB_JSON_BYTES, MAX_SNAPSHOT_BYTES } from "./public-snapshot-limits";
+export { MAX_GITHUB_JSON_BYTES, MAX_SNAPSHOT_BYTES } from "./public-snapshot-limits";
 
 const API_ROOT = "https://api.github.com";
 const OAUTH_ROOT = "https://github.com/login/oauth";
 const MAX_GITHUB_PAGES = 10;
 const GITHUB_PAGE_SIZE = 100;
-export const MAX_SNAPSHOT_BYTES = 5_000_000;
-export const MAX_GITHUB_JSON_BYTES = 7_000_000;
 
 function oversizedSnapshot(): ApiError {
-  return new ApiError(413, "snapshot_too_large", "公开词库超过 5 MB，请先导出备份并拆分数据。");
+  return new ApiError(413, "snapshot_too_large", "公开词库超过 6 MB，请先导出备份并拆分数据。");
 }
 
 async function boundedResponseBytes(response: Response, limit: number): Promise<Uint8Array> {

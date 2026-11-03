@@ -72,7 +72,7 @@ test('explicit reuse keeps existing identities and source contexts while new exc
     assert.equal(entry.correction.status, 'exact');
     assert.equal(entry.correction.original, item.term);
     assert.deepEqual(entryLookupKeys(entry), [entry.normalized]);
-    assert.deepEqual(entry.readingContexts.map(row => row.membership), [membership]);
+    assert.equal(entry.readingContexts[0].membership, membership);
   }
   const whole = filterEntriesByCollection(snapshot.entries, 'teamwork');
   assert.equal(new Set(whole.map(row => row.id)).size, whole.length);

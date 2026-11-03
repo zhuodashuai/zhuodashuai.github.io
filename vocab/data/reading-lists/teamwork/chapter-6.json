@@ -1,0 +1,2609 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-6",
+    "number": 6,
+    "title": "The Big Idea: Before You Make That Big Decision…"
+  },
+  "sourceTitle": "Teamwork — The Big Idea: Before You Make That Big Decision…",
+  "articleTitle": "The Big Idea: Before You Make That Big Decision…",
+  "authors": "Daniel Kahneman; Dan Lovallo; Olivier Sibony",
+  "issue": "June 2011",
+  "sourceUrl": "https://hbr.org/2011/06/the-big-idea-before-you-make-that-big-decision",
+  "sourcePdfSha256": "ac87472ab1f178e2506efd8c456bb8f07b75aa73bf0dde3a34e1409969f8d5e4",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 81,
+  "curation": {
+    "difficulty": "upper-intermediate-and-advanced",
+    "originalItemCount": 91,
+    "selectionStandard": "保留较难词、认知偏差术语、商务习语与熟词生义；排除明显基础词和透明组合。",
+    "excludedItems": [
+      {
+        "term": "team",
+        "pdfPage": 3,
+        "reason": "基础通用词，本文无需另建学习卡。"
+      },
+      {
+        "term": "decision",
+        "pdfPage": 3,
+        "reason": "基础主题词，保留更难的专业表达即可。"
+      },
+      {
+        "term": "customer",
+        "pdfPage": 7,
+        "reason": "基础商务词，本文无特殊新义。"
+      },
+      {
+        "term": "forecast",
+        "pdfPage": 8,
+        "reason": "常见预测义，重点由外部视角和偏差词条解释。"
+      },
+      {
+        "term": "coherent",
+        "pdfPage": 5,
+        "reason": "一般学术描述义，优先保留较难和具有独特语境的词。"
+      },
+      {
+        "term": "counteract",
+        "pdfPage": 3,
+        "reason": "较常见动作词，精简时优先保留偏差名称与更难表达。"
+      },
+      {
+        "term": "by extension",
+        "pdfPage": 6,
+        "reason": "一般行文连接表达，精简时不另建卡。"
+      },
+      {
+        "term": "make a final decision",
+        "pdfPage": 22,
+        "reason": "透明基础组合；另保留熟词生义 make a call。"
+      },
+      {
+        "term": "get more information",
+        "pdfPage": 15,
+        "reason": "透明基础组合，缺乏独立学习价值。"
+      },
+      {
+        "term": "in passing",
+        "pdfPage": 18,
+        "reason": "既有词本已有同义卡，本轮优先更难的表达。"
+      }
+    ]
+  },
+  "items": [
+    {
+      "term": "a slew of",
+      "originalInput": "a slew of",
+      "entryType": "phrase",
+      "partOfSpeech": "quantifier phrase",
+      "meaning": "大量；许多。",
+      "definitionEn": "A large number or amount of something.",
+      "usage": "较口语化的数量表达，后接复数名词。",
+      "exampleEn": "The proposal attracted a slew of questions about its hidden costs.",
+      "exampleZh": "这项提案引来了许多关于隐性成本的问题。",
+      "forms": [],
+      "collocations": [
+        "a slew of questions",
+        "a slew of new products"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 2,
+      "printedPage": 1,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-a-slew-of",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 1
+    },
+    {
+      "term": "confirmation bias",
+      "originalInput": "Confirmation bias",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "确认偏误；偏向寻找支持已有观点的证据。",
+      "definitionEn": "A tendency to favor information that supports an existing belief.",
+      "usage": "本文要求主动寻找反证，而非只收集支持意见。",
+      "exampleEn": "Confirmation bias led the team to overlook complaints that contradicted its optimistic forecast.",
+      "exampleZh": "确认偏误使团队忽视了与其乐观预测相矛盾的投诉。",
+      "forms": [],
+      "collocations": [
+        "reduce confirmation bias",
+        "evidence of confirmation bias"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 2,
+      "printedPage": 1,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-confirmation-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 2
+    },
+    {
+      "term": "preconceived notion",
+      "originalInput": "preconceived notions",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "先入为主的看法；未经充分检验便形成的观念。",
+      "definitionEn": "An opinion formed before relevant evidence has been properly considered.",
+      "usage": "常用 challenge preconceived notions；不一定出于故意偏见。",
+      "exampleEn": "The review challenged our preconceived notions about what customers actually valued.",
+      "exampleZh": "这次评审挑战了我们对客户真正重视什么的先入之见。",
+      "forms": [
+        "preconceived notions"
+      ],
+      "collocations": [
+        "challenge preconceived notions",
+        "a preconceived notion about"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 2,
+      "printedPage": 1,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-preconceived-notion",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 3
+    },
+    {
+      "term": "loss aversion",
+      "originalInput": "loss aversion",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "损失厌恶；避免损失的意愿强于获得同等收益的意愿。",
+      "definitionEn": "A tendency to feel equivalent losses more strongly than gains.",
+      "usage": "本文用它解释团队为何可能过度保守。",
+      "exampleEn": "Loss aversion made the committee reject an experiment with manageable risks and promising benefits.",
+      "exampleZh": "损失厌恶使委员会否决了一项风险可控、收益可期的试验。",
+      "forms": [],
+      "collocations": [
+        "reduce loss aversion",
+        "loss aversion in decisions"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 2,
+      "printedPage": 1,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-loss-aversion",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 4
+    },
+    {
+      "term": "fraught",
+      "originalInput": "fraught",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "充满风险、问题或困难的；常用于 fraught with 结构。",
+      "definitionEn": "Containing many difficulties, dangers, or undesirable possibilities.",
+      "usage": "结构为 be fraught with risk/problems；本文在 fraught 与 with 间插入状语。",
+      "exampleEn": "The rushed acquisition was fraught with uncertainty about staffing, costs, and regulatory approval.",
+      "exampleZh": "这次仓促的收购在人手、成本和监管批准方面充满不确定性。",
+      "forms": [],
+      "collocations": [
+        "fraught with uncertainty",
+        "fraught with difficulties"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 3,
+      "printedPage": 2,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-fraught",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 5,
+      "sourceFragment": "fraught at every stage with"
+    },
+    {
+      "term": "cognitive bias",
+      "originalInput": "cognitive biases",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "认知偏差；思考判断中有规律的偏离。",
+      "definitionEn": "A systematic tendency in thinking that can distort judgment.",
+      "usage": "指判断模式的偏差，不等同于故意歪曲事实。",
+      "exampleEn": "A structured review can reveal cognitive biases that confident experts fail to notice.",
+      "exampleZh": "有组织的评审能揭示自信的专家未能察觉的认知偏差。",
+      "forms": [
+        "cognitive biases"
+      ],
+      "collocations": [
+        "identify cognitive biases",
+        "reduce cognitive bias"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 3,
+      "printedPage": 2,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-cognitive-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 6
+    },
+    {
+      "term": "banter",
+      "originalInput": "banter",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "轻松地开玩笑；打趣交谈。",
+      "definitionEn": "To exchange friendly, playful remarks with someone.",
+      "usage": "常用 banter with someone；通常不表示恶意嘲讽。",
+      "exampleEn": "Colleagues bantered over lunch before returning to a serious discussion of the proposal.",
+      "exampleZh": "同事们午餐时轻松打趣，随后又认真讨论起提案。",
+      "forms": [
+        "bantered",
+        "bantering"
+      ],
+      "collocations": [
+        "banter with colleagues",
+        "banter about a topic"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 5,
+      "printedPage": 4,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-banter",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 7
+    },
+    {
+      "term": "reflective",
+      "originalInput": "reflective",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "经过审慎思考的；本文指缓慢、费力的思维方式。",
+      "definitionEn": "Involving deliberate thought rather than an immediate intuitive response.",
+      "usage": "本文 reflective thinking 对应 System Two，区别于 intuitive thinking。",
+      "exampleEn": "Reflective thinking helped the manager question an attractive recommendation before approving the investment.",
+      "exampleZh": "审慎思考帮助经理在批准投资前质疑那项诱人的建议。",
+      "forms": [],
+      "collocations": [
+        "reflective thinking",
+        "a reflective approach"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 5,
+      "printedPage": 4,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-reflective",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 8
+    },
+    {
+      "term": "lead astray",
+      "originalInput": "lead us astray",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "误导；使判断或行动偏离正确方向。",
+      "definitionEn": "To cause someone to make a mistaken judgment or take a wrong course.",
+      "usage": "结构为 lead someone astray；宾语放在 lead 与 astray 之间。",
+      "exampleEn": "A convincing story can lead us astray when important evidence is missing.",
+      "exampleZh": "在重要证据缺失时，一个有说服力的故事可能误导我们。",
+      "forms": [
+        "leads astray",
+        "led astray",
+        "leading astray"
+      ],
+      "collocations": [
+        "lead someone astray",
+        "be led astray"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 5,
+      "printedPage": 4,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-lead-astray",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 9
+    },
+    {
+      "term": "insidious",
+      "originalInput": "insidious",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "隐伏而有害的；不易察觉却逐渐造成危害的。",
+      "definitionEn": "Developing harmful effects in a gradual or difficult-to-notice way.",
+      "usage": "常修饰 bias、risk、effect；本文强调认知错误发生时难以自察。",
+      "exampleEn": "The insidious effect of repeated optimistic forecasts was a growing tolerance for weak evidence.",
+      "exampleZh": "反复作出乐观预测的隐蔽危害，是大家越来越容忍薄弱证据。",
+      "forms": [],
+      "collocations": [
+        "an insidious effect",
+        "an insidious risk"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 5,
+      "printedPage": 4,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-insidious",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 10
+    },
+    {
+      "term": "at face value",
+      "originalInput": "at face value",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "按表面意思或表面可信度接受；不作深入核实。",
+      "definitionEn": "Without questioning whether the apparent meaning or reliability is accurate.",
+      "usage": "常与 accept/take 搭配；不是票面金额的字面用法。",
+      "exampleEn": "The board refused to accept the sales forecast at face value without supporting data.",
+      "exampleZh": "董事会拒绝在没有支持数据的情况下照单接受销售预测。",
+      "forms": [],
+      "collocations": [
+        "take something at face value",
+        "accept a claim at face value"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 6,
+      "printedPage": 5,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-at-face-value",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 11
+    },
+    {
+      "term": "forewarned is forearmed",
+      "originalInput": "forewarned is forearmed",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "预先得到警告便能有所准备；有备无患。",
+      "definitionEn": "Knowing about a danger in advance can help someone prepare for it.",
+      "usage": "本文质疑仅知晓偏差就足以克服偏差的想法。",
+      "exampleEn": "Forewarned is forearmed, but knowing about a bias does not automatically remove it.",
+      "exampleZh": "预先知情有助防备，但知道一种偏差并不会自动消除它。",
+      "forms": [],
+      "collocations": [
+        "the saying forewarned is forearmed",
+        "forewarned about a risk"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 6,
+      "printedPage": 5,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-forewarned-is-forearmed",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 12
+    },
+    {
+      "term": "make a call",
+      "originalInput": "make a final call",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "作出判断或决定。",
+      "definitionEn": "To make a judgment or decision about what should be done.",
+      "usage": "call 在此指决定；make the final call 指最终拍板。",
+      "exampleEn": "The director will make the final call after hearing both teams explain their assumptions.",
+      "exampleZh": "听完两队说明各自的假设后，主管将作出最终决定。",
+      "forms": [
+        "makes a call",
+        "made a call",
+        "making a call"
+      ],
+      "collocations": [
+        "make the final call",
+        "make a difficult call"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 6,
+      "printedPage": 5,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-make-a-call",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 13
+    },
+    {
+      "term": "overhaul",
+      "originalInput": "overhaul",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "全面检修；本文指对制度或安排进行彻底改革。",
+      "definitionEn": "A thorough examination and major revision of a system or arrangement.",
+      "usage": "名词常用 an overhaul of；本文指价格体系的全面调整。",
+      "exampleEn": "The pricing overhaul required new contracts, revised incentives, and clearer communication with customers.",
+      "exampleZh": "这次价格体系的全面改革需要新合同、调整激励并改善客户沟通。",
+      "forms": [
+        "overhauls"
+      ],
+      "collocations": [
+        "an overhaul of pricing",
+        "a radical overhaul"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 7,
+      "printedPage": 6,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-overhaul",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 14
+    },
+    {
+      "term": "capital-intensive",
+      "originalInput": "capital-intensive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "资本密集型的；需要大量资金投入设备等资产的。",
+      "definitionEn": "Requiring substantial investment in equipment or other physical assets.",
+      "usage": "常修饰 industry、manufacturing、business。",
+      "exampleEn": "A capital-intensive factory must assess long-term demand before investing in additional production lines.",
+      "exampleZh": "资本密集型工厂必须先评估长期需求，再投资增设生产线。",
+      "forms": [],
+      "collocations": [
+        "a capital-intensive industry",
+        "capital-intensive manufacturing"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 7,
+      "printedPage": 6,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-capital-intensive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 15
+    },
+    {
+      "term": "capital outlay",
+      "originalInput": "capital outlay",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "资本性投入；用于长期资产的资金支出。",
+      "definitionEn": "Money spent on acquiring or improving assets used over a long period.",
+      "usage": "与 capital expenditure 含义接近，强调一笔资金投入。",
+      "exampleEn": "The proposed capital outlay would replace aging machines and expand the plant's capacity.",
+      "exampleZh": "拟议的资本性投入将更换老旧机器并扩大工厂产能。",
+      "forms": [
+        "capital outlays"
+      ],
+      "collocations": [
+        "a large capital outlay",
+        "justify the capital outlay"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 8,
+      "printedPage": 7,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-capital-outlay",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 16
+    },
+    {
+      "term": "on the heels of",
+      "originalInput": "on the heels of",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "紧随……之后；与前一事件间隔很短。",
+      "definitionEn": "Soon after another event or development.",
+      "usage": "常用 come/follow on the heels of；本文指接连发生收购。",
+      "exampleEn": "The expansion proposal came on the heels of two costly acquisitions and strained our finances.",
+      "exampleZh": "扩张提案紧随两次昂贵收购而来，令我们的财务承压。",
+      "forms": [],
+      "collocations": [
+        "come on the heels of",
+        "follow on the heels of"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 8,
+      "printedPage": 7,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-on-the-heels-of",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 17
+    },
+    {
+      "term": "stretched",
+      "originalInput": "stretched",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "资源吃紧的；本文指财务承受能力已接近极限。",
+      "definitionEn": "Having too little money or capacity to meet demands comfortably.",
+      "usage": "financially stretched 不表示物体被拉长。",
+      "exampleEn": "With its finances already stretched, the company postponed another acquisition until cash flow improved.",
+      "exampleZh": "公司财务已经吃紧，于是将另一项收购推迟到现金流改善之后。",
+      "forms": [],
+      "collocations": [
+        "financially stretched",
+        "stretched resources"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 8,
+      "printedPage": 7,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-stretched",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 18
+    },
+    {
+      "term": "political capital",
+      "originalInput": "political capital",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "政治资本；组织中可用于推动事务的影响力与支持。",
+      "definitionEn": "Influence and support that can be used to advance goals within an organization.",
+      "usage": "本文指反复批评同事会消耗组织内的支持与人情资源。",
+      "exampleEn": "The manager spent political capital persuading other departments to accept an independent review.",
+      "exampleZh": "这位经理动用了组织内的影响力，说服其他部门接受独立评审。",
+      "forms": [],
+      "collocations": [
+        "spend political capital",
+        "lose political capital"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 9,
+      "printedPage": 8,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-political-capital",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 19
+    },
+    {
+      "term": "ad hoc",
+      "originalInput": "ad hoc",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective",
+      "meaning": "为特定临时目的设立的；非固定常设的。",
+      "definitionEn": "Arranged for a particular immediate purpose rather than as a permanent system.",
+      "usage": "本文指临时组建的评议团队，并不必然表示草率。",
+      "exampleEn": "An ad hoc review team examined the proposal before the investment committee met.",
+      "exampleZh": "一支临时评审团队在投资委员会开会前审查了提案。",
+      "forms": [],
+      "collocations": [
+        "an ad hoc team",
+        "an ad hoc review"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 9,
+      "printedPage": 8,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-ad-hoc-e6018157",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用同一标准词条的已有核心义；保留旧释义与例句，只补充本文语境。"
+      },
+      "order": 20
+    },
+    {
+      "term": "provocateur",
+      "originalInput": "provocateurs",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "挑动讨论、提出挑战性问题的人。",
+      "definitionEn": "Someone who deliberately challenges accepted views to provoke discussion.",
+      "usage": "本文为组织赋予的评议角色，不是煽动违法行为的政治义。",
+      "exampleEn": "The appointed provocateur asked uncomfortable questions that exposed weaknesses in the strategic plan.",
+      "exampleZh": "指定的挑战者提出了尖锐问题，暴露出战略计划的薄弱之处。",
+      "forms": [
+        "provocateurs"
+      ],
+      "collocations": [
+        "act as a provocateur",
+        "an intellectual provocateur"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 9,
+      "printedPage": 8,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-provocateur",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 21
+    },
+    {
+      "term": "vet",
+      "originalInput": "vet",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "审查；仔细核查是否可靠或适当。",
+      "definitionEn": "To examine something carefully to assess its reliability or suitability.",
+      "usage": "本文 vet decisions 指对决策作系统质量审查。",
+      "exampleEn": "An independent panel vetted the acquisition proposal and checked the assumptions behind its forecast.",
+      "exampleZh": "独立小组审查了收购提案，并核查预测背后的假设。",
+      "forms": [
+        "vets",
+        "vetted",
+        "vetting"
+      ],
+      "collocations": [
+        "vet a proposal",
+        "vet an investment"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 9,
+      "printedPage": 8,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-vet",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 22
+    },
+    {
+      "term": "self-interested bias",
+      "originalInput": "Self-interested Biases",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "自利偏差；个人利益在无意识中影响判断。",
+      "definitionEn": "A distortion of judgment toward outcomes that benefit the person making it.",
+      "usage": "不等于故意说谎；本文也强调自我欺骗和合理化。",
+      "exampleEn": "An independent reviewer checked whether self-interested bias had shaped the managers' recommendation.",
+      "exampleZh": "独立评审者检查了经理们的建议是否受到自利偏差影响。",
+      "forms": [
+        "self-interested biases"
+      ],
+      "collocations": [
+        "identify self-interested bias",
+        "guard against self-interested biases"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 10,
+      "printedPage": 9,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-self-interested-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 23
+    },
+    {
+      "term": "affect heuristic",
+      "originalInput": "Affect Heuristic",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "情感启发式；凭好恶快速判断风险与收益。",
+      "definitionEn": "A judgment shortcut in which feelings shape assessments of benefits and risks.",
+      "usage": "affect 此处指情感；喜欢某方案可能让人低估其风险。",
+      "exampleEn": "The affect heuristic made the familiar brand seem less risky than the evidence suggested.",
+      "exampleZh": "情感启发式让这个熟悉品牌显得比证据所显示的风险更低。",
+      "forms": [],
+      "collocations": [
+        "rely on the affect heuristic",
+        "check for the affect heuristic"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 10,
+      "printedPage": 9,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-affect-heuristic",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 24
+    },
+    {
+      "term": "groupthink",
+      "originalInput": "Groupthink",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "群体思维；为追求一致而压抑独立判断。",
+      "definitionEn": "A group tendency to favor agreement at the expense of critical examination.",
+      "usage": "本文要求询问不同意见是否曾得到充分讨论。",
+      "exampleEn": "Private interviews revealed concerns that groupthink had kept out of the final recommendation.",
+      "exampleZh": "私下访谈揭示了一些因群体思维而未被写入最终建议的担忧。",
+      "forms": [],
+      "collocations": [
+        "avoid groupthink",
+        "the risk of groupthink"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 10,
+      "printedPage": 9,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c4-groupthink",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用同一标准词条的已有核心义；保留旧释义与例句，只补充本文语境。"
+      },
+      "order": 25
+    },
+    {
+      "term": "discreetly",
+      "originalInput": "discreetly",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "谨慎而不张扬地；顾及隐私或敏感性的。",
+      "definitionEn": "In a careful, unobtrusive way that avoids embarrassment or unwanted attention.",
+      "usage": "本文指可私下征求异议；区别于 discretely（分开地）。",
+      "exampleEn": "The reviewer discreetly asked junior members whether they had concerns about the recommended deal.",
+      "exampleZh": "评审者私下谨慎询问初级成员是否对拟议交易有所担忧。",
+      "forms": [],
+      "collocations": [
+        "discreetly solicit views",
+        "discreetly raise concerns"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 10,
+      "printedPage": 9,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-discreetly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 26
+    },
+    {
+      "term": "rationalization",
+      "originalInput": "rationalization",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "合理化；为受偏差影响的选择找看似合理的理由。",
+      "definitionEn": "An apparently logical explanation used to justify a choice driven by other motives.",
+      "usage": "本文是心理上的自我辩解，不是企业精简重组的义项。",
+      "exampleEn": "His rationalization focused on team loyalty while ignoring the investment's weak expected returns.",
+      "exampleZh": "他的自我辩解强调团队忠诚，却忽视了投资预期回报偏低的问题。",
+      "forms": [
+        "rationalizations"
+      ],
+      "collocations": [
+        "self-serving rationalization",
+        "a rationalization for a decision"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 11,
+      "printedPage": 10,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-rationalization",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 27
+    },
+    {
+      "term": "material",
+      "originalInput": "material",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "重大的；足以影响判断或结果的。",
+      "definitionEn": "Significant enough to influence an assessment or outcome.",
+      "usage": "商务与财务语境中的 material impact，不是材料的意思。",
+      "exampleEn": "A small change in demand could have a material effect on the project's profitability.",
+      "exampleZh": "需求的小幅变化就可能对项目盈利能力产生重大影响。",
+      "forms": [],
+      "collocations": [
+        "a material impact",
+        "a material difference"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 11,
+      "printedPage": 10,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-material",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 28,
+      "sourceFragment": "material impact"
+    },
+    {
+      "term": "stand to gain",
+      "originalInput": "stand to gain",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "可能从某事获益；处于有望受益的位置。",
+      "definitionEn": "To be in a position to receive a benefit from an outcome.",
+      "usage": "本文强调提案人可能获得财务、声望或职位方面的利益。",
+      "exampleEn": "Managers who stand to gain from a deal should disclose their interests before reviewing it.",
+      "exampleZh": "可能从交易中获益的经理应在评审前披露自身利益。",
+      "forms": [
+        "stands to gain",
+        "stood to gain"
+      ],
+      "collocations": [
+        "stand to gain from a deal",
+        "stand to gain financially"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 11,
+      "printedPage": 10,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c4-stand-to-gain",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用同一标准词条的已有核心义；保留旧释义与例句，只补充本文语境。"
+      },
+      "order": 29
+    },
+    {
+      "term": "pernicious",
+      "originalInput": "pernicious",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "有害的；造成严重而可能不易察觉的后果的。",
+      "definitionEn": "Causing serious harm, often in a way that is not immediately obvious.",
+      "usage": "本文形容选项设计有害，因为它使预设方案成为唯一可行项。",
+      "exampleEn": "A pernicious incentive system rewarded optimistic forecasts while discouraging honest discussion of uncertainty.",
+      "exampleZh": "一套有害的激励制度奖励乐观预测，却压制对不确定性的坦诚讨论。",
+      "forms": [],
+      "collocations": [
+        "a pernicious effect",
+        "a pernicious incentive"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 11,
+      "printedPage": 10,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-pernicious",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 30
+    },
+    {
+      "term": "dissent",
+      "originalInput": "dissent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "异议；与多数人或权威观点不同的意见。",
+      "definitionEn": "Disagreement with a view accepted by a group or authority.",
+      "usage": "不可数名词；本文将有根据的异议视为决策资源。",
+      "exampleEn": "The chair invited dissent before asking the committee to settle on its preferred option.",
+      "exampleZh": "主席先邀请大家提出异议，再请委员会确定首选方案。",
+      "forms": [],
+      "collocations": [
+        "encourage dissent",
+        "an absence of dissent"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 12,
+      "printedPage": 11,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c5-dissent",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      },
+      "order": 31
+    },
+    {
+      "term": "echelon",
+      "originalInput": "echelon",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "等级；组织或权力体系中的某一层级。",
+      "definitionEn": "A level in an organizational or social hierarchy.",
+      "usage": "常用 upper/higher echelons；本文指更高决策层。",
+      "exampleEn": "The recommendation reached a higher echelon before its underlying assumptions had been independently checked.",
+      "exampleZh": "建议在其基础假设得到独立核查之前就送到了更高决策层。",
+      "forms": [
+        "echelons"
+      ],
+      "collocations": [
+        "the upper echelons",
+        "a higher echelon"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 12,
+      "printedPage": 11,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-echelon",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 32
+    },
+    {
+      "term": "sham",
+      "originalInput": "sham",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "虚假的；表面装出来而不真实的。",
+      "definitionEn": "Pretended or false rather than genuine.",
+      "usage": "本文 sham unity 指被强加的表面一致。",
+      "exampleEn": "The apparently unanimous vote concealed sham agreement produced by pressure from the team leader.",
+      "exampleZh": "看似全票通过的表决掩盖了在队长压力下形成的虚假一致。",
+      "forms": [],
+      "collocations": [
+        "sham agreement",
+        "sham unity"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 12,
+      "printedPage": 11,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-sham",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 33,
+      "sourceFragment": "sham unity"
+    },
+    {
+      "term": "saliency bias",
+      "originalInput": "Saliency Bias",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "显著性偏差；过度受醒目或难忘信息影响。",
+      "definitionEn": "A tendency to give disproportionate weight to especially noticeable or memorable information.",
+      "usage": "本文用显眼的成功案例影响当前判断来解释。",
+      "exampleEn": "Saliency bias made one memorable success dominate the discussion despite several less visible failures.",
+      "exampleZh": "显著性偏差让一个难忘的成功案例主导讨论，尽管还有几次较少被注意的失败。",
+      "forms": [],
+      "collocations": [
+        "check for saliency bias",
+        "reduce saliency bias"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-saliency-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 34
+    },
+    {
+      "term": "availability bias",
+      "originalInput": "Availability Bias",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "可得性偏差；过度依赖易得信息而忽略缺失证据。",
+      "definitionEn": "A tendency to base judgment on readily available information while overlooking missing evidence.",
+      "usage": "本文清单通过追问还缺哪些信息来检查此偏差。",
+      "exampleEn": "Availability bias made the team rely on familiar reports while overlooking missing customer data.",
+      "exampleZh": "可得性偏差使团队依赖熟悉的报告，却忽视了缺失的客户数据。",
+      "forms": [],
+      "collocations": [
+        "check for availability bias",
+        "reduce availability bias"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-availability-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 35
+    },
+    {
+      "term": "anchoring bias",
+      "originalInput": "Anchoring Bias",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "锚定偏差；判断过度受最初参考信息影响。",
+      "definitionEn": "A tendency to rely too heavily on an initial reference when judging something.",
+      "usage": "锚点可以是初始报价、历史数字或未经核实的估计。",
+      "exampleEn": "Anchoring bias kept our budget close to an outdated estimate despite new evidence.",
+      "exampleZh": "尽管出现了新证据，锚定偏差仍使预算停留在过时估计附近。",
+      "forms": [],
+      "collocations": [
+        "avoid anchoring bias",
+        "an initial anchor"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-anchoring-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 36
+    },
+    {
+      "term": "unsubstantiated",
+      "originalInput": "unsubstantiated",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "未经证实的；缺乏支持证据的。",
+      "definitionEn": "Not supported by sufficient evidence or verification.",
+      "usage": "本文指来源不明或未经核实的数字。",
+      "exampleEn": "The committee rejected unsubstantiated estimates and requested the data used to produce them.",
+      "exampleZh": "委员会拒绝接受未经证实的估计，并要求提供估算所依据的数据。",
+      "forms": [],
+      "collocations": [
+        "unsubstantiated numbers",
+        "an unsubstantiated claim"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-unsubstantiated",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 37
+    },
+    {
+      "term": "extrapolation",
+      "originalInput": "extrapolation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "外推；依据已有趋势推算未观察到的情况。",
+      "definitionEn": "An estimate beyond observed data made by extending an existing pattern.",
+      "usage": "本文提醒历史趋势未必会继续，外推需要检验假设。",
+      "exampleEn": "A simple extrapolation of past sales ignored the competitor's planned entry into the market.",
+      "exampleZh": "对过去销售额的简单外推忽略了竞争者计划进入市场这一点。",
+      "forms": [
+        "extrapolations"
+      ],
+      "collocations": [
+        "extrapolation from historical data",
+        "a linear extrapolation"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c5-extrapolation",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      },
+      "order": 38
+    },
+    {
+      "term": "halo effect",
+      "originalInput": "Halo Effect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "光环效应；某方面的好印象扩散到其他方面。",
+      "definitionEn": "A tendency to let one favorable impression shape unrelated judgments.",
+      "usage": "成功或名声不能自动证明企业每一项做法都优秀。",
+      "exampleEn": "The halo effect led reviewers to assume that the admired company's expansion strategy was sound.",
+      "exampleZh": "光环效应使评审者认定这家备受推崇的公司的扩张战略必然合理。",
+      "forms": [],
+      "collocations": [
+        "the halo effect in judgments",
+        "guard against the halo effect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-halo-effect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 39
+    },
+    {
+      "term": "sunk-cost fallacy",
+      "originalInput": "Sunk-Cost Fallacy",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "沉没成本谬误；让不可收回的既往投入影响当前选择。",
+      "definitionEn": "A tendency to continue a course because of past costs that cannot be recovered.",
+      "usage": "应依据未来成本收益判断，而非为过去投入辩护。",
+      "exampleEn": "The sunk-cost fallacy kept the company funding a product with little prospect of future profit.",
+      "exampleZh": "沉没成本谬误使公司继续为一款未来盈利希望渺茫的产品投入资金。",
+      "forms": [],
+      "collocations": [
+        "avoid the sunk-cost fallacy",
+        "fall prey to the sunk-cost fallacy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-sunk-cost-fallacy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 40
+    },
+    {
+      "term": "endowment effect",
+      "originalInput": "Endowment Effect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "禀赋效应；因拥有某物而赋予它更高价值。",
+      "definitionEn": "A tendency to value something more highly because one already owns it.",
+      "usage": "本文在检查清单中将其与对过去选择的依恋并列。",
+      "exampleEn": "The endowment effect made managers value their existing division more highly than outside buyers did.",
+      "exampleZh": "禀赋效应使经理们对现有部门的估值高于外部买家的估值。",
+      "forms": [],
+      "collocations": [
+        "the endowment effect in valuation",
+        "reduce the endowment effect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-endowment-effect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 41
+    },
+    {
+      "term": "reference class forecasting",
+      "originalInput": "reference class forecasting",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "参考类别预测；利用同类项目的实际结果进行预测。",
+      "definitionEn": "Forecasting by comparing a proposal with the outcomes of a relevant group of similar cases.",
+      "usage": "重点是选取可比较的类别，而非只类比一个醒目成功案例。",
+      "exampleEn": "Reference class forecasting suggested that the proposed plant would take longer to complete than expected.",
+      "exampleZh": "参考类别预测表明，拟建工厂的完工时间可能比预期更长。",
+      "forms": [],
+      "collocations": [
+        "use reference class forecasting",
+        "a reference class of projects"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-reference-class-forecasting",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 42
+    },
+    {
+      "term": "perfunctory",
+      "originalInput": "perfunctory",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "敷衍的；走过场而缺乏认真关注的。",
+      "definitionEn": "Done as a routine formality without proper attention or genuine effort.",
+      "usage": "本文指提案为应付检查而列出的风险与替代项。",
+      "exampleEn": "A perfunctory risk review listed possible problems without examining their likelihood or consequences.",
+      "exampleZh": "一场敷衍的风险评审只罗列问题，却未分析其概率或后果。",
+      "forms": [],
+      "collocations": [
+        "a perfunctory review",
+        "a perfunctory list"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-perfunctory",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 43
+    },
+    {
+      "term": "WYSIATI",
+      "originalInput": "WYSIATI",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "眼见即全部；将已掌握的证据误当作所有相关信息。",
+      "definitionEn": "An assumption that the evidence currently available represents all relevant information.",
+      "usage": "缩写展开为 What you see is all there is；本文用它提醒审查缺失信息。",
+      "exampleEn": "WYSIATI made the proposal seem complete even though nobody had examined the target's patent disputes.",
+      "exampleZh": "眼见即全部的假设使提案显得完备，尽管无人考察目标公司的专利纠纷。",
+      "forms": [],
+      "collocations": [
+        "the WYSIATI assumption",
+        "challenge WYSIATI"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-wysiati",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 44
+    },
+    {
+      "term": "due diligence",
+      "originalInput": "due diligence",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "尽职调查；交易前对关键事实与风险的审慎核查。",
+      "definitionEn": "A careful investigation of relevant facts and risks before a transaction or commitment.",
+      "usage": "并购语境常涉及法律、财务与技术调查。",
+      "exampleEn": "Legal due diligence uncovered a patent dispute that changed the proposed acquisition price.",
+      "exampleZh": "法律尽职调查发现了一项专利纠纷，使拟议收购价格发生变化。",
+      "forms": [],
+      "collocations": [
+        "conduct due diligence",
+        "legal due diligence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-due-diligence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 45
+    },
+    {
+      "term": "guesstimate",
+      "originalInput": "guesstimate",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "粗略估计；带有猜测成分的估算。",
+      "definitionEn": "A rough estimate based partly on guesswork rather than firm evidence.",
+      "usage": "非正式词，由 guess 与 estimate 合成。",
+      "exampleEn": "The initial budget was a guesstimate, so the reviewers requested an independent cost model.",
+      "exampleZh": "最初的预算只是粗估，因此评审者要求提供独立的成本模型。",
+      "forms": [
+        "guesstimates"
+      ],
+      "collocations": [
+        "a rough guesstimate",
+        "a cost guesstimate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 16,
+      "printedPage": 15,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-guesstimate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 46
+    },
+    {
+      "term": "reanchor",
+      "originalInput": "reanchor",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "重新设定判断锚点；改用另一参考值检验原估计。",
+      "definitionEn": "To establish a different reference point for a judgment or estimate.",
+      "usage": "原文可写作 reanchor/reanchoring；不是直接认定新数字必然正确。",
+      "exampleEn": "The analyst reanchored the estimate using comparable projects rather than last year's budget.",
+      "exampleZh": "分析师依据可比项目而非去年的预算，重新设定了估算的参考点。",
+      "forms": [
+        "reanchored",
+        "reanchoring"
+      ],
+      "collocations": [
+        "reanchor an estimate",
+        "reanchor with benchmarks"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 17,
+      "printedPage": 16,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-reanchor",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 47
+    },
+    {
+      "term": "slavishly",
+      "originalInput": "slavishly",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "盲从地；机械照搬而不作独立判断地。",
+      "definitionEn": "By following something mechanically without independent judgment.",
+      "usage": "本文警惕机械复制标杆企业的做法。",
+      "exampleEn": "The team studied its competitor's process without slavishly copying every step into its own operations.",
+      "exampleZh": "团队研究了竞争者的流程，但没有将每个步骤机械照搬到自身运营中。",
+      "forms": [],
+      "collocations": [
+        "slavishly copy",
+        "slavishly follow a model"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 17,
+      "printedPage": 16,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-slavishly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 48
+    },
+    {
+      "term": "cyclical",
+      "originalInput": "cyclical",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "周期性的；随经济等周期反复波动的。",
+      "definitionEn": "Changing in a recurring pattern of expansion and decline.",
+      "usage": "本文指行业需求随经济周期起伏。",
+      "exampleEn": "A cyclical industry may face weak demand soon after a period of rapid expansion.",
+      "exampleZh": "一个周期性行业可能在快速扩张之后不久便面临需求疲弱。",
+      "forms": [],
+      "collocations": [
+        "a cyclical industry",
+        "cyclical demand"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 17,
+      "printedPage": 16,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-cyclical",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 49
+    },
+    {
+      "term": "double down",
+      "originalInput": "doubled down",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "加倍投入；在既有路线或选择上进一步加码。",
+      "definitionEn": "To commit more resources or effort to an existing course of action.",
+      "usage": "常用 double down on something；本来源 on 短语续在下一页。",
+      "exampleEn": "The firm doubled down on its expansion plan despite warnings that demand was weakening.",
+      "exampleZh": "尽管有人警告需求正在减弱，公司仍进一步加码扩张计划。",
+      "forms": [
+        "doubled down",
+        "doubling down"
+      ],
+      "collocations": [
+        "double down on an investment",
+        "double down on a strategy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 17,
+      "printedPage": 16,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-double-down",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 50
+    },
+    {
+      "term": "off-base",
+      "originalInput": "off-base",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "判断失当的；不合适或偏离实际的。",
+      "definitionEn": "Mistaken or inappropriate in a particular situation.",
+      "usage": "常用 be/seem off-base；本文指质疑随口类比似乎不合时宜。",
+      "exampleEn": "The question initially seemed off-base, but it exposed a weakness in the comparison.",
+      "exampleZh": "这个问题起初似乎不太恰当，却揭示了类比中的薄弱之处。",
+      "forms": [],
+      "collocations": [
+        "seem off-base",
+        "an off-base assumption"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 18,
+      "printedPage": 17,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-off-base",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 51
+    },
+    {
+      "term": "dispel",
+      "originalInput": "dispel",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "消除；驱散某种疑虑、印象或看法。",
+      "definitionEn": "To remove a doubt, belief, impression, or feeling.",
+      "usage": "本文指正面印象即使缺乏依据，也不容易消除。",
+      "exampleEn": "Additional evidence helped dispel the impression that the proposal offered a risk-free opportunity.",
+      "exampleZh": "新的证据有助于消除这项提案提供了无风险机会的印象。",
+      "forms": [
+        "dispels",
+        "dispelled",
+        "dispelling"
+      ],
+      "collocations": [
+        "dispel an impression",
+        "dispel doubts"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 18,
+      "printedPage": 17,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-dispel",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 52
+    },
+    {
+      "term": "subscale",
+      "originalInput": "subscale",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "规模不足的；未达到经济或有效运作所需规模的。",
+      "definitionEn": "Operating below a size needed for efficient or economically viable production.",
+      "usage": "本文指产品线规模不足；不是问卷的分量表义。",
+      "exampleEn": "Managers argued that the subscale plant needed additional capacity to lower its unit costs.",
+      "exampleZh": "经理们认为，这家规模不足的工厂需要增加产能以降低单位成本。",
+      "forms": [],
+      "collocations": [
+        "a subscale operation",
+        "subscale production"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 18,
+      "printedPage": 17,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-subscale",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 53
+    },
+    {
+      "term": "overconfidence",
+      "originalInput": "Overconfidence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "过度自信；对自身判断或能力的把握超过证据支持。",
+      "definitionEn": "Excessive certainty in the accuracy of one's judgments or the strength of one's abilities.",
+      "usage": "本文指出成功经历可能使团队低估并购整合难度。",
+      "exampleEn": "Recent successes encouraged overconfidence, so the board requested an independent assessment of integration risks.",
+      "exampleZh": "近期的成功助长了过度自信，因此董事会要求独立评估整合风险。",
+      "forms": [],
+      "collocations": [
+        "excessive overconfidence",
+        "overconfidence in forecasts"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-overconfidence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 54
+    },
+    {
+      "term": "planning fallacy",
+      "originalInput": "Planning Fallacy",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "计划谬误；低估任务所需时间、成本或困难的倾向。",
+      "definitionEn": "A tendency to underestimate the time, costs, or difficulties involved in completing a task.",
+      "usage": "本文联系 inside view，建议参考同类项目的实际结果。",
+      "exampleEn": "The planning fallacy caused the team to underestimate delays that had affected similar projects.",
+      "exampleZh": "计划谬误使团队低估了曾影响同类项目的延误。",
+      "forms": [],
+      "collocations": [
+        "avoid the planning fallacy",
+        "evidence of the planning fallacy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-planning-fallacy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 55
+    },
+    {
+      "term": "optimistic bias",
+      "originalInput": "Optimistic Biases",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "乐观偏差；预测结果比现实依据所支持的更有利。",
+      "definitionEn": "A tendency to expect outcomes more favorable than the available evidence warrants.",
+      "usage": "本文要求区分准确预测与进取目标，防止混为一谈。",
+      "exampleEn": "Optimistic bias caused the forecast to ignore delays that had affected most comparable projects.",
+      "exampleZh": "乐观偏差使预测忽略了大多数可比项目曾遭遇的延误。",
+      "forms": [
+        "optimistic biases"
+      ],
+      "collocations": [
+        "correct optimistic biases",
+        "optimistic bias in forecasting"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-optimistic-bias",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 56
+    },
+    {
+      "term": "competitor neglect",
+      "originalInput": "Competitor Neglect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "竞争者忽视；未充分考虑对手将如何反应。",
+      "definitionEn": "Failure to account adequately for how competitors may respond to a decision.",
+      "usage": "本文以降价可能引发价格战为例。",
+      "exampleEn": "Competitor neglect made the proposed price cut look attractive until rivals' likely reactions were considered.",
+      "exampleZh": "竞争者忽视使拟议降价看似诱人，直到对手可能的反应被纳入考虑。",
+      "forms": [],
+      "collocations": [
+        "avoid competitor neglect",
+        "the risk of competitor neglect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-competitor-neglect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 57
+    },
+    {
+      "term": "base case",
+      "originalInput": "base case",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "基准情景；用于比较其他情景的主要预测设定。",
+      "definitionEn": "A central set of assumptions or projections used as a reference for other scenarios.",
+      "usage": "基准情景不等于保证发生的结果；仍需检查是否过于乐观。",
+      "exampleEn": "The base case assumed steady demand, while the downside scenario allowed for a recession.",
+      "exampleZh": "基准情景假定需求稳定，而下行情景考虑了衰退的可能。",
+      "forms": [
+        "base cases"
+      ],
+      "collocations": [
+        "a base-case forecast",
+        "the base-case scenario"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-base-case",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 58
+    },
+    {
+      "term": "outside view",
+      "originalInput": "outside view",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "外部视角；借助同类案例的实际分布作判断。",
+      "definitionEn": "An approach that forecasts using outcomes from a relevant group of comparable cases.",
+      "usage": "不是局外人随意评论，而是跳出单个项目的具体叙事。",
+      "exampleEn": "Taking an outside view, the analyst compared actual completion times across twenty similar projects.",
+      "exampleZh": "分析师采用外部视角，比较了二十个同类项目的实际完工时间。",
+      "forms": [],
+      "collocations": [
+        "take an outside view",
+        "outside-view forecasting"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-outside-view",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 59
+    },
+    {
+      "term": "disaster neglect",
+      "originalInput": "Disaster Neglect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "灾难风险忽视；最坏情景未覆盖足够严重的不利结果。",
+      "definitionEn": "Failure to consider sufficiently severe adverse outcomes when evaluating a decision.",
+      "usage": "本文建议开展 premortem，设想此前未经历过的失败途径。",
+      "exampleEn": "A premortem helped expose disaster neglect in a proposal whose worst case was surprisingly mild.",
+      "exampleZh": "一项提案的最坏情景出奇温和，事前验尸帮助揭示了其中的灾难风险忽视。",
+      "forms": [],
+      "collocations": [
+        "check for disaster neglect",
+        "reduce disaster neglect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-disaster-neglect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
+      "order": 60
+    },
+    {
+      "term": "premortem",
+      "originalInput": "premortem",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "事前验尸；先假想项目已失败，再倒推可能原因。",
+      "definitionEn": "An exercise that imagines a future failure and works backward to identify possible causes.",
+      "usage": "与事后总结不同，在执行前主动识别被忽略的风险。",
+      "exampleEn": "The premortem revealed that staff departures could undermine the merger even if sales targets were met.",
+      "exampleZh": "事前验尸发现，即便达到销售目标，员工流失也可能使合并受挫。",
+      "forms": [
+        "premortems"
+      ],
+      "collocations": [
+        "conduct a premortem",
+        "a premortem exercise"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-premortem",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 61
+    },
+    {
+      "term": "synergy",
+      "originalInput": "synergies",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "协同效应；整合后产生的额外收益或效率。",
+      "definitionEn": "An additional benefit achieved when organizations or activities work together.",
+      "usage": "并购中常说 capture synergies；预期协同收益需要证据支持。",
+      "exampleEn": "The acquisition forecast promised synergies, but the team had not estimated the integration costs.",
+      "exampleZh": "收购预测承诺产生协同收益，但团队尚未估算整合成本。",
+      "forms": [
+        "synergies"
+      ],
+      "collocations": [
+        "capture synergies",
+        "expected synergies"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-synergy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 62
+    },
+    {
+      "term": "inside view",
+      "originalInput": "inside view",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "内部视角；聚焦当前项目细节而较少参考同类历史。",
+      "definitionEn": "An approach that forecasts from the specific plans and details of the case at hand.",
+      "usage": "本文将其与参考同类项目实际结果的 outside view 对照。",
+      "exampleEn": "An inside view produced a detailed schedule but overlooked delays common across similar construction projects.",
+      "exampleZh": "内部视角产生了详细日程，却忽视了同类建设项目普遍出现的延误。",
+      "forms": [],
+      "collocations": [
+        "adopt an inside view",
+        "inside-view thinking"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-inside-view",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 63
+    },
+    {
+      "term": "divine",
+      "originalInput": "divine",
+      "partOfSpeech": "verb",
+      "meaning": "推测；预知尚不明确的事情或未来情况。",
+      "definitionEn": "To predict or work out something that is not directly known.",
+      "usage": "本文 trying to divine the future 指预测未来；这里是动词，不是形容词“神圣的”。",
+      "exampleEn": "The consultant could not divine future demand from the company's plans alone.",
+      "exampleZh": "顾问无法仅凭公司的计划就预测未来需求。",
+      "forms": [
+        "divines",
+        "divined",
+        "divining"
+      ],
+      "collocations": [
+        "divine the future",
+        "divine someone’s intentions"
+      ],
+      "pdfPage": 20,
+      "printedPage": 19,
+      "entryType": "word",
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-divine",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
+      },
+      "order": 64
+    },
+    {
+      "term": "exacerbate",
+      "originalInput": "exacerbated",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使恶化；加剧已有的问题。",
+      "definitionEn": "To make an existing problem or undesirable condition worse.",
+      "usage": "常接 problem、risk、tension；本文指组织内混淆加重偏差。",
+      "exampleEn": "Confusing ambitious targets with realistic forecasts can exacerbate optimism in investment proposals.",
+      "exampleZh": "把进取目标与现实预测混为一谈，可能加剧投资提案中的乐观偏差。",
+      "forms": [
+        "exacerbates",
+        "exacerbated",
+        "exacerbating"
+      ],
+      "collocations": [
+        "exacerbate a problem",
+        "exacerbate existing risks"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 20,
+      "printedPage": 19,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-exacerbate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 65
+    },
+    {
+      "term": "interplay",
+      "originalInput": "interplay",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "相互作用；多个因素彼此影响的关系。",
+      "definitionEn": "The way two or more factors act on and influence one another.",
+      "usage": "常用 interplay between A and B；本文讨论预测与目标间的相互影响。",
+      "exampleEn": "The review examined the interplay between sales incentives and the forecasts used to justify expansion.",
+      "exampleZh": "评审考察了销售激励与用于论证扩张的预测之间的相互作用。",
+      "forms": [],
+      "collocations": [
+        "the interplay between factors",
+        "a complex interplay"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 20,
+      "printedPage": 19,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c5-interplay",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      },
+      "order": 66
+    },
+    {
+      "term": "antidote",
+      "originalInput": "antidote",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "解毒剂；本文比喻对抗某种问题的办法。",
+      "definitionEn": "Something that counteracts a harmful tendency or problem.",
+      "usage": "常用 an antidote to；原文把竞争模拟视为忽略对手反应的补救办法。",
+      "exampleEn": "Inviting an independent challenge can be an antidote to excessive confidence in a favored proposal.",
+      "exampleZh": "邀请独立质疑可以成为纠正对心仪提案过度自信的一剂良方。",
+      "forms": [
+        "antidotes"
+      ],
+      "collocations": [
+        "an antidote to overconfidence",
+        "a useful antidote"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 21,
+      "printedPage": 20,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-antidote",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 67
+    },
+    {
+      "term": "on the flip side",
+      "originalInput": "On the flip side",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "从另一面看；另一方面。",
+      "definitionEn": "When considering the opposite aspect of a situation.",
+      "usage": "本文从过度乐观转向过度保守的问题。",
+      "exampleEn": "The plan could generate strong returns; on the flip side, it would leave little cash available.",
+      "exampleZh": "这项计划可能带来丰厚回报；另一方面，它会使可用现金所剩无几。",
+      "forms": [],
+      "collocations": [
+        "on the flip side of the issue",
+        "consider the flip side"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 21,
+      "printedPage": 20,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-on-the-flip-side",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 68
+    },
+    {
+      "term": "part and parcel",
+      "originalInput": "part and parcel",
+      "entryType": "idiom",
+      "partOfSpeech": "idiom",
+      "meaning": "不可分割的组成部分；必然伴随的部分。",
+      "definitionEn": "An essential or inseparable part of something.",
+      "usage": "常用 part and parcel of something。",
+      "exampleEn": "Independent challenge should become part and parcel of the company's process for approving major investments.",
+      "exampleZh": "独立质疑应成为公司重大投资审批流程不可分割的一部分。",
+      "forms": [],
+      "collocations": [
+        "part and parcel of a process",
+        "become part and parcel of"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 22,
+      "printedPage": 21,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-part-and-parcel",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 69
+    },
+    {
+      "term": "rubber-stamp",
+      "originalInput": "rubber-stamps",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "不作认真审查便批准；例行盖章通过。",
+      "definitionEn": "To approve something routinely without independent examination.",
+      "usage": "作动词时常含贬义；本文区别于值得全面审查的重要决策。",
+      "exampleEn": "The committee should scrutinize major acquisitions rather than rubber-stamp recommendations from senior managers.",
+      "exampleZh": "委员会应仔细审查重大收购，而非对高管的建议照单批准。",
+      "forms": [
+        "rubber-stamps",
+        "rubber-stamped",
+        "rubber-stamping"
+      ],
+      "collocations": [
+        "rubber-stamp a decision",
+        "rubber-stamp a proposal"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 22,
+      "printedPage": 21,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-rubber-stamp",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 70
+    },
+    {
+      "term": "sweet spot",
+      "originalInput": "sweet spot",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "最适用或最能取得效果的范围、条件或位置。",
+      "definitionEn": "The set of conditions in which an approach works especially well.",
+      "usage": "本文指决策质量审查最适用于重要且反复发生的决策。",
+      "exampleEn": "The checklist's sweet spot was major recurring decisions that justified a consistent review process.",
+      "exampleZh": "这份清单最适用于值得采用一致评审流程的重大重复性决策。",
+      "forms": [
+        "sweet spots"
+      ],
+      "collocations": [
+        "find the sweet spot",
+        "the sweet spot for an approach"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 22,
+      "printedPage": 21,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-sweet-spot",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 71
+    },
+    {
+      "term": "overtly",
+      "originalInput": "overtly",
+      "partOfSpeech": "adverb",
+      "meaning": "公开地；明显而不加掩饰地。",
+      "definitionEn": "In an open or clearly visible way rather than secretly.",
+      "usage": "本文与 covertly 对照，描述决策者公开或隐蔽地影响提案。",
+      "exampleEn": "A senior manager overtly supported one option before the team had finished its independent assessment.",
+      "exampleZh": "团队尚未完成独立评估，一位高管就公开支持了其中一个选项。",
+      "forms": [],
+      "collocations": [
+        "overtly influence a decision",
+        "overtly support a proposal"
+      ],
+      "confusedWith": [
+        "overtly 指公开、不加掩饰地；covertly 指隐蔽、暗中地。"
+      ],
+      "pdfPage": 23,
+      "printedPage": 22,
+      "entryType": "word",
+      "tags": [
+        "决策与商务表达"
+      ],
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-overtly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
+      },
+      "order": 72
+    },
+    {
+      "term": "covertly",
+      "originalInput": "covertly",
+      "partOfSpeech": "adverb",
+      "meaning": "暗中地；以隐藏意图或不让人察觉的方式。",
+      "definitionEn": "In a secret or concealed way intended to avoid notice.",
+      "usage": "本文指评审者暗中影响团队提案，破坏其独立性；与 overtly 相对。",
+      "exampleEn": "The director covertly influenced the recommendation while publicly claiming that the team had complete independence.",
+      "exampleZh": "主任暗中影响了建议的形成，却公开声称团队拥有完全独立性。",
+      "forms": [],
+      "collocations": [
+        "covertly influence a recommendation",
+        "covertly steer a decision"
+      ],
+      "confusedWith": [
+        "covertly 指隐蔽、暗中地；overtly 指公开、不加掩饰地。"
+      ],
+      "pdfPage": 23,
+      "printedPage": 22,
+      "entryType": "word",
+      "tags": [
+        "决策与商务表达"
+      ],
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-covertly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
+      },
+      "order": 73
+    },
+    {
+      "term": "de facto",
+      "originalInput": "de facto",
+      "entryType": "phrase",
+      "partOfSpeech": "adjective",
+      "meaning": "事实上的；实际如此但未必正式认定的。",
+      "definitionEn": "Existing in practice even if not formally designated or recognized.",
+      "usage": "常修饰 leader、member、control；区别于法律上或正式意义的身份。",
+      "exampleEn": "By directing the recommendation, the reviewer became a de facto member of the proposing team.",
+      "exampleZh": "评审者通过指导建议的形成，成为了提案团队事实上的成员。",
+      "forms": [],
+      "collocations": [
+        "a de facto leader",
+        "a de facto member"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 23,
+      "printedPage": 22,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-de-facto",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 74
+    },
+    {
+      "term": "adherence",
+      "originalInput": "adherence",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "遵守；持续依照规则或流程执行。",
+      "definitionEn": "The practice of following a rule, standard, or procedure.",
+      "usage": "常用 adherence to；本文强调完整且持续执行检查清单。",
+      "exampleEn": "Consistent adherence to the checklist mattered more than knowing each item in isolation.",
+      "exampleZh": "持续遵守检查清单，比孤立地知道每一项内容更重要。",
+      "forms": [],
+      "collocations": [
+        "adherence to a procedure",
+        "consistent adherence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 23,
+      "printedPage": 22,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-adherence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 75
+    },
+    {
+      "term": "avert",
+      "originalInput": "averted",
+      "partOfSpeech": "verb",
+      "meaning": "防止；避免不良事件或严重后果发生。",
+      "definitionEn": "To prevent an undesirable event or consequence from happening.",
+      "usage": "本文 avert serious problems 指避免严重问题；另有 avert one’s eyes（移开目光）的用法。",
+      "exampleEn": "The review helped avert a costly mistake by exposing unrealistic assumptions in the forecast.",
+      "exampleZh": "评审揭示了预测中不切实际的假设，有助于避免一次代价高昂的错误。",
+      "forms": [
+        "averts",
+        "averted",
+        "averting"
+      ],
+      "collocations": [
+        "avert a crisis",
+        "avert serious problems"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "entryType": "word",
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-nlmg-c22-avert",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "复用已有防止不良事件义词卡，保留旧例句和语境，仅补本文出处。"
+      },
+      "order": 76
+    },
+    {
+      "term": "clamor for",
+      "originalInput": "clamoring for",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "强烈要求；大声而持续地呼吁得到某物。",
+      "definitionEn": "To demand something loudly, insistently, or with strong collective pressure.",
+      "usage": "美式拼写 clamor；英式 clamour。",
+      "exampleEn": "Sales managers clamored for price cuts, but the director asked them to examine other options.",
+      "exampleZh": "销售经理们强烈要求降价，但主管要求他们考察其他选项。",
+      "forms": [
+        "clamors for",
+        "clamored for",
+        "clamoring for"
+      ],
+      "collocations": [
+        "clamor for change",
+        "clamor for action"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-clamor-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 77
+    },
+    {
+      "term": "prop up",
+      "originalInput": "prop up",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "支撑；本文指人为维持本已虚弱的业务或投资。",
+      "definitionEn": "To support something that would otherwise weaken or fail.",
+      "usage": "可分离：prop something up；不必然意味着支持有正当依据。",
+      "exampleEn": "The new loan would merely prop up an unprofitable division rather than solve its underlying problems.",
+      "exampleZh": "新贷款只会勉强维持亏损部门，而不会解决其根本问题。",
+      "forms": [
+        "props up",
+        "propped up",
+        "propping up"
+      ],
+      "collocations": [
+        "prop up a business",
+        "prop up an investment"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-prop-up",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 78
+    },
+    {
+      "term": "leapfrog",
+      "originalInput": "leapfrog",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "跃过并超过；跳过中间阶段取得领先。",
+      "definitionEn": "To move ahead of others by bypassing an intermediate stage or adopting a better approach.",
+      "usage": "本文指投资新技术以超越竞争对手。",
+      "exampleEn": "A new production technology could help the smaller manufacturer leapfrog its established competitors.",
+      "exampleZh": "一种新的生产技术可能帮助这家较小制造商超越老牌竞争对手。",
+      "forms": [
+        "leapfrogs",
+        "leapfrogged",
+        "leapfrogging"
+      ],
+      "collocations": [
+        "leapfrog the competition",
+        "leapfrog a rival"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-leapfrog",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 79
+    },
+    {
+      "term": "sign off on",
+      "originalInput": "signed off on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb",
+      "meaning": "正式批准；确认同意某项安排。",
+      "definitionEn": "To give formal approval to a decision, document, or transaction.",
+      "usage": "本文指 CEO 最终批准交易；不是在信末署名。",
+      "exampleEn": "The director signed off on the acquisition after the team completed additional due diligence.",
+      "exampleZh": "团队完成进一步尽职调查后，主管正式批准了这项收购。",
+      "forms": [
+        "signs off on",
+        "signed off on",
+        "signing off on"
+      ],
+      "collocations": [
+        "sign off on a deal",
+        "sign off on a proposal"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-sign-off-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 80
+    },
+    {
+      "term": "fallible",
+      "originalInput": "fallible",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "会犯错的；并非绝对可靠的。",
+      "definitionEn": "Capable of making mistakes or being wrong.",
+      "usage": "本文强调经验丰富、善意且能干的管理者仍可能判断失误。",
+      "exampleEn": "Recognizing that experts are fallible encouraged the board to strengthen its review process.",
+      "exampleZh": "认识到专家也会犯错，促使董事会加强评审流程。",
+      "forms": [],
+      "collocations": [
+        "fallible judgment",
+        "fallible decision makers"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 24,
+      "printedPage": 23,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-fallible",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 81
+    }
+  ]
+}

@@ -1,0 +1,3109 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-5",
+    "number": 5,
+    "title": "How Management Teams Can Have a Good Fight"
+  },
+  "sourceTitle": "Teamwork — How Management Teams Can Have a Good Fight",
+  "articleTitle": "How Management Teams Can Have a Good Fight",
+  "authors": "Kathleen M. Eisenhardt; Jean L. Kahwajy; L.J. Bourgeois III",
+  "issue": "July–August 1997",
+  "sourceUrl": "https://hbr.org/1997/07/how-management-teams-can-have-a-good-fight",
+  "sourcePdfSha256": "f1526f437a90b01db98c54980570515c95d33a116885ac256312ad6f8e3830ed",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 97,
+  "curation": {
+    "difficulty": "upper-intermediate-and-advanced",
+    "originalItemCount": 103,
+    "selectionStandard": "保留难词、专业表达、习语及熟词生义；省略明显基础词及透明组合。",
+    "excludedItems": [
+      {
+        "term": "team member",
+        "pdfPage": 3,
+        "reason": "一般基础组合，本文无特殊词义。"
+      },
+      {
+        "term": "common goal",
+        "pdfPage": 3,
+        "reason": "含义透明的常见组合，不单独建立学习卡。"
+      },
+      {
+        "term": "work together",
+        "pdfPage": 5,
+        "reason": "基础合作表达，按中高级标准省略。"
+      },
+      {
+        "term": "get along",
+        "pdfPage": 6,
+        "reason": "较常见日常短语，优先保留更难表达。"
+      },
+      {
+        "term": "deadline",
+        "pdfPage": 11,
+        "reason": "基础职场词，本文无特殊新义。"
+      },
+      {
+        "term": "high-stakes",
+        "pdfPage": 3,
+        "reason": "本文含义直接，优先保留更难的冲突与决策词汇。"
+      }
+    ]
+  },
+  "items": [
+    {
+      "term": "spar",
+      "originalInput": "spar",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "争辩；通过交锋检验观点",
+      "definitionEn": "To exchange arguments in a lively contest of ideas.",
+      "usage": "本文是比喻义，不指拳击训练。",
+      "exampleEn": "The directors sparred over costs without questioning one another's motives.",
+      "exampleZh": "董事们就成本展开争辩，但没有质疑彼此的动机。",
+      "forms": [
+        "sparred",
+        "sparring"
+      ],
+      "collocations": [
+        "spar over strategy",
+        "spar with colleagues"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 1,
+      "reuseExistingEntryId": "public-teamwork-c5-spar",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "mitigate",
+      "originalInput": "Mitigate",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "减轻；缓和不良影响或冲突",
+      "definitionEn": "To make a harmful situation less severe.",
+      "usage": "mitigate conflict/risk，不表示完全消除。",
+      "exampleEn": "Clear discussion rules helped mitigate hostility during the difficult budget meeting.",
+      "exampleZh": "明确的讨论规则有助于缓和艰难预算会议中的敌意。",
+      "forms": [
+        "mitigated",
+        "mitigating"
+      ],
+      "collocations": [
+        "mitigate conflict",
+        "mitigate the risk"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 2,
+      "reuseExistingEntryId": "public-teamwork-c5-mitigate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "polarize",
+      "originalInput": "polarizing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使两极分化；使人分成对立阵营",
+      "definitionEn": "To divide people into sharply opposed groups.",
+      "usage": "本文指围绕两个方案争论而形成对立。",
+      "exampleEn": "Comparing several proposals prevented the committee from polarizing into two hostile camps.",
+      "exampleZh": "比较多个提案使委员会没有分裂成两个敌对阵营。",
+      "forms": [
+        "polarized",
+        "polarizing"
+      ],
+      "collocations": [
+        "polarize opinion",
+        "polarize a team"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 3,
+      "reuseExistingEntryId": "public-teamwork-c5-polarize",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "contrived",
+      "originalInput": "contrived",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "刻意安排的；显得不自然的",
+      "definitionEn": "Deliberately arranged rather than arising naturally.",
+      "usage": "本文指有意制造、甚至略显生硬的幽默。",
+      "exampleEn": "The icebreaker felt contrived, but it still helped several colleagues relax.",
+      "exampleZh": "破冰活动显得有些刻意，但仍帮助几位同事放松下来。",
+      "forms": [],
+      "collocations": [
+        "a contrived joke",
+        "seem contrived"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 4,
+      "reuseExistingEntryId": "public-teamwork-c5-contrived",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "esprit",
+      "originalInput": "esprit",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "团队精神；共同的热情与士气",
+      "definitionEn": "A shared spirit of enthusiasm within a group.",
+      "usage": "较正式；本文 collaborative esprit 指协作精神。",
+      "exampleEn": "Shared challenges strengthened the collaborative esprit within the management team.",
+      "exampleZh": "共同的挑战增强了管理团队内部的协作精神。",
+      "forms": [],
+      "collocations": [
+        "collaborative esprit",
+        "team esprit"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 5,
+      "reuseExistingEntryId": "public-teamwork-c5-esprit",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "wield",
+      "originalInput": "wield",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "行使；运用权力或影响力",
+      "definitionEn": "To exercise power, authority, or influence.",
+      "usage": "常搭配 power/authority/influence。",
+      "exampleEn": "Regional managers wield considerable influence over how the new policy is implemented.",
+      "exampleZh": "地区经理对新政策的实施方式具有相当大的影响力。",
+      "forms": [
+        "wielded",
+        "wielding"
+      ],
+      "collocations": [
+        "wield power",
+        "wield influence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 6,
+      "reuseExistingEntryId": "public-teamwork-c5-wield",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "consensus with qualification",
+      "originalInput": "consensus with qualification",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "附带决策规则的共识机制；无法一致时由相关负责人拍板",
+      "definitionEn": "A process that seeks agreement but assigns a decision maker if agreement fails.",
+      "usage": "本文专用表达；qualification 指共识要求附有限定条件。",
+      "exampleEn": "Consensus with qualification let everyone contribute without giving each member an unlimited veto.",
+      "exampleZh": "这种有限定条件的共识机制让所有人都能参与，同时避免人人拥有无限否决权。",
+      "forms": [],
+      "collocations": [
+        "seek consensus with qualification",
+        "use consensus with qualification"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 3,
+      "printedPage": 1,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 7,
+      "reuseExistingEntryId": "public-teamwork-c5-consensus-with-qualification",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "apathy",
+      "originalInput": "apathy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "冷漠；缺乏参与和投入的意愿",
+      "definitionEn": "A lack of interest, enthusiasm, or concern.",
+      "usage": "本文强调没有争论也可能源于冷漠。",
+      "exampleEn": "Silence in the meeting reflected apathy rather than genuine agreement with the proposal.",
+      "exampleZh": "会议中的沉默反映的是冷漠，而非对提案的真心赞同。",
+      "forms": [],
+      "collocations": [
+        "employee apathy",
+        "combat apathy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 8,
+      "reuseExistingEntryId": "public-teamwork-apathy-f87fc5cd",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡含相同核心义；保留旧词条内容，追加本篇阅读语境。"
+      }
+    },
+    {
+      "term": "stymie",
+      "originalInput": "stymied",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使受阻；使难以继续或解决",
+      "definitionEn": "To prevent someone from making progress.",
+      "usage": "常用 be stymied by，表示被问题难住。",
+      "exampleEn": "Unclear authority stymied the team's efforts to resolve the disagreement quickly.",
+      "exampleZh": "权限不清阻碍了团队迅速解决分歧的努力。",
+      "forms": [
+        "stymied",
+        "stymying"
+      ],
+      "collocations": [
+        "be stymied by",
+        "stymie progress"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 9,
+      "reuseExistingEntryId": "public-teamwork-c5-stymie",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "substantive",
+      "originalInput": "substantive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "实质性的；针对议题内容的",
+      "definitionEn": "Concerned with meaningful issues rather than superficial or personal matters.",
+      "usage": "本文区分实质性分歧与人际冲突。",
+      "exampleEn": "The chair welcomed substantive criticism of the plan and discouraged personal remarks.",
+      "exampleZh": "主席欢迎对计划提出实质性批评，并劝阻针对个人的言论。",
+      "forms": [],
+      "collocations": [
+        "substantive disagreement",
+        "substantive issues"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 10,
+      "reuseExistingEntryId": "public-teamwork-c5-substantive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "intertwine",
+      "originalInput": "intertwined",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使交织；使紧密纠缠",
+      "definitionEn": "To connect things so closely that they become difficult to separate.",
+      "usage": "常用 become intertwined with。",
+      "exampleEn": "Personal rivalries became intertwined with the discussion of the company's future.",
+      "exampleZh": "个人间的竞争纠缠进了关于公司未来的讨论。",
+      "forms": [
+        "intertwined",
+        "intertwining"
+      ],
+      "collocations": [
+        "be intertwined with",
+        "closely intertwined"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 11,
+      "reuseExistingEntryId": "public-teamwork-c5-intertwine",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "degenerate",
+      "originalInput": "degenerating",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "恶化；退化为更糟糕的状态",
+      "definitionEn": "To develop into a worse or less effective condition.",
+      "usage": "degenerate into 后接争吵、混乱等结果。",
+      "exampleEn": "A useful debate degenerated into accusations after the participants stopped checking the facts.",
+      "exampleZh": "参与者不再核实事实后，一场有益的辩论恶化成了相互指责。",
+      "forms": [
+        "degenerated",
+        "degenerating"
+      ],
+      "collocations": [
+        "degenerate into conflict",
+        "degenerate into chaos"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 12,
+      "reuseExistingEntryId": "public-teamwork-c5-degenerate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "dysfunctional",
+      "originalInput": "dysfunctional",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "失调的；妨碍团队正常运作的",
+      "definitionEn": "Failing to function effectively or support healthy cooperation.",
+      "usage": "本文修饰损害合作的人际冲突。",
+      "exampleEn": "Dysfunctional conflict kept the managers from sharing information needed for the decision.",
+      "exampleZh": "失调的冲突使经理们无法共享决策所需的信息。",
+      "forms": [],
+      "collocations": [
+        "dysfunctional conflict",
+        "a dysfunctional team"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 13,
+      "reuseExistingEntryId": "public-hierarchy-dysfunctional-6a66942d",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡含相同核心义；保留旧词条内容，追加本篇阅读语境。"
+      }
+    },
+    {
+      "term": "interplay",
+      "originalInput": "interplay",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "相互作用；多个因素彼此影响的关系",
+      "definitionEn": "The way two or more factors affect one another.",
+      "usage": "常用 interplay between/among。",
+      "exampleEn": "The study examined the interplay between incentives, disagreement, and decision speed.",
+      "exampleZh": "研究考察了激励、分歧与决策速度之间的相互作用。",
+      "forms": [],
+      "collocations": [
+        "the interplay between factors",
+        "a complex interplay"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 5,
+      "printedPage": 3,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 14,
+      "reuseExistingEntryId": "public-teamwork-c5-interplay",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "discord",
+      "originalInput": "discord",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "不和；意见或关系上的冲突",
+      "definitionEn": "Disagreement or tension that damages harmony within a group.",
+      "usage": "较正式；本文指人际关系中的不和。",
+      "exampleEn": "The restructuring created discord when managers felt that their concerns had been ignored.",
+      "exampleZh": "经理们认为自己的顾虑被忽视后，重组引发了不和。",
+      "forms": [],
+      "collocations": [
+        "interpersonal discord",
+        "sow discord"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 15,
+      "reuseExistingEntryId": "public-teamwork-c5-discord",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "politicking",
+      "originalInput": "politicking",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "搞内部政治；为争取权势而活动",
+      "definitionEn": "Activity aimed at gaining personal power or advantage within an organization.",
+      "usage": "通常带贬义，强调权力运作而非议题讨论。",
+      "exampleEn": "Internal politicking consumed time that should have gone into evaluating the alternatives.",
+      "exampleZh": "内部权力争斗耗费了本应用来评估方案的时间。",
+      "forms": [],
+      "collocations": [
+        "internal politicking",
+        "engage in politicking"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 16,
+      "reuseExistingEntryId": "public-teamwork-c5-politicking",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "posturing",
+      "originalInput": "posturing",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "装腔作势；为影响他人而摆姿态",
+      "definitionEn": "Behavior intended to create an impression rather than address an issue honestly.",
+      "usage": "本文指争论中展示立场或声势的做派。",
+      "exampleEn": "The chair asked for evidence and refused to let political posturing dominate the discussion.",
+      "exampleZh": "主席要求提供证据，不让政治姿态主导讨论。",
+      "forms": [],
+      "collocations": [
+        "political posturing",
+        "empty posturing"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 17,
+      "reuseExistingEntryId": "public-teamwork-c5-posturing",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "gloss over",
+      "originalInput": "gloss over",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "掩饰；轻描淡写地略过问题",
+      "definitionEn": "To avoid examining an unpleasant issue in enough detail.",
+      "usage": "gloss over a problem，不是认真解释它。",
+      "exampleEn": "The review glossed over the delays instead of identifying their underlying causes.",
+      "exampleZh": "审查轻描淡写地带过了延误，没有找出其深层原因。",
+      "forms": [
+        "glossed over",
+        "glossing over"
+      ],
+      "collocations": [
+        "gloss over problems",
+        "gloss over differences"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 18,
+      "reuseExistingEntryId": "public-teamwork-c5-gloss-over",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "animosity",
+      "originalInput": "animosity",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "强烈敌意；憎恶情绪",
+      "definitionEn": "Strong hostility or dislike toward another person or group.",
+      "usage": "通常不可数，强于一般分歧。",
+      "exampleEn": "Months of personal criticism created animosity between the two department heads.",
+      "exampleZh": "持续数月的针对个人的批评使两位部门负责人产生了敌意。",
+      "forms": [],
+      "collocations": [
+        "personal animosity",
+        "animosity between colleagues"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 19,
+      "reuseExistingEntryId": "public-teamwork-c5-animosity",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "clique",
+      "originalInput": "cliques",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "小圈子；排斥外人的小团体",
+      "definitionEn": "A small, exclusive group that limits contact with outsiders.",
+      "usage": "通常含排他、妨碍整体合作的贬义。",
+      "exampleEn": "The leadership team split into cliques that rarely exchanged useful information.",
+      "exampleZh": "领导团队分裂成几个小圈子，彼此很少交换有用信息。",
+      "forms": [
+        "cliques"
+      ],
+      "collocations": [
+        "form a clique",
+        "an exclusive clique"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 20,
+      "reuseExistingEntryId": "public-teamwork-c5-clique",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "implicit",
+      "originalInput": "implicit",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "隐含的；未明确说出的",
+      "definitionEn": "Understood or suggested without being directly stated.",
+      "usage": "与 explicit“明确表达的”相对。",
+      "exampleEn": "The team followed an implicit rule that criticism should focus on evidence.",
+      "exampleZh": "团队遵循一条未明说的规则，即批评应聚焦于证据。",
+      "forms": [],
+      "collocations": [
+        "an implicit rule",
+        "implicit assumptions"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 21,
+      "reuseExistingEntryId": "public-teamwork-c5-implicit",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "testimony",
+      "originalInput": "testimony",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "证明；支持某种判断的有力迹象",
+      "definitionEn": "Evidence that supports a conclusion about something.",
+      "usage": "本文 testimony to 指证明，不是法庭证词。",
+      "exampleEn": "The team's repeated success was testimony to the value of its review process.",
+      "exampleZh": "团队屡次成功，证明了其审查流程的价值。",
+      "forms": [],
+      "collocations": [
+        "testimony to effectiveness",
+        "testimony to the value of something"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 22,
+      "reuseExistingEntryId": "public-teamwork-c5-testimony",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "bookings",
+      "originalInput": "bookings",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "新接订单额或订单量；一定时期内取得的订单指标",
+      "definitionEn": "Orders accepted during a period, often measured by their value.",
+      "usage": "本文经营指标语境，不是酒店或机票预订。",
+      "exampleEn": "Strong bookings suggested future demand, but managers still checked whether production could deliver.",
+      "exampleZh": "强劲的新接订单预示未来需求，但管理者仍核实了生产能否交付。",
+      "forms": [
+        "booking"
+      ],
+      "collocations": [
+        "order bookings",
+        "quarterly bookings"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 23,
+      "reuseExistingEntryId": "public-teamwork-c5-bookings",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "backlog",
+      "originalInput": "backlogs",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "积压订单；尚未完成的工作量",
+      "definitionEn": "Orders or tasks waiting to be completed.",
+      "usage": "本文作为经营指标，关注未交付订单或积压工作。",
+      "exampleEn": "The growing backlog warned managers that production capacity was falling behind demand.",
+      "exampleZh": "不断增加的积压订单提醒管理者，产能正落后于需求。",
+      "forms": [
+        "backlogs"
+      ],
+      "collocations": [
+        "an order backlog",
+        "reduce a backlog"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 24,
+      "reuseExistingEntryId": "public-teamwork-c5-backlog",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "margin",
+      "originalInput": "margins",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "利润空间；收入超过相关成本的差额或比率",
+      "definitionEn": "The amount or percentage by which revenue exceeds relevant costs.",
+      "usage": "本文经营指标语境，不指页边距。",
+      "exampleEn": "Rising material costs reduced margins even though the company sold more units.",
+      "exampleZh": "尽管公司销量增加，原料成本上涨仍压缩了利润空间。",
+      "forms": [
+        "margins"
+      ],
+      "collocations": [
+        "profit margins",
+        "protect margins"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 25,
+      "reuseExistingEntryId": "public-teamwork-c5-margin",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "scrap",
+      "originalInput": "scrap",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "生产废料；报废的原材料或产品",
+      "definitionEn": "Material or products discarded because they are unusable in production.",
+      "usage": "本文是制造业经营指标，不是动词“废除”。",
+      "exampleEn": "The production team measured scrap to identify costly defects in the new process.",
+      "exampleZh": "生产团队统计废料，以找出新流程中代价高昂的缺陷。",
+      "forms": [],
+      "collocations": [
+        "reduce scrap",
+        "production scrap"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 26,
+      "reuseExistingEntryId": "public-teamwork-c5-scrap",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "work-in-process",
+      "originalInput": "work-in-process",
+      "entryType": "word",
+      "partOfSpeech": "noun phrase",
+      "meaning": "在制品；已投入生产但尚未完成的产品",
+      "definitionEn": "Goods that have entered production but are not yet finished.",
+      "usage": "制造业与会计用语，也常写 work in process。",
+      "exampleEn": "The factory tracked work-in-process to identify production stages where unfinished goods were accumulating.",
+      "exampleZh": "工厂跟踪在制品，以找出未完成产品正在积压的生产阶段。",
+      "forms": [
+        "work in process"
+      ],
+      "collocations": [
+        "work-in-process inventory",
+        "work-in-process costs"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 27,
+      "reuseExistingEntryId": "public-teamwork-c5-work-in-process",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "zealous",
+      "originalInput": "zealous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "热切而积极的；投入极大的",
+      "definitionEn": "Showing strong enthusiasm and energetic commitment.",
+      "usage": "zealous pursuit 指十分积极地追求。",
+      "exampleEn": "Her zealous pursuit of reliable data improved the quality of the investment debate.",
+      "exampleZh": "她对可靠数据的热切追求提高了投资讨论的质量。",
+      "forms": [],
+      "collocations": [
+        "zealous pursuit",
+        "a zealous advocate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 28,
+      "reuseExistingEntryId": "public-teamwork-c5-zealous",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "lifeblood",
+      "originalInput": "lifeblood",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "命脉；维持组织运转不可缺少的事物",
+      "definitionEn": "Something essential to the continued existence or success of an organization.",
+      "usage": "比喻义；常用 the lifeblood of。",
+      "exampleEn": "Reliable customer information is the lifeblood of a company competing on personalized service.",
+      "exampleZh": "可靠的客户信息是一家以个性化服务参与竞争的公司的命脉。",
+      "forms": [],
+      "collocations": [
+        "the lifeblood of a business",
+        "the lifeblood of an industry"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 6,
+      "printedPage": 4,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 29,
+      "reuseExistingEntryId": "public-teamwork-c5-lifeblood",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "self-aggrandizement",
+      "originalInput": "self-aggrandizement",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "自我抬高；夸大自己的重要性",
+      "definitionEn": "Behavior intended to increase one's own importance, status, or power.",
+      "usage": "贬义；不是客观说明自身贡献。",
+      "exampleEn": "The presentation focused on self-aggrandizement rather than the evidence behind the recommendation.",
+      "exampleZh": "这场汇报重在抬高自己，而非说明建议背后的证据。",
+      "forms": [],
+      "collocations": [
+        "political self-aggrandizement",
+        "an act of self-aggrandizement"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 30,
+      "reuseExistingEntryId": "public-teamwork-c5-self-aggrandizement",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "hunch",
+      "originalInput": "hunches",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "直觉；缺乏充分证据的预感",
+      "definitionEn": "A belief or feeling formed without clear supporting evidence.",
+      "usage": "have a hunch；本文将其与当前数据对比。",
+      "exampleEn": "The manager tested her hunch against recent sales data before recommending a change.",
+      "exampleZh": "经理先用近期销售数据检验自己的直觉，再建议作出改变。",
+      "forms": [
+        "hunches"
+      ],
+      "collocations": [
+        "have a hunch",
+        "act on a hunch"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 31,
+      "reuseExistingEntryId": "public-teamwork-c5-hunch",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "extrapolation",
+      "originalInput": "extrapolation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "外推；根据已知趋势推测未知情况",
+      "definitionEn": "An estimate extending an observed pattern beyond the available data.",
+      "usage": "历史趋势外推未必反映当前事实。",
+      "exampleEn": "The forecast relied on extrapolation from a short period of unusually strong demand.",
+      "exampleZh": "预测依赖于对一段异常强劲需求时期的趋势进行外推。",
+      "forms": [],
+      "collocations": [
+        "linear extrapolation",
+        "extrapolation from past trends"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 32,
+      "reuseExistingEntryId": "public-teamwork-c5-extrapolation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "pragmatic",
+      "originalInput": "pragmatic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "务实的；以实际条件和效果为依据的",
+      "definitionEn": "Focused on practical conditions and workable results.",
+      "usage": "不同于仅凭理想或抽象原则行事。",
+      "exampleEn": "A pragmatic response considered the equipment and budget actually available to the team.",
+      "exampleZh": "务实的回应考虑了团队实际可用的设备和预算。",
+      "forms": [],
+      "collocations": [
+        "a pragmatic approach",
+        "a pragmatic solution"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-c5-pragmatic",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "bog down",
+      "originalInput": "bogged down",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "使陷入困境；使进展停滞",
+      "definitionEn": "To become or make someone stuck in slow, difficult activity.",
+      "usage": "常用 become/get bogged down in。",
+      "exampleEn": "The committee became bogged down in arguments about numbers that nobody had verified.",
+      "exampleZh": "委员会陷入了对未经任何人核实的数据的争论。",
+      "forms": [
+        "bogged down",
+        "bogging down"
+      ],
+      "collocations": [
+        "get bogged down in",
+        "bog down negotiations"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 34,
+      "reuseExistingEntryId": "public-teamwork-c5-bog-down",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "depersonalize",
+      "originalInput": "depersonalize",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使不针对个人；把讨论重心转向议题",
+      "definitionEn": "To remove the focus on individual personalities from a discussion or judgment.",
+      "usage": "本文不是医疗中的人格解体义。",
+      "exampleEn": "Using agreed performance measures helped depersonalize the debate over staffing priorities.",
+      "exampleZh": "采用商定的绩效指标有助于使人员配置优先事项的讨论不再针对个人。",
+      "forms": [
+        "depersonalized",
+        "depersonalizing"
+      ],
+      "collocations": [
+        "depersonalize a debate",
+        "depersonalize criticism"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 35,
+      "reuseExistingEntryId": "public-teamwork-c5-depersonalize",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "lackluster",
+      "originalInput": "lackluster",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "表现平平的；缺乏活力或亮点的",
+      "definitionEn": "Showing little energy, quality, or achievement.",
+      "usage": "美式 lackluster，英式常拼 lacklustre。",
+      "exampleEn": "Lackluster sales prompted the team to consider markets beyond its traditional customer base.",
+      "exampleZh": "平淡的销售表现促使团队考虑传统客户群之外的市场。",
+      "forms": [
+        "lacklustre"
+      ],
+      "collocations": [
+        "lackluster performance",
+        "lackluster sales"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 36,
+      "reuseExistingEntryId": "public-teamwork-c5-lackluster",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "redeploy",
+      "originalInput": "redeploy",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "重新部署；调配现有人员或资源",
+      "definitionEn": "To move existing resources or people to a different task or location.",
+      "usage": "强调重新安排现有资源，并非新增资源。",
+      "exampleEn": "The company redeployed engineers to resolve problems in the delayed product launch.",
+      "exampleZh": "公司重新调配工程师，解决产品发布延迟中的问题。",
+      "forms": [
+        "redeployed",
+        "redeploying"
+      ],
+      "collocations": [
+        "redeploy resources",
+        "redeploy staff"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 37,
+      "reuseExistingEntryId": "public-teamwork-c5-redeploy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "robust",
+      "originalInput": "robust",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "稳健的；面对不同情况仍能有效发挥作用的",
+      "definitionEn": "Strong and effective across a range of conditions.",
+      "usage": "本文指综合多个方案优点后形成的可靠方案。",
+      "exampleEn": "The revised plan was more robust because it did not depend on one supplier.",
+      "exampleZh": "修订后的计划更稳健，因为它不依赖单一供应商。",
+      "forms": [],
+      "collocations": [
+        "a robust solution",
+        "a robust strategy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 38,
+      "reuseExistingEntryId": "public-teamwork-c5-robust",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "line of credit",
+      "originalInput": "lines of credit",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "授信额度；可按约定条件支用的借款额度",
+      "definitionEn": "An arrangement allowing borrowing up to an agreed limit.",
+      "usage": "是融资安排，不等于已经借出的全部金额。",
+      "exampleEn": "The company arranged a line of credit to cover temporary cash shortages during expansion.",
+      "exampleZh": "公司安排了一笔授信额度，以应对扩张期间的临时现金短缺。",
+      "forms": [
+        "lines of credit"
+      ],
+      "collocations": [
+        "arrange a line of credit",
+        "draw on a line of credit"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "经营指标"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "经营指标",
+      "phonetic": "",
+      "order": 39,
+      "reuseExistingEntryId": "public-teamwork-c5-line-of-credit",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "proponent",
+      "originalInput": "proponent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "倡议者；某一主张的支持者",
+      "definitionEn": "A person who actively supports a proposal or idea.",
+      "usage": "常用 a proponent of。",
+      "exampleEn": "Each proponent explained the risks of their preferred option as well as its advantages.",
+      "exampleZh": "每位倡议者都解释了首选方案的风险与优势。",
+      "forms": [
+        "proponents"
+      ],
+      "collocations": [
+        "a proponent of reform",
+        "a leading proponent"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 40,
+      "reuseExistingEntryId": "public-teamwork-c5-proponent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "for the sake of argument",
+      "originalInput": "for the sake of argument",
+      "entryType": "phrase",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "为了讨论或检验观点而暂且这样说",
+      "definitionEn": "For the purpose of examining an idea without necessarily accepting it.",
+      "usage": "不表示说话人真的支持所提出的假设。",
+      "exampleEn": "For the sake of argument, suppose the supplier cannot deliver before the deadline.",
+      "exampleZh": "为了讨论，假设供应商无法在截止日期前交货。",
+      "forms": [],
+      "collocations": [
+        "assume for the sake of argument",
+        "suppose for the sake of argument"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 41,
+      "reuseExistingEntryId": "public-teamwork-c5-for-the-sake-of-argument",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "diffuse",
+      "originalInput": "diffuses",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "分散；使冲突焦点不再集中于两端",
+      "definitionEn": "To spread something across a wider range rather than concentrate it in one place.",
+      "usage": "本文 diffuse 指分散冲突；defuse 常指化解危机。",
+      "exampleEn": "Considering five options diffused the conflict that had formed around two competing proposals.",
+      "exampleZh": "考虑五个方案分散了原先集中在两个竞争提案上的冲突。",
+      "forms": [
+        "diffused",
+        "diffuses",
+        "diffusing"
+      ],
+      "collocations": [
+        "diffuse conflict",
+        "diffuse responsibility"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 42,
+      "reuseExistingEntryId": "public-teamwork-c5-diffuse",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "lose face",
+      "originalInput": "losing face",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "丢面子；失去他人的尊重",
+      "definitionEn": "To suffer embarrassment or a loss of public respect.",
+      "usage": "常用于描述在他人面前改变立场的顾虑。",
+      "exampleEn": "The chair offered a compromise that allowed both managers to reconsider without losing face.",
+      "exampleZh": "主席提出折中方案，让两位经理都能重新考虑而不失面子。",
+      "forms": [
+        "lost face",
+        "losing face"
+      ],
+      "collocations": [
+        "avoid losing face",
+        "lose face publicly"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 43,
+      "reuseExistingEntryId": "public-teamwork-c5-lose-face",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "integrative",
+      "originalInput": "integrative",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "整合性的；兼顾并融合不同观点或利益的",
+      "definitionEn": "Combining different elements or viewpoints into a coordinated whole.",
+      "usage": "本文 integrative solutions 指融合多方观点的方案。",
+      "exampleEn": "An integrative proposal combined the engineers' reliability concerns with the sales team's timing requirements.",
+      "exampleZh": "一项整合性提案兼顾了工程师对可靠性的顾虑和销售团队的时间要求。",
+      "forms": [],
+      "collocations": [
+        "an integrative solution",
+        "an integrative approach"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 44,
+      "reuseExistingEntryId": "public-teamwork-c5-integrative",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "status quo",
+      "originalInput": "status quo",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "现状；目前既有的安排或状态",
+      "definitionEn": "The existing state of affairs at a particular time.",
+      "usage": "常用 the status quo；通常不加复数。",
+      "exampleEn": "The team compared expansion with the status quo instead of assuming change was necessary.",
+      "exampleZh": "团队将扩张与维持现状进行比较，而没有认定改变必不可少。",
+      "forms": [],
+      "collocations": [
+        "maintain the status quo",
+        "challenge the status quo"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 45,
+      "reuseExistingEntryId": "public-teamwork-c5-status-quo",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "entrenched",
+      "originalInput": "entrenched",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "根深蒂固的；固守立场而难以改变的",
+      "definitionEn": "Firmly established and resistant to change.",
+      "usage": "本文 become entrenched 指越来越固守己见。",
+      "exampleEn": "The negotiators became entrenched in opposing positions before examining the available evidence.",
+      "exampleZh": "谈判者尚未审视现有证据，就已固守对立立场。",
+      "forms": [],
+      "collocations": [
+        "entrenched positions",
+        "entrenched interests"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 46,
+      "reuseExistingEntryId": "public-teamwork-c5-entrenched",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "frame",
+      "originalInput": "framing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "界定；以特定角度呈现或理解问题",
+      "definitionEn": "To present or interpret an issue from a particular perspective.",
+      "usage": "frame a choice as... 指赋予某种问题视角。",
+      "exampleEn": "The leader framed the budget dispute as a joint problem rather than a departmental contest.",
+      "exampleZh": "负责人把预算争议界定为共同问题，而不是部门间的竞争。",
+      "forms": [
+        "framed",
+        "framing"
+      ],
+      "collocations": [
+        "frame an issue",
+        "frame a decision as a collaboration"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 47,
+      "reuseExistingEntryId": "public-teamwork-c5-frame",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "homogeneous",
+      "originalInput": "homogeneous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "同质的；成员或构成要素较为相似的",
+      "definitionEn": "Consisting of elements with similar characteristics.",
+      "usage": "原文指出共同目标不意味着思维同质化。",
+      "exampleEn": "A shared objective did not require homogeneous thinking about how the project should proceed.",
+      "exampleZh": "共同目标并不要求大家对项目推进方式持完全相似的想法。",
+      "forms": [],
+      "collocations": [
+        "homogeneous thinking",
+        "a homogeneous group"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 48,
+      "reuseExistingEntryId": "public-teamwork-c4-homogeneous",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡含相同核心义；保留旧词条内容，追加本篇阅读语境。"
+      }
+    },
+    {
+      "term": "hobble",
+      "originalInput": "hobbled",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "妨碍；严重限制行动或成效",
+      "definitionEn": "To seriously restrict someone's ability to act or succeed.",
+      "usage": "本文比喻团队受到冲突牵制。",
+      "exampleEn": "Conflicting incentives hobbled the team's effort to agree on a common investment strategy.",
+      "exampleZh": "相互冲突的激励妨碍了团队就共同投资策略达成一致。",
+      "forms": [
+        "hobbled",
+        "hobbling"
+      ],
+      "collocations": [
+        "hobble progress",
+        "be hobbled by"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 49,
+      "reuseExistingEntryId": "public-teamwork-c5-hobble",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "pin the blame on",
+      "originalInput": "pin the blame on",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "把责任归咎于；将过错推到某人身上",
+      "definitionEn": "To assign responsibility for a problem to a particular person or group.",
+      "usage": "pin the blame on someone；常带指责或推责意味。",
+      "exampleEn": "Managers tried to pin the blame on suppliers before checking their own scheduling errors.",
+      "exampleZh": "经理们尚未检查自身排期错误，就试图把责任推给供应商。",
+      "forms": [
+        "pinned the blame on",
+        "pinning the blame on"
+      ],
+      "collocations": [
+        "pin the blame on someone",
+        "pin the blame on a department"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 50,
+      "reuseExistingEntryId": "public-teamwork-c5-pin-the-blame-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "war chest",
+      "originalInput": "war chest",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "储备资金；为竞争或重大行动准备的财力",
+      "definitionEn": "Funds kept available for a major campaign or competitive effort.",
+      "usage": "本文为商业比喻，不指实际军火箱。",
+      "exampleEn": "The firm built a war chest before entering a market dominated by larger competitors.",
+      "exampleZh": "公司在进入由更大竞争者主导的市场前积累了储备资金。",
+      "forms": [
+        "war chests"
+      ],
+      "collocations": [
+        "build a war chest",
+        "a financial war chest"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 51,
+      "reuseExistingEntryId": "public-teamwork-c5-war-chest",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "impending",
+      "originalInput": "impending",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "即将发生的；逼近的",
+      "definitionEn": "Expected to happen soon, often with a threatening implication.",
+      "usage": "常修饰危机、危险或竞争挑战。",
+      "exampleEn": "The impending price war made reliable competitor data especially valuable to the team.",
+      "exampleZh": "即将到来的价格战使可靠的竞争者数据对团队尤为重要。",
+      "forms": [],
+      "collocations": [
+        "an impending crisis",
+        "impending competition"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 52,
+      "reuseExistingEntryId": "public-teamwork-c5-impending",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "rallying cry",
+      "originalInput": "rallying cry",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "号召性口号；凝聚共同努力的主张",
+      "definitionEn": "A phrase or idea that brings people together around a shared cause.",
+      "usage": "本文比喻团队共同目标所形成的号召。",
+      "exampleEn": "Better service became the rallying cry that united departments behind the new strategy.",
+      "exampleZh": "提升服务成为凝聚各部门支持新战略的共同号召。",
+      "forms": [
+        "rallying cries"
+      ],
+      "collocations": [
+        "a rallying cry for",
+        "become a rallying cry"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 53,
+      "reuseExistingEntryId": "public-teamwork-c5-rallying-cry",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "cohesion",
+      "originalInput": "cohesion",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "凝聚力；成员团结协作的程度",
+      "definitionEn": "The strength of connection and unity within a group.",
+      "usage": "team cohesion 不等于成员观点完全相同。",
+      "exampleEn": "A shared objective strengthened team cohesion without requiring everyone to support the same method.",
+      "exampleZh": "共同目标增强了团队凝聚力，同时没有要求所有人支持同一种方法。",
+      "forms": [],
+      "collocations": [
+        "team cohesion",
+        "strengthen cohesion"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 8,
+      "printedPage": 6,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 54,
+      "reuseExistingEntryId": "public-teamwork-c5-cohesion",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "gag",
+      "originalInput": "gags",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "恶作剧；逗人发笑的小把戏或笑话",
+      "definitionEn": "A joke or trick intended to make people laugh.",
+      "usage": "本文 playing gags 指办公室里的玩笑或恶作剧。",
+      "exampleEn": "The office gag relieved tension, but the manager made sure nobody felt targeted.",
+      "exampleZh": "办公室里的恶作剧缓解了紧张，但经理确保没有人觉得自己被针对。",
+      "forms": [
+        "gags"
+      ],
+      "collocations": [
+        "an office gag",
+        "a running gag"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 55,
+      "reuseExistingEntryId": "public-teamwork-c5-gag",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "impeccable",
+      "originalInput": "impeccably",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "无可挑剔的；近乎完美的",
+      "definitionEn": "Meeting a very high standard without noticeable faults.",
+      "usage": "原文 impeccably decorated 指装饰得无可挑剔。",
+      "exampleEn": "Her impeccable preparation allowed the group to spend more time debating the actual choices.",
+      "exampleZh": "她无可挑剔的准备让小组能花更多时间讨论实际选择。",
+      "forms": [
+        "impeccably"
+      ],
+      "collocations": [
+        "impeccable preparation",
+        "an impeccable record"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 56,
+      "reuseExistingEntryId": "public-teamwork-c5-impeccable",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "pig-out",
+      "originalInput": "pig-out",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "大吃一顿；放纵地吃很多东西",
+      "definitionEn": "An occasion of eating an unusually large amount of food.",
+      "usage": "非正式用语；本文 dessert pig-out 指集体畅吃甜点。",
+      "exampleEn": "The team held a dessert pig-out after completing the demanding product review.",
+      "exampleZh": "完成艰巨的产品审查后，团队一起大吃了一顿甜点。",
+      "forms": [
+        "pig-outs"
+      ],
+      "collocations": [
+        "a dessert pig-out",
+        "have a pig-out"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 57,
+      "reuseExistingEntryId": "public-teamwork-c5-pig-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "defense mechanism",
+      "originalInput": "defense mechanism",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "防御机制；缓解心理威胁或压力的反应方式",
+      "definitionEn": "A psychological response that helps someone cope with stress or perceived threats.",
+      "usage": "本文讨论幽默所起的心理保护作用。",
+      "exampleEn": "Humor served as a defense mechanism when the team faced stressful strategic choices.",
+      "exampleZh": "团队面临有压力的战略选择时，幽默起到了心理防御作用。",
+      "forms": [
+        "defense mechanisms",
+        "defence mechanism"
+      ],
+      "collocations": [
+        "a psychological defense mechanism",
+        "use humor as a defense mechanism"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 58,
+      "reuseExistingEntryId": "public-teamwork-c5-defense-mechanism",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "blunt",
+      "originalInput": "blunt",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "削弱；减轻某事的冲击或威胁",
+      "definitionEn": "To reduce the force or impact of something.",
+      "usage": "本文是动词，不是形容词“直率的”。",
+      "exampleEn": "A gentle joke blunted the criticism without hiding the need for improvement.",
+      "exampleZh": "一句温和的玩笑缓和了批评的冲击，却没有掩盖改进的必要。",
+      "forms": [
+        "blunted",
+        "blunting"
+      ],
+      "collocations": [
+        "blunt criticism",
+        "blunt the impact"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 59,
+      "reuseExistingEntryId": "public-teamwork-c5-blunt",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "in jest",
+      "originalInput": "in jest",
+      "entryType": "phrase",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "开玩笑地；说着玩的",
+      "definitionEn": "As a joke rather than as a serious statement.",
+      "usage": "较正式，注意听者未必认为玩笑无害。",
+      "exampleEn": "The comment was made in jest, but the chair checked how others had understood it.",
+      "exampleZh": "这句话虽是玩笑，主席仍确认了其他人如何理解它。",
+      "forms": [],
+      "collocations": [
+        "say something in jest",
+        "spoken in jest"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 60,
+      "reuseExistingEntryId": "public-teamwork-c5-in-jest",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "tactful",
+      "originalInput": "tactful",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "得体的；能顾及感受而不冒犯他人的",
+      "definitionEn": "Careful in speaking or acting so as to avoid unnecessary offense.",
+      "usage": "tactful criticism 仍可明确指出问题。",
+      "exampleEn": "Her tactful explanation allowed the manager to acknowledge the error without feeling publicly humiliated.",
+      "exampleZh": "她得体的解释让经理能够承认错误，而不觉得当众受辱。",
+      "forms": [],
+      "collocations": [
+        "a tactful response",
+        "tactful criticism"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "幽默与沟通"
+      ],
+      "pdfPage": 9,
+      "printedPage": 7,
+      "category": "幽默与沟通",
+      "phonetic": "",
+      "order": 61,
+      "reuseExistingEntryId": "public-teamwork-c5-tactful",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "ill will",
+      "originalInput": "ill will",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "敌意；怨怼或不友好的情绪",
+      "definitionEn": "Unfriendly feelings or resentment toward another person or group.",
+      "usage": "不同于 goodwill“善意”；本文指不公平感带来的怨怼。",
+      "exampleEn": "An unexplained change in responsibilities created ill will between colleagues who had previously cooperated.",
+      "exampleZh": "职责被无解释地调整，在原本合作的同事之间引发了怨怼。",
+      "forms": [],
+      "collocations": [
+        "create ill will",
+        "ill will between colleagues"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 62,
+      "reuseExistingEntryId": "public-teamwork-c5-ill-will",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "autocratic",
+      "originalInput": "autocratic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "专断的；把决策权集中在自己手中的",
+      "definitionEn": "Exercising authority with strong personal control and little participation from others.",
+      "usage": "本文批评高度集权导致的人际摩擦。",
+      "exampleEn": "An autocratic manager rejected the alternatives before the team had explained their advantages.",
+      "exampleZh": "一位专断的经理在团队说明各方案的优势前就将其否决了。",
+      "forms": [],
+      "collocations": [
+        "autocratic leadership",
+        "an autocratic style"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 63,
+      "reuseExistingEntryId": "public-hierarchy-autocratic-28bab0cf",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡含相同核心义；保留旧词条内容，追加本篇阅读语境。"
+      }
+    },
+    {
+      "term": "engender",
+      "originalInput": "engender",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "引发；使某种情绪或状态产生",
+      "definitionEn": "To cause a feeling, condition, or situation to develop.",
+      "usage": "较正式；engender conflict/trust/resentment。",
+      "exampleEn": "Unclear responsibilities can engender resentment even among colleagues who usually work well together.",
+      "exampleZh": "职责不清甚至会在通常合作良好的同事之间引发怨恨。",
+      "forms": [
+        "engendered",
+        "engendering"
+      ],
+      "collocations": [
+        "engender resentment",
+        "engender conflict"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 64,
+      "reuseExistingEntryId": "public-teamwork-c5-engender",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "power vacuum",
+      "originalInput": "power vacuum",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "权力真空；缺乏明确决策权威的局面",
+      "definitionEn": "A situation in which effective leadership or decision-making authority is absent.",
+      "usage": "可能导致成员争夺地位，而非自动实现平等。",
+      "exampleEn": "The director's departure created a power vacuum that delayed decisions about the project.",
+      "exampleZh": "主管离职造成了权力真空，拖延了项目决策。",
+      "forms": [
+        "power vacuums"
+      ],
+      "collocations": [
+        "create a power vacuum",
+        "fill a power vacuum"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 65,
+      "reuseExistingEntryId": "public-teamwork-c5-power-vacuum",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "jockey for position",
+      "originalInput": "jockey for position",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "争夺有利地位；为权势或优势而竞争",
+      "definitionEn": "To compete or maneuver for a more advantageous place or role.",
+      "usage": "本文为组织政治比喻，不指赛马骑师。",
+      "exampleEn": "Without clear authority, senior managers began to jockey for position instead of coordinating their work.",
+      "exampleZh": "由于权限不清，高级经理开始争夺地位，而不是协调工作。",
+      "forms": [
+        "jockeyed for position",
+        "jockeying for position"
+      ],
+      "collocations": [
+        "jockey for position",
+        "jockey for influence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 66,
+      "reuseExistingEntryId": "public-teamwork-c5-jockey-for-position",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "grapple with",
+      "originalInput": "grappled with",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "努力应对；着力处理棘手问题",
+      "definitionEn": "To struggle to understand or deal with a difficult problem.",
+      "usage": "常接复杂问题、选择或挑战。",
+      "exampleEn": "The team grappled with how to expand without weakening service in its existing markets.",
+      "exampleZh": "团队努力研究如何扩张，同时不削弱现有市场的服务。",
+      "forms": [
+        "grappled with",
+        "grappling with"
+      ],
+      "collocations": [
+        "grapple with a problem",
+        "grapple with uncertainty"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 67,
+      "reuseExistingEntryId": "public-teamwork-c5-grapple-with",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "retreat",
+      "originalInput": "retreat",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "务虚会；离开日常工作环境开展集中讨论的会议",
+      "definitionEn": "A meeting away from normal work settings for focused discussion or planning.",
+      "usage": "本文 multiday retreat 指持续数日的团队讨论会。",
+      "exampleEn": "At the strategy retreat, managers compared options without the interruptions of daily office work.",
+      "exampleZh": "在战略务虚会上，经理们不受日常办公事务打断，比较了各个方案。",
+      "forms": [
+        "retreats"
+      ],
+      "collocations": [
+        "a strategy retreat",
+        "a management retreat"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 68,
+      "reuseExistingEntryId": "public-teamwork-c5-retreat",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "dogmatic",
+      "originalInput": "dogmatic",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "武断的；坚称自己观点正确而不容质疑的",
+      "definitionEn": "Insisting that one's opinions are correct without considering other views.",
+      "usage": "贬义；不同于有证据支持的坚定立场。",
+      "exampleEn": "A dogmatic response discouraged colleagues from raising evidence that challenged the original plan.",
+      "exampleZh": "武断的回应使同事不愿提出挑战原计划的证据。",
+      "forms": [],
+      "collocations": [
+        "a dogmatic attitude",
+        "dogmatic certainty"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 69,
+      "reuseExistingEntryId": "public-teamwork-c5-dogmatic",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "pecking order",
+      "originalInput": "pecking order",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "等级次序；群体内的权势高低排序",
+      "definitionEn": "The informal ranking of status or authority within a group.",
+      "usage": "常指实际影响力排序，未必等于正式职务表。",
+      "exampleEn": "New managers quickly learned the pecking order that shaped whose proposals received attention.",
+      "exampleZh": "新经理很快摸清了影响提案受重视程度的权势排序。",
+      "forms": [],
+      "collocations": [
+        "the corporate pecking order",
+        "a place in the pecking order"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 70,
+      "reuseExistingEntryId": "public-teamwork-c5-pecking-order",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "maneuver",
+      "originalInput": "maneuvering",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "运作；为争取优势而巧妙活动",
+      "definitionEn": "To act strategically to obtain an advantage or desired position.",
+      "usage": "本文为争取领导注意力的组织政治活动。",
+      "exampleEn": "Managers maneuvered for influence instead of helping the group resolve its disagreement.",
+      "exampleZh": "经理们忙于争取影响力，而没有帮助小组解决分歧。",
+      "forms": [
+        "maneuvered",
+        "maneuvering",
+        "manoeuvre"
+      ],
+      "collocations": [
+        "maneuver for influence",
+        "maneuver for position"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 71,
+      "reuseExistingEntryId": "public-teamwork-c5-maneuver",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "scapegoat",
+      "originalInput": "scapegoats",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "替罪羊；被不公正归责的人",
+      "definitionEn": "A person unfairly blamed for the mistakes or failures of others.",
+      "usage": "make someone a scapegoat；指权力失衡下的无辜受责者。",
+      "exampleEn": "The review sought systemic causes rather than making one junior employee a scapegoat.",
+      "exampleZh": "审查寻找制度性原因，而没有让一名基层员工充当替罪羊。",
+      "forms": [
+        "scapegoats"
+      ],
+      "collocations": [
+        "make someone a scapegoat",
+        "an innocent scapegoat"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 72,
+      "reuseExistingEntryId": "public-teamwork-c5-scapegoat",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "crossfire",
+      "originalInput": "cross fire",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "交叉火力；夹在双方冲突中受到波及的局面",
+      "definitionEn": "Criticism or conflict coming from opposing sides at the same time.",
+      "usage": "本文 caught in the crossfire 为人际冲突的比喻。",
+      "exampleEn": "The project coordinator was caught in the crossfire between two rival department heads.",
+      "exampleZh": "项目协调员夹在两名相互竞争的部门负责人之间，受到冲突波及。",
+      "forms": [
+        "cross fire"
+      ],
+      "collocations": [
+        "caught in the crossfire",
+        "political crossfire"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 10,
+      "printedPage": 8,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 73,
+      "reuseExistingEntryId": "public-teamwork-c5-crossfire",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "warrant",
+      "originalInput": "warrant",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使有必要；足以成为采取行动的理由",
+      "definitionEn": "To provide sufficient reason for a particular response or action.",
+      "usage": "本文为动词，区别于名词“授权令／搜查令”。",
+      "exampleEn": "The limited evidence did not warrant an immediate overhaul of the company's entire strategy.",
+      "exampleZh": "有限的证据不足以支持立即彻底调整公司的整体战略。",
+      "forms": [
+        "warranted",
+        "warranting"
+      ],
+      "collocations": [
+        "warrant attention",
+        "warrant a response"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 74,
+      "reuseExistingEntryId": "public-teamwork-c5-warrant",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "pull the trigger",
+      "originalInput": "pull the trigger",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "拍板；最终决定并采取行动",
+      "definitionEn": "To make a final decision and put an action into motion.",
+      "usage": "本文是商业比喻，不指实际开枪。",
+      "exampleEn": "After hearing every department's concerns, the director pulled the trigger on the investment.",
+      "exampleZh": "听取各部门的顾虑后，主管最终拍板作出投资。",
+      "forms": [
+        "pulled the trigger",
+        "pulling the trigger"
+      ],
+      "collocations": [
+        "pull the trigger on a deal",
+        "pull the trigger on an investment"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 75,
+      "reuseExistingEntryId": "public-teamwork-c5-pull-the-trigger",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "haggle",
+      "originalInput": "haggling",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "反复争执；为细节或条件纠缠不休",
+      "definitionEn": "To argue repeatedly over terms, details, or decisions.",
+      "usage": "常见于价格谈判；本文指共识过程中的纠缠。",
+      "exampleEn": "Managers haggled over minor details while the deadline for the larger decision approached.",
+      "exampleZh": "重大决策的截止日期临近时，经理们仍在为细枝末节争执。",
+      "forms": [
+        "haggled",
+        "haggling"
+      ],
+      "collocations": [
+        "haggle over details",
+        "haggle over terms"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 76,
+      "reuseExistingEntryId": "public-teamwork-c5-haggle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "veto power",
+      "originalInput": "veto power",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "否决权；阻止某项决定生效的权力",
+      "definitionEn": "Authority to prevent a proposed decision from being adopted.",
+      "usage": "本文指出强求全体共识等于人人能阻止决定。",
+      "exampleEn": "Giving every participant veto power made even minor scheduling decisions difficult to finalize.",
+      "exampleZh": "让每位参与者都拥有否决权，使小小的排期决定也难以敲定。",
+      "forms": [],
+      "collocations": [
+        "exercise veto power",
+        "have veto power"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 77,
+      "reuseExistingEntryId": "public-teamwork-c5-veto-power",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "decimate",
+      "originalInput": "decimated",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "大幅削弱；使人数或实力严重减少",
+      "definitionEn": "To severely reduce the size, strength, or effectiveness of something.",
+      "usage": "现代常指重创，不限于减少十分之一。",
+      "exampleEn": "Repeated departures decimated the team before it could implement the agreed strategy.",
+      "exampleZh": "接连离职严重削弱了团队，使其尚未实施商定战略就已元气大伤。",
+      "forms": [
+        "decimated",
+        "decimating"
+      ],
+      "collocations": [
+        "decimate a workforce",
+        "decimate a team"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 78,
+      "reuseExistingEntryId": "public-teamwork-c5-decimate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "imminent",
+      "originalInput": "imminent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "即将发生的；迫在眉睫的",
+      "definitionEn": "Expected to happen very soon.",
+      "usage": "强调时间迫近，常指危险、事件或截止日期。",
+      "exampleEn": "An imminent review deadline pushed the team to clarify who would make the final decision.",
+      "exampleZh": "迫近的审查截止日期促使团队明确由谁作最终决定。",
+      "forms": [],
+      "collocations": [
+        "an imminent deadline",
+        "imminent danger"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 79,
+      "reuseExistingEntryId": "public-teamwork-c5-imminent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "arbitrary",
+      "originalInput": "arbitrarily",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "任意的；缺乏一致标准或充分理由的",
+      "definitionEn": "Based on personal preference rather than a clear and consistent reason.",
+      "usage": "原文 arbitrarily 描述绕过前期讨论的拍板方式。",
+      "exampleEn": "The decision seemed arbitrary because no one explained how the alternatives had been evaluated.",
+      "exampleZh": "没人解释各方案如何被评估，因此这个决定显得很随意。",
+      "forms": [
+        "arbitrarily"
+      ],
+      "collocations": [
+        "an arbitrary decision",
+        "an arbitrary rule"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "权力与公平"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "权力与公平",
+      "phonetic": "",
+      "order": 80,
+      "reuseExistingEntryId": "public-teamwork-c5-arbitrary",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "procedural justice",
+      "originalInput": "procedural justice",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "程序正义；对决策过程是否公平的判断",
+      "definitionEn": "Fairness in the procedures used to reach decisions.",
+      "usage": "区别于只评价最终分配结果是否公平。",
+      "exampleEn": "Procedural justice helped employees accept an outcome they disliked because their concerns had been heard.",
+      "exampleZh": "员工的顾虑得到倾听后，程序正义帮助他们接受了不喜欢的结果。",
+      "forms": [],
+      "collocations": [
+        "perceived procedural justice",
+        "principles of procedural justice"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 81,
+      "reuseExistingEntryId": "public-teamwork-c5-procedural-justice",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "deterrent",
+      "originalInput": "deterrent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "遏制因素；使某种行为不易发生的事物",
+      "definitionEn": "Something that discourages an undesirable action or development.",
+      "usage": "a deterrent to；本文指遏制人际冲突的机制。",
+      "exampleEn": "A transparent decision rule served as a deterrent to prolonged political maneuvering.",
+      "exampleZh": "透明的决策规则起到了遏制长期权力角逐的作用。",
+      "forms": [
+        "deterrents"
+      ],
+      "collocations": [
+        "a deterrent to conflict",
+        "an effective deterrent"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 82,
+      "reuseExistingEntryId": "public-teamwork-c5-deterrent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "heterogeneous",
+      "originalInput": "heterogeneous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "异质的；成员背景或特征多样的",
+      "definitionEn": "Consisting of people or elements with different characteristics.",
+      "usage": "强调构成不同，不保证自动合作良好。",
+      "exampleEn": "A heterogeneous team considered customer needs that a more uniform group had overlooked.",
+      "exampleZh": "一个成员背景多样的团队考虑到了构成更单一的小组所忽略的客户需求。",
+      "forms": [],
+      "collocations": [
+        "a heterogeneous team",
+        "a heterogeneous group"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 83,
+      "reuseExistingEntryId": "public-teamwork-c5-heterogeneous",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "impair",
+      "originalInput": "impairing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "损害；削弱某种能力或功能",
+      "definitionEn": "To reduce the quality or effectiveness of an ability or process.",
+      "usage": "本文指不熟悉彼此立场削弱有效争论能力。",
+      "exampleEn": "Poor information sharing impaired the team's ability to compare the proposals fairly.",
+      "exampleZh": "信息共享不充分削弱了团队公平比较各提案的能力。",
+      "forms": [
+        "impaired",
+        "impairing"
+      ],
+      "collocations": [
+        "impair judgment",
+        "impair the ability to cooperate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 84,
+      "reuseExistingEntryId": "public-teamwork-c5-impair",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "dissent",
+      "originalInput": "dissent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "异议；对主流意见或决定的不赞同",
+      "definitionEn": "Disagreement with an accepted opinion, policy, or decision.",
+      "usage": "本文鼓励表达异议，以检验方案。",
+      "exampleEn": "The chair invited dissent before asking members to commit to the final decision.",
+      "exampleZh": "主席先邀请大家表达异议，再要求成员支持最终决定。",
+      "forms": [],
+      "collocations": [
+        "express dissent",
+        "encourage dissent"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 85,
+      "reuseExistingEntryId": "public-teamwork-c5-dissent",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "devil's advocate",
+      "originalInput": "Devil’s advocates",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "唱反调者；为检验观点而故意提出反对意见的人",
+      "definitionEn": "Someone who argues against a proposal to test its strength.",
+      "usage": "play devil's advocate 不代表真心反对。",
+      "exampleEn": "She played devil's advocate so the group would examine risks in its preferred proposal.",
+      "exampleZh": "她故意唱反调，让小组审视首选提案中的风险。",
+      "forms": [
+        "devil's advocates"
+      ],
+      "collocations": [
+        "play devil's advocate",
+        "act as devil's advocate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 86,
+      "reuseExistingEntryId": "public-teamwork-c5-devil-s-advocate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "war game",
+      "originalInput": "war games",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "兵棋推演；模拟竞争或冲突以检验方案的演练",
+      "definitionEn": "A simulation used to explore how opposing sides may act.",
+      "usage": "本文用于管理决策，模拟竞争者反应。",
+      "exampleEn": "The team used a war game to test how competitors might respond to its pricing plan.",
+      "exampleZh": "团队通过竞争推演检验了竞争者可能如何回应其定价计划。",
+      "forms": [
+        "war games"
+      ],
+      "collocations": [
+        "conduct a war game",
+        "strategic war games"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 87,
+      "reuseExistingEntryId": "public-teamwork-c5-war-game",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "spur",
+      "originalInput": "spurring",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "激发；促使某事发生或发展",
+      "definitionEn": "To encourage activity or development.",
+      "usage": "本文 spurring interest 指激发解决问题的兴趣。",
+      "exampleEn": "A new perspective spurred interest in options the group had previously dismissed.",
+      "exampleZh": "新视角激发了大家对先前被小组否定的方案的兴趣。",
+      "forms": [
+        "spurred",
+        "spurring"
+      ],
+      "collocations": [
+        "spur interest",
+        "spur innovation"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "方案与协作"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "方案与协作",
+      "phonetic": "",
+      "order": 88,
+      "reuseExistingEntryId": "public-teamwork-c5-spur",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "acquiesce",
+      "originalInput": "acquiesce",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "默许；虽未必赞同却不再反对",
+      "definitionEn": "To accept something without protest, often despite reservations.",
+      "usage": "常用 acquiesce in/to；不等于真心认同。",
+      "exampleEn": "Members acquiesced too quickly because they assumed that further disagreement would be unwelcome.",
+      "exampleZh": "成员们过早默许，因为他们以为继续表达异议不会受到欢迎。",
+      "forms": [
+        "acquiesced",
+        "acquiescing"
+      ],
+      "collocations": [
+        "acquiesce in a decision",
+        "acquiesce to pressure"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "建设性争论"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "建设性争论",
+      "phonetic": "",
+      "order": 89,
+      "reuseExistingEntryId": "public-teamwork-c5-acquiesce",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "disengagement",
+      "originalInput": "disengagement",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "抽离；不再投入或积极参与的状态",
+      "definitionEn": "A withdrawal of interest, effort, or participation.",
+      "usage": "本文提醒表面共识可能只是成员退出讨论。",
+      "exampleEn": "The apparent agreement concealed disengagement among members who believed their opinions no longer mattered.",
+      "exampleZh": "表面上的一致掩盖了成员的抽离，他们认为自己的意见已不再重要。",
+      "forms": [],
+      "collocations": [
+        "employee disengagement",
+        "signs of disengagement"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 11,
+      "printedPage": 9,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 90,
+      "reuseExistingEntryId": "public-teamwork-c5-disengagement",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "equitable",
+      "originalInput": "equitable",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "公平合理的；兼顾各方正当利益的",
+      "definitionEn": "Fair and reasonable to the people concerned.",
+      "usage": "equitable 强调公平，不一定意味着平均分配。",
+      "exampleEn": "An equitable process gave each department a meaningful chance to explain its concerns.",
+      "exampleZh": "公平的程序让每个部门都有实质机会说明自己的顾虑。",
+      "forms": [],
+      "collocations": [
+        "an equitable process",
+        "an equitable arrangement"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 91,
+      "reuseExistingEntryId": "public-teamwork-c5-equitable",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "egalitarian",
+      "originalInput": "egalitarian",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "平等主义的；重视成员平等参与的",
+      "definitionEn": "Supporting equal standing or opportunities for participation.",
+      "usage": "本文强调参与过程，并不要求最终决策权完全相同。",
+      "exampleEn": "An egalitarian discussion gave junior specialists the same opportunity to question assumptions as senior managers.",
+      "exampleZh": "平等的讨论让基层专家与高级经理一样有机会质疑假设。",
+      "forms": [],
+      "collocations": [
+        "an egalitarian approach",
+        "egalitarian principles"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 92,
+      "reuseExistingEntryId": "public-teamwork-c5-egalitarian",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "delineate",
+      "originalInput": "delineates",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "清楚界定；明确描述范围或规则",
+      "definitionEn": "To describe or mark the boundaries of something clearly.",
+      "usage": "本文指明确说明最终由谁、如何作决定。",
+      "exampleEn": "The agreement delineated who would advise, who would decide, and when the decision was due.",
+      "exampleZh": "协议明确界定了谁提供建议、谁作决定，以及何时必须作出决定。",
+      "forms": [
+        "delineated",
+        "delineates",
+        "delineating"
+      ],
+      "collocations": [
+        "delineate responsibilities",
+        "clearly delineate a process"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策程序"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "决策程序",
+      "phonetic": "",
+      "order": 93,
+      "reuseExistingEntryId": "public-teamwork-c5-delineate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "groupthink",
+      "originalInput": "Groupthink",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "群体思维；追求一致而压制独立判断的倾向",
+      "definitionEn": "A pattern in which pressure for agreement weakens independent group judgment.",
+      "usage": "有共同目标不等于必须压制不同意见。",
+      "exampleEn": "Inviting independent assessments before discussion reduced the risk of groupthink in the investment committee.",
+      "exampleZh": "讨论前邀请成员独立评估，降低了投资委员会出现群体思维的风险。",
+      "forms": [],
+      "collocations": [
+        "avoid groupthink",
+        "the risk of groupthink"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 94,
+      "reuseExistingEntryId": "public-teamwork-c4-groupthink",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "现有词卡含相同核心义；保留旧词条内容，追加本篇阅读语境。"
+      }
+    },
+    {
+      "term": "debacle",
+      "originalInput": "debacles",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "惨败；严重失败或混乱的局面",
+      "definitionEn": "A complete failure that causes serious trouble or embarrassment.",
+      "usage": "较强烈、正式；本文指重大政策或企业失败。",
+      "exampleEn": "The rushed merger became a debacle after managers ignored repeated warnings about integration costs.",
+      "exampleZh": "经理们忽视整合成本的反复警告后，仓促进行的并购最终惨败。",
+      "forms": [
+        "debacles"
+      ],
+      "collocations": [
+        "a corporate debacle",
+        "a policy debacle"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 95,
+      "reuseExistingEntryId": "public-teamwork-c5-debacle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "counterintuitive",
+      "originalInput": "counterintuitive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "反直觉的；与第一印象或通常预期相反的",
+      "definitionEn": "Contrary to what people would initially expect.",
+      "usage": "反直觉不等于不合理，需要解释证据和机制。",
+      "exampleEn": "It seemed counterintuitive that more disagreement could help the team reach decisions faster.",
+      "exampleZh": "更多分歧可能帮助团队更快作出决定，这一点似乎有悖直觉。",
+      "forms": [],
+      "collocations": [
+        "a counterintuitive finding",
+        "seem counterintuitive"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "事实与判断"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "事实与判断",
+      "phonetic": "",
+      "order": 96,
+      "reuseExistingEntryId": "public-teamwork-c5-counterintuitive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    },
+    {
+      "term": "withdrawn",
+      "originalInput": "withdrawn",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "沉默退缩的；不愿与他人互动或参与的",
+      "definitionEn": "Quiet and reluctant to interact or take part.",
+      "usage": "本文描述缺少建设性冲突时管理者的疏离状态。",
+      "exampleEn": "After repeated dismissals of her concerns, the manager became withdrawn during planning meetings.",
+      "exampleZh": "她的顾虑屡次被驳回后，这位经理在规划会议中变得沉默退缩。",
+      "forms": [],
+      "collocations": [
+        "become withdrawn",
+        "socially withdrawn"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "团队失效"
+      ],
+      "pdfPage": 12,
+      "printedPage": 10,
+      "category": "团队失效",
+      "phonetic": "",
+      "order": 97,
+      "reuseExistingEntryId": "public-teamwork-c5-withdrawn",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "现有词本无同形或词形别名对应的词卡，新增本文语境词条。"
+      }
+    }
+  ]
+}
