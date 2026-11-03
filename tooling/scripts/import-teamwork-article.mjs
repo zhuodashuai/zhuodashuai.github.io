@@ -8,6 +8,7 @@ import { isDeepStrictEqual } from "node:util";
 import { createBlankEntry, entryLookupKeys, normalizeEnglish, parsePublicSnapshot,
   reconcileLexicalEntryForPublish, contextualizeReadingEntry } from "../../vocab/js/wordbook-schema.js";
 import { pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
+import { collectionMemberships, MAIN_READING_HOME_TAG } from "../../vocab/js/collections.js";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 export const TEAMWORK_SNAPSHOT_MAX_BYTES = 6_000_000;
@@ -148,8 +149,11 @@ export function planTeamworkArticleImport({ source, snapshot, timestamp = new Da
     assert(Boolean(prior) === existing.tags.includes(membership), `${item.term}: existing chapter membership is incomplete.`);
     const sourceRow = primarySource(item, source, timestamp);
     const hasSource = existing.sources.some(row => row.title === sourceRow.title && row.url === sourceRow.url && row.kind === "primary");
+    // An older main-book card keeps its learning home when a reading source
+    // is added for the first time. The source itself remains fully reversible.
+    const preserveMainHome = !existing.readingContexts.length && !collectionMemberships(existing).length;
     const next = { ...existing,
-      tags: unique([...existing.tags, membership]),
+      tags: unique([...existing.tags, ...(preserveMainHome ? [MAIN_READING_HOME_TAG] : []), membership]),
       readingContexts: prior ? existing.readingContexts : [...existing.readingContexts, context],
       sources: hasSource ? existing.sources : [...existing.sources, sourceRow] };
     const changed = !same(next, existing);

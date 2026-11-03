@@ -49,6 +49,12 @@ test("changed module APIs use one versioned browser graph before any service wor
       if (["expanded-dictionary.js", "chinese-ranking.js", "personal-lookup-flow.js"].includes(file) && target === "chinese-search.js") {
         assert.equal(match[1], "./chinese-search.js?v=112"); continue;
       }
+      if (["public-app.js", "public-app-v113.js"].includes(file) && target === "chapter-quiz-ui.js") {
+        assert.equal(match[1], "./chapter-quiz-ui.js?v=113"); continue;
+      }
+      if (["public-app.js", "public-app-v113.js", "entry-detail.js", "entry-detail-v113.js", "reading-card-policy.js"].includes(file) && target === "collections.js") {
+        assert.equal(match[1], "./collections.js?v=113"); continue;
+      }
       if (changed.has(target)) assert.equal(match[1], `./${target}?v=${currentVersion(target)}`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
@@ -56,6 +62,7 @@ test("changed module APIs use one versioned browser graph before any service wor
     assert.ok(serviceWorker.includes(`"./js/${file}?v=${currentVersion(file)}"`), `${file}'s versioned browser URL must work offline`);
     assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
+  for (const file of ["collections.js", "chapter-quiz-ui.js"]) assert.ok(serviceWorker.includes(`"./js/${file}?v=113"`), `${file}'s reading-policy API needs its own fresh offline URL`);
 });
 
 test("inline lookup, folders and existing entry points share one coherent module graph", async () => {
@@ -66,7 +73,7 @@ test("inline lookup, folders and existing entry points share one coherent module
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
   }
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
-  assert.match(vocabHtml, /src="js\/public-app-v108\.js"/u);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js"/u);
   assert.ok(serviceWorker.includes('"./js/owner-public-library.js?v=99"'));
   assert.ok(serviceWorker.includes('"./js/dictionary-app.js?v=104"'));
   // Existing entry points must not load a second version of a changed module.
@@ -164,7 +171,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app-v108\.js"/);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js"/);
   assert.match(vocabHtml, /href="styles\.css\?v=100"/);
   assert.match(ownerHtml, /src="js\/owner-app-v108\.js"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);
@@ -271,7 +278,7 @@ test("owner publication applies the browser Chinese-quality and structured-sense
 
 test("public and owner readers share the same accessible entry detail controller", () => {
   assert.match(entryDetailSource, /export function createEntryDetailController/);
-  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=96"/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail-v113\.js"/);
   assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=96"/);
   assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\{/);

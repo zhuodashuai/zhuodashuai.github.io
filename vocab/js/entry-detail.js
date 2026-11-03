@@ -1,11 +1,13 @@
 import { formatMeaningForDisplay } from "./wordbook-schema.js?v=82";
-import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=82";
+import { collectionContextForEntry, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
 import { synonymGroupsForEntry } from "./synonym-groups.js?v=82";
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { createSourcePassageSection } from "./book-passages-ui.js?v=82";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
+import { recordedReadingSources } from "./reading-card-policy.js";
+import { readingFrequencyText } from "./reading-frequency.js";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
@@ -181,7 +183,8 @@ export function entryTextForCopy(entry) {
   ].filter(Boolean).join("\n");
 }
 
-export function createEntryDetailController({ root = document, getEntries = () => [], contextualizeEntry = (entry) => entry, onNavigate } = {}) {
+export function createEntryDetailController({ root = document, getEntries = () => [], contextualizeEntry = (entry) => entry, onNavigate,
+  getReadingFrequency = () => null } = {}) {
   const refs = Object.fromEntries(DIALOG_IDS.map((id) => [
     id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()),
     root.getElementById(id)
@@ -209,6 +212,61 @@ export function createEntryDetailController({ root = document, getEntries = () =
   synonymStatus.className = "rail-note";
   synonymSection.append(synonymHeading, synonymStatus, synonymList);
   refs.dialogExtraSection.before(synonymSection);
+
+  const frequencySection = root.createElement("section");
+  frequencySection.id = "dialog-reading-frequency-section";
+  frequencySection.className = "detail-section";
+  frequencySection.hidden = true;
+  const frequencyHeading = root.createElement("h3");
+  frequencyHeading.textContent = "阅读频率与来源";
+  const frequencySummary = root.createElement("p");
+  const frequencyNote = root.createElement("p");
+  frequencyNote.className = "rail-note";
+  const frequencyList = root.createElement("ul");
+  frequencyList.className = "reading-frequency-sources";
+  frequencySection.append(frequencyHeading, frequencySummary, frequencyNote, frequencyList);
+  refs.dialogSourceSection.after(frequencySection);
+
+  const refreshReadingFrequency = () => {
+    if (!selected) return;
+    const frequency = getReadingFrequency(selected.id);
+    const sources = recordedReadingSources(selected);
+    frequencySection.hidden = !sources.length && !frequency?.totalOccurrences;
+    frequencySummary.textContent = readingFrequencyText(selected, frequency);
+    frequencyNote.hidden = !frequency?.totalOccurrences;
+    frequencyNote.textContent = "按 Teamwork 文章的正文、标题和导语统计，重复摘要及页眉页脚不计。";
+    const articles = new Map((frequency?.articles || []).filter(article => article.count > 0).map(article => [article.chapterId, article]));
+    const rows = [];
+    const frequencyDetail = (article) => article
+      ? `原文 ${article.count} 次 · ${article.pages.map(page => `PDF p. ${page.pdfPage}（${page.count}次）`).join("、")}` : "";
+    for (const [index, source] of sources.entries()) {
+      const item = root.createElement("li");
+      const text = `${source.collectionTitle} · ${source.chapterTitle}${source.isPrimaryCardHome ? "（首次收录）" : ""}`;
+      if (source.sourceUrl) {
+        const link = root.createElement("a");
+        link.href = source.sourceUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = text;
+        item.append(link);
+      } else item.append(text);
+      const article = source.collectionId === "teamwork" ? articles.get(source.chapterId) : null;
+      const detail = root.createElement("small");
+      detail.textContent = [source.page, frequencyDetail(article)].filter(Boolean).join(" · ");
+      item.append(detail);
+      rows.push(item);
+      if (article) articles.delete(source.chapterId);
+    }
+    for (const article of articles.values()) {
+      const item = root.createElement("li");
+      item.append(`Teamwork · ${article.articleTitle}`);
+      const detail = root.createElement("small");
+      detail.textContent = frequencyDetail(article);
+      item.append(detail);
+      rows.push(item);
+    }
+    frequencyList.replaceChildren(...rows);
+  };
 
   const refreshRelations = () => {
     if (!selected) return;
@@ -281,6 +339,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
     setMultilineText(refs.dialogUsage, usage);
     renderDetailExtra(refs, entry);
     refreshRelations();
+    refreshReadingFrequency();
 
     const quoteLike = ["quote", "proverb"].includes(entry.entryType);
     refs.dialogSourceSection.hidden = !quoteLike && !entry.sourceUrl && !entry.sources.length && !entry.sourceTitle && !entry.sourceWork;
@@ -355,6 +414,7 @@ export function createEntryDetailController({ root = document, getEntries = () =
 
   return {
     show,
+    refreshReadingFrequency,
     refresh() {
       if (!selected) return null;
       const fresh = getEntries().find((entry) => entry.id === selected.id);
