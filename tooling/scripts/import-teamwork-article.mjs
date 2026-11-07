@@ -11,7 +11,7 @@ import { pendingSynonymScan } from "../../vocab/js/synonym-evidence.js";
 import { collectionMemberships, MAIN_READING_HOME_TAG } from "../../vocab/js/collections.js";
 
 const ROOT = resolve(import.meta.dirname, "../..");
-export const TEAMWORK_SNAPSHOT_MAX_BYTES = 6_000_000;
+export const TEAMWORK_SNAPSHOT_MAX_BYTES = 7_000_000;
 const sha256 = bytes => createHash("sha256").update(bytes).digest("hex");
 const unique = values => [...new Set(values)];
 const text = value => typeof value === "string" && value.trim().length > 0;
@@ -111,7 +111,8 @@ function newEntry(item, source, timestamp) {
 
 export function serializeTeamworkSnapshot(snapshot) {
   const serialized = `${JSON.stringify(snapshot)}\n`;
-  assert(Buffer.byteLength(serialized) <= TEAMWORK_SNAPSHOT_MAX_BYTES, "The article snapshot exceeds the production 6,000,000-byte limit.");
+  assert(Buffer.byteLength(serialized) <= TEAMWORK_SNAPSHOT_MAX_BYTES,
+    `The article snapshot exceeds the production ${TEAMWORK_SNAPSHOT_MAX_BYTES.toLocaleString("en-US")}-byte limit.`);
   return serialized;
 }
 

@@ -48,12 +48,12 @@ function oversizedStream(limit: number) {
 afterEach(() => { vi.unstubAllGlobals(); vi.restoreAllMocks(); });
 
 describe("bounded GitHub wordbook transport", () => {
-  it("reads and writes a complete article book above the former 5 MB ceiling", async () => {
-    const document = snapshot(Array.from({ length: 700 }, (_, index) => entry({
+  it("reads and writes a complete article book above the former 6 MB ceiling", async () => {
+    const document = snapshot(Array.from({ length: 850 }, (_, index) => entry({
       id: `public-expanded-capacity-${index}`, term: `expanded capacity ${index}`, meaning: "汉".repeat(1000)
     })));
     const bytes = encoder.encode(`${JSON.stringify(document)}\n`);
-    expect(bytes.byteLength).toBeGreaterThan(5_000_000);
+    expect(bytes.byteLength).toBeGreaterThan(6_000_000);
     expect(bytes.byteLength).toBeLessThan(MAX_SNAPSHOT_BYTES);
     const sha = await blobSha(bytes);
     const mock = vi.fn(async (_input: RequestInfo | URL, init: RequestInit = {}) => {
@@ -113,7 +113,7 @@ describe("bounded GitHub wordbook transport", () => {
 
   it("writes compact JSON losslessly when indentation alone exceeds the UTF-8 size limit", async () => {
     const specialUsage = '中文语境 café 🙂 — "quoted" \\path\n第二行。';
-    const document = snapshot(Array.from({ length: 3100 }, (_, index) => entry({
+    const document = snapshot(Array.from({ length: 3500 }, (_, index) => entry({
       id: `public-compact-fixture-${index}`, term: `compact fixture ${index}`,
       ...(index === 0 ? { usage: specialUsage } : {})
     })));

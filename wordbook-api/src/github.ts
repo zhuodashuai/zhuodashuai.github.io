@@ -11,7 +11,7 @@ const MAX_GITHUB_PAGES = 10;
 const GITHUB_PAGE_SIZE = 100;
 
 function oversizedSnapshot(): ApiError {
-  return new ApiError(413, "snapshot_too_large", "公开词库超过 6 MB，请先导出备份并拆分数据。");
+  return new ApiError(413, "snapshot_too_large", `公开词库超过 ${MAX_SNAPSHOT_BYTES / 1_000_000} MB，请先导出备份并拆分数据。`);
 }
 
 async function boundedResponseBytes(response: Response, limit: number): Promise<Uint8Array> {
