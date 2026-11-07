@@ -140,7 +140,8 @@ describe("bounded atomic public snapshot storage", () => {
         expect(await readPublicSnapshotRecord(storage)).toEqual(next);
       }
       const keys = [...(await storage.list({ prefix: PREFIX })).keys()];
-      expect(keys.length).toBeLessThanOrEqual(1 + 2 * 21);
+      // Two bounded slots, each holding at most 29 chunks for a 7 MB book.
+      expect(keys.length).toBeLessThanOrEqual(1 + 2 * 29);
       expect(keys.every(key => key === HEAD || /^public-snapshot:chunked:v1:slot:[01]:\d{3}$/.test(key))).toBe(true);
       expect(await storage.get(LEGACY)).toEqual(legacy);
       expect(await storage.get("session:private-do-not-delete")).toEqual({ sentinel: true });

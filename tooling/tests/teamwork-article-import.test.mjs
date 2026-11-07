@@ -167,8 +167,8 @@ test("an existing chapter context cannot be silently changed by a later source r
 });
 
 test("compact serialization enforces the actual production byte boundary", () => {
-  assert.doesNotThrow(() => serializeTeamworkSnapshot({ large: "中".repeat(1_700_000) }));
-  assert.throws(() => serializeTeamworkSnapshot({ large: "中".repeat(Math.floor(TEAMWORK_SNAPSHOT_MAX_BYTES / 3) + 1) }), /6,000,000-byte/u);
+  assert.doesNotThrow(() => serializeTeamworkSnapshot({ large: "中".repeat(2_100_000) }));
+  assert.throws(() => serializeTeamworkSnapshot({ large: "中".repeat(Math.floor(TEAMWORK_SNAPSHOT_MAX_BYTES / 3) + 1) }), /byte limit/u);
 });
 
 test("article imports and both Worker snapshot paths use the same bounded capacity", async () => {

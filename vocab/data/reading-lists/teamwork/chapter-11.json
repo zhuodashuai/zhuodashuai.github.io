@@ -1,0 +1,1223 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-11",
+    "number": 11,
+    "title": "Turn Your Teams Inside Out"
+  },
+  "sourceTitle": "Teamwork — Turn Your Teams Inside Out",
+  "articleTitle": "Turn Your Teams Inside Out",
+  "authors": "Deborah Ancona and Henrik Bresman",
+  "issue": "MIT Sloan Management Review, Winter 2023, Vol. 64, No. 2",
+  "sourceUrl": "https://shop.sloanreview.mit.edu/store/turn-your-teams-inside-out",
+  "sourcePdfSha256": "36ae1ed967b441df67a2cb6f6333f75aada81da01be617285b5d6905dd18d6b1",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 40,
+  "curation": {
+    "originalItemCount": 41,
+    "excludedItems": [
+      {
+        "term": "externally focused",
+        "reason": "词义直接，可由常见单词组合理解。保留更具体的跨界协作概念。"
+      }
+    ]
+  },
+  "items": [
+    {
+      "term": "distributed leadership",
+      "originalInput": "distributed leadership",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "分布式领导",
+      "definitionEn": "A pattern in which leadership responsibilities are shared across people and levels.",
+      "usage": "领导职责可随任务和专业需要在多人之间分配。",
+      "exampleEn": "Distributed leadership allowed different engineers to lead each phase of the project.",
+      "exampleZh": "分布式领导让不同工程师能够分别主导项目的各个阶段。",
+      "forms": [],
+      "collocations": [
+        "practice distributed leadership",
+        "support distributed leadership"
+      ],
+      "category": "领导方式",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "领导方式"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-distributed-leadership",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 1
+    },
+    {
+      "term": "entrepreneurial",
+      "originalInput": "Entrepreneurial",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "有创业精神的；主动探索机会的",
+      "definitionEn": "Willing to spot opportunities, experiment, and act under uncertainty.",
+      "usage": "既可形容创业者，也可形容成熟机构内部主动尝试的团队。",
+      "exampleEn": "The division gave an entrepreneurial team six weeks to test a new service.",
+      "exampleZh": "部门给一支富有创业精神的团队六周时间试验一项新服务。",
+      "forms": [],
+      "collocations": [
+        "entrepreneurial team",
+        "entrepreneurial mindset"
+      ],
+      "category": "团队特征",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "团队特征"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-entrepreneurial",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 2
+    },
+    {
+      "term": "x-team",
+      "originalInput": "x-teams",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "外向型协作团队；X 型团队",
+      "definitionEn": "A team that combines internal collaboration with active learning and coordination across its boundaries.",
+      "usage": "文章中的 x 指 external，强调联系团队内外的利益相关者。",
+      "exampleEn": "The x-team consulted suppliers and users while refining the design internally.",
+      "exampleZh": "这支外向型协作团队一边在内部完善设计，一边征求供应商和用户的意见。",
+      "forms": [
+        "x-teams"
+      ],
+      "collocations": [
+        "build an x-team",
+        "lead an x-team"
+      ],
+      "category": "团队架构",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-x-team",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 3
+    },
+    {
+      "term": "external outreach",
+      "originalInput": "external outreach",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "主动对外联络",
+      "definitionEn": "Deliberate contact with people or groups outside a team or organization.",
+      "usage": "强调主动建立联系，可用于访谈用户、寻找专家或争取合作。",
+      "exampleEn": "The launch team assigned two members to handle external outreach.",
+      "exampleZh": "上线团队安排两名成员负责主动对外联络。",
+      "forms": [],
+      "collocations": [
+        "conduct external outreach",
+        "external outreach efforts"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-external-outreach",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 4
+    },
+    {
+      "term": "shed",
+      "originalInput": "shed bureaucracy",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "摆脱；去除不必要的东西",
+      "definitionEn": "To get rid of something unwanted or burdensome.",
+      "usage": "常用于 shed bureaucracy、shed layers 等搭配，表示主动减去组织负担。",
+      "exampleEn": "The unit shed two layers of approval to speed up routine decisions.",
+      "exampleZh": "该部门去掉两层审批，以加快日常决策。",
+      "forms": [
+        "shedding",
+        "sheds"
+      ],
+      "collocations": [
+        "shed bureaucracy",
+        "shed administrative layers"
+      ],
+      "category": "组织变革",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "组织变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-shed",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 5
+    },
+    {
+      "term": "nimble",
+      "originalInput": "more nimble",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "灵活敏捷的；反应快的",
+      "definitionEn": "Able to adapt and respond quickly when conditions change.",
+      "usage": "形容组织时突出调整行动的速度。",
+      "exampleEn": "A nimble procurement team can switch suppliers when a delivery fails.",
+      "exampleZh": "反应敏捷的采购团队能在交货失败时更换供应商。",
+      "forms": [
+        "nimbler",
+        "nimblest"
+      ],
+      "collocations": [
+        "nimble organization",
+        "remain nimble"
+      ],
+      "category": "团队特征",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "团队特征"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-nimble",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 6
+    },
+    {
+      "term": "building block",
+      "originalInput": "building blocks",
+      "entryType": "phrase",
+      "partOfSpeech": "noun",
+      "meaning": "基础构件；基本组成单元",
+      "definitionEn": "A basic unit that can be combined with others to create something larger.",
+      "usage": "常用比喻义，表示形成体系、战略或能力的基本单元。",
+      "exampleEn": "Short customer interviews became the building blocks of our research plan.",
+      "exampleZh": "简短的客户访谈成了研究计划的基本组成单元。",
+      "forms": [
+        "building blocks"
+      ],
+      "collocations": [
+        "a basic building block",
+        "building blocks of a system"
+      ],
+      "category": "组织架构",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "组织架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-building-block",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 7
+    },
+    {
+      "term": "outmoded",
+      "originalInput": "outmoded assumptions",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "过时的；已不适用的",
+      "definitionEn": "No longer useful or appropriate because conditions have changed.",
+      "usage": "比 old 更明确地指出某种假设或流程与当下脱节。",
+      "exampleEn": "The merger exposed outmoded assumptions about how approvals should work.",
+      "exampleZh": "这次合并暴露出人们对审批方式的过时假设。",
+      "forms": [],
+      "collocations": [
+        "outmoded assumptions",
+        "outmoded practices"
+      ],
+      "category": "组织变革",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "组织变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-outmoded",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 8
+    },
+    {
+      "term": "inertia",
+      "originalInput": "stem from inertia",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "惯性；维持旧做法的倾向",
+      "definitionEn": "A tendency to remain in an existing state or continue familiar practices.",
+      "usage": "组织语境通常指即使环境改变，习惯和制度仍难以改变。",
+      "exampleEn": "Organizational inertia kept the outdated reporting process in place for years.",
+      "exampleZh": "组织惯性使过时的报告流程延续了多年。",
+      "forms": [],
+      "collocations": [
+        "organizational inertia",
+        "overcome inertia"
+      ],
+      "category": "组织变革",
+      "pdfPage": 2,
+      "printedPage": 24,
+      "tags": [
+        "组织变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-inertia",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 9
+    },
+    {
+      "term": "conjure",
+      "originalInput": "conjures an image",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使人联想到；在脑海中唤起",
+      "definitionEn": "To make an image or idea appear in someone's mind.",
+      "usage": "常搭配 image、memory，表示引发鲜明联想；也常见 conjure up。",
+      "exampleEn": "The phrase central office conjures an image of decisions made far from customers.",
+      "exampleZh": "“总部”一词令人联想到远离客户的决策场所。",
+      "forms": [
+        "conjures",
+        "conjured",
+        "conjuring"
+      ],
+      "collocations": [
+        "conjure an image",
+        "conjure up a memory"
+      ],
+      "category": "学术表达",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "学术表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-conjure",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 10
+    },
+    {
+      "term": "permeable",
+      "originalInput": "a more permeable boundary",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "可渗透的；允许跨越的",
+      "definitionEn": "Allowing people, information, or influence to pass through a boundary.",
+      "usage": "本文比喻团队边界允许外部成员、信息和资源流动。",
+      "exampleEn": "A permeable boundary lets the design team bring in specialists for short periods.",
+      "exampleZh": "开放的团队边界让设计团队能在短期内引入专业人员。",
+      "forms": [],
+      "collocations": [
+        "permeable boundary",
+        "permeable organizational boundaries"
+      ],
+      "category": "团队架构",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-permeable",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 11
+    },
+    {
+      "term": "dislodge",
+      "originalInput": "hard to dislodge",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "使脱离原位；打破根深蒂固的观念",
+      "definitionEn": "To remove something firmly established from its position.",
+      "usage": "比喻用法常见于观念、惯例或权力位置的改变。",
+      "exampleEn": "One pilot project was enough to dislodge the belief that customers wanted a longer form.",
+      "exampleZh": "一次试点就打破了“客户想要更长表单”这一根深蒂固的看法。",
+      "forms": [
+        "dislodges",
+        "dislodged",
+        "dislodging"
+      ],
+      "collocations": [
+        "dislodge a belief",
+        "dislodge an entrenched habit"
+      ],
+      "category": "组织变革",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "组织变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-dislodge",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 12
+    },
+    {
+      "term": "would-be",
+      "originalInput": "would-be x-team",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "想成为某种身份的；有志于成为的",
+      "definitionEn": "Hoping or trying to become the kind of person or thing named.",
+      "usage": "常置于名词前，表明身份或目标尚在形成。",
+      "exampleEn": "A would-be market entrant must learn which regulations apply.",
+      "exampleZh": "一家准备进入市场的企业必须了解适用的法规。",
+      "forms": [],
+      "collocations": [
+        "would-be entrepreneur",
+        "would-be entrant"
+      ],
+      "category": "学术表达",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "学术表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-would-be",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 13
+    },
+    {
+      "term": "ideation",
+      "originalInput": "creative ideation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "构思；生成创意的过程",
+      "definitionEn": "The process of developing possible ideas or solutions.",
+      "usage": "设计与创新语境常指形成候选想法的阶段。",
+      "exampleEn": "The facilitator separated ideation from evaluation during the workshop.",
+      "exampleZh": "主持人在研讨会上把创意构思与评估分开进行。",
+      "forms": [],
+      "collocations": [
+        "creative ideation",
+        "ideation session"
+      ],
+      "category": "创新流程",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "创新流程"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-ideation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 14
+    },
+    {
+      "term": "business ecosystem",
+      "originalInput": "business ecosystem",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "商业生态系统",
+      "definitionEn": "A network of interdependent firms, users, suppliers, and institutions around an activity or market.",
+      "usage": "强调共同影响机会和约束的参与者网络。",
+      "exampleEn": "Payment providers and regulators are part of the company's business ecosystem.",
+      "exampleZh": "支付服务商和监管机构都是该公司商业生态系统的一部分。",
+      "forms": [
+        "business ecosystems"
+      ],
+      "collocations": [
+        "map a business ecosystem",
+        "the wider business ecosystem"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-business-ecosystem",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 15
+    },
+    {
+      "term": "brief",
+      "originalInput": "briefed others",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "向某人简要介绍情况",
+      "definitionEn": "To give someone essential information about a situation or task.",
+      "usage": "动词常用 brief someone on something，适用于会前说明或情况汇报。",
+      "exampleEn": "The analyst briefed the board on the latest customer interviews.",
+      "exampleZh": "分析师向董事会简要汇报了最新的客户访谈情况。",
+      "forms": [
+        "briefs",
+        "briefed",
+        "briefing"
+      ],
+      "collocations": [
+        "brief someone on a project",
+        "brief senior leaders"
+      ],
+      "category": "沟通",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "沟通"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-brief",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 16
+    },
+    {
+      "term": "sensemaking",
+      "originalInput": "sense-making",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "理解局势；将零散线索整合成判断",
+      "definitionEn": "The process of interpreting information and building an understanding of a changing situation.",
+      "usage": "本文指通过接触利益相关者和观察环境形成可供团队讨论的判断。",
+      "exampleEn": "Sensemaking helped the team connect three seemingly unrelated customer complaints.",
+      "exampleZh": "梳理线索帮助团队发现三条看似无关的客户投诉之间的联系。",
+      "forms": [
+        "sense-making",
+        "sense making"
+      ],
+      "collocations": [
+        "collective sensemaking",
+        "engage in sensemaking"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-sensemaking",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 17
+    },
+    {
+      "term": "ambassadorship",
+      "originalInput": "ambassadorship",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "团队代表工作；对外争取支持",
+      "definitionEn": "Representing a team to stakeholders to secure support, resources, or agreement.",
+      "usage": "这里强调替团队与高层及关键合作者沟通。",
+      "exampleEn": "Maya handled ambassadorship by explaining the pilot's goals to department heads.",
+      "exampleZh": "玛雅负责代表团队对外联络，向各部门负责人说明试点目标。",
+      "forms": [],
+      "collocations": [
+        "team ambassadorship",
+        "engage in ambassadorship"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-ambassadorship",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 18
+    },
+    {
+      "term": "task coordination",
+      "originalInput": "task coordination",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "任务协调",
+      "definitionEn": "The organization of interdependent tasks, handoffs, and schedules across people or teams.",
+      "usage": "关注谁在何时交付什么、如何衔接，以及质量标准。",
+      "exampleEn": "Weekly task coordination kept the research and engineering teams aligned on handoffs.",
+      "exampleZh": "每周的任务协调让研究团队与工程团队对交接安排保持一致。",
+      "forms": [],
+      "collocations": [
+        "cross-team task coordination",
+        "coordinate interdependent tasks"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-task-coordination",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 19
+    },
+    {
+      "term": "pivotal",
+      "originalInput": "is pivotal",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "至关重要的；有决定性作用的",
+      "definitionEn": "Important enough to strongly influence the outcome of something.",
+      "usage": "常见 pivotal to 或 pivotal for，也可修饰 role。",
+      "exampleEn": "A clear handoff was pivotal to finishing the redesign on time.",
+      "exampleZh": "清楚的交接对于按时完成重新设计至关重要。",
+      "forms": [],
+      "collocations": [
+        "play a pivotal role",
+        "be pivotal to success"
+      ],
+      "category": "学术表达",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "学术表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-pivotal",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 20
+    },
+    {
+      "term": "buy-in",
+      "originalInput": "obtain buy-in",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "认可与支持；对方案的认同",
+      "definitionEn": "Support for an idea or plan from the people whose cooperation matters.",
+      "usage": "不可数名词，常见 get、gain、secure 或 obtain buy-in；也有无连字符拼写。",
+      "exampleEn": "The team secured buy-in from finance before announcing the pilot.",
+      "exampleZh": "团队在宣布试点前取得了财务部门的认同与支持。",
+      "forms": [],
+      "collocations": [
+        "secure stakeholder buy-in",
+        "get buy-in from leadership"
+      ],
+      "category": "沟通",
+      "pdfPage": 3,
+      "printedPage": 25,
+      "tags": [
+        "沟通"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c4-buy-in",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 21
+    },
+    {
+      "term": "maneuver",
+      "originalInput": "maneuvering outside",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "灵活周旋；设法在限制中行动",
+      "definitionEn": "To move or act skillfully around practical or organizational constraints.",
+      "usage": "比喻用法强调在复杂限制中寻找可行路径。",
+      "exampleEn": "The coordinator maneuvered around scheduling constraints to keep all three teams involved.",
+      "exampleZh": "协调员灵活处理排期限制，让三个团队都能参与。",
+      "forms": [
+        "maneuvers",
+        "maneuvered",
+        "maneuvering",
+        "manoeuvre",
+        "manoeuvres",
+        "manoeuvred",
+        "manoeuvring"
+      ],
+      "collocations": [
+        "maneuver around constraints",
+        "maneuver within a structure"
+      ],
+      "category": "组织协作",
+      "pdfPage": 4,
+      "printedPage": 26,
+      "tags": [
+        "组织协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c5-maneuver",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 22
+    },
+    {
+      "term": "part-cycle",
+      "originalInput": "part-cycle members",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "只在项目某一阶段参与的",
+      "definitionEn": "Participating for only part of a team's life cycle.",
+      "usage": "强调参与时段；part-time 主要描述投入的工时比例。",
+      "exampleEn": "A part-cycle member joined for the testing phase and left after launch.",
+      "exampleZh": "一名阶段性成员在测试阶段加入，并于上线后离开。",
+      "forms": [],
+      "collocations": [
+        "part-cycle member",
+        "part-cycle participation"
+      ],
+      "category": "团队架构",
+      "pdfPage": 4,
+      "printedPage": 26,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-part-cycle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 23
+    },
+    {
+      "term": "go out before in",
+      "originalInput": "go out before in",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "先对外探索，再内部定任务",
+      "definitionEn": "To learn from the external environment before settling the team's goals, roles, or task.",
+      "usage": "这是 X 型团队的工作原则，先从用户、专家和其他利益相关者处了解情况。",
+      "exampleEn": "We decided to go out before in and interviewed users before drafting the project brief.",
+      "exampleZh": "我们决定先对外探索，在起草项目说明前先访谈用户。",
+      "forms": [],
+      "collocations": [
+        "use the go out before in approach",
+        "go out before in"
+      ],
+      "category": "创新流程",
+      "pdfPage": 4,
+      "printedPage": 26,
+      "tags": [
+        "创新流程"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-go-out-before-in",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 24
+    },
+    {
+      "term": "hands-on",
+      "originalInput": "hands-on approach",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "亲自参与的；重实践的",
+      "definitionEn": "Involving direct practical participation in the work.",
+      "usage": "常形容培训、管理和执行方式，突出实际动手。",
+      "exampleEn": "The manager took a hands-on approach to the first customer trials.",
+      "exampleZh": "经理亲自参与了最初的客户试用工作。",
+      "forms": [],
+      "collocations": [
+        "hands-on approach",
+        "hands-on experience"
+      ],
+      "category": "项目执行",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "项目执行"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-hands-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 25
+    },
+    {
+      "term": "time sink",
+      "originalInput": "time sink",
+      "entryType": "phrase",
+      "partOfSpeech": "noun",
+      "meaning": "耗时的活动；吞噬时间的事",
+      "definitionEn": "An activity that consumes a disproportionate amount of time.",
+      "usage": "带批评意味，常形容反复开会、手工协调等低效投入。",
+      "exampleEn": "Tracking minor edits in three separate systems became a time sink.",
+      "exampleZh": "在三个系统里分别跟踪细微修改成了一件特别耗时的事。",
+      "forms": [
+        "time sinks"
+      ],
+      "collocations": [
+        "become a time sink",
+        "avoid a time sink"
+      ],
+      "category": "组织效率",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "组织效率"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-time-sink",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 26
+    },
+    {
+      "term": "fuzzy boundary",
+      "originalInput": "fuzzy boundaries",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "模糊的边界",
+      "definitionEn": "A boundary whose membership or limits are difficult to define precisely.",
+      "usage": "这里指成员可能仅参与部分任务，团队内外的归属并非固定。",
+      "exampleEn": "The partnership has fuzzy boundaries because staff move in and out as needed.",
+      "exampleZh": "这项合作的成员边界比较模糊，因为员工按需要加入或退出。",
+      "forms": [
+        "fuzzy boundaries"
+      ],
+      "collocations": [
+        "fuzzy team boundaries",
+        "manage fuzzy boundaries"
+      ],
+      "category": "团队架构",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-fuzzy-boundary",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 27
+    },
+    {
+      "term": "demarcate",
+      "originalInput": "demarcate the core",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "划定界限；明确区分",
+      "definitionEn": "To mark or define the limits of a group, role, or area.",
+      "usage": "比 define 更侧重明确边界，常用于成员、职责和区域。",
+      "exampleEn": "The charter demarcates the responsibilities of the two project leads.",
+      "exampleZh": "项目章程划清了两位项目负责人的职责。",
+      "forms": [
+        "demarcates",
+        "demarcated",
+        "demarcating"
+      ],
+      "collocations": [
+        "demarcate responsibilities",
+        "demarcate boundaries"
+      ],
+      "category": "团队架构",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-demarcate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 28
+    },
+    {
+      "term": "networked member",
+      "originalInput": "networked members",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "网络型成员；按需提供外部贡献的成员",
+      "definitionEn": "A contributor in the wider organization or ecosystem who supports the team when needed.",
+      "usage": "X 型团队中的网络型成员可按需提供资源和专业意见；核心成员维持连续性，执行成员负责当期任务。",
+      "exampleEn": "A networked member from legal reviewed the proposal when the team needed specialist advice.",
+      "exampleZh": "团队需要专业意见时，法务网络中的一位协作成员审查了方案。",
+      "forms": [
+        "networked members"
+      ],
+      "collocations": [
+        "draw on networked members",
+        "engage a networked member"
+      ],
+      "category": "团队架构",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-networked-member",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 29
+    },
+    {
+      "term": "onboard",
+      "originalInput": "onboard all team members",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "帮助新成员融入并熟悉工作",
+      "definitionEn": "To help someone join a team and learn how to participate effectively.",
+      "usage": "用作动词时，可直接接员工、成员或客户。",
+      "exampleEn": "We onboard new contributors by pairing them with an experienced teammate.",
+      "exampleZh": "我们给新加入的贡献者安排一位有经验的搭档，帮助他们融入。",
+      "forms": [
+        "onboards",
+        "onboarded",
+        "onboarding"
+      ],
+      "collocations": [
+        "onboard new hires",
+        "onboard a team member"
+      ],
+      "category": "团队架构",
+      "pdfPage": 5,
+      "printedPage": 27,
+      "tags": [
+        "团队架构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-onboard-059d4967",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 30
+    },
+    {
+      "term": "vicarious learning",
+      "originalInput": "vicarious learning",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "替代性学习；通过他人经验学习",
+      "definitionEn": "Learning by observing or drawing on someone else's experience.",
+      "usage": "这里指团队借鉴专家和其他团队已有的经验。",
+      "exampleEn": "The apprentices gained vicarious learning opportunities by observing experienced technicians.",
+      "exampleZh": "学徒通过观察经验丰富的技术人员获得了借鉴他人经验的学习机会。",
+      "forms": [],
+      "collocations": [
+        "learn through vicarious learning",
+        "vicarious learning opportunity"
+      ],
+      "category": "团队学习",
+      "pdfPage": 6,
+      "printedPage": 28,
+      "tags": [
+        "团队学习"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-vicarious-learning",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 31
+    },
+    {
+      "term": "prototyping",
+      "originalInput": "prototyping",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "原型制作；制作试验版本",
+      "definitionEn": "The process of building early versions of an idea so they can be tested.",
+      "usage": "可用于产品、流程或服务试验，重点是尽早得到反馈。",
+      "exampleEn": "Rapid prototyping revealed that the control panel confused first-time users.",
+      "exampleZh": "快速制作原型发现，初次使用者很难看懂控制面板。",
+      "forms": [],
+      "collocations": [
+        "rapid prototyping",
+        "prototyping and testing"
+      ],
+      "category": "创新流程",
+      "pdfPage": 6,
+      "printedPage": 28,
+      "tags": [
+        "创新流程"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-prototyping",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 32
+    },
+    {
+      "term": "exportation",
+      "originalInput": "exportation phase",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "成果向外移交或推广",
+      "definitionEn": "The stage of transferring a team's work and know-how to other groups that will develop or use it.",
+      "usage": "本文借用出口的含义，指把成果与经验交给后续部门。",
+      "exampleEn": "During exportation, the pilot team trained the regional offices to run the new process.",
+      "exampleZh": "在成果移交阶段，试点团队培训各地区办事处使用新流程。",
+      "forms": [],
+      "collocations": [
+        "exportation phase",
+        "exportation of team knowledge"
+      ],
+      "category": "创新流程",
+      "pdfPage": 6,
+      "printedPage": 28,
+      "tags": [
+        "创新流程"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-exportation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 33
+    },
+    {
+      "term": "strategic alignment",
+      "originalInput": "strategic alignment",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "战略一致性；目标与战略的对齐",
+      "definitionEn": "Agreement between a team's priorities and the wider organization's strategic goals.",
+      "usage": "常用于确认具体项目如何支持组织更高层次的目标。",
+      "exampleEn": "The review checked strategic alignment before the committee funded the project.",
+      "exampleZh": "委员会拨款前，审查了项目与组织战略是否一致。",
+      "forms": [],
+      "collocations": [
+        "seek strategic alignment",
+        "maintain strategic alignment"
+      ],
+      "category": "组织协作",
+      "pdfPage": 6,
+      "printedPage": 28,
+      "tags": [
+        "组织协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-strategic-alignment",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 34
+    },
+    {
+      "term": "repercussion",
+      "originalInput": "negative repercussions",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "后续影响；负面反响",
+      "definitionEn": "An indirect and often unwelcome consequence of an action or event.",
+      "usage": "常用复数 repercussions，强调由某事引起的后续连锁影响。",
+      "exampleEn": "Staff raised concerns once they knew there would be no repercussions.",
+      "exampleZh": "员工确认提出疑虑不会招致负面后果后，便表达了自己的顾虑。",
+      "forms": [
+        "repercussions"
+      ],
+      "collocations": [
+        "face repercussions",
+        "negative repercussions"
+      ],
+      "category": "组织文化",
+      "pdfPage": 6,
+      "printedPage": 28,
+      "tags": [
+        "组织文化"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-repercussion",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 35
+    },
+    {
+      "term": "pulse",
+      "originalInput": "pulsing team activity",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "让团队活动按节奏交替进行",
+      "definitionEn": "To alternate periods of concentrated team interaction with periods of separate work.",
+      "usage": "本文用 pulse 比喻团队集中协作与分头完成任务的周期。",
+      "exampleEn": "We pulse team activity by holding joint design sessions on Mondays and leaving two days for individual work.",
+      "exampleZh": "我们在周一集中设计，随后留出两天各自工作，让团队协作按节奏交替进行。",
+      "forms": [
+        "pulses",
+        "pulsed",
+        "pulsing"
+      ],
+      "collocations": [
+        "pulse team activity",
+        "pulse collaborative work"
+      ],
+      "category": "团队节奏",
+      "pdfPage": 7,
+      "printedPage": 29,
+      "tags": [
+        "团队节奏"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-pulse",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 36
+    },
+    {
+      "term": "forge bonds",
+      "originalInput": "bonds can be forged",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "建立牢固的关系；结成紧密联系",
+      "definitionEn": "To build strong relationships or connections through effort or shared experiences.",
+      "usage": "本文用于建立社会联系，常与 bonds、ties 或 partnerships 搭配。",
+      "exampleEn": "The joint assignment helped the teams forge strong bonds.",
+      "exampleZh": "这项共同任务帮助两个团队建立了牢固的联系。",
+      "forms": [
+        "forges bonds",
+        "forged bonds",
+        "forging bonds",
+        "bonds can be forged"
+      ],
+      "collocations": [
+        "forge bonds",
+        "forge partnerships"
+      ],
+      "category": "组织协作",
+      "pdfPage": 7,
+      "printedPage": 29,
+      "tags": [
+        "组织协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-forge-bonds-400ae971",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "本篇具体使用 forge bonds 的被动式，保留已有搭配原卡，累计来源。"
+      },
+      "order": 37
+    },
+    {
+      "term": "codify",
+      "originalInput": "codify the x-team process",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "将经验整理成明确规则或流程",
+      "definitionEn": "To put practices, knowledge, or rules into a structured and documented form.",
+      "usage": "组织管理中常指把团队经验变成可传承、可重复的流程。",
+      "exampleEn": "The operations group codified its emergency response process in a shared guide.",
+      "exampleZh": "运营组把应急响应流程整理成了一份共享指南。",
+      "forms": [
+        "codifies",
+        "codified",
+        "codifying"
+      ],
+      "collocations": [
+        "codify a process",
+        "codify best practices"
+      ],
+      "category": "组织学习",
+      "pdfPage": 7,
+      "printedPage": 29,
+      "tags": [
+        "组织学习"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-codify",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 38
+    },
+    {
+      "term": "proof of concept",
+      "originalInput": "proofs of concept",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "概念验证；可行性验证",
+      "definitionEn": "A small test or demonstration that shows an idea can work in principle.",
+      "usage": "可用于正式开发前验证核心设想，复数为 proofs of concept。",
+      "exampleEn": "The team built a proof of concept before requesting money for a full system.",
+      "exampleZh": "团队先做了概念验证，再为完整系统申请资金。",
+      "forms": [
+        "proofs of concept",
+        "proof-of-concept"
+      ],
+      "collocations": [
+        "run a proof of concept",
+        "proof-of-concept test"
+      ],
+      "category": "创新流程",
+      "pdfPage": 7,
+      "printedPage": 29,
+      "tags": [
+        "创新流程"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-proof-of-concept",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 39
+    },
+    {
+      "term": "unleash",
+      "originalInput": "unleash talent",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "释放；使潜能充分发挥",
+      "definitionEn": "To free an ability or force so that it can have its full effect.",
+      "usage": "积极管理语境常用于 talent、creativity 或 potential。",
+      "exampleEn": "Giving frontline staff more discretion can unleash talent across the organization.",
+      "exampleZh": "给一线员工更多自主决定权能让全组织的人才充分发挥潜能。",
+      "forms": [
+        "unleashes",
+        "unleashed",
+        "unleashing"
+      ],
+      "collocations": [
+        "unleash talent",
+        "unleash creativity"
+      ],
+      "category": "组织变革",
+      "pdfPage": 7,
+      "printedPage": 29,
+      "tags": [
+        "组织变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c11-unleash",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 40
+    }
+  ]
+}

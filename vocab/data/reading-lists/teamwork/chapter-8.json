@@ -1,0 +1,1384 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-8",
+    "number": 8,
+    "title": "Beyond the Holacracy Hype"
+  },
+  "sourceTitle": "Teamwork — Beyond the Holacracy Hype",
+  "articleTitle": "Beyond the Holacracy Hype",
+  "authors": "Ethan Bernstein; John Bunch; Niko Canner; Michael Lee",
+  "issue": "July–August 2016",
+  "sourceUrl": "https://hbr.org/2016/07/beyond-the-holacracy-hype",
+  "sourcePdfSha256": "cf9857c258e1b1a620c1984fa830f4703e6cb20a0fe32eec4a08a4480991fef3",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 45,
+  "curation": {
+    "originalItemCount": 45,
+    "excludedItems": []
+  },
+  "items": [
+    {
+      "pdfPage": 2,
+      "term": "holacracy",
+      "originalInput": "Holacracy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "合弄制。一种按角色和圈组分配权力的组织治理制度。",
+      "definitionEn": "A formal system that distributes organizational authority among defined roles and self-governing circles.",
+      "usage": "指一套具体的治理制度。圈组和角色可调整，决策权限由治理规则划分。",
+      "exampleEn": "Under holacracy, the support circle can revise its own roles within the company’s governance rules.",
+      "exampleZh": "在合弄制下，客服圈组可以在公司治理规则的范围内调整自己的角色。",
+      "forms": [
+        "holacracies"
+      ],
+      "collocations": [
+        "adopt holacracy",
+        "holacracy constitution"
+      ],
+      "category": "组织治理",
+      "printedPage": 2,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-holacracy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 1
+    },
+    {
+      "pdfPage": 2,
+      "term": "overwrought",
+      "originalInput": "overwrought claims",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "言过其实的；被夸大渲染的。",
+      "definitionEn": "Exaggerated or elaborated to an excessive degree.",
+      "usage": "修饰 claims 时指说法被过度渲染。形容人时还可指焦躁不安，本文用的是前一种义项。",
+      "exampleEn": "The pilot improved scheduling, but the launch announcement made some overwrought claims.",
+      "exampleZh": "试点改善了排班，不过发布公告里有些说法言过其实。",
+      "forms": [],
+      "collocations": [
+        "overwrought claims",
+        "overwrought rhetoric"
+      ],
+      "category": "评价与论证",
+      "printedPage": 2,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-overwrought",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 2
+    },
+    {
+      "pdfPage": 3,
+      "term": "camp out",
+      "originalInput": "camped out",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "在一个地方待上较长时间；驻守。",
+      "definitionEn": "To stay in a particular place for a while, often informally or for a specific purpose.",
+      "usage": "在办公室语境中可指长时间占用或守在某处，带有非正式语气。",
+      "exampleEn": "The migration team camped out in a conference room until every service was back online.",
+      "exampleZh": "迁移小组一直守在会议室里，直到所有服务恢复上线。",
+      "forms": [
+        "camps out",
+        "camped out",
+        "camping out"
+      ],
+      "collocations": [
+        "camp out in a meeting room",
+        "camp out near the launch site"
+      ],
+      "category": "叙述表达",
+      "printedPage": 3,
+      "tags": [
+        "叙述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-camp-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 3
+    },
+    {
+      "pdfPage": 3,
+      "term": "confer on",
+      "originalInput": "confers decision power on",
+      "entryType": "collocation",
+      "partOfSpeech": "verb pattern",
+      "meaning": "授予某人或某机构某种权利、权力或荣誉。",
+      "definitionEn": "To formally grant a right, power, or honor to someone or something.",
+      "usage": "结构为 confer something on somebody。confer with somebody 则是与某人商议。",
+      "exampleEn": "The charter confers budget authority on the project council.",
+      "exampleZh": "章程赋予项目委员会预算审批权。",
+      "forms": [
+        "confers decision power on"
+      ],
+      "collocations": [
+        "confer authority on a committee",
+        "confer a right on members"
+      ],
+      "category": "组织治理",
+      "printedPage": 3,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-confer-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 4
+    },
+    {
+      "pdfPage": 3,
+      "term": "circle",
+      "originalInput": "circles",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "合弄制中的圈组，由围绕共同目标的多个角色组成。",
+      "definitionEn": "In holacracy, a group of roles that work toward a shared purpose and can be reorganized as needs change.",
+      "usage": "本文为治理术语。一个圈组可容纳子圈组，成员也可在不同圈组承担角色。",
+      "exampleEn": "The billing circle created a temporary role to investigate recurring invoice errors.",
+      "exampleZh": "结算圈组设了一个临时角色，负责调查反复出现的账单错误。",
+      "forms": [
+        "circles"
+      ],
+      "collocations": [
+        "create a circle",
+        "circle governance"
+      ],
+      "category": "组织治理",
+      "printedPage": 3,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-circle",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 5
+    },
+    {
+      "pdfPage": 4,
+      "term": "severance package",
+      "originalInput": "severance packages",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "离职补偿方案；解除雇佣关系时提供的一揽子补偿。",
+      "definitionEn": "A set of payments and benefits offered to an employee leaving a job.",
+      "usage": "package 可包括补偿金、福利延续或求职支持，severance pay 则特指离职补偿金。",
+      "exampleEn": "The company offered a severance package that included three months of pay.",
+      "exampleZh": "公司提供了一套包含三个月薪资的离职补偿方案。",
+      "forms": [
+        "severance packages"
+      ],
+      "collocations": [
+        "offer a severance package",
+        "accept a severance package"
+      ],
+      "category": "人力资源",
+      "printedPage": 4,
+      "tags": [
+        "人力资源"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-severance-package",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 6
+    },
+    {
+      "pdfPage": 4,
+      "term": "half-baked",
+      "originalInput": "half-baked",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "考虑不周的；尚未成熟的。",
+      "definitionEn": "Insufficiently developed or thought through.",
+      "usage": "非正式，常评价计划、想法或论证准备不足。",
+      "exampleEn": "The team withheld the half-baked proposal until it could explain who would own the new process.",
+      "exampleZh": "团队暂缓提交这个尚不成熟的方案，先弄清新流程由谁负责。",
+      "forms": [],
+      "collocations": [
+        "half-baked proposal",
+        "half-baked idea"
+      ],
+      "category": "评价与论证",
+      "printedPage": 4,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-half-baked",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 7
+    },
+    {
+      "pdfPage": 4,
+      "term": "in the trenches",
+      "originalInput": "in the trenches",
+      "entryType": "idiom",
+      "partOfSpeech": "prepositional phrase",
+      "meaning": "在一线实际工作中；深入具体执行现场。",
+      "definitionEn": "In the middle of difficult day-to-day practical work.",
+      "usage": "军事隐喻。本文用它区分日常执行现场与企业战略层面。",
+      "exampleEn": "The policy team spent a week in the trenches with customer support before rewriting the rules.",
+      "exampleZh": "政策小组和客服一起在一线工作了一周，然后才重写规则。",
+      "forms": [],
+      "collocations": [
+        "work in the trenches",
+        "experience in the trenches"
+      ],
+      "category": "叙述表达",
+      "printedPage": 4,
+      "tags": [
+        "叙述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-in-the-trenches",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 8
+    },
+    {
+      "pdfPage": 4,
+      "term": "wholesale",
+      "originalInput": "embracing the approach wholesale",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "全盘地；不加区分地整体采用。",
+      "definitionEn": "Entirely or on a broad scale, without choosing parts selectively.",
+      "usage": "本文作副词，表示把整套方法照单全收。商业交易里的 wholesale 还可指批发。",
+      "exampleEn": "The hospital borrowed the scheduling practice without adopting the whole model wholesale.",
+      "exampleZh": "这家医院借用了排班做法，整套模式则没有全盘引入。",
+      "forms": [],
+      "collocations": [
+        "adopt a model wholesale",
+        "embrace an approach wholesale"
+      ],
+      "category": "实施与变革",
+      "printedPage": 4,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-wholesale",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 9
+    },
+    {
+      "pdfPage": 4,
+      "term": "grapple with",
+      "originalInput": "grappling with",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "努力应对、处理棘手问题。",
+      "definitionEn": "To struggle to deal with or understand a difficult issue.",
+      "usage": "含有问题仍需花力气解决的意味，常接 uncertainty、complexity、consequences。",
+      "exampleEn": "The board is grappling with how to compare jobs that have very different responsibilities.",
+      "exampleZh": "董事会正努力解决如何比较职责差异很大的岗位这一问题。",
+      "forms": [
+        "grapples with",
+        "grappled with",
+        "grappling with"
+      ],
+      "collocations": [
+        "grapple with uncertainty",
+        "grapple with a trade-off"
+      ],
+      "category": "问题处理",
+      "printedPage": 4,
+      "tags": [
+        "问题处理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c5-grapple-with",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 10
+    },
+    {
+      "pdfPage": 4,
+      "term": "regain one's footing",
+      "originalInput": "regained its footing",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "重新站稳脚跟；经历困难后恢复稳定。",
+      "definitionEn": "To recover stability or confidence after a setback.",
+      "usage": "比喻义常用于组织、项目或团队，代词随主语变化。",
+      "exampleEn": "The initiative regained its footing after the team clarified how roles would be assigned.",
+      "exampleZh": "团队明确角色分配办法后，这项计划重新稳定下来。",
+      "forms": [
+        "regain its footing",
+        "regained its footing"
+      ],
+      "collocations": [
+        "help a team regain its footing",
+        "regain one's footing after a setback"
+      ],
+      "category": "实施与变革",
+      "printedPage": 4,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-regain-one-s-footing",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 11
+    },
+    {
+      "pdfPage": 4,
+      "term": "red tape",
+      "originalInput": "red tape",
+      "entryType": "idiom",
+      "partOfSpeech": "uncountable noun phrase",
+      "meaning": "繁文缛节；妨碍进展的过多规章和审批。",
+      "definitionEn": "Excessive official procedures that make action slow or difficult.",
+      "usage": "带贬义，强调手续给实际工作带来的阻碍。",
+      "exampleEn": "A single approval form cut the red tape around replacing broken equipment.",
+      "exampleZh": "统一的审批表减少了更换损坏设备的繁琐手续。",
+      "forms": [],
+      "collocations": [
+        "cut red tape",
+        "bureaucratic red tape"
+      ],
+      "category": "组织治理",
+      "printedPage": 4,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-red-tape",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 12
+    },
+    {
+      "pdfPage": 4,
+      "term": "leeway",
+      "originalInput": "leeway",
+      "entryType": "word",
+      "partOfSpeech": "uncountable noun",
+      "meaning": "自行判断和调整的余地；机动空间。",
+      "definitionEn": "Freedom to act or adjust within certain limits.",
+      "usage": "give somebody leeway to do something 表示授权范围内留出灵活性。",
+      "exampleEn": "Regional managers have leeway to adapt staffing to local demand.",
+      "exampleZh": "区域经理可以根据当地需求灵活调整人员安排。",
+      "forms": [],
+      "collocations": [
+        "give someone leeway",
+        "leeway to adjust"
+      ],
+      "category": "组织治理",
+      "printedPage": 4,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-leeway",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 13
+    },
+    {
+      "pdfPage": 5,
+      "term": "morph into",
+      "originalInput": "morphed into",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "逐渐演变成另一种形式。",
+      "definitionEn": "To gradually change into something different in form or character.",
+      "usage": "常描述结构、项目或习惯逐渐变形，通常比 turn into 更突出转变过程。",
+      "exampleEn": "The temporary support group morphed into a permanent training team.",
+      "exampleZh": "临时支援小组逐渐发展成了常设培训团队。",
+      "forms": [
+        "morphs into",
+        "morphed into",
+        "morphing into"
+      ],
+      "collocations": [
+        "morph into a new structure",
+        "morph into a permanent team"
+      ],
+      "category": "实施与变革",
+      "printedPage": 5,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-morph-into",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 14
+    },
+    {
+      "pdfPage": 5,
+      "term": "piecemeal",
+      "originalInput": "piecemeal approach",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "分块、分步进行的；零散推进的。",
+      "definitionEn": "Done in separate parts or stages instead of as one coordinated whole.",
+      "usage": "本文强调按适用范围分块采用，语境偏中性。批评政策时也可指零敲碎打。",
+      "exampleEn": "The company took a piecemeal approach, testing team autonomy in areas where it could quickly measure results.",
+      "exampleZh": "公司分块推进，先在能快速衡量成效的业务中试行团队自治。",
+      "forms": [],
+      "collocations": [
+        "piecemeal approach",
+        "piecemeal adoption"
+      ],
+      "category": "实施与变革",
+      "printedPage": 5,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-piecemeal",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 15
+    },
+    {
+      "pdfPage": 5,
+      "term": "paramount",
+      "originalInput": "reliability is paramount",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "至关重要的；应优先考虑的。",
+      "definitionEn": "More important than all other considerations in a given situation.",
+      "usage": "常用 be paramount，突出在当前取舍中居首位。",
+      "exampleEn": "Patient safety is paramount when the clinic changes its handover procedure.",
+      "exampleZh": "诊所调整交接流程时，患者安全是首要考虑。",
+      "forms": [],
+      "collocations": [
+        "be of paramount importance",
+        "safety is paramount"
+      ],
+      "category": "评价与论证",
+      "printedPage": 5,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-paramount",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 16
+    },
+    {
+      "pdfPage": 6,
+      "term": "hem in",
+      "originalInput": "hem them in",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "束缚、限制某人的行动空间。",
+      "definitionEn": "To restrict someone’s freedom to act by surrounding them with constraints.",
+      "usage": "可指被物理包围。本文比喻团队受到多层汇报和组织结构的约束。",
+      "exampleEn": "Layered approval rules hemmed in teams that needed to respond to customers quickly.",
+      "exampleZh": "层层审批束缚了需要快速响应客户的团队。",
+      "forms": [
+        "hem them in",
+        "hemmed in",
+        "hemming in"
+      ],
+      "collocations": [
+        "be hemmed in by rules",
+        "hem in local teams"
+      ],
+      "category": "组织治理",
+      "printedPage": 6,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-hem-in",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 17
+    },
+    {
+      "pdfPage": 6,
+      "term": "thwart",
+      "originalInput": "thwart their effectiveness",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "阻挠；使计划或行动无法奏效。",
+      "definitionEn": "To prevent an effort, plan, or desired outcome from succeeding.",
+      "usage": "语义比 hinder 强，常接 efforts、plans、attempts。",
+      "exampleEn": "Conflicting incentives thwarted the departments’ efforts to share staff.",
+      "exampleZh": "相互冲突的激励使各部门共享人员的努力落空。",
+      "forms": [
+        "thwarts",
+        "thwarted",
+        "thwarting"
+      ],
+      "collocations": [
+        "thwart efforts",
+        "thwart a plan"
+      ],
+      "category": "问题处理",
+      "printedPage": 6,
+      "tags": [
+        "问题处理"
+      ],
+      "reuseExistingEntryId": "public-nlmg-c4-thwart",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 18
+    },
+    {
+      "pdfPage": 6,
+      "term": "adhocracy",
+      "originalInput": "adhocracy",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "临时型组织；根据任务灵活组建的组织形式。",
+      "definitionEn": "A flexible form of organization built around temporary teams and changing needs rather than fixed procedures.",
+      "usage": "与 bureaucracy 相对，常用于组织设计。任务和人员配置可随需要调整。",
+      "exampleEn": "The research unit operated as an adhocracy, assembling specialists for each new problem.",
+      "exampleZh": "研究部门采取临时型组织方式，针对每个新问题召集所需专家。",
+      "forms": [
+        "adhocracies"
+      ],
+      "collocations": [
+        "operate as an adhocracy",
+        "shift toward adhocracy"
+      ],
+      "category": "组织治理",
+      "printedPage": 6,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-adhocracy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 19
+    },
+    {
+      "pdfPage": 6,
+      "term": "podularity",
+      "originalInput": "podularity",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "舱组式组织。由可代表企业行动的小型自主业务单元组成。",
+      "definitionEn": "A self-management model in which small autonomous pods act as microcosms of the wider business.",
+      "usage": "pod 是单元，podularity 是这类组织设计原则。本文指出它与敏捷开发的模块化有关。",
+      "exampleEn": "The studio used podularity to let each customer pod coordinate design, sales, and support.",
+      "exampleZh": "工作室采用舱组式组织，让每个客户舱组自行协调设计、销售和支持。",
+      "forms": [],
+      "collocations": [
+        "adopt podularity",
+        "a podularity model"
+      ],
+      "category": "组织治理",
+      "printedPage": 6,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-podularity",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 20
+    },
+    {
+      "pdfPage": 6,
+      "term": "vest authority in",
+      "originalInput": "vested authority in",
+      "entryType": "collocation",
+      "partOfSpeech": "verb pattern",
+      "meaning": "把权力正式赋予某个角色、机构或制度。",
+      "definitionEn": "To formally place authority in a person, office, or body.",
+      "usage": "常用 vest authority in a body 或 authority is vested in a body，强调权力由制度赋予。",
+      "exampleEn": "The bylaws vest appointment authority in an elected committee.",
+      "exampleZh": "章程将任命权赋予一个经选举产生的委员会。",
+      "forms": [
+        "vests authority in",
+        "vested authority in",
+        "vesting authority in"
+      ],
+      "collocations": [
+        "vest authority in a board",
+        "authority vested in a role"
+      ],
+      "category": "组织治理",
+      "printedPage": 6,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-vest-authority-in",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 21
+    },
+    {
+      "pdfPage": 6,
+      "term": "whimsical",
+      "originalInput": "whimsical bosses",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "随心所欲的；行事难以预料的。",
+      "definitionEn": "Acting on sudden impulses rather than consistent reasons or rules.",
+      "usage": "形容上司时含任性、反复之意。形容艺术或设计时还可指俏皮奇趣。",
+      "exampleEn": "A clear appeals process protects employees from whimsical decisions by a supervisor.",
+      "exampleZh": "明确的申诉流程能保护员工免受主管随意决策的影响。",
+      "forms": [],
+      "collocations": [
+        "whimsical decisions",
+        "whimsical managers"
+      ],
+      "category": "评价与论证",
+      "printedPage": 6,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-whimsical",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 22
+    },
+    {
+      "pdfPage": 6,
+      "term": "proliferation",
+      "originalInput": "rapid proliferation",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "迅速增多；大量扩散。",
+      "definitionEn": "A rapid increase in the number or spread of things.",
+      "usage": "常用 proliferation of。本文先用于生物类比，随后用于说明组织角色过快增多。",
+      "exampleEn": "The proliferation of approval channels made it harder to find the actual decision maker.",
+      "exampleZh": "审批渠道激增，使人更难找到真正的决策者。",
+      "forms": [],
+      "collocations": [
+        "rapid proliferation",
+        "proliferation of roles"
+      ],
+      "category": "组织治理",
+      "printedPage": 6,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-proliferation",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 23
+    },
+    {
+      "pdfPage": 7,
+      "term": "cabal",
+      "originalInput": "cabals",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "Valve 公司对自主组建的跨职能项目小组的称呼。",
+      "definitionEn": "At Valve, a multidisciplinary team that forms voluntarily around a project or goal.",
+      "usage": "在一般英语中 cabal 常指秘密结盟的小团体。本文是 Valve 对项目团队的特殊用法。",
+      "exampleEn": "A cabal of designers and engineers formed to prototype the new controller.",
+      "exampleZh": "设计师和工程师自发组建了一个项目小组，为新控制器制作原型。",
+      "forms": [
+        "cabals"
+      ],
+      "collocations": [
+        "form a cabal",
+        "join a cabal"
+      ],
+      "category": "组织治理",
+      "printedPage": 7,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-cabal",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 24
+    },
+    {
+      "pdfPage": 7,
+      "term": "plug-and-play",
+      "originalInput": "plug-and-play activity",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "可快速接入、组合或替换的。",
+      "definitionEn": "Able to fit into an existing system with little extra configuration or setup.",
+      "usage": "源自设备即插即用。本文比喻模块化团队能较容易地重组和连接。",
+      "exampleEn": "A plug-and-play staffing model lets specialists join a new project without months of reorganization.",
+      "exampleZh": "可快速组合的人员配置模式让专家能直接加入新项目，省去几个月的重组。",
+      "forms": [
+        "plug and play"
+      ],
+      "collocations": [
+        "plug-and-play model",
+        "plug-and-play modules"
+      ],
+      "category": "组织治理",
+      "printedPage": 7,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-plug-and-play",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 25
+    },
+    {
+      "pdfPage": 7,
+      "term": "ratify",
+      "originalInput": "ratify a constitution",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "按正式程序批准、使之生效。",
+      "definitionEn": "To formally approve an agreement, constitution, or decision so that it takes effect.",
+      "usage": "通常用于已有文本或协议的最终正式批准。",
+      "exampleEn": "Members will vote next month to ratify the revised constitution.",
+      "exampleZh": "成员将于下月投票正式通过修订后的章程。",
+      "forms": [
+        "ratifies",
+        "ratified",
+        "ratifying"
+      ],
+      "collocations": [
+        "ratify a constitution",
+        "ratify an agreement"
+      ],
+      "category": "组织治理",
+      "printedPage": 7,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-ratify",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 26
+    },
+    {
+      "pdfPage": 7,
+      "term": "living document",
+      "originalInput": "living document",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "会随实践持续修订更新的文件。",
+      "definitionEn": "A document intended to be updated as circumstances or knowledge change.",
+      "usage": "常描述章程、政策或计划，暗示有后续修订机制。",
+      "exampleEn": "We treat the team charter as a living document and revise it after each major project.",
+      "exampleZh": "我们把团队章程作为持续更新的文件，在每个大项目结束后修订。",
+      "forms": [
+        "living documents"
+      ],
+      "collocations": [
+        "treat as a living document",
+        "maintain a living document"
+      ],
+      "category": "组织治理",
+      "printedPage": 7,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-living-document",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 27
+    },
+    {
+      "pdfPage": 7,
+      "term": "broad-brush",
+      "originalInput": "broad-brush way",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "只勾勒总体轮廓的；不细究细节的。",
+      "definitionEn": "Covering the main features of a subject without going into detail.",
+      "usage": "常用于方案、描述或评估。语气可中性，也可暗示分析过于粗略。",
+      "exampleEn": "The board approved a broad-brush plan and left the implementation details to the teams.",
+      "exampleZh": "董事会批准了总体方案，把实施细节留给各团队决定。",
+      "forms": [
+        "broad brush"
+      ],
+      "collocations": [
+        "broad-brush approach",
+        "broad-brush outline"
+      ],
+      "category": "评价与论证",
+      "printedPage": 7,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-broad-brush",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 28
+    },
+    {
+      "pdfPage": 7,
+      "term": "lead link",
+      "originalInput": "LEAD LINK",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "合弄制中的领导联结角色，负责分配圈内角色和资源。",
+      "definitionEn": "A holacracy role that assigns people to roles and allocates resources within a circle.",
+      "usage": "本文的 lead link 受圈组治理规则约束，职责不同于拥有全面指挥权的传统经理。",
+      "exampleEn": "The lead link assigned the vacant onboarding role and allocated time for training.",
+      "exampleZh": "领导联结角色安排了人员接任空缺的入职培训职责，并为培训划拨了时间。",
+      "forms": [
+        "lead links"
+      ],
+      "collocations": [
+        "serve as lead link",
+        "appoint a lead link"
+      ],
+      "category": "组织治理",
+      "printedPage": 7,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-lead-link",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 29
+    },
+    {
+      "pdfPage": 8,
+      "term": "colleague letter of understanding",
+      "originalInput": "colleague letters of understanding",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "同事谅解函。员工与相关同事协商确定职责和绩效指标的正式文件。",
+      "definitionEn": "An agreement at Morning Star documenting an employee’s roles, commitments, and performance measures.",
+      "usage": "文中缩写为 CLOU，属于 Morning Star 的特定管理做法。",
+      "exampleEn": "In her colleague letter of understanding, Elena recorded the delivery times her coworkers could count on.",
+      "exampleZh": "埃琳娜在同事谅解函里写明了她向同事承诺的交付时间。",
+      "forms": [
+        "colleague letters of understanding",
+        "CLOU",
+        "CLOUs"
+      ],
+      "collocations": [
+        "draft a colleague letter of understanding",
+        "revise a CLOU"
+      ],
+      "category": "组织治理",
+      "printedPage": 8,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-colleague-letter-of-understanding",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 30
+    },
+    {
+      "pdfPage": 8,
+      "term": "zero in on",
+      "originalInput": "zeroed in on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "把注意力集中到特定目标；锁定。",
+      "definitionEn": "To focus attention increasingly closely on a particular issue or target.",
+      "usage": "语气比 focus on 更强调从多个选项收窄到明确目标。",
+      "exampleEn": "The audit team zeroed in on the two handoffs responsible for most delays.",
+      "exampleZh": "审计团队锁定了造成大多数延误的两个交接环节。",
+      "forms": [
+        "zeroes in on",
+        "zeros in on",
+        "zeroed in on",
+        "zeroing in on"
+      ],
+      "collocations": [
+        "zero in on the cause",
+        "zero in on a bottleneck"
+      ],
+      "category": "问题处理",
+      "printedPage": 8,
+      "tags": [
+        "问题处理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-zero-in-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 31
+    },
+    {
+      "pdfPage": 8,
+      "term": "play to one's strengths",
+      "originalInput": "play to their strengths",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "发挥自己擅长的方面。",
+      "definitionEn": "To use one’s strongest abilities or advantages to best effect.",
+      "usage": "常用于团队分工或竞争策略。介词 to 用来引出发挥的优势。",
+      "exampleEn": "We split the presentation so each member could play to their strengths.",
+      "exampleZh": "我们分配了演示任务，让每个人都能发挥自己的长处。",
+      "forms": [
+        "play to their strengths",
+        "play to your strengths",
+        "play to its strengths"
+      ],
+      "collocations": [
+        "let people play to their strengths",
+        "design roles that play to people's strengths"
+      ],
+      "category": "团队分工",
+      "printedPage": 8,
+      "tags": [
+        "团队分工"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-play-to-one-s-strengths",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 32
+    },
+    {
+      "pdfPage": 9,
+      "term": "jettison",
+      "originalInput": "jettison roles",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "果断丢弃、撤掉已经不再有用的事物。",
+      "definitionEn": "To discard or abandon something that is no longer useful or is holding progress back.",
+      "usage": "本义是从船或飞机抛掉负载。本文比喻放弃占用时间却价值不高的角色。",
+      "exampleEn": "The committee jettisoned two reporting requirements that nobody used.",
+      "exampleZh": "委员会取消了两项无人使用的报告要求。",
+      "forms": [
+        "jettisons",
+        "jettisoned",
+        "jettisoning"
+      ],
+      "collocations": [
+        "jettison an outdated policy",
+        "jettison unnecessary roles"
+      ],
+      "category": "实施与变革",
+      "printedPage": 9,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-jettison",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 33
+    },
+    {
+      "pdfPage": 10,
+      "term": "put the onus on",
+      "originalInput": "puts the onus on",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "把责任或负担放到某人身上。",
+      "definitionEn": "To make a person or group responsible for taking action or proving something.",
+      "usage": "常用 put the onus on somebody to do something，onus 强调需要承担的责任。",
+      "exampleEn": "The new process puts the onus on each team to document its decisions.",
+      "exampleZh": "新流程要求各团队自行承担记录决定的责任。",
+      "forms": [
+        "puts the onus on",
+        "putting the onus on"
+      ],
+      "collocations": [
+        "put the onus on managers",
+        "put the onus on someone to act"
+      ],
+      "category": "组织治理",
+      "printedPage": 10,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-put-the-onus-on",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 34
+    },
+    {
+      "pdfPage": 10,
+      "term": "sign-off",
+      "originalInput": "sign-offs",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "正式批准；最后一道审批。",
+      "definitionEn": "Formal approval allowing a plan, decision, or piece of work to go ahead.",
+      "usage": "这里是名词。动词表达用 sign off on something。",
+      "exampleEn": "The shipment cannot leave until quality control gives its sign-off.",
+      "exampleZh": "质检部门正式批准后，这批货才能发出。",
+      "forms": [
+        "sign-offs",
+        "signoff",
+        "signoffs"
+      ],
+      "collocations": [
+        "get sign-off from a manager",
+        "final sign-off"
+      ],
+      "category": "组织治理",
+      "printedPage": 10,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-sign-off",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 35
+    },
+    {
+      "pdfPage": 10,
+      "term": "run something up the flagpole",
+      "originalInput": "run ideas up the flagpole",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "把想法往上报，看看上级的反应或能否获批。",
+      "definitionEn": "To put an idea forward to see how others respond, especially by sending it up a chain of authority.",
+      "usage": "带比喻色彩。本文突出沿层级上报并等待回音的过程。",
+      "exampleEn": "The team ran the proposal up the flagpole before committing engineering time.",
+      "exampleZh": "团队先把提案上报试探反应，再决定是否投入工程时间。",
+      "forms": [
+        "run ideas up the flagpole",
+        "run an idea up the flagpole"
+      ],
+      "collocations": [
+        "run an idea up the flagpole",
+        "run a proposal up the flagpole"
+      ],
+      "category": "组织沟通",
+      "printedPage": 10,
+      "tags": [
+        "组织沟通"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-run-something-up-the-flagpole",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 36
+    },
+    {
+      "pdfPage": 10,
+      "term": "water down",
+      "originalInput": "watered down",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "削弱、淡化原有内容或力度。",
+      "definitionEn": "To make a message, proposal, or policy less strong or effective.",
+      "usage": "本义为加水稀释。本文指消息经过层层转述后关键信息变淡。",
+      "exampleEn": "The warning was watered down as it passed through several approval meetings.",
+      "exampleZh": "警告经过几轮审批会议后，原有力度被削弱了。",
+      "forms": [
+        "waters down",
+        "watered down",
+        "watering down"
+      ],
+      "collocations": [
+        "water down a recommendation",
+        "water down a warning"
+      ],
+      "category": "组织沟通",
+      "printedPage": 10,
+      "tags": [
+        "组织沟通"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-water-down",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 37
+    },
+    {
+      "pdfPage": 10,
+      "term": "onerous",
+      "originalInput": "onerous",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "繁重的；令人难以承担的。",
+      "definitionEn": "Requiring a great deal of effort or imposing a heavy burden.",
+      "usage": "常修饰 requirements、obligations、duties，语气较正式。",
+      "exampleEn": "The new disclosure requirement was especially onerous for small suppliers.",
+      "exampleZh": "新的披露要求对小供应商来说尤其繁重。",
+      "forms": [],
+      "collocations": [
+        "onerous requirements",
+        "onerous obligations"
+      ],
+      "category": "评价与论证",
+      "printedPage": 10,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-onerous",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 38
+    },
+    {
+      "pdfPage": 10,
+      "term": "Byzantine",
+      "originalInput": "Byzantine hierarchy",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "错综复杂、难以理解的。",
+      "definitionEn": "So complex and intricate that it is difficult to understand or navigate.",
+      "usage": "大写形容词。本文形容层级和规则繁复，带有批评意味。",
+      "exampleEn": "A Byzantine approval process left employees unsure whom to ask for help.",
+      "exampleZh": "错综复杂的审批流程让员工不知道该向谁求助。",
+      "forms": [],
+      "collocations": [
+        "Byzantine bureaucracy",
+        "Byzantine rules"
+      ],
+      "category": "评价与论证",
+      "printedPage": 10,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-byzantine",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 39
+    },
+    {
+      "pdfPage": 11,
+      "term": "accretion",
+      "originalInput": "accretion of talent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "一点点累积、逐渐聚集。",
+      "definitionEn": "Gradual growth through the accumulation or addition of small amounts.",
+      "usage": "本文指人才持续汇入项目。和快速、突发的增长相比，强调持续积累。",
+      "exampleEn": "The working group grew through the gradual accretion of expertise from several departments.",
+      "exampleZh": "工作小组随着多个部门的专业人才逐步加入而发展壮大。",
+      "forms": [],
+      "collocations": [
+        "gradual accretion",
+        "accretion of expertise"
+      ],
+      "category": "叙述表达",
+      "printedPage": 11,
+      "tags": [
+        "叙述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-accretion",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 40
+    },
+    {
+      "pdfPage": 11,
+      "term": "teal organization",
+      "originalInput": "TEAL ORGANIZATION",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "青色组织。强调自主管理、人的完整性和随实践演进的组织目标。",
+      "definitionEn": "A model of organization emphasizing self-management, wholeness, and an evolving organizational purpose.",
+      "usage": "源于 Frederic Laloux 的组织分类。teal 是分类标签，本文用来讨论完整采用自主管理的组织。",
+      "exampleEn": "The founder studied teal organizations before introducing self-management in two units.",
+      "exampleZh": "创始人先研究了青色组织，再在两个部门试行自主管理。",
+      "forms": [
+        "teal organizations"
+      ],
+      "collocations": [
+        "design a teal organization",
+        "principles of teal organizations"
+      ],
+      "category": "组织治理",
+      "printedPage": 11,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-teal-organization",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 41
+    },
+    {
+      "pdfPage": 12,
+      "term": "suboptimal",
+      "originalInput": "suboptimal",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "低于最佳水平的；并非最优的。",
+      "definitionEn": "Less effective or desirable than the best available option.",
+      "usage": "本文讨论企业全局优化时，某个地方或市场的选择可能只是次优。",
+      "exampleEn": "A single supplier was efficient overall but suboptimal for the remote branches.",
+      "exampleZh": "统一使用一家供应商总体上更有效率，对偏远分支却不是最合适的选择。",
+      "forms": [
+        "sub-optimal"
+      ],
+      "collocations": [
+        "suboptimal outcome",
+        "suboptimal in a given context"
+      ],
+      "category": "评价与论证",
+      "printedPage": 12,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-suboptimal",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 42
+    },
+    {
+      "pdfPage": 12,
+      "term": "rule of thumb",
+      "originalInput": "rules of thumb",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "经验法则；可快速应用的大致准则。",
+      "definitionEn": "A practical general guideline based on experience rather than an exact rule.",
+      "usage": "常用作快速判断的参考，允许根据情境调整。",
+      "exampleEn": "A useful rule of thumb is to review local decisions only when they affect other teams.",
+      "exampleZh": "一条实用的经验法则是，只有地方决策会影响其他团队时才进行复核。",
+      "forms": [
+        "rules of thumb"
+      ],
+      "collocations": [
+        "practical rule of thumb",
+        "follow a rule of thumb"
+      ],
+      "category": "决策表达",
+      "printedPage": 12,
+      "tags": [
+        "决策表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-rule-of-thumb-35f966f5",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 43
+    },
+    {
+      "pdfPage": 12,
+      "term": "transpire",
+      "originalInput": "transpired",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "发生，出现。",
+      "definitionEn": "To happen or take place, especially in a formal account of events.",
+      "usage": "本文用 what has transpired 表示已经发生的事情。it transpired that 还有‘后来发现’的用法。",
+      "exampleEn": "The review records what transpired after the responsibilities were reassigned.",
+      "exampleZh": "复盘记录了职责重新分配后发生的事情。",
+      "forms": [
+        "transpires",
+        "transpired",
+        "transpiring"
+      ],
+      "collocations": [
+        "what transpired",
+        "events that transpired"
+      ],
+      "category": "叙述表达",
+      "printedPage": 12,
+      "tags": [
+        "叙述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-transpire",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 44
+    },
+    {
+      "pdfPage": 13,
+      "term": "go against the grain",
+      "originalInput": "go against the traditional grain",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "逆着惯例行事；与主流做法背道而驰。",
+      "definitionEn": "To act in a way that goes against a prevailing custom, expectation, or tendency.",
+      "usage": "grain 字面指纹理。本文插入 traditional，强调违背行业的传统做法。",
+      "exampleEn": "Allowing a local team to set its own priorities went against the grain at the bank.",
+      "exampleZh": "允许地方团队自行确定工作优先级，有悖于这家银行的惯例。",
+      "forms": [
+        "go against the traditional grain",
+        "goes against the grain",
+        "went against the grain",
+        "going against the grain"
+      ],
+      "collocations": [
+        "go against the grain of an industry",
+        "an approach that goes against the grain"
+      ],
+      "category": "实施与变革",
+      "printedPage": 13,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c8-go-against-the-grain",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 45
+    }
+  ]
+}

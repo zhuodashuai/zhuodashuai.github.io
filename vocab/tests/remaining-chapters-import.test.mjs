@@ -175,8 +175,10 @@ test("the published snapshot has unique identities and remains within the produc
   assert.equal(new Set(snapshot.entries.map(entry => entry.id)).size, snapshot.entries.length);
   assert.equal(new Set(snapshot.entries.map(entry => entry.normalized)).size, snapshot.entries.length);
   const raw = await readFile(snapshotUrl);
-  assert.ok(raw.byteLength < 6_000_000, "the complete source must fit the production GitHub 6 MB snapshot reader");
-  assert.ok(Buffer.byteLength(JSON.stringify(snapshot), "utf8") < 6_000_000);
+  const limits = await readFile(new URL("../../wordbook-api/src/public-snapshot-limits.ts", import.meta.url), "utf8");
+  const byteLimit = Number(limits.match(/MAX_SNAPSHOT_BYTES\s*=\s*([\d_]+)/u)[1].replaceAll("_", ""));
+  assert.ok(raw.byteLength < byteLimit, "the complete source must fit the production GitHub snapshot reader");
+  assert.ok(Buffer.byteLength(JSON.stringify(snapshot), "utf8") < byteLimit);
 });
 
 test("every remaining chapter card projects exactly its own source content, page and retained original form", async () => {

@@ -1,0 +1,1379 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-12",
+    "number": 12,
+    "title": "Embracing Agile"
+  },
+  "sourceTitle": "Teamwork — Embracing Agile",
+  "articleTitle": "Embracing Agile",
+  "authors": "Darrell K. Rigby; Jeff Sutherland; Hirotaka Takeuchi",
+  "issue": "May 2016",
+  "sourceUrl": "https://hbr.org/2016/05/embracing-agile",
+  "sourcePdfSha256": "b414e003ef647c0b5f83dbb1183bbecb0571bc8220e63c5c1835fc1aa0ea7cda",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 45,
+  "curation": {
+    "originalItemCount": 45,
+    "excludedItems": []
+  },
+  "items": [
+    {
+      "pdfPage": 3,
+      "term": "agile",
+      "originalInput": "agile",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "敏捷的；采用短周期迭代与快速反馈的。",
+      "definitionEn": "Using an iterative approach in which a team delivers small pieces of work and adapts to feedback.",
+      "usage": "本文用的是管理术语。大写 Agile 也可统称敏捷方法，区别于一般形容身体动作灵活的 agile。",
+      "exampleEn": "The team used agile methods to test each new checkout feature with customers.",
+      "exampleZh": "团队用敏捷方法让客户试用每一项新结账功能。",
+      "forms": [],
+      "collocations": [
+        "agile methods",
+        "agile innovation"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 3,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-agile",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 1
+    },
+    {
+      "pdfPage": 3,
+      "term": "speed to market",
+      "originalInput": "speed to market",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "产品上市速度；从开发到推出的快慢。",
+      "definitionEn": "How quickly a product or service can be developed and made available to customers.",
+      "usage": "提高 speed to market 表示更快上市。time to market 指具体耗时，通常说缩短。",
+      "exampleEn": "Releasing small updates helped the company improve its speed to market.",
+      "exampleZh": "分批发布小更新帮助公司提高了产品上市速度。",
+      "forms": [
+        "speed-to-market"
+      ],
+      "collocations": [
+        "improve speed to market",
+        "increase speed to market"
+      ],
+      "category": "产品开发",
+      "printedPage": 3,
+      "tags": [
+        "产品开发"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-speed-to-market",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 2
+    },
+    {
+      "pdfPage": 4,
+      "term": "command-and-control",
+      "originalInput": "command-and-control-style",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "由上级集中发令并逐级管控的。",
+      "definitionEn": "Based on centralized authority, detailed orders, and close oversight.",
+      "usage": "用于管理时常带批评色彩，强调决定与监督集中在上层。",
+      "exampleEn": "A command-and-control approach slowed decisions that the field team could have made immediately.",
+      "exampleZh": "集中发令的管理方式拖慢了本可由一线团队立即作出的决定。",
+      "forms": [
+        "command and control",
+        "command-and-control-style"
+      ],
+      "collocations": [
+        "command-and-control management",
+        "command-and-control hierarchy"
+      ],
+      "category": "组织治理",
+      "printedPage": 4,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c7-command-and-control",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 3
+    },
+    {
+      "pdfPage": 4,
+      "term": "C-suite",
+      "originalInput": "C-suite",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "企业最高管理层；首席高管群体。",
+      "definitionEn": "The group of highest-ranking executives in an organization.",
+      "usage": "C 来自 chief，如 CEO 和 CFO。可指这些高管整体，也可作定语修饰高管层活动。",
+      "exampleEn": "The C-suite agreed to prioritize the customer portal across all departments.",
+      "exampleZh": "最高管理层同意让所有部门优先支持客户门户项目。",
+      "forms": [
+        "C-suites"
+      ],
+      "collocations": [
+        "C-suite executives",
+        "C-suite priorities"
+      ],
+      "category": "组织治理",
+      "printedPage": 4,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-c-suite",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 4
+    },
+    {
+      "pdfPage": 4,
+      "term": "silo",
+      "originalInput": "functional silos",
+      "entryType": "word",
+      "partOfSpeech": "noun phrase",
+      "meaning": "职能壁垒；各部门彼此隔离、各自为政的状态。",
+      "definitionEn": "A business function that works in isolation and shares little information or coordination with others.",
+      "usage": "silo 字面是筒仓。本文强调按职能分隔所产生的沟通与协作障碍。",
+      "exampleEn": "Functional silos made it difficult for sales and engineering to agree on a release date.",
+      "exampleZh": "职能壁垒使销售和工程团队难以就发布日期达成一致。",
+      "forms": [
+        "silos"
+      ],
+      "collocations": [
+        "break down functional silos",
+        "work across functional silos"
+      ],
+      "category": "跨部门协作",
+      "printedPage": 4,
+      "tags": [
+        "跨部门协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-silo-30ec2f85",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "functional silo 是既有 silo 的部门语境，追加来源与搭配。"
+      },
+      "order": 5
+    },
+    {
+      "pdfPage": 4,
+      "term": "quip",
+      "originalInput": "quip",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "俏皮话；简短诙谐的一句评论。",
+      "definitionEn": "A short, witty comment, often made in response to something.",
+      "usage": "本文作名词，指高管用幽默话语回应自己了解多少敏捷。quip 也可用作动词。",
+      "exampleEn": "When asked about the delay, she made a quip about the project having more approvals than features.",
+      "exampleZh": "有人问到延期时，她打趣说这个项目的审批比功能还多。",
+      "forms": [
+        "quips"
+      ],
+      "collocations": [
+        "make a quip",
+        "a dry quip"
+      ],
+      "category": "叙述表达",
+      "printedPage": 4,
+      "tags": [
+        "叙述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-quip",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 6
+    },
+    {
+      "pdfPage": 4,
+      "term": "sprint",
+      "originalInput": "sprints",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "敏捷开发中长度固定的短迭代周期。",
+      "definitionEn": "A fixed, short work cycle in Scrum during which a team aims to complete an agreed goal.",
+      "usage": "本义为短跑。Scrum 中用来安排短期目标、交付和复盘。",
+      "exampleEn": "The team planned a two-week sprint to complete the account recovery flow.",
+      "exampleZh": "团队安排了一个为期两周的迭代来完成账户找回流程。",
+      "forms": [
+        "sprints"
+      ],
+      "collocations": [
+        "run a sprint",
+        "two-week sprint"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 4,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-sprint",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 7
+    },
+    {
+      "pdfPage": 4,
+      "term": "time box",
+      "originalInput": "time boxes",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "限定给一项活动的固定时间段。",
+      "definitionEn": "A fixed period set aside for an activity or piece of work.",
+      "usage": "强调到时结束或重新评估。sprint 是一种 time box，限时讨论也可以是。",
+      "exampleEn": "The facilitator set a 15-minute time box for discussing the release risks.",
+      "exampleZh": "主持人给发布风险的讨论设定了十五分钟的时间上限。",
+      "forms": [
+        "time boxes",
+        "timebox",
+        "timeboxes"
+      ],
+      "collocations": [
+        "set a time box",
+        "work within a time box"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 4,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-time-box",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 8
+    },
+    {
+      "pdfPage": 4,
+      "term": "run counter to",
+      "originalInput": "run counter to",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "与某项原则、目标或趋势相违背。",
+      "definitionEn": "To conflict with or go against a principle, intention, or trend.",
+      "usage": "counter 作副词与 run 连用，to 后接相违背的原则或方向。",
+      "exampleEn": "Requiring approval for every experiment runs counter to the team’s goal of learning quickly.",
+      "exampleZh": "每次实验都要求审批，与团队快速学习的目标相违背。",
+      "forms": [
+        "runs counter to",
+        "ran counter to",
+        "running counter to"
+      ],
+      "collocations": [
+        "run counter to a principle",
+        "run counter to the stated goal"
+      ],
+      "category": "评价与论证",
+      "printedPage": 4,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-run-counter-to",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 9
+    },
+    {
+      "pdfPage": 4,
+      "term": "back-burner",
+      "originalInput": "back-burnered",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "暂缓处理；把优先级往后排。",
+      "definitionEn": "To give an idea or task lower priority and postpone action on it.",
+      "usage": "本文为动词，表示把想法暂时搁置。也可用 put something on the back burner 表达同义。",
+      "exampleEn": "We back-burnered the redesign until the billing errors were fixed.",
+      "exampleZh": "我们暂缓重新设计，先解决计费错误。",
+      "forms": [
+        "back-burners",
+        "back-burnered",
+        "back-burnering"
+      ],
+      "collocations": [
+        "back-burner a proposal",
+        "back-burner a feature"
+      ],
+      "category": "优先级管理",
+      "printedPage": 4,
+      "tags": [
+        "优先级管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-back-burner",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 10
+    },
+    {
+      "pdfPage": 4,
+      "term": "churn out",
+      "originalInput": "churn out innovations",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "phrasal verb",
+      "meaning": "快速大量产出。",
+      "definitionEn": "To produce a large number of things quickly, often repeatedly.",
+      "usage": "常强调产出速度和数量，有时暗含粗制滥造。本文重在说明创新产出加快。",
+      "exampleEn": "A reusable test environment helped the team churn out prototypes in days.",
+      "exampleZh": "可复用的测试环境让团队几天内就能快速做出多个原型。",
+      "forms": [
+        "churns out",
+        "churned out",
+        "churning out"
+      ],
+      "collocations": [
+        "churn out prototypes",
+        "churn out reports"
+      ],
+      "category": "产品开发",
+      "printedPage": 4,
+      "tags": [
+        "产品开发"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-churn-out",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 11
+    },
+    {
+      "pdfPage": 4,
+      "term": "scrum",
+      "originalInput": "scrum",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "Scrum。组织团队以短周期解决复杂问题的敏捷框架。",
+      "definitionEn": "An agile framework in which a small cross-functional team works in short cycles and adapts through inspection and feedback.",
+      "usage": "本文用 Scrum 说明敏捷如何运作。敏捷是更宽泛的方法体系，Scrum 是其中一种框架。",
+      "exampleEn": "The product team adopted Scrum to review progress and adjust priorities every two weeks.",
+      "exampleZh": "产品团队采用 Scrum，每两周检查进展并调整优先级。",
+      "forms": [],
+      "collocations": [
+        "adopt Scrum",
+        "Scrum team"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 4,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-scrum",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 12
+    },
+    {
+      "pdfPage": 4,
+      "term": "lean development",
+      "originalInput": "lean development",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "精益开发。重视持续减少浪费和提升客户价值的开发方法。",
+      "definitionEn": "A development approach that continuously reduces waste and improves the delivery of customer value.",
+      "usage": "lean 在此强调去除不创造价值的步骤，例如重复审批、等待或返工。",
+      "exampleEn": "Lean development helped the group remove two approvals that delayed every release.",
+      "exampleZh": "精益开发帮助团队去掉了每次发布都造成延误的两道审批。",
+      "forms": [],
+      "collocations": [
+        "apply lean development",
+        "lean development practices"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 4,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-lean-development",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 13
+    },
+    {
+      "pdfPage": 4,
+      "term": "kanban",
+      "originalInput": "kanban",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "看板方法。可视化工作流程、限制在制任务以改善流动。",
+      "definitionEn": "A method for managing work by visualizing flow and limiting how much work is in progress.",
+      "usage": "本文特别强调缩短交付提前期并减少同时进行的任务。kanban board 是该方法的一种工具。",
+      "exampleEn": "The support team used Kanban to limit how many cases it investigated at once.",
+      "exampleZh": "客服团队用看板方法限制同时调查的工单数量。",
+      "forms": [],
+      "collocations": [
+        "use Kanban",
+        "Kanban system"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 4,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-kanban",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 14
+    },
+    {
+      "pdfPage": 4,
+      "term": "lead time",
+      "originalInput": "lead times",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "交付提前期；从需求提出到交付的总耗时。",
+      "definitionEn": "The elapsed time from a request or order to completion or delivery.",
+      "usage": "在流程管理中通常包括排队和等待。cycle time 常从实际开始处理算起。",
+      "exampleEn": "Reducing the approval queue cut the average lead time for new accounts.",
+      "exampleZh": "减少审批排队缩短了开立新账户的平均交付时间。",
+      "forms": [
+        "lead times",
+        "lead-time"
+      ],
+      "collocations": [
+        "reduce lead time",
+        "average lead time"
+      ],
+      "category": "流程管理",
+      "printedPage": 4,
+      "tags": [
+        "流程管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-lead-time",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 15
+    },
+    {
+      "pdfPage": 4,
+      "term": "work-in-process",
+      "originalInput": "work in process",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "在制工作；已经开始但尚未完成的任务。",
+      "definitionEn": "Work that has started but has not yet been completed.",
+      "usage": "常缩写 WIP。看板用在制上限控制同时处理的任务量。",
+      "exampleEn": "Limiting work in process helped the team finish urgent requests before starting new ones.",
+      "exampleZh": "限制在制工作量帮助团队先完成紧急需求，再开始新的任务。",
+      "forms": [
+        "work-in-process",
+        "WIP"
+      ],
+      "collocations": [
+        "limit work in process",
+        "work-in-process limit"
+      ],
+      "category": "流程管理",
+      "printedPage": 4,
+      "tags": [
+        "流程管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c5-work-in-process",
+      "duplicateDecision": {
+        "action": "reuse-distinct-context",
+        "reason": "同一标准词条的连字符变体。本篇敏捷语境指在办工作，保留原卡的制造业释义。"
+      },
+      "order": 16
+    },
+    {
+      "pdfPage": 4,
+      "term": "cross-functional",
+      "originalInput": "cross-functional",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "跨职能的；包含多个专业或部门的。",
+      "definitionEn": "Involving people or work from different business functions or areas of expertise.",
+      "usage": "常修饰 team 和 collaboration。区别于同一职能内部的合作。",
+      "exampleEn": "A cross-functional team brought designers, engineers, and compliance specialists together.",
+      "exampleZh": "跨职能团队把设计师、工程师和合规专家组织到了一起。",
+      "forms": [
+        "cross functional"
+      ],
+      "collocations": [
+        "cross-functional team",
+        "cross-functional collaboration"
+      ],
+      "category": "跨部门协作",
+      "printedPage": 4,
+      "tags": [
+        "跨部门协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-cross-functional-23bb57ff",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 17
+    },
+    {
+      "pdfPage": 5,
+      "term": "initiative owner",
+      "originalInput": "initiative owner",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "项目负责人。对客户价值和事项优先级负责的角色。",
+      "definitionEn": "The person accountable for the value and prioritization of an agile initiative.",
+      "usage": "文中也称 product owner。该角色管理价值与优先级，具体如何做由团队决定。",
+      "exampleEn": "The initiative owner reordered the backlog after the interviews revealed a more urgent customer need.",
+      "exampleZh": "访谈揭示了更紧迫的客户需求，项目负责人据此重新排列待办事项。",
+      "forms": [
+        "initiative owners"
+      ],
+      "collocations": [
+        "appoint an initiative owner",
+        "initiative owner role"
+      ],
+      "category": "敏捷角色",
+      "printedPage": 5,
+      "tags": [
+        "敏捷角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-initiative-owner",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 18
+    },
+    {
+      "pdfPage": 5,
+      "term": "portfolio backlog",
+      "originalInput": "portfolio backlog",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "项目组合待办清单；尚未处理的机会和事项的优先列表。",
+      "definitionEn": "A prioritized list of potential initiatives or opportunities across a portfolio.",
+      "usage": "backlog 在敏捷中是可持续更新的工作清单。portfolio 指范围跨多个项目或机会。",
+      "exampleEn": "The leadership team added the billing redesign to its portfolio backlog for review.",
+      "exampleZh": "领导团队把账单改版列入项目组合待办清单，等候评审。",
+      "forms": [
+        "portfolio backlogs"
+      ],
+      "collocations": [
+        "prioritize the portfolio backlog",
+        "maintain a portfolio backlog"
+      ],
+      "category": "优先级管理",
+      "printedPage": 5,
+      "tags": [
+        "优先级管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-portfolio-backlog",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 19
+    },
+    {
+      "pdfPage": 5,
+      "term": "rank-order",
+      "originalInput": "rank-orders",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "按某项标准依次排序。",
+      "definitionEn": "To put items in order according to a criterion such as priority or value.",
+      "usage": "动词常加连字符。本文强调持续按客户和企业价值重新排序。",
+      "exampleEn": "The team rank-ordered the proposed fixes by customer impact.",
+      "exampleZh": "团队按对客户的影响为拟议修复事项排序。",
+      "forms": [
+        "rank-orders",
+        "rank-ordered",
+        "rank-ordering"
+      ],
+      "collocations": [
+        "rank-order initiatives",
+        "rank-order a backlog"
+      ],
+      "category": "优先级管理",
+      "printedPage": 5,
+      "tags": [
+        "优先级管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-rank-order",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 20
+    },
+    {
+      "pdfPage": 5,
+      "term": "definition of done",
+      "originalInput": "definition of done",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "完成标准；团队确认一项工作完成所用的明确条件。",
+      "definitionEn": "An agreed set of criteria a work item or increment must meet to count as complete.",
+      "usage": "常缩写 DoD。可包括测试通过、文档更新和集成检查等标准。",
+      "exampleEn": "The team’s definition of done required the feature to pass accessibility tests.",
+      "exampleZh": "团队的完成标准要求功能通过无障碍测试。",
+      "forms": [
+        "definitions of done"
+      ],
+      "collocations": [
+        "agree on a definition of done",
+        "meet the definition of done"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 5,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-definition-of-done",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 21
+    },
+    {
+      "pdfPage": 5,
+      "term": "scrum master",
+      "originalInput": "scrum master",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "Scrum 教练；帮助团队理解、运行和改善 Scrum 流程的人。",
+      "definitionEn": "A Scrum role that helps the team use the framework effectively and address impediments.",
+      "usage": "本文强调促进流程与减少干扰。优先级由 initiative owner 负责。",
+      "exampleEn": "The Scrum master helped the team resolve a dependency that blocked the sprint goal.",
+      "exampleZh": "Scrum 教练帮助团队解决了阻碍迭代目标的依赖问题。",
+      "forms": [
+        "scrum masters"
+      ],
+      "collocations": [
+        "serve as Scrum master",
+        "Scrum master role"
+      ],
+      "category": "敏捷角色",
+      "printedPage": 5,
+      "tags": [
+        "敏捷角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-scrum-master",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 22
+    },
+    {
+      "pdfPage": 5,
+      "term": "collective intelligence",
+      "originalInput": "collective intelligence",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "集体智慧；团队成员通过有效协作形成的共同解决问题能力。",
+      "definitionEn": "A group’s ability to solve problems by combining the knowledge and contributions of its members.",
+      "usage": "本文用它描述协作所带来的团队能力，包含角色清晰、平等贡献和高质量互动。",
+      "exampleEn": "Clear turn-taking during discussions helped the group make better use of its collective intelligence.",
+      "exampleZh": "讨论时有序轮流发言，帮助团队更好地发挥了集体智慧。",
+      "forms": [],
+      "collocations": [
+        "harness collective intelligence",
+        "improve collective intelligence"
+      ],
+      "category": "团队协作",
+      "printedPage": 5,
+      "tags": [
+        "团队协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-collective-intelligence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 23
+    },
+    {
+      "pdfPage": 5,
+      "term": "stand-up meeting",
+      "originalInput": "“stand-up” meetings",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "简短站会。用于同步进展、下一步和阻碍。",
+      "definitionEn": "A brief team meeting for sharing progress, upcoming work, and obstacles.",
+      "usage": "通常每日举行，站立是传统做法。重点是快速同步，深入讨论可另行安排。",
+      "exampleEn": "At the stand-up meeting, Mia flagged a security review that could delay the release.",
+      "exampleZh": "米娅在站会上指出，一项安全审查可能推迟发布。",
+      "forms": [
+        "stand-up meetings",
+        "standup meeting",
+        "standup meetings"
+      ],
+      "collocations": [
+        "hold a stand-up meeting",
+        "daily stand-up meeting"
+      ],
+      "category": "敏捷方法",
+      "printedPage": 5,
+      "tags": [
+        "敏捷方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-stand-up-meeting",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 24
+    },
+    {
+      "pdfPage": 5,
+      "term": "bells and whistles",
+      "originalInput": "bells and whistles",
+      "entryType": "idiom",
+      "partOfSpeech": "plural noun phrase",
+      "meaning": "额外的花哨功能或装饰性配置。",
+      "definitionEn": "Attractive extra features that are not essential to a product’s main purpose.",
+      "usage": "非正式，常带轻微批评，暗示额外功能有趣但并非核心价值。",
+      "exampleEn": "Users preferred a reliable search function to a dashboard full of bells and whistles.",
+      "exampleZh": "比起花哨功能堆满的仪表盘，用户更喜欢可靠的搜索功能。",
+      "forms": [],
+      "collocations": [
+        "add bells and whistles",
+        "extra bells and whistles"
+      ],
+      "category": "产品开发",
+      "printedPage": 5,
+      "tags": [
+        "产品开发"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-bells-and-whistles",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 25
+    },
+    {
+      "pdfPage": 5,
+      "term": "squander",
+      "originalInput": "squandered on",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "挥霍；不明智地浪费时间、金钱或机会。",
+      "definitionEn": "To waste a valuable resource or opportunity through poor use.",
+      "usage": "常用 squander something on something，语气比 waste 更强。",
+      "exampleEn": "The committee squandered its only planning session on minor formatting decisions.",
+      "exampleZh": "委员会把唯一一次规划会议浪费在了琐碎的格式决定上。",
+      "forms": [
+        "squanders",
+        "squandered",
+        "squandering"
+      ],
+      "collocations": [
+        "squander time on meetings",
+        "squander an opportunity"
+      ],
+      "category": "评价与论证",
+      "printedPage": 5,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-squander",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 26
+    },
+    {
+      "pdfPage": 6,
+      "term": "panacea",
+      "originalInput": "panacea",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "万能药；能解决所有问题的办法。",
+      "definitionEn": "A supposed solution for all problems or difficulties.",
+      "usage": "常用 no panacea 或 not a panacea，强调某方法只适合一部分情境。",
+      "exampleEn": "Weekly sprints are useful for experiments, but they are no panacea for staffing shortages.",
+      "exampleZh": "每周迭代有助于实验，却解决不了所有人员短缺问题。",
+      "forms": [
+        "panaceas"
+      ],
+      "collocations": [
+        "a panacea for problems",
+        "be no panacea"
+      ],
+      "category": "评价与论证",
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-panacea",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 27
+    },
+    {
+      "pdfPage": 6,
+      "term": "cadre",
+      "originalInput": "cadre",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "核心骨干群体；少数经过培养或积极参与的人。",
+      "definitionEn": "A core group of trained or committed people who support an activity or organization.",
+      "usage": "常用 a cadre of。本文是愿意参与推广敏捷的一小群骨干。",
+      "exampleEn": "A cadre of experienced volunteers coached the first three project teams.",
+      "exampleZh": "一批有经验的志愿者辅导了首批三个项目团队。",
+      "forms": [
+        "cadres"
+      ],
+      "collocations": [
+        "a cadre of coaches",
+        "train a cadre of specialists"
+      ],
+      "category": "实施与变革",
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-cadre",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 28
+    },
+    {
+      "pdfPage": 6,
+      "term": "holdout",
+      "originalInput": "holdouts",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "坚持不接受某项改变的人或团体。",
+      "definitionEn": "A person or group that continues to resist an agreement or change that others have accepted.",
+      "usage": "本文指拒绝跟随多数人采用新方法的少数人。动词另用 hold out。",
+      "exampleEn": "The last holdout agreed to try the new process after seeing the pilot results.",
+      "exampleZh": "最后一位坚持反对的人看到试点结果后，同意尝试新流程。",
+      "forms": [
+        "holdouts",
+        "hold-out",
+        "hold-outs"
+      ],
+      "collocations": [
+        "persuade a holdout",
+        "the last holdout"
+      ],
+      "category": "实施与变革",
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-holdout",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 29
+    },
+    {
+      "pdfPage": 6,
+      "term": "follow suit",
+      "originalInput": "follow suit",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "照着别人已经采取的行动做；跟进。",
+      "definitionEn": "To do the same thing that someone else has already done.",
+      "usage": "源于牌类游戏跟出相同花色。商务语境常指其他部门或竞争对手随后采取相同做法。",
+      "exampleEn": "The finance team simplified its intake form, and procurement soon followed suit.",
+      "exampleZh": "财务团队简化了申请表，采购部门很快也照做了。",
+      "forms": [
+        "follows suit",
+        "followed suit",
+        "following suit"
+      ],
+      "collocations": [
+        "other teams follow suit",
+        "be likely to follow suit"
+      ],
+      "category": "实施与变革",
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-follow-suit-79481304",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 30
+    },
+    {
+      "pdfPage": 7,
+      "term": "serendipitous",
+      "originalInput": "serendipitous developments",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "偶然出现却有益的；意外带来机会的。",
+      "definitionEn": "Occurring by chance in a way that turns out to be fortunate or useful.",
+      "usage": "比 unexpected 多一层有利结果，常描述发现、相遇或机会。",
+      "exampleEn": "A serendipitous conversation with a customer uncovered a new use for the product.",
+      "exampleZh": "一次偶然的客户谈话发现了产品的一项新用途。",
+      "forms": [],
+      "collocations": [
+        "serendipitous discovery",
+        "serendipitous encounter"
+      ],
+      "category": "评价与论证",
+      "printedPage": 7,
+      "tags": [
+        "评价与论证"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-serendipitous",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 31
+    },
+    {
+      "pdfPage": 7,
+      "term": "evangelist",
+      "originalInput": "evangelists",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "某种技术、做法或理念的热情推广者。",
+      "definitionEn": "Someone who enthusiastically promotes an idea, practice, or technology.",
+      "usage": "原义与宗教传道有关。本文用比喻义，指主动传播敏捷经验的人。",
+      "exampleEn": "After the pilot succeeded, its designers became evangelists for continuous user testing.",
+      "exampleZh": "试点成功后，项目设计师们成了持续用户测试的热情推广者。",
+      "forms": [
+        "evangelists"
+      ],
+      "collocations": [
+        "an evangelist for a method",
+        "technology evangelist"
+      ],
+      "category": "实施与变革",
+      "printedPage": 7,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-evangelist",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 32
+    },
+    {
+      "pdfPage": 7,
+      "term": "gibberish",
+      "originalInput": "gibberish",
+      "entryType": "word",
+      "partOfSpeech": "uncountable noun",
+      "meaning": "难以理解、仿佛毫无意义的话。",
+      "definitionEn": "Speech or writing that is impossible or very difficult for the listener to understand.",
+      "usage": "较口语。本文指软件行话对外行像听不懂的胡话，强调听者的体验。",
+      "exampleEn": "The acronym-heavy presentation sounded like gibberish to new hires.",
+      "exampleZh": "那场塞满缩略语的演示让新员工听得一头雾水。",
+      "forms": [],
+      "collocations": [
+        "sound like gibberish",
+        "technical gibberish"
+      ],
+      "category": "组织沟通",
+      "printedPage": 7,
+      "tags": [
+        "组织沟通"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-gibberish",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 33
+    },
+    {
+      "pdfPage": 7,
+      "term": "waterfall development",
+      "originalInput": "“waterfall” development",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "瀑布式开发。按预先规划的阶段顺序推进的开发模式。",
+      "definitionEn": "A development model in which work moves through sequential phases such as requirements, implementation, and testing.",
+      "usage": "名称来自阶段逐级向下流动的比喻。本文用它对比短周期试验和反馈。",
+      "exampleEn": "Under waterfall development, testing began after the design and implementation phases were complete.",
+      "exampleZh": "在瀑布式开发下，设计和实现两个阶段结束后才开始测试。",
+      "forms": [
+        "waterfall-development"
+      ],
+      "collocations": [
+        "traditional waterfall development",
+        "use waterfall development"
+      ],
+      "category": "产品开发",
+      "printedPage": 7,
+      "tags": [
+        "产品开发"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-waterfall-development",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 34
+    },
+    {
+      "pdfPage": 8,
+      "term": "velocity",
+      "originalInput": "Velocity",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "迭代速度；团队每个迭代完成的工作量。",
+      "definitionEn": "The amount of work a team completes during a sprint, often expressed in its own estimation units.",
+      "usage": "本文是敏捷度量术语。指标依赖团队自身的估算口径，适合辅助本团队规划。",
+      "exampleEn": "The team used its recent velocity to estimate how much work would fit in the next sprint.",
+      "exampleZh": "团队用近期每个迭代的完成量来估算下一轮可以承担多少工作。",
+      "forms": [],
+      "collocations": [
+        "measure team velocity",
+        "average sprint velocity"
+      ],
+      "category": "敏捷度量",
+      "printedPage": 8,
+      "tags": [
+        "敏捷度量"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-velocity",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 35
+    },
+    {
+      "pdfPage": 8,
+      "term": "shu-ha-ri",
+      "originalInput": "shu-ha-ri",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "守破离。先习得规则，再逐步调整，最后能熟练变通的学习过程。",
+      "definitionEn": "A Japanese learning progression from following established forms to adapting them and eventually improvising fluently.",
+      "usage": "本文借用武道中的三个阶段说明先掌握敏捷方法，再根据结果调整。",
+      "exampleEn": "The coaches used shu-ha-ri to explain why beginners should learn the standard practice first.",
+      "exampleZh": "教练用守破离说明为什么初学者应先掌握标准做法。",
+      "forms": [],
+      "collocations": [
+        "apply shu-ha-ri",
+        "shu-ha-ri learning progression"
+      ],
+      "category": "实施与变革",
+      "printedPage": 8,
+      "tags": [
+        "实施与变革"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-shu-ha-ri",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 36
+    },
+    {
+      "pdfPage": 9,
+      "term": "kanban board",
+      "originalInput": "kanban boards",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "看板；用不同状态列展示任务及其流转的板子。",
+      "definitionEn": "A visual board that shows work items moving through stages of a workflow.",
+      "usage": "常用待办、进行中、已完成等列。实体卡片和电子系统都可承载看板。",
+      "exampleEn": "The team moved each request across the kanban board as it progressed.",
+      "exampleZh": "团队随着处理进展把每项请求在看板上移动到相应列。",
+      "forms": [
+        "kanban boards"
+      ],
+      "collocations": [
+        "update a kanban board",
+        "visual kanban board"
+      ],
+      "category": "敏捷工具",
+      "printedPage": 9,
+      "tags": [
+        "敏捷工具"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-kanban-board",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 37
+    },
+    {
+      "pdfPage": 9,
+      "term": "burndown chart",
+      "originalInput": "“burndown” charts",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "燃尽图；显示剩余工作量随时间变化的图表。",
+      "definitionEn": "A chart that tracks how much work remains as a sprint or project progresses.",
+      "usage": "纵轴通常为剩余工作量，随时间理想上逐步降至零。燃起图则常显示累计完成量。",
+      "exampleEn": "The burndown chart showed that several large tasks were still unfinished halfway through the sprint.",
+      "exampleZh": "燃尽图显示迭代过半时，仍有几项大型任务没有完成。",
+      "forms": [
+        "burndown charts",
+        "burn-down chart",
+        "burn-down charts"
+      ],
+      "collocations": [
+        "update a burndown chart",
+        "sprint burndown chart"
+      ],
+      "category": "敏捷度量",
+      "printedPage": 9,
+      "tags": [
+        "敏捷度量"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-burndown-chart",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 38
+    },
+    {
+      "pdfPage": 10,
+      "term": "knotty",
+      "originalInput": "knotty pricing issues",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "棘手复杂的；难以解决的。",
+      "definitionEn": "Difficult to understand or solve because several parts are intertwined.",
+      "usage": "常形容问题、争议或决策。本义与绳结或木结有关。",
+      "exampleEn": "The departments held a joint session to resolve a knotty pricing issue.",
+      "exampleZh": "各部门召开联合讨论会来解决一个棘手的定价问题。",
+      "forms": [],
+      "collocations": [
+        "knotty issue",
+        "knotty problem"
+      ],
+      "category": "问题处理",
+      "printedPage": 10,
+      "tags": [
+        "问题处理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-knotty",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 39
+    },
+    {
+      "pdfPage": 10,
+      "term": "root cause analysis",
+      "originalInput": "root cause analysis",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "根因分析；追查反复出现的问题背后真正原因的过程。",
+      "definitionEn": "A systematic investigation of the underlying causes of a problem.",
+      "usage": "重点是找出生成问题的机制，避免只处理表面症状。",
+      "exampleEn": "A root cause analysis showed that most delays came from unclear approval ownership.",
+      "exampleZh": "根因分析表明，多数延误来自审批责任不明确。",
+      "forms": [
+        "root-cause analysis",
+        "root cause analyses"
+      ],
+      "collocations": [
+        "conduct root cause analysis",
+        "perform a root cause analysis"
+      ],
+      "category": "问题处理",
+      "printedPage": 10,
+      "tags": [
+        "问题处理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-root-cause-analysis",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 40
+    },
+    {
+      "pdfPage": 10,
+      "term": "spread too thin",
+      "originalInput": "spread too thin",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "承担过多事项，以至于时间、注意力或资源被摊得过薄。",
+      "definitionEn": "To be stretched across so many tasks or demands that there is not enough capacity to do them well.",
+      "usage": "常用 spread oneself too thin 或 be spread too thin，可形容人员和资源。",
+      "exampleEn": "The engineering team was spread too thin across seven simultaneous launches.",
+      "exampleZh": "工程团队同时承担七个发布项目，力量被分得太散。",
+      "forms": [
+        "spread oneself too thin",
+        "spread themselves too thin",
+        "spreading too thin"
+      ],
+      "collocations": [
+        "be spread too thin",
+        "spread resources too thin"
+      ],
+      "category": "优先级管理",
+      "printedPage": 10,
+      "tags": [
+        "优先级管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-spread-too-thin",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 41
+    },
+    {
+      "pdfPage": 10,
+      "term": "pet project",
+      "originalInput": "pet projects",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "某人偏爱或力推的个人项目。",
+      "definitionEn": "A project that someone strongly favors or supports for personal reasons.",
+      "usage": "pet 作定语，含有特别偏爱的意思。本文警惕高管喜爱但企业优先级不高的项目。",
+      "exampleEn": "A shared ranking system kept one executive’s pet project from displacing customer requests.",
+      "exampleZh": "共同的排序机制防止一位高管偏爱的项目挤占客户需求。",
+      "forms": [
+        "pet projects"
+      ],
+      "collocations": [
+        "an executive’s pet project",
+        "fund a pet project"
+      ],
+      "category": "优先级管理",
+      "printedPage": 10,
+      "tags": [
+        "优先级管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-pet-project",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 42
+    },
+    {
+      "pdfPage": 11,
+      "term": "logjam",
+      "originalInput": "logjam",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "造成长时间停滞的严重堵塞或积压。",
+      "definitionEn": "A blockage that prevents work or decisions from moving forward.",
+      "usage": "原指原木堵塞河道。本文比喻传统整合流程中长时间无法疏通的积压。",
+      "exampleEn": "The security team cleared the approval logjam by reviewing small changes daily.",
+      "exampleZh": "安全团队改为每日审查小改动，疏通了审批积压。",
+      "forms": [
+        "logjams",
+        "log jam",
+        "log jams"
+      ],
+      "collocations": [
+        "clear a logjam",
+        "an approval logjam"
+      ],
+      "category": "流程管理",
+      "printedPage": 11,
+      "tags": [
+        "流程管理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c9-logjam",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 43
+    },
+    {
+      "pdfPage": 11,
+      "term": "matrix management",
+      "originalInput": "matrix management",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "矩阵式管理。人员同时与职能部门和项目等不同管理维度协作。",
+      "definitionEn": "A management arrangement in which people work across intersecting functions and project or product lines.",
+      "usage": "常涉及多个汇报或协调关系。本文强调跨职能协作时仍需明确每项决策的负责人。",
+      "exampleEn": "Matrix management let analysts contribute to product teams while staying connected to their technical discipline.",
+      "exampleZh": "矩阵式管理让分析师参与产品团队，同时保持与本专业部门的联系。",
+      "forms": [],
+      "collocations": [
+        "use matrix management",
+        "matrix management structure"
+      ],
+      "category": "组织治理",
+      "printedPage": 11,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-matrix-management",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 44
+    },
+    {
+      "pdfPage": 11,
+      "term": "second-guess",
+      "originalInput": "second-guessing",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "事后质疑或反复挑战他人已经作出的决定。",
+      "definitionEn": "To question or criticize someone’s judgment, often after a decision has been made.",
+      "usage": "本文指上级反复质疑已获授权的负责人，削弱其决策空间。也可表示预判他人的想法。",
+      "exampleEn": "The sponsors agreed to offer advice without second-guessing each product decision.",
+      "exampleZh": "发起人同意提供建议，同时尊重负责人已经作出的各项产品决定。",
+      "forms": [
+        "second-guesses",
+        "second-guessed",
+        "second-guessing"
+      ],
+      "collocations": [
+        "second-guess a decision",
+        "second-guess the team"
+      ],
+      "category": "组织治理",
+      "printedPage": 11,
+      "tags": [
+        "组织治理"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c12-second-guess",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 45
+    }
+  ]
+}

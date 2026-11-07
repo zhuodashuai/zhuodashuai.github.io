@@ -46,23 +46,26 @@ const packets=await Promise.all((await readdir(sourceDirectory)).filter(name=>/^
 const snapshot=JSON.parse(await readFile(new URL('../../vocab/data/owner-wordbook.json',import.meta.url)));
 const frequency=JSON.parse(await readFile(new URL('frequency.json',sourceDirectory)));
 
-test('published source counts are bound to current canonical forms and all seven article packets',()=>{
+test('published source counts are bound to current canonical forms and all thirteen article packets',()=>{
   assert.doesNotThrow(()=>assertTeamworkFrequencyCurrent({snapshot,packets,frequency}));
-  assert.equal(frequency.sourceArticles.length,7);
+  assert.equal(frequency.sourceArticles.length,13);
   assert.deepEqual(frequency.zeroMatches.map(row=>row.term),['spar','polarize']);
-  const row=term=>Object.values(frequency.entries).find(entry=>entry.term===term);
-  assert.equal(row('groupthink').totalOccurrences,5);
-  assert.equal(row('groupthink').articleCount,3);
-  assert.equal(row('dissent').articleCount,3,'The scan finds an occurrence in a source without a separate card membership.');
-  assert.equal(row('360-degree feedback').totalOccurrences,1);
-  assert.equal(row('efficacy').totalOccurrences,1);
+  const originalChapters=new Set(frequency.sourceArticles.slice(0,7).map(article=>article.chapterId));
+  const originalArticles=term=>Object.values(frequency.entries).find(entry=>entry.term===term).articles
+    .filter(article=>originalChapters.has(article.chapterId));
+  const originalCount=term=>originalArticles(term).reduce((total,article)=>total+article.count,0);
+  assert.equal(originalCount('groupthink'),5);
+  assert.equal(originalArticles('groupthink').length,3);
+  assert.equal(originalArticles('dissent').length,3,'The scan finds an occurrence in a source without a separate card membership.');
+  assert.equal(originalCount('360-degree feedback'),1);
+  assert.equal(originalCount('efficacy'),1);
 });
 
 test('input checks reject stale terms, forms and article lists without claiming to recount PDFs',()=>{
   const entry=snapshot.entries.find(entry=>entry.term==='groupthink');
   const changed={...snapshot,entries:snapshot.entries.map(row=>row===entry?{...row,forms:[...row.forms,'novel form']}:row)};
   assert.throws(()=>assertTeamworkFrequencyCurrent({snapshot:changed,packets,frequency}),/inputs changed/u);
-  const addedPacket={...packets[0],chapter:{id:'chapter-8',number:8,title:'New article'}};
+  const addedPacket={...packets[0],chapter:{id:'chapter-14',number:14,title:'New article'}};
   assert.throws(()=>assertTeamworkFrequencyCurrent({snapshot,packets:[...packets,addedPacket],frequency}),/inputs changed/u);
   const changedPacket={...packets[0],issue:'A changed source packet'};
   assert.throws(()=>assertTeamworkFrequencyCurrent({snapshot,packets:[changedPacket,...packets.slice(1)],frequency}),/inputs changed/u);

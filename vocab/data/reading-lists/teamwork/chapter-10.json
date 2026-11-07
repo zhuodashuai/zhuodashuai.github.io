@@ -1,0 +1,1357 @@
+{
+  "schemaVersion": 1,
+  "format": "reviewed-article-collection-contexts",
+  "collection": {
+    "id": "teamwork",
+    "title": "Teamwork"
+  },
+  "chapter": {
+    "id": "chapter-10",
+    "number": 10,
+    "title": "Cross-Silo Leadership"
+  },
+  "sourceTitle": "Teamwork — Cross-Silo Leadership",
+  "articleTitle": "Cross-Silo Leadership",
+  "authors": "Tiziana Casciaro, Amy C. Edmondson, and Sujin Jang",
+  "issue": "May–June 2019",
+  "sourceUrl": "https://hbr.org/2019/05/cross-silo-leadership",
+  "sourcePdfSha256": "1197ea2eef41350b5571be3f2cdd8c6a3740171ce191d5b2a07d043a29623e68",
+  "originalInputKind": "excerpt",
+  "expectedItemCount": 44,
+  "curation": {
+    "originalItemCount": 44,
+    "excludedItems": []
+  },
+  "items": [
+    {
+      "term": "silo",
+      "originalInput": "breaking down silos",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "部门孤岛，与其他群体缺乏联系的内部单位",
+      "definitionEn": "An organizational unit that works largely in isolation and shares little knowledge with others.",
+      "usage": "商务比喻，指部门、职能或区域各自为政。break down silos 指改善跨部门合作。",
+      "exampleEn": "The data stayed in separate silos until both departments adopted a shared reporting process.",
+      "exampleZh": "两个部门采用共享报告流程之前，数据一直隔绝在各自的部门里。",
+      "forms": [
+        "silos"
+      ],
+      "collocations": [
+        "break down silos",
+        "work in silos"
+      ],
+      "category": "组织边界",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "组织边界"
+      ],
+      "reuseExistingEntryId": "public-teamwork-silo-30ec2f85",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 1
+    },
+    {
+      "term": "devilishly",
+      "originalInput": "devilishly difficult",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "极其，非常，带强调语气",
+      "definitionEn": "Extremely, used informally to emphasize a quality.",
+      "usage": "此处是加强语气的副词。devilishly difficult 指极难解决或操作。",
+      "exampleEn": "Reconciling three versions of the same schedule was devilishly difficult.",
+      "exampleZh": "要把同一份排期的三个版本协调一致，实在太难了。",
+      "forms": [],
+      "collocations": [
+        "devilishly difficult",
+        "devilishly complicated"
+      ],
+      "category": "论述表达",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "论述表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-devilishly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 2
+    },
+    {
+      "term": "interface",
+      "originalInput": "interfaces between functions",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "交界处，两个群体或职能需要对接的地方",
+      "definitionEn": "A point at which groups, functions, or systems meet and interact.",
+      "usage": "组织语境中表示协作接口，尤其是工作相互依赖的地方。",
+      "exampleEn": "The delay occurred at the interface between ordering and fulfillment.",
+      "exampleZh": "延误出现在下单与履约的对接环节。",
+      "forms": [
+        "interfaces"
+      ],
+      "collocations": [
+        "work at an interface",
+        "an interface between teams"
+      ],
+      "category": "组织边界",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "组织边界"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-interface",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 3
+    },
+    {
+      "term": "horizontal collaboration",
+      "originalInput": "horizontal collaboration",
+      "entryType": "phrase",
+      "partOfSpeech": "uncountable noun",
+      "meaning": "横向协作，跨同一组织内外不同职能或单位合作",
+      "definitionEn": "Cooperation across functions, units, or locations rather than along a reporting chain.",
+      "usage": "强调跨越群体边界，把互补的技能和信息带到同一项工作中。",
+      "exampleEn": "Horizontal collaboration allowed the legal and design teams to solve the accessibility issue together.",
+      "exampleZh": "横向协作让法务团队和设计团队共同解决了无障碍问题。",
+      "forms": [],
+      "collocations": [
+        "enable horizontal collaboration",
+        "cross-functional collaboration"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-horizontal-collaboration",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 4
+    },
+    {
+      "term": "complementary expertise",
+      "originalInput": "complementary expertise",
+      "entryType": "collocation",
+      "partOfSpeech": "uncountable noun phrase",
+      "meaning": "互补的专业知识或能力",
+      "definitionEn": "Different areas of knowledge or skill that work well together and fill gaps in one another.",
+      "usage": "complementary 指互补。拼写近似的 complimentary 常表示免费的或赞扬的。",
+      "exampleEn": "The architect and the energy analyst brought complementary expertise to the retrofit.",
+      "exampleZh": "建筑师和能源分析师为改造项目带来了互补的专业能力。",
+      "forms": [],
+      "collocations": [
+        "combine complementary expertise",
+        "bring complementary expertise"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-complementary-expertise",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 5
+    },
+    {
+      "term": "hinge on",
+      "originalInput": "hinges more and more on",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "取决于，把某因素作为关键条件",
+      "definitionEn": "To depend very strongly on a particular condition or event.",
+      "usage": "强调某个条件对结果起决定性作用。宾语可为名词，也可用 whether 从句。",
+      "exampleEn": "The merger hinges on whether regulators approve the deal.",
+      "exampleZh": "合并能否完成，取决于监管机构是否批准这笔交易。",
+      "forms": [
+        "hinges on",
+        "hinged on",
+        "hinging on"
+      ],
+      "collocations": [
+        "hinge on approval",
+        "hinge on whether"
+      ],
+      "category": "因果表达",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "因果表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c4-hinge-on",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
+      },
+      "order": 6
+    },
+    {
+      "term": "at a breakneck pace",
+      "originalInput": "at a breakneck pace",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "以极快的速度",
+      "definitionEn": "At an extremely fast and potentially hard-to-manage speed.",
+      "usage": "breakneck 常修饰 speed 或 pace，可用于描述变化过快。",
+      "exampleEn": "The market changed at a breakneck pace after the new platform arrived.",
+      "exampleZh": "新平台出现后，市场以极快的速度变化。",
+      "forms": [],
+      "collocations": [
+        "move at a breakneck pace",
+        "change at a breakneck pace"
+      ],
+      "category": "变化速度",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "变化速度"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-at-a-breakneck-pace",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 7
+    },
+    {
+      "term": "pool of expertise",
+      "originalInput": "pools of expertise",
+      "entryType": "collocation",
+      "partOfSpeech": "countable noun phrase",
+      "meaning": "可调动的专业人才或知识资源",
+      "definitionEn": "A shared supply of specialized knowledge or skilled people that can be drawn upon.",
+      "usage": "pool 在这里指可供使用的资源集合。通常以 tap into 或 draw on 引出如何利用。",
+      "exampleEn": "The firm created a directory so small offices could draw on a wider pool of expertise.",
+      "exampleZh": "公司建立了名录，让小型办事处也能调动更广泛的专业资源。",
+      "forms": [
+        "pools of expertise"
+      ],
+      "collocations": [
+        "draw on a pool of expertise",
+        "a wider pool of expertise"
+      ],
+      "category": "组织知识",
+      "pdfPage": 4,
+      "printedPage": "4",
+      "tags": [
+        "组织知识"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-pool-of-expertise",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 8
+    },
+    {
+      "term": "cultural broker",
+      "originalInput": "Cultural Brokers",
+      "entryType": "phrase",
+      "partOfSpeech": "countable noun",
+      "meaning": "跨文化或跨群体协调者",
+      "definitionEn": "A person who uses knowledge of different groups to help them understand and work with one another.",
+      "usage": "此处的文化也包括部门语言、工作习惯和专业背景。可代为协调，也可帮助双方建立直接联系。",
+      "exampleEn": "A bilingual field engineer served as a cultural broker between the vendor and the local maintenance crew.",
+      "exampleZh": "一位会两种语言的现场工程师帮助供应商和当地维修团队沟通，承担了跨界协调工作。",
+      "forms": [
+        "cultural brokers"
+      ],
+      "collocations": [
+        "develop cultural brokers",
+        "serve as a cultural broker"
+      ],
+      "category": "网络角色",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "网络角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-cultural-broker",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 9
+    },
+    {
+      "term": "go-between",
+      "originalInput": "go-between",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "传话人，负责在双方之间协调的中间人",
+      "definitionEn": "Someone who carries messages or facilitates dealings between parties.",
+      "usage": "强调代为沟通。文中 bridge 型的 cultural broker 可让双方少改变日常工作方式。",
+      "exampleEn": "The producer acted as a go-between for the performers and the venue staff.",
+      "exampleZh": "制片人负责在表演者与场地工作人员之间协调。",
+      "forms": [
+        "go-betweens"
+      ],
+      "collocations": [
+        "act as a go-between",
+        "a trusted go-between"
+      ],
+      "category": "网络角色",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "网络角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-go-between",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 10
+    },
+    {
+      "term": "ephemeral",
+      "originalInput": "ephemeral",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "短暂的，转瞬即逝的",
+      "definitionEn": "Lasting for only a brief period.",
+      "usage": "可形容稍纵即逝的感受、机会或流行趋势。文中用来形容香气带来的短暂感受。",
+      "exampleEn": "The exhibition tried to capture the ephemeral excitement of a live performance.",
+      "exampleZh": "展览试图捕捉现场表演那种转瞬即逝的兴奋感。",
+      "forms": [],
+      "collocations": [
+        "ephemeral experience",
+        "ephemeral trend"
+      ],
+      "category": "描写表达",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "描写表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-ephemeral",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 11
+    },
+    {
+      "term": "win over",
+      "originalInput": "win over retailers",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "transitive phrasal verb",
+      "meaning": "赢得支持，使原本犹豫的人转而赞同",
+      "definitionEn": "To persuade someone to support or approve of something.",
+      "usage": "可分隔为 win somebody over，代词通常放在中间，如 win them over。",
+      "exampleEn": "A working prototype helped the founders win over skeptical investors.",
+      "exampleZh": "可运行的原型帮助创始人赢得了原本持怀疑态度的投资者的支持。",
+      "forms": [
+        "wins over",
+        "won over",
+        "winning over"
+      ],
+      "collocations": [
+        "win over skeptics",
+        "win customers over"
+      ],
+      "category": "沟通与说服",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "沟通与说服"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-win-over",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 12
+    },
+    {
+      "term": "modus operandi",
+      "originalInput": "modus operandi",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "一贯的做事方式或运作模式",
+      "definitionEn": "A characteristic way in which a person or group operates.",
+      "usage": "源于拉丁语，常见于正式描述或调查叙述。文中指各部门各自习惯的工作方式。",
+      "exampleEn": "The newsroom’s modus operandi was to verify each claim with two independent sources.",
+      "exampleZh": "这家新闻编辑部的一贯做法是用两个独立来源核实每项说法。",
+      "forms": [
+        "modi operandi"
+      ],
+      "collocations": [
+        "a team’s modus operandi",
+        "understand someone’s modus operandi"
+      ],
+      "category": "工作方式",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "工作方式"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-modus-operandi",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 13
+    },
+    {
+      "term": "synergistically",
+      "originalInput": "synergistically",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "以相互配合、彼此增效的方式",
+      "definitionEn": "In a way that allows different parts to reinforce one another.",
+      "usage": "用于强调共同作用带来的效果。词族包括 synergy 和 synergistic。",
+      "exampleEn": "The training and mentoring programs worked synergistically to help new hires become independent sooner.",
+      "exampleZh": "培训与导师制度相互配合，让新员工更快能够独立工作。",
+      "forms": [],
+      "collocations": [
+        "work synergistically",
+        "act synergistically"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-synergistically",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 14
+    },
+    {
+      "term": "disparate",
+      "originalInput": "disparate parties",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "彼此差异明显的",
+      "definitionEn": "Very different from one another in character or background.",
+      "usage": "常修饰 groups、sources 或 interests。强调要整合的对象原本差异较大。",
+      "exampleEn": "The council brought together disparate groups to agree on a shared transport plan.",
+      "exampleZh": "委员会召集背景差异很大的群体，共同商定交通方案。",
+      "forms": [],
+      "collocations": [
+        "disparate groups",
+        "disparate sources"
+      ],
+      "category": "组织边界",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "组织边界"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-disparate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 15
+    },
+    {
+      "term": "one-off",
+      "originalInput": "one-off collaborations",
+      "entryType": "word",
+      "partOfSpeech": "attributive adjective",
+      "meaning": "只发生一次的，一次性的",
+      "definitionEn": "Happening only once rather than on a regular basis.",
+      "usage": "此处修饰合作项目，指临时完成一项工作之后未必继续合作。",
+      "exampleEn": "The teams used an external facilitator for a one-off workshop.",
+      "exampleZh": "两个团队请外部协调员主持了一场一次性的工作坊。",
+      "forms": [],
+      "collocations": [
+        "a one-off project",
+        "a one-off collaboration"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-one-off",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 16
+    },
+    {
+      "term": "adhesive",
+      "originalInput": "an adhesive",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "关系黏合者，帮助不同群体建立直接联系的人",
+      "definitionEn": "A cultural broker who helps groups develop mutual understanding and work together independently in the future.",
+      "usage": "此处是作者使用的组织比喻。此类协调者帮助双方逐渐掌握直接合作所需的语言和信任。",
+      "exampleEn": "The product lead acted as an adhesive by introducing engineers to support staff and helping them develop a shared vocabulary.",
+      "exampleZh": "产品负责人介绍工程师与客服人员认识，帮助双方建立共同语言，起到了黏合关系的作用。",
+      "forms": [
+        "adhesives"
+      ],
+      "collocations": [
+        "act as an adhesive",
+        "a cultural broker acting as an adhesive"
+      ],
+      "category": "网络角色",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "网络角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-adhesive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 17
+    },
+    {
+      "term": "vouch for",
+      "originalInput": "vouching for people",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "为某人的可靠性背书",
+      "definitionEn": "To say from personal knowledge that someone or something can be trusted.",
+      "usage": "强调基于了解做出保证。此处通过为双方背书来建立信任。",
+      "exampleEn": "A colleague who had worked with the contractor before vouched for her reliability.",
+      "exampleZh": "一位曾与这名承包商共事的同事为她的可靠性做了保证。",
+      "forms": [
+        "vouches for",
+        "vouched for",
+        "vouching for"
+      ],
+      "collocations": [
+        "vouch for someone’s reliability",
+        "vouch for a colleague"
+      ],
+      "category": "信任关系",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "信任关系"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-vouch-for",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 18
+    },
+    {
+      "term": "decipher",
+      "originalInput": "decipher one another’s language",
+      "entryType": "word",
+      "partOfSpeech": "transitive verb",
+      "meaning": "解读难懂的文字、语言或表达方式",
+      "definitionEn": "To make sense of something that is difficult to understand.",
+      "usage": "可用于解读代码、潦草字迹或专业术语。文中指听懂不同部门的工作语言。",
+      "exampleEn": "The designer helped the policy team decipher the technical comments in the report.",
+      "exampleZh": "设计师帮助政策团队理解了报告里的技术意见。",
+      "forms": [
+        "deciphers",
+        "deciphered",
+        "deciphering"
+      ],
+      "collocations": [
+        "decipher technical language",
+        "decipher a message"
+      ],
+      "category": "跨界沟通",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "跨界沟通"
+      ],
+      "reuseExistingEntryId": "public-nlmg-c19-decipher",
+      "duplicateDecision": {
+        "action": "reuse-distinct-context",
+        "reason": "已有 decipher 原卡侧重辨认难读的文字。本篇补充解读其他部门专业表达的语境。"
+      },
+      "order": 19
+    },
+    {
+      "term": "rapport",
+      "originalInput": "build rapport",
+      "entryType": "word",
+      "partOfSpeech": "uncountable noun",
+      "meaning": "融洽且便于沟通的关系",
+      "definitionEn": "A friendly and trusting relationship that makes communication easier.",
+      "usage": "常用 build 或 establish rapport with somebody。强调彼此有默契、交流自在。",
+      "exampleEn": "The interviewer spent a few minutes building rapport before asking sensitive questions.",
+      "exampleZh": "在问敏感问题之前，采访者先花了几分钟与对方建立融洽关系。",
+      "forms": [],
+      "collocations": [
+        "build rapport",
+        "establish rapport with"
+      ],
+      "category": "信任关系",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "信任关系"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-rapport",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 20
+    },
+    {
+      "term": "growth mindset",
+      "originalInput": "a growth mindset",
+      "entryType": "phrase",
+      "partOfSpeech": "countable noun",
+      "meaning": "成长型思维，相信能力可以通过学习发展",
+      "definitionEn": "A belief that abilities can be developed through learning and effort.",
+      "usage": "文中强调愿意接受挑战，尝试超出当前能力范围的机会。",
+      "exampleEn": "A growth mindset helped the team treat an unsuccessful prototype as a chance to learn.",
+      "exampleZh": "成长型思维让团队把原型失败当作学习机会。",
+      "forms": [
+        "growth mindsets"
+      ],
+      "collocations": [
+        "develop a growth mindset",
+        "encourage a growth mindset"
+      ],
+      "category": "学习与发展",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "学习与发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-growth-mindset",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 21
+    },
+    {
+      "term": "steeped in",
+      "originalInput": "steeped in the job",
+      "entryType": "collocation",
+      "partOfSpeech": "past-participial phrase",
+      "meaning": "深度浸入某种环境，长期接触并熟悉某事",
+      "definitionEn": "Deeply immersed in or shaped by an activity, culture, or experience.",
+      "usage": "常用 be steeped in a tradition、culture 或 practice。文中指在当地岗位实际体验和学习。",
+      "exampleEn": "The apprentice became steeped in the workshop’s methods after months of working alongside the craftspeople.",
+      "exampleZh": "与工匠并肩工作数月后，学徒深入熟悉了工坊的方法。",
+      "forms": [
+        "be steeped in"
+      ],
+      "collocations": [
+        "be steeped in local culture",
+        "steeped in tradition"
+      ],
+      "category": "学习与发展",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "学习与发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-steeped-in",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 22
+    },
+    {
+      "term": "internalize",
+      "originalInput": "internalize it",
+      "entryType": "word",
+      "partOfSpeech": "transitive verb",
+      "meaning": "内化，把经验、规范变成自身的理解或习惯",
+      "definitionEn": "To absorb an idea or norm so that it becomes part of one’s own thinking or behavior.",
+      "usage": "强调理解或习惯已经融入日常行为。",
+      "exampleEn": "Repeated practice helped the nurses internalize the new handover routine.",
+      "exampleZh": "反复练习帮助护士们把新的交接流程变成了日常习惯。",
+      "forms": [
+        "internalizes",
+        "internalized",
+        "internalizing",
+        "internalise",
+        "internalises",
+        "internalised",
+        "internalising"
+      ],
+      "collocations": [
+        "internalize a norm",
+        "internalize a lesson"
+      ],
+      "category": "学习与发展",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "学习与发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-internalize",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 23
+    },
+    {
+      "term": "matrix organizational structure",
+      "originalInput": "Matrix organizational structures",
+      "entryType": "phrase",
+      "partOfSpeech": "countable noun",
+      "meaning": "矩阵式组织结构，员工向两个或更多单位汇报",
+      "definitionEn": "An organizational arrangement in which employees report across two or more management lines, such as function and project.",
+      "usage": "典型例子是同时向职能经理和项目经理汇报。可以增加跨部门接触，也需要明确责任。",
+      "exampleEn": "In a matrix organizational structure, an analyst may report to both a finance director and a product manager.",
+      "exampleZh": "在矩阵式组织结构中，分析师可能同时向财务总监和产品经理汇报。",
+      "forms": [
+        "matrix organizational structures",
+        "matrix organisational structure",
+        "matrix organisational structures"
+      ],
+      "collocations": [
+        "adopt a matrix organizational structure",
+        "work in a matrix structure"
+      ],
+      "category": "组织结构",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "组织结构"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-matrix-organizational-structure",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 24
+    },
+    {
+      "term": "full-fledged",
+      "originalInput": "full-fledged cultural broker",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "成熟的，具备完整资格或能力的",
+      "definitionEn": "Fully developed or able to perform all parts of a role.",
+      "usage": "常置于名词前。文中指具备完整跨界协调能力的人。",
+      "exampleEn": "After three months of testing, the temporary working group became a full-fledged department.",
+      "exampleZh": "经过三个月试运行，临时工作组发展成了正式部门。",
+      "forms": [
+        "fully fledged",
+        "fully-fledged"
+      ],
+      "collocations": [
+        "a full-fledged team",
+        "a full-fledged program"
+      ],
+      "category": "发展阶段",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "发展阶段"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-full-fledged",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 25
+    },
+    {
+      "term": "grease the wheels",
+      "originalInput": "grease the wheels of collaboration",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "让流程或合作进行得更顺畅",
+      "definitionEn": "To make a process easier by removing friction or obstacles.",
+      "usage": "本文为中性比喻，指通过协调减少沟通阻碍。",
+      "exampleEn": "A clear escalation policy greased the wheels of cooperation between the two offices.",
+      "exampleZh": "清楚的升级处理规则让两个办事处的合作更顺畅。",
+      "forms": [
+        "greases the wheels",
+        "greased the wheels",
+        "greasing the wheels"
+      ],
+      "collocations": [
+        "grease the wheels of collaboration",
+        "grease the wheels of negotiation"
+      ],
+      "category": "跨界协作",
+      "pdfPage": 6,
+      "printedPage": "6",
+      "tags": [
+        "跨界协作"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-grease-the-wheels",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 26
+    },
+    {
+      "term": "take for granted",
+      "originalInput": "take for granted",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "视为理所当然，默认无需质疑",
+      "definitionEn": "To assume that something is natural, obvious, or certain without checking it.",
+      "usage": "本文侧重默认别人也了解自己的背景。常见 take something for granted 和 take it for granted that。",
+      "exampleEn": "We took it for granted that the warehouse used the same product codes as the stores.",
+      "exampleZh": "我们想当然地以为仓库与门店使用相同的商品编码。",
+      "forms": [
+        "takes for granted",
+        "took for granted",
+        "taken for granted",
+        "taking for granted"
+      ],
+      "collocations": [
+        "take an assumption for granted",
+        "take it for granted that"
+      ],
+      "category": "认知偏差",
+      "pdfPage": 7,
+      "printedPage": "7",
+      "tags": [
+        "认知偏差"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-take-for-granted",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 27
+    },
+    {
+      "term": "inquisitiveness",
+      "originalInput": "inquisitiveness",
+      "entryType": "word",
+      "partOfSpeech": "uncountable noun",
+      "meaning": "好奇心，主动发问和探究的倾向",
+      "definitionEn": "A tendency to ask questions and seek to understand more.",
+      "usage": "本文褒义，指愿意探问陌生职能或群体的想法。",
+      "exampleEn": "Her inquisitiveness helped her discover why the two departments recorded the same event differently.",
+      "exampleZh": "她善于追问，找出了两个部门为何用不同方式记录同一事件。",
+      "forms": [],
+      "collocations": [
+        "encourage inquisitiveness",
+        "show inquisitiveness"
+      ],
+      "category": "提问能力",
+      "pdfPage": 7,
+      "printedPage": "7",
+      "tags": [
+        "提问能力"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-inquisitiveness",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 28
+    },
+    {
+      "term": "move up the ladder",
+      "originalInput": "move up the ladder",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "沿职业阶梯晋升，职位逐步提高",
+      "definitionEn": "To advance to higher positions in a career or organization.",
+      "usage": "ladder 比喻职级。常见变体是 climb the ladder。",
+      "exampleEn": "As he moved up the ladder, he made a point of asking junior staff how the policy worked in practice.",
+      "exampleZh": "随着职位提升，他仍特意询问初级员工这项政策在实际中如何执行。",
+      "forms": [
+        "moves up the ladder",
+        "moved up the ladder",
+        "moving up the ladder",
+        "climb the ladder"
+      ],
+      "collocations": [
+        "move up the corporate ladder",
+        "climb the career ladder"
+      ],
+      "category": "职业发展",
+      "pdfPage": 7,
+      "printedPage": "7",
+      "tags": [
+        "职业发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-move-up-the-ladder",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 29
+    },
+    {
+      "term": "psychologically safe",
+      "originalInput": "psychologically safe",
+      "entryType": "collocation",
+      "partOfSpeech": "adjective phrase",
+      "meaning": "有心理安全感的，可以放心提问、承认错误或表达异议的",
+      "definitionEn": "Free enough from fear of embarrassment or punishment to speak up, ask questions, or admit mistakes.",
+      "usage": "常形容环境或团队。相关名词是 psychological safety。",
+      "exampleEn": "The new meeting format made it psychologically safe for interns to point out problems.",
+      "exampleZh": "新的会议形式让实习生可以放心指出问题。",
+      "forms": [],
+      "collocations": [
+        "a psychologically safe environment",
+        "feel psychologically safe"
+      ],
+      "category": "团队文化",
+      "pdfPage": 7,
+      "printedPage": "7",
+      "tags": [
+        "团队文化"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-psychologically-safe",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 30
+    },
+    {
+      "term": "false modesty",
+      "originalInput": "false modesty",
+      "entryType": "collocation",
+      "partOfSpeech": "uncountable noun phrase",
+      "meaning": "假谦虚，表面上的自谦",
+      "definitionEn": "A display of modesty that is not sincerely felt.",
+      "usage": "文中与基于现实的 humility 区分。false modesty 可以表现为刻意压低自己以给人留下谦虚印象。",
+      "exampleEn": "Her willingness to ask for help came from honest uncertainty rather than false modesty.",
+      "exampleZh": "她愿意求助是因为确实没有把握，而非故作谦虚。",
+      "forms": [],
+      "collocations": [
+        "show false modesty",
+        "be mistaken for false modesty"
+      ],
+      "category": "领导行为",
+      "pdfPage": 8,
+      "printedPage": "8",
+      "tags": [
+        "领导行为"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-false-modesty",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 31
+    },
+    {
+      "term": "reinvigorate",
+      "originalInput": "reinvigorate their sense of curiosity",
+      "entryType": "word",
+      "partOfSpeech": "transitive verb",
+      "meaning": "使恢复活力，重新激发",
+      "definitionEn": "To give new energy or strength to something that has weakened.",
+      "usage": "re- 表示重新。本文指培训重新激发员工的好奇心。",
+      "exampleEn": "Visits to customer sites reinvigorated the designers’ interest in accessibility.",
+      "exampleZh": "走访客户现场重新激发了设计师对无障碍的兴趣。",
+      "forms": [
+        "reinvigorates",
+        "reinvigorated",
+        "reinvigorating"
+      ],
+      "collocations": [
+        "reinvigorate curiosity",
+        "reinvigorate a program"
+      ],
+      "category": "学习与发展",
+      "pdfPage": 8,
+      "printedPage": "8",
+      "tags": [
+        "学习与发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-reinvigorate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 32
+    },
+    {
+      "term": "preconception",
+      "originalInput": "minimize preconceptions",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "先入之见，未了解情况就形成的想法",
+      "definitionEn": "An opinion or assumption formed before enough information is available.",
+      "usage": "文中指发问者可能带入既有判断。开放式问题可以减少问题本身对回答方向的限制。",
+      "exampleEn": "The interviewer asked open questions to avoid imposing her own preconceptions on participants.",
+      "exampleZh": "访谈者提出开放式问题，避免把自己的先入之见加给受访者。",
+      "forms": [
+        "preconceptions"
+      ],
+      "collocations": [
+        "challenge preconceptions",
+        "minimize preconceptions"
+      ],
+      "category": "认知偏差",
+      "pdfPage": 8,
+      "printedPage": "8",
+      "tags": [
+        "认知偏差"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-preconception",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 33
+    },
+    {
+      "term": "stray from",
+      "originalInput": "stray too far from the issue",
+      "entryType": "collocation",
+      "partOfSpeech": "verb phrase",
+      "meaning": "偏离主题或原本的方向",
+      "definitionEn": "To move away from the intended subject, purpose, or path.",
+      "usage": "可以说 stray from the topic。插入 too far 强调偏离得过多。",
+      "exampleEn": "The facilitator brought us back when the discussion strayed from the main question.",
+      "exampleZh": "讨论偏离核心问题时，主持人把我们拉回了主题。",
+      "forms": [
+        "strays from",
+        "strayed from",
+        "straying from"
+      ],
+      "collocations": [
+        "stray from the topic",
+        "stray from the original plan"
+      ],
+      "category": "提问能力",
+      "pdfPage": 8,
+      "printedPage": "8",
+      "tags": [
+        "提问能力"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-stray-from",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 34
+    },
+    {
+      "term": "synthesize",
+      "originalInput": "synthesizing that diverse input",
+      "entryType": "word",
+      "partOfSpeech": "transitive verb",
+      "meaning": "综合多种信息或观点，形成整体理解",
+      "definitionEn": "To combine different pieces of information or ideas into a coherent whole.",
+      "usage": "强调找出各观点之间的联系并形成新的整体。",
+      "exampleEn": "The editor synthesized feedback from readers, authors, and designers into a single revision plan.",
+      "exampleZh": "编辑把读者、作者和设计师的反馈综合成了一份修订计划。",
+      "forms": [
+        "synthesizes",
+        "synthesized",
+        "synthesizing",
+        "synthesise",
+        "synthesises",
+        "synthesised",
+        "synthesising"
+      ],
+      "collocations": [
+        "synthesize diverse input",
+        "synthesize findings"
+      ],
+      "category": "信息整合",
+      "pdfPage": 9,
+      "printedPage": "9",
+      "tags": [
+        "信息整合"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-synthesize",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 35
+    },
+    {
+      "term": "focused event analysis",
+      "originalInput": "focused event analysis",
+      "entryType": "phrase",
+      "partOfSpeech": "uncountable noun phrase",
+      "meaning": "聚焦事件分析，围绕一次事件收集不同职能视角",
+      "definitionEn": "A structured review that gathers multiple viewpoints on a specific event before identifying its contributing causes.",
+      "usage": "文中介绍儿童医疗系统使用的 FEA。参与者先依次说明自己观察到的情况，再共同分析事件原因。",
+      "exampleEn": "The clinic used focused event analysis to understand how a scheduling error reached a patient.",
+      "exampleZh": "诊所通过聚焦事件分析，弄清一次排班错误是怎样影响到患者的。",
+      "forms": [
+        "FEA"
+      ],
+      "collocations": [
+        "conduct a focused event analysis",
+        "use focused event analysis"
+      ],
+      "category": "分析方法",
+      "pdfPage": 9,
+      "printedPage": "9",
+      "tags": [
+        "分析方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-focused-event-analysis",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 36
+    },
+    {
+      "term": "root cause",
+      "originalInput": "root cause",
+      "entryType": "collocation",
+      "partOfSpeech": "countable noun",
+      "meaning": "根本原因，产生问题的深层因素",
+      "definitionEn": "An underlying factor that gives rise to a problem or failure.",
+      "usage": "根因可以不止一个。文中强调先收集不同视角，避免仓促认定某个单一原因。",
+      "exampleEn": "The review found that missing handover instructions were a root cause of the repeated delays.",
+      "exampleZh": "审查发现，交接说明缺失是反复延误的一个根本原因。",
+      "forms": [
+        "root causes"
+      ],
+      "collocations": [
+        "identify the root cause",
+        "address root causes"
+      ],
+      "category": "分析方法",
+      "pdfPage": 10,
+      "printedPage": "10",
+      "tags": [
+        "分析方法"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-root-cause",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 37
+    },
+    {
+      "term": "unwittingly",
+      "originalInput": "unwittingly encourage",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "无意中，不知不觉地",
+      "definitionEn": "Without realizing that an action has a particular effect.",
+      "usage": "强调当事人没有意识到自己的行为或其后果。",
+      "exampleEn": "The bonus policy unwittingly encouraged teams to keep useful information to themselves.",
+      "exampleZh": "奖金制度无意中促使各团队把有用的信息留在自己手里。",
+      "forms": [],
+      "collocations": [
+        "unwittingly encourage",
+        "unwittingly reinforce"
+      ],
+      "category": "组织行为",
+      "pdfPage": 10,
+      "printedPage": "10",
+      "tags": [
+        "组织行为"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-unwittingly",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 38
+    },
+    {
+      "term": "widen one’s horizons",
+      "originalInput": "widen their horizons",
+      "entryType": "idiom",
+      "partOfSpeech": "verb phrase",
+      "meaning": "拓宽视野，接触更广泛的经验或知识",
+      "definitionEn": "To gain broader knowledge or experience beyond one’s usual environment.",
+      "usage": "horizons 指能看到或接触到的范围。也常用 broaden。",
+      "exampleEn": "A rotation through customer support helped the developers widen their horizons.",
+      "exampleZh": "轮岗到客服部门让开发人员拓宽了视野。",
+      "forms": [
+        "widen their horizons",
+        "broaden one’s horizons"
+      ],
+      "collocations": [
+        "widen professional horizons",
+        "broaden one’s horizons"
+      ],
+      "category": "学习与发展",
+      "pdfPage": 10,
+      "printedPage": "10",
+      "tags": [
+        "学习与发展"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-widen-one-s-horizons",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 39
+    },
+    {
+      "term": "in short order",
+      "originalInput": "in short order",
+      "entryType": "idiom",
+      "partOfSpeech": "adverbial phrase",
+      "meaning": "很快，在短时间内",
+      "definitionEn": "Quickly or soon after something else happens.",
+      "usage": "较正式的时间表达，常置于句末或句中。",
+      "exampleEn": "Once the departments shared a workspace, they resolved the backlog in short order.",
+      "exampleZh": "两个部门开始共用一个工作空间后，很快就处理完了积压事项。",
+      "forms": [],
+      "collocations": [
+        "resolve something in short order",
+        "follow in short order"
+      ],
+      "category": "时间表达",
+      "pdfPage": 11,
+      "printedPage": "11",
+      "tags": [
+        "时间表达"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-in-short-order",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 40
+    },
+    {
+      "term": "tap into",
+      "originalInput": "tap into expertise",
+      "entryType": "phrasal-verb",
+      "partOfSpeech": "verb phrase",
+      "meaning": "利用或调动已有的资源、知识或能力",
+      "definitionEn": "To gain access to and make use of an available resource.",
+      "usage": "抽象用法常接 expertise、knowledge、networks 或 funding。",
+      "exampleEn": "The small office tapped into the university’s research network to test its new service.",
+      "exampleZh": "这个小型办事处借助大学的研究网络测试了新服务。",
+      "forms": [
+        "taps into",
+        "tapped into",
+        "tapping into"
+      ],
+      "collocations": [
+        "tap into expertise",
+        "tap into a network"
+      ],
+      "category": "组织知识",
+      "pdfPage": 11,
+      "printedPage": "11",
+      "tags": [
+        "组织知识"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-tap-into",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 41
+    },
+    {
+      "term": "can ill afford",
+      "originalInput": "can ill afford",
+      "entryType": "idiom",
+      "partOfSpeech": "modal verb phrase",
+      "meaning": "承担不起某种做法的代价，绝不宜冒这个风险",
+      "definitionEn": "To be in a position where an action or loss would be particularly damaging.",
+      "usage": "较正式，可接 to do 或名词。ill 在此加强“无法承担”的含义。",
+      "exampleEn": "The hospital can ill afford to lose the only technician who knows the legacy system.",
+      "exampleZh": "医院承受不起失去唯一熟悉旧系统的技术人员。",
+      "forms": [
+        "could ill afford"
+      ],
+      "collocations": [
+        "can ill afford to delay",
+        "can ill afford another setback"
+      ],
+      "category": "风险判断",
+      "pdfPage": 11,
+      "printedPage": "11",
+      "tags": [
+        "风险判断"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-can-ill-afford",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 42
+    },
+    {
+      "term": "crowdsource",
+      "originalInput": "crowdsource ideas",
+      "entryType": "word",
+      "partOfSpeech": "transitive verb",
+      "meaning": "向广大参与者征集想法或贡献",
+      "definitionEn": "To obtain ideas, information, or work by inviting contributions from a large group.",
+      "usage": "参与群体可以是公开人群，也可以是组织内部员工。",
+      "exampleEn": "The library crowdsourced ideas from patrons before redesigning its study areas.",
+      "exampleZh": "图书馆在重新设计自习区之前，向读者广泛征集了建议。",
+      "forms": [
+        "crowdsources",
+        "crowdsourced",
+        "crowdsourcing"
+      ],
+      "collocations": [
+        "crowdsource ideas",
+        "crowdsource feedback"
+      ],
+      "category": "组织知识",
+      "pdfPage": 11,
+      "printedPage": "11",
+      "tags": [
+        "组织知识"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-crowdsource",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 43
+    },
+    {
+      "term": "second nature",
+      "originalInput": "become second nature",
+      "entryType": "idiom",
+      "partOfSpeech": "noun phrase",
+      "meaning": "习以为常，自然做出的行为",
+      "definitionEn": "A learned behavior that has become automatic through repetition.",
+      "usage": "常用 become second nature to somebody，指练习后无需刻意思考就能做到。",
+      "exampleEn": "After several joint projects, checking with the other team became second nature.",
+      "exampleZh": "一起做过几个项目后，先和另一个团队确认已经成了习惯。",
+      "forms": [],
+      "collocations": [
+        "become second nature",
+        "be second nature to someone"
+      ],
+      "category": "工作习惯",
+      "pdfPage": 11,
+      "printedPage": "11",
+      "tags": [
+        "工作习惯"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-second-nature",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 44
+    }
+  ]
+}
