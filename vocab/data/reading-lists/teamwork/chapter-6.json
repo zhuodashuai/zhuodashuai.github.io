@@ -17,10 +17,10 @@
   "sourceUrl": "https://hbr.org/2011/06/the-big-idea-before-you-make-that-big-decision",
   "sourcePdfSha256": "ac87472ab1f178e2506efd8c456bb8f07b75aa73bf0dde3a34e1409969f8d5e4",
   "originalInputKind": "excerpt",
-  "expectedItemCount": 81,
+  "expectedItemCount": 82,
   "curation": {
     "difficulty": "upper-intermediate-and-advanced",
-    "originalItemCount": 91,
+    "originalItemCount": 92,
     "selectionStandard": "保留较难词、认知偏差术语、商务习语与熟词生义；排除明显基础词和透明组合。",
     "excludedItems": [
       {
@@ -77,6 +77,41 @@
   },
   "items": [
     {
+      "term": "lead astray",
+      "originalInput": "lead us astray",
+      "entryType": "phrase",
+      "partOfSpeech": "verb phrase",
+      "meaning": "误导；使判断或行动偏离正确方向。",
+      "definitionEn": "To cause someone to make a mistaken judgment or take a wrong course.",
+      "usage": "结构为 lead someone astray；宾语放在 lead 与 astray 之间。",
+      "exampleEn": "A convincing story can lead us astray when important evidence is missing.",
+      "exampleZh": "在重要证据缺失时，一个有说服力的故事可能误导我们。",
+      "forms": [
+        "leads astray",
+        "led astray",
+        "leading astray"
+      ],
+      "collocations": [
+        "lead someone astray",
+        "be led astray"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 5,
+      "printedPage": 4,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-lead-astray",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 1,
+      "firstOccurrencePdfPage": 2
+    },
+    {
       "term": "a slew of",
       "originalInput": "a slew of",
       "entryType": "phrase",
@@ -104,7 +139,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 1
+      "order": 2
     },
     {
       "term": "confirmation bias",
@@ -134,7 +169,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 2
+      "order": 3
     },
     {
       "term": "preconceived notion",
@@ -166,7 +201,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 3
+      "order": 4
     },
     {
       "term": "loss aversion",
@@ -196,7 +231,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 4
+      "order": 5
     },
     {
       "term": "fraught",
@@ -226,7 +261,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 5,
+      "order": 6,
       "sourceFragment": "fraught at every stage with"
     },
     {
@@ -255,39 +290,6 @@
       "category": "认知偏差",
       "phonetic": "",
       "reuseExistingEntryId": "public-teamwork-c6-cognitive-bias",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 6
-    },
-    {
-      "term": "banter",
-      "originalInput": "banter",
-      "entryType": "word",
-      "partOfSpeech": "verb",
-      "meaning": "轻松地开玩笑；打趣交谈。",
-      "definitionEn": "To exchange friendly, playful remarks with someone.",
-      "usage": "常用 banter with someone；通常不表示恶意嘲讽。",
-      "exampleEn": "Colleagues bantered over lunch before returning to a serious discussion of the proposal.",
-      "exampleZh": "同事们午餐时轻松打趣，随后又认真讨论起提案。",
-      "forms": [
-        "bantered",
-        "bantering"
-      ],
-      "collocations": [
-        "banter with colleagues",
-        "banter about a topic"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "决策与商务表达"
-      ],
-      "pdfPage": 5,
-      "printedPage": 4,
-      "category": "决策与商务表达",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-banter",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
@@ -322,26 +324,26 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 8
+      "order": 8,
+      "firstOccurrencePdfPage": 4
     },
     {
-      "term": "lead astray",
-      "originalInput": "lead us astray",
-      "entryType": "phrase",
-      "partOfSpeech": "verb phrase",
-      "meaning": "误导；使判断或行动偏离正确方向。",
-      "definitionEn": "To cause someone to make a mistaken judgment or take a wrong course.",
-      "usage": "结构为 lead someone astray；宾语放在 lead 与 astray 之间。",
-      "exampleEn": "A convincing story can lead us astray when important evidence is missing.",
-      "exampleZh": "在重要证据缺失时，一个有说服力的故事可能误导我们。",
+      "term": "banter",
+      "originalInput": "banter",
+      "entryType": "word",
+      "partOfSpeech": "verb",
+      "meaning": "轻松地开玩笑；打趣交谈。",
+      "definitionEn": "To exchange friendly, playful remarks with someone.",
+      "usage": "常用 banter with someone；通常不表示恶意嘲讽。",
+      "exampleEn": "Colleagues bantered over lunch before returning to a serious discussion of the proposal.",
+      "exampleZh": "同事们午餐时轻松打趣，随后又认真讨论起提案。",
       "forms": [
-        "leads astray",
-        "led astray",
-        "leading astray"
+        "bantered",
+        "bantering"
       ],
       "collocations": [
-        "lead someone astray",
-        "be led astray"
+        "banter with colleagues",
+        "banter about a topic"
       ],
       "confusedWith": [],
       "tags": [
@@ -351,7 +353,7 @@
       "printedPage": 4,
       "category": "决策与商务表达",
       "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-lead-astray",
+      "reuseExistingEntryId": "public-teamwork-c6-banter",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
@@ -1011,34 +1013,37 @@
       "order": 30
     },
     {
-      "term": "dissent",
-      "originalInput": "dissent",
-      "entryType": "word",
-      "partOfSpeech": "noun",
-      "meaning": "异议；与多数人或权威观点不同的意见。",
-      "definitionEn": "Disagreement with a view accepted by a group or authority.",
-      "usage": "不可数名词；本文将有根据的异议视为决策资源。",
-      "exampleEn": "The chair invited dissent before asking the committee to settle on its preferred option.",
-      "exampleZh": "主席先邀请大家提出异议，再请委员会确定首选方案。",
-      "forms": [],
+      "term": "optimistic bias",
+      "originalInput": "Optimistic Biases",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "乐观偏差；预测结果比现实依据所支持的更有利。",
+      "definitionEn": "A tendency to expect outcomes more favorable than the available evidence warrants.",
+      "usage": "本文要求区分准确预测与进取目标，防止混为一谈。",
+      "exampleEn": "Optimistic bias caused the forecast to ignore delays that had affected most comparable projects.",
+      "exampleZh": "乐观偏差使预测忽略了大多数可比项目曾遭遇的延误。",
+      "forms": [
+        "optimistic biases"
+      ],
       "collocations": [
-        "encourage dissent",
-        "an absence of dissent"
+        "correct optimistic biases",
+        "optimistic bias in forecasting"
       ],
       "confusedWith": [],
       "tags": [
-        "决策与商务表达"
+        "认知偏差"
       ],
-      "pdfPage": 12,
-      "printedPage": 11,
-      "category": "决策与商务表达",
+      "pdfPage": 19,
+      "printedPage": 18,
+      "category": "认知偏差",
       "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c5-dissent",
+      "reuseExistingEntryId": "public-teamwork-c6-optimistic-bias",
       "duplicateDecision": {
-        "action": "reuse-same-sense",
-        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
       },
-      "order": 31
+      "order": 31,
+      "firstOccurrencePdfPage": 11
     },
     {
       "term": "echelon",
@@ -1104,6 +1109,66 @@
       "sourceFragment": "sham unity"
     },
     {
+      "term": "dissent",
+      "originalInput": "dissent",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "异议；与多数人或权威观点不同的意见。",
+      "definitionEn": "Disagreement with a view accepted by a group or authority.",
+      "usage": "不可数名词；本文将有根据的异议视为决策资源。",
+      "exampleEn": "The chair invited dissent before asking the committee to settle on its preferred option.",
+      "exampleZh": "主席先邀请大家提出异议，再请委员会确定首选方案。",
+      "forms": [],
+      "collocations": [
+        "encourage dissent",
+        "an absence of dissent"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 12,
+      "printedPage": 11,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c5-dissent",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
+      },
+      "order": 34
+    },
+    {
+      "term": "substantive",
+      "originalInput": "substantive",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "实质性的；针对议题本身的",
+      "definitionEn": "Concerned with the actual issues, evidence, or decisions under discussion.",
+      "usage": "本文的 substantive disagreements 指围绕方案、证据或判断的实质性分歧。",
+      "exampleEn": "The meeting gave everyone time to discuss substantive disagreements about the proposal.",
+      "exampleZh": "会上，每个人都有时间讨论对这项方案的实质性分歧。",
+      "forms": [],
+      "collocations": [
+        "substantive disagreements",
+        "substantive debate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 12,
+      "printedPage": 11,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c5-substantive",
+      "duplicateDecision": {
+        "action": "reuse-same-sense",
+        "reason": "同一义项在本篇出现，追加文章语境并保留原词卡。"
+      },
+      "order": 35
+    },
+    {
       "term": "saliency bias",
       "originalInput": "Saliency Bias",
       "entryType": "phrase",
@@ -1131,7 +1196,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 34
+      "order": 36
     },
     {
       "term": "availability bias",
@@ -1161,7 +1226,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
       },
-      "order": 35
+      "order": 37
     },
     {
       "term": "anchoring bias",
@@ -1191,7 +1256,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 36
+      "order": 38
     },
     {
       "term": "unsubstantiated",
@@ -1221,7 +1286,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 37
+      "order": 39
     },
     {
       "term": "extrapolation",
@@ -1253,249 +1318,7 @@
         "action": "reuse-same-sense",
         "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
       },
-      "order": 38
-    },
-    {
-      "term": "halo effect",
-      "originalInput": "Halo Effect",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "光环效应；某方面的好印象扩散到其他方面。",
-      "definitionEn": "A tendency to let one favorable impression shape unrelated judgments.",
-      "usage": "成功或名声不能自动证明企业每一项做法都优秀。",
-      "exampleEn": "The halo effect led reviewers to assume that the admired company's expansion strategy was sound.",
-      "exampleZh": "光环效应使评审者认定这家备受推崇的公司的扩张战略必然合理。",
-      "forms": [],
-      "collocations": [
-        "the halo effect in judgments",
-        "guard against the halo effect"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 13,
-      "printedPage": 12,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-halo-effect",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 39
-    },
-    {
-      "term": "sunk-cost fallacy",
-      "originalInput": "Sunk-Cost Fallacy",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "沉没成本谬误；让不可收回的既往投入影响当前选择。",
-      "definitionEn": "A tendency to continue a course because of past costs that cannot be recovered.",
-      "usage": "应依据未来成本收益判断，而非为过去投入辩护。",
-      "exampleEn": "The sunk-cost fallacy kept the company funding a product with little prospect of future profit.",
-      "exampleZh": "沉没成本谬误使公司继续为一款未来盈利希望渺茫的产品投入资金。",
-      "forms": [],
-      "collocations": [
-        "avoid the sunk-cost fallacy",
-        "fall prey to the sunk-cost fallacy"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 14,
-      "printedPage": 13,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-sunk-cost-fallacy",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
       "order": 40
-    },
-    {
-      "term": "endowment effect",
-      "originalInput": "Endowment Effect",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "禀赋效应；因拥有某物而赋予它更高价值。",
-      "definitionEn": "A tendency to value something more highly because one already owns it.",
-      "usage": "本文在检查清单中将其与对过去选择的依恋并列。",
-      "exampleEn": "The endowment effect made managers value their existing division more highly than outside buyers did.",
-      "exampleZh": "禀赋效应使经理们对现有部门的估值高于外部买家的估值。",
-      "forms": [],
-      "collocations": [
-        "the endowment effect in valuation",
-        "reduce the endowment effect"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 14,
-      "printedPage": 13,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-endowment-effect",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 41
-    },
-    {
-      "term": "reference class forecasting",
-      "originalInput": "reference class forecasting",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "参考类别预测；利用同类项目的实际结果进行预测。",
-      "definitionEn": "Forecasting by comparing a proposal with the outcomes of a relevant group of similar cases.",
-      "usage": "重点是选取可比较的类别，而非只类比一个醒目成功案例。",
-      "exampleEn": "Reference class forecasting suggested that the proposed plant would take longer to complete than expected.",
-      "exampleZh": "参考类别预测表明，拟建工厂的完工时间可能比预期更长。",
-      "forms": [],
-      "collocations": [
-        "use reference class forecasting",
-        "a reference class of projects"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 14,
-      "printedPage": 13,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-reference-class-forecasting",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 42
-    },
-    {
-      "term": "perfunctory",
-      "originalInput": "perfunctory",
-      "entryType": "word",
-      "partOfSpeech": "adjective",
-      "meaning": "敷衍的；走过场而缺乏认真关注的。",
-      "definitionEn": "Done as a routine formality without proper attention or genuine effort.",
-      "usage": "本文指提案为应付检查而列出的风险与替代项。",
-      "exampleEn": "A perfunctory risk review listed possible problems without examining their likelihood or consequences.",
-      "exampleZh": "一场敷衍的风险评审只罗列问题，却未分析其概率或后果。",
-      "forms": [],
-      "collocations": [
-        "a perfunctory review",
-        "a perfunctory list"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "决策与商务表达"
-      ],
-      "pdfPage": 15,
-      "printedPage": 14,
-      "category": "决策与商务表达",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-perfunctory",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 43
-    },
-    {
-      "term": "WYSIATI",
-      "originalInput": "WYSIATI",
-      "entryType": "word",
-      "partOfSpeech": "noun",
-      "meaning": "眼见即全部；将已掌握的证据误当作所有相关信息。",
-      "definitionEn": "An assumption that the evidence currently available represents all relevant information.",
-      "usage": "缩写展开为 What you see is all there is；本文用它提醒审查缺失信息。",
-      "exampleEn": "WYSIATI made the proposal seem complete even though nobody had examined the target's patent disputes.",
-      "exampleZh": "眼见即全部的假设使提案显得完备，尽管无人考察目标公司的专利纠纷。",
-      "forms": [],
-      "collocations": [
-        "the WYSIATI assumption",
-        "challenge WYSIATI"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 15,
-      "printedPage": 14,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-wysiati",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
-      },
-      "order": 44
-    },
-    {
-      "term": "due diligence",
-      "originalInput": "due diligence",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "尽职调查；交易前对关键事实与风险的审慎核查。",
-      "definitionEn": "A careful investigation of relevant facts and risks before a transaction or commitment.",
-      "usage": "并购语境常涉及法律、财务与技术调查。",
-      "exampleEn": "Legal due diligence uncovered a patent dispute that changed the proposed acquisition price.",
-      "exampleZh": "法律尽职调查发现了一项专利纠纷，使拟议收购价格发生变化。",
-      "forms": [],
-      "collocations": [
-        "conduct due diligence",
-        "legal due diligence"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "决策与商务表达"
-      ],
-      "pdfPage": 15,
-      "printedPage": 14,
-      "category": "决策与商务表达",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-due-diligence",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 45
-    },
-    {
-      "term": "guesstimate",
-      "originalInput": "guesstimate",
-      "entryType": "word",
-      "partOfSpeech": "noun",
-      "meaning": "粗略估计；带有猜测成分的估算。",
-      "definitionEn": "A rough estimate based partly on guesswork rather than firm evidence.",
-      "usage": "非正式词，由 guess 与 estimate 合成。",
-      "exampleEn": "The initial budget was a guesstimate, so the reviewers requested an independent cost model.",
-      "exampleZh": "最初的预算只是粗估，因此评审者要求提供独立的成本模型。",
-      "forms": [
-        "guesstimates"
-      ],
-      "collocations": [
-        "a rough guesstimate",
-        "a cost guesstimate"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "决策与商务表达"
-      ],
-      "pdfPage": 16,
-      "printedPage": 15,
-      "category": "决策与商务表达",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-guesstimate",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
-      },
-      "order": 46
     },
     {
       "term": "reanchor",
@@ -1528,7 +1351,250 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
+      "order": 41,
+      "firstOccurrencePdfPage": 13
+    },
+    {
+      "term": "halo effect",
+      "originalInput": "Halo Effect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "光环效应；某方面的好印象扩散到其他方面。",
+      "definitionEn": "A tendency to let one favorable impression shape unrelated judgments.",
+      "usage": "成功或名声不能自动证明企业每一项做法都优秀。",
+      "exampleEn": "The halo effect led reviewers to assume that the admired company's expansion strategy was sound.",
+      "exampleZh": "光环效应使评审者认定这家备受推崇的公司的扩张战略必然合理。",
+      "forms": [],
+      "collocations": [
+        "the halo effect in judgments",
+        "guard against the halo effect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 13,
+      "printedPage": 12,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-halo-effect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 42
+    },
+    {
+      "term": "sunk-cost fallacy",
+      "originalInput": "Sunk-Cost Fallacy",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "沉没成本谬误；让不可收回的既往投入影响当前选择。",
+      "definitionEn": "A tendency to continue a course because of past costs that cannot be recovered.",
+      "usage": "应依据未来成本收益判断，而非为过去投入辩护。",
+      "exampleEn": "The sunk-cost fallacy kept the company funding a product with little prospect of future profit.",
+      "exampleZh": "沉没成本谬误使公司继续为一款未来盈利希望渺茫的产品投入资金。",
+      "forms": [],
+      "collocations": [
+        "avoid the sunk-cost fallacy",
+        "fall prey to the sunk-cost fallacy"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-sunk-cost-fallacy",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 43
+    },
+    {
+      "term": "endowment effect",
+      "originalInput": "Endowment Effect",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "禀赋效应；因拥有某物而赋予它更高价值。",
+      "definitionEn": "A tendency to value something more highly because one already owns it.",
+      "usage": "本文在检查清单中将其与对过去选择的依恋并列。",
+      "exampleEn": "The endowment effect made managers value their existing division more highly than outside buyers did.",
+      "exampleZh": "禀赋效应使经理们对现有部门的估值高于外部买家的估值。",
+      "forms": [],
+      "collocations": [
+        "the endowment effect in valuation",
+        "reduce the endowment effect"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-endowment-effect",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 44
+    },
+    {
+      "term": "reference class forecasting",
+      "originalInput": "reference class forecasting",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "参考类别预测；利用同类项目的实际结果进行预测。",
+      "definitionEn": "Forecasting by comparing a proposal with the outcomes of a relevant group of similar cases.",
+      "usage": "重点是选取可比较的类别，而非只类比一个醒目成功案例。",
+      "exampleEn": "Reference class forecasting suggested that the proposed plant would take longer to complete than expected.",
+      "exampleZh": "参考类别预测表明，拟建工厂的完工时间可能比预期更长。",
+      "forms": [],
+      "collocations": [
+        "use reference class forecasting",
+        "a reference class of projects"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 14,
+      "printedPage": 13,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-reference-class-forecasting",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 45
+    },
+    {
+      "term": "perfunctory",
+      "originalInput": "perfunctory",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "敷衍的；走过场而缺乏认真关注的。",
+      "definitionEn": "Done as a routine formality without proper attention or genuine effort.",
+      "usage": "本文指提案为应付检查而列出的风险与替代项。",
+      "exampleEn": "A perfunctory risk review listed possible problems without examining their likelihood or consequences.",
+      "exampleZh": "一场敷衍的风险评审只罗列问题，却未分析其概率或后果。",
+      "forms": [],
+      "collocations": [
+        "a perfunctory review",
+        "a perfunctory list"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-perfunctory",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 46
+    },
+    {
+      "term": "WYSIATI",
+      "originalInput": "WYSIATI",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "眼见即全部；将已掌握的证据误当作所有相关信息。",
+      "definitionEn": "An assumption that the evidence currently available represents all relevant information.",
+      "usage": "缩写展开为 What you see is all there is；本文用它提醒审查缺失信息。",
+      "exampleEn": "WYSIATI made the proposal seem complete even though nobody had examined the target's patent disputes.",
+      "exampleZh": "眼见即全部的假设使提案显得完备，尽管无人考察目标公司的专利纠纷。",
+      "forms": [],
+      "collocations": [
+        "the WYSIATI assumption",
+        "challenge WYSIATI"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "认知偏差"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "认知偏差",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-wysiati",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
+      },
       "order": 47
+    },
+    {
+      "term": "due diligence",
+      "originalInput": "due diligence",
+      "entryType": "phrase",
+      "partOfSpeech": "noun phrase",
+      "meaning": "尽职调查；交易前对关键事实与风险的审慎核查。",
+      "definitionEn": "A careful investigation of relevant facts and risks before a transaction or commitment.",
+      "usage": "并购语境常涉及法律、财务与技术调查。",
+      "exampleEn": "Legal due diligence uncovered a patent dispute that changed the proposed acquisition price.",
+      "exampleZh": "法律尽职调查发现了一项专利纠纷，使拟议收购价格发生变化。",
+      "forms": [],
+      "collocations": [
+        "conduct due diligence",
+        "legal due diligence"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 15,
+      "printedPage": 14,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-due-diligence",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 48
+    },
+    {
+      "term": "guesstimate",
+      "originalInput": "guesstimate",
+      "entryType": "word",
+      "partOfSpeech": "noun",
+      "meaning": "粗略估计；带有猜测成分的估算。",
+      "definitionEn": "A rough estimate based partly on guesswork rather than firm evidence.",
+      "usage": "非正式词，由 guess 与 estimate 合成。",
+      "exampleEn": "The initial budget was a guesstimate, so the reviewers requested an independent cost model.",
+      "exampleZh": "最初的预算只是粗估，因此评审者要求提供独立的成本模型。",
+      "forms": [
+        "guesstimates"
+      ],
+      "collocations": [
+        "a rough guesstimate",
+        "a cost guesstimate"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "决策与商务表达"
+      ],
+      "pdfPage": 16,
+      "printedPage": 15,
+      "category": "决策与商务表达",
+      "phonetic": "",
+      "reuseExistingEntryId": "public-teamwork-c6-guesstimate",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线中无同一标准词条；新增本篇难点词卡。"
+      },
+      "order": 49
     },
     {
       "term": "slavishly",
@@ -1558,7 +1624,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 48
+      "order": 50
     },
     {
       "term": "cyclical",
@@ -1588,7 +1654,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 49
+      "order": 51
     },
     {
       "term": "double down",
@@ -1621,7 +1687,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 50
+      "order": 52
     },
     {
       "term": "off-base",
@@ -1651,7 +1717,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 51
+      "order": 53
     },
     {
       "term": "dispel",
@@ -1685,7 +1751,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 52
+      "order": 54
     },
     {
       "term": "subscale",
@@ -1715,7 +1781,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 53
+      "order": 55
     },
     {
       "term": "overconfidence",
@@ -1745,7 +1811,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
       },
-      "order": 54
+      "order": 56
     },
     {
       "term": "planning fallacy",
@@ -1775,39 +1841,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 55
-    },
-    {
-      "term": "optimistic bias",
-      "originalInput": "Optimistic Biases",
-      "entryType": "phrase",
-      "partOfSpeech": "noun phrase",
-      "meaning": "乐观偏差；预测结果比现实依据所支持的更有利。",
-      "definitionEn": "A tendency to expect outcomes more favorable than the available evidence warrants.",
-      "usage": "本文要求区分准确预测与进取目标，防止混为一谈。",
-      "exampleEn": "Optimistic bias caused the forecast to ignore delays that had affected most comparable projects.",
-      "exampleZh": "乐观偏差使预测忽略了大多数可比项目曾遭遇的延误。",
-      "forms": [
-        "optimistic biases"
-      ],
-      "collocations": [
-        "correct optimistic biases",
-        "optimistic bias in forecasting"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "认知偏差"
-      ],
-      "pdfPage": 19,
-      "printedPage": 18,
-      "category": "认知偏差",
-      "phonetic": "",
-      "reuseExistingEntryId": "public-teamwork-c6-optimistic-bias",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
-      },
-      "order": 56
+      "order": 57
     },
     {
       "term": "competitor neglect",
@@ -1837,7 +1871,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
       },
-      "order": 57
+      "order": 58
     },
     {
       "term": "base case",
@@ -1869,7 +1903,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 58
+      "order": 59
     },
     {
       "term": "outside view",
@@ -1899,7 +1933,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 59
+      "order": 60
     },
     {
       "term": "disaster neglect",
@@ -1929,7 +1963,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本文决策偏差术语。"
       },
-      "order": 60
+      "order": 61
     },
     {
       "term": "premortem",
@@ -1961,7 +1995,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 61
+      "order": 62
     },
     {
       "term": "synergy",
@@ -1993,7 +2027,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 62
+      "order": 63
     },
     {
       "term": "inside view",
@@ -2023,7 +2057,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 63
+      "order": 64
     },
     {
       "term": "divine",
@@ -2057,7 +2091,7 @@
         "action": "new-card",
         "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
       },
-      "order": 64
+      "order": 65
     },
     {
       "term": "exacerbate",
@@ -2091,7 +2125,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 65
+      "order": 66
     },
     {
       "term": "interplay",
@@ -2121,7 +2155,7 @@
         "action": "reuse-same-sense",
         "reason": "跨文章核心义相同，复用规范词条；保留首篇释义与例句，另存本篇学习语境。"
       },
-      "order": 66
+      "order": 67
     },
     {
       "term": "antidote",
@@ -2153,7 +2187,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 67
+      "order": 68
     },
     {
       "term": "on the flip side",
@@ -2183,7 +2217,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 68
+      "order": 69
     },
     {
       "term": "part and parcel",
@@ -2213,7 +2247,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 69
+      "order": 70
     },
     {
       "term": "rubber-stamp",
@@ -2247,7 +2281,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 70
+      "order": 71
     },
     {
       "term": "sweet spot",
@@ -2279,7 +2313,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 71
+      "order": 72
     },
     {
       "term": "overtly",
@@ -2311,7 +2345,7 @@
         "action": "new-card",
         "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
       },
-      "order": 72
+      "order": 73
     },
     {
       "term": "covertly",
@@ -2343,7 +2377,7 @@
         "action": "new-card",
         "reason": "基线无同一标准词条；补充本篇困难动词或语义对照副词。"
       },
-      "order": 73
+      "order": 74
     },
     {
       "term": "de facto",
@@ -2373,7 +2407,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 74
+      "order": 75
     },
     {
       "term": "adherence",
@@ -2403,7 +2437,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 75
+      "order": 76
     },
     {
       "term": "avert",
@@ -2437,7 +2471,7 @@
         "action": "reuse-same-sense",
         "reason": "复用已有防止不良事件义词卡，保留旧例句和语境，仅补本文出处。"
       },
-      "order": 76
+      "order": 77
     },
     {
       "term": "clamor for",
@@ -2471,7 +2505,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 77
+      "order": 78
     },
     {
       "term": "prop up",
@@ -2505,7 +2539,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 78
+      "order": 79
     },
     {
       "term": "leapfrog",
@@ -2539,7 +2573,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 79
+      "order": 80
     },
     {
       "term": "sign off on",
@@ -2573,7 +2607,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 80
+      "order": 81
     },
     {
       "term": "fallible",
@@ -2603,7 +2637,7 @@
         "action": "new-card",
         "reason": "基线中无同一标准词条；新增本篇难点词卡。"
       },
-      "order": 81
+      "order": 82
     }
   ]
 }

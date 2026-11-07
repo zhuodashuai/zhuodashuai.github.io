@@ -72,9 +72,9 @@ for (const [file, header, footer, count, beforePins] of shells) {
   test(`v110 ${file} changes only the named navigation script and finite initial gates`, async () => {
     let html = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
     if (file === "index.html") {
-      assert.equal(html.split('src="js/public-app-v113.js?v=114"').length, 2);
+      assert.equal(html.split('src="js/public-app-v113.js?v=115"').length, 2);
       assert(!html.includes('src="js/public-app-v108.js"'));
-      html = html.replace('src="js/public-app-v113.js?v=114"', 'src="js/public-app-v108.js"');
+      html = html.replace('src="js/public-app-v113.js?v=115"', 'src="js/public-app-v108.js"');
     }
     html = restoreChineseSearchPaginationShell(file, html);
     if (file === "dictionary.html") html = restoreD42SourceLabel(html);

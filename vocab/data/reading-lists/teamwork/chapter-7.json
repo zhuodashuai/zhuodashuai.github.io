@@ -1103,6 +1103,42 @@
       }
     },
     {
+      "term": "complex context",
+      "originalInput": "Complex Contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "复杂涌现情境；需通过试探和互动逐步识别模式的情境。",
+      "definitionEn": "A setting where useful patterns emerge through interaction and experimentation rather than advance analysis alone.",
+      "usage": "Cynefin 使用 probe, sense, respond；不同于专家分析可得解的情境。",
+      "exampleEn": "Entering an unfamiliar market can create a complex context that calls for small experiments.",
+      "exampleZh": "进入陌生市场可能形成需要小规模试验的复杂情境。",
+      "forms": [
+        "complex contexts"
+      ],
+      "collocations": [
+        "a complex context",
+        "experimentation in a complex context"
+      ],
+      "confusedWith": [
+        "complex 不仅是难度高；在此指不能仅靠事前分析确定答案、需要观察涌现模式的情境。"
+      ],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 33,
+      "reuseExistingEntryId": "public-teamwork-c7-complex-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      },
+      "firstOccurrencePdfPage": 5
+    },
+    {
       "term": "maverick",
       "originalInput": "maverick",
       "entryType": "word",
@@ -1126,7 +1162,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 33,
+      "order": 34,
       "reuseExistingEntryId": "public-teamwork-c7-maverick",
       "duplicateDecision": {
         "action": "new-card",
@@ -1157,7 +1193,7 @@
       "printedPage": 4,
       "category": "决策情境",
       "phonetic": "",
-      "order": 34,
+      "order": 35,
       "reuseExistingEntryId": "public-teamwork-c7-analysis-paralysis",
       "duplicateDecision": {
         "action": "new-card",
@@ -1190,7 +1226,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 35,
+      "order": 36,
       "reuseExistingEntryId": "public-hierarchy-stalemate-c71bfae2",
       "duplicateDecision": {
         "action": "reuse-same-sense",
@@ -1221,7 +1257,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 36,
+      "order": 37,
       "reuseExistingEntryId": "public-teamwork-c7-disaffected",
       "duplicateDecision": {
         "action": "new-card",
@@ -1252,7 +1288,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 37,
+      "order": 38,
       "reuseExistingEntryId": "public-teamwork-c7-ballistic",
       "duplicateDecision": {
         "action": "new-card",
@@ -1284,13 +1320,47 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 38,
+      "order": 39,
       "reuseExistingEntryId": "public-teamwork-c7-perceptible",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "基线无同一标准词条，新增本篇难点词卡。"
       },
       "sourceFragment": "cause-and-effect relationships are perceptible"
+    },
+    {
+      "term": "chaotic context",
+      "originalInput": "Chaotic Contexts",
+      "entryType": "collocation",
+      "partOfSpeech": "noun phrase",
+      "meaning": "混乱危机情境；尚无可用模式，必须先行动恢复秩序的情境。",
+      "definitionEn": "A setting with no usable stable patterns that requires immediate action to establish order.",
+      "usage": "Cynefin 使用 act, sense, respond；恢复后需重新判断领导方式。",
+      "exampleEn": "During the initial emergency, leaders faced a chaotic context and acted to restore basic order.",
+      "exampleZh": "在紧急事件初期，领导者面对混乱情境，先采取行动恢复基本秩序。",
+      "forms": [
+        "chaotic contexts"
+      ],
+      "collocations": [
+        "a chaotic context",
+        "restore order in a chaotic context"
+      ],
+      "confusedWith": [],
+      "tags": [
+        "商务英语",
+        "决策情境"
+      ],
+      "pdfPage": 7,
+      "printedPage": 5,
+      "category": "决策情境",
+      "phonetic": "",
+      "order": 40,
+      "reuseExistingEntryId": "public-teamwork-c7-chaotic-context",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "基线无同一标准词条，新增本篇学习卡。"
+      },
+      "firstOccurrencePdfPage": 6
     },
     {
       "term": "jostle for",
@@ -1320,7 +1390,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 39,
+      "order": 41,
       "reuseExistingEntryId": "public-teamwork-c7-jostle-for",
       "duplicateDecision": {
         "action": "new-card",
@@ -1353,7 +1423,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 40,
+      "order": 42,
       "reuseExistingEntryId": "public-teamwork-c7-cacophony",
       "duplicateDecision": {
         "action": "new-card",
@@ -1384,7 +1454,7 @@
       "printedPage": 4,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 41,
+      "order": 43,
       "reuseExistingEntryId": "public-teamwork-c7-constituent",
       "duplicateDecision": {
         "action": "new-card",
@@ -1415,7 +1485,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 42,
+      "order": 44,
       "reuseExistingEntryId": "public-teamwork-c7-unfettered",
       "duplicateDecision": {
         "action": "new-card",
@@ -1448,7 +1518,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 43,
+      "order": 45,
       "reuseExistingEntryId": "public-teamwork-c7-trade-off",
       "duplicateDecision": {
         "action": "new-card",
@@ -1479,43 +1549,8 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 44,
+      "order": 46,
       "reuseExistingEntryId": "public-teamwork-c7-elusive",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线无同一标准词条，新增本篇学习卡。"
-      }
-    },
-    {
-      "term": "complex context",
-      "originalInput": "Complex Contexts",
-      "entryType": "collocation",
-      "partOfSpeech": "noun phrase",
-      "meaning": "复杂涌现情境；需通过试探和互动逐步识别模式的情境。",
-      "definitionEn": "A setting where useful patterns emerge through interaction and experimentation rather than advance analysis alone.",
-      "usage": "Cynefin 使用 probe, sense, respond；不同于专家分析可得解的情境。",
-      "exampleEn": "Entering an unfamiliar market can create a complex context that calls for small experiments.",
-      "exampleZh": "进入陌生市场可能形成需要小规模试验的复杂情境。",
-      "forms": [
-        "complex contexts"
-      ],
-      "collocations": [
-        "a complex context",
-        "experimentation in a complex context"
-      ],
-      "confusedWith": [
-        "complex 不仅是难度高；在此指不能仅靠事前分析确定答案、需要观察涌现模式的情境。"
-      ],
-      "tags": [
-        "商务英语",
-        "决策情境"
-      ],
-      "pdfPage": 7,
-      "printedPage": 5,
-      "category": "决策情境",
-      "phonetic": "",
-      "order": 45,
-      "reuseExistingEntryId": "public-teamwork-c7-complex-context",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "基线无同一标准词条，新增本篇学习卡。"
@@ -1549,7 +1584,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 46,
+      "order": 47,
       "reuseExistingEntryId": "public-teamwork-c7-ferret-out",
       "duplicateDecision": {
         "action": "new-card",
@@ -1580,7 +1615,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 47,
+      "order": 48,
       "reuseExistingEntryId": "public-teamwork-c7-flux",
       "duplicateDecision": {
         "action": "new-card",
@@ -1613,7 +1648,7 @@
       "printedPage": 5,
       "category": "决策情境",
       "phonetic": "",
-      "order": 48,
+      "order": 49,
       "reuseExistingEntryId": "public-teamwork-c7-safe-to-fail",
       "duplicateDecision": {
         "action": "new-card",
@@ -1648,7 +1683,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 49,
+      "order": 50,
       "reuseExistingEntryId": "public-nlmg-c2-probe",
       "duplicateDecision": {
         "action": "reuse-distinct-context",
@@ -1681,7 +1716,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 50,
+      "order": 51,
       "reuseExistingEntryId": "public-teamwork-c7-mishmash",
       "duplicateDecision": {
         "action": "new-card",
@@ -1712,7 +1747,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 51,
+      "order": 52,
       "reuseExistingEntryId": "public-teamwork-c7-odds-and-ends",
       "duplicateDecision": {
         "action": "new-card",
@@ -1743,7 +1778,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 52,
+      "order": 53,
       "reuseExistingEntryId": "public-teamwork-c7-a-priori",
       "duplicateDecision": {
         "action": "new-card",
@@ -1778,7 +1813,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 53,
+      "order": 54,
       "reuseExistingEntryId": "public-teamwork-c7-augment",
       "duplicateDecision": {
         "action": "new-card",
@@ -1811,7 +1846,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 54,
+      "order": 55,
       "reuseExistingEntryId": "public-teamwork-c7-hopeful",
       "duplicateDecision": {
         "action": "new-card",
@@ -1844,7 +1879,7 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 55,
+      "order": 56,
       "reuseExistingEntryId": "public-teamwork-c7-feed",
       "duplicateDecision": {
         "action": "new-card",
@@ -1880,41 +1915,8 @@
       "printedPage": 5,
       "category": "文章难词与表达",
       "phonetic": "",
-      "order": 56,
-      "reuseExistingEntryId": "public-teamwork-c7-preempt",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "基线无同一标准词条，新增本篇学习卡。"
-      }
-    },
-    {
-      "term": "chaotic context",
-      "originalInput": "Chaotic Contexts",
-      "entryType": "collocation",
-      "partOfSpeech": "noun phrase",
-      "meaning": "混乱危机情境；尚无可用模式，必须先行动恢复秩序的情境。",
-      "definitionEn": "A setting with no usable stable patterns that requires immediate action to establish order.",
-      "usage": "Cynefin 使用 act, sense, respond；恢复后需重新判断领导方式。",
-      "exampleEn": "During the initial emergency, leaders faced a chaotic context and acted to restore basic order.",
-      "exampleZh": "在紧急事件初期，领导者面对混乱情境，先采取行动恢复基本秩序。",
-      "forms": [
-        "chaotic contexts"
-      ],
-      "collocations": [
-        "a chaotic context",
-        "restore order in a chaotic context"
-      ],
-      "confusedWith": [],
-      "tags": [
-        "商务英语",
-        "决策情境"
-      ],
-      "pdfPage": 7,
-      "printedPage": 5,
-      "category": "决策情境",
-      "phonetic": "",
       "order": 57,
-      "reuseExistingEntryId": "public-teamwork-c7-chaotic-context",
+      "reuseExistingEntryId": "public-teamwork-c7-preempt",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "基线无同一标准词条，新增本篇学习卡。"

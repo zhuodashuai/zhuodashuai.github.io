@@ -86,8 +86,8 @@ if (!SYNONYM_FEATURE_ENABLED && initialParameters.get("view") === "synonyms") {
   window.history.replaceState(null, "", url);
 }
 const MIN_REFRESH_GAP_MS = 3_000;
-// This is the deployed snapshot containing all 13 numbered Teamwork readings.
-const PAGES_RELEASE_FLOOR = Date.parse("2026-11-07T19:55:27.271Z");
+// This published snapshot includes the verified Teamwork reading order.
+const PAGES_RELEASE_FLOOR = Date.parse("2026-11-07T23:51:05.234Z");
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
   sentence: "句子", quote: "名言", proverb: "谚语"
@@ -691,11 +691,7 @@ refs.collectionTabs.addEventListener("click", (event) => {
 refs.chapterTabs.addEventListener("click", (event) => {
   const control = event.target.closest("button[data-value]");
   if (!control) return;
-  pronunciation.stop();
-  requestedCollectionScope = null;
-  state.chapterId = control.dataset.value || "all";
-  updateCollectionUrl();
-  render();
+  selectChapter(control.dataset.value || "all");
   restoreNavigationFocus(refs.chapterTabs, state.chapterId);
 });
 refs.bookSelect.addEventListener("change", () => {
@@ -706,6 +702,9 @@ refs.bookSelect.addEventListener("change", () => {
 function selectChapter(chapterId) {
   if (!chapterId) return;
   pronunciation.stop(); requestedCollectionScope = null;
+  if (state.collectionId === "teamwork" && chapterId !== "all" && chapterId !== state.chapterId) {
+    state.sort = null;
+  }
   state.chapterId = chapterId;
   updateCollectionUrl(); render();
 }

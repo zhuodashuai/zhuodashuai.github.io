@@ -9,7 +9,7 @@ const snapshot=parsePublicSnapshot(JSON.parse(await readFile(new URL('../data/ow
 const byId=new Map(snapshot.entries.map(entry=>[entry.id,entry]));
 const specs=[
   [5,'f1526f437a90b01db98c54980570515c95d33a116885ac256312ad6f8e3830ed',3,12,['stymie','animosity','self-aggrandizement','impeccable','procedural justice','acquiesce']],
-  [6,'ac87472ab1f178e2506efd8c456bb8f07b75aa73bf0dde3a34e1409969f8d5e4',2,24,['insidious','pernicious','perfunctory','subscale','slavishly','confirmation bias','reference class forecasting']],
+  [6,'ac87472ab1f178e2506efd8c456bb8f07b75aa73bf0dde3a34e1409969f8d5e4',2,24,['insidious','pernicious','perfunctory','subscale','slavishly','confirmation bias','reference class forecasting','substantive']],
   [7,'56f8007fa04bc2d8cb34cf612c0fb52742a0e0ea3394ff6e6e60bef20ce58f3d',3,10,['entrained thinking','a priori','ferret out','ritual dissent','complicated context','complex context']]
 ];
 for(const [number,sourceHash,minPage,maxPage,requiredTerms] of specs){
@@ -30,7 +30,9 @@ for(const [number,sourceHash,minPage,maxPage,requiredTerms] of specs){
     for(const [index,item] of packet.items.entries()){
       const card=cards[index],canonical=byId.get(item.reuseExistingEntryId);
       assert.equal(item.order,index+1);
-      assert.ok(item.pdfPage>=minPage&&item.pdfPage<=maxPage&&item.pdfPage>=priorPage);priorPage=item.pdfPage;
+      const firstPage=item.firstOccurrencePdfPage??item.pdfPage;
+      assert.ok(firstPage>=minPage&&firstPage<=item.pdfPage&&item.pdfPage<=maxPage&&firstPage>=priorPage);
+      priorPage=firstPage;
       assert.equal(Number(item.printedPage),item.pdfPage-(number===6?1:2));
       assert.ok(item.originalInput.split(/\s+/u).length<=8,'Source prose must not become a dictionary alias');
       assert.ok(canonical.tags.includes(membership));
@@ -45,6 +47,12 @@ for(const [number,sourceHash,minPage,maxPage,requiredTerms] of specs){
         assert.equal(canonical.readingContexts[0].membership,membership);
         assert.deepEqual(entryLookupKeys(canonical),[canonical.normalized]);
       }
+    }
+    if(number===6){
+      assert.equal(cards[0].term,'lead astray','The standfirst comes before the opening body paragraph.');
+      const substantive=cards.findIndex(card=>card.term==='substantive');
+      assert.deepEqual(cards.slice(substantive-1,substantive+2).map(card=>card.term),['dissent','substantive','saliency bias']);
+      assert.equal(cards[substantive].id,'public-teamwork-c5-substantive');
     }
     const catalogChapter=buildCollectionCatalog(snapshot.entries).find(book=>book.id==='teamwork').chapters.find(chapter=>chapter.id===chapterId);
     assert.equal(catalogChapter.title,packet.articleTitle);assert.equal(catalogChapter.count,cards.length);
