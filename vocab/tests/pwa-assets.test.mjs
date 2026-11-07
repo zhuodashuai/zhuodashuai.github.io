@@ -55,6 +55,9 @@ test("changed module APIs use one versioned browser graph before any service wor
       if (["public-app.js", "public-app-v113.js", "entry-detail.js", "entry-detail-v113.js", "reading-card-policy.js"].includes(file) && target === "collections.js") {
         assert.equal(match[1], "./collections.js?v=113"); continue;
       }
+      if (file === "public-app-v113.js" && target === "public-snapshot.js") {
+        assert.equal(match[1], "./public-snapshot.js?v=114"); continue;
+      }
       if (changed.has(target)) assert.equal(match[1], `./${target}?v=${currentVersion(target)}`, `${file} must not import a fresh old HTTP-cache dependency`);
     }
   }
@@ -73,7 +76,10 @@ test("inline lookup, folders and existing entry points share one coherent module
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
   }
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js"/u);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=114"/u);
+  for (const file of ["public-app-v113.js?v=114", "teamwork-study-net.js", "public-snapshot.js?v=114"]) {
+    assert.ok(serviceWorker.includes(`"./js/${file}"`), file);
+  }
   assert.ok(serviceWorker.includes('"./js/owner-public-library.js?v=99"'));
   assert.ok(serviceWorker.includes('"./js/dictionary-app.js?v=104"'));
   // Existing entry points must not load a second version of a changed module.
@@ -171,7 +177,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js"/);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=114"/);
   assert.match(vocabHtml, /href="styles\.css\?v=100"/);
   assert.match(ownerHtml, /src="js\/owner-app-v108\.js"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);

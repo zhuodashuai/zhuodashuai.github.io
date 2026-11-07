@@ -298,9 +298,9 @@ for(const item of copies)test('archived v108 exact mechanical copy preserves its
 for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
  const current=await fs.readFile(new URL(item.file,root));let shell=current.toString();
  if(item.file==='vocab/index.html'){
-  assert.equal(shell.split('src="js/public-app-v113.js"').length,2,'Exactly one reversible reading-policy entry point');
+  assert.equal(shell.split('src="js/public-app-v113.js?v=114"').length,2,'Exactly one reversible reading-policy entry point');
   assert(!shell.includes('src="js/public-app-v108.js"'));
-  shell=shell.replace('src="js/public-app-v113.js"','src="js/public-app-v108.js"');
+  shell=shell.replace('src="js/public-app-v113.js?v=114"','src="js/public-app-v108.js"');
  }
  let text=restoreChineseSearchPaginationShell(item.file.split('/').at(-1),shell);
  // Undo only the fresh, named shell-navigation gate; all historical hashes below remain exact.

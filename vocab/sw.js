@@ -15,11 +15,13 @@
 // install fetches each shell asset with cache:reload; the revised lookup graph
 // uses the additive v108 graph while legacy aliases and warmed shards remain.
 // Refresh the reversible reading-card policy and optional frequency metadata.
+// Match the Teamwork navigation to the Study.Net reading list.
 const CACHE_NAME = "zhuo-wordbook-v100";
 // Fast member lookup uses only public, compact first-party data.
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js?v=114", "./js/teamwork-study-net.js", "./js/public-snapshot.js?v=114",
   "./js/public-app-v113.js", "./js/entry-detail-v113.js", "./js/chapter-quiz-ui.js?v=113",
   "./js/reading-card-policy.js", "./js/reading-frequency.js", "./reading-frequency.css",
   "./js/collections.js?v=113",

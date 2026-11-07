@@ -19,8 +19,13 @@ export async function readPublicCacheWithDeadline(readCache, onCache, timeoutMs 
 
 // Bound the whole response, including a body that never finishes. A failed
 // provider must not prevent the static fallback or an already validated cache.
-export async function fetchPublicSnapshot({ candidates, snapshot = null, etag = "", fetcher = globalThis.fetch, timeoutMs = PUBLIC_REQUEST_TIMEOUT_MS } = {}) {
+export async function fetchPublicSnapshot({
+  candidates, snapshot = null, etag = "", minimumPublishedAt = 0,
+  fetcher = globalThis.fetch, timeoutMs = PUBLIC_REQUEST_TIMEOUT_MS
+} = {}) {
   let lastError = new Error("没有可用的公开词库来源");
+  let staleLive = null;
+  const checkPublishedRelease = minimumPublishedAt > (Date.parse(snapshot?.exportedAt) || 0);
   for (const candidate of candidates) {
     const controller = new AbortController();
     let timer;
@@ -38,12 +43,22 @@ export async function fetchPublicSnapshot({ candidates, snapshot = null, etag = 
       const deadline = new Promise((_, reject) => {
         timer = setTimeout(() => { controller.abort(); reject(new Error("词库连接超时")); }, timeoutMs);
       });
-      return await Promise.race([request, deadline]);
+      const result = await Promise.race([request, deadline]);
+      const publishedAt = Date.parse(result.snapshot.exportedAt);
+      // A reachable Worker can still serve an older deployment. Try the
+      // validated static release once, keeping the live response as fallback.
+      if (candidate.source === "live" && checkPublishedRelease && publishedAt < minimumPublishedAt) {
+        staleLive = result;
+        continue;
+      }
+      if (staleLive && publishedAt < minimumPublishedAt) continue;
+      return result;
     } catch (error) {
       lastError = error instanceof Error ? error : new Error(String(error));
     } finally {
       clearTimeout(timer);
     }
   }
+  if (staleLive) return staleLive;
   throw lastError;
 }

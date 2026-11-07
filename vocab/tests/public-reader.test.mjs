@@ -52,6 +52,30 @@ test("invalid provider data cannot replace the snapshot and falls back to valid 
   assert.equal(result.source, "pages");
 });
 
+test("a stale but reachable live provider yields to the validated Pages release", async () => {
+  const older = { ...fixture, exportedAt: "2026-11-03T14:43:24.777Z", revisionId: "older-live-revision" };
+  const minimumPublishedAt = Date.parse(fixture.exportedAt);
+  const fetcher = async url => Response.json(url === candidates[0].url ? older : fixture);
+  const result = await fetchPublicSnapshot({ candidates, minimumPublishedAt, fetcher });
+  assert.equal(result.source, "pages");
+  assert.equal(result.snapshot.revisionId, fixture.revisionId);
+  const fallback = await fetchPublicSnapshot({ candidates, minimumPublishedAt,
+    fetcher: async url => url === candidates[0].url ? Response.json(older) : new Response(null, { status: 503 })
+  });
+  assert.equal(fallback.source, "live");
+  assert.equal(fallback.snapshot.revisionId, older.revisionId);
+});
+
+test("an already loaded Pages release does not repeatedly download the static book", async () => {
+  const snapshot = parsePublicSnapshot(fixture);
+  const older = { ...fixture, exportedAt: "2026-11-03T14:43:24.777Z", revisionId: "older-live-revision" };
+  const calls = [];
+  await fetchPublicSnapshot({ candidates, snapshot, minimumPublishedAt: Date.parse(fixture.exportedAt),
+    fetcher: async url => { calls.push(url); return Response.json(older); }
+  });
+  assert.deepEqual(calls, [candidates[0].url]);
+});
+
 test("304 reuses a validated snapshot with the live etag, not an uninitialized reader", async () => {
   const snapshot = parsePublicSnapshot(fixture);
   let headers;

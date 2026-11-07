@@ -7,6 +7,7 @@ import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSear
 import { setupPwa } from "./pwa.js?v=77";
 import { collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
 import { buildLearningCatalog, filterLearningEntries } from "./reading-card-policy.js";
+import { chaptersForNavigation } from "./teamwork-study-net.js";
 import { createReadingFrequencyIndex, readingFrequencyText, readRepeatedReadingPreference, saveRepeatedReadingPreference } from "./reading-frequency.js";
 import { applyReviewRating, buildDueQueue, buildStudySummary } from "./study.js";
 import { buildSynonymGroups } from "./synonym-groups.js?v=82";
@@ -14,7 +15,7 @@ import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidenc
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=113";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=82";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=114";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
@@ -85,6 +86,8 @@ if (!SYNONYM_FEATURE_ENABLED && initialParameters.get("view") === "synonyms") {
   window.history.replaceState(null, "", url);
 }
 const MIN_REFRESH_GAP_MS = 3_000;
+// This is the deployed snapshot containing all 13 numbered Teamwork readings.
+const PAGES_RELEASE_FLOOR = Date.parse("2026-11-07T19:55:27.271Z");
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",
   sentence: "句子", quote: "名言", proverb: "谚语"
@@ -265,7 +268,7 @@ function renderCollectionNavigation(entries) {
   refs.collectionTabs.replaceChildren(...collectionButtons);
 
   const selectedCollection = available.get(state.collectionId) || null;
-  const chapters = selectedCollection?.chapters || [];
+  const chapters = chaptersForNavigation(selectedCollection);
   if (chapters.length) {
     if (state.chapterId !== "all" && !chapters.some((chapter) => chapter.id === state.chapterId)) {
       state.chapterId = "all";
@@ -580,7 +583,8 @@ async function fetchLatestSnapshot() {
     { url: liveSnapshotUrl, source: "live" },
     { url: new URL("data/owner-wordbook.json", window.location.href).href, source: "pages" }
   ];
-  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, etag: state.liveEtag });
+  const minimumPublishedAt = window.location.hostname === "zhuodashuai.github.io" ? PAGES_RELEASE_FLOOR : 0;
+  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, etag: state.liveEtag, minimumPublishedAt });
 }
 
 async function performLoad({ background = false } = {}) {
@@ -606,12 +610,14 @@ async function performLoad({ background = false } = {}) {
   }
   try {
     const { snapshot, response, source } = await fetchLatestSnapshot();
-    if (source === "live") state.liveEtag = response.headers.get("etag") || state.liveEtag;
     if (state.snapshot && Date.parse(snapshot.exportedAt) < Date.parse(state.snapshot.exportedAt)) {
       refs.entryGrid.setAttribute("aria-busy", "false");
       refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
       return;
     }
+    state.liveEtag = source === "live"
+      ? response.headers.get("etag") || (response.status === 304 ? state.liveEtag : "")
+      : "";
     publicConfirmations = reconcileOwnerPublicConfirmations({ ...snapshot,
       readSource: source === "live" ? "live" : "deployed-fallback" }, publicConfirmations);
     if (state.snapshot?.revisionId === snapshot.revisionId) {
