@@ -60,7 +60,7 @@ test('the active public shell retains old programs while loading the reversible 
     readFile(new URL('../index.html',import.meta.url),'utf8'),readFile(new URL('../js/public-app-v113.js',import.meta.url),'utf8'),
     readFile(new URL('../js/entry-detail-v113.js',import.meta.url),'utf8'),readFile(new URL('../sw.js',import.meta.url),'utf8')
   ]);
-  assert.match(html,/src="js\/public-app-v113\.js\?v=114"/u);
+  assert.match(html,/src="js\/public-app-v113\.js\?v=115"/u);
   assert.match(program,/respectCurrentScope: true/u);assert.match(program,/filterLearningEntries\(entries, state.collectionId, state.chapterId, \{ showRepeated: state.showRepeated \}\)/u);
   assert.match(program,/显示重复词/u);assert.match(detail,/阅读频率与来源/u);
   assert.match(detail,/dictionary-examples-ui-v108\.js/u);

@@ -513,6 +513,35 @@
       "reuseExistingEntryId": "public-teamwork-burnout-a4f4e73f"
     },
     {
+      "term": "prevalent",
+      "originalInput": "prevalent",
+      "entryType": "word",
+      "partOfSpeech": "adjective",
+      "meaning": "普遍存在的；广泛流行的",
+      "definitionEn": "Common or widespread in a particular group, place, or period.",
+      "usage": "常用 prevalent in/among；只说明普遍程度，不评价做法优劣。",
+      "exampleEn": "Shared staffing is prevalent in consulting firms with specialized expertise.",
+      "exampleZh": "在需要专业技能的咨询公司中，共享人员配置十分普遍。",
+      "phonetic": "/ˈprɛvələnt/",
+      "forms": [],
+      "collocations": [
+        "a prevalent practice",
+        "prevalent in organizations",
+        "increasingly prevalent"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 4,
+      "printedPage": 4,
+      "category": "管理分析",
+      "order": 13,
+      "reuseExistingEntryId": "public-teamwork-prevalent-6666c872"
+    },
+    {
       "term": "crop up",
       "originalInput": "crop up",
       "entryType": "phrasal-verb",
@@ -542,37 +571,8 @@
       "pdfPage": 4,
       "printedPage": 4,
       "category": "危机与风险",
-      "order": 13,
-      "reuseExistingEntryId": "public-nlmg-c4-crop-up"
-    },
-    {
-      "term": "prevalent",
-      "originalInput": "prevalent",
-      "entryType": "word",
-      "partOfSpeech": "adjective",
-      "meaning": "普遍存在的；广泛流行的",
-      "definitionEn": "Common or widespread in a particular group, place, or period.",
-      "usage": "常用 prevalent in/among；只说明普遍程度，不评价做法优劣。",
-      "exampleEn": "Shared staffing is prevalent in consulting firms with specialized expertise.",
-      "exampleZh": "在需要专业技能的咨询公司中，共享人员配置十分普遍。",
-      "phonetic": "/ˈprɛvələnt/",
-      "forms": [],
-      "collocations": [
-        "a prevalent practice",
-        "prevalent in organizations",
-        "increasingly prevalent"
-      ],
-      "tags": [
-        "商务英语",
-        "团队协作",
-        "The Overcommitted Organization",
-        "管理分析"
-      ],
-      "pdfPage": 4,
-      "printedPage": 4,
-      "category": "管理分析",
       "order": 14,
-      "reuseExistingEntryId": "public-teamwork-prevalent-6666c872"
+      "reuseExistingEntryId": "public-nlmg-c4-crop-up"
     },
     {
       "term": "concurrently",
@@ -2446,35 +2446,6 @@
       "reuseExistingEntryId": "public-teamwork-dispersed-28a933f6"
     },
     {
-      "term": "disproportionately",
-      "originalInput": "disproportionately",
-      "entryType": "word",
-      "partOfSpeech": "adverb",
-      "meaning": "不成比例地；相对于基准显得过大或过小地",
-      "definitionEn": "To a degree that is unusually large or small relative to a relevant comparison.",
-      "usage": "常与 large、small 或 affected 搭配；需说明相对于什么不成比例。",
-      "exampleEn": "The shared specialist's absence affected the smallest team disproportionately.",
-      "exampleZh": "共用专家的缺席对最小团队造成了不成比例的影响。",
-      "phonetic": "/ˌdɪsprəˈpɔrʃənətli/",
-      "forms": [],
-      "collocations": [
-        "disproportionately large effects",
-        "disproportionately high costs",
-        "be disproportionately affected"
-      ],
-      "tags": [
-        "商务英语",
-        "团队协作",
-        "The Overcommitted Organization",
-        "管理分析"
-      ],
-      "pdfPage": 8,
-      "printedPage": 8,
-      "category": "管理分析",
-      "order": 75,
-      "reuseExistingEntryId": "public-teamwork-disproportionately-43aa4b38"
-    },
-    {
       "term": "all hands on deck",
       "originalInput": "All hands on deck",
       "entryType": "idiom",
@@ -2500,8 +2471,37 @@
       "pdfPage": 8,
       "printedPage": 8,
       "category": "危机与风险",
-      "order": 76,
+      "order": 75,
       "reuseExistingEntryId": "public-teamwork-all-hands-on-deck-295acee9"
+    },
+    {
+      "term": "disproportionately",
+      "originalInput": "disproportionately",
+      "entryType": "word",
+      "partOfSpeech": "adverb",
+      "meaning": "不成比例地；相对于基准显得过大或过小地",
+      "definitionEn": "To a degree that is unusually large or small relative to a relevant comparison.",
+      "usage": "常与 large、small 或 affected 搭配；需说明相对于什么不成比例。",
+      "exampleEn": "The shared specialist's absence affected the smallest team disproportionately.",
+      "exampleZh": "共用专家的缺席对最小团队造成了不成比例的影响。",
+      "phonetic": "/ˌdɪsprəˈpɔrʃənətli/",
+      "forms": [],
+      "collocations": [
+        "disproportionately large effects",
+        "disproportionately high costs",
+        "be disproportionately affected"
+      ],
+      "tags": [
+        "商务英语",
+        "团队协作",
+        "The Overcommitted Organization",
+        "管理分析"
+      ],
+      "pdfPage": 8,
+      "printedPage": 8,
+      "category": "管理分析",
+      "order": 76,
+      "reuseExistingEntryId": "public-teamwork-disproportionately-43aa4b38"
     },
     {
       "term": "tolerance for ambiguity",

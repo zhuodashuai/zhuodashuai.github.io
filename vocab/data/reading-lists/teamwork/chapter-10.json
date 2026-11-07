@@ -51,7 +51,8 @@
         "action": "reuse-same-sense",
         "reason": "核对原卡与本篇义项后确认同一义项。保留原卡，追加本篇来源与语境。"
       },
-      "order": 1
+      "order": 1,
+      "firstOccurrencePdfPage": 2
     },
     {
       "term": "devilishly",
@@ -288,6 +289,36 @@
       "order": 9
     },
     {
+      "term": "adhesive",
+      "originalInput": "an adhesive",
+      "entryType": "word",
+      "partOfSpeech": "countable noun",
+      "meaning": "关系黏合者，帮助不同群体建立直接联系的人",
+      "definitionEn": "A cultural broker who helps groups develop mutual understanding and work together independently in the future.",
+      "usage": "此处是作者使用的组织比喻。此类协调者帮助双方逐渐掌握直接合作所需的语言和信任。",
+      "exampleEn": "The product lead acted as an adhesive by introducing engineers to support staff and helping them develop a shared vocabulary.",
+      "exampleZh": "产品负责人介绍工程师与客服人员认识，帮助双方建立共同语言，起到了黏合关系的作用。",
+      "forms": [
+        "adhesives"
+      ],
+      "collocations": [
+        "act as an adhesive",
+        "a cultural broker acting as an adhesive"
+      ],
+      "category": "网络角色",
+      "pdfPage": 5,
+      "printedPage": "5",
+      "tags": [
+        "网络角色"
+      ],
+      "reuseExistingEntryId": "public-teamwork-c10-adhesive",
+      "duplicateDecision": {
+        "action": "new-card",
+        "reason": "已核对规范词头，既有词本中无同一词条。"
+      },
+      "order": 10
+    },
+    {
       "term": "go-between",
       "originalInput": "go-between",
       "entryType": "word",
@@ -315,7 +346,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 10
+      "order": 11
     },
     {
       "term": "ephemeral",
@@ -343,7 +374,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 11
+      "order": 12
     },
     {
       "term": "win over",
@@ -375,7 +406,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 12
+      "order": 13
     },
     {
       "term": "modus operandi",
@@ -405,7 +436,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 13
+      "order": 14
     },
     {
       "term": "synergistically",
@@ -433,7 +464,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 14
+      "order": 15
     },
     {
       "term": "disparate",
@@ -461,7 +492,7 @@
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
       },
-      "order": 15
+      "order": 16
     },
     {
       "term": "one-off",
@@ -485,36 +516,6 @@
         "跨界协作"
       ],
       "reuseExistingEntryId": "public-teamwork-c10-one-off",
-      "duplicateDecision": {
-        "action": "new-card",
-        "reason": "已核对规范词头，既有词本中无同一词条。"
-      },
-      "order": 16
-    },
-    {
-      "term": "adhesive",
-      "originalInput": "an adhesive",
-      "entryType": "word",
-      "partOfSpeech": "countable noun",
-      "meaning": "关系黏合者，帮助不同群体建立直接联系的人",
-      "definitionEn": "A cultural broker who helps groups develop mutual understanding and work together independently in the future.",
-      "usage": "此处是作者使用的组织比喻。此类协调者帮助双方逐渐掌握直接合作所需的语言和信任。",
-      "exampleEn": "The product lead acted as an adhesive by introducing engineers to support staff and helping them develop a shared vocabulary.",
-      "exampleZh": "产品负责人介绍工程师与客服人员认识，帮助双方建立共同语言，起到了黏合关系的作用。",
-      "forms": [
-        "adhesives"
-      ],
-      "collocations": [
-        "act as an adhesive",
-        "a cultural broker acting as an adhesive"
-      ],
-      "category": "网络角色",
-      "pdfPage": 5,
-      "printedPage": "5",
-      "tags": [
-        "网络角色"
-      ],
-      "reuseExistingEntryId": "public-teamwork-c10-adhesive",
       "duplicateDecision": {
         "action": "new-card",
         "reason": "已核对规范词头，既有词本中无同一词条。"
