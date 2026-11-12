@@ -93,6 +93,54 @@ test("304 reuses a validated snapshot with the live etag, not an uninitialized r
   assert.equal(cold.source, "pages");
 });
 
+test("the Pages validator is sent only to its own URL and skips an unchanged body", async () => {
+  const snapshot = parsePublicSnapshot(fixture);
+  const etag = 'W/"pages-current"';
+  const validatedByUrl = new Map([[candidates[1].url, { snapshot, etag }]]);
+  const unchangedResponses = [
+    new Response(null, { status: 304 }),
+    new Response("this body must not be parsed", { headers: { etag } })
+  ];
+  for (const unchangedResponse of unchangedResponses) {
+    const result = await fetchPublicSnapshot({ candidates, snapshot, validatedByUrl, fetcher: async (url, { headers }) => {
+      if (url === candidates[0].url) {
+        assert.equal(headers["If-None-Match"], undefined);
+        return new Response(null, { status: 304 });
+      }
+      assert.equal(headers["If-None-Match"], etag);
+      return unchangedResponse;
+    } });
+    assert.equal(result.source, "pages");
+    assert.equal(result.snapshot, snapshot);
+  }
+  const next = { ...fixture, revisionId: "new-pages-revision" };
+  const result = await fetchPublicSnapshot({ candidates, snapshot, validatedByUrl, fetcher: async (url) => url === candidates[0].url
+    ? new Response(null, { status: 503 })
+    : Response.json(next, { headers: { etag: 'W/"pages-next"' } }) });
+  assert.equal(result.snapshot.revisionId, next.revisionId);
+});
+
+test("each source keeps its validated revision when the live provider is behind Pages", async () => {
+  const live = { ...fixture, exportedAt: "2026-11-03T14:43:24.777Z", revisionId: "older-live" };
+  const validators = new Map([[candidates[0].url, '"live-old"'], [candidates[1].url, '"pages-current"']]);
+  const validatedByUrl = new Map();
+  const minimumPublishedAt = Date.parse(fixture.exportedAt);
+  const first = await fetchPublicSnapshot({ candidates, minimumPublishedAt, validatedByUrl, fetcher: async url =>
+    Response.json(url === candidates[0].url ? live : fixture, { headers: { etag: validators.get(url) } })
+  });
+  assert.equal(first.source, "pages");
+  const second = await fetchPublicSnapshot({ candidates, minimumPublishedAt, validatedByUrl, snapshot: first.snapshot,
+    fetcher: async (url, { headers }) => {
+      assert.equal(url, candidates[0].url);
+      assert.equal(headers["If-None-Match"], validators.get(url));
+      return new Response(null, { status: 304 });
+    }
+  });
+  assert.equal(second.source, "live");
+  assert.equal(second.snapshot.revisionId, live.revisionId);
+  assert.equal(first.snapshot.revisionId, fixture.revisionId);
+});
+
 test("failed sources reject without modifying the last known valid data", async () => {
   const snapshot = parsePublicSnapshot(fixture);
   const before = structuredClone(snapshot);

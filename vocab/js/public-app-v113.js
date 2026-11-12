@@ -15,7 +15,7 @@ import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidenc
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=113";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=114";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=116";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
@@ -36,7 +36,6 @@ const state = {
   snapshot: null,
   filter: "all",
   query: "",
-  liveEtag: "",
   showRepeated: readRepeatedReadingPreference(),
   sort: initialParameters.has("sort") ? normalizeEntrySort(initialParameters.get("sort")) : null,
   collectionId: pendingEntryId ? "all" : initialParameters.get("book") || "all",
@@ -97,6 +96,8 @@ const adminUrl = ownerLibraryLink();
 const personalLink = document.getElementById("personal-link");
 if (personalLink) personalLink.href = personalWordbookUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
+const pagesSnapshotUrl = new URL("data/owner-wordbook.json", window.location.href).href;
+const validatedByUrl = new Map();
 const pronunciation = setupPronunciationUI();
 const libraryAudioSettings = pronunciation.settings("library-audio-settings");
 refs.libraryOptions.append(libraryAudioSettings);
@@ -581,10 +582,10 @@ function render() {
 async function fetchLatestSnapshot() {
   const candidates = [
     { url: liveSnapshotUrl, source: "live" },
-    { url: new URL("data/owner-wordbook.json", window.location.href).href, source: "pages" }
+    { url: pagesSnapshotUrl, source: "pages" }
   ];
   const minimumPublishedAt = window.location.hostname === "zhuodashuai.github.io" ? PAGES_RELEASE_FLOOR : 0;
-  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, etag: state.liveEtag, minimumPublishedAt });
+  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, validatedByUrl, minimumPublishedAt });
 }
 
 async function performLoad({ background = false } = {}) {
@@ -595,7 +596,9 @@ async function performLoad({ background = false } = {}) {
     await readPublicCacheWithDeadline(getPublicCache, (cached) => {
       if (cached?.snapshot && !state.snapshot) {
         state.snapshot = cached.snapshot;
-        state.liveEtag = cached.sourceUrl?.startsWith(liveSnapshotUrl) ? cached.etag || "" : "";
+        if (cached.sourceUrl === liveSnapshotUrl && cached.etag) {
+          validatedByUrl.set(liveSnapshotUrl, { snapshot: cached.snapshot, etag: cached.etag });
+        }
         refs.exportPublic.disabled = false;
         refs.loadError.hidden = true;
         refs.dataStatus.textContent = navigator.onLine === false ? "离线 · 已显示本机保存的词库" : "本机词库 · 已显示保存的内容";
@@ -615,9 +618,6 @@ async function performLoad({ background = false } = {}) {
       refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
       return;
     }
-    state.liveEtag = source === "live"
-      ? response.headers.get("etag") || (response.status === 304 ? state.liveEtag : "")
-      : "";
     publicConfirmations = reconcileOwnerPublicConfirmations({ ...snapshot,
       readSource: source === "live" ? "live" : "deployed-fallback" }, publicConfirmations);
     if (state.snapshot?.revisionId === snapshot.revisionId) {
@@ -639,7 +639,8 @@ async function performLoad({ background = false } = {}) {
       state.selectedEntry = entryDetail.refresh();
       if (state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
     }
-    void putPublicCache(snapshot, "", response.url, { etag: source === "live" ? state.liveEtag : "" }).catch(() => {
+    const etag = source === "live" ? validatedByUrl.get(liveSnapshotUrl)?.etag : "";
+    void putPublicCache(snapshot, "", response.url, { etag }).catch(() => {
       if (state.snapshot?.revisionId === snapshot.revisionId) refs.dataStatus.textContent += " · 本机缓存暂不可用";
     });
   } catch (networkError) {
