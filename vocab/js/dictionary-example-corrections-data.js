@@ -118,6 +118,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/examples_runtime_release_audit"
   },
   {
+    "term": "GUIL",
+    "expectedEntrySha256": "b0b9ac64cbba1fdac4189296644f561ea1e97a3026a0fa8f577fa8892ce5d65b",
+    "canonicalId": 2288676,
+    "canonicalSourceSha256": "ee5a044fa30e564f584a2119ab4d00d9503576502a341a301a1284b68b9ece49",
+    "senseId": "example:GUIL",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "吉尔〔人名〕",
+    "en": "The parcel addressed to Guil arrived without a return label.",
+    "zh": "寄给吉尔的那个包裹送到了，但没有附上退寄标签。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "HMG",
     "expectedEntrySha256": "6eaac7540cd73ca1a496f30745d54187129ef04e837bee83bb25287299337d70",
     "canonicalId": 5433355,
@@ -352,6 +365,32 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/coverage-semantic-independent-next-002"
   },
   {
+    "term": "Sweden",
+    "expectedEntrySha256": "0f0658706b08e206a9f5a48ed9e3930619148247fdce5f7607f50c3fbb54ac23",
+    "canonicalId": 2209965,
+    "canonicalSourceSha256": "951c66448ea01892ea58e35086fe873c132c0dc136e11993b8701c68a3a4bae8",
+    "senseId": "example:Sweden",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "瑞典",
+    "en": "Our friend in Sweden offered to send the missing music scores.",
+    "zh": "我们在瑞典的朋友表示愿意寄来所缺的乐谱。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "Trevor",
+    "expectedEntrySha256": "f4a48ff4f9583f9968a6d95585665c51aa50512a52e8b6d9a17d5bf8cf293f82",
+    "canonicalId": 2231825,
+    "canonicalSourceSha256": "f1c36a9b3570ce83f2fc9a6b4caf41f927ede48e7cac1406cbf81c9d22421f31",
+    "senseId": "example:Trevor",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "特雷弗〔男子名〕",
+    "en": "Trevor offered me the window seat and put his bag under the table.",
+    "zh": "特雷弗提出把靠窗的座位让给我，并把自己的包放在桌子底下。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "UNO",
     "expectedEntrySha256": "25696da49789bbc4cc4a8cf9e4eabc8f3cfd6c677b2651dfc9c9fd9f756b9a03",
     "canonicalId": 3812975,
@@ -508,6 +547,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/coverage-semantic-independent-next-002"
   },
   {
+    "term": "brian",
+    "expectedEntrySha256": "c9d1f7d9b0e5a335fe4bf0db844bab60127137f45aa4c56711c069a9f8cb5f0a",
+    "canonicalId": 2182291,
+    "canonicalSourceSha256": "1434811629c64a3f2501662688d4c36cf4147949d677e695161823215a9ddf06",
+    "senseId": "example:brian",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "布莱恩（男子名）",
+    "en": "Brian offered his window seat to a child carrying binoculars.",
+    "zh": "布莱恩表示愿意把自己的靠窗座位让给一个带着望远镜的孩子。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "buss",
     "expectedEntrySha256": "94a755d20d63639b9f91558efe3ebee9d3fb6836b89e4e8ff5d696d83b089686",
     "canonicalId": 3795646,
@@ -586,6 +638,45 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "cheddar",
+    "expectedEntrySha256": "42002c174bc8a88d0d38d9edbb43822f861a55efd4eba373c79ff3fe6089b21e",
+    "canonicalId": 2090534,
+    "canonicalSourceSha256": "07461b38b51eff0a82622f79c616e2d1946d3411cc649d4e211570d6ef8014e4",
+    "senseId": "example:cheddar",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "切达奶酪",
+    "en": "She grated cheddar over the steaming bowl of tomato soup.",
+    "zh": "她把切达奶酪刨成碎屑，加在那碗热气腾腾的番茄汤上。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "chris",
+    "expectedEntrySha256": "ef3388953a052ea0bb96ac3452072f26a3d61caf157d91aed63c26b2063ca38d",
+    "canonicalId": 2182460,
+    "canonicalSourceSha256": "f3c2edea49d49d9614c6af1acda8bfd2e2bf40985fafd57aa1654ccfd95d4714",
+    "senseId": "example:chris",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "克里斯（人名）",
+    "en": "I recognized Chris by the red scarf his sister had knitted.",
+    "zh": "我凭他的一位姐妹织的那条红围巾认出了克里斯。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "christina",
+    "expectedEntrySha256": "113add20b54f4047d0e1b2e56b842c616fff71a19cef46369621e18a34a6c59f",
+    "canonicalId": 2308450,
+    "canonicalSourceSha256": "94bca3a3a520d1cf2454db1c3dd1c36e21bb2ca57c91a6a84cbb9256585b9b90",
+    "senseId": "example:christina",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "克里斯蒂娜（女子名）",
+    "en": "Christina recognised her grandfather's handwriting on the envelope.",
+    "zh": "克里斯蒂娜认出了信封上自己祖父或外祖父的笔迹。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "collude",
     "expectedEntrySha256": "e1ca390957cd210ef065f9f1a32ffe9d9ae97f428bb1ce4c3350f1cf8cb0c2e4",
     "canonicalId": 1471081,
@@ -599,6 +690,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday_precision_0015_independent"
   },
   {
+    "term": "contributor",
+    "expectedEntrySha256": "3c35cfbb7aaaed75b425b49cc461093f81eea335c31a24d52cb6519e137836a0",
+    "canonicalId": 2225770,
+    "canonicalSourceSha256": "0c81b1678bf5cce130309f58d03aaddc11a500a1dad2c4701863c69eff449037",
+    "senseId": "example:contributor",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "投稿者",
+    "en": "Each contributor received a copy of the finished magazine.",
+    "zh": "每位投稿者都收到了一份制作完成的杂志。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "defalcate",
     "expectedEntrySha256": "a0b060779668defc111de2c6c00933be8b8d1bc59c873e44d05fb1aa66699d1d",
     "canonicalId": 1741042,
@@ -610,6 +714,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The novel follows a clerk accused of defalcating.",
     "zh": "小说讲述一名被指控侵吞公款的职员的故事。",
     "reviewer": "AI/root_precision_0017_independent"
+  },
+  {
+    "term": "devon",
+    "expectedEntrySha256": "7c4319c5f346d1aaaaa69633058210fc139e1fcbb504f498dc50191762906f7b",
+    "canonicalId": 2224197,
+    "canonicalSourceSha256": "a7b6fcd1226d267f1e091e2f9c5efefc40651c0c991464ac0a0aeaaf0e47cbb3",
+    "senseId": "example:devon",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "德文郡（英格兰郡名）",
+    "en": "We borrowed a cottage in Devon for a quiet autumn break.",
+    "zh": "为了在秋日里安静地度个假，我们借用了德文郡的一间小屋。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "dignify",
@@ -768,6 +885,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday_examples_continue_precision_0019"
   },
   {
+    "term": "gerry",
+    "expectedEntrySha256": "78d30c7882b299a90c568e893d562d7a842f7062d969dae63b61f223994543e4",
+    "canonicalId": 2278144,
+    "canonicalSourceSha256": "502345193fba42dcdc949c224ab7047aad8971ad5fab8f5c639786b41b7bf7be",
+    "senseId": "example:gerry",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "格里（人名）",
+    "en": "Gerry spotted a heron beside the lock gate.",
+    "zh": "格里在船闸门旁看见了一只鹭鸟。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "hav",
     "expectedEntrySha256": "09309b02df572f21541ed35932de599809b5e256bd31f244e79157772245b1a1",
     "canonicalId": 4669468,
@@ -872,6 +1002,97 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday-examples-independent-precision-0014"
   },
   {
+    "term": "incurable",
+    "expectedEntrySha256": "a354b561a37e060cf5cc69ce2dd84b65a419c136dba96f00243b791746575ce8",
+    "canonicalId": 2090388,
+    "canonicalSourceSha256": "a7eb846c96d97b7480fe1244b8af7845d0cc5c0b78f1e6c30c2b1e254522e0c5",
+    "senseId": "example:incurable",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "难以改变的",
+    "en": "An incurable optimist, he expected sunshine despite the darkening clouds.",
+    "zh": "他是个改不了的乐天派，尽管云层越来越暗，仍认为会有阳光。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "internationally",
+    "expectedEntrySha256": "0cd37090011ec1feddc01c35eb8c65e6995c5f282c26968db8dda8705e149001",
+    "canonicalId": 2289548,
+    "canonicalSourceSha256": "9b63f79fa716a319a5aefd4e2b78dfecc8fc6f7c7ed4e6dd736a8d80c2a7db71",
+    "senseId": "example:internationally",
+    "exampleIndex": 0,
+    "partOfSpeech": "adverb",
+    "meaningZh": "在国际上；跨国地",
+    "en": "The film became internationally known after several festival screenings.",
+    "zh": "这部电影在几次影展放映后，开始在国际上为人所知。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "jo",
+    "expectedEntrySha256": "96e77268b37b64d78c9f5b4b2133d5f71588d2ac9cf79703138baaad98d3f2ef",
+    "canonicalId": 2279254,
+    "canonicalSourceSha256": "5680bedae435e6f3f13930e146e2581a010b8de5970f46fcdb8428c980a66387",
+    "senseId": "example:jo",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "乔（人名，常为Joanna或Josephine等名字的简称）",
+    "en": "Jo found a quiet table near the back of the cafe.",
+    "zh": "乔在咖啡馆靠后的地方找到了一张周围安静的桌子。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "joker",
+    "expectedEntrySha256": "efd35592cd42a144ac7ecb00854dc7307c6270aa9bc71ce87ebe46d9660e9f4f",
+    "canonicalId": 2105692,
+    "canonicalSourceSha256": "05cb34939e5208e06abb30893e7532ea6a349cb2c28bc2ed075639871303d67c",
+    "senseId": "example:joker",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "爱开玩笑的人",
+    "en": "The office joker surprised us with a thoughtful farewell speech.",
+    "zh": "办公室里那位爱开玩笑的人发表了一番用心的告别讲话，让我们很意外。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "lancaster",
+    "expectedEntrySha256": "195bd22dd52fe166ccc6d8a06019bffad77f31d31ab29d109827db71fe02d485",
+    "canonicalId": 2230676,
+    "canonicalSourceSha256": "d82e328bffc21d35011868f664d63d39da4792db6ae68a5b0067e42e55fc1432",
+    "senseId": "example:lancaster",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "兰开斯特（美国城市）",
+    "en": "Our cousins in Lancaster sent us a box of local postcards.",
+    "zh": "我们在兰开斯特的堂表亲给我们寄来了一盒当地明信片。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "laura",
+    "expectedEntrySha256": "cfa8debea0eb95f8a6ad09bc04e04f31f1ac131dedcf02bce725bd03b69a0a5a",
+    "canonicalId": 2195912,
+    "canonicalSourceSha256": "84385953cc041dfd73133bb9fa954a2dbc5e58ff8cc488affe07d7fd356801d3",
+    "senseId": "example:laura",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "劳拉（女子名）",
+    "en": "Laura recognized the house from her grandmother's description.",
+    "zh": "劳拉根据自己祖母或外祖母的描述认出了那栋房子。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "magnolia",
+    "expectedEntrySha256": "9c8937dc0b991177983d7a7d569d1004a194e5097a8c791c8aa44760733d64be",
+    "canonicalId": 2091863,
+    "canonicalSourceSha256": "40d32ef7a6723b92852565b14f5e9f7cca6b26ed1f4e2c2a661b5b10a0c514b7",
+    "senseId": "example:magnolia",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "木兰",
+    "en": "A magnolia dropped pale petals onto the garden bench.",
+    "zh": "一棵木兰的浅色花瓣落在了花园的长椅上。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "magnus",
     "expectedEntrySha256": "57584ae0447345cc09599ad1552e22fb2d003b85dd24da651d769dff2c62db1e",
     "canonicalId": 2440950,
@@ -883,6 +1104,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The lecturer pointed to the adductor magnus on the diagram.",
     "zh": "讲师指着图上的大收肌。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "manicure",
+    "expectedEntrySha256": "e0e2837c0b154839aeec8391669bf8ad5a60afe04bf7f7019f1ec5fdedf9ec36",
+    "canonicalId": 2079727,
+    "canonicalSourceSha256": "2b129c39203af95db8757d76c5d888da827c0301ac3546a4ff060e11f0c2b620",
+    "senseId": "example:manicure",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "修甲护理",
+    "en": "Her manicure was ruined by an afternoon of digging in the garden.",
+    "zh": "在花园里挖了一下午土，她做的指甲被弄坏了。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "meager",
@@ -911,6 +1145,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "mother-in-law",
+    "expectedEntrySha256": "083a531c71c04aec1a0ff71f2184a44147d698059408e2f5ed5a5c38129c91fc",
+    "canonicalId": 2156327,
+    "canonicalSourceSha256": "6aa50dda6685f2c3c249eae2cf60e5ae803efc10cdd3c1d184bfc8555f8cc4de",
+    "senseId": "example:mother-in-law",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "配偶的母亲",
+    "en": "My mother-in-law lent us a set of old gardening tools.",
+    "zh": "我配偶的母亲借给我们一套旧园艺工具。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "naysay",
     "expectedEntrySha256": "a35fdac868de7d1cf31d5abc456514c16d35311aee1885d44ce2e83a81ede5f1",
     "canonicalId": 1764278,
@@ -924,6 +1171,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/root_precision_0017_independent"
   },
   {
+    "term": "newcastle",
+    "expectedEntrySha256": "2a584c5015c37281f39ec739538e5f20f1411f1e3d60c9792e4e276fee0f3486",
+    "canonicalId": 2192717,
+    "canonicalSourceSha256": "0c2cd9a65bdd0fc0f9fb74464e89a6c0d265056f18f5f98c031e30276401473e",
+    "senseId": "example:newcastle",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "纽卡斯尔（英国城市）",
+    "en": "My aunt sent me a sketch of the river in Newcastle.",
+    "zh": "我一位姑姨辈的亲人寄给我一幅纽卡斯尔的河景素描。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "noo",
     "expectedEntrySha256": "c89bdbf0c0982d4fac2bab9b58f8f3ccfa67d70f302324563b974efac584048a",
     "canonicalId": 5219343,
@@ -935,6 +1195,58 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "The team compared its depth measurements with data supplied by the NOO.",
     "zh": "团队将自己的水深测量结果与美国海军海洋局提供的数据进行了比较。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "patiently",
+    "expectedEntrySha256": "24f1c0aa17a97d3f80c7a3d6ea7cc7ebbf9e3cd053aca7d039789cd7d659a2a0",
+    "canonicalId": 2330845,
+    "canonicalSourceSha256": "d374f11448c26c5992fbb8848f94f6fb0f5df4ad1176b750377869416b7d3e7c",
+    "senseId": "example:patiently",
+    "exampleIndex": 0,
+    "partOfSpeech": "adverb",
+    "meaningZh": "耐心地",
+    "en": "He patiently untangled the necklace beneath the lamp.",
+    "zh": "他在灯下耐心地理开了缠在一起的项链。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "philip",
+    "expectedEntrySha256": "458cca4a86b097889622e2164cb7f9772fdf7430f1905cff2502ede03ad4949b",
+    "canonicalId": 2185097,
+    "canonicalSourceSha256": "5977b0f205d3b13ba872a1fc4fb33c85373f68c0e2ef4fa8b57afaa141f507f4",
+    "senseId": "example:philip",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "菲利普（男子名）",
+    "en": "Philip found an old bus ticket inside the secondhand novel.",
+    "zh": "菲利普在那本二手小说里发现了一张旧公交车票。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "pic",
+    "expectedEntrySha256": "e5163bf870159864a018323581314e13cd5e52668c2091b79884dea72195316f",
+    "canonicalId": 2083651,
+    "canonicalSourceSha256": "5a06ee0934bd830cde76ca5e2f72b11c5458088f6282075c302f3cb2efda031c",
+    "senseId": "example:pic",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "照片（非正式）",
+    "en": "She sent a pic of the finished mural to her brother.",
+    "zh": "她把一张已完工壁画的照片发给了自己的兄弟。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "pierre",
+    "expectedEntrySha256": "da3fddff7f848f9fbe27efb156a6d707b643cfd133d0b02a83b58f372fe6e873",
+    "canonicalId": 2276176,
+    "canonicalSourceSha256": "7848d40c5fa286a575fe692a6597411705dddc535e1e8fe82fad4b39cdbcaae1",
+    "senseId": "example:pierre",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "皮埃尔（男子名）",
+    "en": "Pierre lifted the lid to check whether the bread had risen.",
+    "zh": "皮埃尔揭开盖子，查看做面包的面团是否已经发起来了。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "queensberry",
@@ -976,6 +1288,71 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/coverage-semantic-independent-next-002"
   },
   {
+    "term": "self-imposed",
+    "expectedEntrySha256": "64691d5e877e55c20c8bd77cee936f4f32321111d2a04546d2b794cc1ee592e1",
+    "canonicalId": 2165731,
+    "canonicalSourceSha256": "82936105ea4e7e7a5579326bdd21803c98d5a8a96caeda821568d94df63eb23a",
+    "senseId": "example:self-imposed",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "自我施加的",
+    "en": "Her self-imposed deadline left little time for extra illustrations.",
+    "zh": "她给自己定下的截止日期，让她几乎没有时间再加画插图。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "shelley",
+    "expectedEntrySha256": "14ae1ea6a487a7ce8fc2ffd95d5eecdd90ef647973a2b63a7713adac6c96396f",
+    "canonicalId": 2236047,
+    "canonicalSourceSha256": "34ddcbb42d4bd3c96244903e80008140a7299430ffb577eb4b05ad71603576a0",
+    "senseId": "example:shelley",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "谢莉（女子名）",
+    "en": "Shelley took the smaller suitcase so her sister could use the larger one.",
+    "zh": "谢莉拿了较小的行李箱，好让自己的一位姐妹用较大的那个。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "singer-songwriter",
+    "expectedEntrySha256": "e246e20b6ee4734cb0478383df5212eb05a5cd0e6f2831414fd093d8a385c311",
+    "canonicalId": 2167298,
+    "canonicalSourceSha256": "2d5dc46c4499b629a41b073499f9975f5df53983f0e8dabab395b8b8794a9adb",
+    "senseId": "example:singer-songwriter",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "创作并演唱歌曲的歌手",
+    "en": "The singer-songwriter performed a ballad about her grandmother's village.",
+    "zh": "那位创作歌手演唱了一首歌谣，唱的是她祖母或外祖母的村庄。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "someday",
+    "expectedEntrySha256": "e74dc394f0193bf6f95f5ca2c7ca5841fa4ae46e7071732aa7448fa6738b4788",
+    "canonicalId": 2219049,
+    "canonicalSourceSha256": "c7790c6c6b2f63adbf399ab5bada134dc965dacd090816ef5627c284713406c8",
+    "senseId": "example:someday",
+    "exampleIndex": 0,
+    "partOfSpeech": "adverb",
+    "meaningZh": "将来有一天",
+    "en": "Someday I hope to see the village where my grandfather grew up.",
+    "zh": "我希望将来有一天能去看看自己的祖父或外祖父长大的村庄。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "sought-after",
+    "expectedEntrySha256": "3305507c9a09fc09f125840c0f8508fa59d6f42515afe1ac0cf70e37e39e55f3",
+    "canonicalId": 2168524,
+    "canonicalSourceSha256": "e9b68df6a09cabb4bc8ac2210cd24a5d806dc8c68a864d4d07eb5e345bcd1bbd",
+    "senseId": "example:sought-after",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "广受追捧的",
+    "en": "The sought-after designer still made time for student workshops.",
+    "zh": "那位备受追捧的设计师仍为学生工作坊抽出时间。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "spf",
     "expectedEntrySha256": "aa5baa50d3c050ea1baff078fc103688f9837a49b03efea9b86f5f658156cc1a",
     "canonicalId": 5557168,
@@ -987,6 +1364,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "She compared the SPF values on the two bottles of sunscreen.",
     "zh": "她比较了两瓶防晒霜的防晒系数。",
     "reviewer": "AI/coverage-semantic-independent-next-002"
+  },
+  {
+    "term": "steven",
+    "expectedEntrySha256": "fa8a628df20b02d6a81f5d152d0275cb53dbd3f4959f83634804f9eb06801d27",
+    "canonicalId": 2234686,
+    "canonicalSourceSha256": "b8697aabacd66ce2d11fd147994067c270e564d1143c5fe07d107f98ce81ff14",
+    "senseId": "example:steven",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "史蒂文（男子名）",
+    "en": "Steven found a quiet bench to repair his broken kite.",
+    "zh": "史蒂文找了一张周围安静的长凳，好修理自己坏掉的风筝。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "sud",
@@ -1002,6 +1392,19 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/example_quality_provenance_audit"
   },
   {
+    "term": "suffolk",
+    "expectedEntrySha256": "3b61fb5eca0d8a3c6f74bdfc4219c8cd81b6aa6b8905be834572fd7b0e6a3e87",
+    "canonicalId": 2232255,
+    "canonicalSourceSha256": "c7307f43e8c53177e0f5b0d52813bb8f0b87eaf66309e60d45bf8f67c15b100a",
+    "senseId": "example:suffolk",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "萨福克郡（英格兰郡名）",
+    "en": "The photograph shows my grandparents on a beach in Suffolk.",
+    "zh": "照片里，我的（外）祖父母在萨福克郡的一处海滩上。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "sulk",
     "expectedEntrySha256": "44cd508bbdb437a14f601172eb8b78e6e328f30a2288d66e07c8051e87c59c1b",
     "canonicalId": 2069104,
@@ -1015,6 +1418,71 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "reviewer": "AI/everyday_examples_continue_precision_0019"
   },
   {
+    "term": "surrealist",
+    "expectedEntrySha256": "6ab8fe5aadf28767735b5c36c4a75b8d8be6d9d9be23f1ad5ba3448a86935b82",
+    "canonicalId": 2122955,
+    "canonicalSourceSha256": "535b7f6d8f42659ece3c99f202271fbe37a0291c4dca5d891a9852f331166d33",
+    "senseId": "example:surrealist",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "超现实主义艺术家",
+    "en": "The surrealist placed a tiny ocean inside a painted teacup.",
+    "zh": "那位超现实主义艺术家在画中的茶杯里放进了一片微小的海洋。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "sussex",
+    "expectedEntrySha256": "7370c5c7936dcc0dff8c9b217c96caef9ade37328afef282595a70000aedf16c",
+    "canonicalId": 2203822,
+    "canonicalSourceSha256": "2241b5ef9483af7fa6bc234a956b7815d7ea8fb019ee413322a4710a3b85f8f2",
+    "senseId": "example:sussex",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "苏塞克斯（英格兰地区）",
+    "en": "My grandmother kept a journal of her walking holiday in Sussex.",
+    "zh": "我的祖母或外祖母用日记记下了自己在苏塞克斯徒步度假的经历。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "sutton",
+    "expectedEntrySha256": "244648b4182a8936a14df03fbaf02a1b96cd41e731b51e6de8e31ff0d120b727",
+    "canonicalId": 2262032,
+    "canonicalSourceSha256": "b127da1c9a4c5091e80f4eeb1c7dbe7a8d8ddf5ccf85001593749e28db200955",
+    "senseId": "example:sutton",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "萨顿（此处指英国地名）",
+    "en": "Her cousins in Sutton invited us to stay for the weekend.",
+    "zh": "她在萨顿的堂表亲邀请我们过去住一个周末。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "swansea",
+    "expectedEntrySha256": "2d6d41cf774d7b2f0d558c700a11f5738db92aabf4368a2bd1f76d5ec3980751",
+    "canonicalId": 2301211,
+    "canonicalSourceSha256": "72141a2c786e7b3ca93a804007f006b65779ae7b2d242d3ce50c35cd05d7fda9",
+    "senseId": "example:swansea",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "斯旺西（威尔士城市）",
+    "en": "Her cousin posted the missing photographs from Swansea.",
+    "zh": "她的一位堂表亲从斯旺西寄出了所缺的照片。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "ted",
+    "expectedEntrySha256": "8afbe8cef8964ff601b245873bc4d720384605b983c6c493fd516df2d60e2491",
+    "canonicalId": 2238306,
+    "canonicalSourceSha256": "e0cf83a4942fb63ac20ff15fecc605e17e703659e06f3496f222f6c4729d882b",
+    "senseId": "example:ted",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "翻晒（干草）",
+    "en": "The farmer tedded the hay before the clouds gathered.",
+    "zh": "农夫在云层聚拢之前翻晒了干草。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
     "term": "toynbee",
     "expectedEntrySha256": "96802c32719617cd1229c67af89897c531f4571da309f9265b39be3096a8273b",
     "canonicalId": 5073597,
@@ -1026,6 +1494,32 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "Toynbee waited outside while the librarian fetched the book.",
     "zh": "图书管理员去取书时，托因比在外面等候。",
     "reviewer": "AI/example_quality_provenance_audit"
+  },
+  {
+    "term": "transvestite",
+    "expectedEntrySha256": "eabcde7b52bd25fa9266e3d581a9e466154d32fcbe04608e9f498a06a9afa91c",
+    "canonicalId": 2123661,
+    "canonicalSourceSha256": "97bcc0b6d39f18e8f3b441948943ceb0c3d97fdb84397806bdcb262c1ee86f25",
+    "senseId": "example:transvestite",
+    "exampleIndex": 0,
+    "partOfSpeech": "noun",
+    "meaningZh": "异装者（旧称，可能冒犯）",
+    "en": "The novel's transvestite befriends a costume designer at the theatre.",
+    "zh": "小说中的那位异装者在剧院与一位服装设计师成了朋友。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "up-and-coming",
+    "expectedEntrySha256": "296420db509579c80b74548873e0d4efcd840e5c6789f666993a3b91c99f1d5e",
+    "canonicalId": 2171532,
+    "canonicalSourceSha256": "ccf666c7f923a42bf170e0f76e3cdcc3f2385f0e46d6d3c0fa883a9df14972db",
+    "senseId": "example:up-and-coming",
+    "exampleIndex": 0,
+    "partOfSpeech": "adjective",
+    "meaningZh": "崭露头角的",
+    "en": "The festival featured several up-and-coming designers from nearby colleges.",
+    "zh": "这个节庆重点介绍了几位来自附近高校、崭露头角的设计师。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "vengeful",
@@ -1052,6 +1546,45 @@ export const DICTIONARY_EXAMPLE_CORRECTIONS = Object.freeze([
     "en": "After the crash, the database used WAL to recover committed changes.",
     "zh": "数据库在崩溃后利用预写式日志恢复了已经提交的更改。",
     "reviewer": "AI/coverage-semantic-independent-next-002"
+  },
+  {
+    "term": "wesley",
+    "expectedEntrySha256": "bc01d90f39644edfc9e23dd13621e82f8a7b81f2a8ffad81c076ae91f04008f1",
+    "canonicalId": 2284096,
+    "canonicalSourceSha256": "0d6118f3d05ff48e9322787667f3e0c5df28f60ad9816596deca5c217c4e859f",
+    "senseId": "example:wesley",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "韦斯利（男子名）",
+    "en": "Wesley moved his desk away from the noisy corridor.",
+    "zh": "韦斯利把自己的书桌移到了离那条嘈杂走廊更远的地方。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "whinge",
+    "expectedEntrySha256": "5da7866fda2ce76fa0fca7ef0de5576213849228ea43c1885fc45d66b435cfa8",
+    "canonicalId": 2119193,
+    "canonicalSourceSha256": "dacc87c05f78545e85a05697c11fa659f6accbd220acc2313f8d76a4d74fee7b",
+    "senseId": "example:whinge",
+    "exampleIndex": 0,
+    "partOfSpeech": "verb",
+    "meaningZh": "抱怨个不停",
+    "en": "He whinged about the rain until someone offered him a spare umbrella.",
+    "zh": "他不停地抱怨下雨，直到有人表示愿意给他提供一把备用伞。",
+    "reviewer": "AI/root_translation_precision0022"
+  },
+  {
+    "term": "windsor",
+    "expectedEntrySha256": "d7f930366fa467461e24b3556cfad6743873b9e352e979e7f4d0cc672b28ccc9",
+    "canonicalId": 2246049,
+    "canonicalSourceSha256": "c0b9821ecb3e159390c8f15b6550b68ba03c1cca00fc550257b8b0cf7b9bc7d1",
+    "senseId": "example:windsor",
+    "exampleIndex": 0,
+    "partOfSpeech": "proper noun",
+    "meaningZh": "温莎（英国地名）",
+    "en": "We mailed a postcard from Windsor to my aunt.",
+    "zh": "我们从温莎寄了一张明信片给我一位姑姨辈的亲人。",
+    "reviewer": "AI/root_translation_precision0022"
   },
   {
     "term": "writhe",
