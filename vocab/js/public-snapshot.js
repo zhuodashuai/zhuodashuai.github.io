@@ -20,7 +20,7 @@ export async function readPublicCacheWithDeadline(readCache, onCache, timeoutMs 
 // Bound the whole response, including a body that never finishes. A failed
 // provider must not prevent the static fallback or an already validated cache.
 export async function fetchPublicSnapshot({
-  candidates, snapshot = null, etag: legacyLiveEtag = "", snapshotValidator = null, minimumPublishedAt = 0,
+  candidates, snapshot = null, etag: legacyLiveEtag = "", validatedByUrl, minimumPublishedAt = 0,
   fetcher = globalThis.fetch, timeoutMs = PUBLIC_REQUEST_TIMEOUT_MS
 } = {}) {
   let lastError = new Error("没有可用的公开词库来源");
@@ -31,18 +31,19 @@ export async function fetchPublicSnapshot({
     let timer;
     try {
       const headers = { Accept: "application/json" };
-      let etag = "";
-      if (snapshotValidator?.url === candidate.url) etag = snapshotValidator.etag;
-      else if (!snapshotValidator && candidate.source === "live") etag = legacyLiveEtag;
-      if (snapshot && etag) headers["If-None-Match"] = etag;
+      const legacy = candidate.source === "live" && snapshot && legacyLiveEtag
+        ? { snapshot, etag: legacyLiveEtag } : null;
+      const validated = validatedByUrl?.get(candidate.url) ?? legacy;
+      const etag = validated?.etag;
+      if (etag) headers["If-None-Match"] = etag;
       const request = (async () => {
         const response = await fetcher(candidate.url, { cache: "no-cache", headers, signal: controller.signal });
-        const unchanged = response.status === 304
-          || (response.status === 200 && !response.redirected && response.headers?.get("etag") === etag);
-        if (snapshot && etag && unchanged) {
+        const unchanged = !response.redirected && (response.status === 304
+          || (response.status === 200 && response.headers?.get("etag") === etag));
+        if (etag && unchanged) {
           // An HTTP or service worker cache can supply the unchanged response as 200.
           if (response.body) void response.body.cancel().catch(() => {});
-          return { snapshot, response, source: candidate.source };
+          return { snapshot: validated.snapshot, response, source: candidate.source };
         }
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         return { snapshot: parsePublicSnapshot(await response.json()), response, source: candidate.source };
@@ -51,6 +52,14 @@ export async function fetchPublicSnapshot({
         timer = setTimeout(() => { controller.abort(); reject(new Error("词库连接超时")); }, timeoutMs);
       });
       const result = await Promise.race([request, deadline]);
+      // Remember each provider's validated revision even if it is older than
+      // the one on screen. A 304 must reuse the data for the requested URL.
+      const resultEtag = result.response.headers?.get("etag") || (result.response.status === 304 ? etag : "");
+      if (resultEtag && !result.response.redirected) {
+        validatedByUrl?.set(candidate.url, { snapshot: result.snapshot, etag: resultEtag });
+      } else {
+        validatedByUrl?.delete(candidate.url);
+      }
       const publishedAt = Date.parse(result.snapshot.exportedAt);
       // A reachable Worker can still serve an older deployment. Try the
       // validated static release once, keeping the live response as fallback.

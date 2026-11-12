@@ -36,7 +36,6 @@ const state = {
   snapshot: null,
   filter: "all",
   query: "",
-  snapshotValidator: null,
   showRepeated: readRepeatedReadingPreference(),
   sort: initialParameters.has("sort") ? normalizeEntrySort(initialParameters.get("sort")) : null,
   collectionId: pendingEntryId ? "all" : initialParameters.get("book") || "all",
@@ -98,6 +97,7 @@ const personalLink = document.getElementById("personal-link");
 if (personalLink) personalLink.href = personalWordbookUrl();
 const liveSnapshotUrl = publicSnapshotUrl();
 const pagesSnapshotUrl = new URL("data/owner-wordbook.json", window.location.href).href;
+const validatedByUrl = new Map();
 const pronunciation = setupPronunciationUI();
 const libraryAudioSettings = pronunciation.settings("library-audio-settings");
 refs.libraryOptions.append(libraryAudioSettings);
@@ -585,7 +585,7 @@ async function fetchLatestSnapshot() {
     { url: pagesSnapshotUrl, source: "pages" }
   ];
   const minimumPublishedAt = window.location.hostname === "zhuodashuai.github.io" ? PAGES_RELEASE_FLOOR : 0;
-  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, snapshotValidator: state.snapshotValidator, minimumPublishedAt });
+  return fetchPublicSnapshot({ candidates, snapshot: state.snapshot, validatedByUrl, minimumPublishedAt });
 }
 
 async function performLoad({ background = false } = {}) {
@@ -597,7 +597,7 @@ async function performLoad({ background = false } = {}) {
       if (cached?.snapshot && !state.snapshot) {
         state.snapshot = cached.snapshot;
         if (cached.sourceUrl === liveSnapshotUrl && cached.etag) {
-          state.snapshotValidator = { url: liveSnapshotUrl, etag: cached.etag };
+          validatedByUrl.set(liveSnapshotUrl, { snapshot: cached.snapshot, etag: cached.etag });
         }
         refs.exportPublic.disabled = false;
         refs.loadError.hidden = true;
@@ -618,9 +618,6 @@ async function performLoad({ background = false } = {}) {
       refs.dataStatus.textContent = `即时刷新源暂不可用，已保留 ${new Date(state.snapshot.exportedAt).toLocaleString("zh-CN")} 的较新词库。`;
       return;
     }
-    const sourceUrl = source === "live" ? liveSnapshotUrl : pagesSnapshotUrl;
-    const etag = response.headers.get("etag") || (response.status === 304 ? state.snapshotValidator?.etag : "");
-    state.snapshotValidator = etag ? { url: sourceUrl, etag } : null;
     publicConfirmations = reconcileOwnerPublicConfirmations({ ...snapshot,
       readSource: source === "live" ? "live" : "deployed-fallback" }, publicConfirmations);
     if (state.snapshot?.revisionId === snapshot.revisionId) {
@@ -642,7 +639,8 @@ async function performLoad({ background = false } = {}) {
       state.selectedEntry = entryDetail.refresh();
       if (state.selectedEntry) void renderSelectedReviewState(state.selectedEntry);
     }
-    void putPublicCache(snapshot, "", response.url, { etag: source === "live" ? etag : "" }).catch(() => {
+    const etag = source === "live" ? validatedByUrl.get(liveSnapshotUrl)?.etag : "";
+    void putPublicCache(snapshot, "", response.url, { etag }).catch(() => {
       if (state.snapshot?.revisionId === snapshot.revisionId) refs.dataStatus.textContent += " · 本机缓存暂不可用";
     });
   } catch (networkError) {
