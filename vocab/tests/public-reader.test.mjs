@@ -93,6 +93,32 @@ test("304 reuses a validated snapshot with the live etag, not an uninitialized r
   assert.equal(cold.source, "pages");
 });
 
+test("the Pages validator is sent only to its own URL and skips an unchanged body", async () => {
+  const snapshot = parsePublicSnapshot(fixture);
+  const snapshotValidator = { url: candidates[1].url, etag: 'W/"pages-current"' };
+  const unchangedResponses = [
+    new Response(null, { status: 304 }),
+    new Response("this body must not be parsed", { headers: { etag: snapshotValidator.etag } })
+  ];
+  for (const unchangedResponse of unchangedResponses) {
+    const result = await fetchPublicSnapshot({ candidates, snapshot, snapshotValidator, fetcher: async (url, { headers }) => {
+      if (url === candidates[0].url) {
+        assert.equal(headers["If-None-Match"], undefined);
+        return new Response(null, { status: 304 });
+      }
+      assert.equal(headers["If-None-Match"], snapshotValidator.etag);
+      return unchangedResponse;
+    } });
+    assert.equal(result.source, "pages");
+    assert.equal(result.snapshot, snapshot);
+  }
+  const next = { ...fixture, revisionId: "new-pages-revision" };
+  const result = await fetchPublicSnapshot({ candidates, snapshot, snapshotValidator, fetcher: async (url) => url === candidates[0].url
+    ? new Response(null, { status: 503 })
+    : Response.json(next, { headers: { etag: 'W/"pages-next"' } }) });
+  assert.equal(result.snapshot.revisionId, next.revisionId);
+});
+
 test("failed sources reject without modifying the last known valid data", async () => {
   const snapshot = parsePublicSnapshot(fixture);
   const before = structuredClone(snapshot);

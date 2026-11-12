@@ -21,6 +21,7 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js?v=116", "./js/public-snapshot.js?v=116",
   "./js/public-app-v113.js?v=115",
   "./js/public-app-v113.js?v=114", "./js/teamwork-study-net.js", "./js/public-snapshot.js?v=114",
   "./js/public-app-v113.js", "./js/entry-detail-v113.js", "./js/chapter-quiz-ui.js?v=113",

@@ -20,7 +20,7 @@ export async function readPublicCacheWithDeadline(readCache, onCache, timeoutMs 
 // Bound the whole response, including a body that never finishes. A failed
 // provider must not prevent the static fallback or an already validated cache.
 export async function fetchPublicSnapshot({
-  candidates, snapshot = null, etag = "", minimumPublishedAt = 0,
+  candidates, snapshot = null, etag: legacyLiveEtag = "", snapshotValidator = null, minimumPublishedAt = 0,
   fetcher = globalThis.fetch, timeoutMs = PUBLIC_REQUEST_TIMEOUT_MS
 } = {}) {
   let lastError = new Error("没有可用的公开词库来源");
@@ -31,10 +31,17 @@ export async function fetchPublicSnapshot({
     let timer;
     try {
       const headers = { Accept: "application/json" };
-      if (candidate.source === "live" && snapshot && etag) headers["If-None-Match"] = etag;
+      let etag = "";
+      if (snapshotValidator?.url === candidate.url) etag = snapshotValidator.etag;
+      else if (!snapshotValidator && candidate.source === "live") etag = legacyLiveEtag;
+      if (snapshot && etag) headers["If-None-Match"] = etag;
       const request = (async () => {
         const response = await fetcher(candidate.url, { cache: "no-cache", headers, signal: controller.signal });
-        if (response.status === 304 && candidate.source === "live" && snapshot) {
+        const unchanged = response.status === 304
+          || (response.status === 200 && !response.redirected && response.headers?.get("etag") === etag);
+        if (snapshot && etag && unchanged) {
+          // An HTTP or service worker cache can supply the unchanged response as 200.
+          if (response.body) void response.body.cancel().catch(() => {});
           return { snapshot, response, source: candidate.source };
         }
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
