@@ -4,6 +4,7 @@ import {parsePublicSnapshot,publicEntryMatchesQuery,normalizePublicSearchQuery,c
 import {sortWordbookEntries} from '../../../vocab/js/entry-sort.js';
 import {filterLearningEntries} from '../../../vocab/js/reading-card-policy.js';
 import {createChapterQuiz} from '../../../vocab/js/chapter-quiz.js';
+import {expectFullPublicEntry} from './public-entry-assertions.mjs';
 
 const raw=JSON.parse(await readFile(new URL('../../../vocab/data/owner-wordbook.json',import.meta.url),'utf8'));
 const snapshot=parsePublicSnapshot(raw),all=snapshot.entries,ordered=sortWordbookEntries(all,'newest');
@@ -122,6 +123,32 @@ for(const variant of ['current-v113','current-reusable'])test.describe(variant,(
     await expect(page.locator('#entry-dialog')).toBeVisible();await expect(page.locator('#dialog-term')).toHaveText(far.term);
     await expect(page.locator('#entry-grid .word-card')).toHaveCount(all.length);await expect(page.locator('#library-card-window')).toBeHidden();
     await page.keyboard.press('Escape');await expect(page.locator(`#entry-grid .card-open[data-entry-id="${far.id}"]`)).toBeFocused();
+  });
+
+  test('a missing cached deep-link target stays bounded until its exact fresh card arrives',async({page})=>{
+    const target=all.find(row=>row.term==='hip');
+    const old={...raw,revisionId:'window-target-not-cached',entries:raw.entries.filter(row=>row.id!==target.id)};
+    await page.route('**/__card-window-cache-bootstrap',route=>route.fulfill({contentType:'text/html',body:'<!doctype html><title>Cache fixture</title>'}));
+    await page.goto('/__card-window-cache-bootstrap');
+    await page.evaluate(async cached=>(await import('/js/owner-storage.js?v=82')).putPublicCache(cached),old);
+    let release,reached;const gate=new Promise(resolve=>{release=resolve;}),seen=new Promise(resolve=>{reached=resolve;});
+    await page.route('**/api/v1/public/wordbook*',async route=>{
+      reached();await gate;
+      try{await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(raw)});}catch{/* A failed assertion can close the gated page. */}
+    });
+    await page.route('**/data/owner-wordbook.json*',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(old)}));
+    try{
+      await page.goto(`/?entry=${encodeURIComponent(target.id)}`);await seen;
+      await expect(page.locator('#entry-count')).toHaveText(String(old.entries.length));
+      await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);await expect(page.locator('#entry-dialog')).toBeHidden();
+      expect(new URL(page.url()).searchParams.get('entry')).toBe(target.id);
+      release();await expectFullPublicEntry(page,target);
+      await expect(page.locator('#entry-grid .word-card')).toHaveCount(all.length);
+      await page.keyboard.press('Escape');await expect(page.locator(`#entry-grid .card-open[data-entry-id="${target.id}"]`)).toBeFocused();
+      await page.goto('/?entry=public-00000000-0000-4000-8000-000000000000');
+      await expect(page.locator('#entry-count')).toHaveText(String(all.length));
+      await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);await expect(page.locator('#entry-dialog')).toBeHidden();
+    }finally{release();}
   });
 
   test('mobile expansion controls remain reachable and focus the first new card after the last batch',async({page},info)=>{

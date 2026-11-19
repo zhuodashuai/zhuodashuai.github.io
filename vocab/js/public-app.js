@@ -538,7 +538,7 @@ function render() {
     query, state.filter, displaySort, state.showRepeated, state.view]);
   if (nextWindowKey !== cardWindowKey) { cardWindowKey = nextWindowKey; cardWindowLimit = CARD_WINDOW_SIZE; }
   // Preserve the existing deep-link invoker and source-card behavior.
-  if (pendingEntryId) cardWindowLimit = Infinity;
+  if (pendingEntryId && filtered.some(entry => entry.id === pendingEntryId)) cardWindowLimit = Infinity;
   const visibleEntries = filtered.slice(0, cardWindowLimit);
   const cards = visibleEntries.map((entry) => {
     const article = document.createElement("article");

@@ -22,6 +22,12 @@ test.beforeEach(async ({ context, page }) => {
   page.on("pageerror", error => { throw new Error(`Inline lookup error: ${error.message}`); });
 });
 
+test.afterEach(async ({ context }) => {
+  // Drain the isolated public-snapshot mock before its API context is disposed.
+  // Waiting preserves handler errors instead of silently ignoring them.
+  await context.unrouteAll({ behavior: "wait" });
+});
+
 function observe(page) {
   const calls = [];
   page.on("request", request => {
