@@ -130,7 +130,7 @@ const SHELL = [
   "./quick-notes.html", "./quick-notes.css?v=77",
   "./js/quick-notes-app.js?v=77", "./js/quick-notes-storage.js?v=77",
   "./js/quick-notes-app.js", "./js/quick-notes-storage.js",
-  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./styles.css?v=100", "./manifest.webmanifest",
+  "./", "./index.html", "./owner.html", "./guide.html", "./styles.css?v=96", "./styles.css?v=100", "./styles.css?v=117", "./manifest.webmanifest",
   "./js/public-app.js?v=101", "./js/owner-app.js?v=97", "./js/public-app.js", "./js/owner-app.js", "./js/entry-detail.js", "./js/synonym-groups.js", "./js/synonym-view.js", "./js/collections.js", "./js/study.js", "./js/review.js", "./js/pwa.js", "./js/runtime-config.js",
   "./js/public-snapshot.js", "./js/learning-backup.js", "./js/learning-backup-ui.js",
   "./js/pronunciation.js", "./js/pronunciation-ui.js",

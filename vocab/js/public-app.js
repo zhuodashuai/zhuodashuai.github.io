@@ -52,6 +52,40 @@ const state = {
   entryViewToken: 0,
   reviewBusy: false
 };
+const CARD_WINDOW_SIZE = 160;
+let cardWindowLimit = CARD_WINDOW_SIZE, cardWindowKey = "";
+const cardWindowControls = document.createElement("div");
+cardWindowControls.id = "library-card-window";
+cardWindowControls.className = "card-window-controls";
+cardWindowControls.hidden = true;
+cardWindowControls.setAttribute("role", "group");
+cardWindowControls.setAttribute("aria-label", "词卡显示范围");
+const cardWindowStatus = document.createElement("p");
+cardWindowStatus.id = "library-card-window-status";
+cardWindowStatus.setAttribute("role", "status");
+cardWindowStatus.setAttribute("aria-live", "polite");
+const cardWindowActions = document.createElement("div");
+cardWindowActions.className = "card-window-actions";
+const cardWindowMore = document.createElement("button"), cardWindowAll = document.createElement("button");
+cardWindowMore.id = "library-show-more"; cardWindowAll.id = "library-show-all";
+for (const control of [cardWindowMore, cardWindowAll]) {
+  control.type = "button"; control.className = "quiet-button"; control.setAttribute("aria-controls", "entry-grid");
+}
+cardWindowAll.textContent = "显示全部";
+cardWindowActions.append(cardWindowMore, cardWindowAll);
+cardWindowControls.append(cardWindowStatus, cardWindowActions);
+refs.entryGrid.after(cardWindowControls);
+function expandCardWindow(all) {
+  if (cardWindowControls.hidden) return;
+  const previousCount = refs.entryGrid.childElementCount;
+  cardWindowLimit = all ? Infinity : cardWindowLimit + CARD_WINDOW_SIZE;
+  render();
+  // The persistent footer keeps focus during ordinary expansion. Its last
+  // expansion hides the buttons, so hand focus to the first newly shown card.
+  if (cardWindowControls.hidden) refs.entryGrid.children[previousCount]?.querySelector(".card-open")?.focus();
+}
+cardWindowMore.addEventListener("click", () => expandCardWindow(false));
+cardWindowAll.addEventListener("click", () => expandCardWindow(true));
 const repeatControls = document.createElement("div");
 repeatControls.className = "reading-card-controls";
 repeatControls.id = "reading-card-controls";
@@ -498,7 +532,15 @@ function render() {
     isOutsideScope: (entry) => !scopeIds.has(entry.id),
     onOpen: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
   });
-  const cards = filtered.map((entry) => {
+  // Only DOM construction is bounded. Search, ranking, counts, study and quiz
+  // scopes above still use the complete source collection and filtered set.
+  const nextWindowKey = JSON.stringify([state.snapshot?.revisionId || "", state.collectionId, state.chapterId,
+    query, state.filter, displaySort, state.showRepeated, state.view]);
+  if (nextWindowKey !== cardWindowKey) { cardWindowKey = nextWindowKey; cardWindowLimit = CARD_WINDOW_SIZE; }
+  // Preserve the existing deep-link invoker and source-card behavior.
+  if (pendingEntryId) cardWindowLimit = Infinity;
+  const visibleEntries = filtered.slice(0, cardWindowLimit);
+  const cards = visibleEntries.map((entry) => {
     const article = document.createElement("article");
     article.className = "word-card";
     const kicker = document.createElement("div");
@@ -547,6 +589,9 @@ function render() {
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
+  cardWindowStatus.textContent = `已显示 ${visibleEntries.length}/${filtered.length}`;
+  cardWindowMore.textContent = `显示更多（+${Math.min(CARD_WINDOW_SIZE, Math.max(0, filtered.length - visibleEntries.length))}）`;
+  cardWindowControls.hidden = groupedView || passagesView || visibleEntries.length >= filtered.length;
   const activeAudio = pronunciation.controller.getState();
   const activeAudioEntry = entries.find((entry) => entry.id === activeAudio.activeKey);
   if (activeAudio.activeKey && (!activeAudioEntry || activeAudioEntry.term.replace(/\s+/gu, " ").trim() !== activeAudio.text)) pronunciation.stop();

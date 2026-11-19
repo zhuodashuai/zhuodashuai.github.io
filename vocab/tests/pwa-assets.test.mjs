@@ -80,6 +80,8 @@ test("inline lookup, folders and existing entry points share one coherent module
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
   }
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
+  assert.match(vocabHtml, /href="styles\.css\?v=117"/u);
+  for (const version of ["100", "117"]) assert.ok(serviceWorker.includes(`"./styles.css?v=${version}"`), "Keep both current and existing offline stylesheet URLs");
   assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=117"/u);
   for (const file of ["public-app-v113.js?v=116", "public-snapshot.js?v=116", "public-app-v113.js?v=115", "public-app-v113.js?v=114", "teamwork-study-net.js", "public-snapshot.js?v=114"]) {
     assert.ok(serviceWorker.includes(`"./js/${file}"`), file);
@@ -182,7 +184,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
   assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=117"/);
-  assert.match(vocabHtml, /href="styles\.css\?v=100"/);
+  assert.match(vocabHtml, /href="styles\.css\?v=117"/);
   assert.match(ownerHtml, /src="js\/owner-app-v108\.js\?v=114"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);
   assert.match(guideHtml, /href="styles\.css\?v=100"/);

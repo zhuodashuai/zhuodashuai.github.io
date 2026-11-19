@@ -17,6 +17,12 @@ for (const width of [390, 1440]) {
     page.on("pageerror", error => errors.push(error.message));
     await page.goto(`/?book=${bookId}&chapter=${chapterId}`);
     await expect(page.locator("#entry-count")).toHaveText(String(expectedCount));
+    // This source audit intentionally checks every reviewed chapter card.
+    // Request them through the real UI; ordinary reading starts with 160.
+    if (expectedCount > 160) {
+      await expect(page.locator("#library-show-all")).toBeVisible();
+      await page.locator("#library-show-all").click();
+    }
     await expect(page.locator("#entry-grid .word-card")).toHaveCount(expectedCount);
     await expect(page.locator("#entry-grid .word-card h3").filter({ hasText: /^at home$/iu })).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

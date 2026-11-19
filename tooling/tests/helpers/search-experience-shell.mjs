@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 // First authenticate the complete new shell, then reverse only named changes
 // before older historical tests apply their existing, unchanged byte pins.
 const pins = new Map([
-  ["index.html", [[14536, "18a6fdfc654b0e36e97d09023a0d7f31ba7ecab2285096cb2b118fcc2c37c6f2"], [14660, "ca5faddc5fd10289f5844337dfb302384026c5206d5be27ed8215341d9170399"]]],
+  ["index.html", [[14536, "8f6156d1eeba060c6a76ec4e9495880ef94d884dfeef0079cb88cddf54d8d366"], [14660, "bdd281298d645030330fba2ba1bd1c7f71159608d98860bdb2c1e53aef84151a"]]],
   ["personal.html", [[23743, "ebf232b240da539b16d12827dd535835bc6e9189b868f8c21a97ddaf0eb57d3b"], [23843, "be92f1b861a4c59337476109af4082bb463437ab28c5d67be12a02b4a04a9784"]]],
   ["owner.html", [[12864, "4568a79b542496244ac40a40b183b6cafdab0d1e3b7213dec91a286e663ada43"], [12913, "042990c22e7104f2ecc44dd3b38c37ac733d132b2b15c2638ef2b11ad312f8b4"]]],
   ["dictionary.html", [[7911, "2bb0323c9c92096aabaff4efc9964d195c05f0fb0789cfa5d42f9ebadaa5c2ad"], [8011, "7cff2879131fc56971e02e43ea46be8a3d0bee097710502e86a6aa4e8faaea24"]]],
@@ -22,6 +22,7 @@ export function restoreSearchExperienceShell(file, text) {
   const raw = Buffer.from(text), digest = createHash("sha256").update(raw).digest("hex");
   assert(allowed.some(([bytes, sha]) => bytes === raw.length && sha === digest), `${file}: current search-experience shell snapshot changed`);
   if (file === "index.html") {
+    text = once(text, 'href="styles.css?v=117"', 'href="styles.css?v=100"');
     text = once(text, '<summary>筛选与设置</summary>', '<summary>筛选与发音</summary>');
     return once(text, 'src="js/public-app-v113.js?v=117"', 'src="js/public-app-v113.js?v=115"');
   }
