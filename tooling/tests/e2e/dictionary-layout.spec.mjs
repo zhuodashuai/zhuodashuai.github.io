@@ -211,7 +211,7 @@ test("phone reverse lookup offers further results inside the expanded switcher a
 test("complete Chinese associations arrive together and keep the phone switcher compact without moving the selected definition", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const gate = deferred(); let seen = false;
-  await page.route(/\/chinese-search-ranking\/[^?]+[.]bin$/u, async route => {
+  await page.route(/\/data\/(?:chinese-search-ranking|chinese-query-cache)\/[^?]+[.]bin(?:\?.*)?$/u, async route => {
     const response = await route.fetch(); seen = true; await gate.promise;
     await route.fulfill({ response }).catch(() => {});
   });

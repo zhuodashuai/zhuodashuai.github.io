@@ -1,3 +1,4 @@
+// Optional source-bound Chinese query packets; install only code and the small release descriptor.
 // Follow-up search coverage: scoped reviewed meanings and authenticated complete spelling variants.
 // Search experience: literal-first recovery, scoped Chinese evidence and a compact sticky search.
 // Reuse twelve authenticated original pairs with their specific labels; keep saved data and warmed shards.
@@ -23,6 +24,38 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js?v=119",
+  "./js/personal-app-v108.js?v=116",
+  "./js/owner-app-v108.js?v=116",
+  "./js/dictionary-entry-v109.js?v=116",
+  "./js/dictionary-app-v109.js?v=116",
+  "./js/dictionary-app.js?v=116",
+  "./js/library-lookup-controller.js?v=116",
+  "./js/library-lookup-ui.js?v=116",
+  "./js/personal-lookup-flow.js?v=116",
+  "./js/dictionary-suggestions.js?v=116",
+  "./js/expanded-dictionary.js?v=116",
+  "./js/english-surface-variants.js?v=116",
+  "./js/everyday-lookup.js?v=116",
+  "./js/everyday-lookup-data.js?v=116",
+  "./js/reviewed-senses-data.js?v=116",
+  "./js/search-experience-data.js?v=116",
+  "./js/dictionary-examples-current-v4.js?v=116",
+  "./js/dictionary-examples-ui-v108.js?v=116",
+  "./js/entry-detail-v113.js?v=116",
+  "./js/entry-detail-v108.js?v=116",
+  "./js/selected-common-sense.js?v=116",
+  "./js/selected-legacy-examples.js?v=116",
+  "./js/chinese-search.js?v=116",
+  "./js/chinese-ranking.js?v=116",
+  "./js/chinese-query-cache.js?v=116",
+  "./js/chinese-query-cache-release.js?v=116",
+  "./js/chinese-query-cache-format.js?v=116",
+  "./js/chinese-query-cache.js",
+  "./js/chinese-query-cache-release.js",
+  "./js/chinese-query-cache-format.js",
+  "./js/dictionary-offline-warm-v108.js?v=116",
+
   "./js/public-app-v113.js?v=118",
   "./js/personal-app-v108.js?v=115",
   "./js/owner-app-v108.js?v=115",
@@ -304,7 +337,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(networkFirst(request));
     return;
   }
-  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/chinese-search-ranking/") || url.pathname.includes("/data/dictionary-suggestions/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
+  if ((url.pathname.includes("/data/expanded-dictionary/") || url.pathname.includes("/data/chinese-search-ranking/") || url.pathname.includes("/data/chinese-query-cache/") || url.pathname.includes("/data/dictionary-suggestions/") || url.pathname.includes("/data/dictionary-examples/")) && request.cache === "reload") {
     event.respondWith(reloadPublicShard(request, event));
     return;
   }

@@ -1,9 +1,9 @@
 import { canonicalizeLookupInput, normalizeEnglish } from "./wordbook-schema.js?v=82";
 import { isReviewedCoreDictionaryResult } from "./personal-dictionary.js?v=97";
 import { searchEverydayDictionary, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
-  isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=115";
-import { chineseSearchPlan } from './chinese-search.js?v=114';
-import { hasSelectedCommonSensePlan } from './selected-common-sense.js?v=115';
+  isRetainedCanonicalSenseHead, sanitizeRetainedCanonicalResult } from "./everyday-lookup.js?v=116";
+import { chineseSearchPlan } from './chinese-search.js?v=116';
+import { hasSelectedCommonSensePlan } from './selected-common-sense.js?v=116';
 
 const abortError = () => new DOMException("查词已停止。", "AbortError");
 const settled = operation => Promise.resolve().then(operation).then(value => ({ value }), error => ({ error }));

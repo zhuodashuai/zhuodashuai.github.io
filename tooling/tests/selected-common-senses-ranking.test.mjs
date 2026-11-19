@@ -76,7 +76,7 @@ test('global finite source projection cannot accept a modified complete English 
     record.variants[0].meaning += ' changed';
     return Buffer.from(JSON.stringify(payload));
   });
-  await assert.rejects(searchExpandedDictionary('责任', data), { code: 'invalid_dictionary_data' });
+  await assert.rejects(searchExpandedDictionary('责任', { ...data, useChineseQueryCache: false }), { code: 'invalid_dictionary_data' });
 });
 
 test('bound-group complete personal lookup preserves global pagination and never races an old compact group', async () => {
@@ -103,4 +103,21 @@ test('0009 prospective hold remains historical and the new group route does not 
   assert.deepEqual(entry.originalDTO, held.originalDTO);
   assert(held.canonicalRecord.meaning.includes('恩惠'));
   assert(!binding.selectedRow.retainLegacyChinese); assert(!binding.selectedRow.retainedCanonicalAlternatives);
+});
+
+
+test('a valid default Chinese packet never authenticates a changed literal English shard',async()=>{
+ // Obligation has an independently authored literal override. Duty is the
+ // canonical source-backed English member of this same Chinese query group.
+ const head='duty',raw=canonical.get(head),descriptor=manifest.english.shards[81];
+ const data=transport((url,bytes)=>{
+  if(!url.pathname.endsWith('/'+descriptor.file))return bytes;
+  const payload=JSON.parse(bytes),record=payload.records.find(row=>row.id===raw.id);record.meaning+=' changed';return Buffer.from(JSON.stringify(payload));
+ });
+ const cached=await searchExpandedDictionary('责任',data);
+ assert(cached.results.some(row=>row.term===head));
+ assert(data.requests.some(url=>url.includes('/data/chinese-query-cache/')),'The initial Chinese view must actually use its authenticated packet');
+ assert(!data.requests.some(url=>url.endsWith('/'+descriptor.file)),'A compiled Chinese result does not read or authenticate the literal English bytes');
+ await assert.rejects(searchExpandedDictionary(head,data),{code:'invalid_dictionary_data'});
+ assert.equal(data.requests.filter(url=>url.endsWith('/'+descriptor.file)).length,1,'Literal English must still authenticate and reject the changed complete shard');
 });

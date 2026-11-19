@@ -411,7 +411,7 @@ test("unplanned Chinese real-data atoms use the complete source sidecar without 
     const requests = [], fetchImpl = async url => {
       requests.push(String(url)); return new Response(await readFile(new URL(url)));
     };
-    const result = await searchExpandedDictionary(query, { fetchImpl });
+    const result = await searchExpandedDictionary(query, { fetchImpl, useChineseQueryCache: false });
     const target = result.results.find(row => row.term === head);
     assert.ok(target, `${query} must retain the whole-atom head ${head}`);
     assert.equal(result.hasMore, true);

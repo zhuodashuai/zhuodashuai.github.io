@@ -5,10 +5,10 @@
 import { DICTIONARY_EXAMPLE_SOURCE, createDictionaryExamplesController as legacyController } from './dictionary-examples.js?v=96';
 import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js';
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
-import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples } from './everyday-lookup.js?v=115';
+import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples } from './everyday-lookup.js?v=116';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
-import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js?v=115';
-import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js?v=115';
+import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js?v=116';
+import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js?v=116';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
 let repairClients=new WeakMap(), componentClients=new WeakMap(), generation=0;

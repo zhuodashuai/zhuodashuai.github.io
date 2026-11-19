@@ -6,7 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {D31_LF_RULES,D31_BUILD,assertD31MetadataTransition} from './d31-regression-fixture.mjs';
 import {D31_PRIOR_ATTRIBUTES_TRANSPORTS,D32_ATTRIBUTES_SUFFIX_LINES,restoreD31HistoricalAttributes,
- FORSYTE_PRIOR_D32_ATTRIBUTES,FORSYTE_PUBLIC_SOURCE_RULE,CHINESE_RANKING_BINARY_RULE,restoreForsytePriorD32Attributes} from './d31-metadata-attributes-bridge.mjs';
+ FORSYTE_PRIOR_D32_ATTRIBUTES,FORSYTE_PUBLIC_SOURCE_RULE,CHINESE_RANKING_BINARY_RULE,CHINESE_QUERY_CACHE_BINARY_RULE,restoreForsytePriorD32Attributes} from './d31-metadata-attributes-bridge.mjs';
 
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const before=await fs.readFile(new URL('../dictionary/examples/archives/d30-release-metadata.attributes.txt',import.meta.url));
@@ -94,7 +94,10 @@ test('Archived fd742 D32 attributes are an exact bounded extension, not a rewrit
 });
 
 test('Forsyte attributes append exactly one LF public-source rule after the complete fd742 D32 bytes',async()=>{
- const withRanking=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const latest=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ const queryCacheRule=Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE);
+ assert.deepEqual(latest.subarray(-queryCacheRule.length),queryCacheRule);
+ const withRanking=latest.subarray(0,-queryCacheRule.length);
  const rankingRule=Buffer.from('vocab/data/chinese-search-ranking/**/*.bin -text\n');
  assert.deepEqual(withRanking.subarray(-rankingRule.length),rankingRule);
  assert.equal(withRanking.toString().split(rankingRule.toString()).length,2,'Only the named ranking binary rule may follow the historical attributes');
@@ -127,4 +130,29 @@ test('the new ranking binary rule is one exact final extension of the pinned his
   Buffer.concat([historical,Buffer.from(CHINESE_RANKING_BINARY_RULE.replace('**','*'))]),
   Buffer.concat([historical,Buffer.from(CHINESE_RANKING_BINARY_RULE.replace(/\n/gu,'\r\n'))]),
   Buffer.concat([historical,rule,Buffer.from('# unrelated\n')])])assert.throws(()=>restoreForsytePriorD32Attributes(invalid,archived));
+});
+
+
+test('query-cache binary preservation is only the exact final extension after the pinned ranking input',async()=>{
+ const archived=await fs.readFile(new URL('../../'+FORSYTE_PRIOR_D32_ATTRIBUTES.file,import.meta.url));
+ const historical=Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE)]);
+ const ranking=Buffer.from(CHINESE_RANKING_BINARY_RULE),rule=Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE);
+ const prior=Buffer.concat([historical,ranking]),valid=Buffer.concat([prior,rule]);
+ const current=await fs.readFile(new URL('../../.gitattributes',import.meta.url));
+ assert.deepEqual(current,valid,'Current attributes must equal the entire pinned prefix plus exactly two ordered binary rules');
+ assert.deepEqual(restoreForsytePriorD32Attributes(current,archived),archived);
+ for(const invalid of[
+  Buffer.concat([historical,rule]),Buffer.concat([historical,rule,ranking]),
+  Buffer.concat([prior,rule,rule]),Buffer.concat([rule,prior]),
+  Buffer.concat([prior,Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE.replace('**','*'))]),
+  Buffer.concat([prior,Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE.replace('-text','binary'))]),
+  Buffer.concat([prior,Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE.replace(/\n/gu,'\r\n'))]),
+  Buffer.concat([valid,Buffer.from('# unrelated\n')]),Buffer.concat([valid,Buffer.from('\n')]),
+  valid.subarray(0,valid.length-1)
+ ])assert.throws(()=>restoreForsytePriorD32Attributes(invalid,archived));
+ const changed=Buffer.from(valid);changed[0]^=1;
+ assert.throws(()=>restoreForsytePriorD32Attributes(changed,archived),'The new suffix must not waive the complete immutable historical prefix');
+ const target='vocab/data/chinese-query-cache/'+'a'.repeat(64)+'/'+'b'.repeat(64)+'.bin';
+ const actual=execFileSync('git',['check-attr','text','eol','--',target],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/u);
+ assert.deepEqual(actual,[target+': text: unset',target+': eol: unspecified']);
 });

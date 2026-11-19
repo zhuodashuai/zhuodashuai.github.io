@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=115";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=116";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
@@ -121,7 +121,7 @@ function queryError(error) {
 // Optional suggestions are loaded only after an exact, successful miss. They
 // never turn an approximate match into a definition or write to a wordbook.
 async function defaultDictionarySuggestions(input, { signal } = {}) {
-  const module = await import("./dictionary-suggestions.js?v=115");
+  const module = await import("./dictionary-suggestions.js?v=116");
   const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
   return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
 }
@@ -389,7 +389,7 @@ export function mountDictionaryPage(document, window) {
     renderExamples({ phase: "loading", message: "正在读取学习例句…" });
     // Do not add a JS/data dependency to the critical meaning/CTA path. A late
     // import/download is guarded separately from the primary query controller.
-    exampleModule ||= import("./dictionary-examples-current-v4.js?v=115");
+    exampleModule ||= import("./dictionary-examples-current-v4.js?v=116");
     void exampleModule.then(module => {
       if (current !== exampleSequence || lastSelected?.term !== term) return;
       exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });

@@ -1,4 +1,4 @@
-import * as packagedEveryday from "./everyday-lookup-data.js?v=115";
+import * as packagedEveryday from "./everyday-lookup-data.js?v=116";
 import { LITERAL_DICTIONARY_HEADS } from "./dictionary-literal-heads-data.js";
 // An old offline data module can still supply its original entries during an
 // interrupted shell update. Extra names appear once the data refresh arrives.

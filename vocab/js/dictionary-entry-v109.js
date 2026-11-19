@@ -1,6 +1,6 @@
-import "./dictionary-app-v109.js?v=115";
+import "./dictionary-app-v109.js?v=116";
 import { setupPwa } from "./pwa.js?v=77";
-import { installDictionaryOfflineWarm } from "./dictionary-offline-warm-v108.js";
+import { installDictionaryOfflineWarm } from "./dictionary-offline-warm-v108.js?v=116";
 
 // Keep the reusable lookup controller's dependency graph unchanged. Only the
 // standalone dictionary entry point installs the offline shell; lookup itself

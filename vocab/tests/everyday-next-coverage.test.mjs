@@ -67,7 +67,7 @@ test('a partial shell refresh can read old data without the extra-alias export',
   const oldRow = EVERYDAY_LOOKUP_ENTRIES.find(row => row.term === 'live agent');
   const oldData = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify([oldRow]) + ';');
   const currentCode = await readFile(new URL('../js/everyday-lookup.js', import.meta.url), 'utf8');
-  const dataSpecifier = '"./everyday-lookup-data.js?v=115"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
+  const dataSpecifier = '"./everyday-lookup-data.js?v=116"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
   for (const specifier of [dataSpecifier,literalSpecifier]) assert.equal(currentCode.split(specifier).length - 1, 1, 'Expected exactly one import: '+specifier);
   const legacyCompatible = currentCode.replace(dataSpecifier, JSON.stringify(oldData))
     .replace(literalSpecifier, JSON.stringify(new URL('../js/dictionary-literal-heads-data.js', import.meta.url).href));

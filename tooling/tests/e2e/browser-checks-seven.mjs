@@ -190,19 +190,36 @@ async function verifyNativeAndOriginals(page, rows, modules) {
         pairCheck(entry, row); if (JSON.stringify(card) !== before) throw Error('Native selected card mutated');
         selected.push({ query: q.query, kind: q.kind, term: first.term, firstTerm: result.results[0]?.term, firstHit: result.results[0]?.term === first.term, chinese, pair: entry.senses[0].examples, unchanged: true });
       }
-      // These are the actual native personal dependencies; no response is stubbed.
-      hot.resetPersonalDictionaryCacheForTests?.(); expanded.resetExpandedDictionaryCacheForTests?.();
-      for (const row of rows.filter(r => r.route === 'canonical')) {
+      // Both real sources have intentionally equivalent core projections. Test
+      // each response order explicitly, retaining the exact source assertion
+      // for that order instead of depending on which fetch happens to win.
+      // Only the losing response delivery is held; both actual reads start.
+      for (const row of rows.filter(r => r.route === 'canonical')) for (const mode of ['hot-first', 'expanded-first']) {
+        hot.resetPersonalDictionaryCacheForTests?.(); expanded.resetExpandedDictionaryCacheForTests?.();
         const callsBefore = { hotLookupCalls, fullSearchCalls };
-        const result = await lookupPersonalDictionaryFast(row.term, {
-          hotLookup: (query, options) => { hotLookupCalls++; return hot.lookupPersonalDictionary(query, { ...options, fetchImpl: staticFetch }); },
-          hotReverse: (query, options) => { hotReverseCalls++; return hot.searchPersonalDictionaryChinese(query, { ...options, fetchImpl: staticFetch }); },
-          fullSearch: (query, options) => { fullSearchCalls++; return expanded.searchExpandedDictionary(query, { ...options, fetchImpl: staticFetch }); },
-        });
-        const first = firstCheck(result, row, row.term, row.nativePrimary), card = { ...first, example: 'Keep native original sentence.', study: { box: 4, correct: 7 } };
+        let releaseDelivery;
+        const delivery = new Promise(resolve => { releaseDelivery = resolve; }), operations = [];
+        const actual = (operation, hold) => {
+          const pending = operation(); operations.push(pending);
+          return hold ? pending.then(value => delivery.then(() => value)) : pending;
+        };
+        let result;
+        try {
+          result = await lookupPersonalDictionaryFast(row.term, {
+            hotLookup: (query, options) => { hotLookupCalls++; return actual(() => hot.lookupPersonalDictionary(query, { ...options, fetchImpl: staticFetch }), mode === 'expanded-first'); },
+            hotReverse: (query, options) => { hotReverseCalls++; return hot.searchPersonalDictionaryChinese(query, { ...options, fetchImpl: staticFetch }); },
+            fullSearch: (query, options) => { fullSearchCalls++; return actual(() => expanded.searchExpandedDictionary(query, { ...options, fetchImpl: staticFetch }), mode === 'hot-first'); },
+          });
+        } finally { releaseDelivery(); await Promise.allSettled(operations); }
+        const expected = mode === 'hot-first' ? row.nativePrimary : row.primary;
+        const first = firstCheck(result, row, row.term, expected), card = { ...first, example: 'Keep native original sentence.', study: { box: 4, correct: 7 } };
+        if (mode === 'expanded-first' && JSON.stringify(first.alternatives) !== JSON.stringify([
+          { ...row.nativePrimary, license: 'MIT', url: row.primary.url },
+        ].map(({term, ...variant}) => variant))) throw Error('Native core alternative provenance mismatch: ' + row.term);
         const before = JSON.stringify(card), entry = await examples.loadDictionaryExamples(row.term, { savedEntry: card, fetchImpl: staticFetch });
         pairCheck(entry, row); if (JSON.stringify(card) !== before) throw Error('Native canonical card mutated');
-        canonical.push({ term: first.term, partOfSpeech: first.partOfSpeech, meaning: first.meaning, source: first.source,
+        canonical.push({ mode, term: first.term, partOfSpeech: first.partOfSpeech, meaning: first.meaning, source: first.source,
+          license: first.license, url: first.url, alternatives: first.alternatives,
           hotLookupCalls: hotLookupCalls - callsBefore.hotLookupCalls, fullSearchCalls: fullSearchCalls - callsBefore.fullSearchCalls,
           pair: entry.senses[0].examples, unchanged: true });
       }
@@ -289,10 +306,12 @@ export async function verifySevenHeadViewport({ context, base, fixture, modules,
     }
     const native = await verifyNativeAndOriginals(page, rows, modules);
     expect(native.chineseFullSearchCalls).toBe(rows.filter(row => row.route === 'selected').reduce((n, row) => n + row.queries.filter(q => /\p{Script=Han}/u.test(q.query)).length, 0));
-    expect(native.selected).toHaveLength(prepared.selectedQueryCount); expect(native.canonical).toHaveLength(3);
-    expect(native.selectedFallbackCalls).toBe(0); expect(native.hotLookupCalls).toBe(3); expect(native.fullSearchCalls).toBe(3);
+    expect(native.selected).toHaveLength(prepared.selectedQueryCount); expect(native.canonical).toHaveLength(6);
+    expect(native.selectedFallbackCalls).toBe(0); expect(native.hotLookupCalls).toBe(6); expect(native.fullSearchCalls).toBe(6);
     expect(native.hotReverseCalls).toBe(0); expect(native.reads.length).toBeGreaterThan(0);
     for (const result of native.canonical) { expect(result.hotLookupCalls).toBe(1); expect(result.fullSearchCalls).toBe(1); }
+    for (const row of rows.filter(row => row.route === 'canonical'))
+      expect(native.canonical.filter(result => result.term === row.term).map(result => result.mode)).toEqual(['hot-first', 'expanded-first']);
     expect(native.originals).toHaveLength(7);
     for (const original of native.originals) expect(original.dto, 'Original DTO retained: ' + original.term).toEqual(rows.find(r => r.term === original.term).originalDTO);
     report.originals.push({ base, width, checks: native.originals }); delete native.originals;

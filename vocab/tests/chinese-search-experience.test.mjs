@@ -84,8 +84,8 @@ test('finite exact-query families carry complete aliases, source roles and no En
 test('real family recall preserves source DTOs and existing compounds or affirmative relative noun phrases',async()=>{
  const requests=[],fetchImpl=async(url,options)=>{assert.equal(new URL(url).protocol,'file:');assert.equal(options.credentials,'omit');requests.push(String(url));return new Response(await readFile(url));};
  for(const [query,term]of [['凉快','cool'],['会员卡','membership card'],['凉爽','fresh'],['会员证','union card'],['账户','transfer money to the wrong account'],['体检','physical']]){
-  const first=await searchExpandedDictionary(query,{fetchImpl,limit:7}),rows=[...first.results];let page=first;
-  while(page.hasMore){page=await searchExpandedDictionary(query,{fetchImpl,limit:7,offset:page.nextOffset});rows.push(...page.results);}
+  const first=await searchExpandedDictionary(query,{fetchImpl,useChineseQueryCache:false,limit:7}),rows=[...first.results];let page=first;
+  while(page.hasMore){page=await searchExpandedDictionary(query,{fetchImpl,useChineseQueryCache:false,limit:7,offset:page.nextOffset});rows.push(...page.results);}
   assert.equal(rows.length,first.total);assert.equal(new Set(rows.map(x=>x.term)).size,rows.length);
   const actual=rows.find(x=>x.term===term);assert.ok(actual,query);
   const literal=(await searchExpandedDictionary(term,{fetchImpl})).results[0];

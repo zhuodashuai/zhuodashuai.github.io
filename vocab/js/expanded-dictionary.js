@@ -1,15 +1,20 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=114";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=116";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
-  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=115";
+  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=116";
 import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
-  createChineseRankingContext } from "./chinese-ranking.js?v=114";
+  createChineseRankingContext } from "./chinese-ranking.js?v=116";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=115';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=116';
 import { rejectsReviewedDictionaryForm } from './dictionary-form-evidence.js?v=114';
-import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=115';
+import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=116';
+import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=116';
+
+// Generated from this engine's complete source/import closure and catalogue
+// inputs. The builder zeroes only this exact marker while computing its hash.
+export const CHINESE_QUERY_ENGINE_BINDING = "5cd45c27dac72cbe594bb1ad66a68be361758278f239a9cfeabc43524bec3894";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -700,7 +705,37 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
 
 async function chineseSearch(query, limit, context, relatedPlan = null, offset = 0) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
-  const completeRanking = await rankingFor(manifest, client, fetchImpl, timeoutMs);
+  // A complete, source-bound query packet is an optional acceleration of this
+  // same global result stream. Validate the complete packet before selecting
+  // its related view. Unknown queries retain the original corpus path; once
+  // that corpus is ready, reuse it directly without another packet read.
+  let packetFailure;
+  if (context.useChineseQueryCache !== false && !client.ranking) {
+    try {
+      const packet = await readChineseQueryPacket(query, {
+        manifest, engineBinding: CHINESE_QUERY_ENGINE_BINDING, fetchImpl, signal, timeoutMs,
+      });
+      if (signal?.aborted) throw stopped();
+      if (packet) {
+        if (packet.metadata.query !== query || packet.metadata.total !== packet.results.length) throw invalid();
+        const all = relatedPlan || context.relatedOnly ? packet.results.filter(row => row.matchType === 'related') : packet.results;
+        const page = all.slice(offset, offset + limit), nextOffset = offset + page.length;
+        return { ...packet.metadata, total: all.length, results: page, hasMore: nextOffset < all.length, nextOffset, offset };
+      }
+    } catch (error) {
+      if (signal?.aborted || error?.name === "AbortError") throw stopped();
+      packetFailure = error;
+    }
+  }
+  let completeRanking;
+  try { completeRanking = await rankingFor(manifest, client, fetchImpl, timeoutMs); }
+  catch (error) {
+    // A corrupt advisory packet can be discarded in favour of an authenticated
+    // complete corpus. If that also fails, keep the integrity failure visible;
+    // it must not turn into an apparently complete packaged-alias answer.
+    if (error?.name !== "AbortError" && packetFailure?.code === "invalid_dictionary_data") throw packetFailure;
+    throw error;
+  }
   if (signal?.aborted) throw stopped();
   if (completeRanking) return integratedChinesePage(query, limit, offset, completeRanking, context, Boolean(relatedPlan || context.relatedOnly));
   if (context.relatedOnly && !relatedPlan) return { query, results: [], hasMore: false };
@@ -841,7 +876,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
 }
 
 /** Optional, non-transitive Chinese meaning associations; never writes cards. */
-export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8, offset = 0 } = {}) {
+export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8, offset = 0, useChineseQueryCache = true } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return { results: [], hasMore: false };
   const query = fold(input).replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
   if (!HAN.test(query) || /[<>]|javascript\s*:/iu.test(query)
@@ -858,7 +893,7 @@ export async function searchRelatedChineseDictionary(input, { signal, fetchImpl 
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (controller.signal.aborted) throw stopped();
-    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal, relatedOnly: true }, plan, start);
+    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal, relatedOnly: true, useChineseQueryCache }, plan, start);
   })();
   try { return await waitFor(work, signal, duration); }
   finally { controller.abort(); signal?.removeEventListener("abort", stop); }
@@ -875,7 +910,7 @@ export async function preloadExpandedDictionary({ signal, fetchImpl = globalThis
 }
 
 /** Exact English/form lookup or ranked Chinese substring search, with no AI. */
-export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset } = {}) {
+export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset, useChineseQueryCache = true } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input.replace(/[\t\r\n]/gu, ""))) throw new Error("请输入不超过 200 个字符的英文或中文释义。");
   const normalizedInput = spelling(input);
   if (/[<>]|javascript\s*:/iu.test(normalizedInput) || /javascript\s*:/iu.test(input.replace(/[\t\r\n]/gu, ""))) throw new Error("请输入要查询的英文或中文释义。");
@@ -905,7 +940,8 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
-    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery, originalInput: input };
+    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery, originalInput: input,
+      useChineseQueryCache: useChineseQueryCache !== false };
     if (literalFallback) {
       const literal = await englishSearch(query, { ...context, literalOnly: true });
       return literal.results.length ? guardLegacySupplementaryResult(literal) : literalFallback;
@@ -925,4 +961,5 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
 
 export function resetExpandedDictionaryCacheForTests() {
   generation++; for (const controller of activeControllers) controller.abort(); activeControllers.clear(); clients = new WeakMap();
+  resetChineseQueryPacketCacheForTests();
 }

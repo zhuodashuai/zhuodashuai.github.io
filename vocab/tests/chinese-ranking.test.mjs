@@ -89,13 +89,13 @@ test("global ranking retains source POS beyond old curated heads and preserves w
 
 test("formerly finite reviewed queries use the complete sidecar and stable global pages", async () => {
   const data = fileTransport();
-  const first = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: 0 });
+  const first = await searchExpandedDictionary("医生", { ...data, useChineseQueryCache: false, limit: 1, offset: 0 });
   assert.equal(first.ranking, "global"); assert.equal(first.results[0].term, "doctor");
   assert.ok(first.hasMore); assert.equal(first.nextOffset, 1);
-  const second = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: first.nextOffset });
+  const second = await searchExpandedDictionary("医生", { ...data, useChineseQueryCache: false, limit: 1, offset: first.nextOffset });
   assert.equal(second.ranking, "global"); assert.notEqual(second.results[0].term, first.results[0].term);
   assert.equal(second.total, first.total); assert.ok(second.hasMore);
-  const end = await searchExpandedDictionary("医生", { ...data, limit: 1, offset: first.total });
+  const end = await searchExpandedDictionary("医生", { ...data, useChineseQueryCache: false, limit: 1, offset: first.total });
   assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
   assert.equal(data.requests.filter(item => /\.bin$/u.test(item.url)).length, 1);
   assert.equal(data.requests.filter(item => /\/en-\d{3}\.json$/u.test(item.url)).length, 0);
@@ -185,14 +185,14 @@ test("English lookups and aborted calls do not load the Chinese sidecar", async 
 
 test("daily Chinese aliases join complete pages while offline known rows stay explicitly partial", async () => {
   const data = fileTransport();
-  const first = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: 0 });
-  const second = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: first.nextOffset });
+  const first = await searchExpandedDictionary("人工客服", { ...data, useChineseQueryCache: false, limit: 1, offset: 0 });
+  const second = await searchExpandedDictionary("人工客服", { ...data, useChineseQueryCache: false, limit: 1, offset: first.nextOffset });
   assert.equal(first.offset, 0); assert.equal(first.nextOffset, 1); assert.ok(first.hasMore);
   assert.equal(second.offset, 1); assert.notEqual(first.results[0].term, second.results[0].term);
   assert.equal(second.total, first.total);
   assert.equal(first.relatedIntegrated, true); assert.equal(first.ranking, "global");
   assert.equal(data.requests.filter(row => /\.bin$/u.test(row.url)).length, 1);
-  const end = await searchExpandedDictionary("人工客服", { ...data, limit: 1, offset: first.total });
+  const end = await searchExpandedDictionary("人工客服", { ...data, useChineseQueryCache: false, limit: 1, offset: first.total });
   assert.deepEqual(end.results, []); assert.equal(end.hasMore, false);
   const offline = await searchExpandedDictionary("人工客服", { fetchImpl: () => { throw new Error("offline"); } });
   assert.equal(offline.coverage, "basic"); assert.equal(offline.nextOffset, null); assert.equal(offline.hasMore, false);

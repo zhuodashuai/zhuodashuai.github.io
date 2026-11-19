@@ -10,7 +10,7 @@ function element(root, name, className = "", text = "") {
 // Read-only material for an opened card. No list warmup, saved-card mutation,
 // account request or review scheduling belongs to this optional layer.
 export function createDictionaryExamplesSection({ root = document, after, before,
-  loadModule = () => import("./dictionary-examples-current-v4.js?v=115") } = {}) {
+  loadModule = () => import("./dictionary-examples-current-v4.js?v=116") } = {}) {
   const section = element(root, "section", "detail-section dictionary-learning-examples");
   section.hidden = true;
   const heading = element(root, "h3", "", "词典学习例句");

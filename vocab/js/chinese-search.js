@@ -206,6 +206,13 @@ for (const group of COMMON_CHINESE_GROUPS) {
   }
 }
 
+/** Build-time inventory of the exact plans accepted above, not an expansion
+ * of the search rules or a list selected from a benchmark. No mutable plan,
+ * evidence object or internal map is exposed to callers. */
+export function registeredChineseQueryCatalogue() {
+  return Object.freeze([...new Set([...plans.keys(), ...wholeSourcePlans.keys(), ...commonPlans.keys()])].sort());
+}
+
 /** A one-hop, exact whole-query plan. No network, storage, or generated words. */
 export function chineseSearchPlan(query) {
   if (typeof query !== "string" || query.length > 50 || CONTROL.test(query)) return null;
