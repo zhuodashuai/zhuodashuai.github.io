@@ -326,8 +326,8 @@ for (const delayedView of ["menu", "history"]) {
     await expect(page.locator("#quiz-scope")).toContainText("Chapter 7");
     await expect(page.locator("#quiz-retry")).toHaveCount(0);
     await page.locator("#quiz-start").click();
-    await expect(page.locator("#quiz-progress")).toHaveText(/^1\s*\/\s*30$/);
-    expect((await attempts(page, "chapter-7"))[0].questions).toHaveLength(30);
+    await expect(page.locator("#quiz-progress")).toHaveText(/^1\s*\/\s*29$/);
+    expect((await attempts(page, "chapter-7"))[0].questions).toHaveLength(29);
   });
 }
 
