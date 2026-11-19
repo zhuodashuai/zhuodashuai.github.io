@@ -125,15 +125,13 @@ export function parseSuggestionShard(value, descriptor) {
   return value.rows;
 }
 
-async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false, transfer) {
+async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false) {
   const controller = new AbortController(); controllers.add(controller); let timer, abort;
   const cancelled = new Promise((_, reject) => {
     abort = () => reject(stopped()); controller.signal.addEventListener("abort", abort, { once: true });
   });
   const task = (async () => {
-    if (transfer) transfer.startedAt = performance.now();
     const response = await fetchImpl(url, { credentials: "omit", cache: descriptor ? (reload ? "reload" : "force-cache") : "no-cache", signal: controller.signal });
-    if (transfer) { transfer.headersSeen = true; transfer.headersAt = performance.now(); }
     if (!response?.ok) throw new Error("拼写建议暂时不可用。");
     const maximum = descriptor?.bytes ?? 64 * 1024;
     if (Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
@@ -166,7 +164,7 @@ async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false, t
 function clientFor(fetchImpl) {
   if (typeof fetchImpl !== "function") throw new Error("无法读取拼写建议。");
   let client = clients.get(fetchImpl);
-  if (!client) { client = { manifest: null, at: 0, loading: null, shards: new Map(), pending: new Map(), failed: new Set(), transfers: new Map() }; clients.set(fetchImpl, client); }
+  if (!client) { client = { manifest: null, at: 0, loading: null, shards: new Map(), pending: new Map(), failed: new Set() }; clients.set(fetchImpl, client); }
   return client;
 }
 async function manifestFor(client, dictionaryVersion, fetchImpl) {
@@ -176,19 +174,14 @@ async function manifestFor(client, dictionaryVersion, fetchImpl) {
     return parseSuggestionManifest(value, dictionaryVersion);
   }
   const started = generation;
-  const transfer = { url: String(MANIFEST_URL), native: fetchImpl === globalThis.fetch, maximum: 64 * 1024 };
-  client.transfers.set(transfer.url, transfer);
-  const loading = readJSON(MANIFEST_URL, fetchImpl, TRANSPORT_TIMEOUT_MS, undefined, false, transfer).then(value => {
+  const loading = readJSON(MANIFEST_URL, fetchImpl, TRANSPORT_TIMEOUT_MS).then(value => {
     const manifest = parseSuggestionManifest(value, dictionaryVersion);
     if (started === generation) {
       if (client.manifest?.version !== manifest.version) client.shards.clear();
       client.manifest = manifest; client.at = Date.now();
     }
     return manifest;
-  }).finally(() => {
-    if (client.loading === loading) client.loading = null;
-    if (client.transfers.get(transfer.url) === transfer) client.transfers.delete(transfer.url);
-  });
+  }).finally(() => { if (client.loading === loading) client.loading = null; });
   client.loading = loading; return loading;
 }
 async function shardFor(client, descriptor, fetchImpl) {
@@ -196,10 +189,7 @@ async function shardFor(client, descriptor, fetchImpl) {
   if (client.shards.has(key)) return client.shards.get(key);
   if (client.pending.has(key)) return client.pending.get(key);
   const started = generation;
-  const url = new URL(descriptor.file, MANIFEST_URL);
-  const transfer = { url: String(url), native: fetchImpl === globalThis.fetch, maximum: descriptor.bytes, bytes: descriptor.bytes };
-  client.transfers.set(transfer.url, transfer);
-  const loading = readJSON(url, fetchImpl, TRANSPORT_TIMEOUT_MS, descriptor, client.failed.has(key), transfer).then(value => {
+  const loading = readJSON(new URL(descriptor.file, MANIFEST_URL), fetchImpl, TRANSPORT_TIMEOUT_MS, descriptor, client.failed.has(key)).then(value => {
     const rows = parseSuggestionShard(value, descriptor);
     if (started === generation) { client.shards.set(key, rows); client.failed.delete(key); }
     return rows;
@@ -210,27 +200,8 @@ async function shardFor(client, descriptor, fetchImpl) {
     }
     throw error;
   })
-    .finally(() => {
-      if (client.pending.get(key) === loading) client.pending.delete(key);
-      if (client.transfers.get(transfer.url) === transfer) client.transfers.delete(transfer.url);
-    });
+    .finally(() => { if (client.pending.get(key) === loading) client.pending.delete(key); });
   client.pending.set(key, loading); return loading;
-}
-
-// Browser callback delivery can lag behind a completed native download. Read
-// only the exact first-party URL for this pending transfer; never inspect or
-// retain other resource/query history. Missing or ambiguous timing is no proof.
-// https://www.w3.org/TR/resource-timing/#dom-performanceresourcetiming-responseend
-function completedWithinDeadline(transfer, deadline) {
-  if (!transfer?.native || !transfer.headersSeen || typeof performance.getEntriesByName !== "function") return false;
-  try {
-    const entries = performance.getEntriesByName(transfer.url, "resource").filter(entry => entry.initiatorType === "fetch"
-      && Number.isFinite(entry.startTime) && entry.startTime >= transfer.startedAt && entry.startTime <= transfer.headersAt);
-    if (entries.length !== 1) return false;
-    const entry = entries[0], bytes = entry.decodedBodySize;
-    return Number.isFinite(entry.responseEnd) && entry.responseEnd >= entry.startTime && entry.responseEnd <= deadline
-      && Number.isSafeInteger(bytes) && bytes > 0 && bytes <= transfer.maximum && (transfer.bytes === undefined || bytes === transfer.bytes);
-  } catch { return false; }
 }
 
 /** Lazy length shards, <=2 edits, <=5 explicit choices; no provider/query URL.
@@ -249,39 +220,17 @@ export async function suggestDictionaryTerms(input, { dictionaryVersion, signal,
     stop = () => { abandoned = true; reject(stopped()); };
     signal?.addEventListener("abort", stop, { once: true });
   });
-  const resource = async (operation, url) => {
-    const transfer = client.transfers.get(String(url)), deadline = performance.now() + duration;
-    let timer, idle = null, expired = false;
-    try {
-      const value = await Promise.race([operation, cancelled, new Promise((_, reject) => {
-        timer = setTimeout(() => {
-          expired = true;
-          // After a blocked renderer, already-buffered body callbacks may still
-          // precede the next idle period. Delay adjudication, not the network
-          // deadline: EVERY late success must prove full responseEnd <= deadline.
-          // https://www.w3.org/TR/requestidlecallback/
-          if (transfer?.native && transfer.headersSeen && typeof performance.getEntriesByName === "function"
-            && typeof globalThis.requestIdleCallback === "function" && typeof globalThis.cancelIdleCallback === "function") {
-            try {
-              idle = globalThis.requestIdleCallback(() => { idle = null; if (!completedWithinDeadline(transfer, deadline)) reject(timeout()); });
-              return;
-            } catch { /* Keep strict rejection when scheduling is unavailable. */ }
-          }
-          reject(timeout());
-        }, duration);
-      })]);
-      if (expired && !completedWithinDeadline(transfer, deadline)) throw timeout();
-      return value;
-    } finally {
-      clearTimeout(timer);
-      if (idle !== null) globalThis.cancelIdleCallback(idle);
-    }
+  const resource = async operation => {
+    let timer;
+    try { return await Promise.race([operation, cancelled,
+      new Promise((_, reject) => { timer = setTimeout(() => reject(timeout()), duration); })]); }
+    finally { clearTimeout(timer); }
   };
   const task = (async () => {
-    const manifest = await resource(manifestFor(client, dictionaryVersion, fetchImpl), MANIFEST_URL);
+    const manifest = await resource(manifestFor(client, dictionaryVersion, fetchImpl));
     if (signal?.aborted) throw stopped();
     const descriptors = manifest.shards.filter(shard => Math.abs(shard.length - query.length) <= maximum);
-    const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl), new URL(shard.file, MANIFEST_URL))));
+    const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl))));
     const local = packagedRows(descriptors.map(shard => shard.length));
     if (signal?.aborted) throw stopped();
     if ([...groups, local].some(rows => rows.some(([term]) => fold(term) === query))) return [];
