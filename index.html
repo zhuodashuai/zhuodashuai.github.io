@@ -3,33 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Qianjun Zhuo is an Actuarial Studies and Advanced Mathematics (Honours) student at UNSW Sydney, with interests in quantitative finance, retirement and portfolio risk, and applied probability.">
+  <meta name="description" content="Qianjun Zhuo is a UNSW mathematics and actuarial studies undergraduate at Wharton on exchange, researching statistical simulation and the safety of autonomous and AI systems.">
   <meta name="author" content="Qianjun Zhuo">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#173746">
+  <meta name="theme-color" content="#152b40">
   <link rel="canonical" href="https://zhuodashuai.github.io/">
+  <link rel="stylesheet" href="assets/profile.css">
 
   <meta property="og:type" content="profile">
-  <meta property="og:locale" content="en_AU">
   <meta property="og:site_name" content="Qianjun Zhuo">
-  <meta property="og:title" content="Qianjun Zhuo | Quantitative Finance &amp; Actuarial Research">
-  <meta property="og:description" content="Actuarial Studies and Advanced Mathematics (Honours) at UNSW Sydney. Research interests in quantitative finance, retirement and portfolio risk, and applied probability.">
+  <meta property="og:title" content="Qianjun Zhuo | Statistical Simulation &amp; AI Safety">
+  <meta property="og:description" content="Undergraduate research in rare-event simulation, verification and validation, and autonomous systems.">
   <meta property="og:url" content="https://zhuodashuai.github.io/">
   <meta property="og:image" content="https://zhuodashuai.github.io/assets/og-card.jpg">
-  <meta property="og:image:secure_url" content="https://zhuodashuai.github.io/assets/og-card.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1731">
-  <meta property="og:image:height" content="909">
-  <meta property="og:image:alt" content="Qianjun Zhuo — Quantitative Finance · Actuarial Research">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Qianjun Zhuo, statistical simulation and AI safety research">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Qianjun Zhuo | Quantitative Finance &amp; Actuarial Research">
-  <meta name="twitter:description" content="Actuarial Studies and Advanced Mathematics (Honours) at UNSW Sydney, working across quantitative finance, risk modelling and applied probability.">
-  <meta name="twitter:image" content="https://zhuodashuai.github.io/assets/og-card.jpg">
-  <meta name="twitter:image:alt" content="Qianjun Zhuo — Quantitative Finance · Actuarial Research">
-
-  <title>Qianjun Zhuo | Quantitative Finance &amp; Actuarial Research</title>
-
-  <script>document.documentElement.classList.add("js");</script>
+  <title>Qianjun Zhuo | Statistical Simulation &amp; AI Safety</title>
 
   <script type="application/ld+json">
   {
@@ -45,500 +35,32 @@
       {"@type": "CollegeOrUniversity", "name": "UNSW Sydney"},
       {"@type": "CollegeOrUniversity", "name": "University of Pennsylvania"}
     ],
+    "description": "Undergraduate researcher working on statistical simulation and safety validation for AI and autonomous systems.",
     "knowsAbout": [
-      "Quantitative finance",
-      "Actuarial modelling",
-      "Retirement income",
-      "Portfolio risk",
-      "Applied probability"
-    ],
-    "description": "Actuarial Studies and Advanced Mathematics (Honours) student at UNSW Sydney with interests in quantitative finance, retirement and portfolio risk, and applied probability."
+      "Statistical simulation",
+      "Rare-event probability estimation",
+      "Autonomous systems validation",
+      "Neural network verification",
+      "Optimization"
+    ]
   }
   </script>
-
-  <style>
-    :root {
-      --canvas: #f4f1e9;
-      --paper: #fffdf8;
-      --ink: #14232c;
-      --muted: #5f6c72;
-      --faint: #5d6a70;
-      --rule: #d7d2c7;
-      --rule-dark: #b8b4aa;
-      --accent: #173f50;
-      --accent-soft: #e4ecec;
-      --warm: #9d5334;
-      --warm-soft: #f3e6dc;
-      --serif: Georgia, "Times New Roman", Times, serif;
-      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      --max: 1160px;
-      --header: 70px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 24px); }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: radial-gradient(circle at 90% 5%, rgba(23,63,80,.055), transparent 27rem), var(--canvas);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.65;
-      text-rendering: optimizeLegibility;
-    }
-    a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; }
-    button, a { -webkit-tap-highlight-color: rgba(23,63,80,.12); }
-    ::selection { color: #fff; background: var(--accent); }
-    .skip-link {
-      position: fixed; top: 10px; left: 10px; z-index: 1000;
-      padding: 10px 14px; color: #fff; background: var(--accent);
-      transform: translateY(-160%);
-    }
-    .skip-link:focus { transform: translateY(0); }
-    .shell { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
-
-    .site-header {
-      position: sticky; top: 0; z-index: 100; min-height: var(--header);
-      border-bottom: 1px solid rgba(184,180,170,.72);
-      background: rgba(244,241,233,.92); backdrop-filter: blur(14px);
-    }
-    .nav {
-      min-height: var(--header); display: flex; align-items: center;
-      justify-content: space-between; gap: 32px;
-    }
-    .brand {
-      display: inline-flex; align-items: center; gap: 12px;
-      color: var(--ink); text-decoration: none;
-    }
-    .brand-mark {
-      width: 38px; height: 38px; display: grid; place-items: center;
-      border: 1px solid var(--ink); font-family: var(--serif);
-      font-size: 16px; font-weight: 700; letter-spacing: -.03em;
-    }
-    .brand-name { font-size: 14px; font-weight: 750; letter-spacing: .015em; }
-    .nav-links { display: flex; align-items: center; gap: 26px; }
-    .nav-links a {
-      position: relative; color: #46545b; font-size: 13px;
-      font-weight: 700; letter-spacing: .025em; text-decoration: none;
-    }
-    .nav-links a::after {
-      content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
-      height: 1px; background: var(--accent); transform: scaleX(0);
-      transform-origin: right; transition: transform .18s ease;
-    }
-    .nav-links a:hover::after, .nav-links a:focus-visible::after {
-      transform: scaleX(1); transform-origin: left;
-    }
-    .menu-button {
-      display: none; width: 42px; height: 42px; padding: 0;
-      border: 1px solid var(--rule-dark); color: var(--ink);
-      background: var(--paper); font: inherit; cursor: pointer;
-    }
-    .menu-button span, .menu-button::before, .menu-button::after {
-      content: ""; display: block; width: 18px; height: 1.5px;
-      margin: 4px auto; background: currentColor;
-      transition: transform .18s ease, opacity .18s ease;
-    }
-    .menu-button[aria-expanded="true"] span { opacity: 0; }
-    .menu-button[aria-expanded="true"]::before { transform: translateY(5.5px) rotate(45deg); }
-    .menu-button[aria-expanded="true"]::after { transform: translateY(-5.5px) rotate(-45deg); }
-
-    .hero { padding: clamp(76px,10vw,128px) 0 96px; }
-    .hero-grid {
-      display: grid; grid-template-columns: minmax(0,1.48fr) minmax(300px,.62fr);
-      gap: clamp(56px,8vw,108px); align-items: start;
-    }
-    .eyebrow {
-      display: flex; align-items: center; gap: 11px; margin: 0 0 24px;
-      color: var(--accent); font-size: 12px; font-weight: 800;
-      letter-spacing: .15em; text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
-    h1 {
-      max-width: 810px; margin: 0; font-family: var(--serif);
-      font-size: clamp(66px,8.7vw,112px); font-weight: 500;
-      letter-spacing: -.062em; line-height: .86;
-    }
-    .hero-role {
-      max-width: 800px; margin: 32px 0 0; color: #2e414a;
-      font-family: var(--serif); font-size: clamp(23px,2.7vw,33px); line-height: 1.35;
-    }
-    .hero-summary {
-      max-width: 740px; margin: 25px 0 0; color: var(--muted); font-size: 17px;
-    }
-    .hero-summary strong { color: var(--ink); font-weight: 720; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
-    .button {
-      min-height: 45px; display: inline-flex; align-items: center;
-      justify-content: center; gap: 9px; padding: 0 17px;
-      border: 1px solid var(--rule-dark); color: var(--ink);
-      background: rgba(255,253,248,.72); font-size: 13px;
-      font-weight: 780; text-decoration: none;
-      transition: transform .16s ease, border-color .16s ease, background .16s ease;
-    }
-    .button:hover { transform: translateY(-1px); border-color: var(--ink); background: var(--paper); }
-    .button.primary { border-color: var(--accent); color: #fff; background: var(--accent); }
-    .button.primary:hover { background: #0f3241; }
-    .arrow { font-size: 16px; line-height: 1; }
-
-    .profile-aside { position: relative; padding-top: 6px; }
-    .monogram {
-      width: 108px; height: 108px; display: grid; place-items: center;
-      margin-bottom: 28px; border: 1px solid var(--accent); color: var(--accent);
-      background: linear-gradient(135deg,transparent 0 49.4%,rgba(23,63,80,.11) 49.5% 50.5%,transparent 50.6%), var(--paper);
-      font-family: var(--serif); font-size: 38px; letter-spacing: -.06em;
-    }
-    .aside-heading {
-      margin: 0 0 10px; font-size: 11px; font-weight: 850;
-      letter-spacing: .14em; text-transform: uppercase;
-    }
-    .affiliation-list { margin: 0; padding: 0; border-top: 1px solid var(--rule-dark); list-style: none; }
-    .affiliation-list li {
-      display: grid; grid-template-columns: 90px 1fr; gap: 15px;
-      padding: 14px 0; border-bottom: 1px solid var(--rule);
-    }
-    .affiliation-list span {
-      color: var(--faint); font-size: 11px; font-weight: 800;
-      letter-spacing: .08em; text-transform: uppercase;
-    }
-    .affiliation-list strong { font-size: 13.5px; line-height: 1.45; }
-    .availability {
-      margin: 24px 0 0; padding: 16px 17px; border-left: 3px solid var(--warm);
-      color: #624b41; background: var(--warm-soft); font-size: 13px; line-height: 1.55;
-    }
-
-    .identity-strip { border-block: 1px solid var(--rule-dark); background: rgba(255,253,248,.48); }
-    .identity-items { display: grid; grid-template-columns: repeat(3,1fr); }
-    .identity-item {
-      min-height: 104px; display: grid; align-content: center;
-      padding: 20px 34px; border-right: 1px solid var(--rule);
-    }
-    .identity-item:first-child { padding-left: 0; }
-    .identity-item:last-child { padding-right: 0; border-right: 0; }
-    .identity-item span {
-      color: var(--faint); font-size: 11px; font-weight: 800;
-      letter-spacing: .11em; text-transform: uppercase;
-    }
-    .identity-item strong {
-      margin-top: 5px; font-family: var(--serif);
-      font-size: clamp(17px,2vw,22px); font-weight: 500; line-height: 1.25;
-    }
-
-    .section { padding: clamp(88px,10vw,124px) 0; border-bottom: 1px solid var(--rule); }
-    .section-layout {
-      display: grid; grid-template-columns: minmax(190px,260px) minmax(0,1fr);
-      gap: clamp(52px,8vw,112px); align-items: start;
-    }
-    .section-label { position: sticky; top: calc(var(--header) + 32px); }
-    .section-index {
-      display: block; margin-bottom: 16px; color: var(--warm);
-      font-family: var(--serif); font-size: 15px;
-    }
-    .section-label h2 {
-      margin: 0; font-family: var(--serif); font-size: clamp(38px,4.6vw,58px);
-      font-weight: 500; letter-spacing: -.04em; line-height: 1.02;
-    }
-    .section-intro { margin: 20px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
-
-    .research-list, .work-list, .timeline, .credentials-column { border-top: 1px solid var(--ink); }
-    .research-item {
-      display: grid; grid-template-columns: 54px minmax(0,1fr) minmax(180px,260px);
-      gap: 24px; padding: 30px 0 33px; border-bottom: 1px solid var(--rule);
-    }
-    .research-number { padding-top: 3px; color: var(--warm); font-family: var(--serif); font-size: 15px; }
-    .research-item h3 {
-      margin: 0; font-family: var(--serif); font-size: clamp(23px,2.7vw,31px);
-      font-weight: 500; line-height: 1.15;
-    }
-    .research-item p { margin: 11px 0 0; color: var(--muted); font-size: 15px; }
-    .research-methods {
-      padding-top: 5px; color: #40535b; font-size: 12px;
-      font-weight: 700; letter-spacing: .025em; line-height: 1.6;
-    }
-    .research-methods span {
-      display: block; margin-bottom: 7px; color: var(--faint);
-      font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase;
-    }
-
-    .work-item { padding: 34px 0 38px; border-bottom: 1px solid var(--rule); }
-    .work-topline {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 20px; margin-bottom: 14px;
-    }
-    .work-meta {
-      color: var(--warm); font-size: 11px; font-weight: 850;
-      letter-spacing: .12em; text-transform: uppercase;
-    }
-    .work-status {
-      padding: 4px 8px; border: 1px solid var(--rule-dark); color: var(--faint);
-      font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
-    }
-    .work-item h3 {
-      max-width: 760px; margin: 0; font-family: var(--serif);
-      font-size: clamp(26px,3vw,36px); font-weight: 500;
-      letter-spacing: -.02em; line-height: 1.16;
-    }
-    .work-grid {
-      display: grid; grid-template-columns: minmax(0,1.35fr) minmax(230px,.65fr);
-      gap: 42px; margin-top: 20px;
-    }
-    .work-question { margin: 0; color: #34474f; font-size: 16px; }
-    .work-question strong { color: var(--ink); }
-    .work-approach {
-      margin: 0; padding-left: 17px; border-left: 2px solid var(--accent);
-      color: var(--muted); font-size: 13px; line-height: 1.6;
-    }
-    .work-approach span {
-      display: block; margin-bottom: 5px; color: var(--accent);
-      font-size: 10px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase;
-    }
-
-    .timeline-entry {
-      display: grid; grid-template-columns: 150px minmax(0,1fr);
-      gap: 35px; padding: 30px 0 34px; border-bottom: 1px solid var(--rule);
-    }
-    .timeline-date {
-      color: var(--faint); font-size: 12px; font-weight: 800;
-      letter-spacing: .07em; text-transform: uppercase;
-    }
-    .timeline-entry h3 {
-      margin: 0; font-family: var(--serif); font-size: clamp(23px,2.6vw,31px);
-      font-weight: 500; line-height: 1.17;
-    }
-    .timeline-role { margin: 6px 0 0; color: #3f5159; font-size: 14px; font-weight: 750; }
-    .timeline-entry p:last-child { max-width: 720px; margin: 12px 0 0; color: var(--muted); font-size: 14px; }
-    .education-record {
-      display: grid; grid-template-columns: 138px minmax(0,1fr);
-      gap: 28px; align-items: start;
-    }
-    .institution-mark {
-      min-height: 84px; display: grid; place-items: center;
-      padding: 13px; border: 1px solid var(--rule); background: #fff;
-      text-decoration: none;
-      transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
-    }
-    .institution-mark:hover {
-      transform: translateY(-2px); border-color: var(--rule-dark);
-      box-shadow: 0 10px 24px rgba(20,35,44,.08);
-    }
-    .institution-mark img { display: block; width: 100%; height: auto; max-height: 58px; object-fit: contain; }
-    .institution-mark.penn img { max-height: 47px; }
-    .education-copy { min-width: 0; }
-    .affiliation-disclaimer {
-      margin: 17px 0 0; color: var(--faint); font-size: 11px; line-height: 1.55;
-    }
-    .affiliation-disclaimer a { color: inherit; text-underline-offset: 3px; }
-
-    .experience-columns, .credentials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 58px; }
-    .experience-group h3 {
-      margin: 0 0 17px; padding-bottom: 12px; border-bottom: 1px solid var(--ink);
-      color: var(--accent); font-size: 11px; font-weight: 850;
-      letter-spacing: .14em; text-transform: uppercase;
-    }
-    .role-entry { padding: 20px 0 23px; border-bottom: 1px solid var(--rule); }
-    .role-entry:first-of-type { padding-top: 5px; }
-    .role-entry h4 {
-      margin: 0; font-family: var(--serif); font-size: 22px;
-      font-weight: 500; line-height: 1.2;
-    }
-    .role-meta {
-      margin: 5px 0 0; color: var(--warm); font-size: 11px;
-      font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
-    }
-    .role-entry p:last-child { margin: 10px 0 0; color: var(--muted); font-size: 13.5px; }
-
-    .credential {
-      display: grid; grid-template-columns: 70px 1fr; gap: 18px;
-      padding: 19px 0; border-bottom: 1px solid var(--rule);
-    }
-    .credential-year { padding-top: 2px; color: var(--warm); font-family: var(--serif); font-size: 14px; }
-    .credential strong {
-      display: block; font-family: var(--serif); font-size: 19px;
-      font-weight: 500; line-height: 1.25;
-    }
-    .credential span { display: block; margin-top: 4px; color: var(--muted); font-size: 12.5px; }
-    .methods-block { padding: 21px 0 24px; border-bottom: 1px solid var(--rule); }
-    .methods-block h3 {
-      margin: 0 0 9px; color: var(--accent); font-size: 11px;
-      font-weight: 850; letter-spacing: .13em; text-transform: uppercase;
-    }
-    .methods-block p {
-      margin: 0; color: #3d5058; font-family: var(--serif);
-      font-size: 18px; line-height: 1.55;
-    }
-
-    .feedback-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .feedback-card {
-      min-height: 310px;
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      border: 1px solid var(--rule-dark);
-      border-top: 4px solid var(--accent);
-      background: rgba(255,253,248,.78);
-    }
-    .feedback-card.guestbook { border-top-color: var(--warm); }
-    .feedback-kicker {
-      margin: 0 0 22px;
-      color: var(--faint);
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    .feedback-card h3 {
-      margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(27px,3vw,36px);
-      font-weight: 500;
-      line-height: 1.12;
-    }
-    .feedback-card > p:not(.feedback-kicker) {
-      margin: 15px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .feedback-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 13px;
-      margin-top: auto;
-      padding-top: 26px;
-    }
-    .feedback-actions .text-link {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 800;
-    }
-    .feedback-note {
-      margin: 20px 0 0;
-      padding: 17px 19px;
-      border-left: 3px solid var(--warm);
-      color: #58483f;
-      background: var(--warm-soft);
-      font-size: 12.5px;
-      line-height: 1.6;
-    }
-    .feedback-note a { font-weight: 800; }
-
-    .contact { padding: clamp(88px,10vw,124px) 0 34px; color: #f5f1e8; background: var(--ink); }
-    .contact-grid {
-      display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,360px);
-      gap: clamp(48px,8vw,110px); align-items: end;
-    }
-    .contact .eyebrow { color: #c7d8dc; }
-    .contact h2 {
-      max-width: 770px; margin: 0; font-family: var(--serif);
-      font-size: clamp(48px,6.5vw,82px); font-weight: 500;
-      letter-spacing: -.045em; line-height: .98;
-    }
-    .contact-copy { max-width: 690px; margin: 24px 0 0; color: #bac4c7; font-size: 15px; }
-    .contact-links { border-top: 1px solid rgba(255,255,255,.42); }
-    .contact-links a {
-      display: flex; justify-content: space-between; gap: 20px;
-      padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.2);
-      color: #f5f1e8; font-size: 13px; font-weight: 720; text-decoration: none;
-    }
-    .contact-links a:hover { color: #d7e8eb; }
-    .site-footer {
-      display: flex; justify-content: space-between; gap: 24px;
-      margin-top: 90px; padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,.17);
-      color: #a6b2b5; font-size: 11px; letter-spacing: .03em;
-    }
-    :focus-visible { outline: 3px solid rgba(166,92,58,.5); outline-offset: 4px; }
-
-    @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: minmax(0,1fr) 280px; gap: 48px; }
-      .section-layout { grid-template-columns: 190px minmax(0,1fr); gap: 50px; }
-      .research-item { grid-template-columns: 42px 1fr; }
-      .research-methods { grid-column: 2; }
-      .work-grid, .credentials-grid, .experience-columns, .feedback-grid { gap: 36px; }
-    }
-
-    @media (max-width: 900px) {
-      :root { --header: 64px; }
-      .shell { width: min(calc(100% - 34px), var(--max)); }
-      .js .menu-button { display: block; }
-      .nav-links {
-        position: absolute; top: calc(100% + 1px); left: 0; right: 0;
-        display: grid; padding: 10px 17px 17px;
-        border-bottom: 1px solid var(--rule-dark); background: rgba(244,241,233,.98);
-      }
-      .js .nav-links { display: none; }
-      .js .nav-links.open { display: grid; }
-      .nav-links a { padding: 11px 7px; border-bottom: 1px solid var(--rule); font-size: 14px; }
-      .nav-links a:last-child { border-bottom: 0; }
-      .nav-links a::after { display: none; }
-      .hero { padding: 64px 0 70px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 54px; }
-      h1 { font-size: clamp(60px,20vw,86px); }
-      .hero-role { font-size: 24px; }
-      .profile-aside { display: grid; grid-template-columns: 90px 1fr; gap: 22px; }
-      .monogram { width: 90px; height: 90px; margin: 0; font-size: 31px; }
-      .availability { grid-column: 1 / -1; margin-top: 0; }
-      .identity-items { grid-template-columns: 1fr; }
-      .identity-item, .identity-item:first-child, .identity-item:last-child {
-        min-height: 0; padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--rule);
-      }
-      .identity-item:last-child { border-bottom: 0; }
-      .section-layout { grid-template-columns: 1fr; gap: 42px; }
-      .section-label { position: static; }
-      .section-intro { max-width: 540px; }
-      .research-item { grid-template-columns: 32px 1fr; gap: 16px; }
-      .research-methods { grid-column: 2; }
-      .work-grid, .experience-columns, .credentials-grid, .feedback-grid, .contact-grid { grid-template-columns: 1fr; }
-      .work-grid { gap: 18px; }
-      .work-topline { align-items: flex-start; }
-      .timeline-entry { grid-template-columns: 1fr; gap: 7px; }
-      .contact-grid { align-items: start; }
-      .site-footer { display: grid; margin-top: 66px; }
-    }
-
-    @media (max-width: 430px) {
-      .brand-name { display: none; }
-      .hero-actions .button { flex: 1 1 calc(50% - 10px); }
-      .profile-aside { grid-template-columns: 1fr; }
-      .affiliation-list li { grid-template-columns: 78px 1fr; }
-      .education-record { grid-template-columns: 1fr; gap: 19px; }
-      .institution-mark { width: min(154px,100%); min-height: 76px; }
-      .research-item { grid-template-columns: 1fr; }
-      .research-number, .research-methods { grid-column: 1; }
-      .work-topline { display: grid; }
-      .work-status { justify-self: start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
-    }
-  </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-
   <header class="site-header">
-    <nav class="nav shell" aria-label="Primary navigation">
-      <a class="brand" href="#profile" aria-label="Qianjun Zhuo, back to profile">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#profile">
         <span class="brand-mark" aria-hidden="true">QZ</span>
-        <span class="brand-name">Qianjun Zhuo</span>
+        <span>Qianjun Zhuo</span>
       </a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span></button>
-      <div class="nav-links" id="nav-links">
-        <a href="#research">Research</a>
-        <a href="#work">Selected work</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#recognition">Recognition</a>
-        <a href="#feedback">Feedback</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Teaching</a></li>
+      </ul>
+      <a class="nav-contact" href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -546,306 +68,252 @@
     <section class="hero" id="profile" aria-labelledby="profile-title">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">Personal academic profile</p>
+          <p class="eyebrow">Undergraduate researcher</p>
           <h1 id="profile-title">Qianjun Zhuo</h1>
-          <p class="hero-role">Actuarial Studies and Advanced Mathematics (Honours), with research interests in quantitative finance, retirement and portfolio risk, and applied probability.</p>
-          <p class="hero-summary">I am an undergraduate student at <strong>UNSW Sydney</strong>, selected for a 2026–27 academic-year exchange at the <strong>Wharton School, University of Pennsylvania</strong>. My work uses financial modelling, simulation and statistical analysis to study how uncertainty shapes long-horizon investment and retirement decisions.</p>
-          <div class="hero-actions" aria-label="Profile links">
-            <a class="button primary" href="#work">Explore selected work <span class="arrow" aria-hidden="true">↓</span></a>
-            <a class="button" href="mailto:z5528306@ad.unsw.edu.au">Email</a>
-            <a class="button" href="https://github.com/zhuodashuai" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309" target="_blank" rel="noopener noreferrer">LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+          <p class="hero-lede">Statistical simulation, optimization, and safety validation for AI and autonomous systems.</p>
+          <p class="hero-description">I study actuarial science and mathematics at UNSW Sydney and am spending the 2026–27 academic year on exchange at the Wharton School, University of Pennsylvania. My research explores how simulation can find rare failures, estimate their probabilities, and make them reproducible for debugging.</p>
+          <div class="actions">
+            <a class="button primary" href="#research">Explore research</a>
+            <a class="button" href="vocab/" lang="zh-Hans">卓的单词本</a>
           </div>
         </div>
 
-        <aside class="profile-aside" aria-label="Academic affiliations">
-          <div class="monogram" aria-hidden="true">QZ</div>
-          <div>
-            <p class="aside-heading">At a glance</p>
-            <ul class="affiliation-list">
-              <li><span>Home</span><strong>UNSW Sydney</strong></li>
-              <li><span>Exchange</span><strong>Wharton School · 2026–27</strong></li>
-              <li><span>Standing</span><strong>High Distinction average</strong></li>
-              <li><span>Study</span><strong>Sydney / Philadelphia</strong></li>
-            </ul>
+        <figure class="benchmark" aria-labelledby="benchmark-title">
+          <figcaption>
+            <p class="eyebrow">Penn xLAB · Simulation benchmark</p>
+            <h2 id="benchmark-title">Estimating rare failures in a pendulum</h2>
+            <p>Standard error of the estimated failure probability for a noisy, torque-limited pendulum.</p>
+          </figcaption>
+          <dl class="bars">
+            <div class="bar-row">
+              <dt>Monte Carlo</dt>
+              <dd><span>0.0152</span><span class="bar" aria-hidden="true"></span></dd>
+            </div>
+            <div class="bar-row">
+              <dt>Importance sampling</dt>
+              <dd><span>0.00985</span><span class="bar comparison" aria-hidden="true"></span></dd>
+            </div>
+          </dl>
+          <div class="benchmark-result">
+            <strong>35% lower</strong>
+            <span>1,000 simulated trajectories per method</span>
           </div>
-          <p class="availability">Open to research conversations, quantitative project collaboration and interdisciplinary opportunities.</p>
-        </aside>
+        </figure>
       </div>
     </section>
 
-    <div class="identity-strip" aria-label="Research themes">
-      <div class="shell identity-items">
-        <div class="identity-item"><span>Research theme 01</span><strong>Retirement &amp; longevity risk</strong></div>
-        <div class="identity-item"><span>Research theme 02</span><strong>Stochastic portfolio dynamics</strong></div>
-        <div class="identity-item"><span>Research theme 03</span><strong>Empirical investment analytics</strong></div>
+    <section class="section shell" id="research" aria-labelledby="research-title">
+      <header class="section-intro">
+        <p class="eyebrow">Research</p>
+        <h2 id="research-title">Finding and understanding failures</h2>
+        <p>My recent work spans rare-event estimation, formal verification and explainability, and simulation for autonomous control.</p>
+      </header>
+      <div class="record-list">
+        <article class="record" id="xlab">
+          <div class="record-meta">
+            <a href="https://xlab.upenn.edu/">University of Pennsylvania</a>
+            <span>2026–present</span>
+          </div>
+          <div class="record-body">
+            <h3>Safe Autonomous Systems Lab (xLAB)</h3>
+            <p class="role">Undergraduate researcher</p>
+            <p>I work on simulation-based safety validation, control, and autonomous racing. In Julia, I used failure search and importance sampling to reduce mean absolute error by 90% relative to Monte Carlo on a Gaussian benchmark.</p>
+            <p>On a noisy, torque-limited pendulum, importance sampling reduced the standard error of the failure-probability estimate by 35% over Monte Carlo, with 1,000 trajectories per method. I logged failure cases for reproducible replay. My ongoing F1TENTH work focuses on perception, planning, and control in ROS 2 simulation.</p>
+          </div>
+        </article>
+
+        <article class="record">
+          <div class="record-meta">
+            <a href="https://ai-vnv.kfupm.io/">KFUPM</a>
+            <span>Nov 2026–present</span>
+          </div>
+          <div class="record-body">
+            <h3>AI Verification &amp; Validation Lab</h3>
+            <p class="role">Remote research onboarding with Prof. Mansur Arief</p>
+            <p>I am onboarding remotely to work on rare-event probability estimation for simulation-based safety validation of AI systems.</p>
+          </div>
+        </article>
+
+        <article class="record">
+          <div class="record-meta">
+            <a href="https://www.unsw.edu.au/">UNSW Sydney</a>
+            <span>2026–present</span>
+          </div>
+          <div class="record-body">
+            <h3>Neural network verification &amp; explainability</h3>
+            <p class="role">Undergraduate researcher with Prof. Yulei Sui and Dr. Guanqin Zhang</p>
+            <p>I review research on neural network verification and formal explainability, including abduction-based explanations. I ran Abstract Constraint Transformation (ACT) experiments in PyTorch and examined VNN-LIB property specifications.</p>
+          </div>
+        </article>
+
+        <article class="record">
+          <div class="record-meta">
+            <span>UNSW Faculty of Science</span>
+            <span>2025–2026</span>
+          </div>
+          <div class="record-body">
+            <h3>Talented Students Program</h3>
+            <p>I developed proof-based solutions to competition-style mathematics problems under the guidance of Dr. Denis Potapov.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-section" id="work" aria-labelledby="work-title">
+      <div class="shell section">
+        <header class="section-intro">
+          <p class="eyebrow">Projects</p>
+          <h2 id="work-title">From models to experiments</h2>
+          <p>Selected work in control, safety validation, and applied statistics.</p>
+        </header>
+
+        <article class="project-feature">
+          <div>
+            <p class="eyebrow">Python · Gymnasium · Control</p>
+            <h3>Control of a moving-base inverted pendulum</h3>
+            <p>I built a custom simulator to evaluate how different controllers kept a moving-base pendulum within its angle limit. I grid-tuned a proportional–derivative (PD) controller and compared proximal policy optimization (PPO) with a band-reward Q-learning agent.</p>
+          </div>
+          <dl class="project-results">
+            <div>
+              <dt>PD controller</dt>
+              <dd><strong>679 to 0</strong><span>Angle-limit violations before and after tuning, across 2,000 simulated trials.</span></dd>
+            </div>
+            <div>
+              <dt>PPO vs. Q-learning</dt>
+              <dd><strong>0 vs. 362</strong><span>Angle-limit violations across 2,000 matched simulated trials.</span></dd>
+            </div>
+          </dl>
+        </article>
+
+        <div class="project-grid">
+          <article class="project">
+            <p class="eyebrow">Julia · Safety validation</p>
+            <h3>Validation of autonomous systems</h3>
+            <p>I completed three Julia projects using the <a href="https://bulletin.stanford.edu/courses/aa-228v">Stanford AA228V/CS238V course materials</a>. They cover searching for the most likely failure, estimating failure probability, and measuring reachable-set volume.</p>
+          </article>
+          <article class="project">
+            <p class="eyebrow">R · UNSW Marketing Analytics Hackathon</p>
+            <h3>Kiva loan funding-time analysis</h3>
+            <p>I fit regularized regression to 100 loans to model log funding time. The model achieved a nested cross-validation R² of 0.247, and I assessed coefficient stability with 500 bootstrap resamples.</p>
+          </article>
+          <article class="project">
+            <p class="eyebrow">JavaScript · Progressive web app</p>
+            <h3><a href="vocab/" lang="zh-Hans">卓的单词本</a></h3>
+            <p>I built an installable wordbook for reading and vocabulary study. It pairs bilingual lookup with book and chapter context, quizzes, and spaced review. Owner-only GitHub publishing keeps editorial control of the public collection separate from individual learning records.</p>
+            <div class="text-links">
+              <a href="vocab/">Open Wordbook</a>
+              <a href="vocab/guide.html">User guide</a>
+            </div>
+          </article>
+          <article class="project">
+            <p class="eyebrow">Actuarial &amp; financial modelling</p>
+            <h3>Earlier quantitative coursework</h3>
+            <ul class="coursework">
+              <li><strong>Retirement modelling.</strong> Modelled contributions and pension drawdown in Excel, then compared the sensitivity of retirement balances to timing and compounding assumptions.</li>
+              <li><strong>Portfolio simulation.</strong> Used Brownian-motion and Heston frameworks to compare three market scenarios with 1,000 simulated paths.</li>
+              <li><strong>Investment risk.</strong> Used R and ggplot2 to compare the daily log returns, volatility, and downside exposure of SPY and ZTS.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="education" aria-labelledby="education-title">
+      <header class="section-intro">
+        <h2 id="education-title">Education</h2>
+        <p>Mathematics and actuarial training at UNSW, with coursework in optimization, data mining, and finance during my exchange at Penn.</p>
+      </header>
+      <div class="education-grid">
+        <article class="education-card">
+          <img src="assets/upenn-logo.svg" width="563" height="184" alt="" loading="lazy">
+          <p class="eyebrow">Fall 2026–Spring 2027 · Philadelphia</p>
+          <h3>The Wharton School, University of Pennsylvania</h3>
+          <p class="role">Full-year undergraduate exchange</p>
+          <h4>Exchange coursework</h4>
+          <ul class="courses">
+            <li><span>STAT 4710</span> Modern Data Mining</li>
+            <li><span>ESE 3040</span> Introduction to Optimization</li>
+            <li><span>OIDD 3140</span> Enabling Technologies</li>
+            <li><span>FNCE 1000</span> Corporate Finance</li>
+            <li><span>BEPP/FNCE 2020</span> Consumer Financial Decision Making</li>
+            <li><span>MGMT 2390</span> Leading and Managing Teams</li>
+          </ul>
+        </article>
+        <article class="education-card">
+          <img src="assets/unsw-logo.png" width="330" height="140" alt="" loading="lazy">
+          <p class="eyebrow">2024–Nov 2027 (expected) · Sydney</p>
+          <h3>UNSW Sydney</h3>
+          <p class="role">Undergraduate program in Actuarial Studies and Mathematics</p>
+          <p>High Distinction weighted average mark (WAM). GPA of 4.0/4.0 as evaluated by World Education Services.</p>
+          <h4>Selected High Distinction coursework</h4>
+          <ul class="courses">
+            <li>Higher Linear Algebra</li>
+            <li>Probability and Mathematical Statistics</li>
+            <li>Mathematical Computing</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <div class="section-band">
+      <div class="shell supporting-grid">
+        <section id="experience" aria-labelledby="experience-title">
+          <h2 id="experience-title">Teaching &amp; service</h2>
+          <article class="supporting-entry">
+            <p class="eyebrow">Warrane College · 2026</p>
+            <h3>Academic Tutor, Mathematics</h3>
+            <p>I taught calculus and algebra for Mathematics 1A and 1B in one-to-one and small-group sessions. I tailored practice to individual gaps in understanding. All six students I tutored earned High Distinctions.</p>
+          </article>
+          <article class="supporting-entry">
+            <h3>Professional development &amp; volunteering</h3>
+            <p>I took part in the UNSW Business School Career Mentoring Program in 2026 and have volunteered with the Little Sisters of the Poor since 2025.</p>
+          </article>
+        </section>
+        <section id="recognition" aria-labelledby="recognition-title">
+          <h2 id="recognition-title">Recognition &amp; methods</h2>
+          <ul class="awards">
+            <li><time datetime="2026">2026</time><span>UNSW Exchange Scholarship</span></li>
+            <li><time datetime="2025">2025</time><span>Warrane College Scholar</span></li>
+            <li><time datetime="2025">2025</time><span>Associate of CESA (ACES)</span></li>
+          </ul>
+          <dl class="skills">
+            <div><dt>Methods</dt><dd>Monte Carlo, importance sampling, optimization, cross-validation, bootstrap resampling</dd></div>
+            <div><dt>Tools</dt><dd>Julia, Python (NumPy, pandas, Matplotlib), PyTorch, R, C++, C, SQL, Git. Currently learning ROS 2.</dd></div>
+          </dl>
+        </section>
       </div>
     </div>
 
-    <section class="section" id="research" aria-labelledby="research-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">01</span>
-          <h2 id="research-title">Research interests</h2>
-          <p class="section-intro">The questions that currently organise my study and quantitative project work.</p>
-        </header>
-        <div class="research-list">
-          <article class="research-item">
-            <span class="research-number">01</span>
-            <div>
-              <h3>Retirement income under uncertainty</h3>
-              <p>How do contribution timing, market conditions, asset allocation and drawdown rules interact to determine the sustainability of long-horizon retirement income?</p>
-            </div>
-            <div class="research-methods"><span>Methods of interest</span>Scenario analysis · sensitivity analysis · accumulation and drawdown models</div>
-          </article>
-          <article class="research-item">
-            <span class="research-number">02</span>
-            <div>
-              <h3>Portfolio risk and stochastic dynamics</h3>
-              <p>How can simulated asset paths and stochastic-volatility models help describe downside exposure, tail behaviour and the distribution of long-term portfolio outcomes?</p>
-            </div>
-            <div class="research-methods"><span>Methods of interest</span>Monte Carlo simulation · Brownian motion · stochastic volatility · risk measures</div>
-          </article>
-          <article class="research-item">
-            <span class="research-number">03</span>
-            <div>
-              <h3>Empirical investment analytics</h3>
-              <p>How do return distributions, volatility and downside behaviour differ across securities, and how can reproducible analysis make those differences decision-relevant?</p>
-            </div>
-            <div class="research-methods"><span>Methods of interest</span>Log returns · exploratory data analysis · visualisation · comparative risk analysis</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="work" aria-labelledby="work-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">02</span>
-          <h2 id="work-title">Selected quantitative work</h2>
-          <p class="section-intro">Coursework and modelling projects, presented by question and method rather than as claimed publications.</p>
-        </header>
-        <div class="work-list">
-          <article class="work-item">
-            <div class="work-topline"><span class="work-meta">2026 · Excel modelling</span><span class="work-status">Quantitative project</span></div>
-            <h3>Retirement Accumulation &amp; Pension Drawdown Model</h3>
-            <div class="work-grid">
-              <p class="work-question"><strong>Question.</strong> How do contribution timing, compounding frequency and pension drawdown assumptions change the sustainability of a retirement balance?</p>
-              <p class="work-approach"><span>Approach</span>Integrated accumulation and drawdown modelling, scenario comparison and sensitivity analysis in Excel.</p>
-            </div>
-          </article>
-          <article class="work-item">
-            <div class="work-topline"><span class="work-meta">2026 · Stochastic simulation</span><span class="work-status">Quantitative project</span></div>
-            <h3>Stochastic Asset &amp; Portfolio Simulation</h3>
-            <div class="work-grid">
-              <p class="work-question"><strong>Question.</strong> How do uncertain cash, equity and listed-property dynamics translate into the distribution of long-horizon portfolio outcomes?</p>
-              <p class="work-approach"><span>Approach</span>Brownian-motion and Heston frameworks, 1,000 Monte Carlo paths, three market scenarios and percentile-based outcome analysis.</p>
-            </div>
-          </article>
-          <article class="work-item">
-            <div class="work-topline"><span class="work-meta">2026 · R / ggplot2</span><span class="work-status">Quantitative project</span></div>
-            <h3>Investment Returns &amp; Risk Analysis — SPY vs ZTS</h3>
-            <div class="work-grid">
-              <p class="work-question"><strong>Question.</strong> How do SPY and ZTS differ in daily return distribution, volatility and downside exposure?</p>
-              <p class="work-approach"><span>Approach</span>Daily log-return calculation, comparative risk metrics and distribution visualisation in R with ggplot2.</p>
-            </div>
-          </article>
-          <article class="work-item">
-            <div class="work-topline"><span class="work-meta">2026 · AI-assisted web application</span><span class="work-status">Learning tool</span></div>
-            <h3><a href="vocab/">卓的单词本 ↗</a></h3>
-            <div class="work-grid">
-              <p class="work-question"><strong>Question.</strong> How can self-supplied English words, phrases and quotations become a precise, source-aware and publicly reviewable vocabulary collection?</p>
-              <p class="work-approach"><span>Approach</span>Owner-only GitHub publishing, server-side Cloudflare Workers AI assistance, explicit spelling decisions, semantic validation, duplicate prevention and an installable PWA with private chapter tests and spaced review.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education" aria-labelledby="education-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">03</span>
-          <h2 id="education-title">Education &amp; affiliations</h2>
-          <p class="section-intro">A combined foundation in actuarial science and advanced mathematics, extended through an international business-school exchange.</p>
-        </header>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-grid">
         <div>
-          <div class="timeline">
-            <article class="timeline-entry">
-              <time class="timeline-date" datetime="2026">2026–2027</time>
-              <div class="education-record">
-                <a class="institution-mark penn" href="https://www.upenn.edu/" target="_blank" rel="noopener noreferrer" aria-label="Visit the University of Pennsylvania website">
-                  <img src="assets/upenn-logo.svg" width="563" height="184" alt="">
-                </a>
-                <div class="education-copy">
-                  <h3>The Wharton School, University of Pennsylvania</h3>
-                  <p class="timeline-role">Academic-year exchange · Philadelphia, Pennsylvania</p>
-                  <p>Selected for a 2026–27 academic-year exchange, with intended study across finance, risk management, markets and applied analytics.</p>
-                </div>
-              </div>
-            </article>
-            <article class="timeline-entry">
-              <time class="timeline-date" datetime="2024">2024–2029</time>
-              <div class="education-record">
-                <a class="institution-mark" href="https://www.unsw.edu.au/" target="_blank" rel="noopener noreferrer" aria-label="Visit the UNSW Sydney website">
-                  <img src="assets/unsw-logo.png" width="330" height="140" alt="">
-                </a>
-                <div class="education-copy">
-                  <h3>UNSW Sydney</h3>
-                  <p class="timeline-role">Bachelor of Actuarial Studies / Advanced Mathematics (Honours)</p>
-                  <p>Maintaining a High Distinction average. Relevant study includes financial mathematics, probability, mathematical statistics, mathematical computing, programming and macroeconomics.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-          <p class="affiliation-disclaimer">This is a personal academic profile, not an official publication of UNSW Sydney, the University of Pennsylvania or the Wharton School. Institutional marks are used only to identify the affiliations described above.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="experience" aria-labelledby="experience-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">04</span>
-          <h2 id="experience-title">Teaching, development &amp; service</h2>
-          <p class="section-intro">Experience that supports mathematical communication, collaborative reasoning and academic community engagement.</p>
-        </header>
-        <div class="experience-columns">
-          <div class="experience-group">
-            <h3>Teaching &amp; academic engagement</h3>
-            <article class="role-entry">
-              <h4>Academic Tutor — Mathematics</h4>
-              <p class="role-meta">Warrane College · 2026–present</p>
-              <p>Provide tailored one-to-one and small-group calculus and algebra tuition, diagnose learning gaps, and design targeted practice and study plans.</p>
-            </article>
-            <article class="role-entry">
-              <h4>Talented Students Program</h4>
-              <p class="role-meta">UNSW Faculty of Science · 2025–2026</p>
-              <p>Selected for a high-performing student enrichment program and developed proof-based solutions to competition-style problems under the guidance of Denis Potapov.</p>
-            </article>
-          </div>
-          <div class="experience-group">
-            <h3>Professional development &amp; service</h3>
-            <article class="role-entry">
-              <h4>Career Mentoring Program</h4>
-              <p class="role-meta">UNSW Business School · 2026</p>
-              <p>Worked with a financial-services mentor on career direction, professional communication, applications, networking and interview preparation.</p>
-            </article>
-            <article class="role-entry">
-              <h4>Elderly Care Volunteer</h4>
-              <p class="role-meta">Little Sisters of the Poor · 2025–present</p>
-              <p>Support the upkeep of communal spaces through cleaning and gardening, contributing to a safe and welcoming aged-care environment.</p>
-            </article>
+          <h2 id="contact-title">Contact</h2>
+          <p>Get in touch about research or projects in statistical simulation, AI verification, and autonomous systems.</p>
+          <div class="contact-links">
+            <a href="mailto:z5528306@ad.unsw.edu.au">UNSW email</a>
+            <a href="mailto:zhuoeric3@gmail.com">Personal email</a>
+            <a href="https://github.com/zhuodashuai">GitHub</a>
+            <a href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="recognition" aria-labelledby="recognition-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">05</span>
-          <h2 id="recognition-title">Recognition &amp; methods</h2>
-          <p class="section-intro">Academic recognition and the quantitative toolkit used across current project work.</p>
-        </header>
-        <div class="credentials-grid">
-          <div class="credentials-column" aria-label="Awards and memberships">
-            <div class="credential"><span class="credential-year">2026</span><div><strong>UNSW Exchange Scholarship</strong><span>UNSW Sydney</span></div></div>
-            <div class="credential"><span class="credential-year">2025</span><div><strong>Warrane College Scholar</strong><span>Warrane College</span></div></div>
-            <div class="credential"><span class="credential-year">2025</span><div><strong>Associate of CESA (ACES)</strong><span>Commercial Education Society of Australia</span></div></div>
+        <div id="feedback" class="feedback">
+          <h3>Site feedback &amp; guestbook</h3>
+          <p>Public submissions require a GitHub account. Use email for private messages.</p>
+          <div class="contact-links">
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=suggestion.yml">Send a suggestion</a>
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=guestbook.yml">Sign the guestbook</a>
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues?q=is%3Aissue%20in%3Atitle%20%22%5BGuestbook%5D%22">Read messages</a>
           </div>
-          <div class="credentials-column" aria-label="Methods and tools">
-            <div class="methods-block">
-              <h3>Quantitative methods</h3>
-              <p>Scenario and sensitivity analysis, Monte Carlo simulation, Brownian-motion and stochastic-volatility frameworks, portfolio risk measures, log-return analysis.</p>
-            </div>
-            <div class="methods-block">
-              <h3>Computing &amp; visualisation</h3>
-              <p>Python, R, C++, C, MATLAB, Excel and VBA; pandas, NumPy, Matplotlib and ggplot2.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="feedback" aria-labelledby="feedback-title">
-      <div class="shell section-layout">
-        <header class="section-label">
-          <span class="section-index">06</span>
-          <h2 id="feedback-title">Feedback &amp; guestbook</h2>
-          <p class="section-intro">A public channel for thoughtful suggestions, corrections, introductions and short notes.</p>
-        </header>
-
-        <div>
-          <div class="feedback-grid">
-            <article class="feedback-card">
-              <p class="feedback-kicker">Suggestion box</p>
-              <h3>Help improve this profile.</h3>
-              <p>Suggest a correction, a clearer explanation, a research direction or a useful addition. Each submission becomes a trackable GitHub issue that can be reviewed and answered.</p>
-              <div class="feedback-actions">
-                <a class="button primary" href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=suggestion.yml" target="_blank" rel="noopener noreferrer">Send a suggestion <span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="text-link" href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues" target="_blank" rel="noopener noreferrer">View feedback</a>
-              </div>
-            </article>
-
-            <article class="feedback-card guestbook">
-              <p class="feedback-kicker">Public guestbook</p>
-              <h3>Leave a short note.</h3>
-              <p>Introduce yourself, share encouragement or leave a brief public message. The guestbook is moderated through GitHub so messages remain transparent and easy to reply to.</p>
-              <div class="feedback-actions">
-                <a class="button primary" href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=guestbook.yml" target="_blank" rel="noopener noreferrer">Sign the guestbook <span class="arrow" aria-hidden="true">↗</span></a>
-                <a class="text-link" href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues?q=is%3Aissue%20in%3Atitle%20%22%5BGuestbook%5D%22" target="_blank" rel="noopener noreferrer">Read messages</a>
-              </div>
-            </article>
-          </div>
-
-          <p class="feedback-note"><strong>Privacy note:</strong> GitHub sign-in is required and submissions are public. Please do not include private or sensitive information. For a private message, use the <a href="mailto:z5528306@ad.unsw.edu.au">UNSW email address</a>.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <div class="shell">
-      <div class="contact-grid">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Let’s discuss research and quantitative work.</h2>
-          <p class="contact-copy">For research conversations, project collaboration or opportunities across quantitative finance, actuarial modelling and applied analytics, email is the best way to reach me.</p>
-        </div>
-        <div class="contact-links" aria-label="Contact links">
-          <a href="mailto:z5528306@ad.unsw.edu.au"><span>UNSW email</span><span>↗</span></a>
-          <a href="mailto:zhuoeric3@gmail.com"><span>Personal email</span><span>↗</span></a>
-          <a href="https://github.com/zhuodashuai" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>↗</span></a>
-          <a href="https://www.linkedin.com/in/zhuo-qianjun-155123309" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>↗</span></a>
-        </div>
-      </div>
-      <footer class="site-footer">
-        <span>© 2026 Qianjun Zhuo</span>
-        <span>Actuarial Studies &amp; Advanced Mathematics (Honours) · UNSW Sydney</span>
-        <span>Last updated August 2026</span>
-      </footer>
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <span>© 2026 Qianjun Zhuo</span>
+      <span>Updated <time datetime="2026-11-19">November 2026</time></span>
     </div>
-  </section>
-
-  <script>
-    (() => {
-      const button = document.querySelector(".menu-button");
-      const links = document.querySelector(".nav-links");
-      const closeMenu = () => {
-        links?.classList.remove("open");
-        button?.setAttribute("aria-expanded", "false");
-        button?.setAttribute("aria-label", "Open navigation");
-      };
-      button?.addEventListener("click", () => {
-        const isOpen = links?.classList.toggle("open") ?? false;
-        button.setAttribute("aria-expanded", String(isOpen));
-        button.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
-      });
-      links?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-      document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
-      window.addEventListener("resize", () => { if (window.innerWidth > 900) closeMenu(); });
-    })();
-  </script>
+  </footer>
 </body>
 </html>
