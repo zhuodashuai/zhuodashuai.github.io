@@ -73,6 +73,7 @@ test("a reused word shows the source for the active chapter, never the other cha
   await provide(page);
   for (const chapter of [2, 10]) {
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}`);
+    await page.locator("#show-repeated-reading-cards").check();
     await openCard(page, meandering.term);
     const expected = fixture.passages.find((item) => item.chapterId === `chapter-${chapter}`);
     const oldExample = meandering.readingContexts.find((item) => item.membership === membership(chapter)).exampleEn;
