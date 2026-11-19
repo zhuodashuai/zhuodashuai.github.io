@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_search_followup_author",
+  "scope": "Only the new warranty selected-sense row in batch-0016. Existing canonical bytes, earlier204 selected objects, original16 search additions and historical policy entries remain unchanged.",
+  "entries": [
+    {
+      "term": "warranty",
+      "canonicalId": 728141,
+      "canonicalSourceSha256": "3915800e33566b4730871081533c9bc5ee12229f8304cd79c5ae3c65691d39f7",
+      "rawTuple": {
+        "partOfSpeech": "noun",
+        "meaning": "n. 正当理由, 授权, 担保, 保证, 根据\n[经] 保单, 担保书, 保证书",
+        "source": "mit"
+      },
+      "rawTupleSha256": "2aa62e6af9de5cad57e8efe2a39a1e2d47f5445713c1224656e86c9359296b3c",
+      "decision": "Do not retain this indivisible raw tuple as an active lookup alternative. Preserve its immutable canonical bytes as honest source history. Add separately authored reviewed noun senses for supported meanings instead.",
+      "reason": "The old tuple places 保单 alongside warranty. A product warranty or a condition/promise in an insurance contract is not an insurance policy. Retaining the complete tuple would teach an incorrect policy equivalence; silently trimming a third-party tuple would misrepresent its source. The valid formal/document and American authorization/justification senses are separately preserved in the new original numbered meanings.",
+      "excludedEquivalences": [
+        "保单",
+        "保险保单"
+      ],
+      "authoredMeaning": "① 质保；商品保修承诺。卖方或制造商按约定条件，对指定的商品问题提供维修、更换等处理的承诺。\n②（合同等法律语境）保证或担保；对某项事实或条件作出的保证，也可指载明这种保证的书面文件（保证书）。\n③（美式用法）授权；正当理由或根据。",
+      "authoredRowSha256": "439b7f1d7d14e7896f25778f3afa780c6d5e5d7c91080b17e598fbf83c8acde4",
+      "englishForms": [
+        "warranties"
+      ],
+      "targetedDTOChange": "warranty and its approved plural warranties intentionally use the newly authored numbered noun senses, without the rejected old raw tuple. transit/progress legacy-form DTOs remain subject to exact retained-source preservation.",
+      "references": [
+        "https://consumer.ftc.gov/articles/warranties",
+        "https://dictionary.cambridge.org/us/dictionary/english/warranty",
+        "https://www.collinsdictionary.com/dictionary/english/warranty"
+      ],
+      "referenceEvidence": {
+        "https://consumer.ftc.gov/articles/warranties": "Independently opened by the language reviewer: retail coverage scope and limitations.",
+        "https://dictionary.cambridge.org/us/dictionary/english/warranty": "Independent reviewer inspected the primary-source index; direct page returned403. Product promise and written guarantee, not a whole insurance policy.",
+        "https://www.collinsdictionary.com/dictionary/english/warranty": "Independently opened by the language reviewer. Contract/legal factual or conditional guarantee; American New World noun senses for authorization and justification/reasonable grounds. Insurance condition/promise is not the insurance policy itself."
+      },
+      "reviewer": "AI/search_coverage_followup_independent_reader",
+      "independentOfAuthor": true,
+      "reviewState": "Approved after independent reading of the exact authored three-sense row, full raw source tuple and canonical hash. The policy-document equivalence is intentionally excluded while supported formal meanings are separately authored; runtime negative保单/保险保单 and plural checks remain required."
+    }
+  ]
+}

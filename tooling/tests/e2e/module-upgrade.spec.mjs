@@ -10,30 +10,38 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 // Read only explicit versioned JS literals; never execute the service worker.
 const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
-  ['expanded-dictionary.js',['97','103','104','111','112','114']],['dictionary-app.js',['99','103','104','111','112','114']],
-  ['library-lookup-controller.js',['99','103','104','111','112','114']],['library-lookup-ui.js',['100','103','104','111','112','114']],
+  ['expanded-dictionary.js',['97','103','104','111','112','114','115']],['dictionary-app.js',['99','103','104','111','112','114','115']],
+  ['library-lookup-controller.js',['99','103','104','111','112','114','115']],['library-lookup-ui.js',['100','103','104','111','112','114','115']],
   ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104','105','107']],
   ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']],
   ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']],
-  ['personal-lookup-flow.js',['97','111','112','114']],['dictionary-suggestions.js',['89','114']],
+  ['personal-lookup-flow.js',['97','111','112','114','115']],['dictionary-suggestions.js',['89','114','115']],
+  ['everyday-lookup.js',['111','112','114','115']],
+  ['everyday-lookup-data.js',['114','115']],['reviewed-senses-data.js',['114','115']],
+  ['dictionary-app-v109.js',['114','115']],['dictionary-entry-v109.js',['114','115']],
+  ['owner-app-v108.js',['114','115']],['personal-app-v108.js',['114','115']],
   ['chapter-quiz-ui.js',['82','113']],['collections.js',['82','113']]
 ]);
 // Reviewed retained cache aliases and the active import graph are independent.
 // Do not derive an active version from the largest (or any other) cache alias.
 const reviewedActiveVersions=new Map([
-  ['expanded-dictionary.js','114'],['dictionary-app.js','114'],
-  ['library-lookup-controller.js','114'],['library-lookup-ui.js','114'],
+  ['expanded-dictionary.js','115'],['dictionary-app.js','115'],
+  ['library-lookup-controller.js','115'],['library-lookup-ui.js','115'],
   ['public-app.js','104'],['personal-app.js','107'],
   ['owner-app.js','104'],['dictionary-entry.js','104'],
   ['app-navigation.js','107'],['app-navigation-entry.js','107'],
-  ['personal-lookup-flow.js','114'],['dictionary-suggestions.js','114'],
+  ['personal-lookup-flow.js','115'],['dictionary-suggestions.js','115'],
+  ['everyday-lookup.js','115'],
+  ['everyday-lookup-data.js','115'],['reviewed-senses-data.js','115'],
+  ['dictionary-app-v109.js','115'],['dictionary-entry-v109.js','115'],
+  ['owner-app-v108.js','115'],['personal-app-v108.js','115'],
   ['chapter-quiz-ui.js','113'],['collections.js','113']
 ]);
 // These additive APIs have compatible callers at95 or bare URLs. Account for
 // their exact cache aliases without adding them to changedApiModules/poisoning.
 const reviewedCompatibleCacheAliases=new Map([
-  ['chinese-search.js',['95','111','112','114']],['everyday-lookup.js',['111','112','114']],
-  ['chinese-ranking.js',['111','112','114']],['public-app-v113.js',['114','115','116','117']],
+  ['chinese-search.js',['95','111','112','114']],
+  ['chinese-ranking.js',['111','112','114']],['public-app-v113.js',['114','115','116','117','118']],
   ['public-snapshot.js',['82','114','116']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
@@ -61,26 +69,28 @@ for(const[name,versions]of cachedModuleVersions){
 for(const name of reviewedAliases.keys())if(!declaredModuleVersions.has(name))throw new Error(`Missing reviewed module ${name}.`);
 for(const name of reviewedCompatibleCacheAliases.keys())expect(cachedModuleVersions.has(name)).toBe(true);
 
-// The active readers of the evidence/ranking exports require114. Existing
-// plan-only consumers intentionally retain95; examples/personal retain their
-// compatible bare daily-lookup API. Never infer these contracts from max(v).
+// Ranking evidence remains114 and plan-only consumers retain95. The changed
+// current data/readers use115; archived callers retain only the exact edges
+// below. Never infer a compatible API or current version from max(v).
 for(const[file,edges]of[
   ['dictionary-app-v109.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95']]],
-  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=114',2]]],
-  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=114',2]]],
+  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=115',2]]],
+  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=115',2]]],
   ['personal-dictionary.js',[['chinese-search.js','./chinese-search.js?v=95']]],
-  ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=114'],['everyday-lookup.js','./everyday-lookup.js?v=114']]],
+  ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=114'],['everyday-lookup.js','./everyday-lookup.js?v=115'],['english-surface-variants.js','./english-surface-variants.js?v=115'],['selected-common-sense.js','./selected-common-sense.js?v=115']]],
   ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=114']]],
-  ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=114'],['everyday-lookup.js','./everyday-lookup.js?v=114']]],
-  ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js']]],
+  ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=114'],['everyday-lookup.js','./everyday-lookup.js?v=115']]],
+  ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js?v=115'],['selected-common-sense.js','./selected-common-sense.js?v=115'],['selected-legacy-examples.js','./selected-legacy-examples.js?v=115']]],
   ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113']]],
-  ['public-app-v108.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=82'],['collections.js','./collections.js?v=82']]],
+  ['public-app-v108.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=82'],['collections.js','./collections.js?v=82'],['library-lookup-ui.js','./library-lookup-ui.js?v=114'],['entry-detail-v108.js','./entry-detail-v108.js']]],
+  ['dictionary-entry.js',[['dictionary-app.js','./dictionary-app.js?v=104']]],
+  ['dictionary-app-v108.js',[['expanded-dictionary.js','./expanded-dictionary.js?v=104']]],
   ['owner-app-v108.js',[['collections.js','./collections.js?v=82']]]
 ]){
   const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
-  const imports=[...source.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
+  const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
   for(const[target,expected,count=1]of edges)expect(imports.filter(specifier=>specifier.slice(2).split('?')[0]===target),file+' -> '+target).toEqual(Array(count).fill(expected));
 }
 
@@ -88,6 +98,8 @@ test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
   ...reviewedAliases.keys(),
+  'english-surface-variants.js','search-experience-data.js','selected-common-sense.js','selected-legacy-examples.js',
+  'dictionary-examples-current-v4.js','dictionary-examples-ui-v108.js','entry-detail-v113.js','entry-detail-v108.js',
   "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",

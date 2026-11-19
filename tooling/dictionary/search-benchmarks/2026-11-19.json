@@ -6,7 +6,8 @@
     "Availability, expected-head recall and ranking positions are separate metrics.",
     "Typo suggestions are an independent sidecar probe, not an assertion that the UI displayed them or automatically corrected a literal/form hit.",
     "Known pending variants remain visible in coverage and accuracy denominators.",
-    "Chinese streams must be read to their actual end; no artificial result cap."
+    "Chinese streams must be read to their actual end; no artificial result cap.",
+    "Three historicalGap fields preserve pre-follow-up observations; current pending/resolved status is computed from actual head evidence. All235 original inputs, language/category IDs and critical exclusions are retained. Two expectation reviews document a canonical spelling and a broader Chinese employment intent."
   ],
   "queries": [
     {
@@ -507,7 +508,7 @@
       "expectedHeads": [
         "by a fluke"
       ],
-      "knownPending": "Exact complete phrase variant is absent; no automatic article substitution."
+      "historicalGap": "Exact complete phrase variant is absent; no automatic article substitution."
     },
     {
       "id": "en-055",
@@ -651,9 +652,11 @@
       "category": "phrase",
       "query": "well adjusted",
       "expectedHeads": [
-        "well adjusted"
+        "well adjusted",
+        "well-adjusted"
       ],
-      "knownPending": "The spaced variant is absent; well-adjusted exists."
+      "historicalGap": "The spaced variant is absent; well-adjusted exists.",
+      "expectationReview": "Cambridge lists well adjusted and well-adjusted as spellings of the same complete adjective. The authenticated canonical hyphenated head is accepted; no other word joining is authorized."
     },
     {
       "id": "en-071",
@@ -736,7 +739,7 @@
         "rock'n'roll",
         "rock and roll"
       ],
-      "knownPending": "The complete copied apostrophe-and-space variant is absent; no arbitrary contraction expansion."
+      "historicalGap": "The complete copied apostrophe-and-space variant is absent; no arbitrary contraction expansion."
     },
     {
       "id": "en-080",
@@ -1017,7 +1020,9 @@
         "coming"
       ],
       "knownIncorrectForm": "Historical COM noun record id3775454 incorrectly declares comming as a form. The exact provenance-bound rejection must prevent this technical noun from suppressing spelling suggestions; literal COM and plural coms must remain.",
-      "excludedHeads": ["COM"]
+      "excludedHeads": [
+        "COM"
+      ]
     },
     {
       "id": "en-111",
@@ -1853,9 +1858,9 @@
       "category": "work",
       "query": "离职",
       "expectedHeads": [
-        "resign",
-        "resignation"
-      ]
+        "leave a job"
+      ],
+      "expectationReview": "Generic leaving a job does not specify resignation. Resign and resignation describe the specific act of resigning, including pressured resignation; they are not unconditional equivalents of dismissal, retirement or all employment endings. Preserve the earlier expectation in the frozen historical corpus."
     },
     {
       "id": "zh-082",

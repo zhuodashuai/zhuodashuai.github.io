@@ -17,16 +17,18 @@ export function validateSearchBenchmark(value) {
     if (!row || typeof row.id !== "string" || ids.has(row.id) || !["en", "zh"].includes(row.language)
       || typeof row.category !== "string" || typeof row.query !== "string" || !row.query || row.query.length > 200 || inputs.has(row.query)
       || /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(row.query)
-      || Object.keys(row).some(key => !["id", "language", "category", "query", "expectedHeads", "excludedHeads", "knownPending", "knownIncorrectForm"].includes(key))) throw new Error("Invalid or duplicate benchmark input.");
+      || Object.keys(row).some(key => !["id", "language", "category", "query", "expectedHeads", "excludedHeads", "knownPending", "historicalGap", "expectationReview", "knownIncorrectForm"].includes(key))) throw new Error("Invalid or duplicate benchmark input.");
     for (const key of ["expectedHeads", "excludedHeads"]) if (row[key] !== undefined && (!Array.isArray(row[key]) || !row[key].length
       || row[key].some(head => typeof head !== "string" || !head.trim() || head.length > 200 || /[<>\u0000-\u001f]/u.test(head))
       || new Set(row[key]).size !== row[key].length)) throw new Error("Invalid head expectation.");
     if (row.knownPending !== undefined && (typeof row.knownPending !== "string" || !row.knownPending.trim())) throw new Error("Invalid pending note.");
+    if (row.historicalGap !== undefined && (typeof row.historicalGap !== "string" || !row.historicalGap.trim() || row.knownPending !== undefined)) throw new Error("Invalid historical gap note.");
+    if (row.expectationReview !== undefined && (typeof row.expectationReview !== "string" || !row.expectationReview.trim())) throw new Error("Invalid expectation review.");
     if (row.knownIncorrectForm !== undefined && (typeof row.knownIncorrectForm !== "string" || !row.knownIncorrectForm.trim())) throw new Error("Invalid incorrect-form note.");
     ids.add(row.id); inputs.add(row.query);
   }
   if (value.queries.filter(row => row.language === "en").length !== 115 || value.queries.filter(row => row.language === "zh").length !== 120
-    || value.queries.filter(row => row.knownPending).length !== 3) throw new Error("Benchmark language/pending counts changed.");
+    || value.queries.filter(row => row.knownPending || row.historicalGap).length !== 3) throw new Error("Benchmark language/recorded-gap counts changed.");
   return value;
 }
 
@@ -118,7 +120,10 @@ export async function runSearchBenchmark({ output } = {}) {
       headMisses: expected.filter(row => !row.expectedHeadFound).map(row => row.query), exclusions: rows.filter(row => row.excludedHeads).length,
       excludedHeadViolations: rows.filter(row => row.excludedHeadViolations.length).map(row => ({ query: row.query, terms: row.excludedHeadViolations })),
       typoCases: typos.length, independentSpellingHeadFound: typos.filter(row => row.spellingProbe?.expectedHeadFound).length,
-      typoUiEligible: typos.filter(row => row.spellingProbe?.uiWouldRequestOnConfirmedMiss).length, knownPending: rows.filter(row => row.knownPending).map(row => row.query),
+      typoUiEligible: typos.filter(row => row.spellingProbe?.uiWouldRequestOnConfirmedMiss).length,
+      knownPending: rows.filter(row => (row.knownPending || row.historicalGap) && !row.expectedHeadFound).map(row => row.query),
+      resolvedHistoricalGaps: rows.filter(row => (row.knownPending || row.historicalGap) && row.expectedHeadFound).map(row => row.query),
+      expectationReviews: rows.filter(row => row.expectationReview).map(row => ({ query: row.query, reason: row.expectationReview })),
       knownIncorrectForms: rows.filter(row => row.knownIncorrectForm).map(row => ({ query: row.query, issue: row.knownIncorrectForm })),
       resultPositions: rows.reduce((sum, row) => sum + row.results.length, 0), staticReads: staticReads.length,
       allChinesePagesValidated: rows.filter(row => row.language === "zh").every(row => !row.error && row.coverage === "full"),

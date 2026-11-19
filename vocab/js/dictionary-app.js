@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=114";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=115";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
@@ -120,7 +120,7 @@ function queryError(error) {
 // Optional suggestions are loaded only after an exact, successful miss. They
 // never turn an approximate match into a definition or write to a wordbook.
 async function defaultDictionarySuggestions(input, { signal } = {}) {
-  const module = await import("./dictionary-suggestions.js?v=114");
+  const module = await import("./dictionary-suggestions.js?v=115");
   const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
   return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
 }

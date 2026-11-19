@@ -1,3 +1,4 @@
+// Follow-up search coverage: scoped reviewed meanings and authenticated complete spelling variants.
 // Search experience: literal-first recovery, scoped Chinese evidence and a compact sticky search.
 // Reuse twelve authenticated original pairs with their specific labels; keep saved data and warmed shards.
 // Add three classroom-theme expressions; retain warmed dictionary and private learning data.
@@ -22,6 +23,29 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js?v=118",
+  "./js/personal-app-v108.js?v=115",
+  "./js/owner-app-v108.js?v=115",
+  "./js/dictionary-entry-v109.js?v=115",
+  "./js/dictionary-app-v109.js?v=115",
+  "./js/dictionary-app.js?v=115",
+  "./js/library-lookup-controller.js?v=115",
+  "./js/library-lookup-ui.js?v=115",
+  "./js/personal-lookup-flow.js?v=115",
+  "./js/dictionary-suggestions.js?v=115",
+  "./js/expanded-dictionary.js?v=115",
+  "./js/english-surface-variants.js?v=115",
+  "./js/everyday-lookup.js?v=115",
+  "./js/everyday-lookup-data.js?v=115",
+  "./js/reviewed-senses-data.js?v=115",
+  "./js/search-experience-data.js?v=115",
+  "./js/dictionary-examples-current-v4.js?v=115",
+  "./js/dictionary-examples-ui-v108.js?v=115",
+  "./js/entry-detail-v113.js?v=115",
+  "./js/entry-detail-v108.js?v=115",
+  "./js/selected-common-sense.js?v=115",
+  "./js/selected-legacy-examples.js?v=115",
+  "./js/english-surface-variants.js",
   "./js/dictionary-form-evidence.js?v=114",
   "./js/search-experience-data.js", "./js/dictionary-query-normalization.js?v=114",
   "./js/public-app-v113.js?v=117",

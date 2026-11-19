@@ -1,3 +1,4 @@
+import { restoreSearchCoverageFollowupShell } from './search-coverage-followup-shell.mjs';
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 
@@ -17,6 +18,7 @@ function once(text, current, historical) {
 }
 
 export function restoreSearchExperienceShell(file, text) {
+  text = restoreSearchCoverageFollowupShell(file, text);
   const allowed = pins.get(file);
   if (!allowed) return text;
   const raw = Buffer.from(text), digest = createHash("sha256").update(raw).digest("hex");

@@ -3,12 +3,13 @@ import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
 import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=114";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
-  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=114";
+  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=115";
 import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
   createChineseRankingContext } from "./chinese-ranking.js?v=114";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=115';
 import { rejectsReviewedDictionaryForm } from './dictionary-form-evidence.js?v=114';
+import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=115';
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -29,6 +30,7 @@ const activeControllers = new Set();
 // the complete immutable English shard bytes. Display records expose no token.
 const canonicalRecordOrigins = new WeakMap();
 const rejectedComFormRecords = new WeakSet();
+const reviewedSurfaceRecords = new WeakMap();
 // Only this module's exact packaged lookups can authorize a formatting-only
 // recovery. Caller-provided DTO fields cannot grant the same permission.
 const packagedEnglishResults = new WeakSet();
@@ -138,6 +140,11 @@ function parseEnglish(payload, manifest, descriptor) {
     const parsed = Object.freeze({ id: row.id, term: row.term, partOfSpeech: row.partOfSpeech,
       meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) });
     if (rejectsReviewedDictionaryForm(row, manifest.version, 'comming')) rejectedComFormRecords.add(parsed);
+    if (isReviewedEnglishSurfaceCandidate(row.id, row.term)) {
+      const surface = authenticatedEnglishSurface(JSON.stringify(row), manifest.version, manifest.integritySha256,
+        JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
+      if (surface) reviewedSurfaceRecords.set(parsed, Object.freeze({ surface, manifestSha256: manifest.integritySha256 }));
+    }
     if (isSelectedCommonSenseCanonicalCandidate(row.id, row.term)) canonicalRecordOrigins.set(parsed, Object.freeze({ manifestVersion: manifest.version,
       bucket: descriptor.bucket, file: descriptor.file, sha256: descriptor.sha256, bytes: descriptor.bytes,
       rawRecordJSON: JSON.stringify(row) }));
@@ -366,6 +373,12 @@ async function englishSearch(query, context) {
       const options = precise.length ? precise : canonicalRefs;
       if (new Set(options.map(ref => ref.id)).size > 1) throw ambiguous();
       const record = row.shard.records.get(options[0].id);
+      if (context.reviewedSurface) {
+        const origin = reviewedSurfaceRecords.get(record);
+        if (origin?.surface !== context.reviewedSurface || origin.manifestSha256 !== manifest.integritySha256) {
+          return { query, results: [], hasMore: false };
+        }
+      }
       return { query, results: [display(record, record, manifest)], hasMore: false };
     }
   }
@@ -376,7 +389,7 @@ async function englishSearch(query, context) {
     const ordinary = decorated.replace(/[\u2010\u2011]/gu, "-").replace(/[\u201b\u02bc]/gu, "'")
       .replace(/[\u00ad\u200b\u2060\ufeff]/gu, "");
     const wrapped = await wrappedEnglishWord(query, ordinary, context);
-    return wrapped || inflectedEnglishPhrase(query, ordinary, context);
+    return wrapped || await reviewedEnglishSurface(query, ordinary, context) || inflectedEnglishPhrase(query, ordinary, context);
   }
   if (new Set(row.refs.map(ref => ref.id)).size > 1) throw ambiguous();
   const contexts = row.refs.filter(ref => ref.kind === "context");
@@ -387,6 +400,17 @@ async function englishSearch(query, context) {
 }
 function guardedEnglishResult(result) {
   return packagedEnglishResults.has(result) ? result : guardLegacySupplementaryResult(result);
+}
+async function reviewedEnglishSurface(query, value, context) {
+  const surface = fold(value), target = reviewedEnglishSurfaceTarget(surface);
+  if (!target) return null;
+  if (context.signal?.aborted) throw stopped();
+  // Never borrow a packaged/form/context answer or an approximately matching
+  // target. The nested lookup accepts only this source-branded literal record.
+  const found = await englishSearch(fold(target), { ...context, exactQuery: target,
+    literalOnly: true, disableRecovery: true, reviewedSurface: surface });
+  if (!found.results.length) return null;
+  return { query, results: found.results.map(row => ({ ...row, matchedForm: context.originalInput })), hasMore: false };
 }
 async function exactEnglishTarget(value, context, { allowForms = false } = {}) {
   const packaged = searchEverydayDictionary(value);
@@ -881,7 +905,7 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
-    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery };
+    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery, originalInput: input };
     if (literalFallback) {
       const literal = await englishSearch(query, { ...context, literalOnly: true });
       return literal.results.length ? guardLegacySupplementaryResult(literal) : literalFallback;
