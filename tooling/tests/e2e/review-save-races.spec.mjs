@@ -1,4 +1,8 @@
 import { expect, test } from "@playwright/test";
+import { useRecordedChapterSources } from "./helpers/recorded-chapter-scope.mjs";
+
+// These race fixtures exercise every recorded source card in the chapter.
+useRecordedChapterSources(test);
 
 test.beforeEach(async ({ context, page }, info) => {
   const run = `review-races-${info.workerIndex}-${info.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 80);

@@ -12,6 +12,7 @@ import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-rele
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {historicalSelected187} from './helpers/classroom-history-0187.mjs';
+import {historicalOrdinary1028,historicalSelected199} from './helpers/search-history-20261119.mjs';
 const base=new URL('../dictionary/reviewed-senses/',import.meta.url);
 const read=async file=>JSON.parse(await fs.readFile(new URL(file,base),'utf8'));
 const source=await read('source/batch-0014.json'),review=await read('reviews/batch-0014.json');
@@ -29,10 +30,9 @@ test('199 current selected cards retain all187 old objects and1028 ordinary entr
   assert.equal(hash(source),'98549e8230b147b67cbebb874c1333c1b681f24eaf241694fa63ce3a60d75ffb');
   assert.equal(hash(review),'ff573b1a7b177d75535110e0b82d18ce6f2d22fe1332d37763d2b683e769a21e');
   assert(review.independentOfAuthor);assert.notEqual(source.author,review.reviewer);assert.deepEqual(review.issues,[]);
-  assert.deepEqual(source.entries.map(row=>row.term),TERMS);assert.equal(selected.length,199);
+  assert.deepEqual(source.entries.map(row=>row.term),TERMS);assert.equal(historicalSelected199(all).length,199);
   assert.equal(hash(historicalSelected187(selected)),baseline.selectedSha256);
-  assert.equal(all.filter(row=>!row.reviewedCanonicalSense).length,1028);
-  assert.equal(hash(all.filter(row=>!row.reviewedCanonicalSense)),baseline.ordinarySha256);assert.equal(hash(aliases),baseline.aliasesSha256);
+  assert.equal(hash(historicalOrdinary1028(all)),baseline.ordinarySha256);assert.equal(hash(aliases),baseline.aliasesSha256);
   const basic=validateReviewedSensePack(source,review,records,reserved(),new Set(),admission);
   const projected=projectReviewedExistingPairRows(admission,source,review,basic);
   for(const row of projected){

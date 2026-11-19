@@ -1,11 +1,14 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { useRecordedChapterSources } from "./helpers/recorded-chapter-scope.mjs";
 
 const bookId = "the-forsyte-saga", chapterId = "chapter-1";
 const source = JSON.parse(await readFile(new URL("../../../vocab/data/reading-lists/the-forsyte-saga/chapter-1.json", import.meta.url), "utf8"));
 const expectedCount = source.expectedItemCount;
 const priorityTerms = ["patriarchal", "sappy", "plume of"];
 test.use({ serviceWorkers: "block" });
+// The source/quiz contract covers all reviewed IDs, including earlier reuse.
+useRecordedChapterSources(test);
 
 for (const width of [390, 1440]) {
   test(`Forsyte reviewed chapter, priority hard words, original passages and existing-book meanings at ${width}px`, async ({ page }) => {

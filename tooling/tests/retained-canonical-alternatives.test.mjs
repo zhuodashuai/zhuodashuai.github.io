@@ -150,7 +150,7 @@ test('runtime retains separate choice DTOs, genuine old-form tuples and exact ne
   const unretained = { ...f.row, term: 'other-reviewed-head', reviewedCanonicalSense: true };
   const data = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify([next,unretained]) + ';');
   const code = (await readFile(new URL('../../vocab/js/everyday-lookup.js', import.meta.url), 'utf8'))
-    .replace('"./everyday-lookup-data.js"', JSON.stringify(data))
+    .replace('"./everyday-lookup-data.js?v=114"', JSON.stringify(data))
     .replace('"./dictionary-literal-heads-data.js"', JSON.stringify(new URL('../../vocab/js/dictionary-literal-heads-data.js', import.meta.url).href));
   const runtime = await import('data:text/javascript,' + encodeURIComponent(code));
   const found = runtime.searchEverydayDictionary('VAT').results[0];
@@ -177,7 +177,7 @@ test('runtime retains separate choice DTOs, genuine old-form tuples and exact ne
 async function injectedRuntime(rows) {
   const data = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify(rows) + ';');
   const code = (await readFile(new URL('../../vocab/js/everyday-lookup.js', import.meta.url), 'utf8'))
-    .replace('"./everyday-lookup-data.js"', JSON.stringify(data))
+    .replace('"./everyday-lookup-data.js?v=114"', JSON.stringify(data))
     .replace('"./dictionary-literal-heads-data.js"', JSON.stringify(new URL('../../vocab/js/dictionary-literal-heads-data.js', import.meta.url).href));
   const url = 'data:text/javascript,' + encodeURIComponent(code);
   return { url, runtime: await import(url) };

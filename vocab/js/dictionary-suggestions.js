@@ -1,3 +1,7 @@
+import { everydayChineseEntries } from "./everyday-lookup.js?v=114";
+import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
+export { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
+
 // Optional, first-party spelling candidates. Never definitions or automatic
 // corrections. Edit operations follow the standard insertion/deletion/
 // substitution/adjacent-transposition model; no probability is claimed.
@@ -14,6 +18,7 @@ const TTL = 60_000;
 let clients = new WeakMap();
 const controllers = new Set();
 let generation = 0;
+let packagedLengths;
 const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const fold = value => value.normalize("NFKC").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, " ").trim().toLowerCase();
 function invalid() { return Object.assign(new Error("拼写建议索引校验失败。"), { code: "invalid_dictionary_suggestions" }); }
@@ -25,11 +30,19 @@ function keys(value, expected) {
 }
 function integer(value, maximum) { if (!Number.isSafeInteger(value) || value < 0 || value > maximum) throw invalid(); }
 
-export function normalizeSuggestionQuery(input) {
-  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return "";
-  const value = fold(input).replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
-  return value.length >= 3 && value.length <= 64 && WORD.test(value)
-    && value.replace(/[^a-z]/gu, "").length >= 3 && value.split(" ").length <= 8 ? value : "";
+function packagedRows(lengths) {
+  if (!packagedLengths) {
+    packagedLengths = new Map();
+    // These are the same first-party packaged heads used by actual lookup.
+    // No caller can supply extra candidates and no definitions are generated.
+    for (const { result } of everydayChineseEntries()) {
+      const term = result.term, key = fold(term);
+      if (!WORD.test(key) || key.length < 2 || key.length > 64) continue;
+      const rows = packagedLengths.get(key.length) || [];
+      rows.push(Object.freeze([term, 0])); packagedLengths.set(key.length, rows);
+    }
+  }
+  return lengths.flatMap(length => packagedLengths.get(length) || []);
 }
 
 /** Banded optimal-string-alignment distance; a neighbouring swap is one edit. */
@@ -112,13 +125,15 @@ export function parseSuggestionShard(value, descriptor) {
   return value.rows;
 }
 
-async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false) {
+async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false, transfer) {
   const controller = new AbortController(); controllers.add(controller); let timer, abort;
   const cancelled = new Promise((_, reject) => {
     abort = () => reject(stopped()); controller.signal.addEventListener("abort", abort, { once: true });
   });
   const task = (async () => {
+    if (transfer) transfer.startedAt = performance.now();
     const response = await fetchImpl(url, { credentials: "omit", cache: descriptor ? (reload ? "reload" : "force-cache") : "no-cache", signal: controller.signal });
+    if (transfer) { transfer.headersSeen = true; transfer.headersAt = performance.now(); }
     if (!response?.ok) throw new Error("拼写建议暂时不可用。");
     const maximum = descriptor?.bytes ?? 64 * 1024;
     if (Number(response.headers?.get?.("content-length")) > maximum) throw invalid();
@@ -151,7 +166,7 @@ async function readJSON(url, fetchImpl, timeoutMs, descriptor, reload = false) {
 function clientFor(fetchImpl) {
   if (typeof fetchImpl !== "function") throw new Error("无法读取拼写建议。");
   let client = clients.get(fetchImpl);
-  if (!client) { client = { manifest: null, at: 0, loading: null, shards: new Map(), pending: new Map(), failed: new Set() }; clients.set(fetchImpl, client); }
+  if (!client) { client = { manifest: null, at: 0, loading: null, shards: new Map(), pending: new Map(), failed: new Set(), transfers: new Map() }; clients.set(fetchImpl, client); }
   return client;
 }
 async function manifestFor(client, dictionaryVersion, fetchImpl) {
@@ -161,14 +176,19 @@ async function manifestFor(client, dictionaryVersion, fetchImpl) {
     return parseSuggestionManifest(value, dictionaryVersion);
   }
   const started = generation;
-  const loading = readJSON(MANIFEST_URL, fetchImpl, TRANSPORT_TIMEOUT_MS).then(value => {
+  const transfer = { url: String(MANIFEST_URL), native: fetchImpl === globalThis.fetch, maximum: 64 * 1024 };
+  client.transfers.set(transfer.url, transfer);
+  const loading = readJSON(MANIFEST_URL, fetchImpl, TRANSPORT_TIMEOUT_MS, undefined, false, transfer).then(value => {
     const manifest = parseSuggestionManifest(value, dictionaryVersion);
     if (started === generation) {
       if (client.manifest?.version !== manifest.version) client.shards.clear();
       client.manifest = manifest; client.at = Date.now();
     }
     return manifest;
-  }).finally(() => { if (client.loading === loading) client.loading = null; });
+  }).finally(() => {
+    if (client.loading === loading) client.loading = null;
+    if (client.transfers.get(transfer.url) === transfer) client.transfers.delete(transfer.url);
+  });
   client.loading = loading; return loading;
 }
 async function shardFor(client, descriptor, fetchImpl) {
@@ -176,7 +196,10 @@ async function shardFor(client, descriptor, fetchImpl) {
   if (client.shards.has(key)) return client.shards.get(key);
   if (client.pending.has(key)) return client.pending.get(key);
   const started = generation;
-  const loading = readJSON(new URL(descriptor.file, MANIFEST_URL), fetchImpl, TRANSPORT_TIMEOUT_MS, descriptor, client.failed.has(key)).then(value => {
+  const url = new URL(descriptor.file, MANIFEST_URL);
+  const transfer = { url: String(url), native: fetchImpl === globalThis.fetch, maximum: descriptor.bytes, bytes: descriptor.bytes };
+  client.transfers.set(transfer.url, transfer);
+  const loading = readJSON(url, fetchImpl, TRANSPORT_TIMEOUT_MS, descriptor, client.failed.has(key), transfer).then(value => {
     const rows = parseSuggestionShard(value, descriptor);
     if (started === generation) { client.shards.set(key, rows); client.failed.delete(key); }
     return rows;
@@ -187,8 +210,27 @@ async function shardFor(client, descriptor, fetchImpl) {
     }
     throw error;
   })
-    .finally(() => { if (client.pending.get(key) === loading) client.pending.delete(key); });
+    .finally(() => {
+      if (client.pending.get(key) === loading) client.pending.delete(key);
+      if (client.transfers.get(transfer.url) === transfer) client.transfers.delete(transfer.url);
+    });
   client.pending.set(key, loading); return loading;
+}
+
+// Browser callback delivery can lag behind a completed native download. Read
+// only the exact first-party URL for this pending transfer; never inspect or
+// retain other resource/query history. Missing or ambiguous timing is no proof.
+// https://www.w3.org/TR/resource-timing/#dom-performanceresourcetiming-responseend
+function completedWithinDeadline(transfer, deadline) {
+  if (!transfer?.native || !transfer.headersSeen || typeof performance.getEntriesByName !== "function") return false;
+  try {
+    const entries = performance.getEntriesByName(transfer.url, "resource").filter(entry => entry.initiatorType === "fetch"
+      && Number.isFinite(entry.startTime) && entry.startTime >= transfer.startedAt && entry.startTime <= transfer.headersAt);
+    if (entries.length !== 1) return false;
+    const entry = entries[0], bytes = entry.decodedBodySize;
+    return Number.isFinite(entry.responseEnd) && entry.responseEnd >= entry.startTime && entry.responseEnd <= deadline
+      && Number.isSafeInteger(bytes) && bytes > 0 && bytes <= transfer.maximum && (transfer.bytes === undefined || bytes === transfer.bytes);
+  } catch { return false; }
 }
 
 /** Lazy length shards, <=2 edits, <=5 explicit choices; no provider/query URL.
@@ -207,21 +249,48 @@ export async function suggestDictionaryTerms(input, { dictionaryVersion, signal,
     stop = () => { abandoned = true; reject(stopped()); };
     signal?.addEventListener("abort", stop, { once: true });
   });
-  const resource = async operation => {
-    let timer;
-    try { return await Promise.race([operation, cancelled,
-      new Promise((_, reject) => { timer = setTimeout(() => reject(timeout()), duration); })]); }
-    finally { clearTimeout(timer); }
+  const resource = async (operation, url) => {
+    const transfer = client.transfers.get(String(url)), deadline = performance.now() + duration;
+    let timer, idle = null, expired = false;
+    try {
+      const value = await Promise.race([operation, cancelled, new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          expired = true;
+          // After a blocked renderer, already-buffered body callbacks may still
+          // precede the next idle period. Delay adjudication, not the network
+          // deadline: EVERY late success must prove full responseEnd <= deadline.
+          // https://www.w3.org/TR/requestidlecallback/
+          if (transfer?.native && transfer.headersSeen && typeof performance.getEntriesByName === "function"
+            && typeof globalThis.requestIdleCallback === "function" && typeof globalThis.cancelIdleCallback === "function") {
+            try {
+              idle = globalThis.requestIdleCallback(() => { idle = null; if (!completedWithinDeadline(transfer, deadline)) reject(timeout()); });
+              return;
+            } catch { /* Keep strict rejection when scheduling is unavailable. */ }
+          }
+          reject(timeout());
+        }, duration);
+      })]);
+      if (expired && !completedWithinDeadline(transfer, deadline)) throw timeout();
+      return value;
+    } finally {
+      clearTimeout(timer);
+      if (idle !== null) globalThis.cancelIdleCallback(idle);
+    }
   };
   const task = (async () => {
-    const manifest = await resource(manifestFor(client, dictionaryVersion, fetchImpl));
+    const manifest = await resource(manifestFor(client, dictionaryVersion, fetchImpl), MANIFEST_URL);
     if (signal?.aborted) throw stopped();
     const descriptors = manifest.shards.filter(shard => Math.abs(shard.length - query.length) <= maximum);
-    const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl))));
+    const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl), new URL(shard.file, MANIFEST_URL))));
+    const local = packagedRows(descriptors.map(shard => shard.length));
     if (signal?.aborted) throw stopped();
-    if (groups.some(rows => rows.some(([term]) => fold(term) === query))) return [];
+    if ([...groups, local].some(rows => rows.some(([term]) => fold(term) === query))) return [];
+    const unique = new Map();
+    for (const rows of [...groups, local]) for (const row of rows) {
+      if (!unique.has(row[0]) || unique.get(row[0])[1] > row[1]) unique.set(row[0], row);
+    }
     const matches = []; let scanned = 0, lastYield = performance.now();
-    for (const rows of groups) for (const row of rows) {
+    for (const row of unique.values()) {
       // Yield by elapsed CPU work, not every fixed row batch. Unconditional
       // zero-delay timers cost ~15ms on some Windows hosts and otherwise make
       // a small warm lookup wait over a second for dozens of idle callbacks.

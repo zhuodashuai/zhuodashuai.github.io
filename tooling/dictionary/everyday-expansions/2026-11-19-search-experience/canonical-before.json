@@ -1,0 +1,105 @@
+[
+  {
+    "id": 10241155,
+    "term": "sign in",
+    "partOfSpeech": "verb",
+    "meaning": "签到, 签收\n[计] 注册",
+    "forms": [],
+    "source": "pos-reviewed",
+    "seed": {
+      "rank": 87279,
+      "forms": [],
+      "workbook": true
+    },
+    "variants": [
+      {
+        "partOfSpeech": "",
+        "meaning": "签到, 签收\n[计] 注册",
+        "source": "mit"
+      }
+    ]
+  },
+  {
+    "id": 667555,
+    "term": "well-being",
+    "partOfSpeech": "adjective",
+    "meaning": "a. 安宁的, 康乐的",
+    "forms": [],
+    "source": "core",
+    "variants": [
+      {
+        "partOfSpeech": "adjective",
+        "meaning": "a. 安宁的, 康乐的",
+        "source": "mit"
+      }
+    ],
+    "seed": {
+      "rank": 5215,
+      "forms": [
+        "well-being"
+      ],
+      "workbook": true
+    }
+  },
+  {
+    "id": 679499,
+    "term": "refrigerator",
+    "partOfSpeech": "noun",
+    "meaning": "n. 电冰箱, 冷藏库\n[计] 冷冻机; 致冷器",
+    "forms": [
+      "refrigerators"
+    ],
+    "source": "core",
+    "variants": [
+      {
+        "partOfSpeech": "noun",
+        "meaning": "n. 电冰箱, 冷藏库\n[计] 冷冻机; 致冷器",
+        "source": "mit"
+      }
+    ],
+    "seed": {
+      "rank": 5308,
+      "forms": [
+        "refrigerators"
+      ],
+      "workbook": true
+    }
+  },
+  {
+    "id": 1874928,
+    "term": "freezer",
+    "partOfSpeech": "noun",
+    "meaning": "n. 冰库, 冰箱, 冷冻库",
+    "forms": [
+      "freezers"
+    ],
+    "source": "mit",
+    "seed": {
+      "rank": 14650,
+      "forms": [
+        "freezers"
+      ],
+      "workbook": true
+    }
+  },
+  {
+    "id": 9788912,
+    "term": "log in",
+    "partOfSpeech": "verb",
+    "meaning": "[计] 注册",
+    "forms": [],
+    "source": "pos-reviewed",
+    "seed": {
+      "rank": 81817,
+      "forms": [],
+      "workbook": true
+    },
+    "variants": [
+      {
+        "partOfSpeech": "",
+        "meaning": "[计] 注册",
+        "source": "mit"
+      }
+    ]
+  }
+]

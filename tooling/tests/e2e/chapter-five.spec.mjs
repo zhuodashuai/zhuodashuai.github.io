@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import {useRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
+
+// These source-retention fixtures deliberately check every recorded context.
+useRecordedChapterSources(test);
 
 const source = JSON.parse(await readFile(new URL("../../../vocab/data/reading-lists/never-let-me-go/chapter-5.json", import.meta.url), "utf8"));
 const snapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));

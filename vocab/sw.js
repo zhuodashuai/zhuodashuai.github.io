@@ -1,3 +1,4 @@
+// Search experience: literal-first recovery, scoped Chinese evidence and a compact sticky search.
 // Reuse twelve authenticated original pairs with their specific labels; keep saved data and warmed shards.
 // Add three classroom-theme expressions; retain warmed dictionary and private learning data.
 // Refresh four reviewed classroom supplements; preserve original senses and learning data.
@@ -21,6 +22,25 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/dictionary-form-evidence.js?v=114",
+  "./js/search-experience-data.js", "./js/dictionary-query-normalization.js?v=114",
+  "./js/public-app-v113.js?v=117",
+  "./js/personal-app-v108.js?v=114",
+  "./js/owner-app-v108.js?v=114",
+  "./js/dictionary-entry-v109.js?v=114",
+  "./js/dictionary-app-v109.js?v=114",
+  "./js/chinese-search.js?v=114",
+  "./js/chinese-ranking.js?v=114",
+  "./js/expanded-dictionary.js?v=114",
+  "./js/everyday-lookup.js?v=114",
+  "./js/everyday-lookup-data.js?v=114",
+  "./js/reviewed-senses-data.js?v=114",
+  "./js/dictionary-app.js?v=114",
+  "./js/library-lookup-controller.js?v=114",
+  "./js/library-lookup-ui.js?v=114",
+  "./js/personal-lookup-flow.js?v=114",
+  "./js/dictionary-suggestions.js?v=114",
+  "./dictionary.css?v=114",
   "./js/public-app-v113.js?v=116", "./js/public-snapshot.js?v=116",
   "./js/public-app-v113.js?v=115",
   "./js/public-app-v113.js?v=114", "./js/teamwork-study-net.js", "./js/public-snapshot.js?v=114",

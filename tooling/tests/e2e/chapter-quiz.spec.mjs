@@ -1,4 +1,8 @@
 import { expect, test } from "@playwright/test";
+import {useRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
+
+// The immutable quiz fixtures intentionally include all 24 recorded contexts.
+useRecordedChapterSources(test);
 
 const BOOK = "never-let-me-go";
 const CHAPTER = "chapter-6";

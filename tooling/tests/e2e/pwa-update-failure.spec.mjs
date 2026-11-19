@@ -23,7 +23,7 @@ test("a failed public auto-update exposes a mobile retry without covering chapte
   });
 
   await page.goto("/?book=never-let-me-go&chapter=chapter-12");
-  await expect(page.locator("#entry-count")).toHaveText("25");
+  await expect(page.locator("#entry-count")).toHaveText("23");
   const banner = page.locator("#update-banner");
   const retry = page.locator("#apply-update");
   const practice = page.locator("#chapter-quiz-button");

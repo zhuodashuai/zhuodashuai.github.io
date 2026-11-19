@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-19",
+  "method": "Read-only UI comparison in the in-app browser; four manual queries, no login, no account writes, no controlled latency measurement. Only outcome categories and heads were recorded; definitions and examples were not copied.",
+  "baselineCommit": "735bda1b14d3ff876daf229d8ade4319a619d8ee",
+  "claims": "This finite observation is not evidence of overall superiority to Youdao or coverage of its desktop/mobile clients.",
+  "queries": [
+    {"query":"文献综述","youdao":{"kind":"dictionary","head":"literature review","url":"https://dict.youdao.com/result?word=%E6%96%87%E7%8C%AE%E7%BB%BC%E8%BF%B0&lang=en"},"projectBaseline":{"kind":"no_result"}},
+    {"query":"heppy","youdao":{"kind":"spelling_suggestions","heads":["eppy","hippy"],"expectedHeadObserved":false,"url":"https://dict.youdao.com/result?word=heppy&lang=en"},"projectBaseline":{"kind":"spelling_suggestions","heads":["happy","hippy","hoppy","peppy"],"expectedHeadObserved":true}},
+    {"query":"self‑esteem","youdao":{"kind":"dictionary","head":"self esteem","note":"Observed final loaded result; the initial loading state was not counted as a miss.","url":"https://dict.youdao.com/result?word=self%E2%80%91esteem&lang=en"},"projectBaseline":{"kind":"no_result"}},
+    {"query":"by some fluke","youdao":{"kind":"machine_translation_only","url":"https://dict.youdao.com/result?word=by%20some%20fluke&lang=en"},"projectBaseline":{"kind":"local_dictionary","head":"by some fluke"}}
+  ]
+}

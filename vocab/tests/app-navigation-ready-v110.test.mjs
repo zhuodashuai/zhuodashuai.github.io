@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { readyAppNavigation } from "../js/app-navigation-ready-v110.js";
 import { restoreChineseSearchPaginationShell } from "../../tooling/tests/helpers/chinese-search-pagination-shell.mjs";
+import { restoreSearchExperienceShell } from "../../tooling/tests/helpers/search-experience-shell.mjs";
 
 const selectors = [".app-header", ".app-footer", ".guide-footer-nav", "#member-github-owner-link", "#member-standard-login-link"];
 const d42SourceLabel = '<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
@@ -71,6 +72,7 @@ const shells = [
 for (const [file, header, footer, count, beforePins] of shells) {
   test(`v110 ${file} changes only the named navigation script and finite initial gates`, async () => {
     let html = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
+    html = restoreSearchExperienceShell(file, html);
     if (file === "index.html") {
       assert.equal(html.split('src="js/public-app-v113.js?v=115"').length, 2);
       assert(!html.includes('src="js/public-app-v108.js"'));
@@ -97,6 +99,24 @@ test("v110 historical source-label restoration rejects other labels and preserve
   assert.throws(() => restoreD42SourceLabel(d42SourceLabel.replace("仅覆盖", "覆盖")));
   assert.throws(() => restoreD42SourceLabel(d42SourceLabel + d42SourceLabel));
   assert.equal(restoreD42SourceLabel(d42SourceLabel + "\n<!-- unrelated -->"), historicalSourceLabel + "\n<!-- unrelated -->");
+});
+
+test("search-experience shell restoration binds the complete current snapshot before its finite historical projection", async () => {
+  for (const file of ["index.html", "personal.html", "owner.html", "dictionary.html"]) {
+    const current = await readFile(new URL(`../${file}`, import.meta.url), "utf8");
+    const restored = restoreSearchExperienceShell(file, current);
+    assert.notEqual(restored, current, file);
+    assert.throws(() => restoreSearchExperienceShell(file, current + "<!-- unrelated mutation -->"), /snapshot changed/u);
+    assert.throws(() => restoreSearchExperienceShell(file, current.replace('<main id="main">', '<main id="changed">')), /snapshot changed/u);
+    const lf = current.replace(/\r\n/gu, "\n"), crlf = lf.replace(/\n/gu, "\r\n");
+    assert.equal(restoreSearchExperienceShell(file, crlf), restoreSearchExperienceShell(file, lf).replace(/\n/gu, "\r\n"));
+  }
+  const dictionary = await readFile(new URL("../dictionary.html", import.meta.url), "utf8");
+  const control = 'id="dictionary-display-context"';
+  assert.throws(() => restoreSearchExperienceShell("dictionary.html", dictionary + control), /snapshot changed/u);
+  assert.throws(() => restoreSearchExperienceShell("dictionary.html", dictionary.replace(control, 'id="changed-display-context"')), /snapshot changed/u);
+  const unrelated = '<p id="unrelated">unchanged</p>\n';
+  assert.equal(restoreSearchExperienceShell("guide.html", unrelated), unrelated);
 });
 
 test("historical pagination restoration rejects altered, duplicated or moved controls and keeps unrelated bytes", async () => {

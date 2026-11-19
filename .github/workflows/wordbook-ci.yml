@@ -93,7 +93,15 @@ jobs:
           node tooling/scripts/build-dictionary-examples-additive.mjs --check
           node tooling/scripts/build-canonical-example-repairs.mjs --check
           node tooling/scripts/build-common-synonyms.mjs --check
-      - name: Secret boundary scan
+      - name: Verify reviewed search additions
+        # These additions retain the canonical data and compile only exact,
+        # independently approved original rows and scoped sense corrections.
+        run: |
+          node tooling/scripts/build-search-experience-content.mjs --check
+          node tooling/scripts/build-reviewed-dictionary-senses.mjs --check
+      - name: Check finite search regressions and critical false positives
+        run: pnpm benchmark:search
+      - name: Scan credential boundaries
         run: pnpm test:security
       - name: Unit and Worker integration tests
         run: pnpm test

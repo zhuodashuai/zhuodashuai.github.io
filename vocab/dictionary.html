@@ -9,7 +9,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="icon" href="assets/icon-192.png" type="image/png">
-  <link rel="stylesheet" href="dictionary.css?v=101">
+  <link rel="stylesheet" href="dictionary.css?v=114">
   <link rel="stylesheet" href="app-navigation.css?v=105">
   <title>中英词典 · 卓的单词本</title>
 </head>
@@ -25,19 +25,21 @@
     </nav>
   </header>
   <main id="main">
-    <section class="search-panel" aria-labelledby="dictionary-title">
-      <div class="title-row"><h1 id="dictionary-title">中英词典</h1><p id="dictionary-count" aria-live="polite">正在读取词条数量…</p></div>
+    <div class="title-row dictionary-page-heading"><h1 id="dictionary-title">中英词典</h1><p id="dictionary-count" aria-live="polite">正在读取词条数量…</p></div>
+    <section class="search-panel" id="dictionary-search-panel" aria-labelledby="dictionary-title">
       <form id="dictionary-form" action="dictionary.html" role="search">
         <label for="dictionary-query">输入英文或中文释义</label>
         <div class="search-row">
-          <input id="dictionary-query" type="search" maxlength="200" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" placeholder="如：acquisitive / 监视" aria-describedby="dictionary-hint">
+          <div class="search-input-wrap"><input id="dictionary-query" type="search" maxlength="200" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" placeholder="输入英文、短语或中文意思" aria-describedby="dictionary-hint"><button id="dictionary-clear" type="button" class="clear-query" aria-label="清空查询" hidden>×</button></div>
           <button id="dictionary-submit" type="submit" disabled>准备中…</button>
         </div>
         <div class="search-support">
-          <p id="dictionary-hint" class="hint">按 Enter 查询 · 免登录查词，收录需确认</p>
+          <p id="dictionary-hint" class="hint">按 Enter 查词</p>
           <button id="dictionary-cancel" type="button" class="quiet-button" hidden>取消查询</button>
         </div>
       </form>
+    </section>
+    <section class="query-feedback" aria-label="查询提示">
       <p id="dictionary-status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
       <p id="dictionary-related-status" class="hint" role="status" aria-live="polite" hidden></p>
       <section id="dictionary-suggestion-panel" class="suggestion-panel" aria-labelledby="dictionary-suggestion-title" aria-busy="false" hidden>
@@ -46,6 +48,11 @@
         <ul id="dictionary-suggestions" aria-label="拼写建议"></ul>
         <p class="hint">仅提供拼写建议，点选后查词。</p>
       </section>
+      <div id="dictionary-recovery" class="recovery-panel" hidden>
+        <p id="dictionary-component-title" class="hint" hidden>短语未命中，可单独查词（不代表整句翻译）：</p>
+        <div id="dictionary-components" class="recovery-components"></div>
+        <button id="dictionary-edit-query" type="button" class="quiet-button">修改查询</button>
+      </div>
       <noscript><p class="status">查词需要 JavaScript。请在浏览器中启用后刷新。</p></noscript>
     </section>
     <section id="dictionary-results" class="results-layout" aria-label="查询结果" aria-busy="false">
@@ -57,6 +64,7 @@
         </details>
       </aside>
       <article id="dictionary-result" class="result-card" aria-labelledby="dictionary-term" hidden>
+        <p id="dictionary-display-context" class="display-context" role="status" aria-live="polite" hidden></p>
         <div class="result-title-row">
           <div class="result-heading"><h2 id="dictionary-term" lang="en" tabindex="-1"></h2><p id="dictionary-pos" class="part-of-speech"></p></div>
           <div class="result-actions"><a id="dictionary-add" class="primary-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html">加入我的词本</a><span>进入词本后确认保存</span></div>
@@ -87,6 +95,6 @@
   <footer class="app-footer" inert data-app-navigation-pending><div><p>基础释义来自 <a href="https://github.com/skywind3000/ECDICT" target="_blank" rel="noopener noreferrer">ECDICT</a>（<a href="data/expanded-dictionary/ECDICT-LICENSE.txt">MIT 许可证</a>）；其他释义逐项标明来源。</p><p>仅查询本站公开索引，不调用在线翻译或 AI。</p></div><nav aria-label="帮助与更多"><a href="guide.html">使用手册</a><a href="https://zhuodashuai.github.io/">学术主页</a><a id="dictionary-owner-link" href="https://zhuo-wordbook-api.zhuo-wordbook-api.workers.dev/personal.html?auth=owner" aria-label="卓：查词并公开收录">卓的公开词本 <span aria-hidden="true">↗</span></a></nav></footer>
   <aside id="update-banner" class="update-banner" role="status" hidden><span>发现新版本。</span><button type="button" id="apply-update">立即更新</button></aside>
   <script type="module" src="js/app-navigation-ready-v110.js"></script>
-  <script type="module" src="js/dictionary-entry-v109.js"></script>
+  <script type="module" src="js/dictionary-entry-v109.js?v=114"></script>
 </body>
 </html>

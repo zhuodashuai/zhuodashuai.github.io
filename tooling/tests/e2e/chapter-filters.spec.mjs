@@ -17,17 +17,25 @@ for (const width of [390, 1440]) {
     await expect(filters.locator('[data-filter="phrase"]')).toHaveAttribute("aria-pressed", "true");
     if (width === 390) await page.locator("#chapter-select").selectOption("chapter-12");
     else await page.locator('#chapter-tabs [data-value="chapter-12"]').click();
-    await expect(page.locator("#entry-count")).toHaveText("25");
+    await expect(page.locator("#entry-count")).toHaveText("23");
     await expect(filters.locator('[data-filter="all"]')).toHaveAttribute("aria-pressed", "true");
     await expect(filters.locator('[data-filter="phrase"]')).toBeHidden();
-    await expect(page.locator("#entry-grid .word-card")).toHaveCount(25);
+    await expect(page.locator("#entry-grid .word-card")).toHaveCount(23);
+    // Two entries are earlier cards reused here. Their complete recorded
+    // chapter context remains available through the ordinary view toggle.
+    await page.locator('#show-repeated-reading-cards').check();
+    await expect(page.locator('#entry-count')).toHaveText('25');
+    await expect(page.locator('#entry-grid .word-card')).toHaveCount(25);
+    await page.locator('#show-repeated-reading-cards').uncheck();
+    await expect(page.locator('#entry-count')).toHaveText('23');
+    await expect(page.locator('#entry-grid .word-card')).toHaveCount(23);
     await expect(page.locator("#empty-message")).toBeHidden();
   });
 }
 
 test("searching does not erase available type controls or clear the selected filter", async ({ page }) => {
   await page.goto("/?book=never-let-me-go&chapter=chapter-12");
-  await expect(page.locator("#entry-count")).toHaveText("25");
+  await expect(page.locator("#entry-count")).toHaveText("23");
   const word = page.locator('#filter-row [data-filter="word"]');
   await word.click();
   await page.locator("#library-search").fill("there-is-no-such-word-in-this-chapter");

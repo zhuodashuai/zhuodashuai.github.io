@@ -1,3 +1,4 @@
+import { queryRequiredDictionaryResult } from './required-dictionary-result.mjs';
 import { createHash } from 'node:crypto';
 
 // Browser orchestration only: importing this module starts no browser/server,
@@ -126,13 +127,8 @@ export async function watchAnonymousStaticContext(context, base, report, expect)
   });
 }
 
-async function queryFirst(page, query, term, expect) {
-  await page.locator('#dictionary-query').fill(query);
-  await page.locator('#dictionary-query').press('Enter');
-  await expect.poll(() => page.evaluate(() => new URLSearchParams(location.hash.slice(1)).get('q'))).toBe(query);
-  await expect(page.locator('#dictionary-status')).toHaveAttribute('data-phase', 'ready', { timeout: 20000 });
-  // Every query checks the first displayed result. Never select a candidate.
-  await expect(page.locator('#dictionary-term'), 'First hit for ' + query).toHaveText(term);
+async function queryFirst(page, query, term, expect, options) {
+  return queryRequiredDictionaryResult(page, query, term, expect, options);
 }
 
 async function assertNoOverflow(page, expect, context) {
@@ -149,7 +145,7 @@ async function verifyNativeAndOriginals(page, rows, modules) {
       import(moduleURL(modules.examples)), import(moduleURL(modules.additive)), import(moduleURL(modules.release)),
     ]);
     const reads = [], selected = [], canonical = [], originals = [];
-    let selectedFallbackCalls = 0, hotLookupCalls = 0, fullSearchCalls = 0, hotReverseCalls = 0;
+    let selectedFallbackCalls = 0, hotLookupCalls = 0, fullSearchCalls = 0, hotReverseCalls = 0, chineseFullSearchCalls = 0;
     const staticFetch = async (input, options = {}) => {
       const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url, document.baseURI);
       if (url.origin !== location.origin || !['GET', 'HEAD'].includes(options.method || 'GET')
@@ -171,11 +167,28 @@ async function verifyNativeAndOriginals(page, rows, modules) {
     };
     try {
       for (const row of rows.filter(r => r.route === 'selected')) for (const q of row.queries) {
-        const result = await lookupPersonalDictionaryFast(q.query, { hotLookup: forbidden, hotReverse: forbidden, fullSearch: forbidden });
-        const first = firstCheck(result, row, q.query), card = { ...first, example: 'Existing native saved example.', study: { box: 3, correct: 2 } };
+        const chinese = /\p{Script=Han}/u.test(q.query);
+        const result = await lookupPersonalDictionaryFast(q.query, { hotLookup: forbidden, hotReverse: forbidden,
+          ...(chinese ? { preferCompleteChinese: true } : {}), fullSearch: chinese ? (query, options) => {
+            chineseFullSearchCalls++; return expanded.searchExpandedDictionary(query, { ...options, fetchImpl: staticFetch });
+          } : forbidden });
+        let target = result.results[0], page = result;
+        if (chinese) {
+          if (result.ranking !== 'global' || result.relatedIntegrated !== true || result.coverage === 'basic' || result.coverage === 'limited') throw Error('Chinese source must be complete: ' + q.query);
+          target = page.results.find(item => item.term === row.term);
+          while (!target && page.hasMore) {
+            const offset = page.nextOffset;
+            page = await expanded.searchExpandedDictionary(q.query, { fetchImpl: staticFetch, offset });
+            if (page.offset !== offset || page.total !== result.total || page.hasMore && page.nextOffset <= offset) throw Error('Invalid complete Chinese page');
+            target = page.results.find(item => item.term === row.term);
+          }
+          if (!target) throw Error('Required Chinese target missing: ' + q.query);
+          for (const key of Object.keys(row.primary)) if (target[key] !== row.primary[key]) throw Error('Native Chinese source identity mismatch: ' + q.query + ' ' + key);
+        } else target = firstCheck(result, row, q.query);
+        const first = target, card = { ...first, example: 'Existing native saved example.', study: { box: 3, correct: 2 } };
         const before = JSON.stringify(card), entry = await examples.loadDictionaryExamples(row.term, { savedEntry: card, fetchImpl: staticFetch });
         pairCheck(entry, row); if (JSON.stringify(card) !== before) throw Error('Native selected card mutated');
-        selected.push({ query: q.query, kind: q.kind, term: first.term, firstHit: true, pair: entry.senses[0].examples, unchanged: true });
+        selected.push({ query: q.query, kind: q.kind, term: first.term, firstTerm: result.results[0]?.term, firstHit: result.results[0]?.term === first.term, chinese, pair: entry.senses[0].examples, unchanged: true });
       }
       // These are the actual native personal dependencies; no response is stubbed.
       hot.resetPersonalDictionaryCacheForTests?.(); expanded.resetExpandedDictionaryCacheForTests?.();
@@ -196,7 +209,7 @@ async function verifyNativeAndOriginals(page, rows, modules) {
       const reader = createAdditiveExamplesLoader(dictionaryExamplesRelease, { fetchImpl: staticFetch });
       try { for (const row of rows) originals.push({ term: row.term, dto: await reader.load(row.term, { lookupQuery: row.term }) }); }
       finally { reader.close(); }
-      return { selected, canonical, originals, reads, selectedFallbackCalls, hotLookupCalls, fullSearchCalls, hotReverseCalls };
+      return { selected, canonical, originals, reads, selectedFallbackCalls, hotLookupCalls, fullSearchCalls, hotReverseCalls, chineseFullSearchCalls };
     } finally { examples.resetDictionaryExamplesCacheForTests(); }
   }, { rows, modules });
 }
@@ -252,7 +265,7 @@ export async function verifySevenHeadViewport({ context, base, fixture, modules,
     await page.setViewportSize({ width, height: 844 });
     await page.goto(new URL('dictionary.html', base).href, { waitUntil: 'domcontentloaded' });
     for (const row of rows) for (const q of row.queries) {
-      await queryFirst(page, q.query, row.term, expect);
+      const selection = await queryFirst(page, q.query, row.term, expect);
       await expect(page.locator('#dictionary-pos')).toHaveText(row.primary.partOfSpeech);
       await expect(page.locator('#dictionary-meaning .meaning-line')).toHaveText(row.primary.meaning.split('\n'));
       await expect(page.locator('#dictionary-source a')).toHaveText(row.primary.source);
@@ -266,15 +279,16 @@ export async function verifySevenHeadViewport({ context, base, fixture, modules,
       await expect(details.locator('p[lang="zh-CN"]')).toHaveText(row.example.pairs.map(p => p.zh));
       await expect(page.locator('#dictionary-example-source')).toHaveText(SOURCE);
       await assertNoOverflow(page, expect, q.query);
-      report.queries.push({ base, width, route: row.route, ...q, term: row.term, firstHit: true, candidateClicked: false,
+      report.queries.push({ base, width, route: row.route, ...q, term: row.term, ...selection,
         partOfSpeech: row.primary.partOfSpeech, meaning: row.primary.meaning, source: row.primary.source, pairs: row.example.pairs });
     }
     for (const guard of requiredRegressions) {
-      await queryFirst(page, guard.query, guard.term, expect);
+      await queryFirst(page, guard.query, guard.term, expect, { requireFirst: true });
       await assertNoOverflow(page, expect, guard.query);
       report.regressions.push({ base, width, ...guard, firstHit: true, candidateClicked: false });
     }
     const native = await verifyNativeAndOriginals(page, rows, modules);
+    expect(native.chineseFullSearchCalls).toBe(rows.filter(row => row.route === 'selected').reduce((n, row) => n + row.queries.filter(q => /\p{Script=Han}/u.test(q.query)).length, 0));
     expect(native.selected).toHaveLength(prepared.selectedQueryCount); expect(native.canonical).toHaveLength(3);
     expect(native.selectedFallbackCalls).toBe(0); expect(native.hotLookupCalls).toBe(3); expect(native.fullSearchCalls).toBe(3);
     expect(native.hotReverseCalls).toBe(0); expect(native.reads.length).toBeGreaterThan(0);
