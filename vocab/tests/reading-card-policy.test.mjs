@@ -75,6 +75,23 @@ test("catalogue counts agree with visible chapter scopes and retain hidden sourc
   }
 });
 
+test("catalogue counts match their reading scopes with duplicate tags and reserved collection IDs", () => {
+  const entries = fixture();
+  entries[1].tags.push(entries[1].tags[0]);
+  entries[3].tags.push("collection:all:chapter-1", "collection:main:chapter-1");
+  const mainEntry = entries[0];
+  mainEntry.tags.push(MAIN_READING_HOME_TAG, "collection:teamwork:chapter-6");
+  for (const showRepeated of [false, true]) {
+    const options = { showRepeated };
+    for (const book of buildLearningCatalog(entries, options)) {
+      assert.equal(book.count, filterLearningEntries(entries, book.id, "all", options).length);
+      for (const chapter of book.chapters) {
+        assert.equal(chapter.count, filterLearningEntries(entries, book.id, chapter.id, options).length);
+      }
+    }
+  }
+});
+
 test("source records retain all distinct articles and their own page and URL even when cards are hidden", () => {
   const entry = fixture()[2], before = structuredClone(entry);
   const sources = recordedReadingSources(entry);

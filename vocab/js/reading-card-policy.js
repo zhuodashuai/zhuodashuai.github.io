@@ -28,15 +28,34 @@ export function filterLearningEntries(entries, collectionId = "all", chapterId =
 
 /** Source membership remains available even when its repeated learning card is hidden. */
 export function buildLearningCatalog(entries, { showRepeated = false } = {}) {
-  return buildCollectionCatalog(entries).map(collection => {
-    const count = filterLearningEntries(entries, collection.id, "all", { showRepeated }).length;
+  const source = Array.isArray(entries) ? entries : [];
+  let mainCount = 0;
+  const bookCounts = new Map();
+  const chapterCounts = new Map();
+  source.forEach(entry => {
+    const first = firstReadingMembership(entry);
+    if (!first) mainCount += 1;
+
+    const visible = showRepeated ? collectionMemberships(entry) : first ? [first] : [];
+    // A card can belong to several chapters but contributes only once per scope.
+    const books = new Set(visible.map(({ collectionId }) => collectionId));
+    const chapters = new Set(visible.map(({ collectionId, chapterId }) => `${collectionId}:${chapterId}`));
+    for (const book of books) bookCounts.set(book, (bookCounts.get(book) ?? 0) + 1);
+    for (const chapter of chapters) chapterCounts.set(chapter, (chapterCounts.get(chapter) ?? 0) + 1);
+  });
+  return buildCollectionCatalog(source).map(collection => {
+    const isMain = collection.id === MAIN_COLLECTION_ID;
+    const isAll = collection.id === "all";
+    let count = bookCounts.get(collection.id) ?? 0;
+    if (isMain) count = mainCount;
+    if (isAll) count = source.length;
     return {
       ...collection,
       count,
-      recordedCount: collection.id === MAIN_COLLECTION_ID ? count : collection.count,
-      repeatsHidden: collection.id === MAIN_COLLECTION_ID ? 0 : collection.count - count,
+      recordedCount: isMain ? count : collection.count,
+      repeatsHidden: isMain ? 0 : collection.count - count,
       chapters: collection.chapters.map(chapter => {
-        const visibleCount = filterLearningEntries(entries, collection.id, chapter.id, { showRepeated }).length;
+        const visibleCount = isMain || isAll ? count : chapterCounts.get(`${collection.id}:${chapter.id}`) ?? 0;
         return { ...chapter, count: visibleCount, recordedCount: chapter.count, repeatsHidden: chapter.count - visibleCount };
       })
     };

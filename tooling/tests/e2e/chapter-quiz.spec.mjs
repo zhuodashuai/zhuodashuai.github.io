@@ -2,7 +2,8 @@ import { expect, test } from "@playwright/test";
 
 const BOOK = "never-let-me-go";
 const CHAPTER = "chapter-6";
-const CHAPTER_SIZE = 24;
+// With repeats hidden, three of the 24 recorded words belong to earlier chapters.
+const CHAPTER_SIZE = 21;
 
 test.beforeEach(async ({ context, page }, testInfo) => {
   const run = `quiz-${testInfo.workerIndex}-${testInfo.testId}`.replace(/[^a-z0-9-]/gi, "-").slice(0, 80);
@@ -78,7 +79,7 @@ test("chapter-only floating quiz uses the whole chapter and retains exact score 
     expect(stored.answers[index].correct).toBe(index !== 0);
     await page.locator("#quiz-next").click();
   }
-  await expect(page.locator("#quiz-result-accuracy")).toContainText("95.8%");
+  await expect(page.locator("#quiz-result-accuracy")).toContainText("95.2%");
   await expect(page.locator("#quiz-wrong-list")).toContainText(wrongTerm);
   const completed = (await attempts(page))[0];
   expect(completed.completedAt).toBeTruthy();
@@ -90,7 +91,7 @@ test("chapter-only floating quiz uses the whole chapter and retains exact score 
   await page.locator("#quiz-history").click();
   await expect(page.locator("#quiz-history-list .quiz-history-open")).toHaveCount(1);
   await page.locator("#quiz-history-list .quiz-history-open").click();
-  await expect(page.locator("#quiz-result-accuracy")).toContainText("95.8%");
+  await expect(page.locator("#quiz-result-accuracy")).toContainText("95.2%");
   await expect(page.locator("#quiz-wrong-list")).toContainText(wrongTerm);
   expect(await reviewStates(page)).toEqual(reviewsBefore);
 });
@@ -267,7 +268,7 @@ test("a background library rerender does not change the open quiz or shrink its 
   expect((await attempts(page))[0].questions).toEqual(started.questions);
   await answerCurrent(page, started);
   await page.locator("#quiz-next").click();
-  await expect(page.locator("#quiz-progress")).toHaveText(/^2\s*\/\s*24$/);
+  await expect(page.locator("#quiz-progress")).toHaveText(new RegExp(`^2\\s*/\\s*${CHAPTER_SIZE}$`));
 });
 
 test("two tabs cannot overwrite one another's answer to the same saved attempt", async ({ page, context }) => {
@@ -287,7 +288,7 @@ test("two tabs cannot overwrite one another's answer to the same saved attempt",
   await secondTab.locator("#quiz-menu").click();
   await secondTab.locator("#quiz-resume").click();
   await expect(secondTab.locator("#quiz-term")).toHaveText(started.questions[1].term);
-  await expect(secondTab.locator("#quiz-progress")).toHaveText(/^2\s*\/\s*24$/);
+  await expect(secondTab.locator("#quiz-progress")).toHaveText(new RegExp(`^2\\s*/\\s*${CHAPTER_SIZE}$`));
   await secondTab.close();
 });
 
@@ -325,8 +326,8 @@ for (const delayedView of ["menu", "history"]) {
     await expect(page.locator("#quiz-scope")).toContainText("Chapter 7");
     await expect(page.locator("#quiz-retry")).toHaveCount(0);
     await page.locator("#quiz-start").click();
-    await expect(page.locator("#quiz-progress")).toHaveText(/^1\s*\/\s*30$/);
-    expect((await attempts(page, "chapter-7"))[0].questions).toHaveLength(30);
+    await expect(page.locator("#quiz-progress")).toHaveText(/^1\s*\/\s*29$/);
+    expect((await attempts(page, "chapter-7"))[0].questions).toHaveLength(29);
   });
 }
 

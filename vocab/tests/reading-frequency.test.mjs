@@ -60,7 +60,9 @@ test('the active public shell retains old programs while loading the reversible 
     readFile(new URL('../index.html',import.meta.url),'utf8'),readFile(new URL('../js/public-app-v113.js',import.meta.url),'utf8'),
     readFile(new URL('../js/entry-detail-v113.js',import.meta.url),'utf8'),readFile(new URL('../sw.js',import.meta.url),'utf8')
   ]);
-  assert.match(html,/src="js\/public-app-v113\.js\?v=115"/u);
+  const activeProgram = html.match(/src="(js\/public-app-v113\.js\?v=\d+)"/u);
+  assert.ok(activeProgram, "the active public program has a versioned URL");
+  assert.ok(sw.includes(`"./${activeProgram[1]}"`), "the active public program is cached at the same URL");
   assert.match(program,/respectCurrentScope: true/u);assert.match(program,/filterLearningEntries\(entries, state.collectionId, state.chapterId, \{ showRepeated: state.showRepeated \}\)/u);
   assert.match(program,/显示重复词/u);assert.match(detail,/阅读频率与来源/u);
   assert.match(detail,/dictionary-examples-ui-v108\.js/u);
