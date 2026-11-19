@@ -99,6 +99,34 @@ for(const variant of ['current-v113','current-reusable'])test.describe(variant,(
     await expect(page.locator('#entry-count')).toHaveText(String(all.length));
   });
 
+  test('forced refreshes during a held old read coalesce into one latest-source read without a focus storm',async({page})=>{
+    let reads=0,value=raw,holdNext=false,releaseOld,oldReached;
+    const held=new Promise(resolve=>{releaseOld=resolve;}),seen=new Promise(resolve=>{oldReached=resolve;});
+    const writes=[];page.on('request',request=>{if(!['GET','HEAD','OPTIONS'].includes(request.method()))writes.push(request.url());});
+    const handler=async route=>{
+      // Capture the old source before the gate: changing value cannot turn
+      // that pending response into the fresh revision being tested.
+      const captured=structuredClone(value);reads++;
+      if(holdNext){holdNext=false;oldReached();await held;}
+      await route.fulfill({status:200,contentType:'application/json',headers:{'Cache-Control':'no-store'},body:JSON.stringify(captured)});
+    };
+    await page.route('**/api/v1/public/wordbook*',handler);await page.route('**/data/owner-wordbook.json*',handler);
+    try{
+      await page.goto('/');await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);
+      await page.waitForLoadState('networkidle');await page.locator('#library-show-more').click();
+      await expect(page.locator('#entry-grid .word-card')).toHaveCount(320);
+      const initialReads=reads;holdNext=true;await page.evaluate(()=>dispatchEvent(new Event('online')));await seen;
+      expect(reads).toBe(initialReads+1);
+      value={...raw,revisionId:raw.revisionId+'-queued-forced-refresh',exportedAt:new Date(Date.parse(raw.exportedAt)+1000).toISOString()};
+      await page.evaluate(()=>{for(let i=0;i<8;i++){dispatchEvent(new Event('online'));dispatchEvent(new Event('focus'));}});
+      expect(reads).toBe(initialReads+1);await expect(page.locator('#entry-grid .word-card')).toHaveCount(320);
+      releaseOld();await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);
+      expect(reads).toBe(initialReads+2);expect(await visibleIds(page)).toEqual(ids(ordered.slice(0,160)));
+      await expect(page.locator('#entry-count')).toHaveText(String(all.length));expect(writes).toEqual([]);
+      expect(await page.evaluate(async()=>(await import('/js/owner-storage.js?v=82')).listReviewStates())).toEqual([]);
+    }finally{releaseOld();await page.unrouteAll({behavior:'wait'});}
+  });
+
   test('study still reaches a card outside the window and a large chapter quiz uses all175 source identities',async({page})=>{
     await page.goto('/');await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);
     expect(await visibleIds(page)).not.toContain(firstStudy.id);await expect(page.locator('#due-count')).toHaveText(String(all.length));

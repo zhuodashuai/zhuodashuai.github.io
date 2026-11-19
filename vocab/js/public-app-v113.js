@@ -173,6 +173,7 @@ const entryDetail = createEntryDetailController({
 });
 const bookPassagesView = createBookPassagesView();
 let loadTask = null;
+let queuedForcedLoad = null;
 let lastLoadStartedAt = 0;
 let cacheChecked = false;
 let navigationKey = "";
@@ -707,11 +708,23 @@ async function performLoad({ background = false } = {}) {
 }
 
 function loadWordbook({ background = false, force = false } = {}) {
-  if (loadTask) return loadTask;
+  if (loadTask) {
+    if (force) {
+      // Keep one forced recovery/publication intent after the active read.
+      // A foreground retry wins over any queued background refresh.
+      queuedForcedLoad = { background: background && (queuedForcedLoad?.background ?? true) };
+    }
+    return loadTask;
+  }
   const now = Date.now();
   if (!force && state.snapshot && now - lastLoadStartedAt < MIN_REFRESH_GAP_MS) return Promise.resolve();
   lastLoadStartedAt = now;
-  loadTask = performLoad({ background }).finally(() => { loadTask = null; });
+  loadTask = performLoad({ background }).finally(() => {
+    loadTask = null;
+    const queued = queuedForcedLoad;
+    queuedForcedLoad = null;
+    if (queued) return loadWordbook({ background: queued.background, force: true });
+  });
   return loadTask;
 }
 
