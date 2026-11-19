@@ -42,7 +42,7 @@ async function componentFallback(term,before,fetchImpl,signal){
     const row=table.rows.find(r=>r.term===term);
     const allowed=row&&[...row.canonicalContexts,...row.legacyContexts].some(c=>JSON.stringify(c)===JSON.stringify(before));
     if(allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry))return original;
-  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;}
+  }catch(error){if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});if(error?.name==='AbortError')throw error;}
   // Both new assets may be absent during a partial offline update. The old
   // canonical context needs genuine existing pins, never caller labels alone.
   const controller=new AbortController(),stop=()=>controller.abort();signal?.addEventListener('abort',stop,{once:true});
@@ -135,7 +135,8 @@ export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEnt
     if(before===null||before&&before.term!==term)return Promise.resolve(null);
     return componentClient(fetchImpl).then(client=>client.load(term,{signal:options.signal,savedEntry,lookupQuery:term}))
       .catch(error=>{
-        if(options.signal?.aborted||error?.name==='AbortError')throw error;
+        if(options.signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+        if(error?.name==='AbortError')throw error;
         // A partial optional-module update must not erase valid base examples.
         return componentFallback(term,before,fetchImpl,options.signal);
       }).then(result=>savedEntry!==undefined&&JSON.stringify(canonicalCard(savedEntry,term))!==JSON.stringify(before)?null:result);
