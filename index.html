@@ -12,7 +12,7 @@
   <meta property="og:title" content="Qianjun Zhuo | Autonomous Systems &amp; Formal AI">
   <meta property="og:description" content="Research experience, projects, education, teaching and service.">
   <meta property="og:url" content="https://zhuodashuai.github.io/">
-  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-dark-fallback.png">
+  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-angle.png">
   <meta property="og:image:alt" content="A simulated pendulum angle briefly exceeds its safety limit after a disturbance.">
   <meta name="twitter:card" content="summary_large_image">
   <title>Qianjun Zhuo | Autonomous Systems &amp; Formal AI</title>
@@ -70,10 +70,11 @@
               </div>
               <a href="assets/pendulum-safety-trace.png">Full trace</a>
             </div>
-            <img class="trace-fallback" src="assets/pendulum-dark-fallback.png" width="1120" height="540" alt="The simulated pendulum rises to approximately 0.29 radians after a disturbance from 1 to 1.5 seconds, exceeding its 0.20-radian angle limit." fetchpriority="high">
+            <img class="trace-fallback" src="assets/pendulum-angle.png" width="1440" height="792" alt="The simulated pendulum rises to approximately 0.29 radians after a disturbance from 1 to 1.5 seconds, exceeding its 0.20-radian angle limit." fetchpriority="high">
             <div class="trace-interactive" hidden>
               <div class="trace-scene">
                 <canvas id="pendulum-scene" aria-hidden="true"></canvas>
+                <p class="trace-key"><span aria-hidden="true"></span> Safety band <small>±0.20 rad</small></p>
                 <div class="trace-annotation">
                   <div class="trace-angle"><output id="trace-angle" aria-label="Current angle in radians" aria-live="off">0.289</output> <span>rad</span></div>
                   <div id="trace-status" class="trace-status">Limit exceeded</div>
@@ -87,7 +88,7 @@
                 <output id="trace-clock" for="trace-time" aria-live="off">1.76 s</output>
               </div>
             </div>
-            <figcaption>The simulated angle crosses the 0.20 rad safety limit after a disturbance. The full trace includes angular velocity and applied torque.</figcaption>
+            <figcaption>The angle crosses the 0.20 rad limit near the end of the shaded disturbance interval. The full trace includes angular velocity and applied torque.</figcaption>
           </figure>
           <div class="intro-details">
             <p>I’m an undergraduate at UNSW Sydney studying actuarial studies and mathematics, currently on a 2026–27 academic-year exchange at the Wharton School, University of Pennsylvania.</p>

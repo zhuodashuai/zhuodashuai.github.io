@@ -10,12 +10,15 @@ const statusReadout = figure.querySelector("#trace-status");
 
 const limit = 0.2;
 const palette = {
-  text: "#acbac9",
-  grid: "#263749",
-  trace: "#9ce9db",
-  subdued: "#548780",
-  limit: "#f2a781",
-  track: "#52677c",
+  text: "#455751",
+  grid: "#d4ddd5",
+  trace: "#14645c",
+  subdued: "#5e8175",
+  limit: "#a14c3d",
+  reference: "#77978a",
+  track: "#50615a",
+  band: "#dcebe2",
+  paper: "#f5f4ec",
 };
 
 function canvasFrame(canvas) {
@@ -55,58 +58,51 @@ function drawScene(angle) {
   const { context, width, height } = canvasFrame(scene);
   if (!width || !height) return;
 
-  const pivotX = width * 0.49;
-  const pivotY = height * 0.81;
-  const arm = Math.min(height * 0.64, width * 0.36);
+  const pivotX = width * 0.47;
+  const pivotY = height * 0.86;
+  const arm = Math.min(height * 0.69, width * 0.48);
+  const vertical = -Math.PI / 2;
   const endpoint = radians => [
     pivotX + Math.sin(radians) * arm,
     pivotY - Math.cos(radians) * arm,
   ];
 
+  context.beginPath();
+  context.moveTo(pivotX, pivotY);
+  context.arc(pivotX, pivotY, arm + 2, vertical - limit, vertical + limit);
+  context.closePath();
+  context.fillStyle = palette.band;
+  context.fill();
+  context.strokeStyle = palette.reference;
+  context.stroke();
+
   context.save();
-  context.setLineDash([3, 5]);
-  segment(context, pivotX, pivotY, pivotX, pivotY - arm - 10, palette.grid);
-  for (const bound of [-limit, limit]) {
-    const [x, y] = endpoint(bound);
-    segment(context, pivotX, pivotY, x, y, "rgba(242,167,129,.52)");
-  }
+  context.setLineDash([4, 4]);
+  segment(context, pivotX, pivotY, pivotX, pivotY - arm - 9, palette.reference);
   context.restore();
 
-  context.beginPath();
-  context.arc(pivotX, pivotY, arm, -Math.PI / 2 - 0.78, -Math.PI / 2 + 0.78);
-  context.strokeStyle = palette.grid;
-  context.lineWidth = 1;
-  context.stroke();
-  for (let tick = -4; tick <= 4; tick += 1) {
-    const radians = tick * 0.18;
-    const [x, y] = endpoint(radians);
-    segment(context, x, y, x + 5 * Math.sin(radians), y - 5 * Math.cos(radians), palette.track);
-  }
-
-  const railWidth = Math.min(width * 0.61, 360);
-  const left = pivotX - railWidth / 2;
-  const right = pivotX + railWidth / 2;
-  segment(context, left, pivotY + 16, right, pivotY + 16, palette.track);
-  for (let i = 0; i < 29; i += 1) {
-    const x = left + i * railWidth / 28;
-    segment(context, x, pivotY + 16, x, pivotY + (i % 4 === 0 ? 24 : 21), palette.grid);
-  }
-
-  context.fillStyle = "#263b50";
-  context.fillRect(pivotX - 33, pivotY + 4, 66, 11);
-  context.fillStyle = "#5d768b";
-  context.fillRect(pivotX - 33, pivotY + 4, 66, 1);
+  context.strokeStyle = palette.track;
+  context.lineWidth = 1.1;
+  context.strokeRect(pivotX - 26, pivotY + 3, 52, 10);
+  segment(context, pivotX - 52, pivotY + 13, pivotX + 52, pivotY + 13, palette.track);
 
   const [x, y] = endpoint(angle);
   const armColor = Math.abs(angle) >= limit ? palette.limit : palette.trace;
-  context.save();
-  context.shadowColor = armColor;
-  context.shadowBlur = 15;
-  segment(context, pivotX, pivotY, x, y, armColor, 3.5);
-  point(context, x, y, 6, armColor);
-  context.restore();
-  point(context, pivotX, pivotY, 8, "#5c758a");
-  point(context, pivotX, pivotY, 4, "#101a27");
+  segment(context, pivotX, pivotY, x, y, armColor, 2.8);
+  const arc = arm * 0.45;
+  if (Math.abs(angle) > 0.02) {
+    context.beginPath();
+    context.arc(pivotX, pivotY, arc, vertical + Math.min(angle, 0), vertical + Math.max(angle, 0));
+    context.strokeStyle = armColor;
+    context.lineWidth = 1.35;
+    context.stroke();
+    context.font = 'italic 17px Georgia, serif';
+    context.fillStyle = armColor;
+    context.textAlign = angle > 0 ? "left" : "right";
+    context.fillText("θ", pivotX + Math.sign(angle) * (arc * Math.abs(Math.sin(angle)) + 8), pivotY - arc * Math.cos(angle));
+  }
+  point(context, pivotX, pivotY, 5, palette.track);
+  point(context, pivotX, pivotY, 3, palette.paper);
 }
 
 function drawChart(angles, dt, time, angle) {
@@ -116,13 +112,18 @@ function drawChart(angles, dt, time, angle) {
   const duration = (angles.length - 1) * dt;
   const left = 41;
   const right = width - 13;
-  const top = 14;
+  const top = 26;
   const bottom = height - 25;
   const x = value => left + (right - left) * value / duration;
   const y = value => bottom - (bottom - top) * (value + 0.036) / 0.361;
 
   context.font = '11px "IBM Plex Mono", monospace';
   context.textBaseline = "middle";
+  context.fillStyle = palette.text;
+  context.textAlign = "left";
+  context.fillText("θ (rad)", left, 12);
+  context.textAlign = "right";
+  context.fillText("t (s)", right, 12);
   for (const value of [0, 0.1, 0.2, 0.3]) {
     const ruleY = y(value);
     if (value === limit) context.setLineDash([5, 4]);
@@ -136,10 +137,10 @@ function drawChart(angles, dt, time, angle) {
     segment(context, x(second), top, x(second), bottom, palette.grid);
     context.fillStyle = palette.text;
     context.textAlign = "center";
-    context.fillText(second === duration ? second + "s" : String(second), x(second), height - 10);
+    context.fillText(String(second), x(second), height - 10);
   }
 
-  context.fillStyle = "rgba(242,167,129,.1)";
+  context.fillStyle = "rgba(161,76,61,.09)";
   context.fillRect(x(1), top, x(1.5) - x(1), bottom - top);
 
   const sample = Math.floor(time / dt);
@@ -157,7 +158,7 @@ function drawChart(angles, dt, time, angle) {
   context.lineWidth = 2;
   context.strokeStyle = palette.trace;
   context.stroke();
-  segment(context, x(time), top, x(time), bottom, "rgba(235,247,247,.4)");
+  segment(context, x(time), top, x(time), bottom, "rgba(69,87,81,.43)");
   point(context, x(time), y(angle), 4, Math.abs(angle) >= limit ? palette.limit : palette.trace);
 }
 
@@ -177,6 +178,10 @@ async function initialiseTrace() {
   slider.max = duration.toFixed(2);
   slider.step = dt.toFixed(2);
 
+  function describeSample() {
+    return currentTime.toFixed(2) + " seconds, angle " + angleReadout.value + " radians, " + statusReadout.textContent.toLowerCase();
+  }
+
   function render(time) {
     currentTime = Math.max(0, Math.min(time, duration));
     const index = Math.min(Math.floor(currentTime / dt), angles.length - 2);
@@ -185,10 +190,10 @@ async function initialiseTrace() {
     const exceeded = Math.abs(angle) >= limit;
     timeReadout.value = currentTime.toFixed(2) + " s";
     angleReadout.value = angle.toFixed(3);
-    if (!active) slider.setAttribute("aria-valuetext", timeReadout.value);
     slider.value = currentTime.toFixed(2);
     statusReadout.textContent = exceeded ? "Limit exceeded" : "Within limit";
     statusReadout.classList.toggle("is-exceeded", exceeded);
+    if (!active) slider.setAttribute("aria-valuetext", describeSample());
     drawScene(angle);
     drawChart(angles, dt, currentTime, angle);
   }
@@ -197,7 +202,7 @@ async function initialiseTrace() {
     cancelAnimationFrame(frame);
     active = false;
     playButton.textContent = label;
-    slider.setAttribute("aria-valuetext", timeReadout.value);
+    slider.setAttribute("aria-valuetext", describeSample());
   }
 
   slider.addEventListener("input", () => {
