@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourceDraft": {
+    "file": "source-v2.json",
+    "byteSha256": "390cf742e287e406483bc236ae7c9767b6e764b641e993c8b6353a7c11f2b950",
+    "objectSha256": "54139f9b5a94e0c11f91d8e2eaacdbfe95ccc0d363bf57b47354d24a789b344c"
+  },
+  "independentDraftReview": {
+    "file": "independent-language-policy-review-v2.json",
+    "byteSha256": "e1c0940c44ac6b99d85d7fb36a0381acf83e053e011aeec725d15b6d67b375f5"
+  },
+  "originalExamplesByteSha256": "0e3055ef5513eefc7b2963c596b86f730549d0931cc25c4c0ef2104c0f1ce491",
+  "oldPairReview": [
+    {
+      "term": "aeroallergen",
+      "expectedEntrySha256": "2cb88e48e3b699b7b741053155e013237b234b0386e421b2226e3c1d0f11a180",
+      "languageDecision": "PASS",
+      "reason": "Grass pollen as the main airborne-allergen substance in sampled air is semantically valid; Chinese preserves investigation, main substance and sample scope. No disease meaning or treatment claim.",
+      "rawAndFormattedContextsIndependentlyReplayed": 2,
+      "privateFieldsPreserved": true
+    },
+    {
+      "term": "aeroallergens",
+      "expectedEntrySha256": "2f13f865f8d2afa9358af93efa5ad265c6375367330389abb2e5d0341cc3bc1c",
+      "languageDecision": "PASS",
+      "reason": "Comparing outdoor airborne allergens from two locations during spring is semantically valid; Chinese preserves comparison, outdoor substances, sites and season. No disease meaning or treatment claim.",
+      "rawAndFormattedContextsIndependentlyReplayed": 2,
+      "privateFieldsPreserved": true
+    }
+  ],
+  "metadataProjection": "Original term/POS/meaning/aliases/forms/English-Chinese pairs/references/canonicalID/full-recordSHA unchanged; exampleSource and exact schema-derived exampleSenses/exampleContexts added only. No pre-existing sense IDs invented.",
+  "rawContextApproval": "Only the one raw context per exact authenticated canonical source tuple, excluding its already approved formatted context, is permitted. Full legacy-file byte approval and compiler negatives are mandatory; existing0017/0018 projections stay exact.",
+  "outsideScope": [
+    "nervousness",
+    "neuron"
+  ],
+  "originalRootSourceDraft": {
+    "byteSha256": "943681f40c2ec33ea47ce91b8f5863b96e5a7bc5b80b73178b9de6c82e02624f",
+    "objectSha256": "8e20eb307e48e7b6add07aaaad341cf948cbcb4df8d3fd073e47a4535260048f"
+  },
+  "onlyAliasRevision": "Append only the valid existing 气源性致敏原 retrieval string, preserving every other original root field. The two original English-Chinese pairs are unchanged."
+}

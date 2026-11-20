@@ -12,6 +12,7 @@ import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current
 import {createCanonicalSourceClient} from '../../vocab/js/canonical-example-repair-source.js';
 import {CHINESE_QUERY_CACHE_RELEASE} from '../../vocab/js/chinese-query-cache-release.js';
 import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
+import {historicalAeroEveryday1290} from './helpers/aero-source-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const root=path.resolve(import.meta.dirname,'../..'),folder=new URL('../dictionary/everyday-expansions/2026-11-20-common-followup/',import.meta.url);
@@ -36,8 +37,9 @@ test('one independently approved alias changes exactly one source line and retai
     [[hash(source.newAliasRow),hash(expected),'PASS']]);
   assert.equal(EVERYDAY_CHINESE_ALIASES.length,48);
   assert.equal(hash(historicalRoundaboutAliases47(EVERYDAY_CHINESE_ALIASES)),'9625af76bacc7ed9d96029e4ba3722cc5d3b3492e577dae1d922d64051bafa5f');
-  assert.equal(hash(EVERYDAY_LOOKUP_ENTRIES),'a63708dfcb6a7da22e1825aab6eb442ba4c5427c209c14372e531da8474c03fb');
-  assert.equal(EVERYDAY_LOOKUP_ENTRIES.length,1290);assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,49);
+  const historicalEntries=historicalAeroEveryday1290(EVERYDAY_LOOKUP_ENTRIES);
+  assert.equal(hash(historicalEntries),'a63708dfcb6a7da22e1825aab6eb442ba4c5427c209c14372e531da8474c03fb');
+  assert.equal(historicalEntries.length,1290);assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,49);
   const target=EVERYDAY_LOOKUP_ENTRIES.filter(row=>row.term==='roundabout');assert.equal(target.length,1);
   assert.deepEqual(target[0],expected);assert.equal(hash(target[0]),'65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961');
   const bytes=await readFile(path.join(root,source.source.file));assert.equal(hash(bytes),source.source.afterSha256);assert.equal(bytes.length,source.source.afterBytes);

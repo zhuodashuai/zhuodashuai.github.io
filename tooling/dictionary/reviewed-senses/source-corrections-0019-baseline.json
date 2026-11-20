@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "75729ae858bd1de842a7ad2513bd802fb3a74afb",
+  "priorReviewed213Sha256": "4bc63500796a12477def326849fbfae9b1b7017c1d103b640bcadd7bf8b5fd60",
+  "priorEveryday1290Sha256": "a63708dfcb6a7da22e1825aab6eb442ba4c5427c209c14372e531da8474c03fb",
+  "priorReviewedModuleByteSha256": "82d87288c7a0687e6f8eb2897b5e00e6d112b3ea14d3366ffbaac0314c106014",
+  "priorIndexByteSha256": "6ad9b43a9f33a67a9834ebd81d7cb90f59704a90477ada3f4b7c3abe1456c96b",
+  "priorIndex": {
+    "schemaVersion": 1,
+    "batches": [
+      {
+        "source": "batch-0001.json",
+        "review": "batch-0001.json"
+      },
+      {
+        "source": "batch-0002.json",
+        "review": "batch-0002.json"
+      },
+      {
+        "source": "batch-0003.json",
+        "review": "batch-0003.json"
+      },
+      {
+        "source": "batch-0004.json",
+        "review": "batch-0004.json"
+      },
+      {
+        "source": "batch-0005.json",
+        "review": "batch-0005.json"
+      },
+      {
+        "source": "batch-0006.json",
+        "review": "batch-0006.json"
+      },
+      {
+        "source": "batch-0007.json",
+        "review": "batch-0007.json"
+      },
+      {
+        "source": "batch-0008.json",
+        "review": "batch-0008.json"
+      },
+      {
+        "source": "batch-0009.json",
+        "review": "batch-0009.json"
+      },
+      {
+        "source": "batch-0010.json",
+        "review": "batch-0010.json"
+      },
+      {
+        "source": "batch-0011.json",
+        "review": "batch-0011.json"
+      },
+      {
+        "source": "batch-0012.json",
+        "review": "batch-0012.json"
+      },
+      {
+        "source": "batch-0013.json",
+        "review": "batch-0013.json"
+      },
+      {
+        "source": "batch-0014.json",
+        "review": "batch-0014.json",
+        "existingPairBindings": "existing-pairs/source/common-use-0020.json"
+      },
+      {
+        "source": "batch-0015.json",
+        "review": "batch-0015.json"
+      },
+      {
+        "source": "batch-0016.json",
+        "review": "batch-0016.json"
+      },
+      {
+        "source": "batch-0017.json",
+        "review": "batch-0017.json"
+      },
+      {
+        "source": "batch-0018.json",
+        "review": "batch-0018.json"
+      }
+    ],
+    "retainLegacyChineseHeads": [
+      "bin liner"
+    ],
+    "retentionNote": "bin liner has a compatible original noun definition for a bag lining a bin. Preserve its honest broad garbage-bag reverse matches while removing baggie and other superseded wrong-source postings. This does not authorize unreviewed senses.",
+    "retainedAlternativesPolicy": "retained-alternatives-search-followup-0016.json",
+    "sourceCorrectionPolicy": "source-corrections-0017-accuracy-policy.json",
+    "sourceCorrectionLegacyExamples": "source-corrections-0017-legacy-examples.json",
+    "additionalSourceCorrectionPolicies": [
+      {
+        "policy": "source-corrections-0018-accuracy-policy.json",
+        "legacyExamples": "source-corrections-0018-legacy-examples.json"
+      }
+    ]
+  },
+  "immutableFiles": {
+    "tooling/dictionary/reviewed-senses/.gitattributes": "b15daaff824f68ef8122cd4afa787a780b432e4fdd74215cdf62b10335b3c97f",
+    "tooling/dictionary/reviewed-senses/classroom-baseline-0009.json": "0d37c841dcf0c9946b13ad9df52f4b878b4718c37989b70b7482be5330435613",
+    "tooling/dictionary/reviewed-senses/classroom-browser-fixture-0008.json": "bba60be030925a0d3be5d1ac8f5d2546027beb9783be3aace486fac67b16a10e",
+    "tooling/dictionary/reviewed-senses/classroom-browser-fixture-0009.json": "f8999be890b790019894e44959ba970bc5a03ace12d31681938749ea8fd8e768",
+    "tooling/dictionary/reviewed-senses/classroom-integration-scope-0009.json": "7661f67b40b51e58cc98cf98789ceaa6fb1c058aa5caf1ce80d98302cefeccdf",
+    "tooling/dictionary/reviewed-senses/classroom-next-fixture-0019.json": "f3f2bdf39e76b6341a8468e47cd5cf3d463b8dfab2582d5ebdb9e6f3c8e2e40c",
+    "tooling/dictionary/reviewed-senses/classroom-remaining-fixture-0018.json": "05fc65bc9356c308305da6631342aa1eadc53d4ec8693b841c9be2b049a6c4b9",
+    "tooling/dictionary/reviewed-senses/classroom-root-reading-0009.json": "35476cedca3e2948443f3eb5831675dd401e33060b64f843cf4580ae0425b426",
+    "tooling/dictionary/reviewed-senses/existing-pairs/common-use-0020-baseline.json": "4a638be7f2a4daa9e982154d6f4e45428467952eb31a3edfc5c783c86f278fe0",
+    "tooling/dictionary/reviewed-senses/existing-pairs/source/common-use-0020.json": "e1e3fc68725112921bc6e1a306e8e342433f752e728f65666bbf250db1b02f6b",
+    "tooling/dictionary/reviewed-senses/followup-0003-baseline.json": "1f3e8f223f8db079ba268da2c247cc72cc2b9a1f9e76536e10501faebaa958bf",
+    "tooling/dictionary/reviewed-senses/followup-0003-context.json": "577181b906d991a0a31bd1c501452cff04553fb4c02bfb93075c4024688b4a69",
+    "tooling/dictionary/reviewed-senses/followup-0003-provenance.json": "dab8a2d8e323c8c40de3211c82d720c73c06ca6b31daa867c4357fee89a73b52",
+    "tooling/dictionary/reviewed-senses/followup-0016-accuracy-exceptions.json": "216068d5fcf1c2222e902f10cbf497b63637a0b5ada63c2efcfa8b2dfd70e1c5",
+    "tooling/dictionary/reviewed-senses/followup-0016-baseline.json": "be207ed9e4f1ae72a603fca253cbec60765182c6ec5d7a2a01da0f10763b5f76",
+    "tooling/dictionary/reviewed-senses/followup-0016-canonical-before.json": "7cad314ae43cea6603f8cc25a87163d0c3300b0640de41653d9d87d25bb59585",
+    "tooling/dictionary/reviewed-senses/legacy-examples/reviews/classroom-next-0019.json": "490118f8b389f29ac541eb028034cedf7e9cb5ea7330de2d50c1b828cd54de28",
+    "tooling/dictionary/reviewed-senses/legacy-examples/reviews/classroom-remaining-0018.json": "c5dae085f424c6df841644492b9f28972de6fa62fc98bf048cc09789714f5673",
+    "tooling/dictionary/reviewed-senses/legacy-examples/reviews/intent-classroom-0011.json": "51a9d014e4b18bf67c8c6caa1de1fd11e6c91d26bdc42d3530944cea7b76c886",
+    "tooling/dictionary/reviewed-senses/legacy-examples/source/classroom-next-0019.json": "e3b2e7d8c9927de6fdbd18c425858156f9dc09c20f7b2ebcd6ab78e31fb27931",
+    "tooling/dictionary/reviewed-senses/legacy-examples/source/classroom-remaining-0018.json": "8204d10e89f7b27c7ad059edaca5692d94ca68962e4760bdea6c1f1715c5e780",
+    "tooling/dictionary/reviewed-senses/legacy-examples/source/intent-classroom-0011.json": "0ad12e61bbd23c56889f56a3470badafa0caf29278f049e7aa1b28fc29e0625d",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-class-0006.json": "ec0fe283c54a53fd6b1399c173cf4ecbb24b04771c4231e166874b8ed0cc9094",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0008-additions.json": "031baeabd345f29ddedc2f7ac7c1db52405c3f412564e05eb9c89fc9d3129a2c",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0008.json": "0e6d5f3418076ebe3eb0335986926130d32cc07117a55d20c4f65dc3bb0ee9c6",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0009-additions.json": "8168cfdb3072ffb08c0efcb1ad45855880fa5d56735c9c9857f102a54e795a66",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0009.json": "b1ca43d4635ab2a6e65afaaecc7b7129ac001afe5d0d7a4485fbb92905d54a95",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0018-additions.json": "cc81a59fba4a50b27411ebceb7d095ad24c9e54748929537bc8957090e6e145c",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0018.json": "edcc7f437c7d9cb4aa217b91863aaf56df2d2aeedd76a31a450b9d51c03bde9f",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0019-additions.json": "d43eb3ff125871b67af5b975c1618134d71dbb6c6b5087ab40e081f76f04ee40",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-classroom-0019.json": "80cfb91132cfa19066900e9995e66f79580c0d9d3900b9935e5a956e0cc41b4b",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-everyday-0011-additions.json": "a2fcf0641ebeabf546bdd49a8bf91ed27455570fd8e5a64ca87f5037739923b5",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-everyday-0011.json": "7e0e9f2b905411471eaaa0f9ec1bd3825426e051f510e4b1fc0d6a079d19f595",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-search-followup-0016.json": "70659b6af57ec1b794328883f8550a592a600c04d9ce2714a58c8811938b0d5b",
+    "tooling/dictionary/reviewed-senses/retained-alternatives-sense-0007.json": "816fa538d2eb98c7c491ea519acff97c0bce59d2fe35c3107c0cb3775e596483",
+    "tooling/dictionary/reviewed-senses/retained-alternatives.json": "dbb0abb110eabd6bf10ab3a6c27a0cce59dfd08498100419fb1477385cef61ab",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0001.json": "fc877c59b59485be19c047e3ae7406b0be829d704942c548e985227a54ab2840",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0002.json": "e0550a54ff3d419cbbc7ded0e855b578b5dac15dba986018b86a47f58094d680",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0003.json": "ce70b7efecb05697f1bdce7989815e7f9d58f0452c1822f62f0a8009cd2cc843",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0004.json": "a64a1d2cb3b73e96ada336e990a9ce8d08ee7b29e31cd13381e6ce3d46864505",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0005.json": "1f4c46cce7a951f950062a20bfae31b36a6b238c82cabf59d944dbb4c8fae561",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0006.json": "3f2da25bb8173f507385cb71d17232c7765bea82d543b8d49598daa0b7634fda",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0007.json": "bd8c0a84450dd5f1bca085d3d8602f0375c6a5a1716706b713a2b2b14785e660",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0008.json": "290f05c0a5339adbb3657d9e4dfa55b37a85de895eac07702a0a9586ddc3e8b0",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0009.json": "a462c6ed4d01e2ceac860f076f65b26deb780b3be0e6703cbfdd1ca6f669a867",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0010.json": "a0e8ecc1ddb824a1ec9a3c400107113da71a0ccb21a080be597b1eaa6a506375",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0011.json": "9b513527508c94dfd27b7666c1ebd687149bd7de90a1dfff442877036428b81c",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0012.json": "4ba318d6d230fc5cb6eefb5680f2322a83b7fdc93def9733aa8e0dfc6ee9104b",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0013.json": "bf7a3cf0f1e6c9deed9862861d0c113729cb8cb054561dc7e689448b9afb495e",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0014.json": "6e0f8de6a65973f0440d8eabe5da487e6bb37bdd8ce3b8d2f1bea4c5e7460f66",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0015.json": "5e55d9e84d79a93d10b13f546a97896c51ffc74caa3c13b49bd1a37aae708719",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0016.json": "f6ef4f5f3151c4308c46b43fbe50611a0efe2ffea5fbd22bb4fd0990b6df0c42",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0017.json": "e7f27b33003950c8637c8f364821d526aef5ea9a5bad848dd54252ad2b3357ba",
+    "tooling/dictionary/reviewed-senses/reviews/batch-0018.json": "bda3a3cd68e559a681af29a7610445f45bf970f33655ee1cd7eeed8e4745c92f",
+    "tooling/dictionary/reviewed-senses/seven-head-browser-fixture-0007.json": "0ffa826822d8c19cb1142e7839abb90f8a18ef22644e6347c3bc08c09c72921a",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-accuracy-policy.json": "31de8ac2249a5e6d1a8d05f9f4f4bf3f95815001302b53538fb40a7c63d1580b",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-baseline.json": "05580dd27dbee30b8b7d921baedf1976606f2135555b67ff8e40796cff636f3d",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-canonical-before.json": "4e45632e3f4aecc8eded12226737295befa99fd27e6a09ea09e76b9569e19624",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-companion.json": "2d04b73ff7bdbc6fc9d8e96390050cbf687b1c3efc900bf98ed7957b0445f3ee",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-compiler-final-review.json": "910d6db6c7aa7b881fa7ec1cfadb84434ebd622e8786c5913460c16a8a232a99",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-legacy-examples.json": "6ff634eec90d7fe9bc0aaa9d3557d97691704ce0c10056ddc2586765ff4a6082",
+    "tooling/dictionary/reviewed-senses/source-corrections-0017-runtime-review.json": "05e668c9bb62a8b5830c360a0db6bcfbbacd46c1e5eaaebc8428fbb3d3a92cac",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-accuracy-policy.json": "31069abd41169bc9e77e41a9257b6c67985656b7467c7d90ec1a0d1addf5b558",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-baseline.json": "ebd1232f564847b041790e12db05f2d77dc4fea8e753c7e75ef1b3d82ec0c262",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-canonical-before.json": "07c51b162a392f79f9c9eb04ac584ac9092935b778344baf0aac007890836fd4",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-companion.json": "7d12303f1b65b5484eb8e4c2eb8764077ccf8f3de8953554ee4466e265fd10ab",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-legacy-examples.json": "ee7be7d1f3d7601318d0ed11835394b91a57918340e2f7562cdd8fe18eac8bb6",
+    "tooling/dictionary/reviewed-senses/source-corrections-0018-metadata-projection.json": "fd5e0113bd461568417805bf4b5dedefeab3c448dd05c95dcc595aea66578f2e",
+    "tooling/dictionary/reviewed-senses/source/batch-0001.json": "fd1273fc9aa38edd504748cf14128d43385812d2558e47a53b5604b1bf9c88d2",
+    "tooling/dictionary/reviewed-senses/source/batch-0002.json": "29c3c041fb14654f9c5ec50c4a32063ffa389b59f8d9d0b4f29b607316bed40b",
+    "tooling/dictionary/reviewed-senses/source/batch-0003.json": "8ca62cf8439d8a16f12aece0f26b7dd248cab47abc6ded25cdf76b2ac326a671",
+    "tooling/dictionary/reviewed-senses/source/batch-0004.json": "ca5aff6649038bc5d6784279e4a8c30f875e2dbd4f6c7c3c2d7d281311956396",
+    "tooling/dictionary/reviewed-senses/source/batch-0005.json": "e3418e8ca6c4ba259c8fac7894d4740701afed2b1ae147eee239206b84163ba8",
+    "tooling/dictionary/reviewed-senses/source/batch-0006.json": "8375a7256b63080bdeb74e24d97b36eb3562e0e26e555d98ba539b08f65e5c53",
+    "tooling/dictionary/reviewed-senses/source/batch-0007.json": "386d92f1e51e2feeb818995ac0555c1c2c3bd7291c2a2533b306f550f129c854",
+    "tooling/dictionary/reviewed-senses/source/batch-0008.json": "1be89a85f41674b8ef61fd245c443af06d27caf8efcdf3fb8a0a7e280fce30a6",
+    "tooling/dictionary/reviewed-senses/source/batch-0009.json": "62034ef0529caacc4c26a789e6a04cb1a9c4b8c092d2dd6a6977b842717a36e8",
+    "tooling/dictionary/reviewed-senses/source/batch-0010.json": "71e609182040a872e810e1729551f37a6a18e2d61c60e63596c7b1621ec1aeab",
+    "tooling/dictionary/reviewed-senses/source/batch-0011.json": "ec67b3b1b8300ef704edc3c5183b6cab31a5d57ce23307e198c29e987ae9cb3f",
+    "tooling/dictionary/reviewed-senses/source/batch-0012.json": "4fcc930ee61533a082c22f32179cefbe7f6bb898b848610e4c27054648500f1c",
+    "tooling/dictionary/reviewed-senses/source/batch-0013.json": "e07580ea009dd482c2c2b239fab816ed91f438783e2d292770ccf6948925c803",
+    "tooling/dictionary/reviewed-senses/source/batch-0014.json": "337a49f928d20425e43784bc001ff69d81d9d2d68be58c53378fdd0e41c2ebfd",
+    "tooling/dictionary/reviewed-senses/source/batch-0015.json": "71c152f5a8aadcadb78e662085b24520c03b23838503eee22624e1362af21ba8",
+    "tooling/dictionary/reviewed-senses/source/batch-0016.json": "49e901277fc701a2c10ce2b427ea52ab09aabd3828c3e41630a66c5aa61d5588",
+    "tooling/dictionary/reviewed-senses/source/batch-0017.json": "fc994f62c92a4653714bc9ecbab2d7633f970751e56aec67c5a23b9ac877a2f4",
+    "tooling/dictionary/reviewed-senses/source/batch-0018.json": "73cb80ab94162ca86a1a6b6918a5de39b69117f925df5f72e160080cc32efc96"
+  },
+  "priorSevenNewHeadAudit": {
+    "heads": 7,
+    "wholeSurfaces": 26,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1283,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106096,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0
+  },
+  "priorThirteenNewHeadAudit": {
+    "heads": 13,
+    "wholeSurfaces": 42,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1277,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106090,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0
+  }
+}

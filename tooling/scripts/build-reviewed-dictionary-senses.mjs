@@ -11,6 +11,7 @@ import {createReviewedExistingPairAdmission,canReuseReviewedExistingPair,project
 import {createAdditiveExamplesLoader} from '../../vocab/js/dictionary-examples-additive.js';
 import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-release-v4.js';
 import {applyExampleCorrections} from '../../vocab/js/dictionary-example-corrections.js';
+import {canonicalDisplayContexts} from '../../vocab/js/canonical-example-repair-source.js';
 
 const ROOT = resolve(import.meta.dirname, '../..');
 const HASH = /^[a-f0-9]{64}$/u;
@@ -221,10 +222,14 @@ export function validateReviewedExampleSenses(row, canonical) {
  * grants a new head-wide/source-wide exclusion or rewrites attributed text. */
 export function validateSourceCorrectionPolicy(policy,pack,review,records,manifest,manifestSha256,legacy,originals,evidence) {
   const fail=()=>{throw Error('Invalid independently reviewed exact source-correction policy');};
-  let approvedBytes;
+  let approvedBytes,approvedLegacyBytes,approvedLegacyFile;
   try{
-    if(!exactObject(evidence,['file','bytes'])||!Buffer.isBuffer(evidence.bytes))fail();
+    if(!exactObject(evidence,['file','bytes'],['legacyFile','legacyBytes'])||!Buffer.isBuffer(evidence.bytes))fail();
     approvedBytes=Buffer.from(evidence.bytes);
+    if(Object.hasOwn(evidence,'legacyFile')||Object.hasOwn(evidence,'legacyBytes')){
+      if(!exactObject(evidence,['file','bytes','legacyFile','legacyBytes'])||!Buffer.isBuffer(evidence.legacyBytes))fail();
+      approvedLegacyFile=evidence.legacyFile;approvedLegacyBytes=Buffer.from(evidence.legacyBytes);
+    }
     policy=reviewedDataSnapshot(policy);pack=reviewedDataSnapshot(pack);review=reviewedDataSnapshot(review);legacy=reviewedDataSnapshot(legacy);
   }catch{fail();}
   if(!/^[a-z0-9-]+\.json$/u.test(evidence.file||'')
@@ -238,6 +243,15 @@ export function validateSourceCorrectionPolicy(policy,pack,review,records,manife
     || policy.manifestVersion!==manifest.version || policy.manifestByteSha256!==manifestSha256
     || !exactArray(policy.entries) || policy.entries.length!==pack.entries.length
     || legacy?.schemaVersion!==1 || legacy.author!==pack.author || !exactArray(legacy.entries))fail();
+  const hasRawContexts=legacy.entries.some(entry=>entry&&Object.hasOwn(entry,'rawContexts'));
+  if(hasRawContexts||Object.hasOwn(policy,'legacyExamplesFile')||approvedLegacyBytes){
+    if(!hasRawContexts||!approvedLegacyBytes||typeof approvedLegacyFile!=='string'||!/^[a-z0-9-]+\.json$/u.test(approvedLegacyFile)
+      ||policy.legacyExamplesFile!==approvedLegacyFile
+      ||review.exactEvidence?.[approvedLegacyFile]!==hash(approvedLegacyBytes)
+      ||JSON.stringify(JSON.parse(approvedLegacyBytes.toString('utf8')))!==JSON.stringify(legacy)
+      ||!exactObject(legacy,['schemaVersion','author','entries'],['scope'])
+      ||legacy.entries.length!==pack.entries.length)fail();
+  }
   const output=new Map();
   for(const entry of policy.entries) {
     const row=pack.entries.find(r=>r.term===entry.term),record=records.get(entry.term);
@@ -264,9 +278,23 @@ export function validateSourceCorrectionPolicy(policy,pack,review,records,manife
       || JSON.stringify(previous.sourcePins)!==JSON.stringify(dictionaryExamplesRelease.source)
       || JSON.stringify(previous.contexts)!==JSON.stringify(unique) || !expected
       || previous.expectedEntrySha256!==hash(JSON.stringify(expected)) || JSON.stringify(previous.expectedEntry)!==JSON.stringify(expected))fail();
+    let preservedContexts=previous.contexts;
+    if(approvedLegacyBytes){
+      const safeRecord=reviewedDataSnapshot(record);
+      const sourceContexts=[safeRecord,...(safeRecord.variants||[])].flatMap(tuple=>canonicalDisplayContexts({
+        term:safeRecord.term,partOfSpeech:tuple.partOfSpeech,meaning:tuple.meaning,source:tuple.source}));
+      const exactRaw=[...new Map(sourceContexts.map(c=>[JSON.stringify(c),c])).values()]
+        .filter(c=>!unique.some(formatted=>JSON.stringify(formatted)===JSON.stringify(c)));
+      if(exactRaw.length&&!Object.hasOwn(previous,'rawContexts'))fail();
+      if(Object.hasOwn(previous,'rawContexts')){
+        if(!exactObject(previous,['term','canonicalId','canonicalSourceSha256','sourcePins','contexts','rawContexts','expectedEntry','expectedEntrySha256'])
+          ||!exactArray(previous.rawContexts,false)||JSON.stringify(previous.rawContexts)!==JSON.stringify(exactRaw))fail();
+        preservedContexts=[...previous.contexts,...previous.rawContexts];
+      }
+    }
     output.set(entry.term,{sourceCorrection:{dictionaryVersion:manifest.version,manifestSha256,canonicalId:record.id,
       canonicalSourceSha256:entry.canonicalSourceSha256,rejected},legacyExampleBinding:{sourcePins:previous.sourcePins,
-      contexts:previous.contexts,expectedEntryJSON:JSON.stringify(expected)}});
+      contexts:preservedContexts,expectedEntryJSON:JSON.stringify(expected)}});
   }
   return output;
 }
@@ -467,7 +495,7 @@ export async function loadReviewedSenseBuild() {
       if(!/^[a-z0-9-]+\.json$/u.test(file)||!HASH.test(pin)
         ||hash(await readFile(join(base,'reviewed-senses',file)))!==pin)throw Error('Source correction evidence changed after independent review');
     }
-    const legacy=await json(join(base,'reviewed-senses',registration.legacyExamples)),originals=new Map();
+    const legacyBytes=await readFile(join(base,'reviewed-senses',registration.legacyExamples)),legacy=JSON.parse(legacyBytes),originals=new Map();
     const loader=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl:async input=>{
       const url=new URL(input),file=fileURLToPath(url),assets=join(ROOT,'vocab')+(process.platform==='win32'?'\\':'/');
       if(url.protocol!=='file:'||!file.startsWith(assets))throw Error('Source correction evidence must remain local');
@@ -476,7 +504,8 @@ export async function loadReviewedSenseBuild() {
     try{for(const row of selected.pack.entries)originals.set(row.term,await applyExampleCorrections(row.term,await loader.load(row.term,{lookupQuery:row.term})));}
     finally{loader.close();}
     const corrections=validateSourceCorrectionPolicy(policy,selected.pack,selected.review,records,manifest,hash(manifestBytes),legacy,originals,
-      {file:registration.policy,bytes:policyBytes});
+      {file:registration.policy,bytes:policyBytes,...(legacy.entries.some(row=>Object.hasOwn(row,'rawContexts'))
+        ?{legacyFile:registration.legacyExamples,legacyBytes}:{})});
     correctionSets.push(corrections);
   }
   const corrections=mergeSourceCorrectionSets(correctionSets);

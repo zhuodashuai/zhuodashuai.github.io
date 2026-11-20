@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "EXISTING_HEAD_NEW_EXAMPLE_EN_ZH_COLLISION_AUDIT_PASS_NOT_NEW_HEAD_ADMISSION",
+  "at": "2026-11-20T13:49:48.409Z",
+  "sourceHead": "75729ae858bd1de842a7ad2513bd802fb3a74afb",
+  "newHeads": 0,
+  "correctedExistingHeads": 2,
+  "newBilingualPairs": 2,
+  "packagedRowsChecked": 1290,
+  "includesSevenNewSourcePairs": true,
+  "baseShards": 256,
+  "baseHeads": 86415,
+  "basePairs": 87804,
+  "compressedDeltas": 35,
+  "deltaHeads": 16194,
+  "deltaPairs": 16194,
+  "completeImmutableExampleHeads": 102609,
+  "completeImmutableExamplePairs": 103998,
+  "distinctContextsChecked": 106103,
+  "collisions": 0
+}
