@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "baseCandidate": "331c674c4c23ac748fe33a5ff6c20a06be291023",
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "records": [
+    {
+      "term": "anaphylactic",
+      "record": {
+        "id": 4581436,
+        "term": "anaphylactic",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 过敏性, 过敏反应\n[医] 过敏性的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 35803,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "49bc26a0be9ab1f9191e55af6c241338b626b47ea57dc9ebad43a52bf819a16e",
+      "shard": {
+        "bucket": 60,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-060.json",
+        "sha256": "ce31a0124b98f977073ddaa839251892b4612297834dfa2d0c0bad67c3c71725",
+        "bytes": 334432,
+        "count": 1069
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 过敏性, 过敏反应\n[医] 过敏性的",
+            "source": "mit"
+          },
+          "sha256": "d1125d743721bef6e68e53287913bd420ce6645b5eaa754eefd0bdc34c5894ad",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    },
+    {
+      "term": "anaphylactoid",
+      "record": {
+        "id": 8139492,
+        "term": "anaphylactoid",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 过敏反应的, 有中毒反应的",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 63675,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "72ba1619b3e7b39d11fc02ca5d85491b54e3cbf99b0c6f5241ec0d532a41fc97",
+      "shard": {
+        "bucket": 100,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-100.json",
+        "sha256": "c8cc838a552a26ff5f38c40f073534c2fd368ee647db3a73e4fb7f3f42ae0a1d",
+        "bytes": 337733,
+        "count": 1052
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 过敏反应的, 有中毒反应的",
+            "source": "mit"
+          },
+          "sha256": "d26eaaf2de2108de63b47e060be5772f92da75babe70d72b47d9dde049d1474d",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    },
+    {
+      "term": "anaphylaxis",
+      "record": {
+        "id": 4091561,
+        "term": "anaphylaxis",
+        "partOfSpeech": "noun",
+        "meaning": "n. 过敏性\n[医] 过敏性, 过敏症, 过敏反应",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 31973,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "daee297be2dc8a17346badf80e1fd0226e0504f823001c924803787a2a4be3a9",
+      "shard": {
+        "bucket": 41,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-041.json",
+        "sha256": "93563255ea3986dd832a765c40155aa355b6bb66648bbbd450602efe3429696a",
+        "bytes": 353646,
+        "count": 1091
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. 过敏性\n[医] 过敏性, 过敏症, 过敏反应",
+            "source": "mit"
+          },
+          "sha256": "c0851d09c9694ccf94ce948a40c83cd505f73bca2ac75b15b0cc59bf882be767",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    }
+  ]
+}

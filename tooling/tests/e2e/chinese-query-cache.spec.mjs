@@ -34,7 +34,7 @@ async function query(page,value,{empty=false,error=false}={}){
  await expect(page.locator('#dictionary-status')).toHaveAttribute('data-phase',error?'error':empty?'empty':'ready');
 }
 async function browserRows(page,queries){return page.evaluate(async queries=>{
- const module=await import('/js/expanded-dictionary.js?v=117');
+ const module=await import('/js/expanded-dictionary.js?v=118');
  return Promise.all(queries.map(async query=>{let offset=0,total;const rows=[];
   while(true){const page=await module.searchExpandedDictionary(query,{limit:7,offset});if(page.ranking!=='global'||page.relatedIntegrated!==true)throw Error('Fullglobalpacketrequired');total??=page.total;if(page.total!==total)throw Error('Changingtotal');rows.push(...page.results);if(!page.hasMore)break;if(page.nextOffset<=offset)throw Error('Nonprogressingpage');offset=page.nextOffset;}
   if(total!==rows.length)throw Error('Incompletepacketstream');return rows;
@@ -66,7 +66,7 @@ test.describe('source-bound optional query cache',()=>{
    expect(calls.filter(row=>row.path===CACHE_ROOT+first.file)).toHaveLength(1);
    expect(calls.filter(row=>row.path===CACHE_ROOT+release.buckets[chineseQueryCacheBucket('开心')].file)).toHaveLength(1);
    expect(calls.some(row=>row.path.includes('/data/chinese-search-ranking/'))).toBe(false);
-   const again=await page.evaluate(async()=>{const module=await import('/js/expanded-dictionary.js?v=117');const one=await module.searchExpandedDictionary('开心');one.results[0].meaning='test-onlyreturnedobject';return(await module.searchExpandedDictionary('开心')).results[0];});
+   const again=await page.evaluate(async()=>{const module=await import('/js/expanded-dictionary.js?v=118');const one=await module.searchExpandedDictionary('开心');one.results[0].meaning='test-onlyreturnedobject';return(await module.searchExpandedDictionary('开心')).results[0];});
    expect(again).toEqual(expected[0][0]);readonly(calls);
   });
   test(`unknown input uses the complete source without speculative packet reads at${width}px`,async({page})=>{

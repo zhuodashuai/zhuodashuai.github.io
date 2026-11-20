@@ -7,9 +7,11 @@ import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
 import { readFile } from 'node:fs/promises';
 import { historicalSelectedRows } from '../../tooling/tests/selected-sense-history-fixture.mjs';
 import { historicalSelected207 } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
+import {exactMedicalCorrectionRows} from '../../tooling/tests/helpers/life-coverage-history.mjs';
 
 const reviewed = EVERYDAY_LOOKUP_ENTRIES.filter(row => row.reviewedCanonicalSense === true);
 const prior207 = historicalSelected207(reviewed);
+const medicalCorrections=exactMedicalCorrectionRows(reviewed);
 const historicalHeads = new Set(historicalSelectedRows(prior207).map(row=>row.term));
 const correctionSource = JSON.parse(await readFile(new URL('../../tooling/dictionary/reviewed-senses/source/batch-0017.json',import.meta.url),'utf8'));
 const corrections = correctionSource.entries.map(source => {
@@ -82,6 +84,28 @@ test('the three exact approved corrections expose allseven POS-labelled examples
   const noun=loadSourceCorrectionExamples('mortuary',{context:{term:'mortuary',partOfSpeech:projection.partOfSpeech,meaning:projection.meaning}});
   assert.equal(noun.senses.length,2);assert(noun.senses.every(sense=>sense.partOfSpeech==='noun'));
   assert.deepEqual(noun.senses.map(sense=>sense.id),projection.exampleSenseIds);
+});
+
+test('the distinct medical cohort exposes exactly three typed senses and context-bound fresh examples',()=>{
+  assert.deepEqual(medicalCorrections.map(row=>row.term),['anaphylactic','anaphylactoid','anaphylaxis']);
+  assert.deepEqual(medicalCorrections.map(row=>row.partOfSpeech),['adjective','adjective','noun']);
+  assert.deepEqual(medicalCorrections.map(row=>row.chineseAliases),[
+    ['严重全身性过敏反应的'],['类似严重过敏反应的','类过敏反应的'],['严重全身性过敏反应','全身性严重过敏反应']]);
+  for(const row of medicalCorrections){
+    const id=`reviewed-source-correction:${row.term}:1`;
+    assert.deepEqual(row.exampleSenses,[{id,partOfSpeech:row.partOfSpeech,meaningZh:row.meaning,examples:[{en:row.en,zh:row.zh}]}]);
+    assert.deepEqual(row.exampleContexts,[{partOfSpeech:row.partOfSpeech,meaning:row.meaning,senseIds:[id]}]);
+    assert.deepEqual(row.englishForms,[]);assert(!Object.hasOwn(row,'formProjections'));
+    const result=searchEverydayDictionary(row.term).results[0];
+    assert.equal(result.partOfSpeech,row.partOfSpeech);assert.equal(result.meaning,row.meaning);assert.equal(result.source,row.dictionarySource);
+    const expected={term:row.term,senses:row.exampleSenses.map(sense=>({...structuredClone(sense),reviewer:row.exampleReviewer,source:row.exampleSource}))};
+    assert.deepEqual(loadEverydayExamples(row.term),expected);
+    const context={term:row.term,partOfSpeech:row.partOfSpeech,meaning:row.meaning};
+    assert.deepEqual(loadSourceCorrectionExamples(row.term,{context}),expected);
+    for(const changed of[{...context,meaning:context.meaning+' changed'},{...context,partOfSpeech:'adverb'}]){
+      assert.equal(loadSourceCorrectionExamples(row.term,{context:changed}),null);
+    }
+  }
 });
 
 test('only a literal reviewed head can identify the supplementary canonical source', () => {

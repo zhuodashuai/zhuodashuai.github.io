@@ -150,7 +150,7 @@ test('runtime retains separate choice DTOs, genuine old-form tuples and exact ne
   const unretained = { ...f.row, term: 'other-reviewed-head', reviewedCanonicalSense: true };
   const data = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify([next,unretained]) + ';');
   const currentCode = await readFile(new URL('../../vocab/js/everyday-lookup.js', import.meta.url), 'utf8');
-  const dataSpecifier = '"./everyday-lookup-data.js?v=117"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
+  const dataSpecifier = '"./everyday-lookup-data.js?v=118"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
   for (const specifier of [dataSpecifier,literalSpecifier]) assert.equal(currentCode.split(specifier).length - 1, 1, 'Expected exactly one import: '+specifier);
   const code = currentCode.replace(dataSpecifier, JSON.stringify(data))
     .replace(literalSpecifier, JSON.stringify(new URL('../../vocab/js/dictionary-literal-heads-data.js', import.meta.url).href));
@@ -179,7 +179,7 @@ test('runtime retains separate choice DTOs, genuine old-form tuples and exact ne
 async function injectedRuntime(rows) {
   const data = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify(rows) + ';');
   const currentCode = await readFile(new URL('../../vocab/js/everyday-lookup.js', import.meta.url), 'utf8');
-  const dataSpecifier = '"./everyday-lookup-data.js?v=117"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
+  const dataSpecifier = '"./everyday-lookup-data.js?v=118"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
   for (const specifier of [dataSpecifier,literalSpecifier]) assert.equal(currentCode.split(specifier).length - 1, 1, 'Expected exactly one import: '+specifier);
   const code = currentCode.replace(dataSpecifier, JSON.stringify(data))
     .replace(literalSpecifier, JSON.stringify(new URL('../../vocab/js/dictionary-literal-heads-data.js', import.meta.url).href));

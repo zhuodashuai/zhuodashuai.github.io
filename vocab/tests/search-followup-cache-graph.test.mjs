@@ -1,4 +1,5 @@
 import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese-query-cache-shell.mjs';
+import {restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
@@ -8,7 +9,7 @@ import {restoreSearchExperienceShell} from '../../tooling/tests/helpers/search-e
 
 // Keep the historical non-root URL subset/hashes unchanged; the new common-terms
 // graph gate independently parses the complete literal array, including './'.
-const read = file => readFile(new URL('../'+file, import.meta.url), 'utf8');
+const read = async file => {const text=await readFile(new URL('../'+file, import.meta.url), 'utf8');return file==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
 const hash = value => createHash('sha256').update(value).digest('hex');
 const freshModules = ['personal-app-v108','owner-app-v108','dictionary-entry-v109','dictionary-app-v109',
   'dictionary-app','library-lookup-controller','library-lookup-ui','personal-lookup-flow','dictionary-suggestions',
@@ -16,7 +17,7 @@ const freshModules = ['personal-app-v108','owner-app-v108','dictionary-entry-v10
   'search-experience-data','dictionary-examples-current-v4','dictionary-examples-ui-v108','entry-detail-v113',
   'entry-detail-v108','selected-common-sense','selected-legacy-examples'];
 
-test('fresh search/data/example reader closure has exact117 edges while compatible dependencies keep their versions', async () => {
+test('fresh search/data/example reader closure has exact118 edges while compatible dependencies keep their versions', async () => {
   const edges = [
     ['dictionary-entry-v109.js','dictionary-app-v109.js'],
     ...['dictionary-app-v109.js','dictionary-app.js','owner-app-v108.js','owner-app.js','personal-app-v108.js','personal-app.js','library-lookup-ui.js'].map(file=>[file,'expanded-dictionary.js']),
@@ -32,22 +33,22 @@ test('fresh search/data/example reader closure has exact117 edges while compatib
     ['selected-legacy-examples.js','reviewed-senses-data.js'],
     ['dictionary-examples-current-v4.js','everyday-lookup.js'],['dictionary-examples-current-v4.js','selected-common-sense.js'],
     ['dictionary-examples-current-v4.js','selected-legacy-examples.js'],
-    ['public-app-v113.js','entry-detail-v113.js'],['public-app.js','entry-detail-v113.js'],
-    ['owner-app-v108.js','entry-detail-v108.js'],['personal-app-v108.js','dictionary-examples-ui-v108.js'],
+    ['public-app-v113.js','entry-detail-v113.js',1,122],['public-app.js','entry-detail-v113.js',1,122],
+    ['owner-app-v108.js','entry-detail-v108.js',1,122],['personal-app-v108.js','dictionary-examples-ui-v108.js'],
     ['entry-detail-v113.js','dictionary-examples-ui-v108.js'],['entry-detail-v108.js','dictionary-examples-ui-v108.js'],
     ['personal-app-v108.js','personal-lookup-flow.js',2],['personal-app.js','personal-lookup-flow.js',2],
   ];
-  for(const[file,target,count=1]of edges){
+  for(const[file,target,count=1,version=118]of edges){
     const source=await read('js/'+file);
     const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
-    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v=117'),file+' -> '+target);
+    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v='+version),file+' -> '+target);
   }
   for(const[file,target]of [['dictionary-app-v109.js','dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','dictionary-examples-current-v4.js'],['dictionary-app-v109.js','dictionary-suggestions.js'],['dictionary-app.js','dictionary-suggestions.js']]){
     const source=await read('js/'+file);
-    assert.equal(source.split('import("./'+target+'?v=117")').length,2,file+' optional current reader');
+    assert.equal(source.split('import("./'+target+'?v=118")').length,2,file+' optional current reader');
   }
   for(const[file,target]of [['expanded-dictionary.js','chinese-search.js'],['personal-lookup-flow.js','chinese-search.js'],['expanded-dictionary.js','chinese-ranking.js']]){
-    assert((await read('js/'+file)).includes('./'+target+'?v=117'),file+' current catalogue/ranking edge');
+    assert((await read('js/'+file)).includes('./'+target+'?v=118'),file+' current catalogue/ranking edge');
   }
   assert((await read('js/dictionary-app-v108.js')).includes('from "./expanded-dictionary.js?v=104"'));
   assert((await read('js/dictionary-entry.js')).includes('import "./dictionary-app.js?v=104"'));

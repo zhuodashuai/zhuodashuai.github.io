@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/search_ui_independent_laundry_reader",
+  "independentOfAuthor": true,
+  "author": "AI/english_life_phrase_guard_author",
+  "reviewedSource": "tooling/dictionary/english-phrase-recovery/hang-laundry.json",
+  "sourceSha256": "27e464ec23790aaad2103a6a5ba7c48f2954af2e57a55aaf5f97e1030d290df1",
+  "sourceByteSha256": "320b0c915cbb9d1f39b90fd9426e5fc4fe650fec6c7cd39aa4f4144dcb46204f",
+  "decision": "PASS",
+  "issues": [],
+  "approvedScope": {
+    "firstForm": "hanged",
+    "wholeTargets": [
+      "hang out the washing",
+      "hang the washing out"
+    ],
+    "behavior": "Current privately authenticated exact source relation is rejected only for the reviewed packaged drying phrase. Missing/stale/altered proof throws unreviewed_dictionary_form. Complete literal and complete declared whole-form matches precede recovery; other hanged/valid drying forms are preserved."
+  },
+  "reviewedFiles": {
+    "vocab/js/english-laundry-phrase-evidence.js": "700e3472a7e1029d584c468420d6f971cf3052ca2d461c24f1e6284282c120f9",
+    "vocab/js/expanded-dictionary.js": "14314bdbd771ff33263fb4952b5fc605ea6a3e7d5ac8754eca02dfd377eb9324",
+    "vocab/tests/english-laundry-phrase-evidence.test.mjs": "c8e71b110a7a7ccef43c8f15a751f664c358abf9f2f3f0a56b5537198e0f30b6",
+    "tooling/dictionary/english-phrase-recovery/hang-laundry.json": "320b0c915cbb9d1f39b90fd9426e5fc4fe650fec6c7cd39aa4f4144dcb46204f",
+    "vocab/js/search-experience-data.js": "b6e65e6aa9fb47b84fefe93c804ba496b71cbc1b24e308b5a628b10393a656ae"
+  },
+  "languageEvidence": [
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/hang_1",
+      "access": "Primary indexed page was actually read through web search; direct page open returned403.",
+      "findings": "Oxford marks ordinary past and past participle as hung, reserves hanged for its killing sense, and illustrates a washing construction under attachment. No publisher example or definition is copied into this authored pack."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/american_english/hang_1",
+      "access": "Primary indexed page actually read.",
+      "findings": "The American entry separately identifies the hanged/hanged execution sense."
+    }
+  ],
+  "sourceVerification": "Actual whole manifest SHA, complete raw row114521, complete en048 descriptor/shard bytes and SHA, full core source descriptors and exact compiled target row all independently matched authored evidence and runtime authenticators.",
+  "codeReview": [
+    "Parsed source records are branded only in a private WeakMap after the existing complete parser/integrity checks.",
+    "Consumption checks the current manifest digest and requires the engine-private packaged-result WeakSet; caller DTO fields/IDs cannot grant authority.",
+    "The exact target row is independently bound by full JSON, without a general hanged ban or suffix/phrase-form closure.",
+    "Literal/declared full-form selection, source errors, cancellation and no-auto-collection behavior retain their existing paths."
+  ],
+  "verification": {
+    "ownedFocusedTests": {
+      "tests": 37,
+      "passed": 37,
+      "skipped": 0,
+      "durationMs": 4244.6338,
+      "log": "laundry-independent-focused.log"
+    },
+    "independentRuntimeTests": {
+      "tests": 4,
+      "passed": 4,
+      "skipped": 0,
+      "log": "laundry-independent-runtime-final.log",
+      "sourceFilesStableDuringRun": true,
+      "scenarios": [
+        "actual source finite negatives plus case/NBSP/layout controls; plain hanged and valid forms preserved",
+        "61-second same-version changed core label actually refetched; both wrong phrases fail closed while plain hanged uses fresh provenance",
+        "future complete literal succeeds before recovery under changed manifest evidence",
+        "one-field altered target in an external module copy cannot borrow the exact target proof; repository source is untouched"
+      ]
+    }
+  },
+  "limits": [
+    "This review approves the current semantic bodies and exact hashes above, not an unbuilt fresh version graph/cache generation or a browser/CI/deployment result.",
+    "The authored proof pending-review status is preserved as an author-time snapshot; this separate independent review records the subsequent approval.",
+    "Future source/target changes require renewed proof; this finite decision does not classify every possible historical use of hanged."
+  ]
+}

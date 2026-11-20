@@ -1,4 +1,4 @@
-import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=117";
+import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=118";
 
 const TECHNICAL = new Set(["计", "医", "经", "法", "电", "化", "化学", "生", "生物", "植", "植物", "动", "动物",
   "地", "地理", "物", "物理", "心", "心理", "军", "数", "数学", "商", "金融", "工程", "电工", "航", "航海", "航天", "天", "天文"]);

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "Final metadata projection awaiting separate exact independent admission review; no language approval flags copied into compiler review",
+  "originalSourceByteSha256": "97a28693a255ebcad06515e32bd5919cb769867a50eb9604bdbc7226f22e1ecb",
+  "originalUsageNotesByteSha256": "970ea5bb7d3f46a21db22e3bfac48acde7aa41924a701397ce8f319ab44b5da3",
+  "originalIndependentLanguageReviewByteSha256": "1f3b1193b2d1ef73a59b1f63acede917f91058721440e65b7bdc702a7e4cd44a",
+  "sourceSha256": "c7198be9955cb87a7269bdae9993cafc95187f7ed87f2793e582fb6bf0fd50be",
+  "sourceByteSha256": "0791607eadf16c95e6f66637b3788ed760cb8eff49c5f8af857bfdf064317a78",
+  "allowedDifferences": [
+    "Top-level draft status/reviewer/approval flags removed; final source has schemaVersion/author/entries only",
+    "Author identity names this final project cohort",
+    "Each row.exampleReviewer projects the designated independent final admission reviewer; no lexical/POS/form/alias/example/reference/source field changes"
+  ],
+  "lexicalRowsEqualOriginalExceptExampleReviewer": true,
+  "entries": 9,
+  "wholeSurfaces": 52,
+  "aliases": 26,
+  "originalPairs": 9
+}

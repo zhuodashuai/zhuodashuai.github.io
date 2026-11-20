@@ -8,13 +8,16 @@ import assert from 'node:assert/strict';
 
 export const REVIEW_ONLY = 'tooling/dictionary/examples/queues/batch-0031.json';
 // Developer author/reviewer inputs remain in Git/CI, not the deployed lookup.
-// Only these two exact trees are separated: vocab/data, immutable runtime URLs,
-// cards, passages, learning assets and all other tooling paths remain checked.
+// These two dictionary-source trees are separated along with the finite
+// developer-only prefixes below. Runtime/data, cards and learning stay checked.
 // Historical exact unpublished registries below are still retained; this later
 // packaging decision also covers previously copied developer sources here.
 export const OFFLINE_SOURCE_PREFIXES = Object.freeze([
   'tooling/dictionary/examples', 'tooling/dictionary/pos',
 ]);
+// These development-only trees remain complete in Git and CI. No vocabulary,
+// runtime, learning, old-client or dictionary payload path is excluded here.
+export const DEVELOPER_TOOL_PREFIXES = Object.freeze(['tooling/tests', 'tooling/scripts']);
 // These D32 proof paths have never been published. Keep them in Git and CI,
 // not in every Pages artifact. No previously served path is excluded here.
 const D32_COHORTS = ['p001', 'p002', 'p002-child', 'ive-child', 'root', 'source9-01', 'yuk-child',
@@ -330,9 +333,10 @@ export const UNPUBLISHED_QUALITY_FOLLOWUP_PATHS = Object.freeze([
 export const DEFAULT_EXCLUDES = ['Gemfile', 'Gemfile.lock', 'node_modules',
   'vendor/bundle', 'vendor/cache', 'vendor/gems', 'vendor/ruby', 'CNAME'];
 export const LIMIT = 1073741824;
-// The previous successful Pages build wrote these twelve generated resources.
+// Keep the generated public pages. The developer test matrix stays in Git/CI
+// under tooling/tests and is covered by the bounded exclusion above.
 export const GENERATED_PATHS = ['assets/css/style.css', 'tooling/dictionary/expanded-lookup.html',
-  'tooling/tests/fixtures/semantic-test-cases.html', 'travel/west-2026/BUDGET.html',
+  'travel/west-2026/BUDGET.html',
   'travel/west-2026/PLAN.html', 'travel/west-2026/PRICE-COMPARISON.html',
   'vocab/data/THIRD_PARTY_NOTICES.html', 'tooling/index.html', 'tooling/dictionary/index.html',
   'vocab/data/reading-lists/never-let-me-go/index.html', 'vocab/tests/index.html', 'wordbook-api/index.html'];
@@ -342,6 +346,7 @@ export function isCopiedStatic(file) {
   if (file.split('/').some(part => /^[._#]/u.test(part) || part.endsWith('~'))) return false;
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
   if (OFFLINE_SOURCE_PREFIXES.some(p => file === p || file.startsWith(`${p}/`))) return false;
+  if (DEVELOPER_TOOL_PREFIXES.some(p => file === p || file.startsWith(`${p}/`))) return false;
   if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file) || UNPUBLISHED_QUALITY_NEXT_PATHS.includes(file) || UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
@@ -349,9 +354,24 @@ export function isCopiedStatic(file) {
 }
 
 export function assertOfflineSourcesAbsent(directory) {
-  for (const prefix of OFFLINE_SOURCE_PREFIXES) {
+  for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES]) {
     assert(!fs.existsSync(path.join(directory, ...prefix.split('/'))), `Developer source tree was published: ${prefix}`);
   }
+}
+
+export function assertPagesExclusionPolicy(text) {
+  const lines = text.split(/\r?\n/u).filter(line => !/^\s*(?:#.*)?$/u.test(line));
+  assert.equal(lines.shift(), 'exclude:', 'Unreviewed Pages configuration');
+  const actual = lines.map(line => {
+    const entry = /^  - ([^#\r\n]+)$/u.exec(line);
+    assert(entry, 'Unreviewed Pages configuration syntax');
+    return entry[1].replace(/\/$/u, '');
+  });
+  assert.deepEqual(actual, [...DEFAULT_EXCLUDES, ...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES,
+    REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS,
+    ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, ...UNPUBLISHED_D36_PATHS, ...UNPUBLISHED_D41_PATHS,
+    ...UNPUBLISHED_D42_D43_PATHS, ...UNPUBLISHED_QUALITY_NEXT_PATHS, ...UNPUBLISHED_QUALITY_FOLLOWUP_PATHS],
+  'Unreviewed Pages exclusion policy');
 }
 
 export function inspectSite(directory) {
@@ -380,6 +400,7 @@ export function checkTar(file) {
 }
 
 export function verifyStatic(directory, repo) {
+  assertPagesExclusionPolicy(fs.readFileSync(path.join(repo, '_config.yml'), 'utf8'));
   const listing = execFileSync('git', ['ls-tree', '-r', '-l', '-z', 'HEAD'],
     { cwd: repo, maxBuffer: 16 * 1024 * 1024 }).toString('utf8');
   let checked = 0;
@@ -413,7 +434,7 @@ export function verifyStatic(directory, repo) {
   for (const file of UNPUBLISHED_D42_D43_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal example proof was published: ${file}`);
   for (const file of UNPUBLISHED_QUALITY_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New quality proof was published: ${file}`);
   for (const file of UNPUBLISHED_QUALITY_FOLLOWUP_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New follow-up proof was published: ${file}`);
-  return { checkedStaticFiles: checked, offlineSourcePrefixes: OFFLINE_SOURCE_PREFIXES, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length, unpublishedQualityFollowupPaths: UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.length };
+  return { checkedStaticFiles: checked, offlineSourcePrefixes: OFFLINE_SOURCE_PREFIXES, developerToolPrefixes: DEVELOPER_TOOL_PREFIXES, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length, unpublishedQualityFollowupPaths: UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

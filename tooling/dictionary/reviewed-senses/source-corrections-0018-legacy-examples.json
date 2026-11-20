@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "scope": "Exact pre-cohort original example DTOs and immutable canonical saved contexts. Historical data retained as evidence, not newly relabelled or approved for fresh contexts.",
+  "entries": [
+    {
+      "term": "anaphylactic",
+      "canonicalId": 4581436,
+      "canonicalSourceSha256": "49bc26a0be9ab1f9191e55af6c241338b626b47ea57dc9ebad43a52bf819a16e",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "anaphylactic",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 过敏性, 过敏反应\n   [医] 过敏性的"
+        }
+      ],
+      "expectedEntry": {
+        "term": "anaphylactic",
+        "senses": [
+          {
+            "id": "example:anaphylactic",
+            "partOfSpeech": "adjective",
+            "meaningZh": "过敏性反应的",
+            "examples": [
+              {
+                "en": "The training chart listed signs of an anaphylactic reaction.",
+                "zh": "培训图表列出了过敏性反应的表现。"
+              }
+            ],
+            "reviewer": "AI/examples13_cards",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "81004eb6e2d925efe2391838d2796235456e11a9800bdf5c0fbf186c8042b1c2"
+    },
+    {
+      "term": "anaphylactoid",
+      "canonicalId": 8139492,
+      "canonicalSourceSha256": "72ba1619b3e7b39d11fc02ca5d85491b54e3cbf99b0c6f5241ec0d532a41fc97",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "anaphylactoid",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 过敏反应的, 有中毒反应的"
+        }
+      ],
+      "expectedEntry": {
+        "term": "anaphylactoid",
+        "senses": [
+          {
+            "id": "example:anaphylactoid",
+            "partOfSpeech": "adjective",
+            "meaningZh": "类过敏性的；表现类似过敏反应的旧机制分类用词",
+            "examples": [
+              {
+                "en": "The older paper describes the event as an anaphylactoid reaction.",
+                "zh": "较早的论文将该事件描述为类过敏反应。"
+              }
+            ],
+            "reviewer": "AI/root-author-selfcheck",
+            "source": "原创例句·作者自查（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "08d9f943a88c5b43572d1ff3b58b6aac588f43035897a365052510e24273d69b"
+    },
+    {
+      "term": "anaphylaxis",
+      "canonicalId": 4091561,
+      "canonicalSourceSha256": "daee297be2dc8a17346badf80e1fd0226e0504f823001c924803787a2a4be3a9",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "anaphylaxis",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 过敏性\n   [医] 过敏性, 过敏症, 过敏反应"
+        }
+      ],
+      "expectedEntry": {
+        "term": "anaphylaxis",
+        "senses": [
+          {
+            "id": "example:anaphylaxis",
+            "partOfSpeech": "noun",
+            "meaningZh": "严重过敏反应",
+            "examples": [
+              {
+                "en": "The medical team documented the patient's episode of anaphylaxis.",
+                "zh": "医疗团队记录了患者这次严重过敏反应的发作。"
+              }
+            ],
+            "reviewer": "AI/examples13_cards4",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "eb9d2877b5bbca2044743663cbc5f06b402e6db14834bc36c07e468f57fa3485"
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import {EVERYDAY_LOOKUP_ENTRIES} from '../../vocab/js/everyday-lookup-data.js';
 import {SEARCH_EXPERIENCE_ENTRIES} from '../../vocab/js/search-experience-data.js';
 import {historicalOrdinary1044,historicalSelected204} from './helpers/search-followup-history.mjs';
 import {historicalSearch20,historicalOrdinary1048,historicalSelected207} from './helpers/search-common-terms-history.mjs';
+import {historicalSearch33,exactLifeCommonTermRows} from './helpers/life-coverage-history.mjs';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
@@ -22,9 +23,11 @@ const forbidden=()=>{throw Error('A packaged exact English head must not wait fo
 
 test('four newly reviewed heads append after every unchanged prior ordinary and selected object',async()=>{
   const {entries,packs,module}=await loadSearchExperienceContent();
+  assert.equal(historicalSearch33(entries).length,33);
   const historicalEntries=historicalSearch20(entries);
   assert.deepEqual(packs.slice(0,2).map(item=>item.entries.length),[16,4]);
-  assert.equal(packs.length,3);assert.equal(packs[2].entries.length,13);
+  assert.equal(packs.slice(0,3).length,3);assert.equal(packs[2].entries.length,13);
+  assert.equal(packs.length,4);assert.deepEqual(packs[3].entries,exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
   assert.deepEqual(pack.entries.map(row=>row.term),['payment code','leave a job','by a fluke','nuanced']);
   assert.deepEqual(historicalEntries.slice(16),pack.entries);
   assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,entries);

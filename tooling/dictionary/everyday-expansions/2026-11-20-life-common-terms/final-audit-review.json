@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/chinese_life_common_terms_admission_reviewer",
+  "independentOfAuthor": true,
+  "sourceByteSha256": "0791607eadf16c95e6f66637b3788ed760cb8eff49c5f8af857bfdf064317a78",
+  "originalReviewByteSha256": "e1b95c5092c2064188af63fac4564583ac2d4d375184b5e4e2ec6df0cd5e5bba",
+  "originalAdmissionAuditByteSha256": "91f71a266a9cdc0110fe63cf4b23b9672a46d89a5b506952d6f32b45483a6b75",
+  "finalAdmissionAuditByteSha256": "037d551beb8e250159dd0b7a10d9b1963c325124b3da4e8c62fb465a835891d1",
+  "decision": "Final cross-cohort source inventory audit PASS; original language/source review unchanged",
+  "independentlyRecomputedFinalAudit": {
+    "heads": 9,
+    "wholeSurfaces": 52,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1274,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106087,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0
+  },
+  "expectedDelta": {
+    "newReviewedMedicalHeads": 3,
+    "newOriginalMedicalPairs": 3,
+    "otherSourceHashesAndCountsUnchanged": true
+  },
+  "productionApproved": false
+}

@@ -5,7 +5,7 @@ import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { createSourcePassageSection } from "./book-passages-ui.js?v=82";
-import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=117";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=118";
 import { recordedReadingSources } from "./reading-card-policy.js";
 import { readingFrequencyText } from "./reading-frequency.js";
 
@@ -409,7 +409,12 @@ export function createEntryDetailController({ root = document, getEntries = () =
       : null;
     returnFocus = null;
     returnFocusKey = null;
-    target?.focus({ preventScroll: true });
+    // The native close event is queued. Restore an abandoned focus, but do
+    // not overwrite a new control the reader already chose after closing.
+    const focused = root.activeElement;
+    if (!focused || focused === root.body || refs.entryDialog.contains(focused)) {
+      target?.focus({ preventScroll: true });
+    }
   });
 
   return {

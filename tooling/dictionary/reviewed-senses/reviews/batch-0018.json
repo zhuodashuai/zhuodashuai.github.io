@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "2469757d604d95eafbcb990ba54cedd8ed2ea87eedcc2e8e26f41c64d3aa5769",
+  "sourceByteSha256": "73cb80ab94162ca86a1a6b6918a5de39b69117f925df5f72e160080cc32efc96",
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "reviewer": "AI/english_medical_corrections_admission_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "anaphylactic",
+    "anaphylactoid",
+    "anaphylaxis"
+  ],
+  "issues": [],
+  "reviewScope": "Fresh independent final0018 source/POS/fivewholealiases/threeoriginalpairs/per-sensecontexts and exact three indivisible rawtuple policy review. Current old raw records and exact old DTO snapshots separately replayed. No cache/deployment authority.",
+  "reviewedRows": [
+    {
+      "term": "anaphylactic",
+      "rowSha256": "e95d3fdaaa9ac6739750e2846b5682bb345ee18a4a9a88d9eea7d0b1a6d4f4b0",
+      "canonicalId": 4581436,
+      "canonicalSourceSha256": "49bc26a0be9ab1f9191e55af6c241338b626b47ea57dc9ebad43a52bf819a16e",
+      "languageDecision": "PASS",
+      "reason": "Specialised adjective and serious systemic scope, not a generic reaction noun. The original sting/report pair now preserves systemic severity in Chinese. Exact declared adjectival alias and no new forms.",
+      "aliasAndFormReason": "Only exact final typed complete Chinese aliases; no new English forms or global synonym/adjective family.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "anaphylactoid",
+      "rowSha256": "40a7107436e25f8b98306d718247135f4799c1555b05ca9244fb6771ddfb785e",
+      "canonicalId": 8139492,
+      "canonicalSourceSha256": "72ba1619b3e7b39d11fc02ca5d85491b54e3cbf99b0c6f5241ec0d532a41fc97",
+      "languageDecision": "PASS",
+      "reason": "Adjectival resemblance to anaphylaxis or its shock presentation, with no generic poisoning, noun equivalence or unsupported mechanism assertion. Original report pair uses conventional类过敏反应 accurately.",
+      "aliasAndFormReason": "Only exact final typed complete Chinese aliases; no new English forms or global synonym/adjective family.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "anaphylaxis",
+      "rowSha256": "ec84de82c784e7f82344274f43c78bb869799b476a0c084d9153606c3fa0ed9a",
+      "canonicalId": 4091561,
+      "canonicalSourceSha256": "daee297be2dc8a17346badf80e1fd0226e0504f823001c924803787a2a4be3a9",
+      "languageDecision": "PASS",
+      "reason": "Serious systemic noun, usually rapid with possible life threat; not every allergy or a mandatory shock episode. Both whole aliases keep serious+systemic scope. The original medical-record pair describes risk without diagnosis/treatment advice.",
+      "aliasAndFormReason": "Only exact final typed complete Chinese aliases; no new English forms or global synonym/adjective family.",
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "approvedExamplePairs": 3,
+  "approvedContextCounts": {
+    "anaphylactic": 1,
+    "anaphylactoid": 1,
+    "anaphylaxis": 1
+  },
+  "exactEvidence": {
+    "source-corrections-0018-companion.json": "7d12303f1b65b5484eb8e4c2eb8764077ccf8f3de8953554ee4466e265fd10ab",
+    "source-corrections-0018-accuracy-policy.json": "31069abd41169bc9e77e41a9257b6c67985656b7467c7d90ec1a0d1addf5b558",
+    "source-corrections-0018-canonical-before.json": "07c51b162a392f79f9c9eb04ac584ac9092935b778344baf0aac007890836fd4",
+    "source-corrections-0018-legacy-examples.json": "ee7be7d1f3d7601318d0ed11835394b91a57918340e2f7562cdd8fe18eac8bb6"
+  },
+  "independentProvenanceEvidence": {
+    "file": "outputs/life-coverage-20261120/medical18-independent-source-audit.json",
+    "sha256": "dca395385a74dd7f628a523ef4d4ddcb96127750cec4245f39f4cef14db101ad",
+    "actualAuthenticatedCanonicalShards": 128,
+    "canonicalRecords": 102609,
+    "baseShards": 256,
+    "compressedDeltas": 35,
+    "immutableExamplePairs": 103998,
+    "publicContextsIncludingNew9": 106093,
+    "reviewedPairs": 3,
+    "collisions": 0
+  },
+  "priorDraftReview": {
+    "sourceByteSha256": "f05373f774a5ead9fd44df7aac748386b9d2e4fc67cf4cc59b70c94c8d79e62f",
+    "reviewByteSha256": "5d68a846f14f099abf189581ba685d6f4ab7eb975fd58b9bb145c42120834297",
+    "metadataOnlyProjectionIndependentlyVerified": true
+  },
+  "baseline": {
+    "file": "source-corrections-0018-baseline.json",
+    "byteSha256": "ebd1232f564847b041790e12db05f2d77dc4fea8e753c7e75ef1b3d82ec0c262",
+    "oldReviewedRows": 210,
+    "oldImmutableFilesIndependentlyChecked": 78
+  },
+  "referenceVerification": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/anaphylactic",
+      "access": "Actual official indexed lexical entry read; no copied definition/example."
+    },
+    {
+      "url": "https://www.merriam-webster.com/medical/anaphylactoid",
+      "access": "Direct official Medical Dictionary read; resemblance/POS scope."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/anaphylaxis",
+      "access": "Direct403; actual official indexed noun entry read."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/anaphylaxis",
+      "access": "Actual official indexed noun/countability/plural read; no new form admitted."
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/anaphylaxis/",
+      "access": "Direct official scope read, no treatment guidance copied."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/",
+      "access": "Actual originalWAO2020 definition discussion read throughPMC; publisher403. Serious systemic scope distinct from mandatoryshock; not represented as current treatment instructions."
+    }
+  ],
+  "limitations": [
+    "Raw canonical IDs/records/source bytes and all78 prior source/review/policy files stay unchanged. Only the exact newly approved indivisible old tuples may be suppressed in derived display.",
+    "The three old exact formatted contexts retain their complete historical DTOs only; that preservation does not newly endorse their older medical wording or license new pairs on other/edited contexts.",
+    "Generic reaction, allergy condition, anaphylaxis, shock-specific phrase, allergen and toxic/adverse effect remain distinct; source policy is not a global adjective/source/head blacklist.",
+    "Fresh source metadata/policy approval does not validate unrun runtime/compiler/cache/deployment checks."
+  ]
+}

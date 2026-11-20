@@ -60,8 +60,8 @@ function fixture({ queries = ['开心'], packet, bundle, bucket, release, descri
 }
 async function reader(fx) {
   const replacements = [
-    ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=117';", `const CHINESE_QUERY_CACHE_RELEASE = Object.freeze(${JSON.stringify(fx.release)});`],
-    ["'./chinese-query-cache-format.js?v=117'", JSON.stringify(new URL('../js/chinese-query-cache-format.js?v=117', import.meta.url).href)],
+    ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=118';", `const CHINESE_QUERY_CACHE_RELEASE = Object.freeze(${JSON.stringify(fx.release)});`],
+    ["'./chinese-query-cache-format.js?v=118'", JSON.stringify(new URL('../js/chinese-query-cache-format.js?v=118', import.meta.url).href)],
     ["new URL('../data/chinese-query-cache/', import.meta.url)", `new URL(${JSON.stringify(root.href)})`],
   ];
   let transformed = source;

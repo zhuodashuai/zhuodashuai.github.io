@@ -1,5 +1,5 @@
 # Preserve Jekyll defaults and all runtime, learning and rollback resources.
-# Developer example/POS source trees stay in Git/CI; public evidence links use GitHub.
+# Developer example/POS sources, tests and scripts stay in Git/CI; evidence links use GitHub.
 # Older exact exclusions below remain registered alongside these bounded trees.
 exclude:
   - Gemfile
@@ -12,6 +12,8 @@ exclude:
   - CNAME
   - tooling/dictionary/examples
   - tooling/dictionary/pos
+  - tooling/tests
+  - tooling/scripts
   - tooling/dictionary/examples/queues/batch-0031.json
   - tooling/dictionary/examples/queues/batch-0032.json
   - tooling/dictionary/examples/queues/batch-0032-supplement.json

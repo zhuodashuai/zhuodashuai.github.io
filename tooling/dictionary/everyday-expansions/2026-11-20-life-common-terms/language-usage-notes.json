@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "status": "DRAFT v2 — required scope/grammar companion; not runtime fields or admission approval",
+  "author": "AI/english_next_nine_draft_author",
+  "sourceByteSha256": "97a28693a255ebcad06515e32bd5919cb769867a50eb9604bdbc7226f22e1ecb",
+  "sourceObjectSha256": "6a275790c468c1be72beb34e855081f0dd0406780c9544c671f9d6c8e48a527e",
+  "entries": [
+    {
+      "term": "delivery address",
+      "englishDefinition": "The address specified as the destination for delivered goods or parcels.",
+      "regionalLabel": "general",
+      "countability": "countable",
+      "requiredObject": "Physical delivery destination; this is not an email address or a computer address.",
+      "contrasts": [
+        "A billing address identifies the billing role; it need not be the delivery destination.",
+        "Shipping address is a separate legitimate lexical expression, not an inflection to rewrite into this head."
+      ],
+      "formNotes": "Only the ordinary plural delivery addresses is proposed.",
+      "excludedAliases": [
+        "账单地址",
+        "电子邮箱地址",
+        "寄件地址"
+      ],
+      "sourceRowSha256": "d14bac763aeabe2fe2a2e48bbd732a9f181d8a9e6d04926ccd365d50f2f7f50f"
+    },
+    {
+      "term": "hang out the washing",
+      "englishDefinition": "To put washed clothing or linen outside on a line or similar support to dry.",
+      "regionalLabel": "especially British English",
+      "countability": null,
+      "requiredObject": "The complete household expression includes the washing. Washing is an uncountable collective noun here.",
+      "contrasts": [
+        "Hang out without this object can concern spending time somewhere or socialising; that meaning is not admitted here.",
+        "This draft specifies outdoor drying. It does not declare every indoor hanging/drying action equivalent."
+      ],
+      "formNotes": "Hang uses hung, not hanged, in this sense. Exactly the listed complete word-order variants are proposed; no productive object substitution rule.",
+      "excludedAliases": [
+        "闲逛",
+        "和朋友消磨时间",
+        "绞死"
+      ],
+      "sourceRowSha256": "b1cf69d820de8d6b51e5d944f1951802dacf8c935fe02f7cd20113842c2b95d7"
+    },
+    {
+      "term": "take out the rubbish",
+      "englishDefinition": "To carry household rubbish outside to a bin or collection place.",
+      "regionalLabel": "rubbish is the usual British term",
+      "countability": null,
+      "requiredObject": "The rubbish is the household-waste object. The listed noun-object orders are both possible.",
+      "contrasts": [
+        "Take out the trash and take out the garbage are common North American expressions, but are not silently admitted as inflections of this different lexical head.",
+        "Dump can have broader disposal, sales and computing senses; those are not unconditional equivalents."
+      ],
+      "formNotes": "Take has took/taken. Only the listed complete forms and noun-object orders are proposed; pronoun placement is not a new runtime rewrite rule.",
+      "excludedAliases": [
+        "倾销商品",
+        "数据库转储",
+        "带走外卖"
+      ],
+      "sourceRowSha256": "cbcf31db9ae21c8345f08225bca39b302e9b45efb672cf0fe71b81aef51eaf6c"
+    },
+    {
+      "term": "take someone's temperature",
+      "englishDefinition": "To measure a person's body temperature.",
+      "regionalLabel": "general",
+      "countability": null,
+      "requiredObject": "Someone's/somebody's identifies the person whose body temperature is measured; that person may be the measurer or another person. Concrete possessives are admitted only as the listed complete surfaces.",
+      "contrasts": [
+        "Measuring temperature does not itself mean that the person has a fever.",
+        "A room or machine temperature is outside this body-temperature expression."
+      ],
+      "formNotes": "Take has takes/took/taken/taking. The listed one's surfaces are retained for self-context use, such as a person measuring their own temperature; this does not assert that one's is globally ungrammatical in other constructions. No arbitrary pronoun or possessive substitution rule is proposed.",
+      "excludedAliases": [
+        "发烧",
+        "测室温",
+        "测机器温度"
+      ],
+      "sourceRowSha256": "787f55b970df3137da2e3cc0b451c49192d5f2c7c7dc22870edb50567408c105",
+      "selfContextExampleNote": "A generic instruction about measuring one's own temperature can use take one's temperature. The retained nurse took my temperature example instead measures another person's body temperature, so the broad canonical head is take someone's temperature. This note is explanatory only; no extra learning example is admitted."
+    },
+    {
+      "term": "allergic reaction",
+      "englishDefinition": "A response of the body triggered by an allergen.",
+      "regionalLabel": "general",
+      "countability": "countable",
+      "requiredObject": "Generic reaction noun phrase; no specific allergen, symptom, severity or treatment is inferred.",
+      "contrasts": [
+        "Effects can vary from mild to serious; this general noun phrase does not itself specify their severity.",
+        "Anaphylaxis is a specific severe reaction, not an unconditional synonym of every allergic reaction.",
+        "Anaphylactic and anaphylactoid are adjectives/specialised terms and cannot stand in for this generic noun phrase.",
+        "Adverse reaction and poisoning are not automatically allergy."
+      ],
+      "formNotes": "Only the ordinary plural allergic reactions is proposed.",
+      "excludedAliases": [
+        "严重过敏反应",
+        "过敏性休克",
+        "中毒反应",
+        "不良反应"
+      ],
+      "sourceRowSha256": "4792095a1a0d949290227a25a37004e3d1a2b9e074d0cd1ce21c6d9aaef93529"
+    },
+    {
+      "term": "repeat prescription",
+      "englishDefinition": "A prescription used to obtain an established medicine again under an ongoing prescribing arrangement.",
+      "regionalLabel": "especially British English",
+      "countability": "countable",
+      "requiredObject": "This is a British countable prescription noun for continuing medicine use. The Chinese alias 续方 has this noun sense here, not every act of renewing, issuing or dispensing medicine.",
+      "contrasts": [
+        "Repeat prescribing and repeat dispensing can use different arrangements; the expression does not require a newly issued prescription for every supply.",
+        "A pharmacy refill or any medicine renewal is not automatically the same prescription concept.",
+        "The expression does not promise unlimited supplies, automatic approval, availability, dosage or exemption from review or consultation.",
+        "Repeated or duplicate prescribing in error is not this intended continuing-use sense."
+      ],
+      "formNotes": "Only the ordinary plural repeat prescriptions is proposed. The example is an enquiry about approval, not an entitlement.",
+      "excludedAliases": [
+        "药房配药",
+        "处方续配",
+        "重复开药错误",
+        "自动获批续药"
+      ],
+      "sourceRowSha256": "08f88c82227c5f66ee19147bbd0c1c88a59795b16725c32d7a54ca36b99663e5"
+    },
+    {
+      "term": "luggage storage",
+      "englishDefinition": "A service or arrangement for temporarily keeping travellers' bags until they collect them.",
+      "regionalLabel": "general",
+      "countability": "uncountable in this service/arrangement sense",
+      "requiredObject": "Temporary keeping of travel bags; a locker or staffed service may be involved.",
+      "contrasts": [
+        "Checked baggage/airline baggage check-in is a different service.",
+        "Baggage reclaim is collecting arriving baggage, not arranging temporary storage.",
+        "The storage service or arrangement is not unconditionally the office, counter or room where it is provided.",
+        "No price, security, opening-hours or availability guarantee follows from this noun phrase."
+      ],
+      "formNotes": "No ordinary plural luggage storages is admitted.",
+      "excludedAliases": [
+        "行李托运",
+        "行李认领",
+        "机场取行李"
+      ],
+      "sourceRowSha256": "74ce41d5a3f112fd9893da7ae49bb42af067638f08ecf7bf201c5a16931cfb4e"
+    },
+    {
+      "term": "shift rota",
+      "englishDefinition": "A work schedule showing which shifts each member of staff is assigned.",
+      "regionalLabel": "especially British English; compare American roster",
+      "countability": "countable",
+      "requiredObject": "Employee shift/time allocation, not a change in position, a general list of names or a school timetable.",
+      "contrasts": [
+        "Rota can be broader and include other duties; this compound specifies work shifts.",
+        "No equivalence with every sense of shift, roster or timetable is proposed."
+      ],
+      "formNotes": "Only the ordinary plural shift rotas is proposed.",
+      "excludedAliases": [
+        "课程表",
+        "换挡",
+        "轮转机械",
+        "名单"
+      ],
+      "sourceRowSha256": "8158ca2b7d20dcae862d67ac86a8e58ac4d69f21958608dcd7c32c3cbf708dab"
+    },
+    {
+      "term": "employment reference",
+      "englishDefinition": "Information supplied to a prospective employer about an applicant's work history, performance or suitability for a role.",
+      "regionalLabel": "general; primary workplace evidence is British",
+      "countability": "countable",
+      "requiredObject": "This draft covers reference information supplied for recruitment, including factual work or character/suitability information.",
+      "contrasts": [
+        "A reference can be factual/basic or detailed; it is not necessarily a favourable recommendation.",
+        "It can be written or verbal; 雇主推荐信 is not admitted as an unconditional letter-only equivalence.",
+        "Referee names/contact people and a general employment certificate are separate contexts, not newly admitted meanings here.",
+        "The noun does not imply that a reference must legally be supplied or that a job offer follows."
+      ],
+      "formNotes": "Only the ordinary plural employment references is proposed.",
+      "excludedAliases": [
+        "雇主推荐信",
+        "工作证明书",
+        "证明人",
+        "保证录用"
+      ],
+      "sourceRowSha256": "5a1bb3c9d1f6dfff5fe37b501f91737bbcf05eb735af40e10f0bca4689fc8cd8"
+    }
+  ]
+}

@@ -5,7 +5,10 @@ import { searchEverydayDictionary, loadEverydayExamples } from '../js/everyday-l
 import { searchExpandedDictionary } from '../js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
 import { exactSourceCorrectionRows } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
+import {exactLifeCommonTermRows,exactMedicalCorrectionRows} from '../../tooling/tests/helpers/life-coverage-history.mjs';
 const correctedRows=new Map(exactSourceCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
+const lifeRows=new Set(exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
+const medicalRows=new Map(exactMedicalCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
 
 const preciseCases = [
   ['人工客服',['live agent','human agent','customer service representative']],
@@ -72,13 +75,16 @@ test('qualifiers and unrelated senses cannot be discarded while expanding everyd
 
 test('every listed Chinese alias, English head and genuine form resolves with an original bilingual example', () => {
   const heads = new Set(), examples = new Set();
-  let oldAliasChecks=0,exactCorrectionChecks=0;
+  let oldAliasChecks=0,exactCorrectionChecks=0,lifeAliasChecks=0,medicalAliasChecks=0;
   for (const row of EVERYDAY_LOOKUP_ENTRIES) {
     const key = row.term.toLowerCase();
     assert(!heads.has(key), `duplicate head: ${row.term}`); heads.add(key);
     assert(row.partOfSpeech.trim()); assert.match(row.meaning, /^①/u);
     if(correctedRows.get(row.term)===row){assert.deepEqual(row.chineseAliases,[]);exactCorrectionChecks++;}
-    else {assert(row.chineseAliases.length);oldAliasChecks++;}
+    else {assert(row.chineseAliases.length);
+      if(lifeRows.has(row)){assert(!row.reviewedCanonicalSense);lifeAliasChecks++;}
+      else if(medicalRows.get(row.term)===row)medicalAliasChecks++;
+      else oldAliasChecks++;}
     assert(row.en.trim()); assert.match(row.zh, /\p{Script=Han}/u);
     assert(!examples.has(row.en.toLowerCase()), `duplicate example: ${row.term}`); examples.add(row.en.toLowerCase());
     for (const alias of row.chineseAliases) {
@@ -89,12 +95,13 @@ test('every listed Chinese alias, English head and genuine form resolves with an
       const result = loadEverydayExamples(form);
       assert.equal(result.term, row.term, form);
       assert.deepEqual(result.senses[0].examples, [{ en: row.en, zh: row.zh }], form);
-      if(correctedRows.get(row.term)===row){
+      if(correctedRows.get(row.term)===row||medicalRows.get(row.term)===row){
         assert.deepEqual(result.senses,row.exampleSenses.map(sense=>({...sense,reviewer:row.exampleReviewer,source:row.exampleSource})));
       }
     }
   }
   assert.equal(oldAliasChecks,1268);assert.equal(exactCorrectionChecks,3);
+  assert.equal(lifeAliasChecks,9);assert.equal(medicalAliasChecks,3);assert.equal(heads.size,1283);
 });
 
 test('only the three exactly reviewed corrections have empty aliases and all seven explicit POS/sense/example contexts',()=>{
@@ -116,4 +123,18 @@ test('only the three exactly reviewed corrections have empty aliases and all sev
   const mortuary=correctedRows.get('mortuary'),projection=mortuary.formProjections;
   assert.deepEqual(projection,[{form:'mortuaries',partOfSpeech:'noun',meaning:mortuary.exampleSenses.slice(0,2).map(sense=>sense.meaningZh).join('\n'),
     exampleSenseIds:mortuary.exampleSenses.slice(0,2).map(sense=>sense.id)}]);
+});
+
+test('the separate three approved medical corrections retain typed aliases and their complete single-sense contexts',()=>{
+  assert.deepEqual([...medicalRows.keys()],['anaphylactic','anaphylactoid','anaphylaxis']);
+  assert.deepEqual([...medicalRows.values()].map(row=>row.partOfSpeech),['adjective','adjective','noun']);
+  assert.deepEqual([...medicalRows.values()].map(row=>row.chineseAliases),[
+    ['严重全身性过敏反应的'],['类似严重过敏反应的','类过敏反应的'],['严重全身性过敏反应','全身性严重过敏反应']]);
+  for(const row of medicalRows.values()){
+    assert.deepEqual(row.englishForms,[]);assert(!Object.hasOwn(row,'formProjections'));
+    const id=`reviewed-source-correction:${row.term}:1`;
+    assert.deepEqual(row.exampleSenses,[{id,partOfSpeech:row.partOfSpeech,meaningZh:row.meaning,examples:[{en:row.en,zh:row.zh}]}]);
+    assert.deepEqual(row.exampleContexts,[{partOfSpeech:row.partOfSpeech,meaning:row.meaning,senseIds:[id]}]);
+    for(const alias of ['过敏','过敏反应','过敏性休克','过敏原','中毒反应'])assert(!row.chineseAliases.includes(alias));
+  }
 });

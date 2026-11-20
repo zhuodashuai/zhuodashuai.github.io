@@ -10,6 +10,7 @@ import {SEARCH_EXPERIENCE_ENTRIES} from '../../vocab/js/search-experience-data.j
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
+import {historicalSearch33,historicalOrdinary1061,historicalLifeCoverageAudit,exactLifeCommonTermRows} from './helpers/life-coverage-history.mjs';
 const root=resolve(import.meta.dirname,'../..');
 const packRoot=new URL('../dictionary/everyday-expansions/2026-11-19-common-terms/',import.meta.url);
 const source=JSON.parse(await readFile(new URL('source.json',packRoot)));
@@ -43,9 +44,10 @@ test('all13 heads and42 whole surfaces are independently approved against comple
   assert.notEqual(review.reviewer,source.author);assert.equal(review.independentOfAuthor,true);assert.equal(review.reviewer,'AI/chinese_common_terms_admission_reviewer');
   assert.deepEqual(review.approvedTerms,source.entries.map(row=>row.term));assert.deepEqual(review.issues,[]);
   assert.deepEqual(review.reviewedRows.map(({term,rowSha256,languageDecision})=>({term,rowSha256,languageDecision})),source.entries.map(row=>({term:row.term,rowSha256:hash(row),languageDecision:'PASS'})));
-  const audit=await auditSearchContentAdmissions(root,source.entries);
+  const currentAudit=await auditSearchContentAdmissions(root,source.entries);
   const previousAudit=JSON.parse(await readFile(new URL('admission-audit.json',packRoot)));
-  assert.deepEqual(audit,JSON.parse(await readFile(new URL('final-admission-audit.json',packRoot))));
+  const audit=historicalLifeCoverageAudit(currentAudit,JSON.parse(await readFile(new URL('final-admission-audit.json',packRoot))),EVERYDAY_LOOKUP_ENTRIES);
+  assert.equal(currentAudit.packagedRowsChecked,1270);assert.equal(currentAudit.distinctPublicExampleContextsChecked,106083);
   assert.deepEqual(audit,{...previousAudit,packagedRowsChecked:1258,distinctPublicExampleContextsChecked:106071});
   const finalReview=JSON.parse(await readFile(new URL('final-audit-review.json',packRoot)));
   assert.equal(finalReview.reviewer,review.reviewer);assert.equal(finalReview.independentOfAuthor,true);
@@ -62,11 +64,13 @@ test('all13 heads and42 whole surfaces are independently approved against comple
 
 test('new13 rows append without changing the exact historical20 sources or ordinary1048 objects',async()=>{
   const {entries,packs,module}=await loadSearchExperienceContent();
-  assert.deepEqual(packs.map(pack=>pack.entries.length),[16,4,13]);
-  assert.deepEqual(entries.slice(20),source.entries);assert.equal(hash(entries.slice(0,20)),baseline.search20Sha256);
+  assert.deepEqual(packs.slice(0,3).map(pack=>pack.entries.length),[16,4,13]);
+  assert.equal(packs.length,4);assert.deepEqual(packs[3].entries,exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
+  const prior33=historicalSearch33(entries);
+  assert.deepEqual(prior33.slice(20),source.entries);assert.equal(hash(prior33.slice(0,20)),baseline.search20Sha256);
   assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,entries);assert.equal(module,await readFile(new URL('../../vocab/js/search-experience-data.js',import.meta.url),'utf8'));
   for(const[file,expected]of Object.entries(baseline.priorSourceAndReviewBytes))assert.equal(hash(await readFile(resolve(root,file))),expected,file);
-  const ordinary=EVERYDAY_LOOKUP_ENTRIES.filter(row=>!row.reviewedCanonicalSense);
+  const ordinary=historicalOrdinary1061(EVERYDAY_LOOKUP_ENTRIES);
   const old=ordinary.filter(row=>!source.entries.some(entry=>JSON.stringify(entry)===JSON.stringify(row)));
   assert.equal(ordinary.length,1061);assert.equal(old.length,1048);assert.equal(hash(old),baseline.ordinary1048Sha256);
 });

@@ -7,10 +7,10 @@ import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js'
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
 import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples,
   hasSourceCorrectionExampleHead,loadSourceCorrectionExamples,sourceCorrectionLegacyExampleContext,
-  matchesSourceCorrectionLegacyDTO } from './everyday-lookup.js?v=117';
+  matchesSourceCorrectionLegacyDTO } from './everyday-lookup.js?v=118';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
-import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js?v=117';
-import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js?v=117';
+import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js?v=118';
+import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js?v=118';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
 let repairClients=new WeakMap(), componentClients=new WeakMap(), generation=0;

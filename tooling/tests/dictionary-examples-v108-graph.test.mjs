@@ -349,12 +349,12 @@ test('the archived v109 application preserves v108 after exact readiness, source
  assert.equal(current.split(addition).length,2);assert.equal(historicalCurrent.replace(addition,''),before);
  assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
  const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8');
- assert.equal(entry.split('import "./dictionary-app-v109.js?v=117"').length,2);
+ assert.equal(entry.split('import "./dictionary-app-v109.js?v=118"').length,2);
  const oldEntry=(await fs.readFile(new URL('vocab/js/dictionary-entry-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
- assert.equal(entry.split('./dictionary-offline-warm-v108.js?v=117').length,2,'Exactly the current cache-aware offline replay child');
- assert.equal(entry.replace(/\r\n/gu,'\n').replace('./dictionary-offline-warm-v108.js?v=117','./dictionary-offline-warm-v108.js').replace('./dictionary-app-v109.js?v=117','./dictionary-app-v108.js'),oldEntry);
+ assert.equal(entry.split('./dictionary-offline-warm-v108.js?v=118').length,2,'Exactly the current cache-aware offline replay child');
+ assert.equal(entry.replace(/\r\n/gu,'\n').replace('./dictionary-offline-warm-v108.js?v=118','./dictionary-offline-warm-v108.js').replace('./dictionary-app-v109.js?v=118','./dictionary-app-v108.js'),oldEntry);
  assert(!entry.includes('dictionary-app-v108.js'));assert(entry.includes('from "./pwa.js?v=77"'));
- assert(entry.includes('from "./dictionary-offline-warm-v108.js?v=117"'));
+ assert(entry.includes('from "./dictionary-offline-warm-v108.js?v=118"'));
  const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
  for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
 });
@@ -411,7 +411,7 @@ test('v108 does not retarget navigation107 and retains pwa77',async()=>{
  assert(entry.includes('from "./pwa.js?v=77"'));assert(entry.includes('import "./dictionary-app-v108.js"'));assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
 });
 test('archived v108 loader keeps its old wrapper while the active example UI uses the fresh compatible graph',async()=>{
- for(const[name,specifier]of[['dictionary-app-v108.js','./dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','./dictionary-examples-current-v4.js?v=117']]){
+ for(const[name,specifier]of[['dictionary-app-v108.js','./dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','./dictionary-examples-current-v4.js?v=118']]){
   const body=await fs.readFile(new URL('vocab/js/'+name,root),'utf8');
   assert.equal(body.split('import('+JSON.stringify(specifier)+')').length,2);
   assert(!body.includes('import("./dictionary-examples.js'));
