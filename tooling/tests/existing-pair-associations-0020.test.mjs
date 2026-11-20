@@ -1,3 +1,4 @@
+import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -32,7 +33,7 @@ test('199 current selected cards retain all187 old objects and1028 ordinary entr
   assert(review.independentOfAuthor);assert.notEqual(source.author,review.reviewer);assert.deepEqual(review.issues,[]);
   assert.deepEqual(source.entries.map(row=>row.term),TERMS);assert.equal(historicalSelected199(all).length,199);
   assert.equal(hash(historicalSelected187(selected)),baseline.selectedSha256);
-  assert.equal(hash(historicalOrdinary1028(all)),baseline.ordinarySha256);assert.equal(hash(aliases),baseline.aliasesSha256);
+  assert.equal(hash(historicalOrdinary1028(all)),baseline.ordinarySha256);assert.equal(hash(historicalRoundaboutAliases47(aliases)),baseline.aliasesSha256);
   const basic=validateReviewedSensePack(source,review,records,reserved(),new Set(),admission);
   const projected=projectReviewedExistingPairRows(admission,source,review,basic);
   for(const row of projected){

@@ -1,3 +1,4 @@
+import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -27,7 +28,7 @@ test('three new classroom-theme expressions bind exact independent approval and 
   const ordinary=historicalOrdinary1028(entries);
   assert.equal(baseline.ordinaryCount,1025);assert.equal(hash(ordinary.slice(0,1025)),baseline.ordinarySha256);
   assert.equal(hash(historicalSelected187(entries.filter(row=>row.reviewedCanonicalSense))),baseline.selectedSha256);
-  assert.equal(hash(aliases),baseline.aliasesSha256);
+  assert.equal(hash(historicalRoundaboutAliases47(aliases)),baseline.aliasesSha256);
   assert.deepEqual(ordinary.slice(1025,1028),source.entries);
   for(const row of source.entries){assert.equal(hash(row),review.reviewedRows.find(item=>item.term===row.term)?.rowSha256);}
 });

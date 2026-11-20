@@ -1,3 +1,4 @@
+import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -34,7 +35,7 @@ test('six independently read classroom heads add24roles and preserve the complet
  assert.deepEqual(source.entries.map(r=>r.term),['party','institution','column','in the picture','precipitously','dissolve']);
  assert.equal(source.entries.reduce((n,r)=>n+r.meaning.split('\n').length,0),24);assert.equal(selected.length,183);assert.equal(new Set(selected.map(r=>r.term)).size,183);historicalSelected177(selected);
  // Retain the complete original prefix when new reviewed phrases are appended.
- assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(corrections.length,79);assert.equal(hash(corrections),fixture.baseline.correctionsSha256);
+ assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(historicalRoundaboutAliases47(aliases)),fixture.baseline.aliasesSha256);assert.equal(corrections.length,79);assert.equal(hash(corrections),fixture.baseline.correctionsSha256);
  for(const row of source.entries){const actual=selected.find(r=>r.term===row.term);for(const [key,value] of Object.entries(row))assert.deepEqual(actual[key],value);}
 });
 
