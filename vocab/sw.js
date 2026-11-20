@@ -24,6 +24,10 @@ const CACHE_NAME = "zhuo-wordbook-v100";
 const CACHE_PREFIX = "zhuo-wordbook-";
 const NETWORK_TIMEOUT_MS = 5_000;
 const SHELL = [
+  "./js/public-app-v113.js?v=123",
+  "./js/personal-app-v108.js?v=123",
+  "./js/library-lookup-ui.js?v=123",
+
   "./js/personal-app-v108.js?v=119",
   "./js/personal-spelling.js?v=119",
 

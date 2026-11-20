@@ -58,6 +58,10 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
       if (lookup.suggestionPhase === "error") get("lookup-status").textContent += " 拼写建议暂不可用，按 Enter 可重试。";
     }
     if (value.pendingCount > 1) get("lookup-status").textContent += ` · ${value.pendingCount} 项正在收录`;
+    if (selected?.matchType === "mention" || selected?.matchType === "compound") {
+      const label = selected.matchType === "mention" ? "解释中提及" : "相关释义";
+      get("lookup-status").textContent = `${label}${selected.matchedChinese ? `：“${selected.matchedChinese}”` : ""}，请按完整词义判断。${get("lookup-status").textContent}`;
+    }
     get("lookup-retry").hidden = !owner || !value.failedCount;
     get("lookup-result").hidden = !selected;
     if (selected) {
@@ -84,6 +88,9 @@ export function mountLibraryLookup({ document, window, onCollected, onOpenEntry,
           if (row.matchType === "related") {
             const note = document.createElement("span"); note.className = "related-badge";
             note.textContent = `近义关联：${row.matchedChinese}`; choice.append(note);
+          } else if (row.matchType === "mention" || row.matchType === "compound") {
+            const note = document.createElement("span"); note.className = "related-badge";
+            note.textContent = row.matchType === "mention" ? "解释中提及" : "相关释义"; choice.append(note);
           }
           choices.append(choice);
         });

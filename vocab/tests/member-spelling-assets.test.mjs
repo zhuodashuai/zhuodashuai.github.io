@@ -1,3 +1,4 @@
+import {restoreSearchMatchContextAssetIfCurrent} from '../../tooling/tests/helpers/search-match-context-shell.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -9,7 +10,7 @@ import {MEMBER_SPELLING_PANEL_LINE,MEMBER_SPELLING_URLS,restoreMemberSpellingShe
  restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {ENTRY_DETAIL_FOCUS_URLS,restoreEntryDetailFocusServiceWorkerShell} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
-const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
+const read=async file=>restoreSearchMatchContextAssetIfCurrent(file,await readFile(new URL('../'+file,import.meta.url),'utf8'));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 
 test('the combined392 shell keeps member119, parent focus122 and all386 unchanged offline aliases in exact order',async()=>{
