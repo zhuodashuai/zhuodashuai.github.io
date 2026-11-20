@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1520">
   <meta name="author" content="Qianjun Zhuo">
-  <meta name="description" content="Qianjun Zhuo studies simulation-based safety validation, learning-based control, and formal explanations for neural networks at Penn and UNSW Sydney.">
+  <meta name="description" content="Qianjun Zhuo is a UNSW Sydney undergraduate and Penn exchange student working on safety evaluation for autonomous systems and formal explanations for neural networks.">
   <link rel="canonical" href="https://zhuodashuai.github.io/">
+  <link rel="icon" href="assets/profile-icon.png" type="image/png">
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Qianjun Zhuo">
-  <meta property="og:title" content="Qianjun Zhuo | Autonomous Systems &amp; Formal AI">
-  <meta property="og:description" content="Research experience, projects, education, teaching and service.">
+  <meta property="og:title" content="Qianjun Zhuo | Safe Autonomy &amp; Formal Explainability">
+  <meta property="og:description" content="Research in simulation-based safety validation and formal explanations for neural networks. UNSW Sydney and Penn xLAB.">
   <meta property="og:url" content="https://zhuodashuai.github.io/">
-  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-angle.png">
-  <meta property="og:image:alt" content="A simulated pendulum angle briefly exceeds its safety limit after a disturbance.">
+  <meta property="og:image" content="https://zhuodashuai.github.io/assets/profile-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Qianjun Zhuo’s academic profile with a plot of the simulated pendulum angle crossing its limit.">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Qianjun Zhuo | Autonomous Systems &amp; Formal AI</title>
+  <meta name="twitter:image:alt" content="Qianjun Zhuo’s academic profile with a plot of the simulated pendulum angle crossing its limit.">
+  <title>Qianjun Zhuo | Safe Autonomy &amp; Formal Explainability</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/academic-profile.css?v=f24dace4">
-  <script type="module" src="assets/pendulum-viewer.js?v=2342b3e"></script>
+  <link rel="stylesheet" href="assets/academic-profile.css?v=8f4e75d1">
+  <script type="module" src="assets/pendulum-viewer.js?v=02f1cd90"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,7 +50,7 @@
           <a href="#research">Research</a>
           <a href="#work">Projects</a>
           <a href="#education">Education</a>
-          <a href="#experience">Teaching</a>
+          <a href="#experience">Experience</a>
           <a href="#recognition">Honours</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -54,47 +58,50 @@
       </div>
     </header>
 
-    <main id="main" class="content">
+    <main id="main" class="content" tabindex="-1">
       <section id="profile" class="intro" aria-labelledby="profile-title">
         <div class="intro-inner">
           <div class="intro-title">
-            <p class="label">UNSW Sydney <span aria-hidden="true">/</span> Penn xLAB</p>
+            <p class="label">UNSW Sydney <span aria-hidden="true">·</span> Penn exchange</p>
             <h1 id="profile-title">Qianjun <em>Zhuo</em></h1>
-            <p class="lead">Autonomous systems safety<br class="wide-break"> and formal explainability</p>
+            <p class="lead">Safe autonomy and<br class="wide-break"> formal explainability</p>
+            <a class="button primary intro-jump" href="#research">Explore my research</a>
           </div>
           <figure class="hero-figure" id="trace-viewer" aria-labelledby="trace-title">
             <div class="trace-heading">
               <div>
-                <p class="label">Penn xLAB · Simulation case study</p>
+                <p class="label">Penn xLAB · Simulation</p>
                 <h2 id="trace-title">Inverted pendulum</h2>
               </div>
-              <a href="assets/pendulum-safety-trace.png">Full trace</a>
+              <a href="#safety-validation">Study details</a>
             </div>
-            <img class="trace-fallback" src="assets/pendulum-angle.png" width="1440" height="792" alt="The simulated pendulum rises to approximately 0.29 radians after a disturbance from 1 to 1.5 seconds, exceeding its 0.20-radian angle limit." fetchpriority="high">
+            <div class="trace-static">
+              <img class="trace-fallback" src="assets/pendulum-angle.png" width="1440" height="792" alt="The simulated angle peaks at 0.289 rad, past the 0.20 rad angle limit. A base disturbance acts from 1.00 to 1.50 seconds." fetchpriority="high">
+              <p class="trace-fallback-note" role="status" hidden>Interactive trace unavailable. The plot shows the full simulation.</p>
+            </div>
             <div class="trace-interactive" hidden>
               <div class="trace-scene">
                 <canvas id="pendulum-scene" aria-hidden="true"></canvas>
-                <p class="trace-key"><span aria-hidden="true"></span> Safety band <small>±0.20 rad</small></p>
+                <p class="trace-key"><span aria-hidden="true"></span> Angle constraint <small>±0.20 rad</small></p>
                 <div class="trace-annotation">
                   <div class="trace-angle"><output id="trace-angle" aria-label="Current angle in radians" aria-live="off">0.289</output> <span>rad</span></div>
                   <div id="trace-status" class="trace-status">Limit exceeded</div>
                 </div>
               </div>
-              <canvas id="pendulum-chart" role="img" aria-label="Recorded simulated pendulum angle versus time. The trace peaks at about 0.29 radians, above the 0.20-radian limit. The disturbance starts at 1 second and ends at 1.5 seconds."></canvas>
+              <canvas id="pendulum-chart" role="img" aria-label="Pendulum angle over a five-second simulation. The angle peaks at 0.289 rad, above the 0.20 rad limit. A disturbance acts from 1.00 to 1.50 seconds."></canvas>
               <div class="trace-controls">
                 <button id="trace-play" type="button">Replay</button>
                 <label class="visually-hidden" for="trace-time">Simulation time</label>
-                <input type="range" id="trace-time" min="0" max="5" step="0.01" value="1.76">
-                <output id="trace-clock" for="trace-time" aria-live="off">1.76 s</output>
+                <input type="range" id="trace-time" min="0" max="5" step="0.01" value="1.77">
+                <output id="trace-clock" for="trace-time" aria-live="off">1.77 s</output>
               </div>
             </div>
             <figcaption>The angle crosses the 0.20 rad limit near the end of the shaded disturbance interval. The full trace includes angular velocity and applied torque.</figcaption>
           </figure>
           <div class="intro-details">
-            <p>I’m an undergraduate at UNSW Sydney studying actuarial studies and mathematics, currently on a 2026–27 academic-year exchange at the Wharton School, University of Pennsylvania.</p>
-            <p>At Penn’s <a href="https://xlab.upenn.edu/">Safe Autonomous Systems Lab</a>, I use simulation and probability to study how feedback controllers behave under uncertainty. At UNSW, I study how to verify neural-network behaviour and explain individual predictions with formal guarantees.</p>
+            <p>I’m a UNSW Sydney undergraduate in actuarial studies and mathematics, spending the 2026–27 academic year on exchange at the Wharton School, University of Pennsylvania.</p>
+            <p>At Penn’s <a href="https://xlab.upenn.edu/">Safe Autonomous Systems Lab</a>, I use simulation to find unsafe controller responses and estimate how often they occur. At UNSW, I study which inputs are sufficient to preserve a neural network’s prediction when the other inputs change.</p>
             <div class="intro-links">
-              <a class="button primary" href="#research">Research experience</a>
               <a class="button" href="mailto:z5528306@ad.unsw.edu.au">Email</a>
               <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
             </div>
@@ -105,25 +112,36 @@
       <section id="research" class="section" aria-labelledby="research-title">
         <header class="section-heading">
           <h2 id="research-title">Research experience</h2>
-          <p>Safety evaluation in simulation and formal reasoning about model decisions.</p>
         </header>
 
-        <article id="safety-validation" class="research-entry">
+        <article id="safety-validation" class="research-entry" tabindex="-1">
           <div class="entry-meta">
             <a href="https://xlab.upenn.edu/">Penn xLAB</a>
             <span>2026–present</span>
           </div>
           <div>
             <h3>Simulation-based safety validation</h3>
-            <p class="question">How often does a controller violate a safety constraint, and what can we learn from the failures?</p>
-            <p>I built a closed-loop inverted pendulum case study in Python. The controller receives noisy measurements, applies torque within actuator limits and responds to a disturbance at the base. I score each trajectory by its minimum margin to the angle limit and record disturbance settings and random seeds so I can replay individual failures.</p>
-            <p>I use ordinary Monte Carlo to estimate failure probability under the specified disturbance model and importance sampling to allocate more trials to larger disturbances. Likelihood weights account for the change in sampling distribution.</p>
-            <div class="result" aria-label="Results from one pendulum simulation comparison">
-              <div><span>Monte Carlo standard error</span><strong>0.0152</strong></div>
-              <div><span>Importance sampling standard error</span><strong>0.00985</strong></div>
-              <p>Estimated standard errors from one comparison with 1,000 simulated trajectories per method. The comparison applies to the specified pendulum and disturbance model.</p>
-            </div>
-            <p class="entry-links"><a href="assets/pendulum-safety-trace.png">Full simulation trace</a> <a href="https://xlab.upenn.edu/">Penn xLAB</a></p>
+            <p class="question">How often does a feedback controller violate a safety constraint under uncertainty?</p>
+            <p>I built a Python simulator of an inverted pendulum with noisy measurements, actuator limits and a disturbance at the base. I measure each trajectory’s smallest margin to the angle limit and save the disturbance settings and sensor noise seed so I can replay failures.</p>
+            <p>I compared ordinary Monte Carlo with importance sampling. The second method draws larger-magnitude disturbances more often and uses likelihood ratios to estimate failure probability under the original distribution.</p>
+            <figure class="result">
+              <table>
+                <caption>Failure probability estimates</caption>
+                <thead><tr><th scope="col">Method</th><th scope="col">Estimate</th><th scope="col">Standard error</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Monte Carlo</th><td>0.361</td><td>0.01520</td></tr>
+                  <tr><th scope="row">Importance sampling</th><td>0.340</td><td>0.00985</td></tr>
+                </tbody>
+              </table>
+              <figcaption>One experiment with 1,000 five-second simulations per method.</figcaption>
+            </figure>
+            <details class="study-notes">
+              <summary>Experiment setup and trace data</summary>
+              <p>A trajectory fails if |θ| ≥ 0.20 rad at any recorded state. The model uses a 0.01 s step and a base disturbance from 1.00 to 1.50 s. Under the nominal distribution, the disturbance amplitude is uniform on [−4, 4] m/s². The importance sampler puts 80% of its draws where the magnitude is at least 2 m/s², then weights them back to the nominal distribution.</p>
+              <p>The interactive example shows a separate run with a 3 m/s² disturbance. To regenerate its 501 angle samples, run the Python script below with <code>--trace</code>.</p>
+              <p class="entry-links"><a href="assets/pendulum-trajectory.json" download>Download the trace data (JSON)</a></p>
+            </details>
+            <p class="entry-links"><a href="assets/pendulum-safety-trace.png">Full simulation trace</a> <a href="assets/pendulum-study.py" download>Reproduce the comparison (Python)</a></p>
           </div>
         </article>
 
@@ -135,51 +153,49 @@
           <div>
             <h3>Neural network verification &amp; formal explainability</h3>
             <p class="question">Which input features suffice to guarantee an individual prediction?</p>
-            <p>I study neural network verification with Prof. <a href="https://yuleisui.github.io/">Yulei Sui</a> and Dr. <a href="https://guanqin-123.github.io/">Guanqin Zhang</a>. My current work on abductive explanations asks whether fixing a subset of input features forces the same prediction across all admissible choices for the remaining features.</p>
-            <p>I prepared a paper-reading presentation with worked Boolean and ReLU examples. The examples compare removing redundant features with searching for a smallest explanation, and show how mixed-integer constraints can encode ReLU behaviour. I have also run initial ACT experiments with PyTorch models and examined VNN-LIB property specifications.</p>
+            <p>With Prof. <a href="https://yuleisui.github.io/">Yulei Sui</a> and Dr. <a href="https://guanqin-123.github.io/">Guanqin Zhang</a>, I study how to verify whether a network’s prediction stays the same when some inputs change. An abductive explanation fixes enough features to preserve the prediction across all allowed values of the remaining inputs.</p>
+            <p>I prepared a presentation on subset-minimal and minimum-size abductive explanations, with Boolean examples and mixed-integer encodings of ReLU networks. I also ran initial verification experiments with ACT and PyTorch models and examined properties specified in VNN-LIB.</p>
             <div class="example">
-              <span class="label">Illustrative Boolean example</span>
-              <p>For the rule <code>x₁ AND (x₂ OR x₃)</code> and input <code>(1, 1, 0)</code>, fixing <code>x₁ = x₂ = 1</code> guarantees the positive prediction for either value of <code>x₃</code>. Dropping either fixed feature allows a negative prediction.</p>
+              <span class="label">Worked Boolean example</span>
+              <p>For <code>y = (a AND b) OR c</code> at <code>(a, b, c) = (1, 1, 1)</code>, either fixing <code>c = 1</code> or fixing both <code>a = 1</code> and <code>b = 1</code> guarantees <code>y = 1</code>. Neither explanation contains a redundant feature. Fixing <code>c</code> alone uses the fewest features.</p>
             </div>
-            <p class="entry-links"><a href="https://github.com/SVF-tools/ACT">ACT toolkit</a> <a href="https://arxiv.org/abs/1811.10656">Abductive explanations paper</a></p>
+            <p class="entry-links"><a href="https://github.com/SVF-tools/ACT">ACT verification toolkit</a> <a href="https://arxiv.org/abs/1811.10656">Abduction-Based Explanations (Ignatiev et al.)</a></p>
           </div>
           <figure class="research-figure">
             <a href="assets/abductive-explanations.webp" aria-label="Open the full worked Boolean example">
               <img src="assets/abductive-explanations.webp" width="1440" height="811" alt="Worked example in which fixing c to 1 or fixing both a and b to 1 suffices to guarantee a positive Boolean prediction." loading="lazy">
             </a>
-            <figcaption>A second worked example from my paper-reading presentation. Two feature sets suffice for the same prediction.</figcaption>
+            <figcaption>Truth tables from my reading presentation show why both feature sets suffice.</figcaption>
           </figure>
         </article>
       </section>
 
       <section id="work" class="section" aria-labelledby="work-title">
         <header class="section-heading">
-          <h2 id="work-title">Projects &amp; technical work</h2>
-          <p>Control experiments, verification exercises, and software I use and maintain.</p>
+          <h2 id="work-title">Selected projects</h2>
         </header>
         <div class="projects">
           <article class="project">
-            <p class="label">Control &amp; reinforcement learning</p>
+            <p class="label">Control &amp; reinforcement learning · 2026</p>
             <h3>Moving-base inverted pendulum control</h3>
-            <p>I built a custom Gymnasium environment for an inverted pendulum on a moving base, tuned a proportional–derivative controller with a gain grid, and evaluated PPO and tabular Q-learning policies under matched simulated disturbances.</p>
-            <p class="project-note">The comparison tracks how often each policy violates the angle constraint under the same evaluation conditions.</p>
+            <p>I built a Gymnasium environment for an inverted pendulum on a moving base and tuned a proportional–derivative (PD) controller with a grid search over its gains. I compared angle-limit violations for proximal policy optimisation (PPO) and tabular Q-learning under matched simulated disturbances.</p>
           </article>
           <article class="project">
-            <p class="label">Independent study · Julia</p>
+            <p class="label">Self-study · Julia · 2026</p>
             <h3>Algorithms for Validation</h3>
-            <p>I completed three Julia projects using Stanford’s public AA228V / CS238V materials. The projects address finding failing trajectories, estimating failure probabilities efficiently and approximating reachable states in dynamical systems.</p>
+            <p>I completed three Julia projects using the public materials for Stanford’s AA228V / CS238V course. They cover failure search, failure probability estimation and reachable-set approximation for uncertain dynamical systems.</p>
             <p class="entry-links"><a href="https://bulletin.stanford.edu/courses/aa-228v">Course description</a> <a href="https://github.com/algorithmsbooks/validation-ancillaries">Textbook code</a></p>
           </article>
           <article class="project">
-            <p class="label">Robotics training · ROS 2</p>
+            <p class="label">Robotics training · ROS 2 · 2026</p>
             <h3>RoboRacer / F1TENTH</h3>
-            <p>I’m working through autonomous racing lab materials. My current practice covers ROS 2 publishers, subscribers and a relay for driving messages, alongside simulator setup and vehicle coordinate frames.</p>
+            <p>I’m working through the RoboRacer labs. I set up the simulator, practised ROS 2 publishers and subscribers, and implemented a relay for drive commands. I’m now studying vehicle coordinate frames.</p>
             <p class="entry-links"><a href="https://f1tenth-coursekit.readthedocs.io/en/latest/assignments/labs/index.html">RoboRacer labs</a></p>
           </article>
           <article class="project">
-            <p class="label">Actuarial modelling · Excel</p>
+            <p class="label">Actuarial modelling · Excel · 2026</p>
             <h3>Retirement accumulation &amp; pension drawdown</h3>
-            <p>I built an Excel model linking contributions and investment growth to pension withdrawals. I used scenario and sensitivity analysis to examine the effects of contribution timing, compounding frequency and drawdown rules on the retirement balance.</p>
+            <p>I built an Excel model linking contributions and investment growth to pension withdrawals. I varied contribution timing, compounding frequency and withdrawal rules to measure how each changes the projected retirement balance.</p>
           </article>
         </div>
 
@@ -189,7 +205,7 @@
             <h3 id="software-title">Wordbook <span lang="zh-Hans">· 卓的单词本</span></h3>
           </div>
           <div>
-            <p>I maintain an installable vocabulary and reading app. It supports public bilingual lookup, source-aware vocabulary entries and private study features such as chapter quizzes and spaced review. The editing workflow uses AI assistance, with decisions and publication handled through the owner interface.</p>
+            <p>I maintain an installable vocabulary and reading app with bilingual lookup, entries linked to their reading context, chapter quizzes and private spaced review. I use AI to suggest edits and control publication through an owner interface.</p>
             <p class="entry-links"><a href="vocab/">Open Wordbook</a> <a href="vocab/guide.html">User guide</a></p>
           </div>
         </aside>
@@ -205,7 +221,7 @@
             <p class="label">2026–2027 · Philadelphia</p>
             <h3>University of Pennsylvania</h3>
             <p class="role">Academic-year exchange at the Wharton School</p>
-            <p>Coursework includes modern data mining, optimisation, enabling technologies, corporate finance and consumer financial decision-making.</p>
+            <p>Selected coursework includes Modern Data Mining, Introduction to Optimization, Enabling Technologies, Corporate Finance and Consumer Financial Decision Making.</p>
           </div>
         </article>
         <article class="education-entry">
@@ -216,7 +232,7 @@
             <p class="label">2024–present · Sydney</p>
             <h3>UNSW Sydney</h3>
             <p class="role">Undergraduate studies in actuarial studies and mathematics</p>
-            <p>High Distinction average. My mathematical training includes probability, mathematical statistics, higher linear algebra, mathematical computing and financial mathematics.</p>
+            <p>My weighted average mark is in the High Distinction range. Coursework includes probability, mathematical statistics, higher linear algebra, mathematical computing and financial mathematics.</p>
           </div>
         </article>
       </section>
@@ -227,22 +243,22 @@
           <article>
             <p class="label">Warrane College · 2026</p>
             <h3>Mathematics tutor</h3>
-            <p>Tutored six first-year university students in calculus and algebra through one-to-one and small-group sessions. Designed practice sets and study plans around gaps in each student’s understanding.</p>
+            <p>I tutored six first-year students in Mathematics 1A and 1B. I designed practice sets and study plans for individual and small-group sessions in calculus and algebra.</p>
           </article>
           <article>
             <p class="label">UNSW Faculty of Science · 2025–2026</p>
             <h3>Talented Students Program</h3>
-            <p>Worked on proof-based, competition-style mathematics problems under the guidance of Denis Potapov.</p>
+            <p>Selected for UNSW’s Talented Students Program, I worked on proofs for competition-style mathematics problems under the guidance of Denis Potapov.</p>
           </article>
           <article>
             <p class="label">UNSW Business School · 2026</p>
             <h3>Career Mentoring Program</h3>
-            <p>Worked with a financial services mentor on career direction, professional communication, applications, networking and interview preparation.</p>
+            <p>I worked with a financial services mentor on career planning, professional communication, applications, networking and interviews.</p>
           </article>
           <article>
             <p class="label">Little Sisters of the Poor · 2025</p>
             <h3>Aged care volunteering</h3>
-            <p>Helped maintain communal spaces through cleaning and gardening in an aged care residence.</p>
+            <p>I helped maintain shared spaces at an aged care residence through cleaning and gardening.</p>
           </article>
         </div>
       </section>
@@ -256,11 +272,11 @@
             <li><time datetime="2025">2025</time><span><strong>Associate of CESA (ACES)</strong><br>Commercial Education Society of Australia</span></li>
           </ul>
         </div>
-        <div>
+        <div id="methods">
           <h2>Methods &amp; tools</h2>
           <dl class="tool-list">
-            <div><dt>Simulation &amp; statistics</dt><dd>Monte Carlo, importance sampling, failure search, bootstrap, cross-validation and sensitivity analysis.</dd></div>
-            <div><dt>Verification &amp; control</dt><dd>Reachability, mixed-integer modelling for ReLU networks, PD control and reinforcement learning.</dd></div>
+            <div><dt>Simulation &amp; statistics</dt><dd>Monte Carlo, importance sampling, failure search, bootstrapping, cross-validation and sensitivity analysis.</dd></div>
+            <div><dt>Verification &amp; control</dt><dd>Reachability analysis, mixed-integer formulations for ReLU networks, PD control and reinforcement learning.</dd></div>
             <div><dt>Scientific computing</dt><dd>Python, Julia, R and Excel. Research and training tools include ACT, PyTorch, Gymnasium and ROS 2.</dd></div>
           </dl>
         </div>
@@ -269,7 +285,7 @@
       <section id="contact" class="section contact" aria-labelledby="contact-title">
         <header class="section-heading">
           <h2 id="contact-title">Contact</h2>
-          <p>For research conversations or project collaboration, please email me.</p>
+          <p>Please email me about research opportunities or project collaborations.</p>
         </header>
         <div class="contact-links">
           <a class="button primary" href="mailto:z5528306@ad.unsw.edu.au">UNSW email</a>
@@ -277,9 +293,10 @@
           <a class="button" href="https://github.com/zhuodashuai">GitHub</a>
           <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
         </div>
+        <p class="print-email"><a href="mailto:z5528306@ad.unsw.edu.au">z5528306@ad.unsw.edu.au</a></p>
         <div id="feedback" class="feedback">
           <h3>Feedback &amp; guestbook</h3>
-          <p>Use the public GitHub forms to suggest a correction or leave a note. Send private messages by email.</p>
+          <p>Suggestions and guestbook entries are public and require a GitHub account. Please email me for private messages.</p>
           <p class="entry-links">
             <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=suggestion.yml">Send a suggestion</a>
             <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=guestbook.yml">Sign the guestbook</a>

@@ -1,4 +1,6 @@
 const figure = document.querySelector("#trace-viewer");
+const fallback = figure.querySelector(".trace-static");
+const fallbackNote = figure.querySelector(".trace-fallback-note");
 const panel = figure.querySelector(".trace-interactive");
 const scene = figure.querySelector("#pendulum-scene");
 const chart = figure.querySelector("#pendulum-chart");
@@ -15,7 +17,7 @@ const palette = {
   trace: "#14645c",
   subdued: "#5e8175",
   limit: "#a14c3d",
-  reference: "#77978a",
+  reference: "#67867a",
   track: "#50615a",
   band: "#dcebe2",
   paper: "#f5f4ec",
@@ -60,7 +62,7 @@ function drawScene(angle) {
 
   const pivotX = width * 0.47;
   const pivotY = height * 0.86;
-  const arm = Math.min(height * 0.69, width * 0.48);
+  const arm = Math.min(height * (width < 290 ? 0.57 : 0.69), width * 0.48);
   const vertical = -Math.PI / 2;
   const endpoint = radians => [
     pivotX + Math.sin(radians) * arm,
@@ -163,12 +165,21 @@ function drawChart(angles, dt, time, angle) {
 }
 
 async function initialiseTrace() {
-  if (!scene.getContext("2d") || !chart.getContext("2d")) return;
+  if (!scene.getContext("2d") || !chart.getContext("2d")) {
+    showFallback();
+    return;
+  }
 
   const response = await fetch(new URL("./pendulum-trajectory.json", import.meta.url));
-  if (!response.ok) return;
+  if (!response.ok) {
+    showFallback();
+    return;
+  }
   const { angles, dt } = await response.json();
-  if (!Array.isArray(angles) || angles.length < 2 || !angles.every(Number.isFinite) || !(dt > 0)) return;
+  if (!Array.isArray(angles) || angles.length < 2 || !angles.every(Number.isFinite) || !Number.isFinite(dt) || dt <= 0) {
+    showFallback();
+    return;
+  }
 
   const duration = (angles.length - 1) * dt;
   let currentTime = angles.indexOf(Math.max(...angles)) * dt;
@@ -206,9 +217,10 @@ async function initialiseTrace() {
   }
 
   slider.addEventListener("input", () => {
-    stop("Play");
+    const selectedTime = Number(slider.value);
+    stop(selectedTime >= duration ? "Replay" : "Play");
     hasStarted = true;
-    render(Number(slider.value));
+    render(selectedTime);
   });
 
   playButton.addEventListener("click", () => {
@@ -231,14 +243,21 @@ async function initialiseTrace() {
     frame = requestAnimationFrame(tick);
   });
 
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && active) stop("Resume");
+  });
+
   panel.hidden = false;
-  figure.querySelector(".trace-fallback").hidden = true;
+  fallback.hidden = true;
   render(currentTime);
   const observer = new ResizeObserver(() => render(currentTime));
   observer.observe(panel);
 }
 
-initialiseTrace().catch(() => {
+function showFallback() {
   panel.hidden = true;
-  figure.querySelector(".trace-fallback").hidden = false;
-});
+  fallback.hidden = false;
+  fallbackNote.hidden = false;
+}
+
+initialiseTrace().catch(showFallback);
