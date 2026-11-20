@@ -1,4 +1,4 @@
-import { normalizePublicSearchQuery, publicEntryMatchesQuery } from "./wordbook-schema.js?v=82";
+import { createSavedCardQueryMatcher } from "./saved-card-search.js?v=124";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 
 // These links identify an already-public card, never a private entry or a
@@ -43,8 +43,8 @@ export function ownerPublicEntries(snapshot, confirmations = [], query = "") {
     const current = entries.get(entry.id);
     if (!current || timestamp(entry.updatedAt) >= timestamp(current.updatedAt)) entries.set(entry.id, entry);
   }
-  const wanted = normalizePublicSearchQuery(query);
-  return [...entries.values()].filter(entry => !wanted || publicEntryMatchesQuery(entry, wanted))
+  const matchesQuery = createSavedCardQueryMatcher(query);
+  return [...entries.values()].filter(matchesQuery)
     .sort((a, b) => timestamp(b.createdAt) - timestamp(a.createdAt) || a.term.localeCompare(b.term, "en") || a.id.localeCompare(b.id));
 }
 

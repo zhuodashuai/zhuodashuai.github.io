@@ -25,7 +25,7 @@ test("changed module APIs use one versioned browser graph before any service wor
     "app-navigation.js", "app-navigation-entry.js",
     "dictionary-entry.js", "dictionary-offline-warm.js",
     "entry-sort.js", "personal-folders.js",
-    "owner-public-library.js", "library-lookup-ui.js", "library-lookup-controller.js",
+    "owner-public-library.js", "saved-card-search.js", "library-lookup-ui.js", "library-lookup-controller.js",
     "dictionary-examples-ui.js",
     "chinese-search.js", "chinese-related-common.js",
     "dictionary-suggestions.js", "core-pos-corrections.js", "dictionary-collection.js", "runtime-config.js", "public-app.js", "owner-app.js", "dictionary-app.js", "dictionary-examples.js", "dictionary-navigation.js", "personal-app.js", "personal-lookup-flow.js", "expanded-dictionary.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "book-passages.js", "book-passages-ui.js",
@@ -36,7 +36,7 @@ test("changed module APIs use one versioned browser graph before any service wor
   const version = file => ["dictionary-entry.js", "expanded-dictionary.js", "dictionary-app.js", "library-lookup-controller.js", "library-lookup-ui.js", "public-app.js", "personal-app.js", "owner-app.js"].includes(file) ? 104 : ["dictionary-offline-warm.js"].includes(file) ? 102 : ["entry-sort.js", "personal-folders.js", "personal-api.js"].includes(file) ? 100 : ["owner-public-library.js"].includes(file) ? 99 : ["dictionary-collection.js"].includes(file) ? 98 : ["personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js"].includes(file) ? 88 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-backup.js","owner-storage.js","personal-storage.js","personal-selection.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
-  const currentVersion = file => ["entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 122 : file === "personal-spelling.js" ? 119 : ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
+  const currentVersion = file => ["owner-public-library.js", "saved-card-search.js"].includes(file) ? 124 : file === "library-lookup-ui.js" ? 123 : ["entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 122 : file === "personal-spelling.js" ? 119 : ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
     : ["personal-app.js", "app-navigation.js", "app-navigation-entry.js"].includes(file) ? 107 : version(file);
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
@@ -54,6 +54,9 @@ test("changed module APIs use one versioned browser graph before any service wor
       }
       if (file === "public-app-v108.js" && target === "library-lookup-ui.js") {
         assert.equal(match[1], "./library-lookup-ui.js?v=114"); continue;
+      }
+      if (["library-lookup-ui.js", "public-app-v108.js"].includes(file) && target === "owner-public-library.js") {
+        assert.equal(match[1], "./owner-public-library.js?v=99"); continue;
       }
       if (file === "public-app-v108.js" && target === "entry-detail-v108.js") {
         assert.equal(match[1], "./entry-detail-v108.js"); continue;
@@ -78,7 +81,7 @@ test("changed module APIs use one versioned browser graph before any service wor
   }
   for (const file of changed) {
     assert.ok(serviceWorker.includes(`"./js/${file}?v=${currentVersion(file)}"`), `${file}'s versioned browser URL must work offline`);
-    if (!["personal-spelling.js", "english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js"].includes(file)) assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
+    if (!["personal-spelling.js", "english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "saved-card-search.js"].includes(file)) assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
   for (const file of ["collections.js", "chapter-quiz-ui.js"]) assert.ok(serviceWorker.includes(`"./js/${file}?v=113"`), `${file}'s reading-policy API needs its own fresh offline URL`);
   assert.ok(serviceWorker.includes('"./js/dictionary-query-normalization.js?v=114"'), "The shared pure query normalizer must work offline");
@@ -86,7 +89,7 @@ test("changed module APIs use one versioned browser graph before any service wor
 
 test("inline lookup, folders and existing entry points share one coherent module graph", async () => {
   for (const resource of ["library-lookup.css", "js/library-lookup-ui.js", "js/library-lookup-controller.js"]) {
-    const version = resource === "library-lookup.css" ? 99 : 118;
+    const version = resource === "library-lookup.css" ? 99 : resource === "js/library-lookup-ui.js" ? 123 : 118;
     assert.ok(serviceWorker.includes(`"./${resource}?v=${version}"`), `${resource} needs its current offline URL`);
     assert.ok(serviceWorker.includes(`"./${resource}"`), `${resource} needs its bare offline URL`);
     assert.ok((await readFile(new URL(`../${resource}`, import.meta.url))).length > 0, `${resource} must be a real shell resource`);
@@ -94,7 +97,7 @@ test("inline lookup, folders and existing entry points share one coherent module
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
   assert.match(vocabHtml, /href="styles\.css\?v=117"/u);
   for (const version of ["100", "117"]) assert.ok(serviceWorker.includes(`"./styles.css?v=${version}"`), "Keep both current and existing offline stylesheet URLs");
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=122"/u);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=124"/u);
   for (const file of ["public-app-v113.js?v=117", "public-app-v113.js?v=116", "public-snapshot.js?v=116", "public-app-v113.js?v=115", "public-app-v113.js?v=114", "teamwork-study-net.js", "public-snapshot.js?v=114"]) {
     assert.ok(serviceWorker.includes(`"./js/${file}"`), file);
   }
@@ -105,11 +108,11 @@ test("inline lookup, folders and existing entry points share one coherent module
   const personalHtml = await readFile(new URL("../personal.html", import.meta.url), "utf8");
   const personalApp = await readFile(new URL("../js/personal-app-v108.js", import.meta.url), "utf8");
   assert.match(dictionaryHtml, /src="js\/dictionary-entry-v109\.js\?v=118"/u);
-  assert.match(personalHtml, /src="js\/personal-app-v108\.js\?v=119"/u);
-  assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=99"/u);
+  assert.match(personalHtml, /src="js\/personal-app-v108\.js\?v=124"/u);
+  assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=124"/u);
   // The active import graph has one current URL (checked above); explicitly
   // retained cache aliases keep already-open/offline readers working too.
-  for (const [name, versions] of [["owner-public-library", ["99"]], ["dictionary-app", ["118", "117", "116", "115", "114", "112", "111", "104", "103", "99"]], ["personal-app", ["107", "105", "104", "103", "100"]]]) {
+  for (const [name, versions] of [["owner-public-library", ["124", "99"]], ["dictionary-app", ["118", "117", "116", "115", "114", "112", "111", "104", "103", "99"]], ["personal-app", ["107", "105", "104", "103", "100"]]]) {
     const urls = [...serviceWorker.matchAll(new RegExp(`"\\./js/${name}\\.js\\?v=(\\d+)"`, "gu"))];
     assert.deepEqual(urls.map(match => match[1]), versions, `${name} must have only its reviewed current and legacy cache URLs`);
   }
@@ -205,7 +208,7 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=122"/);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=124"/);
   assert.match(vocabHtml, /href="styles\.css\?v=117"/);
   assert.match(ownerHtml, /src="js\/owner-app-v108\.js\?v=122"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);

@@ -21,7 +21,7 @@ import { createPersonalSpellingSuggestions } from "./personal-spelling.js?v=119"
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=118";
-import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=99";
+import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=124";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
 import { createPersonalFolderMutation, filterPersonalFolderEntries, serializePersonalFolderExport,
   validatePersonalFolderName, validatePersonalFolderResult, validatePersonalFolders } from "./personal-folders.js?v=100";
@@ -771,7 +771,11 @@ function showDictionaryResult(result) {
   }
   const alreadySaved = state.entriesLoaded && state.entries.some(entry => entry.normalized === normalizeEnglish(result.term));
   const destination = state.authType === "github-owner" ? "公开收录后可在下方词本找到" : alreadySaved ? "已在你的词本中，不会重复添加" : "查询不会自动加入词本";
-  $("member-dictionary-status").textContent = `${result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : ""}${result.matchedSense ? `本次匹配：${result.matchedPartOfSpeech} · ${result.matchedSense}（限此义项） · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : state.dictionaryCoverage === "limited" ? "当前仅显示部分匹配，完整检索索引尚未更新，请刷新后重试。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
+  const contextual = result.matchType === "mention" || result.matchType === "compound";
+  const matchNote = contextual
+    ? `${result.matchType === "mention" ? "解释中提及" : "相关释义"}${result.matchedChinese ? `：“${result.matchedChinese}”` : ""}，请按完整词义判断。`
+    : result.matchType === "related" ? `近义关联：${result.matchedChinese} · ` : "";
+  $("member-dictionary-status").textContent = `${matchNote}${!contextual && result.matchedSense ? `本次匹配：${result.matchedPartOfSpeech} · ${result.matchedSense}（限此义项） · ` : ""}${state.dictionaryCoverage === "basic" && result.matchType !== "related" ? "基础词库结果（非完整搜索）；还可点击“搜索完整词典”查更多词。" : state.dictionaryCoverage === "limited" ? "当前仅显示部分匹配，完整检索索引尚未更新，请刷新后重试。" : ""}来自${result.source || "本站词库"}${result.license === "MIT" ? " · MIT" : ""}${result.matchedForm ? ` · 已识别词形 ${result.matchedForm}` : ""}；${destination}。${result.warning || "具体含义请结合语境。"}`;
   const alternatives = $("member-dictionary-alternatives");
   alternatives.replaceChildren();
   for (const variant of result.alternatives || []) {
@@ -817,6 +821,11 @@ function showDictionaryChoices(results, hasMore) {
       button.dataset.dictionaryMatch = "related";
       const relation = document.createElement("span"); relation.className = "dictionary-related-note";
       relation.textContent = `近义关联：${result.matchedChinese}`; button.append(relation);
+    } else if (result.matchType === "mention" || result.matchType === "compound") {
+      button.dataset.dictionaryMatch = result.matchType;
+      const note = document.createElement("span"); note.className = "dictionary-related-note";
+      note.textContent = result.matchType === "mention" ? "解释中提及" : "相关释义"; button.append(note);
+      if (state.authType === "github-owner") button.setAttribute("aria-label", `公开收录 ${result.term} · ${note.textContent}`);
     }
     button.addEventListener("click", () => {
       if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;

@@ -6,6 +6,14 @@ import { createBlankEntry } from "../js/wordbook-schema.js";
 
 const entry = (id, term, createdAt, updatedAt = createdAt, meaning = "中文释义") => ({ id, term, createdAt, updatedAt, meaning });
 
+test("saved-query prefixes filter the merged public records without changing confirmations, source fields or recent order",()=>{
+  const hip=entry('hip','hip','2026-01-01'),leadership=entry('leadership','leadership','2026-01-03');
+  const confirmed={entry:{...entry('joint','hip joint','2026-01-02'),forms:['hip joints'],sources:[{title:'original source'}]},added:true};
+  const snapshot={entries:[hip,leadership]},confirmations=[confirmed],before=structuredClone({snapshot,confirmations});
+  const rows=ownerPublicEntries(snapshot,confirmations,'hip');assert.deepEqual(rows.map(row=>row.id),['joint','hip']);assert.equal(rows[0],confirmed.entry);assert.equal(rows[1],hip);
+  assert.deepEqual(ownerPublicEntries(snapshot,confirmations,'ＨＩＰ,'),rows);assert.deepEqual(ownerPublicEntries(snapshot,confirmations).map(row=>row.id),['leadership','joint','hip']);assert.deepEqual({snapshot,confirmations},before);
+});
+
 test("public card links retain only the public entry identity on the current public root", () => {
   const id = "public & entry/#中文";
   for (const [from, path] of [

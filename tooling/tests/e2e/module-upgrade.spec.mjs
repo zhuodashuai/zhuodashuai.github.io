@@ -11,7 +11,7 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
   ['expanded-dictionary.js',['97','103','104','111','112','114','115','116','117','118']],['dictionary-app.js',['99','103','104','111','112','114','115','116','117','118']],
-  ['library-lookup-controller.js',['99','103','104','111','112','114','115','116','117','118']],['library-lookup-ui.js',['100','103','104','111','112','114','115','116','117','118']],
+  ['library-lookup-controller.js',['99','103','104','111','112','114','115','116','117','118']],['library-lookup-ui.js',['100','103','104','111','112','114','115','116','117','118','123']],
   ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104','105','107']],
   ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']],
   ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']],
@@ -19,7 +19,8 @@ const reviewedAliases=new Map([
   ['everyday-lookup.js',['111','112','114','115','116','117','118']],
   ['everyday-lookup-data.js',['114','115','116','117','118']],['reviewed-senses-data.js',['114','115','116','117','118']],
   ['dictionary-app-v109.js',['114','115','116','117','118']],['dictionary-entry-v109.js',['114','115','116','117','118']],
-  ['owner-app-v108.js',['114','115','116','117','118','122']],['personal-app-v108.js',['114','115','116','117','118','119']],
+  ['owner-app-v108.js',['114','115','116','117','118','122']],['personal-app-v108.js',['114','115','116','117','118','119','123','124']],
+  ['owner-public-library.js',['99','124']],
   ['english-surface-variants.js',['115','116','117','118']],['search-experience-data.js',['115','116','117','118']],
   ['selected-common-sense.js',['115','116','117','118']],['selected-legacy-examples.js',['115','116','117','118']],
   ['dictionary-examples-current-v4.js',['115','116','117','118']],['dictionary-examples-ui-v108.js',['115','116','117','118']],
@@ -35,7 +36,7 @@ const reviewedAliases=new Map([
 // Do not derive an active version from the largest (or any other) cache alias.
 const reviewedActiveVersions=new Map([
   ['expanded-dictionary.js','118'],['dictionary-app.js','118'],
-  ['library-lookup-controller.js','118'],['library-lookup-ui.js','118'],
+  ['library-lookup-controller.js','118'],['library-lookup-ui.js','123'],
   ['public-app.js','104'],['personal-app.js','107'],
   ['owner-app.js','104'],['dictionary-entry.js','104'],
   ['app-navigation.js','107'],['app-navigation-entry.js','107'],
@@ -43,7 +44,7 @@ const reviewedActiveVersions=new Map([
   ['everyday-lookup.js','118'],
   ['everyday-lookup-data.js','118'],['reviewed-senses-data.js','118'],
   ['dictionary-app-v109.js','118'],['dictionary-entry-v109.js','118'],
-  ['owner-app-v108.js','122'],['personal-app-v108.js','119'],
+  ['owner-app-v108.js','122'],['personal-app-v108.js','124'],['owner-public-library.js','124'],
   ['english-surface-variants.js','118'],['search-experience-data.js','118'],
   ['selected-common-sense.js','118'],['selected-legacy-examples.js','118'],
   ['dictionary-examples-current-v4.js','118'],['dictionary-examples-ui-v108.js','118'],
@@ -59,7 +60,7 @@ const reviewedActiveVersions=new Map([
 // their exact cache aliases without adding them to changedApiModules/poisoning.
 const reviewedCompatibleCacheAliases=new Map([
   ['chinese-search.js',['95','111','112','114','116','117','118']],
-  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121','122']],
+  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121','122','123','124']],
   ['public-snapshot.js',['82','114','116','117','118']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
@@ -106,7 +107,7 @@ for(const[file,edges]of[
   ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=118']]],
   ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=118'],['everyday-lookup.js','./everyday-lookup.js?v=118']]],
   ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js?v=118'],['selected-common-sense.js','./selected-common-sense.js?v=118'],['selected-legacy-examples.js','./selected-legacy-examples.js?v=118']]],
-  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113'],['public-snapshot.js','./public-snapshot.js?v=118'],['entry-detail-v113.js','./entry-detail-v113.js?v=122']]],
+  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113'],['public-snapshot.js','./public-snapshot.js?v=118'],['entry-detail-v113.js','./entry-detail-v113.js?v=122'],['library-lookup-ui.js','./library-lookup-ui.js?v=123']]],
   ['public-app-v108.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=82'],['collections.js','./collections.js?v=82'],['library-lookup-ui.js','./library-lookup-ui.js?v=114'],['entry-detail-v108.js','./entry-detail-v108.js']]],
   ['dictionary-entry.js',[['dictionary-app.js','./dictionary-app.js?v=104']]],
   ['dictionary-app-v108.js',[['expanded-dictionary.js','./expanded-dictionary.js?v=104']]],
@@ -115,6 +116,15 @@ for(const[file,edges]of[
   const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
   const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
   for(const[target,expected,count=1]of edges)expect(imports.filter(specifier=>specifier.slice(2).split('?')[0]===target),file+' -> '+target).toEqual(Array(count).fill(expected));
+}
+
+// Exact current filter consumers must use124; the inline navigation function
+// and archived reader retain their99 API. A finite compatibility edge does
+// not let current filter callers silently keep a stale implementation.
+for(const[file,expected]of [['public-app.js','124'],['public-app-v113.js','124'],['personal-app.js','124'],['personal-app-v108.js','124'],['library-lookup-ui.js','99'],['public-app-v108.js','99']]){
+ const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
+ const imports=[...source.matchAll(/\bfrom\s+["'](\.\/owner-public-library\.js[^"']*)["']/gu)].map(match=>match[1]);
+ expect(imports,file+' public library edge').toEqual(['./owner-public-library.js?v='+expected]);
 }
 
 test.use({ serviceWorkers: "block" });
@@ -127,7 +137,8 @@ const changedApiModules = new Set([
   "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
-  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
+  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
+  "saved-card-search.js"
 ]);
 for (const name of changedApiModules) {
   if (!declaredModuleVersions.has(name)) throw new Error(`Module upgrade fixture needs an explicit SHELL version for ${name}.`);
@@ -154,7 +165,8 @@ async function poisonOldModuleUrls(page) {
     // owner collection writes use the compatible82 API. Exact caller edges
     // above pin those decisions.
     // Both remain poisoned at bare or any other non-reviewed URL.
-    const compatible = ["chapter-quiz-ui.js", "collections.js"].includes(name) ? ["82", "113"] : [declaredModuleVersions.get(name)];
+    const compatible = ["chapter-quiz-ui.js", "collections.js"].includes(name) ? ["82", "113"]
+      : name === "owner-public-library.js" ? ["99", "124"] : [declaredModuleVersions.get(name)];
     if (changedApiModules.has(name) && !compatible.includes(url.searchParams.get("v"))) {
       consumedOldUrls.push(url.pathname);
       await route.fulfill({ contentType: "text/javascript", body: 'export const oldModuleVersion = "v66";' });

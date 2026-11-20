@@ -510,7 +510,18 @@ export default {
       else if (/\.(?:js|css|webmanifest)$/i.test(path)) headers.set("Cache-Control", "no-cache");
       return secureHeaders(new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers }), request);
     } catch (error) {
-      if (path.startsWith("/api/")) return secureHeaders(apiErrorResponse(error, request), request);
+      if (path.startsWith("/api/")) {
+        const response = apiErrorResponse(error, request);
+        if (path === `${API_PREFIX}/public/wordbook` && request.method === "GET") {
+          try {
+            const headers = publicReadHeaders(env);
+            if (/^https?:\/\//.test(headers["Access-Control-Allow-Origin"])) {
+              for (const [name, value] of Object.entries(headers)) response.headers.set(name, value);
+            }
+          } catch { /* Invalid public-site configuration must retain the original safe JSON error. */ }
+        }
+        return secureHeaders(response, request);
+      }
       return secureHeaders(new Response("Not found", { status: 404 }), request);
     }
   }

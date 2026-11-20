@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 import {createHash,randomUUID} from 'node:crypto';
+import {restoreSearchMatchContextShellIfCurrent} from '../helpers/search-match-context-shell.mjs';
 
 const ORIGIN='http://127.0.0.1:4187',API=ORIGIN+'/api/v1/member';
 const PUBLIC='/api/v1/public/wordbook',COLLECT='/api/v1/owner/dictionary-collection';
@@ -169,7 +170,7 @@ test('IME candidate Enter does not submit lookup or load spelling data',async({c
 for(const oldVersion of [117,118])test(`an exact older cached personal shell v${oldVersion} gains suggestions without crashing`,async({context,page})=>{
   await seed(context);
   await page.route('**/personal.html?auth=member',async route=>{
-    const response=await route.fetch(),html=await response.text();
+    const response=await route.fetch(),html=restoreSearchMatchContextShellIfCurrent('personal.html',await response.text());
     const panel=/^        <div id="member-dictionary-suggestion-panel"[^\r\n]*(?:\r?\n|$)/gmu;
     expect([...html.matchAll(panel)]).toHaveLength(1);
     expect(html.split('js/personal-app-v108.js?v=119')).toHaveLength(2);
