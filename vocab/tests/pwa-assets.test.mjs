@@ -19,7 +19,7 @@ const profileHtml = await readFile(new URL("../../index.html", import.meta.url),
 
 test("changed module APIs use one versioned browser graph before any service worker can update", async () => {
   const changed = new Set([
-    "english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "dictionary-app-v109.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js",
+    "personal-spelling.js", "english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "dictionary-app-v109.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js",
     "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js",
     "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js",
     "app-navigation.js", "app-navigation-entry.js",
@@ -36,7 +36,7 @@ test("changed module APIs use one versioned browser graph before any service wor
   const version = file => ["dictionary-entry.js", "expanded-dictionary.js", "dictionary-app.js", "library-lookup-controller.js", "library-lookup-ui.js", "public-app.js", "personal-app.js", "owner-app.js"].includes(file) ? 104 : ["dictionary-offline-warm.js"].includes(file) ? 102 : ["entry-sort.js", "personal-folders.js", "personal-api.js"].includes(file) ? 100 : ["owner-public-library.js"].includes(file) ? 99 : ["dictionary-collection.js"].includes(file) ? 98 : ["personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js"].includes(file) ? 88 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-backup.js","owner-storage.js","personal-storage.js","personal-selection.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
-  const currentVersion = file => ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
+  const currentVersion = file => file === "personal-spelling.js" ? 119 : ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
     : ["personal-app.js", "app-navigation.js", "app-navigation-entry.js"].includes(file) ? 107 : version(file);
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
@@ -78,7 +78,7 @@ test("changed module APIs use one versioned browser graph before any service wor
   }
   for (const file of changed) {
     assert.ok(serviceWorker.includes(`"./js/${file}?v=${currentVersion(file)}"`), `${file}'s versioned browser URL must work offline`);
-    if (!["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js"].includes(file)) assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
+    if (!["personal-spelling.js", "english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js"].includes(file)) assert.ok(serviceWorker.includes(`"./js/${file}"`), `${file}'s existing bare offline URL remains available`);
   }
   for (const file of ["collections.js", "chapter-quiz-ui.js"]) assert.ok(serviceWorker.includes(`"./js/${file}?v=113"`), `${file}'s reading-policy API needs its own fresh offline URL`);
   assert.ok(serviceWorker.includes('"./js/dictionary-query-normalization.js?v=114"'), "The shared pure query normalizer must work offline");
@@ -105,7 +105,7 @@ test("inline lookup, folders and existing entry points share one coherent module
   const personalHtml = await readFile(new URL("../personal.html", import.meta.url), "utf8");
   const personalApp = await readFile(new URL("../js/personal-app-v108.js", import.meta.url), "utf8");
   assert.match(dictionaryHtml, /src="js\/dictionary-entry-v109\.js\?v=118"/u);
-  assert.match(personalHtml, /src="js\/personal-app-v108\.js\?v=118"/u);
+  assert.match(personalHtml, /src="js\/personal-app-v108\.js\?v=119"/u);
   assert.match(personalApp, /from "\.\/owner-public-library\.js\?v=99"/u);
   // The active import graph has one current URL (checked above); explicitly
   // retained cache aliases keep already-open/offline readers working too.

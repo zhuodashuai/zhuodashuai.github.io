@@ -19,7 +19,7 @@ const reviewedAliases=new Map([
   ['everyday-lookup.js',['111','112','114','115','116','117','118']],
   ['everyday-lookup-data.js',['114','115','116','117','118']],['reviewed-senses-data.js',['114','115','116','117','118']],
   ['dictionary-app-v109.js',['114','115','116','117','118']],['dictionary-entry-v109.js',['114','115','116','117','118']],
-  ['owner-app-v108.js',['114','115','116','117','118']],['personal-app-v108.js',['114','115','116','117','118']],
+  ['owner-app-v108.js',['114','115','116','117','118']],['personal-app-v108.js',['114','115','116','117','118','119']],
   ['english-surface-variants.js',['115','116','117','118']],['search-experience-data.js',['115','116','117','118']],
   ['selected-common-sense.js',['115','116','117','118']],['selected-legacy-examples.js',['115','116','117','118']],
   ['dictionary-examples-current-v4.js',['115','116','117','118']],['dictionary-examples-ui-v108.js',['115','116','117','118']],
@@ -27,6 +27,7 @@ const reviewedAliases=new Map([
   ['dictionary-form-evidence.js',['114','117','118']],['reviewed-canonical-forms.js',['117','118']],
   ['chinese-query-cache.js',['116','117','118']],['chinese-query-cache-release.js',['116','117','118']],
   ['chinese-query-cache-format.js',['116','117','118']],['dictionary-offline-warm-v108.js',['116','117','118']],
+  ['personal-spelling.js',['119']],
   ['english-laundry-phrase-evidence.js',['118']],
   ['chapter-quiz-ui.js',['82','113']],['collections.js',['82','113']]
 ]);
@@ -42,7 +43,7 @@ const reviewedActiveVersions=new Map([
   ['everyday-lookup.js','118'],
   ['everyday-lookup-data.js','118'],['reviewed-senses-data.js','118'],
   ['dictionary-app-v109.js','118'],['dictionary-entry-v109.js','118'],
-  ['owner-app-v108.js','118'],['personal-app-v108.js','118'],
+  ['owner-app-v108.js','118'],['personal-app-v108.js','119'],
   ['english-surface-variants.js','118'],['search-experience-data.js','118'],
   ['selected-common-sense.js','118'],['selected-legacy-examples.js','118'],
   ['dictionary-examples-current-v4.js','118'],['dictionary-examples-ui-v108.js','118'],
@@ -50,6 +51,7 @@ const reviewedActiveVersions=new Map([
   ['dictionary-form-evidence.js','118'],['reviewed-canonical-forms.js','118'],
   ['chinese-query-cache.js','118'],['chinese-query-cache-release.js','118'],
   ['chinese-query-cache-format.js','118'],['dictionary-offline-warm-v108.js','118'],
+  ['personal-spelling.js','119'],
   ['english-laundry-phrase-evidence.js','118'],
   ['chapter-quiz-ui.js','113'],['collections.js','113']
 ]);
@@ -92,10 +94,11 @@ for(const[file,edges]of[
   ['dictionary-app-v109.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95']]],
-  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=118',2]]],
-  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=118',2]]],
+  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=118',2],['personal-spelling.js','./personal-spelling.js?v=119']]],
+  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=118',2],['personal-spelling.js','./personal-spelling.js?v=119']]],
   ['personal-dictionary.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=118'],['everyday-lookup.js','./everyday-lookup.js?v=118'],['english-surface-variants.js','./english-surface-variants.js?v=118'],['selected-common-sense.js','./selected-common-sense.js?v=118'],['dictionary-form-evidence.js','./dictionary-form-evidence.js?v=118'],['reviewed-canonical-forms.js','./reviewed-canonical-forms.js?v=118'],['english-laundry-phrase-evidence.js','./english-laundry-phrase-evidence.js?v=118']]],
+  ['personal-spelling.js',[['dictionary-query-normalization.js','./dictionary-query-normalization.js?v=114']]],
   ['english-laundry-phrase-evidence.js',[['search-experience-data.js','./search-experience-data.js?v=118']]],
   ['dictionary-entry-v109.js',[['dictionary-offline-warm-v108.js','./dictionary-offline-warm-v108.js?v=118']]],
   ['chinese-query-cache.js',[['chinese-query-cache-release.js','./chinese-query-cache-release.js?v=118'],['chinese-query-cache-format.js','./chinese-query-cache-format.js?v=118']]],

@@ -16,7 +16,8 @@ import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDict
 import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=118";
 import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=118";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=118";
+import { searchExpandedDictionary, searchRelatedChineseDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=118";
+import { createPersonalSpellingSuggestions } from "./personal-spelling.js?v=119";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
@@ -59,6 +60,7 @@ let conflictEntry = null;
 let dictionarySequence = 0;
 let dictionaryController = null;
 let dictionaryRelatedController = null;
+let dictionaryComposing = false;
 let ownerPublicUserId = null;
 let ownerPublicConfirmations = [];
 let privateToolsUserId = null;
@@ -77,6 +79,18 @@ const state = {
   entrySort: normalizeEntrySort(new URLSearchParams(window.location.search).get("sort") === "source" ? null : new URLSearchParams(window.location.search).get("sort")),
   lastArchivedFolderId: null, dictionaryPrivateReceipt: null
 };
+const dictionarySpelling = createPersonalSpellingSuggestions({
+  suggest: async (input, { signal, isCurrent }) => {
+    const module = await import("./dictionary-suggestions.js?v=118");
+    signal.throwIfAborted();
+    if (!isCurrent()) return [];
+    const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
+    signal.throwIfAborted();
+    if (!isCurrent()) return [];
+    return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
+  },
+  onChange: renderDictionarySuggestions
+});
 const dictionaryCollector = createDictionaryCollectionQueue({
   collect: (body, { signal, csrfToken }) => api.collectDictionary(body, csrfToken, { signal }),
   onChange(value) {
@@ -332,6 +346,7 @@ function clearPrivateDom() {
   clearFolders();
   detailLearningExamples.clear();
   resetDictionary();
+  dictionaryComposing = false;
   $("member-dictionary-term").value = "";
   $("member-entry-list").replaceChildren();
   $("member-username").textContent = "";
@@ -661,7 +676,59 @@ function selectOptions(element, options, selected) {
   }));
 }
 
+function ensureDictionarySuggestionElements() {
+  // Historical service-worker aliases can load this app with an older shell.
+  // Add only the missing suggestion nodes; preserve a complete current shell.
+  let panel = $("member-dictionary-suggestion-panel");
+  if (!panel) {
+    panel = document.createElement("div"); panel.id = "member-dictionary-suggestion-panel";
+    panel.className = "dictionary-choices"; panel.hidden = true;
+    panel.setAttribute("aria-label", "拼写建议"); panel.setAttribute("aria-busy", "false");
+    $("member-dictionary-status").after(panel);
+  }
+  let message = $("member-dictionary-suggestion-status");
+  if (!message) {
+    message = document.createElement("p"); message.id = "member-dictionary-suggestion-status"; message.className = "field-note";
+    message.setAttribute("role", "status"); message.setAttribute("aria-live", "polite"); message.setAttribute("aria-atomic", "true");
+    panel.prepend(message);
+  }
+  let list = $("member-dictionary-suggestions");
+  if (!list) {
+    list = document.createElement("div"); list.id = "member-dictionary-suggestions"; list.className = "button-row";
+    list.setAttribute("role", "group"); list.setAttribute("aria-label", "拼写建议"); panel.append(list);
+  }
+  return { panel, message, list };
+}
+
+function renderDictionarySuggestions({ phase, suggestions }, current = () => false) {
+  const { panel, message, list } = ensureDictionarySuggestionElements();
+  panel.hidden = phase === "idle" || (phase === "ready" && !suggestions.length);
+  panel.setAttribute("aria-busy", String(phase === "loading"));
+  message.textContent = phase === "loading" ? "正在查找相近拼写…"
+    : phase === "error" ? "拼写建议暂不可用；仍可继续查词。" : suggestions.length ? "你是不是想查：" : "";
+  list.replaceChildren();
+  for (const candidate of suggestions) {
+    const button = document.createElement("button"); button.type = "button"; button.lang = "en";
+    button.textContent = candidate.term; button.dataset.dictionarySuggestion = candidate.term;
+    button.setAttribute("aria-label", `查询 ${candidate.term}`);
+    button.addEventListener("click", event => {
+      if (!current() || state.phase !== "ready" || !state.user || state.dictionaryBusy || dictionaryComposing) return;
+      $("member-dictionary-term").value = candidate.term;
+      void queryDictionary(event);
+    });
+    list.append(button);
+  }
+}
+
+function startDictionarySpelling(query, result, { token, sequence }) {
+  const uid = state.user.id;
+  dictionarySpelling.start(query, result, { isCurrent: () => scope.current(token) && sequence === dictionarySequence
+    && state.phase === "ready" && state.user?.id === uid && query === $("member-dictionary-term").value
+    && state.dictionaryQuery === query && !state.dictionaryResult && !state.dictionaryResults.length });
+}
+
 function resetDictionary() {
+  dictionarySpelling.clear();
   clearDictionaryPrivateReceipt();
   state.dictionaryCollectionPhase = "idle";
   $("member-dictionary-collection-status").hidden = true;
@@ -792,6 +859,7 @@ function startDictionaryRelations(query, direct, { token, sequence }) {
 
 async function queryDictionary(event, { full = false } = {}) {
   event.preventDefault();
+  if (event.isComposing || dictionaryComposing) return;
   if (state.phase !== "ready" || !state.user || state.dictionaryBusy) return;
   resetDictionary();
   const query = $("member-dictionary-term").value;
@@ -823,6 +891,7 @@ async function queryDictionary(event, { full = false } = {}) {
       $("member-dictionary-status").textContent = result.hasMore
         ? "相关候选较多，暂未定位到匹配项；请输入更具体的中文释义再查。"
         : "本站词典与已发布词条中未找到可用释义。请核对拼写，也可先记下这个词，稍后补充；不会编造释义。";
+      startDictionarySpelling(query, result, { token, sequence });
       return;
     }
     showDictionaryChoices(results, state.dictionaryHasMore);
@@ -1726,6 +1795,11 @@ $("member-dictionary-form").addEventListener("submit", event => void queryDictio
 $("member-dictionary-full").addEventListener("click", event => void queryDictionary(event, { full: true }));
 $("member-dictionary-more")?.addEventListener("click", event => void moreDictionaryResults(event));
 $("member-dictionary-term").addEventListener("input", () => { resetDictionary(); renderChrome(); });
+$("member-dictionary-term").addEventListener("compositionstart", () => { dictionaryComposing = true; resetDictionary(); renderChrome(); });
+$("member-dictionary-term").addEventListener("compositionend", () => { dictionaryComposing = false; });
+$("member-dictionary-term").addEventListener("keydown", event => {
+  if (event.key === "Enter" && (event.isComposing || event.keyCode === 229 || dictionaryComposing)) event.preventDefault();
+});
 $("member-dictionary-use").addEventListener("click", useDictionaryResult);
 $("member-dictionary-save").addEventListener("click", () => void saveDictionaryToFolder());
 $("member-dictionary-folder-new").addEventListener("click", () => openFolderEditor());
