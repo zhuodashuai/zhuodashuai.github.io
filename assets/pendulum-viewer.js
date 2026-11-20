@@ -6,11 +6,16 @@ const scene = figure.querySelector("#pendulum-scene");
 const chart = figure.querySelector("#pendulum-chart");
 const slider = figure.querySelector("#trace-time");
 const playButton = figure.querySelector("#trace-play");
+const [playSymbol, playLabel] = playButton.children;
 const angleReadout = figure.querySelector("#trace-angle");
 const timeReadout = figure.querySelector("#trace-clock");
 const statusReadout = figure.querySelector("#trace-status");
+const announcement = figure.querySelector("#trace-announcement");
 
 const limit = 0.2;
+const disturbance = { start: 1, end: 1.5 };
+const chartInset = { left: 41, right: 13 };
+const playSymbols = { Play: "▶", Replay: "↻", Pause: "Ⅱ", Resume: "▶" };
 const palette = {
   text: "#455751",
   grid: "#d4ddd5",
@@ -112,8 +117,8 @@ function drawChart(angles, dt, time, angle) {
   if (!width || !height) return;
 
   const duration = (angles.length - 1) * dt;
-  const left = 41;
-  const right = width - 13;
+  const left = chartInset.left;
+  const right = width - chartInset.right;
   const top = 26;
   const bottom = height - 25;
   const x = value => left + (right - left) * value / duration;
@@ -143,7 +148,7 @@ function drawChart(angles, dt, time, angle) {
   }
 
   context.fillStyle = "rgba(161,76,61,.09)";
-  context.fillRect(x(1), top, x(1.5) - x(1), bottom - top);
+  context.fillRect(x(disturbance.start), top, x(disturbance.end) - x(disturbance.start), bottom - top);
 
   const sample = Math.floor(time / dt);
   const pathTo = last => {
@@ -182,7 +187,19 @@ async function initialiseTrace() {
   }
 
   const duration = (angles.length - 1) * dt;
-  let currentTime = angles.indexOf(Math.max(...angles)) * dt;
+  const peakIndex = angles.reduce((peak, angle, index) => Math.abs(angle) > Math.abs(angles[peak]) ? index : peak, 0);
+  const eventTimes = {
+    disturbance: disturbance.start,
+    crossing: angles.findIndex(angle => Math.abs(angle) >= limit) * dt,
+    peak: peakIndex * dt,
+  };
+  const events = Array.from(figure.querySelectorAll("[data-event]"), button => {
+    const time = eventTimes[button.dataset.event];
+    button.hidden = time < 0 || time > duration;
+    button.querySelector(".trace-event-time").textContent = time.toFixed(2) + " s";
+    return { button, time };
+  });
+  let currentTime = eventTimes.peak;
   let frame = 0;
   let active = false;
   let hasStarted = false;
@@ -191,6 +208,17 @@ async function initialiseTrace() {
 
   function describeSample() {
     return currentTime.toFixed(2) + " seconds, angle " + angleReadout.value + " radians, " + statusReadout.textContent.toLowerCase();
+  }
+
+  function showPlaybackLabel(label) {
+    playLabel.textContent = label;
+    playSymbol.textContent = playSymbols[label];
+  }
+
+  function highlightEvent() {
+    for (const { button, time } of events) {
+      button.toggleAttribute("data-current", !active && Math.abs(time - currentTime) < dt / 2);
+    }
   }
 
   function render(time) {
@@ -205,6 +233,7 @@ async function initialiseTrace() {
     statusReadout.textContent = exceeded ? "Limit exceeded" : "Within limit";
     statusReadout.classList.toggle("is-exceeded", exceeded);
     if (!active) slider.setAttribute("aria-valuetext", describeSample());
+    highlightEvent();
     drawScene(angle);
     drawChart(angles, dt, currentTime, angle);
   }
@@ -212,15 +241,55 @@ async function initialiseTrace() {
   function stop(label) {
     cancelAnimationFrame(frame);
     active = false;
-    playButton.textContent = label;
+    showPlaybackLabel(label);
     slider.setAttribute("aria-valuetext", describeSample());
+    highlightEvent();
   }
 
-  slider.addEventListener("input", () => {
-    const selectedTime = Number(slider.value);
+  function seek(selectedTime) {
     stop(selectedTime >= duration ? "Replay" : "Play");
     hasStarted = true;
     render(selectedTime);
+  }
+
+  slider.addEventListener("input", () => seek(Number(slider.value)));
+  for (const { button, time } of events) {
+    button.addEventListener("click", () => {
+      seek(time);
+      announcement.textContent = describeSample();
+    });
+  }
+
+  let gesture;
+  function seekAtX(clientX) {
+    const { left, width } = chart.getBoundingClientRect();
+    const plotWidth = width - chartInset.left - chartInset.right;
+    const fraction = Math.min(1, Math.max(0, (clientX - left - chartInset.left) / plotWidth));
+    const index = Math.round(fraction * (angles.length - 1));
+    seek(index * dt);
+  }
+
+  chart.addEventListener("pointerdown", event => {
+    if (!event.isPrimary || event.button !== 0) return;
+    gesture = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, direction: null };
+    chart.setPointerCapture(event.pointerId);
+  });
+  chart.addEventListener("pointermove", event => {
+    if (gesture?.pointerId !== event.pointerId) return;
+    const dx = Math.abs(event.clientX - gesture.x);
+    const dy = Math.abs(event.clientY - gesture.y);
+    if (gesture.direction === null && Math.max(dx, dy) > 5) {
+      gesture.direction = dx >= dy ? "horizontal" : "vertical";
+    }
+    if (gesture.direction === "horizontal") seekAtX(event.clientX);
+  });
+  chart.addEventListener("pointerup", event => {
+    if (gesture?.pointerId !== event.pointerId) return;
+    if (gesture.direction !== "vertical") seekAtX(event.clientX);
+    gesture = undefined;
+  });
+  chart.addEventListener("lostpointercapture", event => {
+    if (gesture?.pointerId === event.pointerId) gesture = undefined;
   });
 
   playButton.addEventListener("click", () => {
@@ -232,7 +301,7 @@ async function initialiseTrace() {
     const startClock = performance.now();
     hasStarted = true;
     active = true;
-    playButton.textContent = "Pause";
+    showPlaybackLabel("Pause");
 
     function tick(clock) {
       const next = Math.min(duration, start + (clock - startClock) / 1000);

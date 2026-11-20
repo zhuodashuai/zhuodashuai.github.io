@@ -23,8 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/academic-profile.css?v=8f4e75d1">
-  <script type="module" src="assets/pendulum-viewer.js?v=02f1cd90"></script>
+  <link rel="stylesheet" href="assets/academic-profile.css?v=64660902">
+  <script type="module" src="assets/pendulum-viewer.js?v=938f5fbc"></script>
+  <script type="module" src="assets/profile-navigation.js?v=919fbb9e"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,13 +89,22 @@
                   <div id="trace-status" class="trace-status">Limit exceeded</div>
                 </div>
               </div>
-              <canvas id="pendulum-chart" role="img" aria-label="Pendulum angle over a five-second simulation. The angle peaks at 0.289 rad, above the 0.20 rad limit. A disturbance acts from 1.00 to 1.50 seconds."></canvas>
+              <div class="trace-plot">
+                <p class="trace-plot-hint" aria-hidden="true">Drag to seek</p>
+                <canvas id="pendulum-chart" role="img" aria-label="Pendulum angle over a five-second simulation. The angle peaks at 0.289 rad, above the 0.20 rad limit. A disturbance acts from 1.00 to 1.50 seconds. Use the simulation time slider to explore the trace."></canvas>
+              </div>
               <div class="trace-controls">
-                <button id="trace-play" type="button">Replay</button>
+                <button id="trace-play" type="button"><span aria-hidden="true">↻</span><span>Replay</span></button>
                 <label class="visually-hidden" for="trace-time">Simulation time</label>
                 <input type="range" id="trace-time" min="0" max="5" step="0.01" value="1.77">
                 <output id="trace-clock" for="trace-time" aria-live="off">1.77 s</output>
               </div>
+              <div class="trace-events" role="group" aria-label="Jump to an event">
+                <button type="button" data-event="disturbance">Disturbance starts <span class="trace-event-time"></span></button>
+                <button type="button" data-event="crossing">First limit crossing <span class="trace-event-time"></span></button>
+                <button type="button" data-event="peak">Peak angle <span class="trace-event-time"></span></button>
+              </div>
+              <p id="trace-announcement" class="visually-hidden" role="status"></p>
             </div>
             <figcaption>The angle crosses the 0.20 rad limit near the end of the shaded disturbance interval. The full trace includes angular velocity and applied torque.</figcaption>
           </figure>
@@ -135,13 +145,18 @@
               </table>
               <figcaption>One experiment with 1,000 five-second simulations per method.</figcaption>
             </figure>
+            <ul class="study-materials" role="list">
+              <li><a href="assets/pendulum-safety-trace.png"><span>View full trace</span> <small>PNG <span aria-hidden="true">→</span></small></a></li>
+              <li><a href="assets/pendulum-trajectory.json" download><span>Download trace data</span> <small>JSON <span aria-hidden="true">↓</span></small></a></li>
+              <li><a href="assets/pendulum-study.py" download><span>Download script</span> <small>Python <span aria-hidden="true">↓</span></small></a></li>
+            </ul>
             <details class="study-notes">
-              <summary>Experiment setup and trace data</summary>
-              <p>A trajectory fails if |θ| ≥ 0.20 rad at any recorded state. The model uses a 0.01 s step and a base disturbance from 1.00 to 1.50 s. Under the nominal distribution, the disturbance amplitude is uniform on [−4, 4] m/s². The importance sampler puts 80% of its draws where the magnitude is at least 2 m/s², then weights them back to the nominal distribution.</p>
-              <p>The interactive example shows a separate run with a 3 m/s² disturbance. To regenerate its 501 angle samples, run the Python script below with <code>--trace</code>.</p>
-              <p class="entry-links"><a href="assets/pendulum-trajectory.json" download>Download the trace data (JSON)</a></p>
+              <summary>Experiment setup <span aria-hidden="true"></span></summary>
+              <div>
+                <p>A trajectory fails if |θ| ≥ 0.20 rad at any recorded state. The model uses a 0.01 s step and a base disturbance from 1.00 to 1.50 s. Under the nominal distribution, the disturbance amplitude is uniform on [−4, 4] m/s². The importance sampler puts 80% of its draws where the magnitude is at least 2 m/s², then weights them back to the nominal distribution.</p>
+                <p>The interactive example shows a separate run with a 3 m/s² disturbance. Run the Python script to reproduce the comparison, or pass <code>--trace</code> to regenerate the 501 angle samples.</p>
+              </div>
             </details>
-            <p class="entry-links"><a href="assets/pendulum-safety-trace.png">Full simulation trace</a> <a href="assets/pendulum-study.py" download>Reproduce the comparison (Python)</a></p>
           </div>
         </article>
 
