@@ -5,6 +5,7 @@ import { normalizeChineseQueryCacheQuery, chineseQueryCacheBucket } from './chin
 // This module creates no private English-parser origin or collection authority.
 const ROOT = new URL('../data/chinese-query-cache/', import.meta.url);
 const HASH = /^[a-f0-9]{64}$/u;
+const isHash = value => typeof value === 'string' && HASH.test(value);
 const CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const TRANSPORT_MS = 2500, MEMORY_BYTES = 32 * 1024 * 1024;
 const MAX_COMPRESSED = 256 * 1024, MAX_UNCOMPRESSED = 4 * 1024 * 1024;
@@ -42,23 +43,44 @@ function freeze(value) {
 // trusted hash, membership list or engine binding after this module loads.
 freeze(CHINESE_QUERY_CACHE_RELEASE);
 let releaseState;
+function selectionSources(value) {
+  list(value, 1); if (value.length !== 1) throw invalid();
+  const selection = value[0];
+  shape(selection, ['file', 'sha256', 'bytes', 'entries', 'license']);
+  if (selection.file !== 'vocab/data/ecdict-core.json' || !isHash(selection.sha256)
+    || selection.entries !== 7502 || selection.license !== 'MIT') throw invalid();
+  integer(selection.bytes, 8 * 1024 * 1024, 1);
+}
 function release() {
   if (releaseState) return releaseState;
   const value = CHINESE_QUERY_CACHE_RELEASE;
-  shape(value, ['schemaVersion', 'dictionaryVersion', 'sourceManifestSha256', 'engineBinding', 'buildVersion', 'members', 'buckets', 'selectionSources']);
-  if (value.schemaVersion !== 1 || ![value.dictionaryVersion, value.sourceManifestSha256, value.engineBinding, value.buildVersion].every(item => HASH.test(item))) throw invalid();
+  const v2 = value.schemaVersion === 2;
+  shape(value, ['schemaVersion', 'dictionaryVersion', 'sourceManifestSha256', 'engineBinding', 'buildVersion', 'members', 'buckets', 'selectionSources',
+    ...(v2 ? ['legacyOrigins', 'authorization'] : [])]);
+  if (![1, 2].includes(value.schemaVersion) || ![value.dictionaryVersion, value.sourceManifestSha256, value.engineBinding, value.buildVersion].every(isHash)) throw invalid();
   list(value.members, 50_000); list(value.buckets, 64);
   if (value.buckets.length !== 64) throw invalid();
-  list(value.selectionSources, 1); if (value.selectionSources.length !== 1) throw invalid();
-  const selection = value.selectionSources[0];
-  shape(selection, ['file', 'sha256', 'bytes', 'entries', 'license']);
-  if (selection.file !== 'vocab/data/ecdict-core.json' || !HASH.test(selection.sha256)
-    || selection.entries !== 7502 || selection.license !== 'MIT') throw invalid();
-  integer(selection.bytes, 8 * 1024 * 1024, 1);
-  const members = new Set();
+  selectionSources(value.selectionSources);
+  if (v2) {
+    list(value.legacyOrigins, 4); if (!value.legacyOrigins.length) throw invalid();
+    const origins = new Set([value.buildVersion]);
+    for (const origin of value.legacyOrigins) {
+      shape(origin, ['buildVersion', 'dictionaryVersion', 'sourceManifestSha256', 'engineBinding', 'releaseFileSha256', 'selectionSources']);
+      if (![origin.buildVersion, origin.dictionaryVersion, origin.sourceManifestSha256, origin.engineBinding, origin.releaseFileSha256].every(isHash)
+        || origins.has(origin.buildVersion)) throw invalid();
+      origins.add(origin.buildVersion); selectionSources(origin.selectionSources);
+    }
+    const proof = value.authorization;
+    shape(proof, ['kind', 'currentSourceCompileBuildVersion', 'currentSourceCompileEngineBinding', 'currentSourceCompileReleaseSha256', 'fullSourceAndRelatedCheckLogSha256']);
+    if (proof.kind !== 'complete-source-and-related-replay' || proof.currentSourceCompileEngineBinding !== value.engineBinding
+      || ![proof.currentSourceCompileBuildVersion, proof.currentSourceCompileEngineBinding, proof.currentSourceCompileReleaseSha256,
+        proof.fullSourceAndRelatedCheckLogSha256].every(item => isHash(item) && item !== '0'.repeat(64))) throw invalid();
+  }
+  const members = new Set(); let previousMember;
   for (const query of value.members) {
-    if (normalizeChineseQueryCacheQuery(query) !== query || members.has(query)) throw invalid();
-    members.add(query);
+    if (typeof query !== 'string' || normalizeChineseQueryCacheQuery(query) !== query || members.has(query)
+      || v2 && previousMember !== undefined && previousMember >= query) throw invalid();
+    members.add(query); previousMember = query;
   }
   value.buckets.forEach((entry, index) => {
     descriptor(entry, value.buildVersion, true);
@@ -66,29 +88,32 @@ function release() {
   });
   releaseState = { value, members }; return releaseState;
 }
-function descriptor(value, buildVersion, bucket = false) {
+function descriptor(value, buildVersion, bucket = false, trusted) {
   shape(value, bucket ? ['bucket', 'file', 'sha256', 'bytes', 'uncompressedBytes']
-    : ['query', 'file', 'sha256', 'bytes', 'uncompressedBytes', 'total']);
-  if (!HASH.test(value.sha256) || value.file !== `${buildVersion}/${value.sha256}.bin`) throw invalid();
+    : ['query', 'file', 'sha256', 'bytes', 'uncompressedBytes', 'total', ...(trusted?.schemaVersion === 2 ? ['packetSha256'] : [])]);
+  const namespaces = bucket || trusted?.schemaVersion !== 2 ? [buildVersion] : [buildVersion, ...trusted.legacyOrigins.map(origin => origin.buildVersion)];
+  if (!isHash(value.sha256) || !namespaces.some(namespace => value.file === `${namespace}/${value.sha256}.bin`)
+    || !bucket && trusted?.schemaVersion === 2 && !isHash(value.packetSha256)) throw invalid();
   integer(value.bytes, bucket ? 1024 * 1024 : MAX_COMPRESSED, 1);
   integer(value.uncompressedBytes, bucket ? 8 * 1024 * 1024 : MAX_UNCOMPRESSED, 1);
   if (bucket) integer(value.bucket, 63); else integer(value.total, 200_000);
 }
-function binding(payload, trusted) {
-  if (payload.schemaVersion !== 1 || payload.dictionaryVersion !== trusted.dictionaryVersion
+function binding(payload, trusted, schemaVersion = 1) {
+  if (payload.schemaVersion !== schemaVersion || payload.dictionaryVersion !== trusted.dictionaryVersion
     || payload.engineBinding !== trusted.engineBinding) throw invalid();
 }
 function parseBucket(payload, trusted, bucket, members) {
   shape(payload, ['schemaVersion', 'dictionaryVersion', 'engineBinding', 'bucket', 'entries']);
-  binding(payload, trusted);
+  binding(payload, trusted, trusted.schemaVersion);
   if (payload.bucket !== bucket) throw invalid();
   list(payload.entries, 50_000);
-  const entries = new Map();
+  const entries = new Map(); let previous;
   for (const entry of payload.entries) {
-    descriptor(entry, trusted.buildVersion);
-    if (normalizeChineseQueryCacheQuery(entry.query) !== entry.query || !members.has(entry.query)
-      || chineseQueryCacheBucket(entry.query) !== bucket || entries.has(entry.query)) throw invalid();
-    entries.set(entry.query, entry);
+    descriptor(entry, trusted.buildVersion, false, trusted);
+    if (typeof entry.query !== 'string' || normalizeChineseQueryCacheQuery(entry.query) !== entry.query || !members.has(entry.query)
+      || chineseQueryCacheBucket(entry.query) !== bucket || entries.has(entry.query)
+      || trusted.schemaVersion === 2 && previous !== undefined && previous >= entry.query) throw invalid();
+    entries.set(entry.query, entry); previous = entry.query;
   }
   // Membership is exact, not an optimistic hint that may conceal a missing row.
   for (const query of members) if (chineseQueryCacheBucket(query) === bucket && !entries.has(query)) throw invalid();
@@ -122,7 +147,7 @@ function result(value) {
   }
   if (value.matchedForm !== undefined) string(value.matchedForm, 200);
   if (value.matchType !== undefined && !['related', 'mention', 'compound'].includes(value.matchType)) throw invalid();
-  if (value.matchedChinese !== undefined && normalizeChineseQueryCacheQuery(value.matchedChinese) !== value.matchedChinese) throw invalid();
+  if (value.matchedChinese !== undefined && (typeof value.matchedChinese !== 'string' || normalizeChineseQueryCacheQuery(value.matchedChinese) !== value.matchedChinese)) throw invalid();
   if (value.matchType !== undefined && value.matchedChinese === undefined) throw invalid();
   if (value.matchedPartOfSpeech !== undefined) string(value.matchedPartOfSpeech, 300);
   if (value.matchedSense !== undefined) string(value.matchedSense, 4000);
@@ -137,7 +162,7 @@ function result(value) {
     shape(proof, ['kind', 'groupId', 'sourceId', 'canonicalId', 'canonicalSourceSha256', 'selectedSourceSha256', 'selectedRowSha256']);
     if (proof.kind !== 'reviewed-canonical-primary') throw invalid();
     string(proof.groupId, 100); string(proof.sourceId, 200); integer(proof.canonicalId, 30_000_000, 1);
-    if (![proof.canonicalSourceSha256, proof.selectedSourceSha256, proof.selectedRowSha256].every(hash => HASH.test(hash))
+    if (![proof.canonicalSourceSha256, proof.selectedSourceSha256, proof.selectedRowSha256].every(isHash)
       || !ids?.length || value.matchedPartOfSpeech === undefined || value.matchedSense === undefined) throw invalid();
   }
 }
@@ -150,7 +175,7 @@ function parsePacket(payload, query, expectedTotal) {
     || metadata.total !== expectedTotal) throw invalid();
   integer(metadata.total, 200_000); list(payload.results, 200_000);
   if (metadata.total !== payload.results.length) throw invalid();
-  if (metadata.normalizedQuery !== undefined && normalizeChineseQueryCacheQuery(metadata.normalizedQuery) !== metadata.normalizedQuery) throw invalid();
+  if (metadata.normalizedQuery !== undefined && (typeof metadata.normalizedQuery !== 'string' || normalizeChineseQueryCacheQuery(metadata.normalizedQuery) !== metadata.normalizedQuery)) throw invalid();
   if (metadata.coverage !== undefined && metadata.coverage !== 'full') throw invalid();
   const terms = new Set();
   for (const row of payload.results) {
@@ -160,8 +185,24 @@ function parsePacket(payload, query, expectedTotal) {
   }
   return freeze({ metadata, results: payload.results });
 }
-function parseBundle(payload, trusted, bucket, entries, desc) {
-  shape(payload, ['schemaVersion', 'dictionaryVersion', 'engineBinding', 'packets']); binding(payload, trusted);
+// Object keys are canonicalized, while every array position and optional field
+// remains part of the current full-source authorization digest.
+function stableJSON(value) {
+  if (Array.isArray(value)) return '[' + value.map(stableJSON).join(',') + ']';
+  if (value && typeof value === 'object') return '{' + Object.keys(value).sort().map(key => JSON.stringify(key) + ':' + stableJSON(value[key])).join(',') + '}';
+  return JSON.stringify(value);
+}
+async function digest(bytes) {
+  if (!globalThis.crypto?.subtle) throw unavailable();
+  return [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+}
+function packetOrigin(trusted, desc) {
+  if (desc.file === `${trusted.buildVersion}/${desc.sha256}.bin`) return trusted;
+  const found = trusted.schemaVersion === 2 && trusted.legacyOrigins.find(origin => desc.file === `${origin.buildVersion}/${desc.sha256}.bin`);
+  if (!found) throw invalid(); return found;
+}
+async function parseBundle(payload, trusted, bucket, entries, desc) {
+  shape(payload, ['schemaVersion', 'dictionaryVersion', 'engineBinding', 'packets']); binding(payload, packetOrigin(trusted, desc));
   list(payload.packets, 16); if (!payload.packets.length) throw invalid();
   const packets = new Map(); let previous;
   for (const packet of payload.packets) {
@@ -170,7 +211,9 @@ function parseBundle(payload, trusted, bucket, entries, desc) {
       || previous !== undefined && previous >= query
       || entry.file !== desc.file || entry.sha256 !== desc.sha256 || entry.bytes !== desc.bytes
       || entry.uncompressedBytes !== desc.uncompressedBytes) throw invalid();
-    packets.set(query, parsePacket(packet, query, entry.total)); previous = query;
+    const parsed = parsePacket(packet, query, entry.total);
+    if (trusted.schemaVersion === 2 && await digest(new TextEncoder().encode(stableJSON(packet))) !== entry.packetSha256) throw invalid();
+    packets.set(query, parsed); previous = query;
   }
   for (const [query, entry] of entries) if (entry.file === desc.file && !packets.has(query)) throw invalid();
   return packets;
@@ -207,8 +250,7 @@ async function load(descriptor, fetchImpl, signal, reload) {
   if ((!encoding || encoding === 'identity') && length !== null && length !== undefined
     && (!/^\d+$/u.test(length) || Number(length) !== descriptor.bytes)) throw invalid();
   const bytes = await readStream(response.body, descriptor.bytes, signal);
-  if (!globalThis.crypto?.subtle) throw unavailable();
-  const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(byte => byte.toString(16).padStart(2, '0')).join('');
+  const hash = await digest(bytes);
   if (signal.aborted) throw stopped();
   if (hash !== descriptor.sha256) throw invalid();
   if (typeof DecompressionStream !== 'function') throw unavailable();
@@ -283,7 +325,9 @@ export async function readChineseQueryPacket(input, { manifest, engineBinding, f
       payload => parseBucket(payload, trusted.value, bucket, trusted.members));
     if (generation !== current) throw stopped();
     const packet = entries.get(query); if (!packet) throw invalid();
-    const bundle = await shared(client, `${prefix}bundle:${bucket}:${packet.sha256}`, packet, fetchImpl,
+    const origin = packetOrigin(trusted.value, packet);
+    const originKey = [origin.buildVersion, origin.dictionaryVersion, origin.sourceManifestSha256, origin.engineBinding, origin.releaseFileSha256 ?? 'current'].join(':');
+    const bundle = await shared(client, `${prefix}bundle:${bucket}:${originKey}:${packet.sha256}`, packet, fetchImpl,
       payload => parseBundle(payload, trusted.value, bucket, entries, packet));
     if (generation !== current) throw stopped();
     const value = bundle.get(query); if (!value) throw invalid(); return value;

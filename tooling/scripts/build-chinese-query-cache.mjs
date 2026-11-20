@@ -8,6 +8,7 @@ import {gzipSync, gunzipSync} from 'node:zlib';
 import {isDeepStrictEqual} from 'node:util';
 import {buildChineseSearchRanking} from './build-chinese-search-ranking.mjs';
 import {normalizeChineseQueryCacheQuery, chineseQueryCacheBucket} from '../../vocab/js/chinese-query-cache-format.js';
+import {replayChineseQueryInputs, loadReviewedChineseQueryOrigin, compileChineseQueryReuse} from './build-chinese-query-cache-reuse.mjs';
 
 const ROOT=path.resolve(import.meta.dirname,'../..');
 export const ZERO_ENGINE_BINDING='0'.repeat(64);
@@ -216,7 +217,7 @@ export async function boundedLocalQueryTransport(root){
   return {fetchImpl,reads};
 }
 
-async function selectionSource(root){
+export async function selectionSource(root){
   const bytes=await readFile(path.join(root,CORE)),payload=JSON.parse(bytes);
   const {parseCoreDictionary}=await import(pathToFileURL(path.join(root,'vocab/js/core-dictionary.js')));
   const {chineseDefinitionAtoms}=await import(pathToFileURL(path.join(root,'vocab/js/chinese-search.js')));
@@ -232,8 +233,9 @@ export async function writeOrCheckChineseQueryArtifacts(root,compiled,{check=fal
   if(check)assert.equal(await readFile(releaseFile,'utf8'),text,'Stale Chinese query-cache release');else await writeFile(releaseFile,text);
 }
 
-export async function buildChineseQueryCache({root=ROOT,check=false,bootstrap=false,updateEngineBinding=false,onProgress=()=>{}}={}){
+export async function buildChineseQueryCache({root=ROOT,check=false,bootstrap=false,updateEngineBinding=false,reuse941=false,onProgress=()=>{}}={}){
   assert(!(check&&(bootstrap||updateEngineBinding)),'Check mode never mutates or bootstraps');
+  assert(!(bootstrap&&reuse941),'Bootstrap cannot authorize legacy reuse');
   const manifestBytes=await readFile(path.join(root,'vocab/data/expanded-dictionary/manifest.json')),manifest=JSON.parse(manifestBytes),sourceManifestSha256=sha(manifestBytes);
   const selected=await selectionSource(root);assert.equal(selected.payload.source.sha256,manifest.sources.mit.sha256,'Core selection MIT root differs from the canonical source');
   // Rebuild in memory and compare the canonical sidecar before any compilation.
@@ -253,6 +255,23 @@ export async function buildChineseQueryCache({root=ROOT,check=false,bootstrap=fa
   const [{searchExpandedDictionary,searchRelatedChineseDictionary},{EVERYDAY_LOOKUP_ENTRIES,EVERYDAY_CHINESE_ALIASES},{registeredChineseQueryCatalogue}]=await Promise.all([load(ENGINE),load('vocab/js/everyday-lookup-data.js'),load('vocab/js/chinese-search.js')]);
   assert.equal(typeof searchRelatedChineseDictionary,'function','The original related-query export is required');
   const inputs=[...new Set([...EVERYDAY_LOOKUP_ENTRIES.flatMap(row=>row.chineseAliases),...EVERYDAY_CHINESE_ALIASES.flatMap(row=>row.aliases),...registeredChineseQueryCatalogue(),...selected.atoms].filter(value=>normalizeChineseQueryCacheQuery(value)!==null))].sort(compare);
+  if(reuse941){
+    // The proof issuer independently reads the frozen graph/core/manifest and
+    // actually runs both uncached production exports. A supplied digest is not
+    // a substitute for the replay or its private, process-local authority.
+    const proof=await replayChineseQueryInputs({root,inputs,onProgress});
+    const origin=await loadReviewedChineseQueryOrigin({root});
+    const compiled=compileChineseQueryReuse({proof,origin});
+    const final=await fingerprintChineseQueryEngine({root,sourceManifestSha256,selectionSources:selected.selectionSources});
+    assert.equal(final.engineBinding,binding.engineBinding);assert.equal(final.markerValue,binding.engineBinding);
+    assert((await readFile(path.join(root,'vocab/data/expanded-dictionary/manifest.json'))).equals(manifestBytes));
+    assert.equal(sha(await readFile(path.join(root,CORE))),selected.selectionSources[0].sha256);
+    await writeOrCheckChineseQueryArtifacts(root,compiled,{check});
+    return {bootstrap:false,check,schemaVersion:2,engineBinding:binding.engineBinding,buildVersion:compiled.release.buildVersion,
+      queryInputs:inputs.length,queries:compiled.release.members.length,bundles:compiled.bundles,files:compiled.files.size,
+      gzipBytes:[...compiled.files.values()].reduce((sum,bytes)=>sum+bytes.length,0),excluded:compiled.excluded,
+      reuse:compiled.reuse,authorization:compiled.release.authorization,selectionSources:selected.selectionSources,sourceFiles:binding.sourceFiles};
+  }
   const transport=await boundedLocalQueryTransport(root),packets=new Map();let completed=0,relatedQueriesVerified=0;
   for(const query of inputs){const packet=await collectCompleteChineseQuery(query,{search:searchExpandedDictionary,fetchImpl:transport.fetchImpl});
     await validateRelatedChineseProjection(packet,{searchRelated:searchRelatedChineseDictionary,fetchImpl:transport.fetchImpl});relatedQueriesVerified++;
@@ -269,7 +288,7 @@ export async function buildChineseQueryCache({root=ROOT,check=false,bootstrap=fa
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
-  const args=process.argv.slice(2);assert(args.every(arg=>['--check','--bootstrap','--update-engine-binding'].includes(arg)),'Unknown query-cache builder argument');
-  const report=await buildChineseQueryCache({check:args.includes('--check'),bootstrap:args.includes('--bootstrap'),updateEngineBinding:args.includes('--update-engine-binding'),onProgress:progress=>console.log(JSON.stringify(progress))});
+  const args=process.argv.slice(2);assert(args.every(arg=>['--check','--bootstrap','--update-engine-binding','--reuse-941'].includes(arg)),'Unknown query-cache builder argument');
+  const report=await buildChineseQueryCache({check:args.includes('--check'),bootstrap:args.includes('--bootstrap'),updateEngineBinding:args.includes('--update-engine-binding'),reuse941:args.includes('--reuse-941'),onProgress:progress=>console.log(JSON.stringify(progress))});
   console.log(JSON.stringify(report));
 }

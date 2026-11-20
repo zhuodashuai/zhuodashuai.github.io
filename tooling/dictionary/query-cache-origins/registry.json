@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "file": "tooling/dictionary/query-cache-origins/941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4/release.js",
+  "sha256": "ac57572f62c413787165ba041a69e14ee517e19db854adea45cbe10ab64c80ef",
+  "bytes": 449739,
+  "origin": {
+    "buildVersion": "941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4",
+    "dictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+    "sourceManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "engineBinding": "81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e",
+    "releaseFileSha256": "ac57572f62c413787165ba041a69e14ee517e19db854adea45cbe10ab64c80ef",
+    "selectionSources": [
+      {
+        "file": "vocab/data/ecdict-core.json",
+        "sha256": "eb430465c024ce3fd6c1ace668eb437135ed8b52ecffcacf8be05b49e070f5f6",
+        "bytes": 1963099,
+        "entries": 7502,
+        "license": "MIT"
+      }
+    ]
+  }
+}
