@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "status": "AUTHOR_EXACT_EXISTING_HEAD_ALIAS_PROJECTION_V2_PENDING_INDEPENDENT_ADMISSION",
+  "author": "AI/root_existing_alias_projection_author",
+  "target": {
+    "term": "roundabout",
+    "partOfSpeech": "noun",
+    "fullExistingRow": {
+      "term": "roundabout",
+      "partOfSpeech": "noun",
+      "meaning": "① 交通环岛；多条道路相交、车辆绕中央圆形区域行驶的路口。",
+      "chineseAliases": [
+        "环岛",
+        "交通环岛"
+      ],
+      "englishForms": [
+        "roundabouts"
+      ],
+      "en": "The bakery is just beyond the roundabout.",
+      "zh": "面包店就在环岛过去一点的地方。",
+      "references": [
+        "https://dictionary.cambridge.org/us/dictionary/english/roundabout"
+      ]
+    },
+    "fullExistingRowSha256": "65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961",
+    "actualExampleSenseId": "everyday:8c487edc01acbcc8"
+  },
+  "newAliasRow": {
+    "term": "roundabout",
+    "aliases": [
+      "环岛路口"
+    ],
+    "targetEntrySha256": "65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961"
+  },
+  "source": {
+    "file": "vocab/js/everyday-lookup-data.js",
+    "beforeBytes": 509689,
+    "beforeSha256": "efd5e87c1a4165f2e6b8436cdf82f4a0aa3d2f0b9d309a76112761d22ffecd53",
+    "afterBytes": 509828,
+    "afterSha256": "6249bc7e850494f4411b4948071b7f3a58da487bdfc3af3a1f2383f7266519d3",
+    "exactInsertedLine": "  {\"term\":\"roundabout\",\"aliases\":[\"环岛路口\"],\"targetEntrySha256\":\"65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961\"},\n",
+    "anchor": "].map(row => Object.freeze({ ...row, aliases: Object.freeze(row.aliases) })));",
+    "wholeByteInverse": true
+  },
+  "oldAliases": {
+    "count": 47,
+    "sha256": "9625af76bacc7ed9d96029e4ba3722cc5d3b3492e577dae1d922d64051bafa5f"
+  },
+  "proposedAliases": {
+    "count": 48,
+    "sha256": "ee26425285b46c5ec9c754e6b6df4c547084920a21725f250167558c9dc8fa9f"
+  },
+  "primaryReferences": [
+    "https://dictionary.cambridge.org/dictionary/english/roundabout"
+  ],
+  "priorLanguageReviewFile": "outputs/next-holdout-fixes-20261120/independent-language-review.json",
+  "priorCanonicalBindingFile": "outputs/next-holdout-fixes-20261120/canonical-binding-preparation.json",
+  "constraints": [
+    "Only the existing packaged traffic-junction noun is the alias target.",
+    "Do not attach to expanded canonical806216 or invent a traffic sense inside that different raw record.",
+    "No new English head/form/meaning/POS/source/example/identity is added or replaced.",
+    "Every previous47 alias row and complete everyday entry remains unchanged.",
+    "Actual runtime and full source/cache125 verification remain pending."
+  ],
+  "productFilesWritten": 0,
+  "revision": {
+    "originalProposalByteSha256": "dd4c447d9196e491e365607bebe35af2056b64126a43ff1924b36ca83b9ecd3d",
+    "onlyAllowedChange": "Add the existing exact targetEntrySha256 inline, matching the strong contract used by all original47 aliases. Lexical alias, target POS/meaning/source/example/ID unchanged.",
+    "requestedBy": "Root projection correction; not new language authorship."
+  }
+}

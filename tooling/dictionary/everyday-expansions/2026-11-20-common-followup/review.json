@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "aa8f63fec36be2f443e27c5d8ab6d2f65940904846bd2a09a8e62a9260335e9f",
+  "sourceByteSha256": "1bce7c5556830ffe4a1250a9dc8ecf08264d455ec36cc0ec976976af2adc259b",
+  "author": "AI/next_common_content_collator",
+  "reviewer": "AI/next_common_admission_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "open-book exam",
+    "deferred exam",
+    "job advertisement",
+    "plagiarism checker",
+    "handover note",
+    "employment reference letter",
+    "adverse reaction"
+  ],
+  "issues": [],
+  "reviewedRows": [
+    {
+      "term": "open-book exam",
+      "rowSha256": "2065ecf67f7264b7e6d4cfcf311be601027ed3bbea4519fc821ca328f43b0312",
+      "languageDecision": "PASS",
+      "reason": "PASS countable noun phrase, permitted-material scope and both Chinese aliases. All8 finite complete exam/examination, hyphenated/unhyphenated and plural surfaces are grammatical and correctly distinguished as variants. Original notes-allowed/internet-prohibited example and Chinese match, with no universal exam policy. Exact prior reviewed row retained except reviewer metadata."
+    },
+    {
+      "term": "deferred exam",
+      "rowSha256": "43dad4d0cc91d63c0425b0b837f167b540e889938e04f4301428e577de877f62",
+      "languageDecision": "PASS",
+      "reason": "PASS countable approved later-sitting noun phrase and4 complete exam/examination singular/plural surfaces. 缓考/延期考试 correctly exclude supplementary resits, a deferral application and assignment extensions. Fictional approved-July-sitting example is idiomatic and translated faithfully. Exact prior reviewed row retained except reviewer metadata."
+    },
+    {
+      "term": "job advertisement",
+      "rowSha256": "40d4b912453a532005c11c3bbdb65b218431305106d68acfe6ebeff46b42c140",
+      "languageDecision": "PASS",
+      "reason": "PASS countable recruitment-vacancy noun phrase. 招聘启事/招聘广告 are precise; job advert and job ad plus their plurals are valid publisher-listed lexical variants, with UK/informal distinctions preserved in original usage notes. The evening-availability example and Chinese align; no employment offer or contract meaning is added."
+    },
+    {
+      "term": "plagiarism checker",
+      "rowSha256": "f9d278baf75b1948b4c92475836a19c9c4c77b14f1c105aa7e1dd52e2d2675ff",
+      "languageDecision": "PASS",
+      "reason": "PASS countable software/service noun phrase and regular plural. Meaning correctly describes text comparison and flagged similarities as help for checking potential plagiarism, rather than an automatic misconduct verdict or guarantee of originality. All3 Chinese tool aliases match that scope. Example reviews text matches and Chinese preserves that limited role."
+    },
+    {
+      "term": "handover note",
+      "rowSha256": "d49c272b24eff436565e4e4af7762a6e25e9e1cb4cf7e5751c99f7fd4deb977d",
+      "languageDecision": "PASS",
+      "reason": "PASS countable written-work-handover noun phrase and regular plural. NHS material directly attests handover notes; broader official handover guidance supports outstanding tasks and contacts. All3 Chinese aliases target a written record, not merely a verbal handover. The unfinished-tasks/contact-list example is natural and translated faithfully."
+    },
+    {
+      "term": "employment reference letter",
+      "rowSha256": "7cecb87850ff8057854ecec4da7230cc95dee92207db4986b03567973037d280",
+      "languageDecision": "PASS",
+      "reason": "PASS countable written employment-reference noun phrase and regular plural. Chinese correctly allows factual employment confirmation or an evaluative work recommendation; it neither requires praise nor equates the document with a job offer. All3 aliases name employer-written reference/confirmation letters. Example accurately preserves former employer, role and service dates."
+    },
+    {
+      "term": "adverse reaction",
+      "rowSha256": "067b34292cd5920a9fc34a7c49eae2e27866bc2d2bb87055229c44e22e8e8ea4",
+      "languageDecision": "PASS",
+      "reason": "PASS countable noun phrase and regular plural, explicitly restricted here to medicine. Chinese describes harmful medicine-caused effects outside the desired treatment effect, not necessarily unforeseen effects. The suspected-reaction example preserves uncertainty, singular count and study-summary context in Chinese; no allergy equivalence, treatment advice or dose-only scope is implied."
+    }
+  ],
+  "reviewedAtUTC": "2026-11-20T13:16:25.190Z",
+  "status": "PASS_EXACT_SEVEN_NEW_HEAD_SOURCE_PACK_LANGUAGE_AND_READ_ONLY_COLLISION_REVIEW_ONLY",
+  "sourceLineage": [
+    {
+      "term": "open-book exam",
+      "originFile": "outputs/next-holdout-fixes-20261120/source.json",
+      "originFileSha256": "7983b11dc7a960a5ea02cb05a335bbfafa6b0d2c42aa063b88bf05e43923cf78",
+      "originalRowSha256": "c7db847dcb5104a24b42856733342610e3dc5b7e36092eeb608792682f2f7e00",
+      "finalRowSha256": "2065ecf67f7264b7e6d4cfcf311be601027ed3bbea4519fc821ca328f43b0312",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "deferred exam",
+      "originFile": "outputs/next-holdout-fixes-20261120/source.json",
+      "originFileSha256": "7983b11dc7a960a5ea02cb05a335bbfafa6b0d2c42aa063b88bf05e43923cf78",
+      "originalRowSha256": "2dd746287bdae547c3637e12c800cd1927f70a8e61039477ee740011b97b7791",
+      "finalRowSha256": "43dad4d0cc91d63c0425b0b837f167b540e889938e04f4301428e577de877f62",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "job advertisement",
+      "originFile": "outputs/next-holdout-fixes-20261120/source.json",
+      "originFileSha256": "7983b11dc7a960a5ea02cb05a335bbfafa6b0d2c42aa063b88bf05e43923cf78",
+      "originalRowSha256": "cc61806d45f001a27a80df5fceb8346929c188915268408f595835ac65f3704a",
+      "finalRowSha256": "40d4b912453a532005c11c3bbdb65b218431305106d68acfe6ebeff46b42c140",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "plagiarism checker",
+      "originFile": "outputs/next-life-followup-20261120/revised-v2/source.json",
+      "originFileSha256": "566e494463e35d9660f7df32827a0ea5ac5f4c79f0c2385d68dceac22643817e",
+      "originalRowSha256": "fe2df4214a37ce878148dd8a1d160a30118beee0845e5753651ae2441e4090bc",
+      "finalRowSha256": "f9d278baf75b1948b4c92475836a19c9c4c77b14f1c105aa7e1dd52e2d2675ff",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "handover note",
+      "originFile": "outputs/next-life-followup-20261120/revised-v2/source.json",
+      "originFileSha256": "566e494463e35d9660f7df32827a0ea5ac5f4c79f0c2385d68dceac22643817e",
+      "originalRowSha256": "4f4a4824990038c84b587fd34b2d8c9fc09d5989d920fe9a178f2b744b4f5a87",
+      "finalRowSha256": "d49c272b24eff436565e4e4af7762a6e25e9e1cb4cf7e5751c99f7fd4deb977d",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "employment reference letter",
+      "originFile": "outputs/next-life-followup-20261120/revised-v2/source.json",
+      "originFileSha256": "566e494463e35d9660f7df32827a0ea5ac5f4c79f0c2385d68dceac22643817e",
+      "originalRowSha256": "299164560fdd0fa0c09b509501eadee3ea20b4e0652d3113e0d340019103117f",
+      "finalRowSha256": "7cecb87850ff8057854ecec4da7230cc95dee92207db4986b03567973037d280",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    },
+    {
+      "term": "adverse reaction",
+      "originFile": "outputs/next-life-followup-20261120/revised-v2/source.json",
+      "originFileSha256": "566e494463e35d9660f7df32827a0ea5ac5f4c79f0c2385d68dceac22643817e",
+      "originalRowSha256": "59afbaf0a83d4d59cd8b42dba1dab2e1aac6c9bd11d899628136978a7c6ad3d5",
+      "finalRowSha256": "067b34292cd5920a9fc34a7c49eae2e27866bc2d2bb87055229c44e22e8e8ea4",
+      "onlyRowChange": "exampleReviewer:null -> AI/next_common_admission_reviewer"
+    }
+  ],
+  "previousIndependentReviews": [
+    {
+      "file": "outputs/next-holdout-fixes-20261120/independent-language-review.json",
+      "sha256": "5fa555317e866b043717bc9a9eae6bdc89c6a7d031bcfbc40d67946a77fc1c1c"
+    },
+    {
+      "file": "outputs/next-life-followup-20261120/revised-v2/review.json",
+      "sha256": "a119b80f09b577c3c004ccc73d96adf7f6a30276ad19a5517a6b4c306d8c8ee2"
+    }
+  ],
+  "independentCollisionAudit": {
+    "file": "review-independent-collision-audit.json",
+    "sha256": "383d67783c40bc8279cafa447aa9be0e978401db61b0ce2d8f84289420a390a9",
+    "scope": "All128 current canonical English shards/whole keys, packaged rows, all256 immutable base-example shards,35 actual compressed deltas and current example overlays; exact counts in receipt. No compile/cache generation."
+  },
+  "primaryReferenceAccess": [
+    {
+      "term": "open-book exam",
+      "url": "https://www.unsw.edu.au/student/managing-your-studies/academic-life/assessments-exams-resources/exams/preparation/open-book",
+      "access": "DIRECT_PRIMARY_HTML_READ_IN_PRIOR_REVIEW_THIS_SESSION"
+    },
+    {
+      "term": "open-book exam",
+      "url": "https://cdn.csu.edu.au/__data/assets/pdf_file/0010/3782638/Glossary-of-examination-terms.pdf",
+      "access": "DIRECT_PRIMARY_PDF_TEXT_READ_IN_PRIOR_REVIEW_THIS_SESSION"
+    },
+    {
+      "term": "deferred exam",
+      "url": "https://my.uq.edu.au/information-and-services/manage-my-program/exams-and-assessment/deferring-exam",
+      "access": "DIRECT_PRIMARY_HTML_READ_IN_PRIOR_REVIEW_THIS_SESSION"
+    },
+    {
+      "term": "job advertisement",
+      "url": "https://dictionary.cambridge.org/dictionary/english/job-advertisement?q=advertisement-%28job%29",
+      "access": "PRIMARY_PUBLISHER_INDEXED_CONTENT_READ_IN_PRIOR_REVIEW_THIS_SESSION",
+      "directCanonicalOpen": "403 Forbidden; no direct-read claim"
+    },
+    {
+      "term": "plagiarism checker",
+      "url": "https://www.ntu.edu.sg/research/resources/guide-on-the-use-of-similarity-checkers",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Similarity reports help contextual human review; no score or detector guarantee adopted."
+    },
+    {
+      "term": "plagiarism checker",
+      "url": "https://www.grammarly.com/plagiarism-checker",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Confirms compound/category usage only; marketing performance claims not incorporated."
+    },
+    {
+      "term": "handover note",
+      "url": "https://www.uhb.nhs.uk/hr/recruitment-retention-and-leavers/leavers-and-exit-process/your-guide-to-a-great-handover/",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW"
+    },
+    {
+      "term": "handover note",
+      "url": "https://www.nhsprofessionals.nhs.uk/nhsp-international/-/media/5115cac33f8d4d5c955e82c544cb9963.ashx",
+      "access": "DIRECT_PRIMARY_PDF_TEXT_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Exact Handover notes label in documentation section; text evidence only."
+    },
+    {
+      "term": "employment reference letter",
+      "url": "https://www.acas.org.uk/providing-a-job-reference/what-employers-can-say-in-a-reference",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Factual/basic and detailed employment references; no legal advice or general guarantee."
+    },
+    {
+      "term": "employment reference letter",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/forms-documents.html",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Past-employer reference-letter wording, used only as lexical evidence, not application guidance."
+    },
+    {
+      "term": "adverse reaction",
+      "url": "https://www.ema.europa.eu/en/glossary-terms/adverse-drug-reaction",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Harmful/unintended medicine response; unintended is not the same as unforeseeable."
+    },
+    {
+      "term": "adverse reaction",
+      "url": "https://yellowcard.mhra.gov.uk/medicines",
+      "access": "DIRECT_PRIMARY_HTML_READ_FRESH_FOR_FINAL_REVIEW",
+      "scope": "Harm distinction used for the lexical definition; no diagnostic or treatment recommendation."
+    }
+  ],
+  "scopeLimits": [
+    "Approval covers only these seven exact complete new heads and their26 finite English surfaces, stated aliases and seven original bilingual examples.",
+    "This review does not approve any of the six separate existing-head scoped aliases or the additive coach sense.",
+    "Read-only collision audit has been independently rerun; it is not a whole-web plagiarism guarantee, a complete dictionary language audit or publication evidence.",
+    "No source admission/build, runtime changes, new cache generation, commit, push, account operation or deployment was performed.",
+    "Regular plurals and grammatical acceptability are independent language judgments; no claim is made that all26 surfaces are verbatim publisher quotations."
+  ]
+}

@@ -1,3 +1,4 @@
+import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -21,7 +22,7 @@ test('16 reviewed additions append without modifying any of1028 ordinary or199 s
   assert.equal(historicalSelected199(EVERYDAY_LOOKUP_ENTRIES).length,199);
   const ordinary=historicalOrdinary1044(EVERYDAY_LOOKUP_ENTRIES);
   assert.equal(ordinary.length,1044);assert.deepEqual(ordinary.slice(1028),entries);
-  assert.equal(hash(EVERYDAY_CHINESE_ALIASES),'9625af76bacc7ed9d96029e4ba3722cc5d3b3492e577dae1d922d64051bafa5f');
+  assert.equal(hash(historicalRoundaboutAliases47(EVERYDAY_CHINESE_ALIASES)),'9625af76bacc7ed9d96029e4ba3722cc5d3b3492e577dae1d922d64051bafa5f');
   assert.equal(historicalSelected204(REVIEWED_SENSE_ENTRIES).length,204);
 });
 
