@@ -23,7 +23,7 @@ test('fresh search/data/example reader closure has exact118 edges while compatib
     ...['dictionary-app-v109.js','dictionary-app.js','owner-app-v108.js','owner-app.js','personal-app-v108.js','personal-app.js','library-lookup-ui.js'].map(file=>[file,'expanded-dictionary.js']),
     ['library-lookup-ui.js','library-lookup-controller.js'],['library-lookup-ui.js','dictionary-app.js'],
     ['library-lookup-controller.js','dictionary-app.js'],
-    ['public-app-v113.js','library-lookup-ui.js'],['public-app.js','library-lookup-ui.js'],
+    ['public-app-v113.js','library-lookup-ui.js',1,123],['public-app.js','library-lookup-ui.js',1,123],
     ['expanded-dictionary.js','everyday-lookup.js'],['expanded-dictionary.js','english-surface-variants.js'],
     ['expanded-dictionary.js','selected-common-sense.js'],['expanded-dictionary.js','dictionary-form-evidence.js'],
     ['expanded-dictionary.js','reviewed-canonical-forms.js'],['reviewed-canonical-forms.js','reviewed-senses-data.js'],['everyday-lookup.js','everyday-lookup-data.js'],

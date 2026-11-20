@@ -1,3 +1,4 @@
+import {restoreSearchMatchContextAssetIfCurrent} from '../../tooling/tests/helpers/search-match-context-shell.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -8,7 +9,7 @@ import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-
 import {ENTRY_DETAIL_FOCUS_URLS,restoreEntryDetailFocusShell,restoreEntryDetailFocusShellIfCurrent,restoreEntryDetailFocusServiceWorkerShell,restoreEntryDetailFocusServiceWorkerShellIfCurrent} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {restoreMemberSpellingShellIfCurrent,restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
-const read=async file=>{const text=await readFile(new URL('../'+file,import.meta.url),'utf8');return file==='sw.js'?restoreMemberSpellingServiceWorkerShell(text):restoreMemberSpellingShellIfCurrent(file,text);};
+const read=async file=>{const text=restoreSearchMatchContextAssetIfCurrent(file,await readFile(new URL('../'+file,import.meta.url),'utf8'));return file==='sw.js'?restoreMemberSpellingServiceWorkerShell(text):restoreMemberSpellingShellIfCurrent(file,text);};
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const urls=text=>JSON.parse('['+text.match(/const SHELL = \[([\s\S]*?)\];/u)[1].replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']');
 

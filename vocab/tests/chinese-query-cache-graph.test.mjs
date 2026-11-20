@@ -81,7 +81,7 @@ test('current118 imports are explicit and archived104,114 andplan-only95 edges s
   ['js/expanded-dictionary.js',['./chinese-query-cache.js?v=118','./chinese-search.js?v=118','./chinese-ranking.js?v=118','./everyday-lookup.js?v=118','./dictionary-form-evidence.js?v=118','./reviewed-canonical-forms.js?v=118']],
   ['js/chinese-ranking.js',['./chinese-search.js?v=118']],
   ['js/personal-lookup-flow.js',['./chinese-search.js?v=118','./everyday-lookup.js?v=118']],
-  ['js/public-app-v113.js',['./library-lookup-ui.js?v=118','./entry-detail-v113.js?v=122']],
+  ['js/public-app-v113.js',['./library-lookup-ui.js?v=123','./entry-detail-v113.js?v=122']],
   ['js/public-app-v108.js',['./library-lookup-ui.js?v=114']],
   ['js/dictionary-app-v108.js',['./expanded-dictionary.js?v=104']],
   ['js/dictionary-entry.js',['./dictionary-app.js?v=104']],
