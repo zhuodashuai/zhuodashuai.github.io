@@ -162,7 +162,10 @@ test("mutable script, style and manifest assets revalidate online before using t
 });
 
 test("the academic profile provides a discoverable route to the word cabinet", async () => {
-  assert.match(profileHtml, /<a\b[^>]*href="vocab\/"[^>]*>\s*(?:Wordbook|卓的单词本)\s*<\/a>/u);
+  const profileLink = profileHtml.match(/<a\b[^>]*href="vocab\/"[^>]*>([\s\S]*?)<\/a>/u);
+  assert(profileLink, "The academic profile must link directly to the public wordbook");
+  const visibleLabel = profileLink[1].replace(/<[^>]+>/gu, " ").replace(/\s+/gu, " ").trim();
+  assert.match(visibleLabel, /(?:\bWordbook\b|卓的单词本)/iu, "The link must have a meaningful wordbook label");
   assert.match(vocabHtml, /href="https:\/\/zhuodashuai\.github\.io\/"[^>]*>学术主页/);
   const ownerLogin = vocabHtml.match(/<a\b[^>]*\bid="lookup-owner-login"[^>]*>/u)?.[0];
   assert(ownerLogin, "The public wordbook must retain its explicit owner login");
