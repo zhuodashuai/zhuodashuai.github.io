@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { showRecordedChapterSources } from './helpers/recorded-chapter-scope.mjs';
 
 const snapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
 const bookId = "never-let-me-go";
@@ -73,6 +74,7 @@ test("a reused word shows the source for the active chapter, never the other cha
   await provide(page);
   for (const chapter of [2, 10]) {
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}`);
+    if(chapter===2)await showRecordedChapterSources(page,{defaultCount:36,recordedCount:38});
     await openCard(page, meandering.term);
     const expected = fixture.passages.find((item) => item.chapterId === `chapter-${chapter}`);
     const oldExample = meandering.readingContexts.find((item) => item.membership === membership(chapter)).exampleEn;

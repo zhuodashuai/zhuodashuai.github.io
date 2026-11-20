@@ -118,11 +118,12 @@ test("an unavailable Chinese manifest is an honest retryable error, not an empty
 });
 
 test("logout discards a delayed expanded lookup without resurrecting old results", async ({ page }) => {
-  let release, seen, finished;
+  let release, seen, finished, holding = false;
   const held = new Promise(resolve => { release = resolve; });
   const reached = new Promise(resolve => { seen = resolve; });
   const settled = new Promise(resolve => { finished = resolve; });
-  await page.route("**/data/chinese-search-ranking/**/*.bin*", async route => {
+  await page.route(/\/data\/(?:chinese-search-ranking|chinese-query-cache)\/[^?]+[.]bin(?:\?.*)?$/u, async route => {
+    if (holding) return route.continue(); holding = true;
     const response = await route.fetch(); seen(); await held;
     try { await route.fulfill({ response }); } catch { /* Logout intentionally aborts lookup. */ }
     finally { finished(); }

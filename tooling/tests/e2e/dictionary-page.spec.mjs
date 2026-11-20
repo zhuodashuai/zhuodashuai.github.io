@@ -246,7 +246,7 @@ test("examples: failure and local retry never clear the meaning or rerun the mai
   expectPublicOnly(calls);
 });
 
-test("examples: a late previous result cannot repopulate material after the input changes to another headword", async ({ page }) => {
+test("examples: a labelled previous preview cannot put late material into the next headword", async ({ page }) => {
   const manifest = JSON.parse(await readFile(new URL("../../../vocab/data/dictionary-examples/manifest-v2.json", import.meta.url), "utf8"));
   const payload = JSON.parse(await readFile(new URL(`../../../vocab/data/dictionary-examples/${manifest.shards[dictionaryExampleBucket("quagmire")].file}`, import.meta.url), "utf8"));
   const current = payload.entries.find(item => item.term === "quagmire");
@@ -256,7 +256,10 @@ test("examples: a late previous result cannot repopulate material after the inpu
   try {
     await open(page); await query(page, "override"); await seen.promise;
     await page.locator("#dictionary-query").fill("quagmire");
-    await expect(page.locator("#dictionary-example-panel")).toBeHidden();
+    await expect(page.locator("#dictionary-term")).toHaveText("override");
+    await expect(page.locator("#dictionary-display-context")).toContainText("当前仍显示“override”的结果");
+    await expect(page.locator("#dictionary-add")).not.toHaveAttribute("href");
+    await expect(page.locator("#dictionary-add")).toHaveAttribute("aria-disabled", "true");
     await page.locator("#dictionary-query").press("Enter");
     await expect(page.locator("#dictionary-term")).toHaveText("quagmire");
     gate.resolve(); await page.waitForLoadState("networkidle");

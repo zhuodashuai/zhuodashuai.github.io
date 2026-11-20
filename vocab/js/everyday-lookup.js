@@ -1,4 +1,4 @@
-import * as packagedEveryday from "./everyday-lookup-data.js";
+import * as packagedEveryday from "./everyday-lookup-data.js?v=117";
 import { LITERAL_DICTIONARY_HEADS } from "./dictionary-literal-heads-data.js";
 // An old offline data module can still supply its original entries during an
 // interrupted shell update. Extra names appear once the data refresh arrives.
@@ -74,7 +74,7 @@ for (const row of EVERYDAY_LOOKUP_ENTRIES) {
   if (canonicalEnglish.has(key)) throw new Error("Duplicate everyday dictionary headword.");
   canonicalEnglish.set(key, row);
   if (row.reviewedCanonicalSense === true) reviewedCanonicalHeads.add(row.term);
-  if (row.reviewedCanonicalSense === true && row.retainLegacyChinese !== true) supersededChineseHeads.add(row.term);
+  if (row.reviewedCanonicalSense === true && row.retainLegacyChinese !== true && !validSourceCorrection(row)) supersededChineseHeads.add(row.term);
   for (const term of row.chineseAliases) add(chinese, chineseKey(spelling(term)), row);
   for (const term of row.englishForms) add(englishForms, englishKey(term), row);
 }
@@ -97,6 +97,104 @@ export function isReviewedCanonicalSenseHead(term) {
 
 export function isSupersededChineseSenseHead(term) {
   return typeof term === "string" && supersededChineseHeads.has(term);
+}
+
+function dataValue(object,key) {
+  if(!object||typeof object!=='object'||Array.isArray(object)
+    || ![Object.prototype,null].includes(Object.getPrototypeOf(object)))return undefined;
+  const d=Object.getOwnPropertyDescriptor(object,key);
+  return d?.enumerable&&Object.hasOwn(d,'value')?d.value:undefined;
+}
+function validSourceCorrection(row) {
+  const p=row?.sourceCorrection;
+  return row?.reviewedCanonicalSense===true && p && p.canonicalId===row.canonicalId
+    && p.canonicalSourceSha256===row.canonicalSourceSha256
+    && /^[a-f0-9]{64}$/u.test(p.dictionaryVersion||'')&&/^[a-f0-9]{64}$/u.test(p.manifestSha256||'')
+    && Array.isArray(p.rejected)&&p.rejected.length>0&&p.rejected.every(old=>
+      ['partOfSpeech','meaning','source'].every(k=>typeof old[k]==='string')&&old.display
+      &&['partOfSpeech','meaning','source','license','url'].every(k=>typeof old.display[k]==='string'));
+}
+function correctionRow(term) {
+  const row=typeof term==='string'?canonicalEnglish.get(englishKey(term)):null;
+  return row?.term===term&&validSourceCorrection(row)?row:null;
+}
+/** Rejection only: caller must supply an already authenticated raw record and
+ * manifest. Exact tuple/context checks never authorize another source or form. */
+export function isRejectedReviewedCanonicalVariant(record,variant,manifest) {
+  const row=correctionRow(dataValue(record,'term')),p=row?.sourceCorrection;
+  return Boolean(p&&dataValue(record,'id')===p.canonicalId
+    &&dataValue(manifest,'version')===p.dictionaryVersion&&dataValue(manifest,'integritySha256')===p.manifestSha256
+    &&p.rejected.some(old=>['partOfSpeech','meaning','source'].every(k=>dataValue(variant,k)===old[k])));
+}
+/** Exact bad displayed tuples also cover compact legacy rows that omit their
+ * licence/URL. Missing fields grant no new content/source authority. */
+export function rejectsReviewedCanonicalDisplay(item) {
+  const row=correctionRow(dataValue(item,'term'));
+  return Boolean(row?.sourceCorrection.rejected.some(old=>
+    (dataValue(item,'partOfSpeech')===old.display.partOfSpeech&&dataValue(item,'meaning')===old.display.meaning
+      ||dataValue(item,'partOfSpeech')===old.partOfSpeech&&dataValue(item,'meaning')===old.meaning)
+    &&[old.source,old.display.source].includes(dataValue(item,'source'))
+    &&['license','url'].every(k=>!Object.hasOwn(item,k)||dataValue(item,k)===old.display[k])));
+}
+function reviewedFormKey(value) {
+  if(typeof value!=='string'||value.length>200||CONTROL.test(value.replace(/[\t\r\n]/gu,''))||UNSAFE.test(value))return null;
+  return englishKey(decoratedEnglish(spelling(value).replace(/[\u00ad\u200b\u2060\ufeff]/gu,'')));
+}
+/** Content identity/idempotency only. The engine must independently establish
+ * the canonical origin before constructing a finite noun-form projection. */
+export function matchesSourceCorrectionOwnContent(item) {
+  const row=correctionRow(dataValue(item,'term'));if(!row)return false;
+  const keys=Reflect.ownKeys(item),base=['term','partOfSpeech','meaning','source','license','url'];
+  if(keys.some(k=>typeof k!=='string'||![...base,'matchedForm'].includes(k))
+    ||base.some(k=>typeof dataValue(item,k)!=='string')
+    ||dataValue(item,'source')!==row.dictionarySource||dataValue(item,'license')!==LICENSE||dataValue(item,'url')!==SOURCE_URL)return false;
+  if(!Object.hasOwn(item,'matchedForm'))return keys.length===base.length
+    &&item.partOfSpeech===row.partOfSpeech&&item.meaning===row.meaning;
+  return keys.length===base.length+1&&row.formProjections?.some(p=>reviewedFormKey(dataValue(item,'matchedForm'))===englishKey(p.form)
+    &&item.partOfSpeech===p.partOfSpeech&&item.meaning===p.meaning)===true;
+}
+
+function correctionExampleRow(term) {
+  const clean=safeInput(term),row=clean&&canonicalEnglish.get(englishKey(clean));
+  return row&&validSourceCorrection(row)&&Array.isArray(row.exampleSenses)&&Array.isArray(row.exampleContexts)?row:null;
+}
+export function hasSourceCorrectionExampleHead(term) { return Boolean(correctionExampleRow(term)); }
+export function loadSourceCorrectionExamples(term,{context}={}) {
+  const row=correctionExampleRow(term);if(!row)return null;
+  let ids;
+  if(context!==undefined){const c=associatedDataFields(context,['term','partOfSpeech','meaning']);
+    if(!c||c.term!==row.term)return null;
+    ids=row.exampleContexts.find(v=>v.partOfSpeech===c.partOfSpeech&&v.meaning===c.meaning)?.senseIds;
+    if(!ids)return null;}
+  return {term:row.term,senses:row.exampleSenses.filter(s=>!ids||ids.includes(s.id)).map(s=>({
+    ...structuredClone(s),reviewer:row.exampleReviewer,source:row.exampleSource||EXAMPLE_SOURCE}))};
+}
+export function sourceCorrectionLegacyExampleContext(term,context,sourcePins) {
+  const row=correctionExampleRow(term),binding=row?.legacyExampleBinding;
+  const c=associatedDataFields(context,['term','partOfSpeech','meaning']),pins=associatedDataFields(sourcePins,['version','manifestSha256']);
+  return binding&&c&&pins&&c.term===row.term&&JSON.stringify(pins)===JSON.stringify(binding.sourcePins)
+    &&binding.contexts.some(old=>['term','partOfSpeech','meaning'].every(k=>old[k]===c[k]))?binding:null;
+}
+function safeDataJSON(value) {
+  let nodes=0;
+  const copy=(v,depth)=>{
+    if(++nodes>10000||depth>15)throw Error('Invalid example snapshot');
+    if(v===null||typeof v==='boolean'||typeof v==='number'&&Number.isFinite(v))return v;
+    if(typeof v==='string'&&v.length<=20000)return v;
+    if(!v||typeof v!=='object')throw Error('Invalid example snapshot');
+    const array=Array.isArray(v),proto=Object.getPrototypeOf(v);
+    if(proto!==(array?Array.prototype:Object.prototype)&&!(proto===null&&!array))throw Error('Invalid example snapshot');
+    const keys=Reflect.ownKeys(v),descriptors=Object.getOwnPropertyDescriptors(v);
+    if(array){if(v.length>10000||keys.length!==v.length+1)throw Error('Invalid example array');return Array.from({length:v.length},(_,i)=>{
+      const d=descriptors[i];if(!d?.enumerable||!Object.hasOwn(d,'value'))throw Error('Invalid example field');return copy(d.value,depth+1);});}
+    const result={};for(const key of keys){const d=descriptors[key];if(typeof key!=='string'||['__proto__','toJSON'].includes(key)
+      ||!d?.enumerable||!Object.hasOwn(d,'value'))throw Error('Invalid example field');result[key]=copy(d.value,depth+1);}return result;
+  };
+  try{return JSON.stringify(copy(value,0));}catch{return null;}
+}
+export function matchesSourceCorrectionLegacyDTO(binding,entry) {
+  return Boolean([...canonicalEnglish.values()].some(row=>validSourceCorrection(row)&&row.legacyExampleBinding===binding)
+    &&safeDataJSON(entry)===binding.expectedEntryJSON);
 }
 
 function retainedRow(term) {
@@ -126,6 +224,7 @@ export function matchesRetainedCanonicalAlternative(term, item) {
 /** Drop unapproved old variants, without promoting an alternative to primary
  * or changing caller data. Policy evidence and internal IDs are never copied. */
 export function sanitizeRetainedCanonicalResult(item) {
+  if(rejectsReviewedCanonicalDisplay(item))return null;
   const row = retainedRow(item?.term);
   if (!row) return item;
   if (!matchesRetainedCanonicalAlternative(item.term, item)) return null;
@@ -155,7 +254,15 @@ export function guardLegacySupplementaryResult(result) {
   if (!Array.isArray(result?.results)) return result;
   let changed = false;
   const results = result.results.map(item => {
+    const corrected=correctionExampleRow(dataValue(item,'term'));
+    if(corrected&&dataValue(item,'term')!==corrected.term){
+      const error=new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');error.code='unreviewed_dictionary_form';throw error;
+    }
     if (!isReviewedCanonicalSenseHead(item?.term)) return item;
+    if(rejectsReviewedCanonicalDisplay(item)){
+      const error=new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');error.code='unreviewed_dictionary_form';throw error;
+    }
+    if(matchesSourceCorrectionOwnContent(item))return item;
     if (!matchesRetainedCanonicalAlternative(item.term, item)) {
       const error = new Error('请输入英文原形查询；该词形暂时没有可靠的对应释义。');
       error.code = 'unreviewed_dictionary_form'; throw error;
@@ -322,6 +429,7 @@ export function loadEverydayExamples(term) {
   const forms = canonical ? [canonical] : englishForms.get(key);
   if (forms?.length !== 1) return null;
   const row = forms[0];
+  if(row.exampleSenses)return loadSourceCorrectionExamples(row.term);
   if (Object.hasOwn(row, 'existingExampleDTOJSON')) return associatedOriginal(row);
   return {
     term: row.term,

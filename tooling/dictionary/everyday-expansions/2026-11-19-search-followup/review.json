@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "53708ca321ed6fa9e53f7bd74d98b63a075b427d5402ec88e205ed4eaf90d1ee",
+  "sourceByteSha256": "fb3ed2855dc6fe95714032243484503d15b1b282db33c99eb150475523d802ef",
+  "author": "AI/search_coverage_followup_root",
+  "reviewer": "AI/search_coverage_followup_independent_reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "payment code",
+    "leave a job",
+    "by a fluke",
+    "nuanced"
+  ],
+  "issues": [],
+  "reviewScope": "Independent language/POS, exact aliases/forms, bilingual fidelity, actual supporting references and full-corpus English-sentence dedup. Newly composed wording is not attributed to dictionary publishers.",
+  "reviewedRows": [
+    {
+      "term": "payment code",
+      "rowSha256": "4e31829a48cf9aee0cd98e57698f177e4b4d969ddf8eddc7f917f5e73e3ffd25",
+      "languageDecision": "PASS",
+      "reason": "Correct countable noun phrase for a payer-displayed QR code or barcode scanned by the merchant. Alipay+ and WeChat Pay directly confirm the term and direction of scanning. Both example versions describe paying for groceries; no receiving-code or verification-code equivalence.",
+      "aliasAndFormReason": "Exactly付款码 for this selected sense; payment codes is the ordinary plural. It does not admit arbitrary payment identifiers or merchant-presented receiving codes.",
+      "referenceVerification": [
+        {
+          "url": "https://docs.alipayplus.com/alipayplus/alipayplus/ams_upm/introduction",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "User-presented payment and explicit payment code term/QR-barcode definition."
+        },
+        {
+          "url": "https://pay.wechatpay.cn/doc/global/v3/en/4012356358",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "Quick Pay overview and displayed QR/barcode forms."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "leave a job",
+      "rowSha256": "4aa3d99572550b21f89756a1ba30380455e710f215c33845fda9af0e1093d07f",
+      "languageDecision": "PASS",
+      "reason": "Correct verb phrase for ceasing work in a job without itself specifying how employment ended. The contract-expiry example is grammatical and faithful in Chinese, and avoids falsely equating any departure with resignation.",
+      "aliasAndFormReason": "Exactly离职; left a job/leaving a job/leaves a job correctly inflect leave. Generic benchmark expectation is intentionally broadened to this phrase. Existing resign/resignation remain specific to resigning, including pressured resignation; dismissal, retirement, leave of absence and leaving the office are not unrestricted synonyms.",
+      "referenceVerification": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/leave",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Job sense means stop working at a place; direct page403."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/resign",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Specific resignation sense; forced to resign attested, so not always freely voluntary; direct page403."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "by a fluke",
+      "rowSha256": "110800c02d901d33c08b04d98ed6cbc72f735af4d4ec9c6d47544a6520a445a3",
+      "languageDecision": "PASS",
+      "reason": "Correct adverbial phrase for a chance result, commonly an unexpectedly fortunate result. Finding the missing key in an old pocket illustrates this naturally and the Chinese translation is faithful. No publisher example was reused.",
+      "aliasAndFormReason": "Finite whole phrase only; no generated determiner substitutions or new forms. Both Chinese aliases preserve chance/luck. Existing by some fluke is a separate immutable authenticated head and is not rewritten by this approval.",
+      "referenceVerification": [
+        {
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/fluke",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Luck sense explicitly documents by a fluke; direct page403."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "nuanced",
+      "rowSha256": "2bc1e07bd11855e0b27be2c7107199cfab9f50fde9e6713f6586f92ff9e5c5b7",
+      "languageDecision": "PASS",
+      "reason": "Correct adjective for having or expressing subtle distinctions; selected analytical/expressive Chinese meanings fit the balanced benefits-and-risks example. It is a new adjective literal, not a relabelling of the existing noun nuance.",
+      "aliasAndFormReason": "Only the two precise adjective aliases, no added morphology. This does not declare nuance globally noun-only or nuanced an invalid verb form: Collins separately attests a verb and derived adjective.",
+      "referenceVerification": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/nuanced",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Adjective heading and subtle-difference scope; direct page403."
+        },
+        {
+          "url": "https://www.collinsdictionary.com/dictionary/english/nuance",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "Subtle distinction meaning plus explicit derived nuanced adjective and transitive nuance use."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "globalExampleDedupEvidence": "outputs/search-experience-20261119/chinese/next-batch-five/seven-pair-global-dedup-review.json"
+}

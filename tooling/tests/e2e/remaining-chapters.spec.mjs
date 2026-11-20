@@ -1,4 +1,8 @@
 import { expect, test } from "@playwright/test";
+import {useRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
+
+// Full source, audio and ID assertions below include reused chapter contexts.
+useRecordedChapterSources(test);
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizeEnglish } from "../../../vocab/js/wordbook-schema.js";

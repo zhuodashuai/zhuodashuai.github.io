@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "568647d544f7db24424b032b554266510f7e3a065cf668f367bbf0aaa8495710",
+  "sourceByteSha256": "71c152f5a8aadcadb78e662085b24520c03b23838503eee22624e1362af21ba8",
+  "reviewer": "AI/search_experience_independent_language_reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "refrigerator",
+    "freezer",
+    "well-being",
+    "log in",
+    "sign in"
+  ],
+  "issues": [],
+  "reviewedRows": [
+    {
+      "term": "refrigerator",
+      "rowSha256": "2da041fee17b7d6d5cc13b8f456d81b676e70bffd1c23f93504d127c333b9f2e",
+      "canonicalId": 679499,
+      "canonicalSourceSha256": "fe6b0c7bde4a60c3e1ac5d58cac08a55567df981429316fcc52acbe497a7c2ea",
+      "languageDecision": "PASS",
+      "reason": "Correct noun. Merriam-Webster confirms a cooling room or appliance, supporting low-temperature storage and the selected room/device scope. Both example versions move the appliance away from a wall to clean.",
+      "aliasAndFormReason": "Regular refrigerators. Chinese aliases preserve refrigeration rather than equating it with a standalone freezer. Old technical glosses are provenance, not newly approved common senses.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/refrigerator",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "freezer",
+      "rowSha256": "61d375a3ee4c292c0367d3c0795da6b7c9181cdec7ec3d3210ed1a3710834a72",
+      "canonicalId": 1874928,
+      "canonicalSourceSha256": "99a672b325a2911acb7745879ea89021b3cb44d8d89fe0861772c5e5897500ca",
+      "languageDecision": "PASS",
+      "reason": "Correct noun. Merriam-Webster confirms a freezing compartment, room, or appliance, supporting separately numbered equipment and compartment meanings. The example says two more containers fit in both languages.",
+      "aliasAndFormReason": "Regular freezers; aliases all preserve frozen storage. The old broad 冰箱 gloss must not re-establish equivalence with the ordinary refrigerator sense.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/freezer",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "well-being",
+      "rowSha256": "91553581c1ad9a9c2974f9893104865a81001984703f2091aec71d8124d10bae",
+      "canonicalId": 667555,
+      "canonicalSourceSha256": "d45bb9808e73edaa90a30c117aa2c79989578e7eca947ee0b499cd8efc89df8b",
+      "languageDecision": "PASS",
+      "reason": "Correct noun replaces the old adjective attribution. Merriam-Webster confirms a happy/healthy/prosperous state; the selected Chinese health, comfort and happiness scope is accurate. Exam-week survey example translates faithfully.",
+      "aliasAndFormReason": "wellbeing is an accepted solid-spelling variant; Chinese aliases do not create an adjective or comparative meaning.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/well-being",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "log in",
+      "rowSha256": "e4da8ba2083c0bc9615eb88ae97c23ab1c1470652c73022a97b1c5580163491a",
+      "canonicalId": 9788912,
+      "canonicalSourceSha256": "91056f450828edf5f17159ad605734aae5a8347ade65a5723d93e04e24e316d8",
+      "languageDecision": "PASS",
+      "reason": "Correct computer-access phrasal verb. Merriam-Webster directly documents log in to a system and the listed inflections. The note-saving account example denotes access, not creating registration.",
+      "aliasAndFormReason": "logged in/logging in/logs in are valid bounded forms. 登录 aliases are correct; the old 注册 gloss is not approved as modern account creation.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/log%20in",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "sign in",
+      "rowSha256": "23e2f499e32b956f4433201bc59c730efe93f3845315b58b02495e1fc3388c8e",
+      "canonicalId": 10241155,
+      "canonicalSourceSha256": "0bee33e7d64587619f96c9e3a53bef82a232f3b601451052ee156b27a7e42321",
+      "languageDecision": "PASS",
+      "reason": "Correct phrasal verb with arrival registration and computer authentication separately numbered. Merriam-Webster confirms arrival and its Kids entry explicitly uses password sign-in on a computer. Reception example and Chinese align.",
+      "aliasAndFormReason": "signed in/signing in/signs in are valid. 签到/登录 aliases stay within the selected senses; receipt signing is not equated with account creation.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/sign%20in",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "reviewScope": "Independent selected-sense approval; exact five canonical-before IDs and semantic hashes checked. Original canonical records remain provenance; not every old gloss or unrelated sense is approved."
+}

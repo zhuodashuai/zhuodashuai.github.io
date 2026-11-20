@@ -1,5 +1,5 @@
 import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v108.js";
+import { createEntryDetailController } from "./entry-detail-v108.js?v=117";
 import {
   claimNextOperation,
   completeOperation,
@@ -22,7 +22,7 @@ import { ENTRY_TYPES, assertCompleteAiCandidate, buildOwnerEnteredTermAllowlist,
 import { classifySyncFailure, mergeAiCandidate, nextRetryAt, rebaseOperation } from "./sync-logic.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { lookupCoreEntry } from "./core-dictionary.js?v=77";
-import { searchExpandedDictionary } from "./expanded-dictionary.js?v=112";
+import { searchExpandedDictionary } from "./expanded-dictionary.js?v=117";
 import { preserveCollectionTags } from "./collections.js?v=82";
 import { buildSynonymGroups } from "./synonym-groups.js?v=82";
 import { indexSynonymFingerprints, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";

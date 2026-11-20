@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS — independently reviewed finite plural recovery; no general morphology admission",
+  "reviewer": "AI/english_surface_recovery_independent_reviewer",
+  "author": "AI/search_ui_upgrade_source_recovery_author",
+  "independentOfAuthor": true,
+  "reviewedAt": "2026-11-19",
+  "filesSha256": {
+    "tooling/dictionary/english-surface-variants/side-effects.json": "d56447495880acd4b5ee8a7d00427c66a65ef23489774c6fda6e354931330e89",
+    "vocab/js/english-surface-variants.js": "c3f44a5e758446fe4ca3122fae628a4e1fce75d0de238b3cca35531f356f3e26",
+    "vocab/tests/english-side-effects-surface.test.mjs": "bd8143fc94a77f68668b3ffc69825a3c9a32a6ff0429908c318e68642094df12",
+    "vocab/js/expanded-dictionary.js": "6fcd4557045b06934c1ac8c4c02081c68212925b5d1702a8196b64f45ee52742"
+  },
+  "primaryReferences": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/side-effect",
+      "access": "Actual primary indexed page read 2026-11-19",
+      "evidence": "Countable noun; American entry normally plural; plural side effects explicitly attested. No definitions or examples copied."
+    }
+  ],
+  "checks": [
+    "Actual full canonical record12574919/manifest/shard/source descriptor matched pinned evidence; public literal DTO has no exposed ID.",
+    "Only side effects maps to side effect after complete literal/form/context miss. Existing orthographic row bytes preserved; separate per-row source authority prevents MIT impersonation.",
+    "Private engine brand binds current full manifest SHA at consumption;61-second source metadata refresh denies recovery while literal source remains current.",
+    "Entire source DTO/POS/meaning/alternatives preserved with original matchedForm only. Explicit automatic collection returns false.",
+    "Future plural literals/declared forms retain priority; ambiguity/source corruption/cancellation/timeout do not publish a recovered card.",
+    "No generic suffix or take notes to take note admission."
+  ],
+  "testCommands": [
+    {
+      "command": "node --test vocab/tests/english-surface-variants.test.mjs vocab/tests/english-side-effects-surface.test.mjs",
+      "pass": 15,
+      "fail": 0,
+      "skip": 0
+    }
+  ],
+  "limits": [
+    "Finite source-bound review, not approval of unrelated morphology or rewritten canonical data.",
+    "Root must regenerate transitive engine binding before cache admission."
+  ]
+}

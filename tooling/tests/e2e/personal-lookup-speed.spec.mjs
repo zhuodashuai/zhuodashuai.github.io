@@ -78,7 +78,7 @@ test("entries unlock adding while delayed learning still locks study, scoring an
 
 test("Chinese basic fallback is labelled partial when the complete ranking is unavailable, and retry preserves the draft", async ({ page }) => {
   let unavailable = true, blocked = 0;
-  await page.route('**/data/chinese-search-ranking/**', route => {
+  await page.route(/\/data\/(?:chinese-search-ranking|chinese-query-cache)\/[^?]+[.]bin(?:\?.*)?$/u, route => {
     if (!unavailable) return route.continue();
     blocked++; return route.fulfill({ status: 503, contentType: 'application/octet-stream', body: '' });
   });

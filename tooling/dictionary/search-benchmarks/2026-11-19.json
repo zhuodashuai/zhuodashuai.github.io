@@ -1,0 +1,2253 @@
+{
+  "schemaVersion": 1,
+  "id": "search-experience-2026-11-19",
+  "scope": "Finite project regression corpus; no competitor definitions or claims of universal coverage. Head expectations express independently checked ordinary meanings, not equality of all senses.",
+  "notes": [
+    "Availability, expected-head recall and ranking positions are separate metrics.",
+    "Typo suggestions are an independent sidecar probe, not an assertion that the UI displayed them or automatically corrected a literal/form hit.",
+    "Known pending variants remain visible in coverage and accuracy denominators.",
+    "Chinese streams must be read to their actual end; no artificial result cap.",
+    "Three historicalGap fields preserve pre-follow-up observations; current pending/resolved status is computed from actual head evidence. All235 original inputs, language/category IDs and critical exclusions are retained. Two expectation reviews document a canonical spelling and a broader Chinese employment intent."
+  ],
+  "queries": [
+    {
+      "id": "en-001",
+      "language": "en",
+      "category": "ordinary",
+      "query": "happy",
+      "expectedHeads": [
+        "happy"
+      ]
+    },
+    {
+      "id": "en-002",
+      "language": "en",
+      "category": "ordinary",
+      "query": "receive",
+      "expectedHeads": [
+        "receive"
+      ]
+    },
+    {
+      "id": "en-003",
+      "language": "en",
+      "category": "ordinary",
+      "query": "accommodation",
+      "expectedHeads": [
+        "accommodation"
+      ]
+    },
+    {
+      "id": "en-004",
+      "language": "en",
+      "category": "ordinary",
+      "query": "appointment",
+      "expectedHeads": [
+        "appointment"
+      ]
+    },
+    {
+      "id": "en-005",
+      "language": "en",
+      "category": "ordinary",
+      "query": "prescription",
+      "expectedHeads": [
+        "prescription"
+      ]
+    },
+    {
+      "id": "en-006",
+      "language": "en",
+      "category": "ordinary",
+      "query": "invoice",
+      "expectedHeads": [
+        "invoice"
+      ]
+    },
+    {
+      "id": "en-007",
+      "language": "en",
+      "category": "ordinary",
+      "query": "refund",
+      "expectedHeads": [
+        "refund"
+      ]
+    },
+    {
+      "id": "en-008",
+      "language": "en",
+      "category": "ordinary",
+      "query": "receipt",
+      "expectedHeads": [
+        "receipt"
+      ]
+    },
+    {
+      "id": "en-009",
+      "language": "en",
+      "category": "ordinary",
+      "query": "deadline",
+      "expectedHeads": [
+        "deadline"
+      ]
+    },
+    {
+      "id": "en-010",
+      "language": "en",
+      "category": "ordinary",
+      "query": "drawback",
+      "expectedHeads": [
+        "drawback"
+      ]
+    },
+    {
+      "id": "en-011",
+      "language": "en",
+      "category": "ordinary",
+      "query": "insight",
+      "expectedHeads": [
+        "insight"
+      ]
+    },
+    {
+      "id": "en-012",
+      "language": "en",
+      "category": "ordinary",
+      "query": "reliable",
+      "expectedHeads": [
+        "reliable"
+      ]
+    },
+    {
+      "id": "en-013",
+      "language": "en",
+      "category": "ordinary",
+      "query": "efficient",
+      "expectedHeads": [
+        "efficient"
+      ]
+    },
+    {
+      "id": "en-014",
+      "language": "en",
+      "category": "ordinary",
+      "query": "convenient",
+      "expectedHeads": [
+        "convenient"
+      ]
+    },
+    {
+      "id": "en-015",
+      "language": "en",
+      "category": "ordinary",
+      "query": "nuanced",
+      "expectedHeads": [
+        "nuanced"
+      ]
+    },
+    {
+      "id": "en-016",
+      "language": "en",
+      "category": "ordinary",
+      "query": "researcher",
+      "expectedHeads": [
+        "researcher"
+      ]
+    },
+    {
+      "id": "en-017",
+      "language": "en",
+      "category": "ordinary",
+      "query": "evidence",
+      "expectedHeads": [
+        "evidence"
+      ]
+    },
+    {
+      "id": "en-018",
+      "language": "en",
+      "category": "ordinary",
+      "query": "calculate",
+      "expectedHeads": [
+        "calculate"
+      ]
+    },
+    {
+      "id": "en-019",
+      "language": "en",
+      "category": "ordinary",
+      "query": "spreadsheet",
+      "expectedHeads": [
+        "spreadsheet"
+      ]
+    },
+    {
+      "id": "en-020",
+      "language": "en",
+      "category": "ordinary",
+      "query": "login",
+      "expectedHeads": [
+        "login"
+      ]
+    },
+    {
+      "id": "en-021",
+      "language": "en",
+      "category": "ordinary",
+      "query": "username",
+      "expectedHeads": [
+        "username"
+      ]
+    },
+    {
+      "id": "en-022",
+      "language": "en",
+      "category": "ordinary",
+      "query": "password",
+      "expectedHeads": [
+        "password"
+      ]
+    },
+    {
+      "id": "en-023",
+      "language": "en",
+      "category": "ordinary",
+      "query": "disinfectant",
+      "expectedHeads": [
+        "disinfectant"
+      ]
+    },
+    {
+      "id": "en-024",
+      "language": "en",
+      "category": "ordinary",
+      "query": "surveillance",
+      "expectedHeads": [
+        "surveillance"
+      ]
+    },
+    {
+      "id": "en-025",
+      "language": "en",
+      "category": "ordinary",
+      "query": "perspicacious",
+      "expectedHeads": [
+        "perspicacious"
+      ]
+    },
+    {
+      "id": "en-026",
+      "language": "en",
+      "category": "ordinary",
+      "query": "well-being",
+      "expectedHeads": [
+        "well-being"
+      ]
+    },
+    {
+      "id": "en-027",
+      "language": "en",
+      "category": "forms",
+      "query": "ran",
+      "expectedHeads": [
+        "run",
+        "ran"
+      ]
+    },
+    {
+      "id": "en-028",
+      "language": "en",
+      "category": "forms",
+      "query": "went",
+      "expectedHeads": [
+        "go",
+        "went"
+      ]
+    },
+    {
+      "id": "en-029",
+      "language": "en",
+      "category": "forms",
+      "query": "written",
+      "expectedHeads": [
+        "write",
+        "written"
+      ]
+    },
+    {
+      "id": "en-030",
+      "language": "en",
+      "category": "forms",
+      "query": "children",
+      "expectedHeads": [
+        "child",
+        "children"
+      ]
+    },
+    {
+      "id": "en-031",
+      "language": "en",
+      "category": "forms",
+      "query": "women",
+      "expectedHeads": [
+        "woman",
+        "women"
+      ]
+    },
+    {
+      "id": "en-032",
+      "language": "en",
+      "category": "forms",
+      "query": "leaves",
+      "expectedHeads": [
+        "leave",
+        "leaf",
+        "leaves"
+      ]
+    },
+    {
+      "id": "en-033",
+      "language": "en",
+      "category": "forms",
+      "query": "axes",
+      "expectedHeads": [
+        "axis",
+        "axe",
+        "ax",
+        "axes"
+      ]
+    },
+    {
+      "id": "en-034",
+      "language": "en",
+      "category": "forms",
+      "query": "better",
+      "expectedHeads": [
+        "good",
+        "well",
+        "better"
+      ]
+    },
+    {
+      "id": "en-035",
+      "language": "en",
+      "category": "forms",
+      "query": "running",
+      "expectedHeads": [
+        "run",
+        "running"
+      ]
+    },
+    {
+      "id": "en-036",
+      "language": "en",
+      "category": "forms",
+      "query": "looked after",
+      "expectedHeads": [
+        "look after"
+      ]
+    },
+    {
+      "id": "en-037",
+      "language": "en",
+      "category": "forms",
+      "query": "took off",
+      "expectedHeads": [
+        "take off"
+      ]
+    },
+    {
+      "id": "en-038",
+      "language": "en",
+      "category": "forms",
+      "query": "taken off",
+      "expectedHeads": [
+        "take off"
+      ]
+    },
+    {
+      "id": "en-039",
+      "language": "en",
+      "category": "forms",
+      "query": "gave up",
+      "expectedHeads": [
+        "give up"
+      ]
+    },
+    {
+      "id": "en-040",
+      "language": "en",
+      "category": "forms",
+      "query": "got away with",
+      "expectedHeads": [
+        "get away with"
+      ]
+    },
+    {
+      "id": "en-041",
+      "language": "en",
+      "category": "forms",
+      "query": "followed up",
+      "expectedHeads": [
+        "follow up"
+      ]
+    },
+    {
+      "id": "en-042",
+      "language": "en",
+      "category": "phrase",
+      "query": "customer service",
+      "expectedHeads": [
+        "customer service"
+      ]
+    },
+    {
+      "id": "en-043",
+      "language": "en",
+      "category": "phrase",
+      "query": "customer service representative",
+      "expectedHeads": [
+        "customer service representative"
+      ]
+    },
+    {
+      "id": "en-044",
+      "language": "en",
+      "category": "phrase",
+      "query": "live agent",
+      "expectedHeads": [
+        "live agent"
+      ]
+    },
+    {
+      "id": "en-045",
+      "language": "en",
+      "category": "phrase",
+      "query": "rubbing alcohol",
+      "expectedHeads": [
+        "rubbing alcohol"
+      ]
+    },
+    {
+      "id": "en-046",
+      "language": "en",
+      "category": "phrase",
+      "query": "hand sanitizer",
+      "expectedHeads": [
+        "hand sanitizer"
+      ]
+    },
+    {
+      "id": "en-047",
+      "language": "en",
+      "category": "phrase",
+      "query": "phone charger",
+      "expectedHeads": [
+        "phone charger"
+      ]
+    },
+    {
+      "id": "en-048",
+      "language": "en",
+      "category": "phrase",
+      "query": "charging cable",
+      "expectedHeads": [
+        "charging cable"
+      ]
+    },
+    {
+      "id": "en-049",
+      "language": "en",
+      "category": "phrase",
+      "query": "power bank",
+      "expectedHeads": [
+        "power bank"
+      ]
+    },
+    {
+      "id": "en-050",
+      "language": "en",
+      "category": "phrase",
+      "query": "boarding pass",
+      "expectedHeads": [
+        "boarding pass"
+      ]
+    },
+    {
+      "id": "en-051",
+      "language": "en",
+      "category": "phrase",
+      "query": "layover",
+      "expectedHeads": [
+        "layover"
+      ]
+    },
+    {
+      "id": "en-052",
+      "language": "en",
+      "category": "phrase",
+      "query": "check-in counter",
+      "expectedHeads": [
+        "check-in counter"
+      ]
+    },
+    {
+      "id": "en-053",
+      "language": "en",
+      "category": "phrase",
+      "query": "by some fluke",
+      "expectedHeads": [
+        "by some fluke"
+      ]
+    },
+    {
+      "id": "en-054",
+      "language": "en",
+      "category": "phrase",
+      "query": "by a fluke",
+      "expectedHeads": [
+        "by a fluke"
+      ],
+      "historicalGap": "Exact complete phrase variant is absent; no automatic article substitution."
+    },
+    {
+      "id": "en-055",
+      "language": "en",
+      "category": "phrase",
+      "query": "get around to",
+      "expectedHeads": [
+        "get around to"
+      ]
+    },
+    {
+      "id": "en-056",
+      "language": "en",
+      "category": "phrase",
+      "query": "out of the blue",
+      "expectedHeads": [
+        "out of the blue"
+      ]
+    },
+    {
+      "id": "en-057",
+      "language": "en",
+      "category": "phrase",
+      "query": "give someone a hand",
+      "expectedHeads": [
+        "give someone a hand",
+        "give somebody a hand"
+      ]
+    },
+    {
+      "id": "en-058",
+      "language": "en",
+      "category": "phrase",
+      "query": "give somebody a hand",
+      "expectedHeads": [
+        "give somebody a hand"
+      ]
+    },
+    {
+      "id": "en-059",
+      "language": "en",
+      "category": "phrase",
+      "query": "put up with",
+      "expectedHeads": [
+        "put up with"
+      ]
+    },
+    {
+      "id": "en-060",
+      "language": "en",
+      "category": "phrase",
+      "query": "keep up with",
+      "expectedHeads": [
+        "keep up with"
+      ]
+    },
+    {
+      "id": "en-061",
+      "language": "en",
+      "category": "phrase",
+      "query": "a piece of cake",
+      "expectedHeads": [
+        "a piece of cake"
+      ]
+    },
+    {
+      "id": "en-062",
+      "language": "en",
+      "category": "phrase",
+      "query": "take it for granted",
+      "expectedHeads": [
+        "take it for granted"
+      ]
+    },
+    {
+      "id": "en-063",
+      "language": "en",
+      "category": "phrase",
+      "query": "on the same page",
+      "expectedHeads": [
+        "on the same page"
+      ]
+    },
+    {
+      "id": "en-064",
+      "language": "en",
+      "category": "phrase",
+      "query": "safety oracle",
+      "expectedHeads": [
+        "safety oracle"
+      ]
+    },
+    {
+      "id": "en-065",
+      "language": "en",
+      "category": "phrase",
+      "query": "fall behind",
+      "expectedHeads": [
+        "fall behind"
+      ]
+    },
+    {
+      "id": "en-066",
+      "language": "en",
+      "category": "phrase",
+      "query": "burn out",
+      "expectedHeads": [
+        "burn out"
+      ]
+    },
+    {
+      "id": "en-067",
+      "language": "en",
+      "category": "phrase",
+      "query": "follow up",
+      "expectedHeads": [
+        "follow up"
+      ]
+    },
+    {
+      "id": "en-068",
+      "language": "en",
+      "category": "phrase",
+      "query": "get away with",
+      "expectedHeads": [
+        "get away with"
+      ]
+    },
+    {
+      "id": "en-069",
+      "language": "en",
+      "category": "phrase",
+      "query": "a lot",
+      "expectedHeads": [
+        "a lot"
+      ]
+    },
+    {
+      "id": "en-070",
+      "language": "en",
+      "category": "phrase",
+      "query": "well adjusted",
+      "expectedHeads": [
+        "well adjusted",
+        "well-adjusted"
+      ],
+      "historicalGap": "The spaced variant is absent; well-adjusted exists.",
+      "expectationReview": "Cambridge lists well adjusted and well-adjusted as spellings of the same complete adjective. The authenticated canonical hyphenated head is accepted; no other word joining is authorized."
+    },
+    {
+      "id": "en-071",
+      "language": "en",
+      "category": "copied",
+      "query": "self‐esteem",
+      "expectedHeads": [
+        "self-esteem"
+      ]
+    },
+    {
+      "id": "en-072",
+      "language": "en",
+      "category": "copied",
+      "query": "self‑esteem",
+      "expectedHeads": [
+        "self-esteem"
+      ]
+    },
+    {
+      "id": "en-073",
+      "language": "en",
+      "category": "copied",
+      "query": "mother‑in‑law",
+      "expectedHeads": [
+        "mother-in-law"
+      ]
+    },
+    {
+      "id": "en-074",
+      "language": "en",
+      "category": "copied",
+      "query": "long‑term",
+      "expectedHeads": [
+        "long-term"
+      ]
+    },
+    {
+      "id": "en-075",
+      "language": "en",
+      "category": "copied",
+      "query": "out‑of‑pocket expense",
+      "expectedHeads": [
+        "out-of-pocket expense"
+      ]
+    },
+    {
+      "id": "en-076",
+      "language": "en",
+      "category": "copied",
+      "query": "donʼt",
+      "expectedHeads": [
+        "don't"
+      ]
+    },
+    {
+      "id": "en-077",
+      "language": "en",
+      "category": "copied",
+      "query": "canʼt",
+      "expectedHeads": [
+        "can't"
+      ]
+    },
+    {
+      "id": "en-078",
+      "language": "en",
+      "category": "copied",
+      "query": "can‛t",
+      "expectedHeads": [
+        "can't"
+      ]
+    },
+    {
+      "id": "en-079",
+      "language": "en",
+      "category": "copied",
+      "query": "rock ʼnʼ roll",
+      "expectedHeads": [
+        "rock'n'roll",
+        "rock and roll"
+      ],
+      "historicalGap": "The complete copied apostrophe-and-space variant is absent; no arbitrary contraction expansion."
+    },
+    {
+      "id": "en-080",
+      "language": "en",
+      "category": "copied",
+      "query": "ＨＡＰＰＹ",
+      "expectedHeads": [
+        "happy"
+      ]
+    },
+    {
+      "id": "en-081",
+      "language": "en",
+      "category": "copied",
+      "query": "apple，",
+      "expectedHeads": [
+        "apple"
+      ]
+    },
+    {
+      "id": "en-082",
+      "language": "en",
+      "category": "copied",
+      "query": "apple。",
+      "expectedHeads": [
+        "apple"
+      ]
+    },
+    {
+      "id": "en-083",
+      "language": "en",
+      "category": "copied",
+      "query": "\"apple\",",
+      "expectedHeads": [
+        "apple"
+      ]
+    },
+    {
+      "id": "en-084",
+      "language": "en",
+      "category": "copied",
+      "query": "jab at。",
+      "expectedHeads": [
+        "jab at"
+      ]
+    },
+    {
+      "id": "en-085",
+      "language": "en",
+      "category": "copied",
+      "query": "look after…",
+      "expectedHeads": [
+        "look after"
+      ]
+    },
+    {
+      "id": "en-086",
+      "language": "en",
+      "category": "copied",
+      "query": "U.S.,",
+      "expectedHeads": [
+        "U.S."
+      ]
+    },
+    {
+      "id": "en-087",
+      "language": "en",
+      "category": "copied",
+      "query": "e.g.,",
+      "expectedHeads": [
+        "e.g."
+      ]
+    },
+    {
+      "id": "en-088",
+      "language": "en",
+      "category": "copied",
+      "query": "“e.g.”。",
+      "expectedHeads": [
+        "e.g."
+      ]
+    },
+    {
+      "id": "en-089",
+      "language": "en",
+      "category": "copied",
+      "query": "ha​ppy",
+      "expectedHeads": [
+        "happy"
+      ]
+    },
+    {
+      "id": "en-090",
+      "language": "en",
+      "category": "copied",
+      "query": "accom-\nmodation",
+      "expectedHeads": [
+        "accommodation"
+      ]
+    },
+    {
+      "id": "en-091",
+      "language": "en",
+      "category": "copied",
+      "query": "accom- modation",
+      "expectedHeads": [
+        "accommodation"
+      ]
+    },
+    {
+      "id": "en-092",
+      "language": "en",
+      "category": "typo",
+      "query": "heppy",
+      "expectedHeads": [
+        "happy"
+      ]
+    },
+    {
+      "id": "en-093",
+      "language": "en",
+      "category": "typo",
+      "query": "recieve",
+      "expectedHeads": [
+        "receive"
+      ]
+    },
+    {
+      "id": "en-094",
+      "language": "en",
+      "category": "typo",
+      "query": "helllo",
+      "expectedHeads": [
+        "hello"
+      ]
+    },
+    {
+      "id": "en-095",
+      "language": "en",
+      "category": "typo",
+      "query": "teh",
+      "expectedHeads": [
+        "the"
+      ]
+    },
+    {
+      "id": "en-096",
+      "language": "en",
+      "category": "typo",
+      "query": "definately",
+      "expectedHeads": [
+        "definitely"
+      ]
+    },
+    {
+      "id": "en-097",
+      "language": "en",
+      "category": "typo",
+      "query": "accomodation",
+      "expectedHeads": [
+        "accommodation"
+      ]
+    },
+    {
+      "id": "en-098",
+      "language": "en",
+      "category": "typo",
+      "query": "seperate",
+      "expectedHeads": [
+        "separate"
+      ]
+    },
+    {
+      "id": "en-099",
+      "language": "en",
+      "category": "typo",
+      "query": "goverment",
+      "expectedHeads": [
+        "government"
+      ]
+    },
+    {
+      "id": "en-100",
+      "language": "en",
+      "category": "typo",
+      "query": "resturant",
+      "expectedHeads": [
+        "restaurant"
+      ]
+    },
+    {
+      "id": "en-101",
+      "language": "en",
+      "category": "typo",
+      "query": "enviroment",
+      "expectedHeads": [
+        "environment"
+      ]
+    },
+    {
+      "id": "en-102",
+      "language": "en",
+      "category": "typo",
+      "query": "adress",
+      "expectedHeads": [
+        "address"
+      ]
+    },
+    {
+      "id": "en-103",
+      "language": "en",
+      "category": "typo",
+      "query": "beggining",
+      "expectedHeads": [
+        "beginning"
+      ]
+    },
+    {
+      "id": "en-104",
+      "language": "en",
+      "category": "typo",
+      "query": "tomorow",
+      "expectedHeads": [
+        "tomorrow"
+      ]
+    },
+    {
+      "id": "en-105",
+      "language": "en",
+      "category": "typo",
+      "query": "becuase",
+      "expectedHeads": [
+        "because"
+      ]
+    },
+    {
+      "id": "en-106",
+      "language": "en",
+      "category": "typo",
+      "query": "wierd",
+      "expectedHeads": [
+        "weird"
+      ]
+    },
+    {
+      "id": "en-107",
+      "language": "en",
+      "category": "typo",
+      "query": "neccessary",
+      "expectedHeads": [
+        "necessary"
+      ]
+    },
+    {
+      "id": "en-108",
+      "language": "en",
+      "category": "typo",
+      "query": "occured",
+      "expectedHeads": [
+        "occur"
+      ]
+    },
+    {
+      "id": "en-109",
+      "language": "en",
+      "category": "typo",
+      "query": "succesful",
+      "expectedHeads": [
+        "successful"
+      ]
+    },
+    {
+      "id": "en-110",
+      "language": "en",
+      "category": "typo",
+      "query": "comming",
+      "expectedHeads": [
+        "coming"
+      ],
+      "knownIncorrectForm": "Historical COM noun record id3775454 incorrectly declares comming as a form. The exact provenance-bound rejection must prevent this technical noun from suppressing spelling suggestions; literal COM and plural coms must remain.",
+      "excludedHeads": [
+        "COM"
+      ]
+    },
+    {
+      "id": "en-111",
+      "language": "en",
+      "category": "typo",
+      "query": "wich",
+      "expectedHeads": [
+        "which"
+      ]
+    },
+    {
+      "id": "en-112",
+      "language": "en",
+      "category": "typo",
+      "query": "look afetr",
+      "expectedHeads": [
+        "look after"
+      ]
+    },
+    {
+      "id": "en-113",
+      "language": "en",
+      "category": "typo",
+      "query": "by some fluk",
+      "expectedHeads": [
+        "by some fluke"
+      ]
+    },
+    {
+      "id": "en-114",
+      "language": "en",
+      "category": "typo",
+      "query": "safety orcle",
+      "expectedHeads": [
+        "safety oracle"
+      ]
+    },
+    {
+      "id": "en-115",
+      "language": "en",
+      "category": "typo",
+      "query": "charging calbe",
+      "expectedHeads": [
+        "charging cable"
+      ]
+    },
+    {
+      "id": "zh-001",
+      "language": "zh",
+      "category": "household",
+      "query": "冰箱",
+      "expectedHeads": [
+        "fridge",
+        "refrigerator"
+      ]
+    },
+    {
+      "id": "zh-002",
+      "language": "zh",
+      "category": "household",
+      "query": "洗衣机",
+      "expectedHeads": [
+        "washing machine"
+      ]
+    },
+    {
+      "id": "zh-003",
+      "language": "zh",
+      "category": "household",
+      "query": "洗洁精",
+      "expectedHeads": [
+        "dishwashing liquid",
+        "dish soap",
+        "washing-up liquid"
+      ],
+      "excludedHeads": [
+        "dishwasher detergent"
+      ]
+    },
+    {
+      "id": "zh-004",
+      "language": "zh",
+      "category": "household",
+      "query": "洗碗机",
+      "expectedHeads": [
+        "dishwasher"
+      ]
+    },
+    {
+      "id": "zh-005",
+      "language": "zh",
+      "category": "household",
+      "query": "消毒酒精",
+      "expectedHeads": [
+        "rubbing alcohol"
+      ]
+    },
+    {
+      "id": "zh-006",
+      "language": "zh",
+      "category": "household",
+      "query": "充电宝",
+      "expectedHeads": [
+        "power bank"
+      ],
+      "excludedHeads": [
+        "spare battery"
+      ]
+    },
+    {
+      "id": "zh-007",
+      "language": "zh",
+      "category": "household",
+      "query": "充电线",
+      "expectedHeads": [
+        "charging cable"
+      ]
+    },
+    {
+      "id": "zh-008",
+      "language": "zh",
+      "category": "household",
+      "query": "插线板",
+      "expectedHeads": [
+        "power strip"
+      ]
+    },
+    {
+      "id": "zh-009",
+      "language": "zh",
+      "category": "household",
+      "query": "垃圾袋",
+      "expectedHeads": [
+        "garbage bag",
+        "bin bag",
+        "trash bag",
+        "bin liner"
+      ]
+    },
+    {
+      "id": "zh-010",
+      "language": "zh",
+      "category": "household",
+      "query": "保鲜膜",
+      "expectedHeads": [
+        "cling film",
+        "plastic wrap"
+      ]
+    },
+    {
+      "id": "zh-011",
+      "language": "zh",
+      "category": "household",
+      "query": "抽纸",
+      "expectedHeads": [
+        "facial tissue",
+        "tissues"
+      ]
+    },
+    {
+      "id": "zh-012",
+      "language": "zh",
+      "category": "household",
+      "query": "湿巾",
+      "expectedHeads": [
+        "wet wipe",
+        "wet wipes"
+      ]
+    },
+    {
+      "id": "zh-013",
+      "language": "zh",
+      "category": "household",
+      "query": "洗发水",
+      "expectedHeads": [
+        "shampoo"
+      ]
+    },
+    {
+      "id": "zh-014",
+      "language": "zh",
+      "category": "household",
+      "query": "沐浴露",
+      "expectedHeads": [
+        "shower gel",
+        "body wash"
+      ]
+    },
+    {
+      "id": "zh-015",
+      "language": "zh",
+      "category": "household",
+      "query": "牙线",
+      "expectedHeads": [
+        "dental floss"
+      ]
+    },
+    {
+      "id": "zh-016",
+      "language": "zh",
+      "category": "household",
+      "query": "除湿机",
+      "expectedHeads": [
+        "dehumidifier"
+      ]
+    },
+    {
+      "id": "zh-017",
+      "language": "zh",
+      "category": "household",
+      "query": "扫地机器人",
+      "expectedHeads": [
+        "robot vacuum",
+        "robot vacuum cleaner"
+      ]
+    },
+    {
+      "id": "zh-018",
+      "language": "zh",
+      "category": "household",
+      "query": "凉快",
+      "expectedHeads": [
+        "cool"
+      ]
+    },
+    {
+      "id": "zh-019",
+      "language": "zh",
+      "category": "travel",
+      "query": "转机",
+      "expectedHeads": [
+        "change planes"
+      ],
+      "excludedHeads": [
+        "rotating mechanism",
+        "reverser",
+        "reversing mechanism"
+      ]
+    },
+    {
+      "id": "zh-020",
+      "language": "zh",
+      "category": "travel",
+      "query": "改签",
+      "expectedHeads": [
+        "change a flight",
+        "reschedule a flight",
+        "change a booking",
+        "change a ticket"
+      ]
+    },
+    {
+      "id": "zh-021",
+      "language": "zh",
+      "category": "travel",
+      "query": "退票",
+      "expectedHeads": [
+        "ticket refund",
+        "refund a ticket",
+        "get a ticket refund"
+      ]
+    },
+    {
+      "id": "zh-022",
+      "language": "zh",
+      "category": "travel",
+      "query": "登机口",
+      "expectedHeads": [
+        "boarding gate",
+        "gate"
+      ]
+    },
+    {
+      "id": "zh-023",
+      "language": "zh",
+      "category": "travel",
+      "query": "行李额",
+      "expectedHeads": [
+        "baggage allowance"
+      ]
+    },
+    {
+      "id": "zh-024",
+      "language": "zh",
+      "category": "travel",
+      "query": "值机",
+      "expectedHeads": [
+        "check in",
+        "check-in",
+        "check in for a flight"
+      ]
+    },
+    {
+      "id": "zh-025",
+      "language": "zh",
+      "category": "travel",
+      "query": "延误",
+      "expectedHeads": [
+        "delay"
+      ]
+    },
+    {
+      "id": "zh-026",
+      "language": "zh",
+      "category": "travel",
+      "query": "候机楼",
+      "expectedHeads": [
+        "terminal",
+        "airport terminal"
+      ]
+    },
+    {
+      "id": "zh-027",
+      "language": "zh",
+      "category": "travel",
+      "query": "托运行李",
+      "expectedHeads": [
+        "checked baggage",
+        "checked luggage"
+      ]
+    },
+    {
+      "id": "zh-028",
+      "language": "zh",
+      "category": "travel",
+      "query": "随身行李",
+      "expectedHeads": [
+        "carry-on luggage",
+        "hand luggage",
+        "carry-on baggage"
+      ]
+    },
+    {
+      "id": "zh-029",
+      "language": "zh",
+      "category": "travel",
+      "query": "去程",
+      "expectedHeads": [
+        "outbound journey"
+      ]
+    },
+    {
+      "id": "zh-030",
+      "language": "zh",
+      "category": "travel",
+      "query": "往返",
+      "expectedHeads": [
+        "round trip",
+        "return journey"
+      ]
+    },
+    {
+      "id": "zh-031",
+      "language": "zh",
+      "category": "travel",
+      "query": "过境",
+      "expectedHeads": [
+        "transit"
+      ]
+    },
+    {
+      "id": "zh-032",
+      "language": "zh",
+      "category": "travel",
+      "query": "接机",
+      "expectedHeads": [
+        "airport pickup",
+        "pick someone up at the airport"
+      ]
+    },
+    {
+      "id": "zh-033",
+      "language": "zh",
+      "category": "travel",
+      "query": "预约出租车",
+      "expectedHeads": [
+        "book a taxi"
+      ]
+    },
+    {
+      "id": "zh-034",
+      "language": "zh",
+      "category": "travel",
+      "query": "地铁",
+      "expectedHeads": [
+        "subway",
+        "underground"
+      ]
+    },
+    {
+      "id": "zh-035",
+      "language": "zh",
+      "category": "travel",
+      "query": "交通堵塞",
+      "expectedHeads": [
+        "traffic jam"
+      ]
+    },
+    {
+      "id": "zh-036",
+      "language": "zh",
+      "category": "travel",
+      "query": "导航",
+      "expectedHeads": [
+        "navigation"
+      ]
+    },
+    {
+      "id": "zh-037",
+      "language": "zh",
+      "category": "retail",
+      "query": "人工客服",
+      "expectedHeads": [
+        "live agent",
+        "human customer service"
+      ]
+    },
+    {
+      "id": "zh-038",
+      "language": "zh",
+      "category": "retail",
+      "query": "快递",
+      "expectedHeads": [
+        "express delivery",
+        "courier",
+        "express"
+      ]
+    },
+    {
+      "id": "zh-039",
+      "language": "zh",
+      "category": "retail",
+      "query": "外卖",
+      "expectedHeads": [
+        "takeaway",
+        "takeout"
+      ]
+    },
+    {
+      "id": "zh-040",
+      "language": "zh",
+      "category": "retail",
+      "query": "收据",
+      "expectedHeads": [
+        "receipt"
+      ]
+    },
+    {
+      "id": "zh-041",
+      "language": "zh",
+      "category": "retail",
+      "query": "发票",
+      "expectedHeads": [
+        "invoice"
+      ]
+    },
+    {
+      "id": "zh-042",
+      "language": "zh",
+      "category": "retail",
+      "query": "退款",
+      "expectedHeads": [
+        "refund"
+      ]
+    },
+    {
+      "id": "zh-043",
+      "language": "zh",
+      "category": "retail",
+      "query": "退货",
+      "expectedHeads": [
+        "return goods",
+        "return an item"
+      ]
+    },
+    {
+      "id": "zh-044",
+      "language": "zh",
+      "category": "retail",
+      "query": "免运费",
+      "expectedHeads": [
+        "free shipping"
+      ]
+    },
+    {
+      "id": "zh-045",
+      "language": "zh",
+      "category": "retail",
+      "query": "起送价",
+      "expectedHeads": [
+        "minimum order",
+        "minimum order value"
+      ]
+    },
+    {
+      "id": "zh-046",
+      "language": "zh",
+      "category": "retail",
+      "query": "付款码",
+      "expectedHeads": [
+        "payment code"
+      ]
+    },
+    {
+      "id": "zh-047",
+      "language": "zh",
+      "category": "retail",
+      "query": "会员卡",
+      "expectedHeads": [
+        "membership card"
+      ]
+    },
+    {
+      "id": "zh-048",
+      "language": "zh",
+      "category": "retail",
+      "query": "优惠券",
+      "expectedHeads": [
+        "coupon"
+      ]
+    },
+    {
+      "id": "zh-049",
+      "language": "zh",
+      "category": "retail",
+      "query": "促销",
+      "expectedHeads": [
+        "sales promotion",
+        "promotion"
+      ]
+    },
+    {
+      "id": "zh-050",
+      "language": "zh",
+      "category": "retail",
+      "query": "保质期",
+      "expectedHeads": [
+        "shelf life"
+      ]
+    },
+    {
+      "id": "zh-051",
+      "language": "zh",
+      "category": "retail",
+      "query": "质保",
+      "expectedHeads": [
+        "warranty"
+      ]
+    },
+    {
+      "id": "zh-052",
+      "language": "zh",
+      "category": "retail",
+      "query": "缺货",
+      "expectedHeads": [
+        "out of stock"
+      ]
+    },
+    {
+      "id": "zh-053",
+      "language": "zh",
+      "category": "study",
+      "query": "文献综述",
+      "expectedHeads": [
+        "literature review"
+      ]
+    },
+    {
+      "id": "zh-054",
+      "language": "zh",
+      "category": "study",
+      "query": "经济独立",
+      "expectedHeads": [
+        "financial independence"
+      ]
+    },
+    {
+      "id": "zh-055",
+      "language": "zh",
+      "category": "study",
+      "query": "选课",
+      "expectedHeads": [
+        "course selection",
+        "select courses",
+        "course registration"
+      ]
+    },
+    {
+      "id": "zh-056",
+      "language": "zh",
+      "category": "study",
+      "query": "退课",
+      "expectedHeads": [
+        "drop a course"
+      ]
+    },
+    {
+      "id": "zh-057",
+      "language": "zh",
+      "category": "study",
+      "query": "学分",
+      "expectedHeads": [
+        "credit"
+      ]
+    },
+    {
+      "id": "zh-058",
+      "language": "zh",
+      "category": "study",
+      "query": "成绩单",
+      "expectedHeads": [
+        "transcript"
+      ]
+    },
+    {
+      "id": "zh-059",
+      "language": "zh",
+      "category": "study",
+      "query": "奖学金",
+      "expectedHeads": [
+        "scholarship"
+      ]
+    },
+    {
+      "id": "zh-060",
+      "language": "zh",
+      "category": "study",
+      "query": "截止日期",
+      "expectedHeads": [
+        "deadline"
+      ]
+    },
+    {
+      "id": "zh-061",
+      "language": "zh",
+      "category": "study",
+      "query": "延期",
+      "expectedHeads": [
+        "extension",
+        "postpone"
+      ]
+    },
+    {
+      "id": "zh-062",
+      "language": "zh",
+      "category": "study",
+      "query": "学术诚信",
+      "expectedHeads": [
+        "academic integrity"
+      ]
+    },
+    {
+      "id": "zh-063",
+      "language": "zh",
+      "category": "study",
+      "query": "抄袭",
+      "expectedHeads": [
+        "plagiarism",
+        "plagiarize"
+      ]
+    },
+    {
+      "id": "zh-064",
+      "language": "zh",
+      "category": "study",
+      "query": "参考文献",
+      "expectedHeads": [
+        "references",
+        "bibliography",
+        "reference list"
+      ]
+    },
+    {
+      "id": "zh-065",
+      "language": "zh",
+      "category": "study",
+      "query": "摘要",
+      "expectedHeads": [
+        "abstract"
+      ]
+    },
+    {
+      "id": "zh-066",
+      "language": "zh",
+      "category": "study",
+      "query": "假设",
+      "expectedHeads": [
+        "hypothesis",
+        "assumption"
+      ]
+    },
+    {
+      "id": "zh-067",
+      "language": "zh",
+      "category": "study",
+      "query": "方差",
+      "expectedHeads": [
+        "variance"
+      ]
+    },
+    {
+      "id": "zh-068",
+      "language": "zh",
+      "category": "study",
+      "query": "证明",
+      "expectedHeads": [
+        "proof",
+        "prove"
+      ]
+    },
+    {
+      "id": "zh-069",
+      "language": "zh",
+      "category": "study",
+      "query": "熬夜",
+      "expectedHeads": [
+        "stay up late",
+        "sit up"
+      ]
+    },
+    {
+      "id": "zh-070",
+      "language": "zh",
+      "category": "study",
+      "query": "复习",
+      "expectedHeads": [
+        "review",
+        "revise"
+      ]
+    },
+    {
+      "id": "zh-071",
+      "language": "zh",
+      "category": "study",
+      "query": "背单词",
+      "expectedHeads": [
+        "memorize vocabulary",
+        "memorize new words"
+      ]
+    },
+    {
+      "id": "zh-072",
+      "language": "zh",
+      "category": "study",
+      "query": "学费",
+      "expectedHeads": [
+        "tuition"
+      ]
+    },
+    {
+      "id": "zh-073",
+      "language": "zh",
+      "category": "work",
+      "query": "工作",
+      "expectedHeads": [
+        "work",
+        "job"
+      ]
+    },
+    {
+      "id": "zh-074",
+      "language": "zh",
+      "category": "work",
+      "query": "上班",
+      "expectedHeads": [
+        "go to work",
+        "on duty"
+      ]
+    },
+    {
+      "id": "zh-075",
+      "language": "zh",
+      "category": "work",
+      "query": "下班",
+      "expectedHeads": [
+        "get off work",
+        "leave work"
+      ]
+    },
+    {
+      "id": "zh-076",
+      "language": "zh",
+      "category": "work",
+      "query": "加班",
+      "expectedHeads": [
+        "work overtime",
+        "overtime"
+      ]
+    },
+    {
+      "id": "zh-077",
+      "language": "zh",
+      "category": "work",
+      "query": "请假",
+      "expectedHeads": [
+        "ask for leave",
+        "take leave",
+        "leave",
+        "leave of absence"
+      ]
+    },
+    {
+      "id": "zh-078",
+      "language": "zh",
+      "category": "work",
+      "query": "病假",
+      "expectedHeads": [
+        "sick leave"
+      ]
+    },
+    {
+      "id": "zh-079",
+      "language": "zh",
+      "category": "work",
+      "query": "远程办公",
+      "expectedHeads": [
+        "remote work",
+        "work from home"
+      ]
+    },
+    {
+      "id": "zh-080",
+      "language": "zh",
+      "category": "work",
+      "query": "入职",
+      "expectedHeads": [
+        "start a new job"
+      ]
+    },
+    {
+      "id": "zh-081",
+      "language": "zh",
+      "category": "work",
+      "query": "离职",
+      "expectedHeads": [
+        "leave a job"
+      ],
+      "expectationReview": "Generic leaving a job does not specify resignation. Resign and resignation describe the specific act of resigning, including pressured resignation; they are not unconditional equivalents of dismissal, retirement or all employment endings. Preserve the earlier expectation in the frozen historical corpus."
+    },
+    {
+      "id": "zh-082",
+      "language": "zh",
+      "category": "work",
+      "query": "简历",
+      "expectedHeads": [
+        "resume",
+        "curriculum vitae"
+      ]
+    },
+    {
+      "id": "zh-083",
+      "language": "zh",
+      "category": "work",
+      "query": "面试",
+      "expectedHeads": [
+        "interview"
+      ]
+    },
+    {
+      "id": "zh-084",
+      "language": "zh",
+      "category": "work",
+      "query": "试用期",
+      "expectedHeads": [
+        "probationary period",
+        "trial period"
+      ]
+    },
+    {
+      "id": "zh-085",
+      "language": "zh",
+      "category": "work",
+      "query": "报销",
+      "expectedHeads": [
+        "reimbursement",
+        "reimburse"
+      ]
+    },
+    {
+      "id": "zh-086",
+      "language": "zh",
+      "category": "work",
+      "query": "会议纪要",
+      "expectedHeads": [
+        "meeting minutes",
+        "minutes"
+      ]
+    },
+    {
+      "id": "zh-087",
+      "language": "zh",
+      "category": "work",
+      "query": "进度",
+      "expectedHeads": [
+        "progress"
+      ]
+    },
+    {
+      "id": "zh-088",
+      "language": "zh",
+      "category": "work",
+      "query": "反馈",
+      "expectedHeads": [
+        "feedback"
+      ]
+    },
+    {
+      "id": "zh-089",
+      "language": "zh",
+      "category": "emotion",
+      "query": "开心",
+      "expectedHeads": [
+        "happy"
+      ]
+    },
+    {
+      "id": "zh-090",
+      "language": "zh",
+      "category": "emotion",
+      "query": "高兴",
+      "expectedHeads": [
+        "happy",
+        "glad"
+      ]
+    },
+    {
+      "id": "zh-091",
+      "language": "zh",
+      "category": "emotion",
+      "query": "快乐",
+      "expectedHeads": [
+        "happy",
+        "joyful"
+      ]
+    },
+    {
+      "id": "zh-092",
+      "language": "zh",
+      "category": "emotion",
+      "query": "难过",
+      "expectedHeads": [
+        "sad",
+        "sorry"
+      ]
+    },
+    {
+      "id": "zh-093",
+      "language": "zh",
+      "category": "emotion",
+      "query": "伤心",
+      "expectedHeads": [
+        "sad",
+        "heartbroken"
+      ]
+    },
+    {
+      "id": "zh-094",
+      "language": "zh",
+      "category": "emotion",
+      "query": "焦虑",
+      "expectedHeads": [
+        "anxiety",
+        "anxious"
+      ]
+    },
+    {
+      "id": "zh-095",
+      "language": "zh",
+      "category": "emotion",
+      "query": "紧张",
+      "expectedHeads": [
+        "nervous",
+        "tense"
+      ]
+    },
+    {
+      "id": "zh-096",
+      "language": "zh",
+      "category": "emotion",
+      "query": "放松",
+      "expectedHeads": [
+        "relax"
+      ]
+    },
+    {
+      "id": "zh-097",
+      "language": "zh",
+      "category": "emotion",
+      "query": "生气",
+      "expectedHeads": [
+        "angry"
+      ]
+    },
+    {
+      "id": "zh-098",
+      "language": "zh",
+      "category": "emotion",
+      "query": "愤怒",
+      "expectedHeads": [
+        "anger",
+        "angry"
+      ]
+    },
+    {
+      "id": "zh-099",
+      "language": "zh",
+      "category": "emotion",
+      "query": "不开心",
+      "expectedHeads": [
+        "unhappy"
+      ]
+    },
+    {
+      "id": "zh-100",
+      "language": "zh",
+      "category": "emotion",
+      "query": "不高兴",
+      "expectedHeads": [
+        "unhappy",
+        "grouchy"
+      ]
+    },
+    {
+      "id": "zh-101",
+      "language": "zh",
+      "category": "emotion",
+      "query": "失望",
+      "expectedHeads": [
+        "disappointment",
+        "disappointed"
+      ]
+    },
+    {
+      "id": "zh-102",
+      "language": "zh",
+      "category": "emotion",
+      "query": "耐心",
+      "expectedHeads": [
+        "patience",
+        "patient"
+      ]
+    },
+    {
+      "id": "zh-103",
+      "language": "zh",
+      "category": "emotion",
+      "query": "自信",
+      "expectedHeads": [
+        "confidence",
+        "confident"
+      ]
+    },
+    {
+      "id": "zh-104",
+      "language": "zh",
+      "category": "emotion",
+      "query": "尴尬",
+      "expectedHeads": [
+        "embarrassment",
+        "awkward"
+      ]
+    },
+    {
+      "id": "zh-105",
+      "language": "zh",
+      "category": "daily",
+      "query": "体检",
+      "expectedHeads": [
+        "physical",
+        "checkup",
+        "check-up",
+        "medical checkup"
+      ],
+      "excludedHeads": [
+        "postmortem",
+        "bioassay",
+        "medical examiner",
+        "crystal detector"
+      ]
+    },
+    {
+      "id": "zh-106",
+      "language": "zh",
+      "category": "daily",
+      "query": "体格检查",
+      "expectedHeads": [
+        "physical",
+        "check-up"
+      ]
+    },
+    {
+      "id": "zh-107",
+      "language": "zh",
+      "category": "daily",
+      "query": "健康检查",
+      "expectedHeads": [
+        "checkup",
+        "medical checkup"
+      ]
+    },
+    {
+      "id": "zh-108",
+      "language": "zh",
+      "category": "daily",
+      "query": "挂号",
+      "expectedHeads": [
+        "register at a hospital",
+        "registration"
+      ]
+    },
+    {
+      "id": "zh-109",
+      "language": "zh",
+      "category": "daily",
+      "query": "预约",
+      "expectedHeads": [
+        "appointment"
+      ]
+    },
+    {
+      "id": "zh-110",
+      "language": "zh",
+      "category": "daily",
+      "query": "取消预约",
+      "expectedHeads": [
+        "cancel an appointment"
+      ]
+    },
+    {
+      "id": "zh-111",
+      "language": "zh",
+      "category": "daily",
+      "query": "止痛药",
+      "expectedHeads": [
+        "painkiller"
+      ]
+    },
+    {
+      "id": "zh-112",
+      "language": "zh",
+      "category": "daily",
+      "query": "处方",
+      "expectedHeads": [
+        "prescription"
+      ]
+    },
+    {
+      "id": "zh-113",
+      "language": "zh",
+      "category": "daily",
+      "query": "过敏",
+      "expectedHeads": [
+        "allergy",
+        "allergic"
+      ]
+    },
+    {
+      "id": "zh-114",
+      "language": "zh",
+      "category": "daily",
+      "query": "感冒",
+      "expectedHeads": [
+        "cold"
+      ]
+    },
+    {
+      "id": "zh-115",
+      "language": "zh",
+      "category": "daily",
+      "query": "发烧",
+      "expectedHeads": [
+        "fever"
+      ]
+    },
+    {
+      "id": "zh-116",
+      "language": "zh",
+      "category": "daily",
+      "query": "腹泻",
+      "expectedHeads": [
+        "diarrhea",
+        "diarrhoea"
+      ]
+    },
+    {
+      "id": "zh-117",
+      "language": "zh",
+      "category": "daily",
+      "query": "过期",
+      "expectedHeads": [
+        "expire",
+        "out of date",
+        "out-of-date"
+      ]
+    },
+    {
+      "id": "zh-118",
+      "language": "zh",
+      "category": "daily",
+      "query": "戴口罩",
+      "expectedHeads": [
+        "wear a mask",
+        "wear a face mask"
+      ]
+    },
+    {
+      "id": "zh-119",
+      "language": "zh",
+      "category": "daily",
+      "query": "充足睡眠",
+      "expectedHeads": [
+        "adequate sleep",
+        "get enough sleep"
+      ]
+    },
+    {
+      "id": "zh-120",
+      "language": "zh",
+      "category": "daily",
+      "query": "保温杯",
+      "expectedHeads": [
+        "insulated bottle",
+        "vacuum flask",
+        "insulated travel mug"
+      ]
+    }
+  ]
+}

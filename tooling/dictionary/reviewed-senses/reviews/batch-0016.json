@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "5ca9586cbd93410243fad1587e89a56fdc99c413d0f4ea15374b269d1618f67f",
+  "sourceByteSha256": "49e901277fc701a2c10ce2b427ea52ab09aabd3828c3e41630a66c5aa61d5588",
+  "author": "AI/chinese_search_followup_author",
+  "reviewer": "AI/search_coverage_followup_independent_reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "transit",
+    "warranty",
+    "progress"
+  ],
+  "issues": [],
+  "reviewScope": "Independent authored language/POS, bilingual fidelity, finite alias/form and complete authenticated canonical-identity review. Exact old tuples are separately reviewed; warranty has an explicit targeted accuracy exception.",
+  "reviewedRows": [
+    {
+      "term": "transit",
+      "rowSha256": "f93ab2a7a6a19936db4388b1778965b331890598a15b9d701edb6ef0e13e15a9",
+      "canonicalId": 530004,
+      "canonicalSourceSha256": "75abb07dbbd7c8860fe4f8bfa6b4ef5772de1181eb38bf67d833ca1c28fcbac6",
+      "languageDecision": "PASS",
+      "reason": "Correct noun for going through an intermediate country/region en route to another destination. No mandatory aircraft change is implied. Original passenger example and Chinese align.",
+      "aliasAndFormReason": "Exactly过境 is approved for the selected noun sense; no new inflected forms. Authenticated old combined noun/verb meanings and provenance are retained separately under exact reviewed policy.",
+      "referenceVerification": [
+        {
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/transit_1",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Travel noun sense; in-transit construction; direct page intermittently403."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "warranty",
+      "rowSha256": "439b7f1d7d14e7896f25778f3afa780c6d5e5d7c91080b17e598fbf83c8acde4",
+      "canonicalId": 728141,
+      "canonicalSourceSha256": "3915800e33566b4730871081533c9bc5ee12229f8304cd79c5ae3c65691d39f7",
+      "languageDecision": "PASS",
+      "reason": "Correct separately numbered noun senses: retail coverage subject to stated terms; formal/contractual guarantee or guarantee document; American authorization/justification. FTC and directly opened Collins support the scopes; Cambridge index confirms written-product guarantee. The kettle example remains natural and faithful. An insurance-contract warranty is a condition/promise, not the insurance policy itself.",
+      "aliasAndFormReason": "Exactly质保 alias and the valid count-noun plural warranties. The old mixed MIT tuple is intentionally not retained as an active alternative because it includes misleading保单; valid formal meanings are freshly authored above rather than silently trimmed from the old attributed tuple.",
+      "referenceVerification": [
+        {
+          "url": "https://consumer.ftc.gov/articles/warranties",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "Retail coverage varies by conditions; no legal promise of universal coverage."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/us/dictionary/english/warranty",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Written product guarantee and under warranty; direct page403."
+        },
+        {
+          "url": "https://www.collinsdictionary.com/dictionary/english/warranty",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "Contract/legal promises and explicitly American authorization/reasonable-grounds noun senses; insurance warranty is not whole policy."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "progress",
+      "rowSha256": "d9805ee4f8e14ee1f7fdca5dfd64f19dbe7eef2165224e903c1da6296b49920e",
+      "canonicalId": 153286,
+      "canonicalSourceSha256": "ee137a27df22ddb1d4626fc417d363152a8b54ff123111bd2c06be8f15e5d1e4",
+      "languageDecision": "PASS",
+      "reason": "Correct uncountable task-completion noun for进度. The report-progress meeting example is grammatical and faithful, and does not confuse progress with a timetable or tracking code.",
+      "aliasAndFormReason": "Exactly进度 in this selected noun scope; no invented plural for a mass noun. Old progress/progressed/progresses/progressing source meanings stay separately authenticated under exact retained policy.",
+      "referenceVerification": [
+        {
+          "url": "https://www.collinsdictionary.com/dictionary/english/progress",
+          "method": "direct-fetch",
+          "accessed": "2026-11-19",
+          "scope": "Noun advance toward completion and separate verb use."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/progress",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Uncountable noun and progress on collocation; direct page403."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "globalExampleDedupEvidence": "outputs/search-experience-20261119/chinese/next-batch-five/seven-pair-global-dedup-review.json",
+  "accuracyExceptionEvidence": "followup-0016-accuracy-exceptions.json"
+}

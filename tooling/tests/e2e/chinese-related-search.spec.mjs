@@ -103,8 +103,9 @@ test("short trade queries find common verbs in the complete stream without legac
 });
 
 test("a delayed complete Chinese download cannot overwrite a later English query", async ({ page }) => {
-  const held = deferred(), seen = deferred();
-  await page.route(/\/chinese-search-ranking\/[^?]+[.]bin$/u, async route => {
+  const held = deferred(), seen = deferred(); let holding = false;
+  await page.route(/\/data\/(?:chinese-search-ranking|chinese-query-cache)\/[^?]+[.]bin(?:\?.*)?$/u, async route => {
+    if (holding) return route.continue(); holding = true;
     seen.resolve(); await held.promise;
     await route.continue().catch(() => {});
   });

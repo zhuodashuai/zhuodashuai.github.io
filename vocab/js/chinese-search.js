@@ -165,6 +165,28 @@ export function chineseSearchHeads(term) {
 
 const CONTROL = /[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 const BODY_CONTROL = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
+// Exact reviewed query families, never English head lists or multi-hop rules.
+// Every alias still needs its own complete affirmative source atom and role.
+// References: Cambridge check-up, English-Chinese cool and membership-card.
+const WHOLE_SOURCE_FAMILIES = Object.freeze([
+  Object.freeze({ terms: Object.freeze(["体检", "体格检查", "健康检查"]), roles: Object.freeze(["noun"]), networkPrefix: true, literalOnly: true }),
+  Object.freeze({ terms: Object.freeze(["凉快", "凉爽"]), roles: Object.freeze(["adjective", "noun"]), networkPrefix: false }),
+  Object.freeze({ terms: Object.freeze(["会员卡", "会员证"]), roles: Object.freeze(["noun"]), networkPrefix: false }),
+]);
+const wholeSourceFamilies = new Map(), wholeSourcePlans = new Map();
+for (const family of WHOLE_SOURCE_FAMILIES) for (const term of family.terms) {
+  wholeSourceFamilies.set(term, family);
+  wholeSourcePlans.set(term, Object.freeze({ term, aliases: Object.freeze(family.terms.filter(alias => alias !== term)) }));
+}
+
+export function requiresWholeChineseSourceAtom(term, { literal = false } = {}) {
+  const family = typeof term === "string" && wholeSourceFamilies.get(term);
+  // Every family needs whole source/POS evidence to grant a new alias. Only
+  // the reviewed medical query also excludes literal substring collisions.
+  // Existing literal compounds/mentions for other queries remain reachable.
+  return Boolean(family && (!literal || family.literalOnly));
+}
+
 const plans = new Map();
 for (const group of GROUPS) for (const term of group) {
   plans.set(term, Object.freeze({ term, aliases: Object.freeze(group.filter(alias => alias !== term)) }));
@@ -177,18 +199,25 @@ for (const group of COMMON_CHINESE_GROUPS) {
   if (!Array.isArray(group.terms) || !Array.isArray(group.heads) || !Array.isArray(group.evidence)
     || !group.terms.length || new Set(group.terms).size !== group.terms.length
     || group.terms.some(term => typeof term !== "string" || !/^\p{Script=Han}{1,50}$/u.test(term)
-      || plans.has(term) || commonPlans.has(term))) continue;
+      || plans.has(term) || wholeSourcePlans.has(term) || commonPlans.has(term))) continue;
   for (const term of group.terms) {
     commonPlans.set(term, Object.freeze({ term, aliases: Object.freeze(group.terms.filter(alias => alias !== term)) }));
     COMMON_GROUPS_BY_TERM.set(term, group);
   }
 }
 
+/** Build-time inventory of the exact plans accepted above, not an expansion
+ * of the search rules or a list selected from a benchmark. No mutable plan,
+ * evidence object or internal map is exposed to callers. */
+export function registeredChineseQueryCatalogue() {
+  return Object.freeze([...new Set([...plans.keys(), ...wholeSourcePlans.keys(), ...commonPlans.keys()])].sort());
+}
+
 /** A one-hop, exact whole-query plan. No network, storage, or generated words. */
 export function chineseSearchPlan(query) {
   if (typeof query !== "string" || query.length > 50 || CONTROL.test(query)) return null;
   const term = query.normalize("NFKC").trim();
-  const exact = plans.get(term) || commonPlans.get(term);
+  const exact = plans.get(term) || wholeSourcePlans.get(term) || commonPlans.get(term);
   if (exact) return exact;
   if (!/[的地]$/u.test(term)) return null;
   const base = term.slice(0, -1), established = plans.get(base);
@@ -291,13 +320,30 @@ export function chineseDefinitionAtoms(meaning, partOfSpeech = "") {
         if (text === previous) break;
       }
       if (!text) continue;
-      const match = text.match(/^([\p{Script=Han}]+)(?:\s*(?:\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】))?[.．]?$/u);
+      // A bounded regional usage label is lexical metadata, unlike operators
+      // such as (使) or a prose explanation. Keep the original atom text.
+      const lexicalText = text.replace(/^\((?:主要为)?(?:英式|美式)\)\s*/u, "");
+      const match = lexicalText.match(/^([\p{Script=Han}]+)(?:\s*(?:\(([^()]*)\)|\[([^\[\]]*)\]|【([^【】]*)】))?[.．]?$/u);
       const annotation = (match?.[2] || match?.[3] || match?.[4] || "").trim();
       const lexical = match && !/^(?:使(?:人|某人)?|令(?:人|某人)?|让(?:人|某人)?|并非|不|无|未|非)/u.test(annotation) ? match[1] : null;
       result.push({ text, lexical, annotation, partOfSpeech: currentPos, domain, senseOrdinal });
     }
   }
   return result;
+}
+
+/** Alias evidence must remain inside one source sense and grammatical role.
+ * Only the finite examination family accepts the legacy [网络] noun prefix;
+ * this never promotes arbitrary network-labelled meanings across the corpus. */
+export function matchesWholeChineseSourceAtom(meaning, term, partOfSpeech = "") {
+  const family = wholeSourceFamilies.get(term);
+  if (!family) return false;
+  return chineseDefinitionAtoms(meaning, partOfSpeech).some(atom => {
+    if (!family.roles.includes(atom.partOfSpeech)) return false;
+    if (atom.lexical === term || atom.partOfSpeech === "adjective" && atom.lexical === `${term}的`) return true;
+    const editorial = family.networkPrefix && atom.text.match(/^\[网络\]\s*([\p{Script=Han}]+)$/u);
+    return editorial?.[1] === term;
+  });
 }
 
 /** Match a definition atom, not a mention in an explanation or a compound. */

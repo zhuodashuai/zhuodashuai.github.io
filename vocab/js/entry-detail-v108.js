@@ -5,7 +5,7 @@ import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { createSourcePassageSection } from "./book-passages-ui.js?v=82";
-import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=117";
 
 const TYPE_LABELS = {
   word: "单词", phrase: "短语", "phrasal-verb": "Phrasal verb", idiom: "Idiom", collocation: "Collocation",

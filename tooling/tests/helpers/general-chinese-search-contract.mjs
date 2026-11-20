@@ -28,12 +28,14 @@ export const sharedChineseTransport = { requests: [], fetchImpl: async (input, o
   return new Response(await bytes.get(url.href));
 } };
 
-/** One validated runtime client is deliberately shared across the 600 groups.
- * Per-source corruption tests use separate custom transports and remain cold. */
+/** One validated full-source client is deliberately shared across the groups.
+ * This is the uncached source oracle: the new integration suite separately
+ * checks every compiled query through the default packet path. Per-source
+ * corruption tests use separate custom transports and remain cold. */
 export async function allChineseResults(query, { fetchImpl = sharedChineseTransport.fetchImpl, limit = 50 } = {}) {
   const results = []; let offset = 0, total, first;
   for (let page = 0; page < 5000; page++) {
-    const next = await searchExpandedDictionary(query, { fetchImpl, limit, offset });
+    const next = await searchExpandedDictionary(query, { fetchImpl, limit, offset, useChineseQueryCache: false });
     first ||= next; total ??= next.total;
     assert.equal(next.relatedIntegrated, true, `${query}: associations must share the main result stream`);
     assert.equal(next.ranking, "global"); assert.equal(next.total, total);
@@ -45,9 +47,9 @@ export async function allChineseResults(query, { fetchImpl = sharedChineseTransp
   }
   assert.equal(results.length, total, `${query}: every counted match must be reachable`);
   assert.equal(new Set(results.map(row => row.term)).size, results.length, `${query}: canonical heads must not repeat`);
-  const end = await searchExpandedDictionary(query, { fetchImpl, limit, offset: total });
+  const end = await searchExpandedDictionary(query, { fetchImpl, limit, offset: total, useChineseQueryCache: false });
   assert.equal(end.hasMore, false); assert.deepEqual(end.results, []); assert.equal(end.total, total);
-  const short = await searchExpandedDictionary(query, { fetchImpl, limit: 20, offset: 0 });
+  const short = await searchExpandedDictionary(query, { fetchImpl, limit: 20, offset: 0, useChineseQueryCache: false });
   assert.deepEqual(short.results, results.slice(0, 20), `${query}: page size must not change ranking`);
   return { ...first, results, firstPage: first.results, total, hasMore: false };
 }

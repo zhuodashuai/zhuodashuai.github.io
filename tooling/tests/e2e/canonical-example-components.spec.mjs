@@ -77,3 +77,61 @@ test('both-assets fallback rejects async card edits and cancellation during genu
   },row);
   expect(result).toEqual({mutated:null,aborted:true});expect(log).toEqual({writes:[],foreign:[],errors:[]});
 });
+
+for(const phase of ['resolver','fallback data'])test(`cancellation during a held optional ${phase} import rejects with AbortError`,async({page,baseURL})=>{
+  const log=observe(page,baseURL),row=table.rows.find(r=>r.term==='burden');
+  const heldFile=phase==='resolver'?'canonical-example-components.js':'canonical-example-components-data.js';
+  let entered,release;
+  const ready=new Promise(resolve=>{entered=resolve;}),gate=new Promise(resolve=>{release=resolve;});
+  await page.route('**/js/canonical-example-components*.js',async route=>{
+    if(new URL(route.request().url()).pathname.endsWith(`/${heldFile}`)){entered();await gate;}
+    await route.abort('failed');
+  });
+  try{
+    await page.goto('/dictionary.html');
+    await page.evaluate(async r=>{
+      const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js');
+      const controller=new AbortController(),fetches=[];
+      const pending=load(r.term,{savedEntry:r.canonicalContexts[0],signal:controller.signal,
+        fetchImpl:async(url,options)=>{fetches.push(String(url));return fetch(url,options);}})
+        .then(value=>({settlement:'fulfilled',value}),error=>({settlement:'rejected',name:error.name}));
+      window.canonicalCancellationProbe={controller,pending,fetches};
+    },row);
+    // Hold the actual module request before cancelling: no timer can race an
+    // already-complete result or mistake import failure for source cancellation.
+    await ready;
+    await page.evaluate(()=>window.canonicalCancellationProbe.controller.abort());
+    release();
+    const result=await page.evaluate(async()=>{
+      const probe=window.canonicalCancellationProbe;
+      return {outcome:await probe.pending,signalAborted:probe.controller.signal.aborted,
+        sourceEntered:probe.fetches.some(url=>url.includes('/expanded-dictionary/'))};
+    });
+    expect(result).toEqual({outcome:{settlement:'rejected',name:'AbortError'},signalAborted:true,sourceEntered:false});
+    expect(log).toEqual({writes:[],foreign:[],errors:[]});
+  }finally{release();await page.unrouteAll({behavior:'wait'});}
+});
+
+test('cancellation after the actual fallback source fetch starts rejects without returning old examples',async({page,baseURL})=>{
+  const log=observe(page,baseURL),row=table.rows.find(r=>r.term==='burden');
+  await page.route('**/js/canonical-example-components*.js',route=>route.abort('failed'));
+  await page.goto('/dictionary.html');
+  const result=await page.evaluate(async r=>{
+    const {loadDictionaryExamples:load}=await import('/js/dictionary-examples-current-v4.js');
+    const controller=new AbortController();let entered,sourceEntered=false,abortedAtEntry;
+    const ready=new Promise(resolve=>{entered=resolve;});
+    const fetchImpl=async(url,options)=>{
+      if(String(url).includes('/expanded-dictionary/')){
+        sourceEntered=true;abortedAtEntry=controller.signal.aborted;entered();
+        return new Promise(()=>{});
+      }
+      return fetch(url,options);
+    };
+    const pending=load(r.term,{fetchImpl,savedEntry:r.canonicalContexts[0],signal:controller.signal})
+      .then(value=>({settlement:'fulfilled',value}),error=>({settlement:'rejected',name:error.name}));
+    await ready;controller.abort();
+    return {outcome:await pending,sourceEntered,abortedAtEntry,signalAborted:controller.signal.aborted};
+  },row);
+  expect(result).toEqual({outcome:{settlement:'rejected',name:'AbortError'},sourceEntered:true,abortedAtEntry:false,signalAborted:true});
+  expect(log).toEqual({writes:[],foreign:[],errors:[]});
+});

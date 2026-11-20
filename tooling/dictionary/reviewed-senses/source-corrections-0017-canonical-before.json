@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "baseCandidate": "bfc2ce842c91f9d3da084e189f50df6e1079f1b0",
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "records": [
+    {
+      "term": "disconcerting",
+      "record": {
+        "id": 2038917,
+        "term": "disconcerting",
+        "partOfSpeech": "adjective · verb",
+        "meaning": "a. 困惑的, 不安的, 尴尬的\nv. 使不安( disconcert的现在分词); 使为难; 使慌张; 使窘迫",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 15932,
+          "forms": [
+            "disconcerting"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "4ca51ff2c915b24016aa71fffeb30cf6d74ed4acd59ac417dc3e75ef407d6f96",
+      "shard": {
+        "bucket": 5,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-005.json",
+        "sha256": "a7f2e5a9805eb11256ed80da3d21a03547ba5a48c2fcaeccfc2b145233fad06c",
+        "bytes": 352625,
+        "count": 1087
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective · verb",
+            "meaning": "a. 困惑的, 不安的, 尴尬的\nv. 使不安( disconcert的现在分词); 使为难; 使慌张; 使窘迫",
+            "source": "mit"
+          },
+          "sha256": "f14e6dc62001100153bec3a3e6af0c054e7f18f79bc90c26cfedb1ed730bd7e9",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    },
+    {
+      "term": "disastrous",
+      "record": {
+        "id": 552502,
+        "term": "disastrous",
+        "partOfSpeech": "adjective",
+        "meaning": "a. 损失惨重的, 悲伤的",
+        "forms": [],
+        "source": "core",
+        "variants": [
+          {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 损失惨重的, 悲伤的",
+            "source": "mit"
+          }
+        ],
+        "seed": {
+          "rank": 4316,
+          "forms": [],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "c78236d21b43206dd3ca45428b892f6c83335cbdffbdc15ef1852399397cf536",
+      "shard": {
+        "bucket": 54,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-054.json",
+        "sha256": "5baef9206ebfe3f026535194a5300212b4854b1e7f055b46ddbd5244b2291f85",
+        "bytes": 347713,
+        "count": 1092
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 损失惨重的, 悲伤的",
+            "source": "core"
+          },
+          "sha256": "2bf459d7a7e9b2791bb3888dd2248b312406e4a6bbc5ab2c4e1ab71a784fce36",
+          "sourceDescriptor": {
+            "name": "ECDICT · 已上线核心整理",
+            "license": "MIT and project editorial additions",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "sha256": "62c196b29efc1e994cb418c377d655ebcbfc2f7ba0bb4c24933a75a3624c12e1"
+          }
+        },
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 损失惨重的, 悲伤的",
+            "source": "mit"
+          },
+          "sha256": "e003940442f2f551193fce3dcd4f5005f206c66d2b314eebad5391a3d5a71e18",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    },
+    {
+      "term": "mortuary",
+      "record": {
+        "id": 1333816,
+        "term": "mortuary",
+        "partOfSpeech": "noun · adjective",
+        "meaning": "n. 停尸间, 太平间\na. 丧葬的, 悲哀的, 埋葬的",
+        "forms": [
+          "mortuaries"
+        ],
+        "source": "mit",
+        "seed": {
+          "rank": 10420,
+          "forms": [
+            "mortuaries"
+          ],
+          "workbook": true
+        }
+      },
+      "canonicalSourceSha256": "4d7af2f40b00097ef153ff1baf95ce9fb6807ea49575976f7a5241741707c2b7",
+      "shard": {
+        "bucket": 56,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-056.json",
+        "sha256": "2a67c4c85e580368a2d29f508048973b126f843117b9b97b75f4918aeaaa1994",
+        "bytes": 356104,
+        "count": 1092
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun · adjective",
+            "meaning": "n. 停尸间, 太平间\na. 丧葬的, 悲哀的, 埋葬的",
+            "source": "mit"
+          },
+          "sha256": "66d1ddfb15dd618d0151ca3fcb6ae48d718a6ae97050b58bed072fd0f8125d4a",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    }
+  ]
+}

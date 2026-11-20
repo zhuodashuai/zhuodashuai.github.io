@@ -2,6 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { EVERYDAY_LOOKUP_ENTRIES } from "../js/everyday-lookup-data.js";
 import { searchEverydayDictionary, loadEverydayExamples } from "../js/everyday-lookup.js";
+import { exactSourceCorrectionRows } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
+const correctedRows=new Map(exactSourceCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
 
 const heads = input => searchEverydayDictionary(input)?.results.map(row => row.term) || [];
 
@@ -103,8 +105,17 @@ test("invalid, oversized, control and executable-looking inputs cannot hit the o
 
 test("example identity is stable for English heads and explicit forms, never for a query sentence", () => {
   const ids = new Set();
+  let oldSingletonChecks=0,exactCorrectionHeads=0,exactCorrectionSenses=0;
   for (const row of EVERYDAY_LOOKUP_ENTRIES) {
     const example = loadEverydayExamples(row.term); assert(example); assert.equal(example.term, row.term);
+    if(correctedRows.get(row.term)===row){
+      assert.deepEqual(row.chineseAliases,[]);assert.deepEqual(row.englishForms,[]);exactCorrectionHeads++;
+      assert.deepEqual(example,{term:row.term,senses:row.exampleSenses.map(sense=>({...sense,reviewer:row.exampleReviewer,source:row.exampleSource}))});
+      assert.equal(example.senses.length,{disconcerting:2,disastrous:2,mortuary:3}[row.term]);
+      for(const sense of example.senses){assert(!ids.has(sense.id));ids.add(sense.id);exactCorrectionSenses++;}
+      assert.deepEqual(loadEverydayExamples(row.term.toUpperCase()),example);continue;
+    }
+    oldSingletonChecks++;
     assert.equal(example.senses.length, 1); const sense = example.senses[0];
     if (Object.hasOwn(row,'existingExampleDTOJSON')) assert.deepEqual(example,JSON.parse(row.existingExampleDTOJSON));
     else {
@@ -116,6 +127,8 @@ test("example identity is stable for English heads and explicit forms, never for
     assert.deepEqual(sense.examples, [{ en: row.en, zh: row.zh }]);
     assert.equal(loadEverydayExamples(row.term.toUpperCase()).senses[0].id, sense.id);
   }
+  assert.equal(oldSingletonChecks,1268);assert.equal(exactCorrectionHeads,3);assert.equal(exactCorrectionSenses,7);
+  assert.equal(ids.size,1275);
   for (const query of ["人工客服", "请问人工客服的英文是什么", "live agent?", '"live agent"', "what is live agent?"]) assert.equal(loadEverydayExamples(query), null, query);
 });
 

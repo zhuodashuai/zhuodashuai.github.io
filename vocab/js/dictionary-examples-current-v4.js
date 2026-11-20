@@ -5,10 +5,12 @@
 import { DICTIONARY_EXAMPLE_SOURCE, createDictionaryExamplesController as legacyController } from './dictionary-examples.js?v=96';
 import { createAdditiveExamplesLoader } from './dictionary-examples-additive.js';
 import { dictionaryExamplesRelease } from './dictionary-examples-release-v4.js';
-import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples } from './everyday-lookup.js';
+import { loadEverydayExamples,hasAssociatedEverydayExampleHead,loadAssociatedEverydayExamples,
+  hasSourceCorrectionExampleHead,loadSourceCorrectionExamples,sourceCorrectionLegacyExampleContext,
+  matchesSourceCorrectionLegacyDTO } from './everyday-lookup.js?v=117';
 import { applyExampleCorrections } from './dictionary-example-corrections.js';
-import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js';
-import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js';
+import { selectedGroupOriginalContext, matchesSelectedGroupOriginalDTO, hasSelectedCommonSenseHead } from './selected-common-sense.js?v=117';
+import { hasSelectedLegacyExampleHead, selectedLegacyOriginalContext, matchesSelectedLegacyOriginalDTO } from './selected-legacy-examples.js?v=117';
 export { DICTIONARY_EXAMPLE_SOURCE };
 let clients=new WeakMap();
 let repairClients=new WeakMap(), componentClients=new WeakMap(), generation=0;
@@ -42,7 +44,7 @@ async function componentFallback(term,before,fetchImpl,signal){
     const row=table.rows.find(r=>r.term===term);
     const allowed=row&&[...row.canonicalContexts,...row.legacyContexts].some(c=>JSON.stringify(c)===JSON.stringify(before));
     if(allowed&&JSON.stringify(original)===JSON.stringify(row.expectedOriginalEntry))return original;
-  }catch(error){if(signal?.aborted||error?.name==='AbortError')throw error;}
+  }catch(error){if(signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});if(error?.name==='AbortError')throw error;}
   // Both new assets may be absent during a partial offline update. The old
   // canonical context needs genuine existing pins, never caller labels alone.
   const controller=new AbortController(),stop=()=>controller.abort();signal?.addEventListener('abort',stop,{once:true});
@@ -120,6 +122,23 @@ function sameSavedSense(sense, card) {
 export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEntry,...options}={}){
   if(typeof fetchImpl!=='function')return Promise.reject(new Error('无法读取学习例句。'));
   if(options.signal?.aborted){const error=new Error('已取消读取例句。');error.name='AbortError';return Promise.reject(error);}
+  if(hasSourceCorrectionExampleHead(term)){
+    if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
+    const head=loadSourceCorrectionExamples(term)?.term;
+    const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,head);
+    if(before===null||before&&before.term!==head)return Promise.resolve(null);
+    const own=loadSourceCorrectionExamples(term,{context:before});
+    const unchanged=()=>savedEntry===undefined||JSON.stringify(canonicalCard(savedEntry,head))===JSON.stringify(before);
+    if(own)return Promise.resolve(own).then(value=>options.signal?.aborted
+      ?Promise.reject(Object.assign(new Error('已取消读取例句。'),{name:'AbortError'})):unchanged()?value:null);
+    const binding=sourceCorrectionLegacyExampleContext(term,before,dictionaryExamplesRelease.source);
+    if(!binding)return Promise.resolve(null);
+    return originalClient(fetchImpl).load(head,{...options,lookupQuery:head})
+      .then(async entry=>{
+        const legacy=await applyExampleCorrections(head,entry,{signal:options.signal});
+        return unchanged()&&matchesSourceCorrectionLegacyDTO(binding,legacy)?legacy:null;
+      }).catch(error=>{if(options.signal?.aborted||error?.name==='AbortError')throw error;return null;});
+  }
   if(hasAssociatedEverydayExampleHead(term)){
     if(Object.keys(options).some(key=>key!=='signal'))return Promise.resolve(null);
     const before=savedEntry===undefined?undefined:canonicalCard(savedEntry,term);
@@ -135,7 +154,8 @@ export function loadDictionaryExamples(term,{fetchImpl=globalThis.fetch,savedEnt
     if(before===null||before&&before.term!==term)return Promise.resolve(null);
     return componentClient(fetchImpl).then(client=>client.load(term,{signal:options.signal,savedEntry,lookupQuery:term}))
       .catch(error=>{
-        if(options.signal?.aborted||error?.name==='AbortError')throw error;
+        if(options.signal?.aborted)throw Object.assign(new Error('已停止读取例句。'),{name:'AbortError'});
+        if(error?.name==='AbortError')throw error;
         // A partial optional-module update must not erase valid base examples.
         return componentFallback(term,before,fetchImpl,options.signal);
       }).then(result=>savedEntry!==undefined&&JSON.stringify(canonicalCard(savedEntry,term))!==JSON.stringify(before)?null:result);
@@ -201,7 +221,7 @@ export function createDictionaryExamplesController({load=loadDictionaryExamples,
       // change the meaning associated with an already started async request.
       const entry = options.savedEntry;
       managedGuard=undefined;
-      if((canonicalRepairHeads.has(term)||componentHeads.has(term)||hasSelectedCommonSenseHead(term)||hasSelectedLegacyExampleHead(term)||hasAssociatedEverydayExampleHead(term))&&entry!==undefined){
+      if((canonicalRepairHeads.has(term)||componentHeads.has(term)||hasSelectedCommonSenseHead(term)||hasSelectedLegacyExampleHead(term)||hasAssociatedEverydayExampleHead(term)||hasSourceCorrectionExampleHead(term))&&entry!==undefined){
         savedEntry=canonicalCard(entry,term);
         const identity=JSON.stringify(savedEntry);
         managedGuard=()=>identity!=='null'&&JSON.stringify(canonicalCard(entry,term))===identity;

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "45bdf792cd7113eb95a488b5444cadc42b39188286b2b9835fa160f2fe68941a",
+  "sourceByteSha256": "fc994f62c92a4653714bc9ecbab2d7633f970751e56aec67c5a23b9ac877a2f4",
+  "author": "AI/chinese_source_corrections_author",
+  "reviewer": "AI/english_source_corrections_admission_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "disconcerting",
+    "disastrous",
+    "mortuary"
+  ],
+  "issues": [],
+  "reviewScope": "Independent exact final source language, all7 bilingual pairs, explicit per-sense/current/saved contexts, noun-only plural projection and four indivisible source-tuple policy. Runtime/cache/source-code validation is a separate release check.",
+  "reviewedRows": [
+    {
+      "term": "disconcerting",
+      "rowSha256": "c714a7d7810b5de1fccd7e47fab76f3dca9e254a3973ac3e482951ac43c1f09d",
+      "canonicalId": 2038917,
+      "canonicalSourceSha256": "4ca51ff2c915b24016aa71fffeb30cf6d74ed4acd59ac417dc3e75ef407d6f96",
+      "languageDecision": "PASS",
+      "reason": "The adjective describes a cause of disquiet/loss of composure, while the participial verb affects someone. Both original bilingual examples have correct roles; no equivalence with merely feeling confused is approved.",
+      "aliasAndFormReason": "No new Chinese alias or ordinary English-form family. Exact context/sense IDs bind only the separately authored content; mortuaries has the explicit authenticated noun-only projection.",
+      "referenceVerification": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disconcerting",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Actual official indexed entry read; lexical form/scope checked. No definition/example text copied."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disconcert",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Actual official indexed entry read; lexical form/scope checked. No definition/example text copied."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "disastrous",
+      "rowSha256": "cd3e866711260b2b60a14b11064c6baa7c10d31252b95ea04974e19422c660e7",
+      "canonicalId": 552502,
+      "canonicalSourceSha256": "c78236d21b43206dd3ca45428b892f6c83335cbdffbdc15ef1852399397cf536",
+      "languageDecision": "PASS",
+      "reason": "The two adjective senses distinguish serious damage/misfortune from a very unsuccessful result. Both pairs are original and faithful; ordinary sadness is not a synonym.",
+      "aliasAndFormReason": "No new Chinese alias or ordinary English-form family. Exact context/sense IDs bind only the separately authored content; mortuaries has the explicit authenticated noun-only projection.",
+      "referenceVerification": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disastrous",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Actual official indexed entry read; lexical form/scope checked. No definition/example text copied."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "mortuary",
+      "rowSha256": "ee1ba3bbc97f3b91b9ea92105821c294b813bbfa4c817bb867ddb6d12834cb44",
+      "canonicalId": 1333816,
+      "canonicalSourceSha256": "4d7af2f40b00097ef153ff1baf95ce9fb6807ea49575976f7a5241741707c2b7",
+      "languageDecision": "PASS",
+      "reason": "The two noun senses distinguish British body-storage usage and American funeral-home usage, while the adjective concerns death/burial. Three original pairs align. The attested plural mortuaries is noun-only; neither adjective plural nor whole-head suppression is approved.",
+      "aliasAndFormReason": "No new Chinese alias or ordinary English-form family. Exact context/sense IDs bind only the separately authored content; mortuaries has the explicit authenticated noun-only projection.",
+      "referenceVerification": [
+        {
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/mortuary",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Actual official indexed entry read; lexical form/scope checked. No definition/example text copied."
+        },
+        {
+          "url": "https://www.collinsdictionary.com/dictionary/english/mortuaries",
+          "method": "primary-search-index",
+          "accessed": "2026-11-19",
+          "scope": "Actual official indexed entry read; lexical form/scope checked. No definition/example text copied."
+        }
+      ],
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "approvedExamplePairs": 7,
+  "approvedContextCounts": {
+    "disconcerting": 3,
+    "disastrous": 3,
+    "mortuary": 5
+  },
+  "approvedNounFormProjection": {
+    "term": "mortuary",
+    "form": "mortuaries",
+    "partOfSpeech": "noun",
+    "exampleSenseIds": [
+      "reviewed-source-correction:mortuary:1",
+      "reviewed-source-correction:mortuary:2"
+    ],
+    "excludesAdjective": true
+  },
+  "exactEvidence": {
+    "source-corrections-0017-companion.json": "2d04b73ff7bdbc6fc9d8e96390050cbf687b1c3efc900bf98ed7957b0445f3ee",
+    "source-corrections-0017-accuracy-policy.json": "31de8ac2249a5e6d1a8d05f9f4f4bf3f95815001302b53538fb40a7c63d1580b",
+    "source-corrections-0017-canonical-before.json": "4e45632e3f4aecc8eded12226737295befa99fd27e6a09ea09e76b9569e19624",
+    "source-corrections-0017-legacy-examples.json": "6ff634eec90d7fe9bc0aaa9d3557d97691704ce0c10056ddc2586765ff4a6082"
+  },
+  "independentProvenanceEvidence": {
+    "file": "outputs/search-coverage-fixes-20261119/english/source-corrections-independent-provenance.json",
+    "sha256": "f76b644675397a36d41b5d0349be613da791fea93588ebdcba8cde3cdd0f71a9",
+    "actualAuthenticatedCanonicalShards": 128,
+    "baseShards": 256,
+    "compressedDeltas": 35,
+    "immutableExampleHeads": 102609,
+    "reviewedPairs": 7,
+    "collisions": 0
+  },
+  "limitations": [
+    "This approval does not relabel or delete raw licensed source bytes or old saved examples.",
+    "Unknown/fresh contexts cannot borrow legacy example authority; dynamic tests and actual cache binding remain separate."
+  ]
+}

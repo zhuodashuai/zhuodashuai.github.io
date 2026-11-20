@@ -1,13 +1,23 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning } from "./chinese-search.js?v=112";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=117";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
-  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=112";
-import { chineseVariantRank, parseChineseRanking, normalizeChineseRankingQuery,
-  createChineseRankingContext } from "./chinese-ranking.js?v=112";
+  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery,
+  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=117";
+import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
+  createChineseRankingContext } from "./chinese-ranking.js?v=117";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=117';
+import { rejectedReviewedDictionaryForms } from './dictionary-form-evidence.js?v=117';
+import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=117';
+import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=117';
+import { reviewedCanonicalFormTarget, isReviewedCanonicalFormCandidate,
+  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=117';
+
+// Generated from this engine's complete source/import closure and catalogue
+// inputs. The builder zeroes only this exact marker while computing its hash.
+export const CHINESE_QUERY_ENGINE_BINDING = "417d953545cd58d0858ea59eb7be8bd6ccc34caa4d7e57b8218050fe634918eb";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -27,6 +37,13 @@ const activeControllers = new Set();
 // Only parseEnglish can create a provenance entry, after getJSON has verified
 // the complete immutable English shard bytes. Display records expose no token.
 const canonicalRecordOrigins = new WeakMap();
+const rejectedFormRecords = new WeakMap();
+const reviewedSurfaceRecords = new WeakMap();
+const reviewedCanonicalFormRecords = new WeakMap();
+const reviewedCanonicalFormResults = new WeakSet();
+// Only this module's exact packaged lookups can authorize a formatting-only
+// recovery. Caller-provided DTO fields cannot grant the same permission.
+const packagedEnglishResults = new WeakSet();
 
 function invalid(message = "本站扩展词典格式不正确，请刷新后重试。") {
   const error = new Error(message); error.code = "invalid_dictionary_data"; return error;
@@ -132,6 +149,18 @@ function parseEnglish(payload, manifest, descriptor) {
     }
     const parsed = Object.freeze({ id: row.id, term: row.term, partOfSpeech: row.partOfSpeech,
       meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) });
+    const rejectedForms = rejectedReviewedDictionaryForms(row,manifest.version);
+    if (rejectedForms.length) rejectedFormRecords.set(parsed,new Set(rejectedForms));
+    if (isReviewedEnglishSurfaceCandidate(row.id, row.term)) {
+      const surface = authenticatedEnglishSurface(JSON.stringify(row), manifest.version, manifest.integritySha256,
+        JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
+      if (surface) reviewedSurfaceRecords.set(parsed, Object.freeze({ surface, manifestSha256: manifest.integritySha256 }));
+    }
+    if (isReviewedCanonicalFormCandidate(row.id, row.term)) {
+      const surface = authenticatedReviewedCanonicalForm(JSON.stringify(row), manifest.version, manifest.integritySha256,
+        JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
+      if (surface) reviewedCanonicalFormRecords.set(parsed, Object.freeze({surface,manifestSha256:manifest.integritySha256}));
+    }
     if (isSelectedCommonSenseCanonicalCandidate(row.id, row.term)) canonicalRecordOrigins.set(parsed, Object.freeze({ manifestVersion: manifest.version,
       bucket: descriptor.bucket, file: descriptor.file, sha256: descriptor.sha256, bytes: descriptor.bytes,
       rawRecordJSON: JSON.stringify(row) }));
@@ -320,35 +349,145 @@ async function englishSearch(query, context) {
   // punctuation. The schema's editor normalizer intentionally treats phrases
   // more narrowly; dictionary search can ignore a final comma without changing
   // the saved headword, internal apostrophes, hyphens, plus signs or slashes.
-  const literal = fold(query), unwrapped = query.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
-  const canonical = fold(canonicalizeLookupInput(unwrapped || query));
-  const wanted = context.literalOnly ? [literal] : [...new Set([literal, canonical])];
+  const literal = fold(query);
+  let decorated = exactQuery;
+  // Keep an abbreviation's lexical period when removing sentence decoration.
+  for (let pass = 0; pass < 2; pass++) {
+    decorated = decorated.replace(/^["']+|["']+$/gu, "").trim()
+      .replace(/[!,?;:，。！？；：]+$/gu, "").trim();
+  }
+  const unwrapped = exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
+  const canonical = canonicalizeLookupInput(unwrapped || exactQuery);
+  const candidates = [{ key: literal, exact: exactQuery }];
+  if (!context.literalOnly) {
+    candidates.push({ key: fold(decorated), exact: decorated }, { key: fold(canonical), exact: canonical });
+    for (const value of [decorated, canonical]) {
+      const ordinary = value.replace(/[\u2010\u2011]/gu, "-").replace(/[\u201b\u02bc]/gu, "'")
+        .replace(/[\u00ad\u200b\u2060\ufeff]/gu, "");
+      candidates.push({ key: fold(ordinary), exact: ordinary, typographyFallback: ordinary !== value });
+    }
+  }
+  const seen = new Set(), wanted = candidates.filter(candidate => {
+    if (!candidate.key || seen.has(candidate.key)) return false;
+    seen.add(candidate.key); return true;
+  });
   const rows = [];
   for (let index = 0; index < wanted.length; index++) {
     // A true literal head needs no normalized alternative. Loading that shard
     // first would let an unrelated failure or timeout hide a healthy exact hit.
     // Keep a literal form/context pending until the normalized canonical check.
-    const key = wanted[index], shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
-    const row = { refs: shard.lookup.get(key) || [], shard }; rows.push(row);
+    const { key, exact: exactSpelling, typographyFallback } = wanted[index];
+    const packaged = typographyFallback && searchEverydayDictionary(exactSpelling);
+    if (packaged) { packagedEnglishResults.add(packaged); return packaged; }
+    const shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
+    const refs = (shard.lookup.get(key) || []).filter(ref => ref.kind !== 'form'
+      || !rejectedFormRecords.get(shard.records.get(ref.id))?.has(key));
+    const row = { refs, shard, key }; rows.push(row);
     const canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
     if (canonicalRefs.length) {
-      const exactSpelling = index === 0 ? exactQuery : canonicalizeLookupInput(exactQuery.replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim());
       const precise = canonicalRefs.filter(ref => spelling(row.shard.records.get(ref.id).term) === exactSpelling);
       const options = precise.length ? precise : canonicalRefs;
       if (new Set(options.map(ref => ref.id)).size > 1) throw ambiguous();
       const record = row.shard.records.get(options[0].id);
+      if (context.reviewedSurface) {
+        const origin = reviewedSurfaceRecords.get(record);
+        if (origin?.surface !== context.reviewedSurface || origin.manifestSha256 !== manifest.integritySha256) {
+          return { query, results: [], hasMore: false };
+        }
+      }
       return { query, results: [display(record, record, manifest)], hasMore: false };
     }
   }
   if (context.literalOnly) return { query, results: [], hasMore: false };
   const row = rows.find(item => item.refs.length);
-  if (!row) return { query, results: [], hasMore: false };
+  if (!row) {
+    if (context.disableRecovery) return { query, results: [], hasMore: false };
+    const ordinary = decorated.replace(/[\u2010\u2011]/gu, "-").replace(/[\u201b\u02bc]/gu, "'")
+      .replace(/[\u00ad\u200b\u2060\ufeff]/gu, "");
+    const wrapped = await wrappedEnglishWord(query, ordinary, context);
+    return wrapped || await reviewedEnglishSurface(query, ordinary, context) || inflectedEnglishPhrase(query, ordinary, context);
+  }
   if (new Set(row.refs.map(ref => ref.id)).size > 1) throw ambiguous();
   const contexts = row.refs.filter(ref => ref.kind === "context");
   if (new Set(contexts.map(ref => `${ref.partOfSpeech}\n${ref.meaning}`)).size > 1) throw ambiguous();
   const ref = contexts[0] || row.refs[0], record = row.shard.records.get(ref.id);
+  if (ref.kind === 'form' && reviewedCanonicalFormTarget(row.key) === record.term) {
+    const origin = reviewedCanonicalFormRecords.get(record);
+    const content = reviewedCanonicalFormContent(row.key);
+    if (!content || origin?.surface !== row.key || origin.manifestSha256 !== manifest.integritySha256) {
+      const error = new Error('该词形的完整来源尚未核对，请输入英文原形查询。');
+      error.code = 'unreviewed_dictionary_form'; throw error;
+    }
+    const result = {query,results:[{...content,matchedForm:context.originalInput}],hasMore:false};
+    reviewedCanonicalFormResults.add(result); return result;
+  }
   const selected = ref.kind === "context" ? { partOfSpeech: ref.partOfSpeech, meaning: ref.meaning, source: "public" } : record;
   return { query, results: [display(record, selected, manifest, ref.term || query)], hasMore: false };
+}
+function guardedEnglishResult(result) {
+  return packagedEnglishResults.has(result) || reviewedCanonicalFormResults.has(result) ? result : guardLegacySupplementaryResult(result);
+}
+async function reviewedEnglishSurface(query, value, context) {
+  const surface = fold(value), target = reviewedEnglishSurfaceTarget(surface);
+  if (!target) return null;
+  if (context.signal?.aborted) throw stopped();
+  // Never borrow a packaged/form/context answer or an approximately matching
+  // target. The nested lookup accepts only this source-branded literal record.
+  const found = await englishSearch(fold(target), { ...context, exactQuery: target,
+    literalOnly: true, disableRecovery: true, reviewedSurface: surface });
+  if (!found.results.length) return null;
+  return { query, results: found.results.map(row => ({ ...row, matchedForm: context.originalInput })), hasMore: false };
+}
+async function exactEnglishTarget(value, context, { allowForms = false } = {}) {
+  const packaged = searchEverydayDictionary(value);
+  if (packaged) { packagedEnglishResults.add(packaged); return packaged; }
+  return englishSearch(fold(value), { ...context, exactQuery: value, literalOnly: !allowForms, disableRecovery: true });
+}
+async function wrappedEnglishWord(query, value, context) {
+  // Only a hyphen followed by layout whitespace inside one token is eligible.
+  // Test both spellings against real entries; never join arbitrary word spaces.
+  const match = value.match(/^([\p{Script=Latin}\p{Mark}]+(?:['-][\p{Script=Latin}\p{Mark}]+)*)-\s+([\p{Script=Latin}\p{Mark}]+(?:['-][\p{Script=Latin}\p{Mark}]+)*)$/u);
+  if (!match) return null;
+  const matches = new Map();
+  for (const target of [`${match[1]}-${match[2]}`, `${match[1]}${match[2]}`]) {
+    if (context.signal?.aborted) throw stopped();
+    const found = await exactEnglishTarget(target, context, { allowForms: true });
+    if (found.results.length) matches.set(JSON.stringify(found.results), found);
+  }
+  if (matches.size > 1) throw ambiguous();
+  const found = matches.values().next().value;
+  if (!found) return null;
+  const result = { query, results: found.results, hasMore: false };
+  if (packagedEnglishResults.has(found)) packagedEnglishResults.add(result);
+  return result;
+}
+const verbRole = value => typeof value === "string" && (/\bverb\b/iu.test(value)
+  || /(?:^|[\s·/,;])v(?:t|i)?\.(?:$|[\s·/,;])/iu.test(value));
+async function inflectedEnglishPhrase(query, value, context) {
+  // Both proofs are required: an authenticated verb-form index for the first
+  // token, then a complete verb phrase with the unchanged remainder.
+  const parts = value.match(/^([\p{Script=Latin}\p{Mark}]+(?:['-][\p{Script=Latin}\p{Mark}]+)*)\s+(.+)$/u);
+  if (!parts || value.split(/\s+/u).length > 8) return { query, results: [], hasMore: false };
+  const first = fold(parts[1]), { manifest, client, fetchImpl, timeoutMs } = context;
+  const shard = await shardFor("en", bucketFor(first), manifest, client, fetchImpl, timeoutMs);
+  const lemmas = new Set((shard.lookup.get(first) || []).filter(ref => ref.kind === "form"
+      && !rejectedFormRecords.get(shard.records.get(ref.id))?.has(first))
+    .map(ref => shard.records.get(ref.id)).filter(record => verbRole(record.partOfSpeech) && fold(record.term) !== first)
+    .map(record => record.term));
+  const matches = new Map();
+  for (const lemma of lemmas) {
+    if (context.signal?.aborted) throw stopped();
+    const found = await exactEnglishTarget(`${lemma} ${parts[2]}`, context);
+    if (!found.results.length || !found.results.every(row => verbRole(row.partOfSpeech))) continue;
+    // A new derivation cannot borrow a closed, newly selected reviewed sense.
+    // Its old-source identity must pass the existing form guard as well.
+    const allowed = guardLegacySupplementaryResult(found);
+    matches.set(JSON.stringify(allowed.results), allowed);
+  }
+  if (matches.size > 1) throw ambiguous();
+  const found = matches.values().next().value;
+  return found ? { query, results: found.results.map(row => ({ ...row, matchedForm: value })), hasMore: false }
+    : { query, results: [], hasMore: false };
 }
 async function parallel(items, concurrency, callback) {
   let cursor = 0;
@@ -398,8 +537,9 @@ function integratedCorpus(ranking, manifest) {
   for (const record of ranking.records.values()) {
     byTerm.set(spelling(record.term), record);
     if (isSupersededChineseSenseHead(record.term)) continue;
-    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+      && (!isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
     if (!variants.length) continue;
     const [primary, ...alternatives] = variants;
     corpus.set(record.id, { id: record.id, term: record.term, ...primary, variants: alternatives });
@@ -493,21 +633,29 @@ async function integratedChineseMatches(query, ranking, context) {
     if (!needles.some(needle => searchable.includes(needle))
       && !declaredAliases?.some(alias => alias === term || aliases.includes(alias))) return;
     const matches = [];
-    const direct = chineseVariantRank(selected.meaning, term, selected.partOfSpeech,
+    const direct = chineseVariantEvidence(selected.meaning, term, selected.partOfSpeech,
       { context: rankContext, partOfSpeechHint: normalized.partOfSpeechHint });
-    if (direct !== null) matches.push({ score: direct, matchedChinese: term, related: false });
+    if (direct !== null && (!requiresWholeChineseSourceAtom(term, { literal: true })
+      || matchesWholeChineseSourceAtom(selected.meaning, term, selected.partOfSpeech))) {
+      matches.push({ score: direct.rank, matchKind: direct.kind, matchedChinese: term, related: false });
+    }
     if (declaredAliases?.includes(term)) matches.push({ score: 0.25, matchedChinese: term, related: true });
     for (const alias of aliases) {
       // Associations require complete source atoms (or an explicitly approved
       // complete alias). A compound or negated mention cannot grant a synonym.
-      if (matchesChineseSearchMeaning(selected.meaning, alias)) {
-        const rank = chineseVariantRank(selected.meaning, alias, selected.partOfSpeech,
+      if (requiresWholeChineseSourceAtom(alias)
+        ? matchesWholeChineseSourceAtom(selected.meaning, alias, selected.partOfSpeech)
+        : matchesChineseSearchMeaning(selected.meaning, alias)) {
+        const evidence = chineseVariantEvidence(selected.meaning, alias, selected.partOfSpeech,
           { partOfSpeechHint: normalized.partOfSpeechHint });
-        if (rank !== null) matches.push({ score: rank + 0.25, matchedChinese: alias, related: true });
+        if (evidence !== null) matches.push({ score: evidence.rank + 0.25, matchKind: evidence.kind, matchedChinese: alias, related: true });
       }
       if (declaredAliases?.includes(alias)) matches.push({ score: 0.25, matchedChinese: alias, related: true });
     }
-    for (const match of matches) keep({ term: record.term, record, selected, dto, sourcePriority, order, ...match });
+    // Complete, explicitly approved intentions break equal strong-match ties;
+    // an explanatory mention never grants an intention or changes source choice.
+    const intentPriority = sourcePriority === 0 && declaredAliases?.some(alias => alias === term || aliases.includes(alias)) ? 0 : 1;
+    for (const match of matches) keep({ term: record.term, record, selected, dto, sourcePriority, intentPriority, order, ...match });
   };
   for (const { record, variants } of prepared.sourceRows) {
     for (const selected of variants) score(record, selected, null, null, 1, record.id);
@@ -518,7 +666,7 @@ async function integratedChineseMatches(query, ranking, context) {
     score(record, dto, dto, entry.aliases, 0, record.id);
   });
   const matches = [...best.values()].sort((a, b) => a.score - b.score || Number(a.related) - Number(b.related)
-    || a.order - b.order || a.term.localeCompare(b.term, "en"));
+    || (a.score < 1 ? a.intentPriority - b.intentPriority : 0) || a.order - b.order || a.term.localeCompare(b.term, "en"));
   const value = { query, normalized, matches, common };
   ranking.lastChineseQuery = value;
   return value;
@@ -537,7 +685,8 @@ async function integratedChinesePage(query, limit, offset, ranking, context, rel
         ? { ...structuredClone(item.dto), ...structuredClone(projection) } : structuredClone(item.dto);
     } else result = { ...display(item.record, item.selected, context.manifest),
       ...sourceMatchEvidence(item.record, item.selected, item.matchedChinese) };
-    return { ...result, ...(item.related ? { matchType: "related", matchedChinese: item.matchedChinese } : {}) };
+    return { ...result, ...(item.related ? { matchType: "related", matchedChinese: item.matchedChinese }
+      : ["mention", "compound"].includes(item.matchKind) ? { matchType: item.matchKind, matchedChinese: item.matchedChinese } : {}) };
   });
   return { query, results, hasMore: nextOffset < all.length, nextOffset, offset, total: all.length,
     ranking: "global", relatedIntegrated: true,
@@ -558,8 +707,9 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
       continue;
     }
     if (isSupersededChineseSenseHead(record.term)) continue;
-    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+      && (!isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
     let selected = null, score = Infinity;
     for (const item of variants) {
       const rank = plan ? matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source) ? 0 : null
@@ -579,7 +729,37 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
 
 async function chineseSearch(query, limit, context, relatedPlan = null, offset = 0) {
   const { manifest, client, fetchImpl, timeoutMs, signal } = context;
-  const completeRanking = await rankingFor(manifest, client, fetchImpl, timeoutMs);
+  // A complete, source-bound query packet is an optional acceleration of this
+  // same global result stream. Validate the complete packet before selecting
+  // its related view. Unknown queries retain the original corpus path; once
+  // that corpus is ready, reuse it directly without another packet read.
+  let packetFailure;
+  if (context.useChineseQueryCache !== false && !client.ranking) {
+    try {
+      const packet = await readChineseQueryPacket(query, {
+        manifest, engineBinding: CHINESE_QUERY_ENGINE_BINDING, fetchImpl, signal, timeoutMs,
+      });
+      if (signal?.aborted) throw stopped();
+      if (packet) {
+        if (packet.metadata.query !== query || packet.metadata.total !== packet.results.length) throw invalid();
+        const all = relatedPlan || context.relatedOnly ? packet.results.filter(row => row.matchType === 'related') : packet.results;
+        const page = all.slice(offset, offset + limit), nextOffset = offset + page.length;
+        return { ...packet.metadata, total: all.length, results: page, hasMore: nextOffset < all.length, nextOffset, offset };
+      }
+    } catch (error) {
+      if (signal?.aborted || error?.name === "AbortError") throw stopped();
+      packetFailure = error;
+    }
+  }
+  let completeRanking;
+  try { completeRanking = await rankingFor(manifest, client, fetchImpl, timeoutMs); }
+  catch (error) {
+    // A corrupt advisory packet can be discarded in favour of an authenticated
+    // complete corpus. If that also fails, keep the integrity failure visible;
+    // it must not turn into an apparently complete packaged-alias answer.
+    if (error?.name !== "AbortError" && packetFailure?.code === "invalid_dictionary_data") throw packetFailure;
+    throw error;
+  }
   if (signal?.aborted) throw stopped();
   if (completeRanking) return integratedChinesePage(query, limit, offset, completeRanking, context, Boolean(relatedPlan || context.relatedOnly));
   if (context.relatedOnly && !relatedPlan) return { query, results: [], hasMore: false };
@@ -681,8 +861,9 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
       // Reviewed replacement senses use their explicit local Chinese aliases.
       // Their stale legacy reverse postings must not keep teaching the old error.
       if (isSupersededChineseSenseHead(record.term)) continue;
-      const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-        || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+      const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+        && (!isRetainedCanonicalSenseHead(record.term)
+        || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
       if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source))) continue;
@@ -720,7 +901,7 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
 }
 
 /** Optional, non-transitive Chinese meaning associations; never writes cards. */
-export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8, offset = 0 } = {}) {
+export async function searchRelatedChineseDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 5000, limit = 8, offset = 0, useChineseQueryCache = true } = {}) {
   if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return { results: [], hasMore: false };
   const query = fold(input).replace(/^[\p{P}\p{Z}]+|[\p{P}\p{Z}]+$/gu, "").trim();
   if (!HAN.test(query) || /[<>]|javascript\s*:/iu.test(query)
@@ -737,7 +918,7 @@ export async function searchRelatedChineseDictionary(input, { signal, fetchImpl 
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (controller.signal.aborted) throw stopped();
-    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal, relatedOnly: true }, plan, start);
+    return chineseSearch(query, count, { manifest, client, fetchImpl, timeoutMs: duration, signal: controller.signal, relatedOnly: true, useChineseQueryCache }, plan, start);
   })();
   try { return await waitFor(work, signal, duration); }
   finally { controller.abort(); signal?.removeEventListener("abort", stop); }
@@ -754,12 +935,13 @@ export async function preloadExpandedDictionary({ signal, fetchImpl = globalThis
 }
 
 /** Exact English/form lookup or ranked Chinese substring search, with no AI. */
-export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset } = {}) {
-  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) throw new Error("请输入不超过 200 个字符的英文或中文释义。");
+export async function searchExpandedDictionary(input, { signal, fetchImpl = globalThis.fetch, timeoutMs = 15_000, limit = 20, offset, useChineseQueryCache = true } = {}) {
+  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input.replace(/[\t\r\n]/gu, ""))) throw new Error("请输入不超过 200 个字符的英文或中文释义。");
   const normalizedInput = spelling(input);
-  if (/[<>]|javascript\s*:/iu.test(normalizedInput)) throw new Error("请输入要查询的英文或中文释义。");
-  const everyday = searchEverydayDictionary(input, { limit, ...(offset === undefined ? {} : { offset }) });
-  const literalFallback = everyday ? null : searchEverydayDictionary(input,
+  if (/[<>]|javascript\s*:/iu.test(normalizedInput) || /javascript\s*:/iu.test(input.replace(/[\t\r\n]/gu, ""))) throw new Error("请输入要查询的英文或中文释义。");
+  const layoutInput = /[\t\r\n]/u.test(input) ? normalizedInput : input;
+  const everyday = searchEverydayDictionary(layoutInput, { limit, ...(offset === undefined ? {} : { offset }) });
+  const literalFallback = everyday ? null : searchEverydayDictionary(layoutInput,
     { limit, ...(offset === undefined ? {} : { offset }), allowDottedFallback: true });
   // Only indexed collisions need the extra decoration pass. Ordinary literal
   // heads may themselves end in '?' or other punctuation and keep priority.
@@ -783,12 +965,13 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
   const work = (async () => {
     const manifest = await manifestFor(client, fetchImpl, duration);
     if (signal?.aborted) throw stopped();
-    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery };
+    const context = { manifest, client, fetchImpl, timeoutMs: duration, signal, exactQuery, originalInput: input,
+      useChineseQueryCache: useChineseQueryCache !== false };
     if (literalFallback) {
       const literal = await englishSearch(query, { ...context, literalOnly: true });
       return literal.results.length ? guardLegacySupplementaryResult(literal) : literalFallback;
     }
-    return chinese ? chineseSearch(query, count, context, null, start) : guardLegacySupplementaryResult(await englishSearch(query, context));
+    return chinese ? chineseSearch(query, count, context, null, start) : guardedEnglishResult(await englishSearch(query, context));
   })();
   try { return await waitFor(work, signal, duration); }
   catch (error) {
@@ -803,4 +986,5 @@ export async function searchExpandedDictionary(input, { signal, fetchImpl = glob
 
 export function resetExpandedDictionaryCacheForTests() {
   generation++; for (const controller of activeControllers) controller.abort(); activeControllers.clear(); clients = new WeakMap();
+  resetChineseQueryPacketCacheForTests();
 }

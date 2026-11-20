@@ -21,7 +21,7 @@ test('early Enter before the actual entry module mounts preserves input without 
   let release, observed;
   const gate = new Promise(resolve => { release = resolve; });
   const seen = new Promise(resolve => { observed = resolve; });
-  await page.route('**/js/dictionary-entry-v109.js', async route => {
+  await page.route('**/js/dictionary-entry-v109.js?v=117', async route => {
     observed(); await gate; await route.continue();
   });
   try {

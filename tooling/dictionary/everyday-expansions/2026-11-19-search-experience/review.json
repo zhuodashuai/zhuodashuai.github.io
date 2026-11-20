@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "2d75f17bd88d4d65a65e16cb14e32c09b670f7a6b03b3fef66f9e2e368f8e45e",
+  "sourceByteSha256": "49247ad3ed034ee463f7864079d0ed6a8e055b0dead4bd012aa7f8f4b9594bf1",
+  "author": "AI/search_experience_root_author",
+  "reviewer": "AI/search_experience_independent_language_reader",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "literature review",
+    "baggage allowance",
+    "outbound journey",
+    "book a taxi",
+    "financial independence",
+    "memorize new words",
+    "start a new job",
+    "wear a face mask",
+    "get enough sleep",
+    "check-in counter",
+    "check-in desk",
+    "on the same page",
+    "give somebody a hand",
+    "lend somebody a hand",
+    "take it for granted",
+    "login"
+  ],
+  "issues": [],
+  "reviewScope": "Independent language, selected-sense scope, bounded aliases/forms, and bilingual example fidelity. No reference examples copied into product content; no whole-dictionary quality claim.",
+  "reviewedRows": [
+    {
+      "term": "literature review",
+      "rowSha256": "8c93c7339f89e813a95c890ea087a154d4955debdc84cfe8037567ea062b47db",
+      "languageDecision": "PASS",
+      "reason": "Noun phrase for critical synthesis of prior research, not a bare reference list. The comparison-of-explanations example is faithful in Chinese.",
+      "aliasAndFormReason": "Regular reviews plural only; both Chinese aliases mean the research genre.",
+      "referenceVerification": {
+        "url": "https://owl.purdue.edu/owl/research_and_citation/conducting_research/writing_a_literature_review.html",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "baggage allowance",
+      "rowSha256": "93fd0f6a8ac9988690d76de9053f10f8a93c95f442f13d638c435db89b0169ad",
+      "languageDecision": "PASS",
+      "reason": "Noun phrase for permitted baggage limits. Emirates confirms weight and piece concepts and dimensional limits with route/fare variation. The example makes no fixed allowance promise.",
+      "aliasAndFormReason": "Only allowances plural; aliases are limits, not excess-baggage fees.",
+      "referenceVerification": {
+        "url": "https://www.emirates.com/us/english/before-you-fly/baggage/checked-baggage/",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "outbound journey",
+      "rowSha256": "74a380c064f7f1425c3d31eb454f67631a2200bf4c2e4d29f8fd4781604dc1bb",
+      "languageDecision": "PASS",
+      "reason": "Noun phrase for travel away from the departure point, contrasted here with the return leg. Cambridge outbound confirms direction; train outward and bus return are preserved.",
+      "aliasAndFormReason": "Only journeys plural; aliases mean the outward leg, not all departures.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/outbound",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "book a taxi",
+      "rowSha256": "580647bd9801a2ac33202b32d1c0e6898d48f801c0e529332f74e7c2599f0f2a",
+      "languageDecision": "PASS",
+      "reason": "Verb phrase using book to arrange a future service; the selected advance-reservation sense is accurate. Six-in-the-morning taxi and the first train arriving too late align in both languages.",
+      "aliasAndFormReason": "books/booked/booking inflect book correctly. Chinese aliases are reservations, not hailing a passing taxi.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/book",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "financial independence",
+      "rowSha256": "e1550ebb844ab062ee553c62ba6fd96af0b4fc1152b6427cf7aa4cd0902b9297",
+      "languageDecision": "PASS",
+      "reason": "Abstract noun phrase for everyday financial self-support. Cambridge financially independent confirms not needing money from others. The source expressly distinguishes retirement-without-work meanings. Example and translation align.",
+      "aliasAndFormReason": "No artificial plural; aliases retain financial self-reliance.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/financially-independent",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "memorize new words",
+      "rowSha256": "5c1f5beb7831485fad79034b17de1aad7f5e95ad77bdad5190eac448c9551669",
+      "languageDecision": "PASS",
+      "reason": "Transitive verb phrase. Oxford and Cambridge confirm the memory-learning sense and British memorise spelling. The personal-sentence learning example is faithfully translated.",
+      "aliasAndFormReason": "All seven bounded spelling/inflection surfaces are valid; no reminisce sense is substituted.",
+      "referenceVerification": {
+        "url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/memorize",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "start a new job",
+      "rowSha256": "b2333eda81f0e4331805347127a9c73a15a3a7909cf83e0ce756ee011ecdf421",
+      "languageDecision": "PASS",
+      "reason": "Verb phrase for beginning employment, not necessarily orientation or paperwork. Cambridge start explicitly documents this use. Omar and the notebook of unfamiliar procedures are preserved in Chinese.",
+      "aliasAndFormReason": "starts/started/starting are correct. 入职 is explicitly scoped to commencing work.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/start",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "wear a face mask",
+      "rowSha256": "38ec7338448d5cd5b674bd8277134ac5b8367cdb54a154b76539d888eb5d3924",
+      "languageDecision": "PASS",
+      "reason": "Verb phrase using wear for having a mask on. Cambridge confirms the protective nose-and-mouth mask. Other face-mask senses are acknowledged without conflating them. Crowded-train example and translation align.",
+      "aliasAndFormReason": "wears/wore/worn/wearing are valid verb surfaces; participles are not claimed as independent full sentences.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/face-mask?topic=make-up-and-skin-care",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "get enough sleep",
+      "rowSha256": "6eb02c20aa05f12f064a96d2c79263a1ae6185314ac7f6a94a06442648a965f3",
+      "languageDecision": "PASS",
+      "reason": "Verb phrase for obtaining sufficient sleep. Cambridge sleep confirms the collocation. The example is a personal concentration observation preserved in Chinese, not a medical guarantee.",
+      "aliasAndFormReason": "gets/got/getting and American participle gotten are valid. Chinese aliases mean sufficient sleep.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/sleep",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "check-in counter",
+      "rowSha256": "c28c502cfad9e961962861570a6a056a4ff85fc154dd18d32a5303f161613f69",
+      "languageDecision": "PASS",
+      "reason": "Countable noun phrase for an airport registration counter; Cambridge check-in supports the airport area/process. The moved-counter example remains a location change in both languages.",
+      "aliasAndFormReason": "Regular counters plural; aliases remain airport-specific.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/check-in",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "check-in desk",
+      "rowSha256": "f242221c6b07a4ea86fa4a20c7e9146c70558ec59659bad0bdf6327ee22a3017",
+      "languageDecision": "PASS",
+      "reason": "Countable noun phrase. Airport and hotel check-in contexts are explicitly separated. The room-key example clearly selects the hotel reading and translates it without adding a flight.",
+      "aliasAndFormReason": "Regular desks plural. Two Chinese aliases distinguish airport and hotel settings.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/us/dictionary/english/check-in-check-into",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "on the same page",
+      "rowSha256": "8a57ed7608c3e923e25e237cecf7908d78f346c2f00deaaa54ba2b80042420d8",
+      "languageDecision": "PASS",
+      "reason": "Idiomatic phrase for shared understanding or broad agreement on the relevant matter; Cambridge page confirms shared ideas. Source avoids universal agreement. The deadline example remains issue-specific in Chinese.",
+      "aliasAndFormReason": "No speculative variants; Chinese aliases mean shared understanding.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/page?q=be+on+the+same+page",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "give somebody a hand",
+      "rowSha256": "ce2602da1b15b45084466286a7f164694a5e2bd17890f3af811ed7193cce28ea",
+      "languageDecision": "PASS",
+      "reason": "Idiom with distinct help and applause readings; Cambridge hand documents both. The example clearly selects practical help moving a desk, faithfully reflected in Chinese.",
+      "aliasAndFormReason": "Seven bounded pronoun/placeholder forms are grammatical. No claim that lend shares the applause reading.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/hand",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "lend somebody a hand",
+      "rowSha256": "586acad28b163d672bc24dc7f1540ca2d5c455c2fa73a9bb79ff451d4ce0fa8c",
+      "languageDecision": "PASS",
+      "reason": "Help idiom; Cambridge give-a-hand explicitly lists lend someone a hand. Applause is correctly absent. The heavy-box example and Chinese搬 retain the practical-help context.",
+      "aliasAndFormReason": "Seven bounded pronoun/placeholder forms retain assistance, not financial lending or applause.",
+      "referenceVerification": {
+        "url": "https://dictionary.cambridge.org/dictionary/english/give-a-hand?q=lend-a-hand",
+        "method": "primary-search-index",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "take it for granted",
+      "rowSha256": "06f299e90362cfa12f2beaa70e14f0444cec7bc83e8acc93e4f5c175b34f178c",
+      "languageDecision": "PASS",
+      "reason": "Idiom with separately numbered unexamined-assumption and failure-to-value senses, both confirmed directly by Merriam-Webster. The Sunday-library example and Chinese select the first sense.",
+      "aliasAndFormReason": "takes/took/taken/taking are correct bounded forms; it is retained. No literal permission or donation sense is added.",
+      "referenceVerification": {
+        "url": "https://www.merriam-webster.com/dictionary/take%20for%20granted",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "login",
+      "rowSha256": "7b09dbb0d32a12070fc67d54d838b7d21e849856b8ba45342bf3f2c72e497c4f",
+      "languageDecision": "PASS",
+      "reason": "Noun denoting an access event or identity credentials, confirmed by Dictionary.com and Cambridge. Two-word log in is correctly recommended as the verb. The office-computer event is preserved in Chinese.",
+      "aliasAndFormReason": "logins and hyphenated log-in/log-ins are valid noun surfaces. No invented loginned/loginning. The inaccessible Chicago FAQ is not relied on.",
+      "referenceVerification": {
+        "url": "https://www.dictionary.com/browse/login",
+        "method": "direct-fetch",
+        "accessed": "2026-11-19"
+      },
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "referenceLimitations": "Several Cambridge direct fetches returned 403; first-party dictionary search-index text was read instead. Chicago FAQ direct fetch returned 500 and is not evidence for this approval. Dictionary.com and Cambridge independently support login. The removed by a fluke row is not approved."
+}

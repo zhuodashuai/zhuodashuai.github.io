@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import {showRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
 
 const BOOK = "never-let-me-go";
 const CHAPTER = "chapter-6";
@@ -8,7 +9,7 @@ test.beforeEach(async ({ context, page }, testInfo) => {
   await context.addCookies([{ name: "e2e_run", value: run, url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   page.on("pageerror", (error) => { throw new Error(`Unhandled wrong-word practice error: ${error.message}`); });
   await page.goto(`/?book=${BOOK}&chapter=${CHAPTER}&e2e=1&testRun=${run.slice(0, 32)}`);
-  await expect(page.locator("#entry-count")).toHaveText("24");
+  await showRecordedChapterSources(page,{defaultCount:21,recordedCount:24});
 });
 
 async function attempts(page) {

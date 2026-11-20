@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import {showRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
 
 const bookId = "never-let-me-go";
 const canonicalSnapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
@@ -16,13 +17,13 @@ test.beforeEach(async ({ context, page }, testInfo) => {
   page.on("pageerror", error => { throw new Error(`Unhandled chapter reading error: ${error.message}`); });
 });
 
-for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]]) {
+for (const [chapter, count, defaultCount] of [[8,25,25], [9,24,22], [10,26,24], [11,28,25], [12,25,23]]) {
   test(`Chapter ${chapter}: every selected card opens with its own source, original form and bilingual example`, async ({ page }) => {
     test.setTimeout(120_000);
     const source = JSON.parse(await readFile(new URL(`../../../vocab/data/reading-lists/never-let-me-go/chapter-${chapter}.json`, import.meta.url), "utf8"));
     await page.goto(`/?book=${bookId}&chapter=chapter-${chapter}`);
     await expect(page.getByRole("heading", { name: `Never Let Me Go · Chapter ${chapter}`, exact: true })).toBeVisible();
-    await expect(page.locator("#entry-count")).toHaveText(String(count));
+    await showRecordedChapterSources(page,{defaultCount,recordedCount:count});
     await expect(page.locator("#entry-grid .word-card h3")).toHaveText(source.items.map(item => item.term));
     for (const item of source.items) {
       const card = page.locator(".word-card").filter({ has: page.getByRole("heading", { name: item.term, exact: true }) });
@@ -87,6 +88,7 @@ for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]])
   test(`Chapter ${chapter}: quiz covers all ${count} words, saves one answer and resumes without changing study progress`, async ({ page }) => {
     const chapterId = `chapter-${chapter}`;
     await page.goto(`/?book=${bookId}&chapter=${chapterId}`);
+    await showRecordedChapterSources(page,{defaultCount,recordedCount:count});
     await expect(page.locator("#chapter-quiz-button")).toBeVisible();
     const before = await reviewStates(page);
     await page.locator("#chapter-quiz-button").click();
@@ -95,6 +97,8 @@ for (const [chapter, count] of [[8, 25], [9, 24], [10, 26], [11, 28], [12, 25]])
     const initial = (await attempts(page, chapterId))[0];
     expect(initial.questions).toHaveLength(count);
     expect(new Set(initial.questions.map(question => question.entryId)).size).toBe(count);
+    expect(initial.questions.map(question=>question.entryId).sort()).toEqual(canonicalSnapshot.entries
+      .filter(entry=>entry.tags.includes(`collection:${bookId}:${chapterId}`)).map(entry=>entry.id).sort());
     expect(initial.omitted).toEqual([]);
     for (const question of initial.questions) {
       expect(question.options).toHaveLength(4);

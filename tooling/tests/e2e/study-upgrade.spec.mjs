@@ -1,9 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
-import { buildCollectionCatalog } from "../../../vocab/js/collections.js";
+import { buildLearningCatalog, filterLearningEntries } from "../../../vocab/js/reading-card-policy.js";
+import { showRecordedChapterSources } from "./helpers/recorded-chapter-scope.mjs";
 
 const snapshot = JSON.parse(await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8"));
-const availableChapters = buildCollectionCatalog(snapshot.entries).find(book => book.id === "never-let-me-go").chapters;
+const availableChapters = buildLearningCatalog(snapshot.entries).find(book => book.id === "never-let-me-go").chapters;
+const chapterTenDefaultCount = filterLearningEntries(snapshot.entries, "never-let-me-go", "chapter-10").length;
 const lastChapter = availableChapters.at(-1);
 const precedingChapter = availableChapters.at(-2);
 
@@ -72,6 +74,7 @@ test("an unresponsive local database cannot block online cards or subsequent con
   await page.addInitScript(() => { indexedDB.open = () => ({}); });
   try {
     await chapter(page);
+    await showRecordedChapterSources(page, { defaultCount: chapterTenDefaultCount, recordedCount: 26 });
     await expect(page.locator("#entry-grid .word-card")).toHaveCount(26);
     let requests = 0;
     page.on("request", (request) => { if (request.url().includes("/api/v1/public/wordbook")) requests++; });
@@ -87,6 +90,7 @@ test("warm local cache displays even while the live refresh is still hanging", a
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
   await chapter(page);
+  await showRecordedChapterSources(page, { defaultCount: chapterTenDefaultCount, recordedCount: 26 });
   await expect.poll(() => page.evaluate(async () => Boolean((await (await import("/js/owner-storage.js")).getPublicCache())?.snapshot))).toBe(true);
   let release;
   let pendingRequests = 0;

@@ -5,10 +5,11 @@
   "packageManager": "pnpm@11.19.0",
   "scripts": {
     "test": "pnpm test:unit && pnpm test:api",
-    "test:unit": "node --test vocab/tests/*.test.mjs tooling/tests/*.test.mjs",
+    "test:unit": "node --test --test-concurrency=4 vocab/tests/*.test.mjs tooling/tests/*.test.mjs",
     "test:api": "pnpm --dir wordbook-api test",
     "test:e2e": "playwright test --config tooling/playwright.config.mjs",
     "test:security": "node tooling/scripts/scan-secrets.mjs",
+    "benchmark:search": "node tooling/scripts/benchmark-dictionary-search.mjs",
     "test:live": "node --test tooling/tests/live/provider-contract.mjs",
     "test:vocab-data": "node --test vocab/tests/vocab-100.test.mjs",
     "report:vocab:init": "node tooling/scripts/generate-vocab-quality-report.mjs",

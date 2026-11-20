@@ -14,12 +14,15 @@ const terms = page => page.locator("#entry-grid .word-card h3");
 test("main wordbook defaults to newest added and keeps explicit sort through reload", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("#library-sort")).toHaveValue("newest");
+  await page.locator('#library-show-all').click();
   await expect(terms(page)).toHaveText(sortWordbookEntries(snapshot.entries, "newest").map(entry => entry.term));
   await page.locator("#library-sort").selectOption("oldest");
+  await page.locator('#library-show-all').click();
   await expect(terms(page)).toHaveText(sortWordbookEntries(snapshot.entries, "oldest").map(entry => entry.term));
   await expect(page).toHaveURL(/sort=oldest/u);
   await page.reload();
   await expect(page.locator("#library-sort")).toHaveValue("oldest");
+  await page.locator('#library-show-all').click();
   await expect(terms(page)).toHaveText(sortWordbookEntries(snapshot.entries, "oldest").map(entry => entry.term));
 });
 test("chapter original order is the default, alphabetic choices preserve scope and full detail", async ({ page }) => {

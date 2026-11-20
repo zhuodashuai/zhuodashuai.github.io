@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import { readV108HistoricalProgram, decodeHistoricalV108Archive, V108_HISTORICAL_COMMIT } from './helpers/historical-v108-programs.mjs';
 import { restoreChineseSearchPaginationShell } from './helpers/chinese-search-pagination-shell.mjs';
+import { restoreSearchExperienceShell } from './helpers/search-experience-shell.mjs';
 const root=new URL('../../',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
 const d42SenseSource='    source.textContent = [...new Set(state.entry.senses.map(sense => sense.source))].join("；");';
 const d42SourceLabel='<p id="dictionary-example-source" class="source">原创例句 · 仅覆盖所列义项</p>';
@@ -296,7 +297,7 @@ for(const item of copies)test('archived v108 exact mechanical copy preserves its
  assert.deepEqual(Buffer.from(restored),old,'No change beyond the named imports or one strict URL branch');
 });
 for(const item of html)test('the historical v108 HTML shell is exact after undoing the named v109 startup child: '+item.file,async()=>{
- const current=await fs.readFile(new URL(item.file,root));let shell=current.toString();
+ const current=await fs.readFile(new URL(item.file,root));let shell=restoreSearchExperienceShell(item.file.split('/').at(-1),current.toString());
  if(item.file==='vocab/index.html'){
   assert.equal(shell.split('src="js/public-app-v113.js?v=115"').length,2,'Exactly one reversible reading-policy entry point');
   assert(!shell.includes('src="js/public-app-v108.js"'));
@@ -348,11 +349,12 @@ test('the archived v109 application preserves v108 after exact readiness, source
  assert.equal(current.split(addition).length,2);assert.equal(historicalCurrent.replace(addition,''),before);
  assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
  const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8');
- assert.equal(entry.split('import "./dictionary-app-v109.js"').length,2);
+ assert.equal(entry.split('import "./dictionary-app-v109.js?v=117"').length,2);
  const oldEntry=(await fs.readFile(new URL('vocab/js/dictionary-entry-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
- assert.equal(entry.replace(/\r\n/gu,'\n').replace('./dictionary-app-v109.js','./dictionary-app-v108.js'),oldEntry);
+ assert.equal(entry.split('./dictionary-offline-warm-v108.js?v=117').length,2,'Exactly the current cache-aware offline replay child');
+ assert.equal(entry.replace(/\r\n/gu,'\n').replace('./dictionary-offline-warm-v108.js?v=117','./dictionary-offline-warm-v108.js').replace('./dictionary-app-v109.js?v=117','./dictionary-app-v108.js'),oldEntry);
  assert(!entry.includes('dictionary-app-v108.js'));assert(entry.includes('from "./pwa.js?v=77"'));
- assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
+ assert(entry.includes('from "./dictionary-offline-warm-v108.js?v=117"'));
  const sw=await fs.readFile(new URL('vocab/sw.js',root),'utf8');
  for(const file of['dictionary-app-v108.js','dictionary-entry-v108.js','dictionary-app-v109.js','dictionary-entry-v109.js'])assert(sw.includes('"./js/'+file+'"'));
 });
@@ -408,10 +410,10 @@ test('v108 does not retarget navigation107 and retains pwa77',async()=>{
  const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v108.js',root),'utf8');
  assert(entry.includes('from "./pwa.js?v=77"'));assert(entry.includes('import "./dictionary-app-v108.js"'));assert(entry.includes('from "./dictionary-offline-warm-v108.js"'));
 });
-test('v108 optional loaders use only the unqueried current wrapper',async()=>{
- for(const name of['dictionary-app-v108.js','dictionary-examples-ui-v108.js']){
+test('archived v108 loader keeps its old wrapper while the active example UI uses the fresh compatible graph',async()=>{
+ for(const[name,specifier]of[['dictionary-app-v108.js','./dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','./dictionary-examples-current-v4.js?v=117']]){
   const body=await fs.readFile(new URL('vocab/js/'+name,root),'utf8');
-  assert.equal(body.split('import("./dictionary-examples-current-v4.js")').length,2);
+  assert.equal(body.split('import('+JSON.stringify(specifier)+')').length,2);
   assert(!body.includes('import("./dictionary-examples.js'));
  }
 });

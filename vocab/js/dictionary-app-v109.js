@@ -1,6 +1,7 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=112";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=117";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
+import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
 import { learningExampleSourceLabel } from "./example-source-label.js";
 
 // Queries live in the fragment only. No form control has a name, so even the
@@ -11,13 +12,19 @@ export function initialDictionaryQuery(hash) {
   if (!raw) return "";
   try {
     const query = decodeURIComponent(raw.slice(2).replace(/\+/gu, " "));
-    return query.length <= 200 && !/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(query) ? query : "";
+    return query.length <= 200 && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u.test(query) ? query : "";
   } catch { return ""; }
 }
 
 export function numberedDictionaryMeaning(value) {
   if (!value) return "";
   return /^\s*(?:[①-⑳]|\d+[.、])/u.test(value) ? value : `① ${value}`;
+}
+
+// The disclosure already supplies its own list ordinal. Hide only one leading
+// source sense marker in its preview; keep stored definitions and inner points.
+export function dictionaryExampleMeaningLabel(value) {
+  return value.replace(/^\s*(?:[①-⑳]|[1-9]\d?[.、](?!\d))\s*/u, "");
 }
 
 // Source newlines are sense boundaries; semicolons may only separate synonyms.
@@ -33,7 +40,8 @@ export function dictionaryChoicePreview(value) {
 // A reviewed query sense is a better disambiguation hint than the first of
 // several unrelated meanings. This never replaces the complete source card.
 export function dictionaryChoiceDescription(entry) {
-  return dictionaryChoicePreview(typeof entry?.matchedSense === "string" && entry.matchedSense.trim()
+  const contextual = entry?.matchType === "mention" || entry?.matchType === "compound";
+  return dictionaryChoicePreview(!contextual && typeof entry?.matchedSense === "string" && entry.matchedSense.trim()
     ? entry.matchedSense : entry?.meaning || "");
 }
 
@@ -119,9 +127,23 @@ function queryError(error) {
 // Optional suggestions are loaded only after an exact, successful miss. They
 // never turn an approximate match into a definition or write to a wordbook.
 async function defaultDictionarySuggestions(input, { signal } = {}) {
-  const module = await import("./dictionary-suggestions.js?v=89");
+  const module = await import("./dictionary-suggestions.js?v=117");
   const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
   return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
+}
+
+// Spelling candidates apply to Latin input only. A Chinese miss needs keyword
+// recovery, never an English spelling download or a briefly flashing panel.
+export function isDictionarySpellingQuery(input) {
+  return Boolean(normalizeSuggestionQuery(input));
+}
+
+export function dictionaryPhraseComponents(input) {
+  if (!isDictionarySpellingQuery(input)) return [];
+  const words = normalizeSuggestionQuery(input).split(" ");
+  if (words.length < 2 || words.length > 8 || words.some(word => !/^[\p{Script=Latin}\p{M}]+(?:['’\-][\p{Script=Latin}\p{M}]+)*$/u.test(word))) return [];
+  const grammar = new Set(["a", "an", "the", "to", "of", "in", "on", "at", "for", "with", "and", "or", "by"]);
+  return [...new Set(words.filter(word => !grammar.has(word.toLowerCase())))].slice(0, 5);
 }
 
 /** Sequence + abort guards also protect against a late, abort-ignoring loader. */
@@ -129,7 +151,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
   relatedSearch = async () => ({ results: [], hasMore: false }), onChange = () => {} } = {}) {
   let sequence = 0, pending = null, suggestionPending = null, relatedPending = null, morePending = null;
   let directResults = [], relatedResults = [], directHasMore = false, relatedHasMore = false, nextOffset = 0, directCoverage = null, relatedIntegrated = false;
-  let state = { phase: "idle", input: "", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+  let state = { phase: "idle", input: "", previousResult: null, results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
     coverage: null, relatedIntegrated: false, morePhase: "idle", message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" };
   function publish(next) { state = { ...state, ...next }; onChange(state); return state; }
   function stop() { sequence++; pending?.abort(); pending = null; suggestionPending?.abort(); suggestionPending = null;
@@ -149,15 +171,19 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
       : `已显示 ${results.length} 项${canLoadMore ? "，可继续查看更多"
         : hasMore ? "，部分近义关联未展开，可换更具体的中文继续查" : "，选择词条查看"}。`)
       : hasMore ? `候选较多，当前范围尚未确认匹配。${canLoadMore ? "可继续查看更多，或用" : "请用"}更具体的中文释义查询。`
-        : "没有找到对应词条。请检查拼写，或改用英文原形、较短的中文释义。";
+        : /\p{Script=Han}/u.test(state.input) ? "没有找到对应释义。试试更短的中文关键词，或输入英文单词、短语。"
+          : "没有找到对应词条。请检查拼写，或使用英文原形。";
   }
   function pageOffset(response, offset, length) {
     return Number.isSafeInteger(response.nextOffset) && response.nextOffset > offset
       ? response.nextOffset : offset + length;
   }
   function change(input) {
+    const previous = state.phase === "ready" && state.results[state.selectedIndex]
+      ? { query: state.input, result: state.results[state.selectedIndex] } : state.previousResult;
     stop(); resetPages();
-    return publish({ input, phase: "idle", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+    return publish({ input, phase: "idle", previousResult: typeof input === "string" && input.trim() ? previous : null,
+      results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
       coverage: null, relatedIntegrated: false, morePhase: "idle", message: "", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
   }
   function cancel() {
@@ -168,7 +194,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
     }
     stop();
     resetPages();
-    return publish({ phase: "cancelled", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+    return publish({ phase: "cancelled", previousResult: null, results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
       coverage: null, relatedIntegrated: false, morePhase: "idle", message: "已停止查询。", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
   }
   function startRelated(input, current) {
@@ -225,7 +251,7 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
     if (state.phase === "loading" && input === state.input) return false;
     stop(); resetPages();
     const current = sequence, controller = new AbortController(); pending = controller;
-    publish({ input, phase: "loading", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+    publish({ input, phase: "loading", previousResult: null, results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
       coverage: null, relatedIntegrated: false, morePhase: "idle", message: "正在查询…", suggestions: [], suggestionPhase: "idle", relatedPhase: "idle" });
     try {
       const response = await search(input, { signal: controller.signal, limit: 20, offset: 0 });
@@ -238,12 +264,12 @@ export function createDictionaryController({ search = searchExpandedDictionary, 
       publish({ phase: next.results.length ? "ready" : next.hasMore || directCoverage === "limited" ? "refine" : "empty", ...next,
         relatedPhase: relatedIntegrated ? "ready" : "idle", message: resultMessage(next.results, next.hasMore, next.canLoadMore) });
       const { results, hasMore } = next;
-      if (!results.length && !hasMore && directCoverage === "full") startSuggestions(input, current);
+      if (!results.length && !hasMore && directCoverage === "full" && isDictionarySpellingQuery(input)) startSuggestions(input, current);
       if (!relatedIntegrated) startRelated(input, current);
       return true;
     } catch (error) {
       if (current !== sequence || controller.signal.aborted) return false;
-      publish({ phase: error?.name === "AbortError" ? "cancelled" : "error", results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
+      publish({ phase: error?.name === "AbortError" ? "cancelled" : "error", previousResult: null, results: [], selectedIndex: 0, hasMore: false, canLoadMore: false,
         message: error?.name === "AbortError" ? "已停止查询。" : queryError(error) });
       return false;
     } finally { if (current === sequence) pending = null; }
@@ -306,6 +332,24 @@ export function mountDictionaryPage(document, window) {
   const suggestionList = get("dictionary-suggestions");
   const count = get("dictionary-count"), resultsRegion = get("dictionary-results"), heading = get("dictionary-term");
   const choiceDisclosure = get("dictionary-choice-disclosure");
+  const searchPanel = get("dictionary-search-panel"), header = document.querySelector(".app-header");
+  const displayContext = get("dictionary-display-context"), recovery = get("dictionary-recovery");
+  const components = get("dictionary-components"), clear = get("dictionary-clear");
+  document.documentElement.classList.add("dictionary-search-shell");
+  function measureSearch() {
+    const headerHeight = header?.getBoundingClientRect().height || 0;
+    const searchHeight = searchPanel?.getBoundingClientRect().height || 0;
+    document.documentElement.style.setProperty("--dictionary-search-clearance", `${Math.ceil(headerHeight + searchHeight + 24)}px`);
+    const visibleHeight = window.visualViewport?.height || window.innerHeight;
+    document.documentElement.style.setProperty("--dictionary-visible-height", `${Math.round(visibleHeight)}px`);
+    document.body.classList.toggle("dictionary-keyboard-open", visibleHeight < window.innerHeight * .75);
+  }
+  const resize = window.ResizeObserver ? new window.ResizeObserver(measureSearch) : null;
+  if (header) resize?.observe(header);
+  if (searchPanel) resize?.observe(searchPanel);
+  window.addEventListener("resize", measureSearch);
+  window.visualViewport?.addEventListener?.("resize", measureSearch);
+  measureSearch();
   const compactChoices = window.matchMedia?.("(max-width: 860px)");
   let lastChoiceQuery = null;
   function resetChoiceDisclosure() {
@@ -332,7 +376,7 @@ export function mountDictionaryPage(document, window) {
     if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
     plan.items.forEach(({ sense, open, label }, index) => {
       const details = document.createElement("details"); details.className = "example-sense"; details.open = open;
-      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${sense.meaningZh}`;
+      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${dictionaryExampleMeaningLabel(sense.meaningZh)}`;
       const list = document.createElement("ol");
       sense.examples.forEach(example => {
         const item = document.createElement("li"), en = document.createElement("p"), zh = document.createElement("p");
@@ -351,7 +395,7 @@ export function mountDictionaryPage(document, window) {
     renderExamples({ phase: "loading", message: "正在读取学习例句…" });
     // Do not add a JS/data dependency to the critical meaning/CTA path. A late
     // import/download is guarded separately from the primary query controller.
-    exampleModule ||= import("./dictionary-examples-current-v4.js");
+    exampleModule ||= import("./dictionary-examples-current-v4.js?v=117");
     void exampleModule.then(module => {
       if (current !== exampleSequence || lastSelected?.term !== term) return;
       exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });
@@ -370,6 +414,21 @@ export function mountDictionaryPage(document, window) {
   const controller = createDictionaryController({ relatedSearch: searchRelatedChineseDictionary, onChange(state) {
     if (state.input !== lastChoiceQuery) { lastChoiceQuery = state.input; resetChoiceDisclosure(); }
     const busy = state.phase === "loading";
+    const previous = state.phase === "idle" ? state.previousResult : null;
+    const selected = state.phase === "ready" ? state.results[state.selectedIndex] : previous?.result || null;
+    clear.hidden = !state.input;
+    displayContext.hidden = !previous;
+    displayContext.textContent = previous ? `当前仍显示“${dictionaryChoicePreview(previous.query)}”的结果；按 Enter 查询新输入。` : "";
+    recovery.hidden = state.phase !== "empty";
+    components.replaceChildren();
+    const parts = state.phase === "empty" ? dictionaryPhraseComponents(state.input) : [];
+    get("dictionary-component-title").hidden = parts.length === 0;
+    parts.forEach(term => {
+      const button = document.createElement("button"); button.type = "button";
+      button.className = "quiet-button"; button.lang = "en"; button.textContent = term;
+      button.addEventListener("click", () => { input.value = term; controller.change(term); void run(); });
+      components.append(button);
+    });
     submit.disabled = busy; submit.textContent = busy ? "查询中…" : "查词";
     cancel.hidden = !busy && state.morePhase !== "loading";
     resultsRegion.setAttribute("aria-busy", String(busy || state.morePhase === "loading"));
@@ -395,7 +454,7 @@ export function mountDictionaryPage(document, window) {
       item.append(button); suggestionList.append(item);
     });
     get("dictionary-owner-link").href = ownerDictionaryLink(state.input, window.location);
-    result.hidden = state.phase !== "ready";
+    result.hidden = !selected;
     // Reserve the compact switcher while related results are pending, rather
     // than inserting a large list above a definition the reader has started.
     get("dictionary-choice-panel").hidden = state.phase !== "ready" && !state.canLoadMore
@@ -407,13 +466,17 @@ export function mountDictionaryPage(document, window) {
         const item = document.createElement("li"), button = document.createElement("button"); button.type = "button";
         button.dataset.dictionaryTerm = entry.term; button.setAttribute("aria-controls", "dictionary-result");
         const term = document.createElement("strong"); term.textContent = entry.term; term.lang = "en"; button.append(term);
+        const meta = document.createElement("span"); meta.className = "choice-meta";
         const pos = document.createElement("span"); pos.className = "choice-pos";
-        pos.textContent = entry.matchedPartOfSpeech || entry.partOfSpeech || "词性未标注"; button.append(pos);
+        pos.textContent = entry.matchedPartOfSpeech || entry.partOfSpeech || "词性未标注"; meta.append(pos); button.append(meta);
         const meaning = document.createElement("span"); meaning.className = "choice-meaning";
         meaning.textContent = dictionaryChoiceDescription(entry); button.append(meaning);
         if (entry.matchType === "related") {
           const badge = document.createElement("span"); badge.className = "related-badge";
-          badge.textContent = `近义关联：${entry.matchedChinese}`; button.append(badge);
+          badge.textContent = `近义关联：${entry.matchedChinese}`; meta.append(badge);
+        } else if (entry.matchType === "mention" || entry.matchType === "compound") {
+          const badge = document.createElement("span"); badge.className = "context-badge";
+          badge.textContent = entry.matchType === "mention" ? "解释中提及" : "相关释义"; meta.append(badge);
         }
         button.addEventListener("click", () => {
           controller.select(index);
@@ -431,26 +494,34 @@ export function mountDictionaryPage(document, window) {
     const more = get("dictionary-more");
     more.hidden = !state.canLoadMore; more.disabled = state.morePhase === "loading";
     more.textContent = state.morePhase === "loading" ? "加载中…" : state.morePhase === "error" ? "重试加载更多" : "查看更多";
-    const selected = state.phase === "ready" ? state.results[state.selectedIndex] : null;
     if (!selected) {
       clearExamples();
       heading.textContent = ""; get("dictionary-pos").textContent = ""; get("dictionary-meaning").textContent = "";
       get("dictionary-source").replaceChildren(); get("dictionary-variants").replaceChildren();
       get("dictionary-add").removeAttribute("href"); lastSelected = null; return;
     }
+    const add = get("dictionary-add");
+    if (previous) {
+      add.removeAttribute("href"); add.setAttribute("aria-disabled", "true"); add.tabIndex = -1;
+    } else {
+      add.href = personalDictionaryLink(selected.term, window.location);
+      add.removeAttribute("aria-disabled"); add.removeAttribute("tabindex");
+    }
     if (selected === lastSelected) return;
     lastSelected = selected;
     heading.textContent = selected.term; get("dictionary-pos").textContent = selected.partOfSpeech || "词性未标注";
     renderMeaning(document, get("dictionary-meaning"), selected.meaning);
     const relatedMatch = get("dictionary-related-match");
-    relatedMatch.hidden = selected.matchType !== "related" && !selected.matchedSense;
-    relatedMatch.textContent = selected.matchedSense
-      ? `${selected.matchType === "related" ? `近义关联：${selected.matchedChinese} · ` : "本次匹配："}${selected.matchedPartOfSpeech} · ${selected.matchedSense}（限此义项）`
-      : selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
+    const contextual = selected.matchType === "mention" || selected.matchType === "compound";
+    relatedMatch.hidden = selected.matchType !== "related" && !selected.matchedSense && !contextual;
+    relatedMatch.textContent = contextual
+      ? `${selected.matchType === "mention" ? "解释中提及" : "相关释义"}${selected.matchedChinese ? `：“${selected.matchedChinese}”` : ""}，请按完整词义判断。`
+      : selected.matchedSense
+        ? `${selected.matchType === "related" ? `近义关联：${selected.matchedChinese} · ` : "本次匹配："}${selected.matchedPartOfSpeech} · ${selected.matchedSense}（限此义项）`
+        : selected.matchType === "related" ? `近义关联：${selected.matchedChinese}（不代表可直接互换）` : "";
     const matched = get("dictionary-matched-form"); matched.hidden = !selected.matchedForm;
     matched.textContent = selected.matchedForm ? `查询形式：${selected.matchedForm}` : "";
     const provenance = sourceLine(document, selected); get("dictionary-source").replaceChildren(...provenance.childNodes);
-    get("dictionary-add").href = personalDictionaryLink(selected.term, window.location);
     const variants = get("dictionary-variants"); variants.replaceChildren();
     const alternatives = selected.alternatives || [], panel = get("dictionary-variant-panel");
     panel.hidden = alternatives.length === 0; panel.open = false;
@@ -465,15 +536,26 @@ export function mountDictionaryPage(document, window) {
     showExamples(selected.term);
   } });
 
-  async function run() {
-    const query = input.value;
+  let lastLocation = window.location.href, navigationSequence = 0;
+  function writeQueryHistory(query, mode) {
+    const href = `${window.location.pathname}${window.location.search}${query ? `#q=${encodeURIComponent(query)}` : ""}`;
+    if (mode !== "none") {
+      try {
+        if (mode === "replace") window.history.replaceState(null, "", href);
+        else if (initialDictionaryQuery(window.location.hash) !== query) window.history.pushState(null, "", href);
+      } catch { /* Querying still works when browser history is unavailable. */ }
+    }
+    lastLocation = window.location.href;
+  }
+  async function run({ historyMode = "push", focusResult = true, query: locationQuery } = {}) {
+    const query = typeof locationQuery === "string" ? locationQuery : input.value, currentNavigation = ++navigationSequence;
     const completed = await controller.submit(query);
-    if (!completed || controller.getState().input !== query) return;
+    if (!completed || controller.getState().input !== query || currentNavigation !== navigationSequence) return;
     // A successful retry may have repaired an initially unavailable manifest.
     // Reusing its cache restores the count without blocking the result or input.
     void refreshCount();
-    try { window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}#q=${encodeURIComponent(query)}`); } catch { /* Lookup still works without history access. */ }
-    if (controller.getState().phase === "ready") {
+    writeQueryHistory(query, historyMode);
+    if (focusResult && controller.getState().phase === "ready") {
       // Present multiple matches before their auto-preview; a single match can
       // take the reader directly to the definition, even above a phone keyboard.
       const target = controller.getState().results.length > 1 && choiceDisclosure.open ? choices.querySelector("button") : heading;
@@ -481,16 +563,31 @@ export function mountDictionaryPage(document, window) {
     }
   }
   form.addEventListener("submit", event => { event.preventDefault(); if (!submit.disabled) void run(); });
-  input.addEventListener("input", () => controller.change(input.value));
+  input.addEventListener("input", () => { navigationSequence++; controller.change(input.value); });
+  clear.addEventListener("click", () => {
+    navigationSequence++; input.value = ""; controller.change(""); writeQueryHistory("", "push"); input.focus();
+  });
+  get("dictionary-edit-query").addEventListener("click", () => { input.focus(); input.select(); });
+  get("dictionary-add").addEventListener("click", event => {
+    if (get("dictionary-add").getAttribute("aria-disabled") === "true") event.preventDefault();
+  });
   cancel.addEventListener("click", () => { controller.cancel(); input.focus(); });
   get("dictionary-more").addEventListener("click", () => void controller.loadMore().then(() => {
     if (get("dictionary-more").hidden && document.activeElement === get("dictionary-more")) heading.focus({ preventScroll: true });
   }));
   window.addEventListener("pagehide", () => controller.cancel());
-  window.addEventListener("hashchange", () => {
+  function restoreLocation(force = false) {
+    if (!force && lastLocation === window.location.href) return;
+    lastLocation = window.location.href; navigationSequence++;
     const query = initialDictionaryQuery(window.location.hash);
-    input.value = query; controller.change(query); if (query) void run();
-  });
+    // A search input strips CR/LF. Display layout as spaces, but query the
+    // validated fragment verbatim so wrapped words reach the engine intact.
+    input.value = query.replace(/[\t\r\n]+/gu, " "); controller.change(query);
+    if (query) void run({ historyMode: "none", focusResult: false, query });
+  }
+  window.addEventListener("popstate", () => restoreLocation());
+  window.addEventListener("hashchange", () => restoreLocation());
+  window.addEventListener("pageshow", event => { if (event.persisted) restoreLocation(true); });
 
   // The HTML gates native implicit submission until the actual listeners exist.
   // Adopt text typed during module download without clearing it or waiting on data.
@@ -500,7 +597,10 @@ export function mountDictionaryPage(document, window) {
   // reads an account, downloads every shard, or holds the input disabled.
   void refreshCount();
   const initial = initialDictionaryQuery(window.location.hash);
-  if (initial) { input.value = initial; controller.change(initial); void run(); }
+  if (initial) {
+    input.value = initial.replace(/[\t\r\n]+/gu, " "); controller.change(initial);
+    void run({ historyMode: "replace", focusResult: false, query: initial });
+  }
   return controller;
 }
 

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "source": {
+    "descriptor": {
+      "bucket": 23,
+      "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-023.json",
+      "sha256": "e64f8d3abce4269f5f98789f71bafce0515fc329d3fe6ff299438800d07be0e6",
+      "bytes": 359286,
+      "count": 1104
+    },
+    "actualSha256": "e64f8d3abce4269f5f98789f71bafce0515fc329d3fe6ff299438800d07be0e6",
+    "bytes": 359286
+  },
+  "record": {
+    "id": 3775454,
+    "term": "COM",
+    "partOfSpeech": "noun",
+    "meaning": "[计] 计算机输出缩微胶片; 计算机输出胶片缩微机",
+    "forms": [
+      "comming",
+      "coms"
+    ],
+    "source": "pos-reviewed",
+    "seed": {
+      "rank": 29502,
+      "forms": [
+        "comming",
+        "coms"
+      ],
+      "workbook": false
+    },
+    "variants": [
+      {
+        "partOfSpeech": "",
+        "meaning": "[计] 计算机输出缩微胶片; 计算机输出胶片缩微机",
+        "source": "mit"
+      }
+    ]
+  },
+  "lookupEvidence": {
+    "schemaVersion": 2,
+    "kind": "en",
+    "bucket": 23,
+    "keys": [
+      [
+        "comming",
+        [
+          {
+            "id": 3775454,
+            "kind": "form",
+            "term": "comming"
+          }
+        ]
+      ]
+    ]
+  },
+  "reason": "Reject only the authenticated comming→technical noun COM form relation. Preserve every literal head, coms, come/coming and immutable source tuple."
+}

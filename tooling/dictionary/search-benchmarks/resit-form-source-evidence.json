@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 1,
+  "status": "Authored exact bad-relation evidence; independent review recorded separately",
+  "author": "AI/resit_source_relation_author",
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "record": {
+    "id": 5264684,
+    "term": "resit",
+    "partOfSpeech": "verb",
+    "meaning": "<英> vt.(尤指考试不及格后)再参加(考试)\nvi.(考试不及格后)再考,重考",
+    "forms": [
+      "resited",
+      "resiting",
+      "resits"
+    ],
+    "source": "mit",
+    "seed": {
+      "rank": 41148,
+      "forms": [
+        "resited",
+        "resiting",
+        "resits"
+      ],
+      "workbook": true
+    }
+  },
+  "recordJSONSha256": "017c684483b271e5edd78b46f1a828d427cc0fab7dac5dc6206e89608456decc",
+  "rejectedForms": [
+    "resited",
+    "resiting"
+  ],
+  "retainedDeclaredForms": [
+    "resits"
+  ],
+  "source": {
+    "name": "ECDICT",
+    "license": "MIT",
+    "url": "https://github.com/skywind3000/ECDICT",
+    "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+    "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+  },
+  "bindings": [
+    {
+      "term": "resit",
+      "descriptor": {
+        "bucket": 44,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-044.json",
+        "sha256": "a4139c56c353826aa8004783755977253006d60319fc8d0bad07bfe5cf18c691",
+        "bytes": 338983,
+        "count": 1075
+      },
+      "actualSha256": "a4139c56c353826aa8004783755977253006d60319fc8d0bad07bfe5cf18c691",
+      "actualBytes": 338983,
+      "references": [
+        {
+          "id": 5264684,
+          "kind": "canonical"
+        }
+      ],
+      "records": [
+        {
+          "id": 5264684,
+          "term": "resit",
+          "partOfSpeech": "verb",
+          "meaning": "<英> vt.(尤指考试不及格后)再参加(考试)\nvi.(考试不及格后)再考,重考",
+          "forms": [
+            "resited",
+            "resiting",
+            "resits"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 41148,
+            "forms": [
+              "resited",
+              "resiting",
+              "resits"
+            ],
+            "workbook": true
+          }
+        }
+      ]
+    },
+    {
+      "term": "resited",
+      "descriptor": {
+        "bucket": 29,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-029.json",
+        "sha256": "85e7134ca4e5950df67791f62c7680006e9a4510f1634703cbb2d5bc6a6bb6e5",
+        "bytes": 337850,
+        "count": 1059
+      },
+      "actualSha256": "85e7134ca4e5950df67791f62c7680006e9a4510f1634703cbb2d5bc6a6bb6e5",
+      "actualBytes": 337850,
+      "references": [
+        {
+          "id": 5264684,
+          "kind": "form",
+          "term": "resited"
+        }
+      ],
+      "records": [
+        {
+          "id": 5264684,
+          "term": "resit",
+          "partOfSpeech": "verb",
+          "meaning": "<英> vt.(尤指考试不及格后)再参加(考试)\nvi.(考试不及格后)再考,重考",
+          "forms": [
+            "resited",
+            "resiting",
+            "resits"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 41148,
+            "forms": [
+              "resited",
+              "resiting",
+              "resits"
+            ],
+            "workbook": true
+          }
+        }
+      ]
+    },
+    {
+      "term": "resiting",
+      "descriptor": {
+        "bucket": 76,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-076.json",
+        "sha256": "f2ff28233991d5939a24f14e79217dc714d1fe079489aeaa0043939f6e3e84f2",
+        "bytes": 363784,
+        "count": 1150
+      },
+      "actualSha256": "f2ff28233991d5939a24f14e79217dc714d1fe079489aeaa0043939f6e3e84f2",
+      "actualBytes": 363784,
+      "references": [
+        {
+          "id": 5264684,
+          "kind": "form",
+          "term": "resiting"
+        }
+      ],
+      "records": [
+        {
+          "id": 5264684,
+          "term": "resit",
+          "partOfSpeech": "verb",
+          "meaning": "<英> vt.(尤指考试不及格后)再参加(考试)\nvi.(考试不及格后)再考,重考",
+          "forms": [
+            "resited",
+            "resiting",
+            "resits"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 41148,
+            "forms": [
+              "resited",
+              "resiting",
+              "resits"
+            ],
+            "workbook": true
+          }
+        }
+      ]
+    },
+    {
+      "term": "resits",
+      "descriptor": {
+        "bucket": 13,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-013.json",
+        "sha256": "448053a098622bcd2e9907d8a5043f0127aee51621347391ffc652f0d6ce8ade",
+        "bytes": 354099,
+        "count": 1099
+      },
+      "actualSha256": "448053a098622bcd2e9907d8a5043f0127aee51621347391ffc652f0d6ce8ade",
+      "actualBytes": 354099,
+      "references": [
+        {
+          "id": 5264684,
+          "kind": "form",
+          "term": "resits"
+        }
+      ],
+      "records": [
+        {
+          "id": 5264684,
+          "term": "resit",
+          "partOfSpeech": "verb",
+          "meaning": "<英> vt.(尤指考试不及格后)再参加(考试)\nvi.(考试不及格后)再考,重考",
+          "forms": [
+            "resited",
+            "resiting",
+            "resits"
+          ],
+          "source": "mit",
+          "seed": {
+            "rank": 41148,
+            "forms": [
+              "resited",
+              "resiting",
+              "resits"
+            ],
+            "workbook": true
+          }
+        }
+      ]
+    },
+    {
+      "term": "resat",
+      "descriptor": {
+        "bucket": 20,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-020.json",
+        "sha256": "2e5e84004c5d7c5117b9b80ccb36e53fe41363b126afbd4714762728c1e3b500",
+        "bytes": 347288,
+        "count": 1109
+      },
+      "actualSha256": "2e5e84004c5d7c5117b9b80ccb36e53fe41363b126afbd4714762728c1e3b500",
+      "actualBytes": 347288,
+      "references": [],
+      "records": []
+    },
+    {
+      "term": "resitting",
+      "descriptor": {
+        "bucket": 0,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-000.json",
+        "sha256": "dcb309e0a34e82e993ee6543826edc5c62b36d012c7cd76e3613f7af59de7b34",
+        "bytes": 360777,
+        "count": 1125
+      },
+      "actualSha256": "dcb309e0a34e82e993ee6543826edc5c62b36d012c7cd76e3613f7af59de7b34",
+      "actualBytes": 360777,
+      "references": [],
+      "records": []
+    },
+    {
+      "term": "resite",
+      "descriptor": {
+        "bucket": 107,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-107.json",
+        "sha256": "a20e6799e9f780d037fdd2623813c8683972e350856ebd884323e0ae948380b6",
+        "bytes": 338139,
+        "count": 1039
+      },
+      "actualSha256": "a20e6799e9f780d037fdd2623813c8683972e350856ebd884323e0ae948380b6",
+      "actualBytes": 338139,
+      "references": [],
+      "records": []
+    }
+  ],
+  "primaryReferences": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/resit",
+      "authorAccess": "Actual primary indexed page read2026-11-19",
+      "support": "Verb inflections use resat and resitting. No publisher examples/definitions copied."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/resit_2",
+      "authorAccess": "Actual primary indexed page read2026-11-19",
+      "support": "Explicit paradigm resit,resits,resat,resitting."
+    }
+  ],
+  "policy": [
+    "Filter only kind=form edges to this exact original record under its pinned manifestVersion; never reject the strings globally.",
+    "Do not rewrite the licensed row, add new source forms or suppress canonical/context matches.",
+    "Different resite record and future literal resited/resiting remain eligible.",
+    "Altered whole record or different version grants no suppression; original COM/comming/coms policy remains exact."
+  ]
+}

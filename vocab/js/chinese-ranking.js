@@ -1,10 +1,20 @@
-import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=112";
+import { chineseDefinitionAtoms, chineseSearchPlan } from "./chinese-search.js?v=117";
 
 const TECHNICAL = new Set(["计", "医", "经", "法", "电", "化", "化学", "生", "生物", "植", "植物", "动", "动物",
   "地", "地理", "物", "物理", "心", "心理", "军", "数", "数学", "商", "金融", "工程", "电工", "航", "航海", "航天", "天", "天文"]);
 const NEGATIVE_PREFIX = /^(?:不|非|无|未|没|莫|勿|别|缺乏|并非|不是)/u;
 const NEGATION_BEFORE = /(?:并不|并非|不是|没有|尚未|未曾|缺乏|缺少|欠缺|难以|无需|无须|毋须|不用|不必|不要|不得|不可|不能|切勿|勿|莫|不|非|无|未|没|欠)(?:太|很|甚|够|完全|怎么|那么|如此|再|能|曾经|曾|过于|过分|过度|十分|非常|特别|格外|更加|极其){0,3}$/u;
-const EXCLUSION_BEFORE = /(?:不指|并非指|不是指|不表示|不意味着|不代表|不等于|不等同于|不同于|区别于|有别于|不包括|不包含|不属于|不含|不添加|不加)([^,，;；。.!?！？\n]{0,30})$/u;
+const EXCLUSION_BEFORE = /(不特指|不专指|不指|并非指|不是指|不是|并非|不表示|不意味着|不代表|不等于|不等同于|不同于|区别于|有别于|不包括|不包含|不属于|不含|不添加|不加)([^,，;；。.!?！？\n]{0,30})$/u;
+const NEGATIVE_CLAUSE_PREFIX = /^(?:(?:这里|本例|这|那|此|它|他|她|我|你|而|也|并|则|就|都|还|通常|一般|其实|原本|本来|实际|实质上|本质上)\s*)*$/u;
+const CONTRAST_BOUNDARY = /(?:而是|但是|然而|不过(?!于|分|度)|但|却|而指|应指|实指|实际上|实为)/u;
+// Reviewed source-atom collisions, not a general segmentation heuristic or an
+// English-head filter. Here 转 belongs to 旋转/倒转 and 机 belongs to 机构.
+// Scope is deliberately exact: other affirmative atoms remain independent.
+// Machine-part/direction senses checked against Cambridge:
+// https://dictionary.cambridge.org/dictionary/english/mechanism
+// https://dictionary.cambridge.org/dictionary/english/rotate
+// https://dictionary.cambridge.org/dictionary/english/reverse
+const SOURCE_ATOM_COLLISIONS = new Map([["转机", new Set(["旋转机构", "倒转机构", "倒转机构换向开关"])]]);
 // 别 is an imperative only at a clause/pronoun/adverb boundary. Merely ending
 // another word in 别 does not negate it (e.g. an ordinary degree modifier).
 const IMPERATIVE_BEFORE = /(?:^|请|切|千万|万万|务必|一定|就|也|可|再|人|你|我|他|她|它)别(?:太|很|过于|过分|过度|特别|格外|再){0,3}$/u;
@@ -21,9 +31,17 @@ function hasAffirmedOccurrence(text, query) {
     // Querying 不/没有 themselves is an ordinary literal query: there is no
     // preceding operator at offset zero. Never remove a query's own negation.
     const before = value.slice(0, at);
-    const exclusion = before.match(EXCLUSION_BEFORE);
-    const excluded = exclusion && !/(?:而是|但是|然而|不过|但|却|而指|应指|实指|实际上|实为)/u.test(exclusion[1]);
-    if (at === 0 || !NEGATION_BEFORE.test(before) && !IMPERATIVE_BEFORE.test(before) && !excluded) return true;
+    // Exclusions include noun modifiers; a contrast restarts their scope, and
+    // a later independent exclusion still applies in 不是甲但也不是乙.
+    const scope = before.split(CONTRAST_BOUNDARY).at(-1);
+    const exclusion = scope.match(EXCLUSION_BEFORE);
+    // A bare copula suppresses a clause-level negative explanation. Inside a
+    // relative noun phrase it can negate only the modifier: money sent to an
+    // account that was not intended is still sent to an account. Unknown
+    // clause prefixes stay eligible as mentions rather than deleting a word.
+    const bareCopula = exclusion && ["不是", "并非"].includes(exclusion[1]);
+    const excluded = exclusion && (!bareCopula || NEGATIVE_CLAUSE_PREFIX.test(scope.slice(0, exclusion.index)));
+    if (at === 0 || !NEGATION_BEFORE.test(scope) && !IMPERATIVE_BEFORE.test(scope) && !excluded) return true;
   }
   return false;
 }
@@ -140,7 +158,7 @@ export function chineseRankingAnchorMatch(meaning, context, partOfSpeech = "") {
 
 /** Generic source tiers: complete atom, degree predicate, lexical suffix,
  * compound, then explanatory mention. The source definition remains intact. */
-export function chineseVariantRank(meaning, query, partOfSpeech = "", options = {}) {
+export function chineseVariantEvidence(meaning, query, partOfSpeech = "", options = {}) {
   if (typeof meaning !== "string" || meaning.length > 20_000 || typeof query !== "string" || !query.trim() || CONTROL.test(query)) return null;
   const context = options?.context;
   // Grammar normalisation belongs to the corpus-backed query step. A single
@@ -149,9 +167,10 @@ export function chineseVariantRank(meaning, query, partOfSpeech = "", options = 
   const needle = query.normalize("NFKC").trim();
   if (!includes(meaning, needle)) return null;
   const hint = options?.partOfSpeechHint || context?.partOfSpeechHint;
-  const atoms = atomsFor(meaning, partOfSpeech, context); let best = Infinity;
+  const atoms = atomsFor(meaning, partOfSpeech, context); let best = null;
   for (const atom of atoms) {
     if (!includes(atom.text, needle) || !hasAffirmedOccurrence(atom.text, needle)) continue;
+    if (SOURCE_ATOM_COLLISIONS.get(needle)?.has(atom.lexical)) continue;
     const stem = lexicalStem(atom), grammatical = ["adjective", "adverb"].includes(atom.partOfSpeech);
     let tier = 6;
     if (atom.lexical === needle || stem === needle) tier = 0;
@@ -160,15 +179,28 @@ export function chineseVariantRank(meaning, query, partOfSpeech = "", options = 
     else if (grammatical && stem && stem.endsWith(needle) && [...stem].length <= [...needle].length + 3
       && !NEGATIVE_PREFIX.test(stem.slice(0, -needle.length))) tier = 2;
     else if (stem && includes(stem, needle) && [...stem].length <= [...needle].length + 6) tier = 4;
+    // A shared single final character does not establish a near-literal
+    // meaning (荒凉 is not 凉, 傲慢 is not 慢). Preserve numeric ranking/source
+    // choice for this release, but label those matches as compounds.
+    const kind = tier === 2 && [...needle].length === 1 ? "compound"
+      : tier < 4 ? "literal" : tier === 4 ? "compound" : "mention";
     if (tier >= 1 && tier < 4 && context?.anchors?.some(anchor => atoms.some(other => other.partOfSpeech === anchor.partOfSpeech
       && lexicalStem(other) === anchor.term && !TECHNICAL.has(other.domain)))) tier -= 0.1;
+    // Match kind comes from lexical evidence, before domain/POS penalties.
+    // A complete technical term remains literal even when its score is 3+.
     if (TECHNICAL.has(atom.domain)) tier += 3;
     if (/(?:拼音|音译|译音|姓氏|人名|地名|单位|符号|代号|缩写)/u.test(atom.annotation)) tier += 3;
     if (tier >= 4 && /(?:单位|拼音|音译|代码|缩写|符号)/u.test(atom.text)) tier += 1;
     const sensePenalty = Math.min(0.2, Math.max(0, (atom.senseOrdinal || 1) - 1) * 0.01);
-    best = Math.min(best, tier + rolePenalty(atom, hint) + sensePenalty);
+    const rank = tier + rolePenalty(atom, hint) + sensePenalty;
+    if (!best || rank < best.rank) best = { rank, kind };
   }
-  return Number.isFinite(best) ? best : null;
+  return best;
+}
+
+/** Retain the numeric API for existing callers and independently bound tests. */
+export function chineseVariantRank(meaning, query, partOfSpeech = "", options = {}) {
+  return chineseVariantEvidence(meaning, query, partOfSpeech, options)?.rank ?? null;
 }
 
 /** Decode only public source tuples. The outer hash and dictionary-version

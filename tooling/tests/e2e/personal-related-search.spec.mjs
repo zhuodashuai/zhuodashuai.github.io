@@ -4,7 +4,9 @@ import {ensureChineseChoices} from './chinese-ranked-choices.mjs';
 
 const ORIGIN = "http://127.0.0.1:4187";
 const API = `${ORIGIN}/api/v1/member`;
-const COMPLETE_RANKING = "**/data/chinese-search-ranking/**/*.bin*";
+// Hold/fail the active complete-result transport, whether it is a compact
+// authenticated bundle or the original complete corpus fallback.
+const COMPLETE_CHINESE_DATA = /\/data\/(?:chinese-search-ranking|chinese-query-cache)\/[^?]+[.]bin(?:\?.*)?$/u;
 test.use({ serviceWorkers: "block" });
 
 test.beforeEach(async ({ context, page }, info) => {
@@ -41,11 +43,12 @@ function choice(page, term) {
   return page.locator(".dictionary-choice").filter({ has: page.locator("strong", { hasText: new RegExp(`^${term}$`, "u") }) });
 }
 
-async function holdCompleteRanking(page) {
-  let release, reached;
+async function holdCompleteChineseData(page) {
+  let release, reached, holding = false;
   const gate = new Promise(resolve => { release = resolve; });
   const seen = new Promise(resolve => { reached = resolve; });
-  await page.route(COMPLETE_RANKING, async route => {
+  await page.route(COMPLETE_CHINESE_DATA, async route => {
+    if (holding) return route.continue(); holding = true;
     const response = await route.fetch(); reached(); await gate;
     try { await route.fulfill({ response }); } catch { /* Editing/logout intentionally cancels the old caller. */ }
   });
@@ -132,7 +135,7 @@ test("owner colloquial doctor preview is read-only and clicking its related choi
 });
 
 test("complete Chinese results wait for authentication and later ranked pages preserve the selected meaning", async ({ context, page }) => {
-  const held = await holdCompleteRanking(page);
+  const held = await holdCompleteChineseData(page);
   try {
     await openMember(context, page);
     await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
@@ -153,7 +156,7 @@ test("complete Chinese results wait for authentication and later ranked pages pr
 });
 
 test("editing during a complete Chinese download discards its late ranked choices", async ({ context, page }) => {
-  const held = await holdCompleteRanking(page);
+  const held = await holdCompleteChineseData(page);
   try {
     await openMember(context, page);await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
     await query(page, "apple"); held.release(); await page.waitForLoadState("networkidle");
@@ -165,7 +168,7 @@ test("editing during a complete Chinese download discards its late ranked choice
 });
 
 test("logout discards a late complete Chinese download without restoring private UI", async ({ context, page }) => {
-  const held = await holdCompleteRanking(page);
+  const held = await holdCompleteChineseData(page);
   try {
     await openMember(context, page);await page.locator('#member-dictionary-term').fill('开心');await page.locator('#member-dictionary-term').press('Enter');await held.seen;
     await page.locator("#member-logout").click();
@@ -176,11 +179,14 @@ test("logout discards a late complete Chinese download without restoring private
   } finally { held.release(); }
 });
 
-test("a complete index outage keeps only verified known aliases with explicit partial coverage", async ({ context, page }) => {
-  let failed = false;
-  await page.route(COMPLETE_RANKING, route => { failed = true; return route.fulfill({ status: 503, body: "synthetic complete index outage" }); });
+test("an outage of both complete-result transports keeps only verified aliases with explicit partial coverage", async ({ context, page }) => {
+  const failed = new Set();
+  await page.route(COMPLETE_CHINESE_DATA, route => {
+    failed.add(route.request().url().includes('/chinese-query-cache/') ? 'packet' : 'corpus');
+    return route.fulfill({ status: 503, body: "synthetic complete-result transport outage" });
+  });
   await openMember(context, page); await query(page, "人工客服");
-  await expect.poll(() => failed).toBe(true);
+  await expect.poll(() => [...failed].sort()).toEqual(['corpus', 'packet']);
   await expect(page.locator("#member-dictionary-word")).toHaveText("live agent");
   await expect(page.locator("#member-dictionary-search")).toBeEnabled();
   await expect(page.locator("#member-dictionary-use")).toBeEnabled();

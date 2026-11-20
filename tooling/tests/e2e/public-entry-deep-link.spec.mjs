@@ -49,10 +49,12 @@ test("an entry deep link waits for its exact ID in a fresh public snapshot inste
   try {
     await page.goto(`/?entry=${encodeURIComponent(target.id)}`); await seen;
     await expect(page.locator("#entry-count")).toHaveText(String(old.entries.length));
+    await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);
     await expect(page.locator("#entry-dialog")).toBeHidden();
     expect(new URL(page.url()).searchParams.get("entry")).toBe(target.id);
     release();
     await expectFullPublicEntry(page, target);
+    await expect(page.locator('#entry-grid .word-card')).toHaveCount(snapshot.entries.length);
   } finally { release(); }
 });
 
@@ -60,6 +62,7 @@ test("an unknown entry ID leaves the public library usable without silently open
   await page.goto("/?entry=public-00000000-0000-4000-8000-000000000000");
   await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
   await expect(page.locator("#entry-count")).toHaveText(String(snapshot.entries.length));
+  await expect(page.locator('#entry-grid .word-card')).toHaveCount(160);
   await expect(page.locator("#entry-dialog")).toBeHidden();
   await page.locator("#library-search").fill(target.term);
   await page.getByRole("button", { name: `查看 ${target.term} 的完整词条`, exact: true }).click();

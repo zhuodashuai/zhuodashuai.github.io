@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "1b17ed7114d8ea63d0bf6b472606da3003acee81a2c75ba53d67a54f73ca34e9",
+  "sourceByteSha256": "ebaacb360562746a8e0dc6709732c57ff436300fe27366c9760b1866e4993ad7",
+  "author": "AI/english_common_terms_cohort_author",
+  "reviewer": "AI/chinese_common_terms_admission_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "bank transfer",
+    "letting agent",
+    "medical certificate",
+    "missed connection",
+    "travel insurance",
+    "check in online",
+    "academic transcript",
+    "resit an exam",
+    "take notes",
+    "probation period",
+    "hand in one's notice",
+    "apply for",
+    "graduate from"
+  ],
+  "issues": [],
+  "reviewScope": "Fresh exact final13-row language/POS/finiteform/alias/example and source-projection approval, plus independent full authenticated canonical and compressed-active-example audit. This approves source admission only, not unrun compiler/runtime/deployment.",
+  "reviewedRows": [
+    {
+      "term": "bank transfer",
+      "rowSha256": "a68a77db5637a2cef69275d69f560f0a2b4aeaa10e5caa43cccb8722ee391dd5",
+      "languageDecision": "PASS",
+      "reason": "General bank-account transfer scope is correct, without wire-only equivalence or payment guarantees.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "letting agent",
+      "rowSha256": "bcf2546729e14ebb5ef7c16b1d4a69dbe28488124c43133ea7ac69be61a7af24",
+      "languageDecision": "PASS",
+      "reason": "British rental-arranging person/company, with only the explicitly reviewed finite letting/lettings surfaces.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "medical certificate",
+      "rowSha256": "8eee645c7dfde22c5b29bbe51ad2342699e7a58c1fc5e50f57db9e413739df99",
+      "languageDecision": "PASS",
+      "reason": "Medical document meaning remains broader than a sick note; no universal acceptance or fitness guarantee.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "missed connection",
+      "rowSha256": "ecf64cb4b54acd0715b315052e66638f7e7d98405a161dbe23c2d4b1d7900eaf",
+      "languageDecision": "PASS",
+      "reason": "Subsequent transport leg is explicit; not every missed first departure or a romantic encounter.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "travel insurance",
+      "rowSha256": "edf5dec817e9960410be2c3db238651adf27e9d0437fef2a39f78854296b247c",
+      "languageDecision": "PASS",
+      "reason": "Policy-dependent risk coverage; no unconditional medical/hiking coverage promise.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "check in online",
+      "rowSha256": "0a13fb91c54574e5988d83e36c0b0ca0a2dd77526c622957d123087c691aec1b",
+      "languageDecision": "PASS",
+      "reason": "Airline verb phrase only; correct finite verb forms and completed example.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "academic transcript",
+      "rowSha256": "999de33ff2e0fbd890653441f15952db7c32981ea3753c4ece4992f89dc8c7cf",
+      "languageDecision": "PASS",
+      "reason": "Course/result record, without conflating degree, attendance or an official-only restriction.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "resit an exam",
+      "rowSha256": "9f57e148e1e3ccf0e3ce75c972f4d2410f361cc9f4c6d5aaed8b516f6dec6bf5",
+      "languageDecision": "PASS",
+      "reason": "British repeated exam; correct resat/resitting forms, not a first attempt deferred under special consideration.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "take notes",
+      "rowSha256": "89e254a881acefc45261d4fd10ab5cfbddde04baaa0a3f6b35cd5d0edf159508",
+      "languageDecision": "PASS",
+      "reason": "Recording information, not merely taking note; irregular took/taken surfaces are explicitly finite.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "probation period",
+      "rowSha256": "e9dca91194399833aedd9fc007bc08c3722dccef9b5047e39207d59e6bbbcdcd",
+      "languageDecision": "PASS",
+      "reason": "Employment assessment scope, without criminal-law, fixed-duration or unpaid-work claims.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "hand in one's notice",
+      "rowSha256": "d319a298ec2a470e093848d38fda5475c3ed432f18959eee2d4863b9af7ff082",
+      "languageDecision": "PASS",
+      "reason": "Employee resignation notice, with only declared finite pronoun/form surfaces; no universal job-ending equivalence.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "apply for",
+      "rowSha256": "8cc3c6b42fbd09720f506e71968de332da309de2a9c30a93f012c1308f95ccf6",
+      "languageDecision": "PASS",
+      "reason": "Requested thing after for; receiving institution after to; no申请大学 alias. Required-object notes preserved.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    },
+    {
+      "term": "graduate from",
+      "rowSha256": "22f0956778cdff8647a255f26c79ad58501a63e7ada5802bbe1fc596c74a2e42",
+      "languageDecision": "PASS",
+      "reason": "Educational institution after from, with school/university and noun/person/major/degree distinctions preserved.",
+      "aliasAndFormReason": "Exact final aliases and Englishforms equal the previously independently approved original draft; no inferred family, source or cross-POS expansion.",
+      "wholeUnrelatedSensesApproved": false
+    }
+  ],
+  "companionUsageNotesByteSha256": "97440eda0055462c68becd3092e23d4067b70f430232fcdc43c05fef49a7a7c9",
+  "admissionAuditByteSha256": "3519ef7fd7ea167252dc6057d877e0558780e1f024d5d08d49d6b5bd1424fa1f",
+  "independentAudit": {
+    "heads": 13,
+    "wholeSurfaces": 42,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1255,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106064,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0
+  },
+  "priorLexicalProjection": "All13 rows are exact prior11+2 lexical/example objects except the projected reviewer metadata; top-level author reflects this admission cohort, not publisher authorship.",
+  "crossCohortExampleCheck": "All13 EN/ZH examples are also distinct from the7 newly staged source-correction pairs.",
+  "contentPresentation": "Original English definitions remain a separately hashed two-row companion; no unsupported UI/compiler field is claimed active.",
+  "productionApproved": false
+}

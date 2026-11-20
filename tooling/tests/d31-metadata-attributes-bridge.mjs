@@ -11,15 +11,18 @@ export const FORSYTE_PRIOR_D32_ATTRIBUTES=Object.freeze({
 });
 export const FORSYTE_PUBLIC_SOURCE_RULE='tooling/dictionary/public-source/** text eol=lf\n';
 export const CHINESE_RANKING_BINARY_RULE='vocab/data/chinese-search-ranking/**/*.bin -text\n';
+export const CHINESE_QUERY_CACHE_BINARY_RULE='vocab/data/chinese-query-cache/**/*.bin -text\n';
 export function restoreForsytePriorD32Attributes(current,archived){
  assert(Buffer.isBuffer(current)&&Buffer.isBuffer(archived),'Attributes must be raw bytes');
  assert.equal(archived.length,FORSYTE_PRIOR_D32_ATTRIBUTES.bytes);
  assert.equal(createHash('sha256').update(archived).digest('hex'),FORSYTE_PRIOR_D32_ATTRIBUTES.sha256,'Unknown historical D32 attributes');
  const forsyte=Buffer.concat([archived,Buffer.from(FORSYTE_PUBLIC_SOURCE_RULE)]);
- // The search release adds precisely one binary rule after the complete
- // historical input. It never changes the historical prefix or its pins.
- assert(current.equals(forsyte)||current.equals(Buffer.concat([forsyte,Buffer.from(CHINESE_RANKING_BINARY_RULE)])),
-  'Only the exact Forsyte LF rule and optional final Chinese ranking binary rule are permitted');
+ // Each search release has one finite suffix. Preserve the complete old
+ // prefix, its immutable pins, and the exact ranking-before-query-cache order.
+ const ranking=Buffer.concat([forsyte,Buffer.from(CHINESE_RANKING_BINARY_RULE)]);
+ const queryCache=Buffer.concat([ranking,Buffer.from(CHINESE_QUERY_CACHE_BINARY_RULE)]);
+ assert(current.equals(forsyte)||current.equals(ranking)||current.equals(queryCache),
+  'Only the exact Forsyte LF rule, ranking binary rule, and optional final query-cache binary rule are permitted');
  return Buffer.from(archived);
 }
 

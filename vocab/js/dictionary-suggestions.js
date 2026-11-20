@@ -1,3 +1,7 @@
+import { everydayChineseEntries } from "./everyday-lookup.js?v=117";
+import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
+export { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
+
 // Optional, first-party spelling candidates. Never definitions or automatic
 // corrections. Edit operations follow the standard insertion/deletion/
 // substitution/adjacent-transposition model; no probability is claimed.
@@ -14,6 +18,7 @@ const TTL = 60_000;
 let clients = new WeakMap();
 const controllers = new Set();
 let generation = 0;
+let packagedLengths;
 const compare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 const fold = value => value.normalize("NFKC").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"').replace(/\s+/gu, " ").trim().toLowerCase();
 function invalid() { return Object.assign(new Error("拼写建议索引校验失败。"), { code: "invalid_dictionary_suggestions" }); }
@@ -25,11 +30,19 @@ function keys(value, expected) {
 }
 function integer(value, maximum) { if (!Number.isSafeInteger(value) || value < 0 || value > maximum) throw invalid(); }
 
-export function normalizeSuggestionQuery(input) {
-  if (typeof input !== "string" || input.length > 200 || CONTROL.test(input)) return "";
-  const value = fold(input).replace(/^["']+|["',.!?;:，。！？；：]+$/gu, "").trim();
-  return value.length >= 3 && value.length <= 64 && WORD.test(value)
-    && value.replace(/[^a-z]/gu, "").length >= 3 && value.split(" ").length <= 8 ? value : "";
+function packagedRows(lengths) {
+  if (!packagedLengths) {
+    packagedLengths = new Map();
+    // These are the same first-party packaged heads used by actual lookup.
+    // No caller can supply extra candidates and no definitions are generated.
+    for (const { result } of everydayChineseEntries()) {
+      const term = result.term, key = fold(term);
+      if (!WORD.test(key) || key.length < 2 || key.length > 64) continue;
+      const rows = packagedLengths.get(key.length) || [];
+      rows.push(Object.freeze([term, 0])); packagedLengths.set(key.length, rows);
+    }
+  }
+  return lengths.flatMap(length => packagedLengths.get(length) || []);
 }
 
 /** Banded optimal-string-alignment distance; a neighbouring swap is one edit. */
@@ -218,10 +231,15 @@ export async function suggestDictionaryTerms(input, { dictionaryVersion, signal,
     if (signal?.aborted) throw stopped();
     const descriptors = manifest.shards.filter(shard => Math.abs(shard.length - query.length) <= maximum);
     const groups = await Promise.all(descriptors.map(shard => resource(shardFor(client, shard, fetchImpl))));
+    const local = packagedRows(descriptors.map(shard => shard.length));
     if (signal?.aborted) throw stopped();
-    if (groups.some(rows => rows.some(([term]) => fold(term) === query))) return [];
+    if ([...groups, local].some(rows => rows.some(([term]) => fold(term) === query))) return [];
+    const unique = new Map();
+    for (const rows of [...groups, local]) for (const row of rows) {
+      if (!unique.has(row[0]) || unique.get(row[0])[1] > row[1]) unique.set(row[0], row);
+    }
     const matches = []; let scanned = 0, lastYield = performance.now();
-    for (const rows of groups) for (const row of rows) {
+    for (const row of unique.values()) {
       // Yield by elapsed CPU work, not every fixed row batch. Unconditional
       // zero-delay timers cost ~15ms on some Windows hosts and otherwise make
       // a small warm lookup wait over a second for dozens of idle callbacks.

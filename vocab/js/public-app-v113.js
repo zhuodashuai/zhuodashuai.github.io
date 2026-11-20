@@ -1,8 +1,8 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v113.js";
+import { createEntryDetailController } from "./entry-detail-v113.js?v=117";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
-import { mountLibraryLookup } from "./library-lookup-ui.js?v=112";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=117";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
@@ -15,7 +15,7 @@ import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidenc
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=113";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=116";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=117";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
@@ -52,6 +52,40 @@ const state = {
   entryViewToken: 0,
   reviewBusy: false
 };
+const CARD_WINDOW_SIZE = 160;
+let cardWindowLimit = CARD_WINDOW_SIZE, cardWindowKey = "";
+const cardWindowControls = document.createElement("div");
+cardWindowControls.id = "library-card-window";
+cardWindowControls.className = "card-window-controls";
+cardWindowControls.hidden = true;
+cardWindowControls.setAttribute("role", "group");
+cardWindowControls.setAttribute("aria-label", "词卡显示范围");
+const cardWindowStatus = document.createElement("p");
+cardWindowStatus.id = "library-card-window-status";
+cardWindowStatus.setAttribute("role", "status");
+cardWindowStatus.setAttribute("aria-live", "polite");
+const cardWindowActions = document.createElement("div");
+cardWindowActions.className = "card-window-actions";
+const cardWindowMore = document.createElement("button"), cardWindowAll = document.createElement("button");
+cardWindowMore.id = "library-show-more"; cardWindowAll.id = "library-show-all";
+for (const control of [cardWindowMore, cardWindowAll]) {
+  control.type = "button"; control.className = "quiet-button"; control.setAttribute("aria-controls", "entry-grid");
+}
+cardWindowAll.textContent = "显示全部";
+cardWindowActions.append(cardWindowMore, cardWindowAll);
+cardWindowControls.append(cardWindowStatus, cardWindowActions);
+refs.entryGrid.after(cardWindowControls);
+function expandCardWindow(all) {
+  if (cardWindowControls.hidden) return;
+  const previousCount = refs.entryGrid.childElementCount;
+  cardWindowLimit = all ? Infinity : cardWindowLimit + CARD_WINDOW_SIZE;
+  render();
+  // The persistent footer keeps focus during ordinary expansion. Its last
+  // expansion hides the buttons, so hand focus to the first newly shown card.
+  if (cardWindowControls.hidden) refs.entryGrid.children[previousCount]?.querySelector(".card-open")?.focus();
+}
+cardWindowMore.addEventListener("click", () => expandCardWindow(false));
+cardWindowAll.addEventListener("click", () => expandCardWindow(true));
 const repeatControls = document.createElement("div");
 repeatControls.className = "reading-card-controls";
 repeatControls.id = "reading-card-controls";
@@ -68,7 +102,7 @@ refs.repeatNote.className = "reading-repeat-note";
 refs.repeatNote.id = "reading-repeat-note";
 refs.repeatNote.setAttribute("role", "status");
 repeatControls.append(repeatLabel, refs.repeatNote);
-refs.compactNavigation.after(repeatControls);
+refs.libraryOptions.append(repeatControls);
 const frequencyStyles = document.createElement("link");
 frequencyStyles.rel = "stylesheet";
 frequencyStyles.href = "reading-frequency.css";
@@ -139,6 +173,7 @@ const entryDetail = createEntryDetailController({
 });
 const bookPassagesView = createBookPassagesView();
 let loadTask = null;
+let queuedForcedLoad = null;
 let lastLoadStartedAt = 0;
 let cacheChecked = false;
 let navigationKey = "";
@@ -502,7 +537,15 @@ function render() {
     isOutsideScope: (entry) => !scopeIds.has(entry.id),
     onOpen: (entry, invoker) => openEntry(contextualizeReadingEntry(entry, state.collectionId, state.chapterId), invoker)
   });
-  const cards = filtered.map((entry) => {
+  // Only DOM construction is bounded. Search, ranking, counts, study and quiz
+  // scopes above still use the complete source collection and filtered set.
+  const nextWindowKey = JSON.stringify([state.snapshot?.revisionId || "", state.collectionId, state.chapterId,
+    query, state.filter, displaySort, state.showRepeated, state.view]);
+  if (nextWindowKey !== cardWindowKey) { cardWindowKey = nextWindowKey; cardWindowLimit = CARD_WINDOW_SIZE; }
+  // Preserve the existing deep-link invoker and source-card behavior.
+  if (pendingEntryId && filtered.some(entry => entry.id === pendingEntryId)) cardWindowLimit = Infinity;
+  const visibleEntries = filtered.slice(0, cardWindowLimit);
+  const cards = visibleEntries.map((entry) => {
     const article = document.createElement("article");
     article.className = "word-card";
     const kicker = document.createElement("div");
@@ -551,6 +594,9 @@ function render() {
     return article;
   });
   refs.entryGrid.replaceChildren(...cards);
+  cardWindowStatus.textContent = `已显示 ${visibleEntries.length}/${filtered.length}`;
+  cardWindowMore.textContent = `显示更多（+${Math.min(CARD_WINDOW_SIZE, Math.max(0, filtered.length - visibleEntries.length))}）`;
+  cardWindowControls.hidden = groupedView || passagesView || visibleEntries.length >= filtered.length;
   const activeAudio = pronunciation.controller.getState();
   const activeAudioEntry = entries.find((entry) => entry.id === activeAudio.activeKey);
   if (activeAudio.activeKey && (!activeAudioEntry || activeAudioEntry.term.replace(/\s+/gu, " ").trim() !== activeAudio.text)) pronunciation.stop();
@@ -662,11 +708,23 @@ async function performLoad({ background = false } = {}) {
 }
 
 function loadWordbook({ background = false, force = false } = {}) {
-  if (loadTask) return loadTask;
+  if (loadTask) {
+    if (force) {
+      // Keep one forced recovery/publication intent after the active read.
+      // A foreground retry wins over any queued background refresh.
+      queuedForcedLoad = { background: background && (queuedForcedLoad?.background ?? true) };
+    }
+    return loadTask;
+  }
   const now = Date.now();
   if (!force && state.snapshot && now - lastLoadStartedAt < MIN_REFRESH_GAP_MS) return Promise.resolve();
   lastLoadStartedAt = now;
-  loadTask = performLoad({ background }).finally(() => { loadTask = null; });
+  loadTask = performLoad({ background }).finally(() => {
+    loadTask = null;
+    const queued = queuedForcedLoad;
+    queuedForcedLoad = null;
+    if (queued) return loadWordbook({ background: queued.background, force: true });
+  });
   return loadTask;
 }
 

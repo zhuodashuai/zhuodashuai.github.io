@@ -22,9 +22,9 @@ function contrast(first, second) {
 
 async function openChapter(page) {
   await page.goto("/?book=never-let-me-go&chapter=chapter-12");
-  await expect(page.locator("#entry-count")).toHaveText("25");
+  await expect(page.locator("#entry-count")).toHaveText("23");
   await expect(page.locator("#study-button")).toBeEnabled();
-  await expect(page.locator("#entry-grid .word-card")).toHaveCount(25);
+  await expect(page.locator("#entry-grid .word-card")).toHaveCount(23);
 }
 
 test("desktop selection stays visually secondary to the study action and keyboard search has a visible focus ring", async ({ page }) => {

@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import { expectedExampleHeadingMeaning } from './expected-example-heading.mjs';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {watchAnonymousStaticContext,assertClassroomTraffic,freshClassroomReport} from './browser-checks-classroom-0009.mjs';
@@ -19,7 +20,7 @@ for(const width of[390,1280])test(`four classroom supplements keep21first-hits a
    await expect(page.locator('#dictionary-meaning .meaning-line')).toHaveText(row.meaning.split('\n'));
    await expect(page.locator('#dictionary-example-content p[lang=en]')).toHaveText([row.en]);
    await expect(page.locator('#dictionary-example-content p[lang="zh-CN"]')).toHaveText([row.zh]);
-   await expect(page.locator('#dictionary-example-content summary')).toHaveText('1. '+row.partOfSpeech+' · '+row.meaning);
+   await expect(page.locator('#dictionary-example-content summary')).toHaveText('1. '+row.partOfSpeech+' · '+expectedExampleHeadingMeaning(row.meaning));
    await expect(page.locator('#dictionary-example-source')).toHaveText('原创学习例句');
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
    report.queries.push({query,term:row.term,width,firstHit:true});

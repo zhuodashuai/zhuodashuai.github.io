@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import {useRecordedChapterSources} from './helpers/recorded-chapter-scope.mjs';
+
+// Restore the complete recorded chapter requested by these historical links.
+useRecordedChapterSources(test);
 
 test.use({ serviceWorkers: "block" });
 

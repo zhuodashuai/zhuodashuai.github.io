@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { showRecordedChapterSources } from './helpers/recorded-chapter-scope.mjs';
 
 const canonicalSnapshot = JSON.parse(
   await readFile(new URL("../../../vocab/data/owner-wordbook.json", import.meta.url), "utf8")
@@ -398,6 +399,7 @@ test("Never Let Me Go 独立词本按 Chapter 1 展示全部 29 条并保留原�
 
 test("Never Let Me Go Chapter 2 展示 38 条并为共享词切换页码、原文形式和章节语境", async ({ page }) => {
   await page.goto("/?book=never-let-me-go&chapter=chapter-2");
+  await showRecordedChapterSources(page,{defaultCount:36,recordedCount:38});
 
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 2", exact: true })).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText("38");
@@ -484,6 +486,9 @@ test("Never Let Me Go Chapter 3 展示全部 28 条，并保留照片原词形�
 
 test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习队列", async ({ page }) => {
   await page.goto("/?book=never-let-me-go&chapter=chapter-3");
+  // This historical test compares complete recorded chapter queues, including
+  // the two Chapter2 words already encountered in Chapter1.
+  await showRecordedChapterSources(page,{defaultCount:28,recordedCount:28});
   await expect(page.locator("#due-count")).toHaveText("28");
   await page.locator("#study-button").click();
   const dialog = page.getByRole("dialog");
@@ -520,6 +525,7 @@ test("Chapter 3 学习进度在刷新后保留，且不改变前两章的复习�
 test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并支持按原词形搜索和分点学习", async ({ page }) => {
   test.setTimeout(60_000);
   await page.goto("/?book=never-let-me-go&chapter=chapter-4");
+  await showRecordedChapterSources(page,{defaultCount:51,recordedCount:51});
   await expect(page.getByRole("heading", { name: "Never Let Me Go · Chapter 4", exact: true })).toBeVisible();
   await expect(page.locator("#entry-count")).toHaveText("51");
   await expect(page.locator("#entry-grid .word-card")).toHaveCount(51);
@@ -557,6 +563,7 @@ test("Never Let Me Go Chapter 4 展示 51 条、保留已有英式音标，并�
 
 test("Chapter 4 学习进度在刷新后保留，且不改变前三章的复习队列", async ({ page }) => {
   await page.goto("/?book=never-let-me-go&chapter=chapter-4");
+  await showRecordedChapterSources(page,{defaultCount:51,recordedCount:51});
   await expect(page.locator("#due-count")).toHaveText("51");
   await page.locator("#study-button").click();
   const dialog = page.getByRole("dialog");
@@ -1846,7 +1853,7 @@ test("Slow 3G 条件下公开页仍会结束加载且保持可操作", async ({ 
     connectionType: "cellular3g"
   });
   try {
-    await page.goto("/");
+    await page.goto("/?book=all");
     await expect(page.getByRole("heading", { name: "全部词本", exact: true })).toBeVisible();
     await expect(page.locator("#entry-grid")).toHaveAttribute("aria-busy", "false");
     await page.locator("#library-search").fill("jab at");

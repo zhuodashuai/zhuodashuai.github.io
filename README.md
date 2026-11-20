@@ -37,6 +37,11 @@ bulk import into anyone's private learning queue. Read the
 [release and data-boundary notes](tooling/dictionary/expanded-lookup.md) for counts,
 reproduction and verification.
 
+Run `pnpm benchmark:search --output ../search-benchmark.json` to replay the
+finite 235-query search benchmark. It reports availability, expected-head
+recall, ranking and optional spelling suggestions separately; its local-disk
+timings and four recorded Youdao observations do not establish overall superiority.
+
 ## Content structure
 
 - Research profile and current affiliations

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_source_corrections_author",
+  "status": "Full7example source projection, exact selected/specific/form contexts prepared; independent final review pending",
+  "sourceObjectSha256": "45bdf792cd7113eb95a488b5444cadc42b39188286b2b9835fa160f2fe68941a",
+  "scope": "Exactly3 previously reviewed corrections with all7 original bilingual pairs explicitly active through exampleSenses and exact exampleContexts. No Englishform registration; mortuaries has a separately authenticated noun-only formProjection.",
+  "entries": [
+    {
+      "term": "disconcerting",
+      "sourceRowSha256": "c714a7d7810b5de1fccd7e47fab76f3dca9e254a3973ac3e482951ac43c1f09d",
+      "examples": [
+        {
+          "senseNumber": 1,
+          "partOfSpeech": "adjective",
+          "en": "The screen went blank without warning, which was disconcerting during the presentation.",
+          "zh": "演示时，屏幕毫无预警地黑掉了，让人一下子有些慌乱。"
+        },
+        {
+          "senseNumber": 2,
+          "partOfSpeech": "verb",
+          "en": "The shifting instructions were disconcerting the new volunteers.",
+          "zh": "不断变化的指令让新来的志愿者们无所适从。"
+        }
+      ],
+      "correction": {
+        "currentProblem": "The old adjective atom describes the affected person as 困惑的、不安的、尴尬的. The -ing adjective normally describes the thing or person causing a loss of ease, not merely feeling it. Its present-participle verb sense is valid and must remain represented.",
+        "validSensesToRetainAsOriginalComposition": [
+          "An adjective describing a cause of disquiet, uncertainty or loss of composure.",
+          "The present participle of transitive disconcert: an action affecting another person."
+        ],
+        "excludedWrongEquivalences": [
+          "disconcerting = a person merely feeling confused",
+          "disconcerting = a person merely feeling embarrassed",
+          "disconcerting and disconcerted are interchangeable"
+        ],
+        "activeRetentionProposal": "Exclude the complete indivisible affected old tuple(s) from future active selected-sense alternatives only if independently approved; do not trim or relabel the third-party tuple. Keep the original canonical bytes, IDs and provenance unchanged.",
+        "affectedRawTupleSha256": [
+          "f14e6dc62001100153bec3a3e6af0c054e7f18f79bc90c26cfedb1ed730bd7e9"
+        ],
+        "retainedRawAlternatives": [],
+        "scopeNotes": [
+          "Do not remove the valid causative verb form to correct the adjective.",
+          "A person can be disconcerting if that person unsettles others; this does not turn the adjective into a description of that person feeling unsettled.",
+          "No general -ing/-ed rewrite rule or new word-family alias is proposed."
+        ]
+      },
+      "originalPacketByteSha256": "ea5f8492742cc882206dd9be1058004566ea2358013f031e61edb0999fbc26ce",
+      "originalPacketJsonSha256": "1ef5a6940690b634db0adb25781ffdf566c5b556c7a6bed94af16e6db395dae7",
+      "primaryReferenceEvidence": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disconcerting",
+          "authorAccess": "Primary-publisher indexed entry inspected; direct open returned403.",
+          "support": "The adjective concerns an unsettling effect on a person."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disconcert",
+          "authorAccess": "Primary-publisher indexed entry inspected; direct open not attempted.",
+          "support": "The verb affects another person; the adjective disconcerting is also documented under this head."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disconcerted",
+          "authorAccess": "Primary-publisher indexed entry inspected; direct open not attempted.",
+          "support": "The -ed adjective describes the affected person, providing the required cause-versus-feeling contrast."
+        }
+      ],
+      "formRequirements": []
+    },
+    {
+      "term": "disastrous",
+      "sourceRowSha256": "cd3e866711260b2b60a14b11064c6baa7c10d31252b95ea04974e19422c660e7",
+      "examples": [
+        {
+          "senseNumber": 1,
+          "partOfSpeech": "adjective",
+          "en": "The leak had disastrous effects on the building's electrical system.",
+          "zh": "漏水给大楼的电气系统造成了严重损害。"
+        },
+        {
+          "senseNumber": 2,
+          "partOfSpeech": "adjective",
+          "en": "Our first attempt to move the sofa was disastrous: we scratched the door and broke a lamp.",
+          "zh": "我们第一次尝试搬沙发，结果糟透了：门被刮花，还打碎了一盏灯。"
+        }
+      ],
+      "correction": {
+        "currentProblem": "The unqualified old 悲伤的 atom incorrectly supplies a personal-emotion equivalence. The valid meanings concern harmful consequences or a very bad/unsuccessful result.",
+        "validSensesToRetainAsOriginalComposition": [
+          "Severe damage, harm or misfortune caused by an event or outcome.",
+          "A figurative evaluation of a very unsuccessful or bad result."
+        ],
+        "excludedWrongEquivalences": [
+          "disastrous = simply feeling sad",
+          "disastrous = an ordinary synonym for a sad person"
+        ],
+        "activeRetentionProposal": "Exclude the complete indivisible affected old tuple(s) from future active selected-sense alternatives only if independently approved; do not trim or relabel the third-party tuple. Keep the original canonical bytes, IDs and provenance unchanged.",
+        "affectedRawTupleSha256": [
+          "2bf459d7a7e9b2791bb3888dd2248b312406e4a6bbc5ab2c4e1ab71a784fce36",
+          "e003940442f2f551193fce3dcd4f5005f206c66d2b314eebad5391a3d5a71e18"
+        ],
+        "retainedRawAlternatives": [],
+        "scopeNotes": [
+          "Preserve the valid damage/loss concept as separately authored text rather than deleting the English head.",
+          "Do not confuse something that causes suffering with the affected person feeling sad.",
+          "No new blanket negative for all disaster/death vocabulary is proposed."
+        ]
+      },
+      "originalPacketByteSha256": "66efe45bb4b2b99a5126fe12d949fa42512f556ee98630dea748ae87d77ed556",
+      "originalPacketJsonSha256": "0bb46472e5cea7a9edff9a95db769b660f9650a7ef0319dde17d7b48994bd765",
+      "primaryReferenceEvidence": [
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/disastrous",
+          "authorAccess": "Primary-publisher indexed entry inspected; direct open returned403.",
+          "support": "The adjective evaluates serious harm/damage or an extremely bad and unsuccessful outcome, not ordinary sadness."
+        }
+      ],
+      "formRequirements": []
+    },
+    {
+      "term": "mortuary",
+      "sourceRowSha256": "ee1ba3bbc97f3b91b9ea92105821c294b813bbfa4c817bb867ddb6d12834cb44",
+      "examples": [
+        {
+          "senseNumber": 1,
+          "partOfSpeech": "noun",
+          "en": "The hospital moved the body to the mortuary while the family made arrangements.",
+          "zh": "医院将遗体移至停尸房，家属则在安排后续事宜。"
+        },
+        {
+          "senseNumber": 2,
+          "partOfSpeech": "noun",
+          "en": "The family contacted a local mortuary to arrange a viewing.",
+          "zh": "家属联系了当地一家殡仪馆，安排瞻仰遗容。"
+        },
+        {
+          "senseNumber": 3,
+          "partOfSpeech": "adjective",
+          "en": "The museum displayed a small collection of mortuary objects from the ancient town.",
+          "zh": "博物馆展出了来自那座古镇的少量丧葬用品。"
+        }
+      ],
+      "correction": {
+        "currentProblem": "The old ordinary 悲哀的 atom bridges a death/burial adjective into general emotion search. The death-care nouns and the death/burial adjective are valid and should remain separately explained.",
+        "validSensesToRetainAsOriginalComposition": [
+          "The room/building used for temporarily keeping bodies, especially British usage.",
+          "A funeral-home/death-care establishment in American usage.",
+          "The adjective relating to death or burial."
+        ],
+        "excludedWrongEquivalences": [
+          "mortuary = a person feeling sad",
+          "mortuary = ordinary sadness unrelated to death/burial",
+          "mortuary noun = an emotion"
+        ],
+        "activeRetentionProposal": "Exclude the complete indivisible affected old tuple(s) from future active selected-sense alternatives only if independently approved; do not trim or relabel the third-party tuple. Keep the original canonical bytes, IDs and provenance unchanged.",
+        "affectedRawTupleSha256": [
+          "66d1ddfb15dd618d0151ca3fcb6ae48d718a6ae97050b58bed072fd0f8125d4a"
+        ],
+        "retainedRawAlternatives": [],
+        "scopeNotes": [
+          "The regional labels describe common usage, not a claim that the building/room noun is impossible in American English.",
+          "Preserve noun and adjective separately; do not replace this with a sadness-only card.",
+          "The draft gives no medical, legal or funeral-procedure advice; the examples only illustrate vocabulary."
+        ]
+      },
+      "originalPacketByteSha256": "a528d5e166558dc5bc03cf80fb09bd149b886f8052bc64170c4acd0fef9d994b",
+      "originalPacketJsonSha256": "9ff08cbc8c34277a4732f254e3f89bbbc3a5deb0d837e4096ef00b7a894e3e28",
+      "primaryReferenceEvidence": [
+        {
+          "url": "https://www.collinsdictionary.com/us/dictionary/english/mortuary",
+          "authorAccess": "Direct primary-publisher page opened successfully; noun and adjective entries inspected.",
+          "support": "The noun covers a morgue/funeral home, and the adjective is scoped to death and burial."
+        },
+        {
+          "url": "https://dictionary.cambridge.org/dictionary/english/mortuary",
+          "authorAccess": "Primary-publisher indexed entry inspected; direct open not attempted.",
+          "support": "The common British room/building noun and American funeral-establishment noun support the separate labels."
+        }
+      ],
+      "formRequirements": [
+        {
+          "surface": "mortuaries",
+          "partOfSpeech": "noun",
+          "canonicalId": 1333816,
+          "canonicalSourceSha256": "4d7af2f40b00097ef153ff1baf95ce9fb6807ea49575976f7a5241741707c2b7",
+          "meaning": "①（名词，英式常用）停尸房；遗体在下葬、火化或检查前暂时安置的房间或建筑。\n②（名词，美式用法）殡仪馆；安置遗体、办理葬礼前准备等事务的场所。",
+          "examples": [
+            {
+              "senseNumber": 1,
+              "partOfSpeech": "noun",
+              "en": "The hospital moved the body to the mortuary while the family made arrangements.",
+              "zh": "医院将遗体移至停尸房，家属则在安排后续事宜。"
+            },
+            {
+              "senseNumber": 2,
+              "partOfSpeech": "noun",
+              "en": "The family contacted a local mortuary to arrange a viewing.",
+              "zh": "家属联系了当地一家殡仪馆，安排瞻仰遗容。"
+            }
+          ],
+          "requirement": "Authenticate exact real canonical noun plural; use ONLY corrected noun senses/examples, keep canonical identity internal and matchedForm original. No adjective plural, generic suffix recovery, new publicID or restoration of the rejected raw tuple."
+        }
+      ]
+    }
+  ]
+}

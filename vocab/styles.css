@@ -92,6 +92,10 @@ input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px
 .filter-row { display: flex; justify-content: flex-end; gap: .5rem; flex-wrap: wrap; }
 .filter-row button[aria-pressed="true"] { color: var(--green); border-color: var(--green-2); background: var(--green-soft); font-weight: 700; }
 .entry-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.card-window-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; margin: 1rem 0; }
+.card-window-controls p { margin: 0; color: var(--muted); font-size: .9rem; }
+.card-window-actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+.card-window-actions button { min-height: 44px; padding: .6rem 1rem; border-color: var(--line); }
 .view-controls { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
 body[data-page="public"] .collection-tabs { padding-top: .8rem; }
 body[data-page="public"] .view-controls { margin: .65rem 0 .35rem; }

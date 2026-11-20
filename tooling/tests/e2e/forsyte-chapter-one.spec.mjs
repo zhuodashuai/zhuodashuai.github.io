@@ -1,11 +1,14 @@
 import { expect, test } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { useRecordedChapterSources } from "./helpers/recorded-chapter-scope.mjs";
 
 const bookId = "the-forsyte-saga", chapterId = "chapter-1";
 const source = JSON.parse(await readFile(new URL("../../../vocab/data/reading-lists/the-forsyte-saga/chapter-1.json", import.meta.url), "utf8"));
 const expectedCount = source.expectedItemCount;
 const priorityTerms = ["patriarchal", "sappy", "plume of"];
 test.use({ serviceWorkers: "block" });
+// The source/quiz contract covers all reviewed IDs, including earlier reuse.
+useRecordedChapterSources(test);
 
 for (const width of [390, 1440]) {
   test(`Forsyte reviewed chapter, priority hard words, original passages and existing-book meanings at ${width}px`, async ({ page }) => {
@@ -14,6 +17,12 @@ for (const width of [390, 1440]) {
     page.on("pageerror", error => errors.push(error.message));
     await page.goto(`/?book=${bookId}&chapter=${chapterId}`);
     await expect(page.locator("#entry-count")).toHaveText(String(expectedCount));
+    // This source audit intentionally checks every reviewed chapter card.
+    // Request them through the real UI; ordinary reading starts with 160.
+    if (expectedCount > 160) {
+      await expect(page.locator("#library-show-all")).toBeVisible();
+      await page.locator("#library-show-all").click();
+    }
     await expect(page.locator("#entry-grid .word-card")).toHaveCount(expectedCount);
     await expect(page.locator("#entry-grid .word-card h3").filter({ hasText: /^at home$/iu })).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

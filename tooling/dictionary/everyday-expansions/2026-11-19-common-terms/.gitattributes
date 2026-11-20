@@ -1,0 +1,5 @@
+# Preserve the exact reviewed source and evidence bytes on Windows checkouts.
+*.json text eol=lf
+# These two companion records retain their originally reviewed CRLF bytes.
+authorship-and-scope.json -text
+usage-notes.json -text

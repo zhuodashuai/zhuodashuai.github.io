@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "records": [
+    {
+      "id": 530004,
+      "term": "transit",
+      "partOfSpeech": "noun · verb",
+      "meaning": "n. 经过, 通行, 运输, 运输线, 转变\nvt. 运送, 使通过, 经过\nvi. 通过",
+      "forms": [
+        "transited",
+        "transiting",
+        "transits",
+        "transitted"
+      ],
+      "source": "core",
+      "variants": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 经过, 通行, 运输, 运输线, 转变\nvt. 运送, 使通过, 经过\nvi. 通过",
+          "source": "mit"
+        }
+      ],
+      "seed": {
+        "rank": 4140,
+        "forms": [
+          "transited",
+          "transiting",
+          "transits",
+          "transitted"
+        ],
+        "workbook": true
+      }
+    },
+    {
+      "id": 728141,
+      "term": "warranty",
+      "partOfSpeech": "noun",
+      "meaning": "n. 正当理由, 授权, 担保, 保证, 根据\n[经] 保单, 担保书, 保证书",
+      "forms": [
+        "warranties"
+      ],
+      "source": "mit",
+      "seed": {
+        "rank": 5688,
+        "forms": [
+          "warranties"
+        ],
+        "workbook": true
+      }
+    },
+    {
+      "id": 153286,
+      "term": "progress",
+      "partOfSpeech": "noun · verb",
+      "meaning": "n. 进步, 发展, 前进\nvi. 进步, 进行",
+      "forms": [
+        "progressed",
+        "progresses",
+        "progressing"
+      ],
+      "source": "core",
+      "variants": [
+        {
+          "partOfSpeech": "noun · verb",
+          "meaning": "n. 进步, 发展, 前进\nvi. 进步, 进行",
+          "source": "mit"
+        }
+      ],
+      "seed": {
+        "rank": 1197,
+        "forms": [
+          "progressed",
+          "progresses",
+          "progressing"
+        ],
+        "workbook": true
+      }
+    }
+  ],
+  "proof": [
+    {
+      "term": "transit",
+      "canonicalId": 530004,
+      "canonicalSourceSha256": "75abb07dbbd7c8860fe4f8bfa6b4ef5772de1181eb38bf67d833ca1c28fcbac6",
+      "shard": {
+        "bucket": 84,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-084.json",
+        "sha256": "b414fd52e5148fea4e8fdef1ad27edfcc3c491ec0fa1d0ac1fa08ad35a199e50",
+        "bytes": 364662,
+        "count": 1133
+      },
+      "actualBytes": 364662,
+      "actualSha256": "b414fd52e5148fea4e8fdef1ad27edfcc3c491ec0fa1d0ac1fa08ad35a199e50"
+    },
+    {
+      "term": "warranty",
+      "canonicalId": 728141,
+      "canonicalSourceSha256": "3915800e33566b4730871081533c9bc5ee12229f8304cd79c5ae3c65691d39f7",
+      "shard": {
+        "bucket": 77,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-077.json",
+        "sha256": "03704ab2c2921033190210758eff1ae1ce3591545a655532f6d265c4728e9048",
+        "bytes": 349541,
+        "count": 1091
+      },
+      "actualBytes": 349541,
+      "actualSha256": "03704ab2c2921033190210758eff1ae1ce3591545a655532f6d265c4728e9048"
+    },
+    {
+      "term": "progress",
+      "canonicalId": 153286,
+      "canonicalSourceSha256": "ee137a27df22ddb1d4626fc417d363152a8b54ff123111bd2c06be8f15e5d1e4",
+      "shard": {
+        "bucket": 70,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-070.json",
+        "sha256": "10b8db5110cff81a7f8dec71afffdfa5c461a7e588df1d97fd171aa6987530b9",
+        "bytes": 359763,
+        "count": 1092
+      },
+      "actualBytes": 359763,
+      "actualSha256": "10b8db5110cff81a7f8dec71afffdfa5c461a7e588df1d97fd171aa6987530b9"
+    }
+  ]
+}

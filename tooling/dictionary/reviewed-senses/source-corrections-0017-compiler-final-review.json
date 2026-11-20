@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/english_source_corrections_runtime_reviewer",
+  "independentOfAuthor": true,
+  "decision": "PASS",
+  "supersedesCompilerOnlyFrom": "source-corrections-0017-runtime-review.json",
+  "priorRuntimeReviewByteSha256": "05e668c9bb62a8b5830c360a0db6bcfbbacd46c1e5eaaebc8428fbb3d3a92cac",
+  "compilerFile": "tooling/scripts/build-reviewed-dictionary-senses.mjs",
+  "compilerByteSha256": "6b4cbf1a645873790094c0d069aa750845adbda9a02e7d808ec842f6c671c6fc",
+  "findings": [
+    "Descriptor-only bounded snapshots reject accessors/toJSON/prototype facades before any policy comparison or consumption. Snapshot policy/pack/review/legacy are consumed, never the original untrusted objects.",
+    "Actual evidence Buffer is copied, bound to the independent review byte hash, parsed and compared with the whole snapshot. A subset cannot reuse original signed bytes.",
+    "Every declared companion/canonical-before/legacy evidence byte hash remains checked in actual compiler loading. Current runtime/source/generated objects are unchanged from the prior approved review."
+  ],
+  "verification": {
+    "command": "node --test tooling/tests/source-corrections-0017.test.mjs vocab/tests/reviewed-canonical-form-projection.test.mjs tooling/tests/search-common-terms-admission.test.mjs tooling/tests/search-followup-content.test.mjs tooling/tests/search-experience-content.test.mjs",
+    "pass": 38,
+    "fail": 0,
+    "skip": 0,
+    "searchContentCheck": {
+      "command": "node tooling/scripts/build-search-experience-content.mjs --check",
+      "result": "PASS33"
+    }
+  }
+}

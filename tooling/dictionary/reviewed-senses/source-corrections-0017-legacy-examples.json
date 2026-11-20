@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_source_corrections_author",
+  "scope": "Exact pre-cohort active original example DTOs and immutable canonical saved contexts; no new example authority. New/unknown contexts must not borrow these legacy examples.",
+  "entries": [
+    {
+      "term": "disconcerting",
+      "canonicalId": 2038917,
+      "canonicalSourceSha256": "4ca51ff2c915b24016aa71fffeb30cf6d74ed4acd59ac417dc3e75ef407d6f96",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "disconcerting",
+          "partOfSpeech": "adjective · verb",
+          "meaning": "① adj. 困惑的, 不安的, 尴尬的\n② v. 使不安( disconcert的现在分词); 使为难; 使慌张; 使窘迫"
+        }
+      ],
+      "expectedEntry": {
+        "term": "disconcerting",
+        "senses": [
+          {
+            "id": "example:disconcerting",
+            "partOfSpeech": "adjective",
+            "meaningZh": "令人不安的",
+            "examples": [
+              {
+                "en": "Her disconcerting silence lasted through the entire meal.",
+                "zh": "她令人不安的沉默持续了整顿饭。"
+              }
+            ],
+            "reviewer": "AI/examples8_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "5663b7c9e9442d9c01fcd9263f512c6686dc291e5a533ad99ccc0c500a72759b"
+    },
+    {
+      "term": "disastrous",
+      "canonicalId": 552502,
+      "canonicalSourceSha256": "c78236d21b43206dd3ca45428b892f6c83335cbdffbdc15ef1852399397cf536",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "disastrous",
+          "partOfSpeech": "adjective",
+          "meaning": "① adj. 损失惨重的, 悲伤的"
+        }
+      ],
+      "expectedEntry": {
+        "term": "disastrous",
+        "senses": [
+          {
+            "id": "example:disastrous",
+            "partOfSpeech": "adjective",
+            "meaningZh": "造成严重损失或失败的",
+            "examples": [
+              {
+                "en": "The outdoor performance had a disastrous opening when rain damaged the scenery.",
+                "zh": "雨水损坏了布景，使这场户外演出的开场糟透了。"
+              }
+            ],
+            "reviewer": "AI/examples_0003_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "1107ac93c04dc6f63fcf25f0818f3489889f0ecdca5ff9dfd954e0bee0327625"
+    },
+    {
+      "term": "mortuary",
+      "canonicalId": 1333816,
+      "canonicalSourceSha256": "4d7af2f40b00097ef153ff1baf95ce9fb6807ea49575976f7a5241741707c2b7",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "mortuary",
+          "partOfSpeech": "noun · adjective",
+          "meaning": "① n. 停尸间, 太平间\n② adj. 丧葬的, 悲哀的, 埋葬的"
+        }
+      ],
+      "expectedEntry": {
+        "term": "mortuary",
+        "senses": [
+          {
+            "id": "example:mortuary",
+            "partOfSpeech": "noun",
+            "meaningZh": "太平间",
+            "examples": [
+              {
+                "en": "The detective visits the mortuary in the novel's opening chapter.",
+                "zh": "侦探在小说开篇来到太平间。"
+              }
+            ],
+            "reviewer": "AI/examples4_a",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "e209e20f550454e7166bca17c977328e1a90c8ddf4b4c4959311161cffa89730"
+    }
+  ]
+}

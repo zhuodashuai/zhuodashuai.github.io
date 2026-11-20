@@ -1,4 +1,5 @@
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=117';
+import { SEARCH_EXPERIENCE_ENTRIES } from './search-experience-data.js?v=117';
 // Extra exact Chinese names for existing entries keep their reviewed source
 // definitions and examples intact. Each target must be an existing head.
 export const EVERYDAY_CHINESE_ALIASES = Object.freeze([
@@ -1079,6 +1080,7 @@ export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
   {"term":"at somebody's discretion","partOfSpeech":"prepositional phrase","meaning":"① 由某人酌情决定；按照某人的判断或意愿。\n用法：at the manager's discretion＝由经理酌情决定。","chineseAliases":["由某人酌情决定","酌情决定"],"englishForms":["at one's discretion","at someone's discretion","at your discretion","at their discretion"],"en":"Extra time may be allowed at the instructor's discretion.","zh":"教师可酌情给予额外时间。","references":["https://www.oxfordlearnersdictionaries.com/definition/english/discretion"],"exampleSource":"原创学习例句","exampleReviewer":"AI/next15_release_audit_classroom_0021_independent_reader"},
   {"term":"foot the bill","partOfSpeech":"idiom","meaning":"① 支付费用；承担某事的账单。\n用法：foot the bill for something；foot 在这里是动词。","chineseAliases":["承担账单","支付这笔费用"],"englishForms":["foots the bill","footed the bill","footing the bill"],"en":"The company agreed to foot the bill for the damaged equipment.","zh":"公司同意支付损坏设备的相关费用。","references":["https://www.merriam-webster.com/dictionary/foot%20the%20bill"],"exampleSource":"原创学习例句","exampleReviewer":"AI/next15_release_audit_classroom_0021_independent_reader"},
   {"term":"take a toll on","partOfSpeech":"idiom","meaning":"① 对……造成损害或不良影响，常指逐渐累积的消耗。\n用法：take a heavy toll on / take its toll on；也可接人的健康、关系或某个行业。","chineseAliases":["对某事造成不良影响","造成持续损耗"],"englishForms":["takes a toll on","took a toll on","taken a toll on","taking a toll on"],"en":"The constant uncertainty began to take a toll on their relationship.","zh":"持续的不确定性开始损害他们的关系。","references":["https://www.oxfordlearnersdictionaries.com/us/definition/english/toll_1"],"exampleSource":"原创学习例句","exampleReviewer":"AI/next15_release_audit_classroom_0021_independent_reader"},
+  ...SEARCH_EXPERIENCE_ENTRIES,
   ...REVIEWED_SENSE_ENTRIES,
 ].map((entry) => Object.freeze({
   ...entry,

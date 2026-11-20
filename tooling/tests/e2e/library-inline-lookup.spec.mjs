@@ -22,6 +22,13 @@ test.beforeEach(async ({ context, page }) => {
   page.on("pageerror", error => { throw new Error(`Inline lookup error: ${error.message}`); });
 });
 
+test.afterEach(async ({ page, context }) => {
+  // Page-level gated reads must finish before the shared context bridge drains.
+  // Waiting preserves handler errors instead of silently ignoring them.
+  await page.unrouteAll({ behavior: "wait" });
+  await context.unrouteAll({ behavior: "wait" });
+});
+
 function observe(page) {
   const calls = [];
   page.on("request", request => {

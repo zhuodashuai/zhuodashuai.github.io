@@ -5,7 +5,7 @@ test.beforeEach(async ({ context, page }, info) => {
   await context.addCookies([{ name: "e2e_run", value: run, url: "http://127.0.0.1:4187", sameSite: "Lax" }]);
   page.on("pageerror", (error) => { throw new Error(`Unhandled recall-focus error: ${error.message}`); });
   await page.goto(`/?book=never-let-me-go&chapter=chapter-12&e2e=1&testRun=${run.slice(0, 32)}`);
-  await expect(page.locator("#entry-count")).toHaveText("25");
+  await expect(page.locator("#entry-count")).toHaveText("23");
   await expect(page.locator("#study-button")).toBeEnabled();
 });
 
@@ -51,7 +51,10 @@ test("ordinary card browsing does not inherit the answer's reveal focus", async 
   await page.keyboard.press("Escape");
   await expect(page.locator("#study-button")).toBeFocused();
 
+  await page.locator('#library-search').fill('hiccup');
+  await expect(page.locator('#entry-grid .word-card h3')).toHaveText(['hiccup']);
   const opener = page.getByRole("button", { name: "查看 hiccup 的完整词条", exact: true });
+  await expect(opener).toHaveAttribute('data-entry-id','public-nlmg-c12-hiccup');
   await opener.click();
   await expect(page.locator("#dialog-meaning")).toBeVisible();
   await expect(page.locator("#recall-controls")).toBeHidden();
