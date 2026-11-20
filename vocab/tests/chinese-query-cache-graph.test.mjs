@@ -1,3 +1,4 @@
+import {restoreSearchCommonTermsShell} from '../../tooling/tests/helpers/search-common-terms-shell.mjs';
 import {dictionaryOfflineWarmUrl} from '../js/dictionary-offline-warm-v108.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -7,6 +8,8 @@ import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese
 import {restoreSearchCoverageFollowupShell} from '../../tooling/tests/helpers/search-coverage-followup-shell.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const read=async name=>readFile(new URL('../'+name,import.meta.url),'utf8');
+// Keep the historical non-root URL subset/hashes unchanged; the new common-terms
+// graph gate independently parses the complete literal array, including './'.
 const sw=await read('sw.js');
 const declaration=sw.match(/const SHELL = \[([\s\S]*?)\];/u)?.[1];
 assert(declaration,'Actual serviceworker shell must be available');
@@ -45,10 +48,12 @@ const fresh=[
   "./js/dictionary-offline-warm-v108.js?v=116"
 ];
 
-test('cache-phase graph retains every prior offline URL and only adds exact current graph aliases',()=>{
- assert.deepEqual(urls.slice(0,fresh.length),fresh);
- assert.equal(urls.length-fresh.length,291);
- assert.equal(sha(JSON.stringify(urls.slice(fresh.length))),"d07e384375f4af968006a149733de9ac11641a99a9dac18771a8b463270b6b26");
+test('cache-phase graph retains every historical non-root offline alias and only adds exact current graph aliases',()=>{
+ const prior116=urls.slice(31);
+ assert.equal(sha(JSON.stringify(prior116)),'f79ef9663a528e243bfa4ac9e64e862e8d562c381ec471b13cb64e51cc02c056');
+ assert.deepEqual(prior116.slice(0,fresh.length),fresh);
+ assert.equal(urls.length-31-fresh.length,291);
+ assert.equal(sha(JSON.stringify(urls.slice(31+fresh.length))),"d07e384375f4af968006a149733de9ac11641a99a9dac18771a8b463270b6b26");
  assert.equal(new Set(fresh).size,fresh.length);
  assert.match(sw,/const CACHE_NAME = "zhuo-wordbook-v100";/u);
  assert(!urls.some(url=>url.includes('/data/chinese-query-cache/')),'No membership,bucket or bundledresponse is installed inbulk');
@@ -67,20 +72,20 @@ test('cache corruption reload bypasses stored packets while private APIs remain 
  assert.match(sw.slice(reload,reload+460),/reloadPublicShard\(request, event\)/u);
 });
 
-test('current116 imports are explicit and archived104,114 andplan-only95 edges stay finite',async()=>{
+test('current117 imports are explicit and archived104,114 andplan-only95 edges stay finite',async()=>{
  for(const[file,targets]of[
-  ['js/dictionary-entry-v109.js',['./dictionary-app-v109.js?v=116','./dictionary-offline-warm-v108.js?v=116']],
-  ['js/dictionary-app-v109.js',['./expanded-dictionary.js?v=116','./dictionary-suggestions.js?v=116']],
-  ['js/dictionary-app.js',['./expanded-dictionary.js?v=116','./dictionary-suggestions.js?v=116']],
-  ['js/expanded-dictionary.js',['./chinese-query-cache.js?v=116','./chinese-search.js?v=116','./chinese-ranking.js?v=116','./everyday-lookup.js?v=116']],
-  ['js/chinese-ranking.js',['./chinese-search.js?v=116']],
-  ['js/personal-lookup-flow.js',['./chinese-search.js?v=116','./everyday-lookup.js?v=116']],
-  ['js/public-app-v113.js',['./library-lookup-ui.js?v=116','./entry-detail-v113.js?v=116']],
+  ['js/dictionary-entry-v109.js',['./dictionary-app-v109.js?v=117','./dictionary-offline-warm-v108.js?v=117']],
+  ['js/dictionary-app-v109.js',['./expanded-dictionary.js?v=117','./dictionary-suggestions.js?v=117']],
+  ['js/dictionary-app.js',['./expanded-dictionary.js?v=117','./dictionary-suggestions.js?v=117']],
+  ['js/expanded-dictionary.js',['./chinese-query-cache.js?v=117','./chinese-search.js?v=117','./chinese-ranking.js?v=117','./everyday-lookup.js?v=117','./dictionary-form-evidence.js?v=117','./reviewed-canonical-forms.js?v=117']],
+  ['js/chinese-ranking.js',['./chinese-search.js?v=117']],
+  ['js/personal-lookup-flow.js',['./chinese-search.js?v=117','./everyday-lookup.js?v=117']],
+  ['js/public-app-v113.js',['./library-lookup-ui.js?v=117','./entry-detail-v113.js?v=117']],
   ['js/public-app-v108.js',['./library-lookup-ui.js?v=114']],
   ['js/dictionary-app-v108.js',['./expanded-dictionary.js?v=104']],
   ['js/dictionary-entry.js',['./dictionary-app.js?v=104']],
   ['js/dictionary-app.js',['./chinese-search.js?v=95']],
-  ['js/personal-app-v108.js',['./chinese-search.js?v=95','./personal-lookup-flow.js?v=116']]
+  ['js/personal-app-v108.js',['./chinese-search.js?v=95','./personal-lookup-flow.js?v=117']]
  ]){
   const source=await read(file);for(const target of targets)assert(source.includes(target),file+'→'+target);
  }
@@ -93,8 +98,8 @@ test('new wholeHTMLpins authenticate before finite116→115 restoration and all 
   ['owner.html','src="js/owner-app-v108.js?v=116"','src="js/owner-app-v108.js?v=115"'],
   ['personal.html','src="js/personal-app-v108.js?v=116"','src="js/personal-app-v108.js?v=115"']
  ]){
-  const source=await read(file),restored=restoreChineseQueryCacheShell(file,source);
-  assert.equal(source.split(current).length,2);assert.equal(restored,source.replace(current,previous));
+  const source=await read(file),phase116=restoreSearchCommonTermsShell(file,source),restored=restoreChineseQueryCacheShell(file,source);
+  assert.equal(phase116.split(current).length,2);assert.equal(restored,phase116.replace(current,previous));
   assert.doesNotThrow(()=>restoreSearchCoverageFollowupShell(file,source));
   assert.throws(()=>restoreChineseQueryCacheShell(file,source+'<!-- unrelated mutation -->'),/snapshot changed/u);
   assert.throws(()=>restoreChineseQueryCacheShell(file,source.replace('<main id="main">','<main id="wrong">')),/snapshot changed/u);

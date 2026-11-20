@@ -1,20 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { EVERYDAY_LOOKUP_ENTRIES } from '../js/everyday-lookup-data.js';
-import { searchEverydayDictionary, loadEverydayExamples, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead } from '../js/everyday-lookup.js';
+import { searchEverydayDictionary, loadEverydayExamples, loadSourceCorrectionExamples, isReviewedCanonicalSenseHead, isSupersededChineseSenseHead } from '../js/everyday-lookup.js';
 import { searchExpandedDictionary } from '../js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
 import { readFile } from 'node:fs/promises';
 import { historicalSelectedRows } from '../../tooling/tests/selected-sense-history-fixture.mjs';
+import { historicalSelected207 } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
 
 const reviewed = EVERYDAY_LOOKUP_ENTRIES.filter(row => row.reviewedCanonicalSense === true);
-const historicalHeads = new Set(historicalSelectedRows(reviewed).map(row=>row.term));
+const prior207 = historicalSelected207(reviewed);
+const historicalHeads = new Set(historicalSelectedRows(prior207).map(row=>row.term));
+const correctionSource = JSON.parse(await readFile(new URL('../../tooling/dictionary/reviewed-senses/source/batch-0017.json',import.meta.url),'utf8'));
+const corrections = correctionSource.entries.map(source => {
+  const row=reviewed.find(row=>row.term===source.term);assert(row);
+  assert(!prior207.some(old=>old.term===row.term));return row;
+});
+assert.deepEqual(corrections.map(row=>row.term),['disconcerting','disastrous','mortuary']);
 const oldSource = '卓的日常词组';
 const oldExampleSource = '原创例句·作者自查（精选义项）';
 
 test('independently reviewed canonical sense rows expose their own dictionary source and exact EN/ZH example', () => {
   assert(reviewed.length > 0, 'Generate independently approved sense data before accepting this integration');
-  for (const row of reviewed) {
+  assert.equal(prior207.length,207);
+  for (const row of prior207) {
     assert.equal(row.dictionarySource, '卓式词典·义项补充');
     assert.match(row.exampleReviewer, /^AI\/[a-z0-9_-]{1,100}$/u);
     assert.equal(row.exampleSource, historicalHeads.has(row.term) ? '原创例句·AI复核（精选义项）' : '原创学习例句');
@@ -41,6 +50,38 @@ test('independently reviewed canonical sense rows expose their own dictionary so
       assert.equal(answer.source, row.dictionarySource);
     }
   }
+});
+
+test('the three exact approved corrections expose allseven POS-labelled examples and their complete context mappings',()=>{
+  let pairs=0;
+  for(const row of corrections){
+    assert.equal(row.dictionarySource,'卓式词典·义项补充');
+    assert.equal(row.exampleSource,'原创学习例句');
+    const result=searchEverydayDictionary(row.term).results[0],entry=loadEverydayExamples(row.term);
+    assert.equal(result.meaning,row.meaning);assert.equal(result.partOfSpeech,row.partOfSpeech);assert.equal(result.source,row.dictionarySource);
+    const expected=row.exampleSenses.map(sense=>({...structuredClone(sense),reviewer:row.exampleReviewer,source:row.exampleSource}));
+    assert.deepEqual(entry,{term:row.term,senses:expected});
+    assert.deepEqual(loadEverydayExamples(row.term.toUpperCase()),entry);
+    for(const sense of entry.senses){
+      assert.match(sense.id,new RegExp('^reviewed-source-correction:'+row.term+':[1-3]$','u'));
+      assert(row.partOfSpeech.split(' · ').includes(sense.partOfSpeech));
+      pairs+=sense.examples.length;
+    }
+    for(const binding of row.exampleContexts){
+      const context={term:row.term,partOfSpeech:binding.partOfSpeech,meaning:binding.meaning};
+      const selected=loadSourceCorrectionExamples(row.term,{context});
+      assert.deepEqual(selected,{term:row.term,senses:expected.filter(sense=>binding.senseIds.includes(sense.id))});
+      assert.deepEqual(selected.senses.map(sense=>sense.id),binding.senseIds);
+      assert.equal(loadSourceCorrectionExamples(row.term,{context:{...context,meaning:context.meaning+' changed'}}),null);
+    }
+    assert.deepEqual(row.englishForms,[],'The noun plural requires private canonical authentication, not a packaged form registration');
+  }
+  assert.equal(pairs,7);
+  const mortuary=corrections.find(row=>row.term==='mortuary'),projection=mortuary.formProjections[0];
+  assert.equal(projection.form,'mortuaries');assert.equal(projection.partOfSpeech,'noun');
+  const noun=loadSourceCorrectionExamples('mortuary',{context:{term:'mortuary',partOfSpeech:projection.partOfSpeech,meaning:projection.meaning}});
+  assert.equal(noun.senses.length,2);assert(noun.senses.every(sense=>sense.partOfSpeech==='noun'));
+  assert.deepEqual(noun.senses.map(sense=>sense.id),projection.exampleSenseIds);
 });
 
 test('only a literal reviewed head can identify the supplementary canonical source', () => {
@@ -152,10 +193,19 @@ test('internal canonical tracking fields never leak through search or example DT
       : ['license','meaning','partOfSpeech','source','term','url']);
     const example = loadEverydayExamples(row.term);
     assert.deepEqual(Object.keys(example).sort(), ['senses','term']);
-    assert.deepEqual(Object.keys(example.senses[0]).sort(), ['examples','id','meaningZh','partOfSpeech','reviewer','source']);
-    assert.deepEqual(Object.keys(example.senses[0].examples[0]).sort(), ['en','zh']);
-    result.meaning = 'changed locally'; example.senses[0].examples[0].en = 'Changed locally.';
+    for(const alternative of result.alternatives||[])assert.deepEqual(Object.keys(alternative).sort(),['license','meaning','partOfSpeech','source','url']);
+    const before=structuredClone(example);
+    for(const sense of example.senses){
+      assert.deepEqual(Object.keys(sense).sort(), ['examples','id','meaningZh','partOfSpeech','reviewer','source']);
+      for(const pair of sense.examples){
+        assert.deepEqual(Object.keys(pair).sort(), ['en','zh']);
+        pair.en='Changed locally.';pair.zh='本地修改。';
+      }
+      sense.id='changed';sense.meaningZh='本地修改。';sense.source='changed';sense.reviewer='changed';
+    }
+    result.meaning = 'changed locally';
     assert.equal(searchEverydayDictionary(row.term).results[0].meaning, row.meaning);
+    assert.deepEqual(loadEverydayExamples(row.term),before,'Every sense/pair is a fresh clone; compiled approved data remains unchanged');
     assert.equal(loadEverydayExamples(row.term).senses[0].examples[0].en, row.en);
   }
 });

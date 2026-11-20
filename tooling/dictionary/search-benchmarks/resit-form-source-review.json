@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/english_resit_relation_independent_reviewer",
+  "author": "AI/resit_source_relation_author",
+  "independentOfAuthor": true,
+  "status": "PASS — exact source relations only; no word blacklist",
+  "reviewedAt": "2026-11-19",
+  "filesSha256": {
+    "tooling/dictionary/search-benchmarks/resit-form-source-evidence.json": "afaf00858371d781de6f83b86779ed48b8474c30bf946b001df54b4f98ffebbb",
+    "vocab/js/dictionary-form-evidence.js": "27935d89e9f4e9e78b9772dd6a4558c40009e9cd3d8fb9f857788b3cd10c3988",
+    "vocab/js/expanded-dictionary.js": "6c657cef653739f33018a78375b6987ad6587595e50f8e7e9949667856a39fbf",
+    "vocab/tests/resit-form-evidence.test.mjs": "337d2ae2dcd2f84ba32f1faf744eece440f34ac0453482fc776530b2f63f5e5b"
+  },
+  "primaryReferences": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/resit",
+      "method": "primary-search-index",
+      "observed": "Actual UK verb entry states resat and resitting; no definitions/examples copied."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/resat",
+      "method": "primary-search-index",
+      "observed": "Actual past/past-participle entry read."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/resitting",
+      "method": "primary-search-index",
+      "observed": "Actual present-participle entry read."
+    }
+  ],
+  "checks": [
+    "Independently swept all128 authenticated English shards: only canonicalresit5264684 currently present; resited/ref in en029,resiting/ref in en076,resits/ref in en013,canonicalresit/en044; no resite head/key currently.",
+    "Helper matches full immutable original JSON including ID,POS,meaning,forms,source,seed and exact dictionaryVersion. Only the two resit-target relations are suppressed after private source parsing; ordinary literals and unrelated lemmas are not rejected.",
+    "Root engine private WeakMap filters exact formrefs in BOTH ordinary lookup and inflected whole-phrase leading-token lookup. Authenticated targets/complete literals/ambiguity/source/abort guards remain.",
+    "Future independent literal resited/resiting and legitimate resite forms/whole phrases survive alongside the rejected exactresit reference in same-version fixtures.",
+    "Correct resit/resits/resat/resitting and all4exam-phrase forms preserve complete existing DTOs. LegacyCOM/comming/coms API remains compatible.",
+    "Actual own13 admission negatives now pass; correct taken notes and case/whitespace inputs retained."
+  ],
+  "testCommands": [
+    {
+      "command": "node --test vocab/tests/resit-form-evidence.test.mjs vocab/tests/dictionary-form-evidence.test.mjs vocab/tests/english-surface-variants.test.mjs vocab/tests/english-side-effects-surface.test.mjs",
+      "pass": 26,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "command": "node --test tooling/tests/search-common-terms-admission.test.mjs",
+      "pass": 7,
+      "fail": 0,
+      "skip": 0
+    }
+  ],
+  "limits": [
+    "This is exact relation rejection under authenticated source parsing, not admission of a general irregular-verb algorithm.",
+    "Canonical raw source bytes and old examples remain immutable; matching cache engine binding must be rebuilt by root."
+  ]
+}

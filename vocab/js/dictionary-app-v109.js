@@ -1,4 +1,4 @@
-import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=116";
+import { searchExpandedDictionary, preloadExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=117";
 import { chineseSearchPlan } from "./chinese-search.js?v=95";
 import { personalWordbookUrl } from "./runtime-config.js?v=77";
 import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
@@ -19,6 +19,12 @@ export function initialDictionaryQuery(hash) {
 export function numberedDictionaryMeaning(value) {
   if (!value) return "";
   return /^\s*(?:[①-⑳]|\d+[.、])/u.test(value) ? value : `① ${value}`;
+}
+
+// The disclosure already supplies its own list ordinal. Hide only one leading
+// source sense marker in its preview; keep stored definitions and inner points.
+export function dictionaryExampleMeaningLabel(value) {
+  return value.replace(/^\s*(?:[①-⑳]|[1-9]\d?[.、](?!\d))\s*/u, "");
 }
 
 // Source newlines are sense boundaries; semicolons may only separate synonyms.
@@ -121,7 +127,7 @@ function queryError(error) {
 // Optional suggestions are loaded only after an exact, successful miss. They
 // never turn an approximate match into a definition or write to a wordbook.
 async function defaultDictionarySuggestions(input, { signal } = {}) {
-  const module = await import("./dictionary-suggestions.js?v=116");
+  const module = await import("./dictionary-suggestions.js?v=117");
   const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
   return module.suggestDictionaryTerms(input, { signal, timeoutMs: 3000, limit: 5, dictionaryVersion: manifest.version });
 }
@@ -370,7 +376,7 @@ export function mountDictionaryPage(document, window) {
     if (plan.scoped && !plan.hasMatch) exampleStatus.textContent = "当前义项暂无匹配例句，以下为其他词义例句。";
     plan.items.forEach(({ sense, open, label }, index) => {
       const details = document.createElement("details"); details.className = "example-sense"; details.open = open;
-      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${sense.meaningZh}`;
+      const summary = document.createElement("summary"); summary.textContent = `${index + 1}. ${label ? `${label}：` : ""}${sense.partOfSpeech} · ${dictionaryExampleMeaningLabel(sense.meaningZh)}`;
       const list = document.createElement("ol");
       sense.examples.forEach(example => {
         const item = document.createElement("li"), en = document.createElement("p"), zh = document.createElement("p");
@@ -389,7 +395,7 @@ export function mountDictionaryPage(document, window) {
     renderExamples({ phase: "loading", message: "正在读取学习例句…" });
     // Do not add a JS/data dependency to the critical meaning/CTA path. A late
     // import/download is guarded separately from the primary query controller.
-    exampleModule ||= import("./dictionary-examples-current-v4.js?v=116");
+    exampleModule ||= import("./dictionary-examples-current-v4.js?v=117");
     void exampleModule.then(module => {
       if (current !== exampleSequence || lastSelected?.term !== term) return;
       exampleController ||= module.createDictionaryExamplesController({ onChange: renderExamples });

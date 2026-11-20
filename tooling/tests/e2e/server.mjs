@@ -9,6 +9,7 @@ import { collectionMemberships } from "../../../vocab/js/collections.js";
 import { readingChapterTitle } from "../../../vocab/js/reading-source.js";
 import { scheduleReview } from "../../../vocab/js/review.js";
 import { clearFixtureFolders, folderFixtureFields, folderFixtureMutationAvailable, handleFolderFixture, removeFixtureEntryFromFolders } from "./personal-folders-fixture.mjs";
+import { findProductionCollectedEntry, resolveProductionDictionaryCollection } from "./production-dictionary-fixture.mjs";
 
 const root = resolve("vocab");
 const baseline = parsePublicSnapshot(JSON.parse(await readFile(join(root, "data/owner-wordbook.json"), "utf8")));
@@ -592,20 +593,11 @@ async function api(request, response, url) {
     if (!assertWrite(request, response, payload)) return;
     if (Object.keys(payload).some(key => !["term", "mutationId"].includes(key)) || typeof payload.term !== "string"
       || typeof payload.mutationId !== "string" || payload.mutationId.length < 12) return error(response, 400, "invalid_dictionary_collection", "收录请求不完整。");
-    const state = runState(request), existing = findDuplicate(state.snapshot.entries, { term: payload.term });
+    const state = runState(request), existing = findProductionCollectedEntry(state.snapshot, payload.term);
     if (existing) return json(response, 200, { entry: existing, added: false, sha: state.sha });
-    const key = payload.term.normalize("NFKC").toLocaleLowerCase("en-US"); let hash = 2166136261;
-    for (const char of key) { hash ^= char.codePointAt(0); hash = Math.imul(hash, 16777619) >>> 0; }
-    const manifest = JSON.parse(await readFile(join(root, "data/expanded-dictionary/manifest.json"), "utf8"));
-    const descriptor = manifest.english.shards[hash % 128];
-    const shard = JSON.parse(await readFile(join(root, "data/expanded-dictionary", descriptor.file), "utf8"));
-    const ref = shard.keys.find(([head]) => head === key)?.[1].filter(value => value.kind === "canonical");
-    if (ref?.length !== 1) return error(response, 422, "dictionary_term_not_exact", "请选择明确英文词条。");
-    const row = shard.records.find(value => value.id === ref[0].id), source = manifest.sources[row.source];
-    const entry = validatePublicEntry({ ...createBlankEntry(row.term), meaning: row.meaning, partOfSpeech: row.partOfSpeech,
-      organizationMethod: "local-dictionary", sourceTitle: source.name, sourceUrl: source.url,
-      attributionNote: `${source.name} · ${source.license}`,
-      sources: [{ title: source.name, url: source.url, kind: "dictionary", retrievedAt: new Date().toISOString() }] });
+    let entry;
+    try { entry = await resolveProductionDictionaryCollection(payload.term); }
+    catch (failure) { return error(response, failure.status || 503, failure.code || "dictionary_collection_unavailable", failure.message); }
     state.snapshot.entries.push(entry); state.snapshot.exportedAt = entry.updatedAt;
     state.snapshot.lastMutationId = payload.mutationId; state.snapshot.revisionId = `fixture-${payload.mutationId}`;
     state.sha = createHash("sha1").update(JSON.stringify(state.snapshot)).digest("hex");

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "Implemented finite recovery; pending independent language/source/runtime review",
+  "author": "AI/search_ui_upgrade_source_recovery_author",
+  "reviewer": null,
+  "independentOfAuthor": false,
+  "surface": "side effects",
+  "target": "side effect",
+  "primaryReferences": [
+    "https://dictionary.cambridge.org/dictionary/english/side-effect"
+  ],
+  "sourceEvidence": {
+    "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+    "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "descriptor": {
+      "bucket": 71,
+      "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-071.json",
+      "sha256": "c9bc2976b1f145fd373458f0cadf0badd741ae5289cb53005f062df9e5e567ec",
+      "bytes": 354687,
+      "count": 1120
+    },
+    "actualSha256": "c9bc2976b1f145fd373458f0cadf0badd741ae5289cb53005f062df9e5e567ec",
+    "actualBytes": 354687,
+    "rawRecord": {
+      "id": 12574919,
+      "term": "side effect",
+      "partOfSpeech": "noun",
+      "meaning": "副作用\n[计] 副作用",
+      "forms": [],
+      "source": "pos-reviewed",
+      "seed": {
+        "rank": 107223,
+        "forms": [],
+        "workbook": true
+      },
+      "variants": [
+        {
+          "partOfSpeech": "",
+          "meaning": "副作用\n[计] 副作用",
+          "source": "mit"
+        }
+      ]
+    },
+    "rawRecordSha256": "fe593112f78dfc225f246072e4a687cc3478ca3002980acc25ca3cbb268d3171",
+    "canonicalRefs": [
+      {
+        "id": 12574919,
+        "kind": "canonical"
+      }
+    ],
+    "sourceDescriptor": {
+      "name": "原有释义＋词性校订",
+      "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html",
+      "sha256": "7b4db9512038b99793649008e8529e46d615893769c533cf7adb7d719be8d1f0"
+    },
+    "completeCurrentLiteralDTO": {
+      "term": "side effect",
+      "partOfSpeech": "noun",
+      "meaning": "① 副作用\n   [计] 副作用",
+      "source": "原有释义＋词性校订",
+      "license": "Meanings retain their original licences; POS sources and review methods are listed in the notice",
+      "url": "https://zhuodashuai.github.io/vocab/dictionary-pos.html"
+    },
+    "currentPluralResults": []
+  },
+  "runtimeContract": [
+    "First complete the existing whole-query literal/canonical/form/context lookup. A real plural literal or ambiguity retains priority.",
+    "Only the exact approved full plural surface side effects may propose side effect. No generic suffix stripping, no take notes to take note, no source word replacement.",
+    "Authenticate the original full target row including POS, forms, variants, seed and identity; the full immutable shard descriptor and current manifest bytes; and the licensed source metadata. Do not trust caller DTOs or public labels.",
+    "Use a private source brand bound to the CURRENT manifest digest at consumption, so a warmed record cannot authorize recovery after a same-version metadata/source refresh.",
+    "Preserve the existing canonical identity internally. Return the exact current public lexical/source/alternative DTO with matchedForm set to the original input; do not add an exposed ID field, because the existing literal DTO has none. Do not automatically collect the recovered plural.",
+    "Source corruption, ambiguity and cancellation propagate. Missing or changed proof grants no plural recovery. Preserve the ordinary literal side effect behavior under fresh authenticated source changes."
+  ],
+  "requiredRegressionChecks": [
+    "literal side effect retains its complete old DTO and identity",
+    "side effects finite recovery retains source/POS/meaning/alternatives and original matchedForm",
+    "future literal side effects beats recovery",
+    "warm source then same-version changed manifest/source after61s denies plural recovery",
+    "wrong manifest/shard/ID/POS/meaning/seed/forms/variants/source cannot grant recovery",
+    "take notes/take note remain distinct; unrelated plural guesses are not admitted",
+    "corrupt/hanging/canceled source never produces a recovered card",
+    "no provider calls, query transmission or automatic collection"
+  ]
+}

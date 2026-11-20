@@ -1,2 +1,5 @@
 # Preserve byte-hashed reviewed fixtures and their source bindings on Windows.
 **/*.json text eol=lf
+# Keep these two independently approved raw-byte review records hash-identical.
+source-corrections-0017-runtime-review.json -text
+source-corrections-0017-compiler-final-review.json -text

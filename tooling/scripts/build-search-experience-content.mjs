@@ -3,12 +3,15 @@ import {createHash} from 'node:crypto';
 import {readFile,writeFile} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {isSearchContentHead,auditSearchContentAdmissions} from './search-content-admission.mjs';
+export {isSearchContentHead} from './search-content-admission.mjs';
 
 const ROOT=resolve(import.meta.dirname,'../..');
 export const SEARCH_CONTENT_DIRECTORY=join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-19-search-experience');
 export const SEARCH_CONTENT_PACKS=Object.freeze([
   {directory:SEARCH_CONTENT_DIRECTORY,count:16},
   {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-19-search-followup'),count:4},
+  {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-19-common-terms'),count:13,admission:true},
 ].map(Object.freeze));
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const read=async file=>JSON.parse(await readFile(file,'utf8'));
@@ -16,8 +19,8 @@ const key=text=>text.normalize('NFKC').replace(/\s+/gu,' ').trim().toLowerCase()
 const control=/[\u0000-\u001f\u007f\u202a-\u202e\u2066-\u2069]/u;
 
 export async function loadSearchExperienceContent(){
-  const entries=[],packs=[],terms=new Set(),sentences=new Set();
-  for(const {directory,count} of SEARCH_CONTENT_PACKS){
+  const entries=[],packs=[],terms=new Set(),sentences=new Set(),admissionEntries=[];
+  for(const {directory,count,admission} of SEARCH_CONTENT_PACKS){
   const bytes=await readFile(join(directory,'source.json'));
   const source=JSON.parse(bytes),review=await read(join(directory,'review.json'));
   assert.equal(source.schemaVersion,1);assert.equal(review.schemaVersion,1);
@@ -31,7 +34,7 @@ export async function loadSearchExperienceContent(){
     assert.equal(decision?.rowSha256,hash(row),'Missing exact independent approval: '+row.term);
     assert.equal(decision.languageDecision,'PASS');
     assert.equal(row.exampleReviewer,review.reviewer);assert.equal(row.exampleSource,'原创学习例句');
-    assert(/^[a-z]+(?:[ -][a-z]+)*$/u.test(row.term));assert(!terms.has(key(row.term)));terms.add(key(row.term));
+    assert(isSearchContentHead(row.term));assert(!terms.has(key(row.term)));terms.add(key(row.term));
     assert(/^[a-z -]+$/u.test(row.partOfSpeech));assert(row.meaning.startsWith('①'));assert(row.meaning.length<=2000&&!control.test(row.meaning.replace(/\r?\n/gu,'')));
     if(Object.hasOwn(row,'dictionarySource'))assert.equal(row.dictionarySource,'卓式词典·原创释义');
     assert(/\p{Script=Han}/u.test(row.meaning)&&/\p{Script=Han}/u.test(row.zh));assert(/[A-Za-z]/u.test(row.en));
@@ -40,9 +43,12 @@ export async function loadSearchExperienceContent(){
     assert(row.references.length&&row.references.every(value=>new URL(value).protocol==='https:'));
     assert(row.chineseAliases.length&&row.chineseAliases.every(value=>/\p{Script=Han}/u.test(value)&&!control.test(value)));
     assert(row.englishForms.every(value=>!control.test(value)&&!/[<>\p{Script=Han}]/u.test(value)));
+    if(admission)assert(row.englishForms.every(isSearchContentHead),'Unreviewable complete English form');
   }
   entries.push(...source.entries);packs.push({directory,entries:source.entries});
+  if(admission)admissionEntries.push(...source.entries);
   }
+  const admissionAudit=await auditSearchContentAdmissions(ROOT,admissionEntries);
   const manifest=await read(join(ROOT,'vocab/data/expanded-dictionary/manifest.json'));
   for(const descriptor of manifest.english.shards){
     const bytes=await readFile(join(ROOT,'vocab/data/expanded-dictionary',descriptor.file));
@@ -51,7 +57,7 @@ export async function loadSearchExperienceContent(){
   }
   const module='// Original scoped search additions; exact independent decisions live in tooling/dictionary/everyday-expansions.\n'
     +'export const SEARCH_EXPERIENCE_ENTRIES = Object.freeze([\n'+entries.map(row=>'  '+JSON.stringify(row)+',').join('\n')+'\n].map(Object.freeze));\n';
-  return {entries,packs,module};
+  return {entries,packs,module,admissionAudit};
 }
 
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){

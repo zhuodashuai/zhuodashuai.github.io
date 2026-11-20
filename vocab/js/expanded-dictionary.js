@@ -1,20 +1,23 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=116";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=117";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
-  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery } from "./everyday-lookup.js?v=116";
+  literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery,
+  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=117";
 import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
-  createChineseRankingContext } from "./chinese-ranking.js?v=116";
+  createChineseRankingContext } from "./chinese-ranking.js?v=117";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=116';
-import { rejectsReviewedDictionaryForm } from './dictionary-form-evidence.js?v=114';
-import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=116';
-import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=116';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=117';
+import { rejectedReviewedDictionaryForms } from './dictionary-form-evidence.js?v=117';
+import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=117';
+import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=117';
+import { reviewedCanonicalFormTarget, isReviewedCanonicalFormCandidate,
+  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=117';
 
 // Generated from this engine's complete source/import closure and catalogue
 // inputs. The builder zeroes only this exact marker while computing its hash.
-export const CHINESE_QUERY_ENGINE_BINDING = "5cd45c27dac72cbe594bb1ad66a68be361758278f239a9cfeabc43524bec3894";
+export const CHINESE_QUERY_ENGINE_BINDING = "417d953545cd58d0858ea59eb7be8bd6ccc34caa4d7e57b8218050fe634918eb";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -34,8 +37,10 @@ const activeControllers = new Set();
 // Only parseEnglish can create a provenance entry, after getJSON has verified
 // the complete immutable English shard bytes. Display records expose no token.
 const canonicalRecordOrigins = new WeakMap();
-const rejectedComFormRecords = new WeakSet();
+const rejectedFormRecords = new WeakMap();
 const reviewedSurfaceRecords = new WeakMap();
+const reviewedCanonicalFormRecords = new WeakMap();
+const reviewedCanonicalFormResults = new WeakSet();
 // Only this module's exact packaged lookups can authorize a formatting-only
 // recovery. Caller-provided DTO fields cannot grant the same permission.
 const packagedEnglishResults = new WeakSet();
@@ -144,11 +149,17 @@ function parseEnglish(payload, manifest, descriptor) {
     }
     const parsed = Object.freeze({ id: row.id, term: row.term, partOfSpeech: row.partOfSpeech,
       meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) });
-    if (rejectsReviewedDictionaryForm(row, manifest.version, 'comming')) rejectedComFormRecords.add(parsed);
+    const rejectedForms = rejectedReviewedDictionaryForms(row,manifest.version);
+    if (rejectedForms.length) rejectedFormRecords.set(parsed,new Set(rejectedForms));
     if (isReviewedEnglishSurfaceCandidate(row.id, row.term)) {
       const surface = authenticatedEnglishSurface(JSON.stringify(row), manifest.version, manifest.integritySha256,
         JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
       if (surface) reviewedSurfaceRecords.set(parsed, Object.freeze({ surface, manifestSha256: manifest.integritySha256 }));
+    }
+    if (isReviewedCanonicalFormCandidate(row.id, row.term)) {
+      const surface = authenticatedReviewedCanonicalForm(JSON.stringify(row), manifest.version, manifest.integritySha256,
+        JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
+      if (surface) reviewedCanonicalFormRecords.set(parsed, Object.freeze({surface,manifestSha256:manifest.integritySha256}));
     }
     if (isSelectedCommonSenseCanonicalCandidate(row.id, row.term)) canonicalRecordOrigins.set(parsed, Object.freeze({ manifestVersion: manifest.version,
       bucket: descriptor.bucket, file: descriptor.file, sha256: descriptor.sha256, bytes: descriptor.bytes,
@@ -369,9 +380,9 @@ async function englishSearch(query, context) {
     const packaged = typographyFallback && searchEverydayDictionary(exactSpelling);
     if (packaged) { packagedEnglishResults.add(packaged); return packaged; }
     const shard = await shardFor("en", bucketFor(key), manifest, client, fetchImpl, timeoutMs);
-    const refs = (shard.lookup.get(key) || []).filter(ref => ref.kind !== 'form' || key !== 'comming'
-      || !rejectedComFormRecords.has(shard.records.get(ref.id)));
-    const row = { refs, shard }; rows.push(row);
+    const refs = (shard.lookup.get(key) || []).filter(ref => ref.kind !== 'form'
+      || !rejectedFormRecords.get(shard.records.get(ref.id))?.has(key));
+    const row = { refs, shard, key }; rows.push(row);
     const canonicalRefs = row.refs.filter(ref => ref.kind === "canonical");
     if (canonicalRefs.length) {
       const precise = canonicalRefs.filter(ref => spelling(row.shard.records.get(ref.id).term) === exactSpelling);
@@ -400,11 +411,21 @@ async function englishSearch(query, context) {
   const contexts = row.refs.filter(ref => ref.kind === "context");
   if (new Set(contexts.map(ref => `${ref.partOfSpeech}\n${ref.meaning}`)).size > 1) throw ambiguous();
   const ref = contexts[0] || row.refs[0], record = row.shard.records.get(ref.id);
+  if (ref.kind === 'form' && reviewedCanonicalFormTarget(row.key) === record.term) {
+    const origin = reviewedCanonicalFormRecords.get(record);
+    const content = reviewedCanonicalFormContent(row.key);
+    if (!content || origin?.surface !== row.key || origin.manifestSha256 !== manifest.integritySha256) {
+      const error = new Error('该词形的完整来源尚未核对，请输入英文原形查询。');
+      error.code = 'unreviewed_dictionary_form'; throw error;
+    }
+    const result = {query,results:[{...content,matchedForm:context.originalInput}],hasMore:false};
+    reviewedCanonicalFormResults.add(result); return result;
+  }
   const selected = ref.kind === "context" ? { partOfSpeech: ref.partOfSpeech, meaning: ref.meaning, source: "public" } : record;
   return { query, results: [display(record, selected, manifest, ref.term || query)], hasMore: false };
 }
 function guardedEnglishResult(result) {
-  return packagedEnglishResults.has(result) ? result : guardLegacySupplementaryResult(result);
+  return packagedEnglishResults.has(result) || reviewedCanonicalFormResults.has(result) ? result : guardLegacySupplementaryResult(result);
 }
 async function reviewedEnglishSurface(query, value, context) {
   const surface = fold(value), target = reviewedEnglishSurfaceTarget(surface);
@@ -449,7 +470,8 @@ async function inflectedEnglishPhrase(query, value, context) {
   if (!parts || value.split(/\s+/u).length > 8) return { query, results: [], hasMore: false };
   const first = fold(parts[1]), { manifest, client, fetchImpl, timeoutMs } = context;
   const shard = await shardFor("en", bucketFor(first), manifest, client, fetchImpl, timeoutMs);
-  const lemmas = new Set((shard.lookup.get(first) || []).filter(ref => ref.kind === "form")
+  const lemmas = new Set((shard.lookup.get(first) || []).filter(ref => ref.kind === "form"
+      && !rejectedFormRecords.get(shard.records.get(ref.id))?.has(first))
     .map(ref => shard.records.get(ref.id)).filter(record => verbRole(record.partOfSpeech) && fold(record.term) !== first)
     .map(record => record.term));
   const matches = new Map();
@@ -515,8 +537,9 @@ function integratedCorpus(ranking, manifest) {
   for (const record of ranking.records.values()) {
     byTerm.set(spelling(record.term), record);
     if (isSupersededChineseSenseHead(record.term)) continue;
-    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+      && (!isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
     if (!variants.length) continue;
     const [primary, ...alternatives] = variants;
     corpus.set(record.id, { id: record.id, term: record.term, ...primary, variants: alternatives });
@@ -684,8 +707,9 @@ function globallyRankedChinese(query, ids, ranking, manifest, plan, sense, limit
       continue;
     }
     if (isSupersededChineseSenseHead(record.term)) continue;
-    const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+    const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+      && (!isRetainedCanonicalSenseHead(record.term)
+      || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
     let selected = null, score = Infinity;
     for (const item of variants) {
       const rank = plan ? matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source) ? 0 : null
@@ -837,8 +861,9 @@ async function chineseSearch(query, limit, context, relatedPlan = null, offset =
       // Reviewed replacement senses use their explicit local Chinese aliases.
       // Their stale legacy reverse postings must not keep teaching the old error.
       if (isSupersededChineseSenseHead(record.term)) continue;
-      const variants = [record, ...record.variants].filter(item => !isRetainedCanonicalSenseHead(record.term)
-        || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest)));
+      const variants = [record, ...record.variants].filter(item => !isRejectedReviewedCanonicalVariant(record,item,manifest)
+        && (!isRetainedCanonicalSenseHead(record.term)
+        || matchesRetainedCanonicalAlternative(record.term, display(record, item, manifest))));
       // A related result must not repeat a direct sense, even when that direct
       // head falls beyond the visible direct-results limit.
       if (relatedPlan && variants.some(item => matchesChineseSearchEntry(record.term, item.meaning, plan.term, item.partOfSpeech, item.source))) continue;

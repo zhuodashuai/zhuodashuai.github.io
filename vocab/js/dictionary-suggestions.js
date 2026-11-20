@@ -1,4 +1,4 @@
-import { everydayChineseEntries } from "./everyday-lookup.js?v=116";
+import { everydayChineseEntries } from "./everyday-lookup.js?v=117";
 import { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
 export { normalizeSuggestionQuery } from "./dictionary-query-normalization.js?v=114";
 

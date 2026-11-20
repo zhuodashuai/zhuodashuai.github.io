@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "state": "Pending exact independent admission review; no self-approval",
+  "preservation": "All prior20 source/review bytes and all original staging packets stay unchanged. Only reviewer metadata is projected into the thirteen compile rows; lexical/example fields are identical.",
+  "sourceByteSha256": "ebaacb360562746a8e0dc6709732c57ff436300fe27366c9760b1866e4993ad7",
+  "sourceSha256": "1b17ed7114d8ea63d0bf6b472606da3003acee81a2c75ba53d67a54f73ca34e9",
+  "origins": [
+    {
+      "file": "external-staged-common-terms/source.json",
+      "sha256": "0ece4597bccc7cb2e9554dc63a7de777c1fba7c651a3b41ee633cc60f635b929",
+      "author": "AI/english_common_terms_author",
+      "terms": [
+        "bank transfer",
+        "letting agent",
+        "medical certificate",
+        "missed connection",
+        "travel insurance",
+        "check in online",
+        "academic transcript",
+        "resit an exam",
+        "take notes",
+        "probation period",
+        "hand in one's notice"
+      ]
+    },
+    {
+      "file": "external-next-common-patterns/source.json",
+      "sha256": "b6ad31f8028e07c3b6fa6c05c60ad78465cbadbc9063c06085dcda5f0b5d359f",
+      "author": "AI/english_common_patterns_author",
+      "terms": [
+        "apply for",
+        "graduate from"
+      ]
+    }
+  ],
+  "priorIndependentReviews": [
+    {
+      "file": "external-english-eleven-independent-review.json",
+      "sha256": "f5d53bf92a2e01a8f44945704fc4a8cdf16e81ac385153f990cd7d10c866ac54"
+    },
+    {
+      "file": "external-next-common-patterns/independent-review.json",
+      "sha256": "dd6aca9e3c3a9e1cb152a1b802778f4e41db275ef52675eaa043d3fb247cc68f"
+    }
+  ],
+  "scopeNotes": {
+    "bank transfer": "No unconditional wire transfer alias; generic account transfer scope only.",
+    "letting agent": "UK rental-arranging person/company; not every estate-sales agent.",
+    "medical certificate": "Broader medical/fitness document; do not replace unconditionally with a sick note or claim universal acceptance requirements.",
+    "missed connection": "Subsequent transport leg only; not generic missed departure or romantic encounter.",
+    "travel insurance": "No promise of medical or any other coverage beyond policy terms.",
+    "check in online": "Selected airline verb phrase, not a noun or every possible hotel use.",
+    "academic transcript": "Definition does not force official-only status; no degree/attendance-certificate alias.",
+    "resit an exam": "Repeat exam, not necessarily a first attempt postponed through special consideration. UK verb forms resat/resitting; no regular resited.",
+    "take notes": "Recording information, distinct from take note meaning pay attention.",
+    "probation period": "Employment suitability only; no criminal probation, fixed duration or unpaid-work claim.",
+    "hand in one's notice": "Employee resignation notification only; no universal generic give notice or all job-ending equivalence."
+  },
+  "separatePlanNotAdmitted": "side effects remains a separate finite morphology change; not a new head in this cohort."
+}

@@ -6,6 +6,8 @@ import test from 'node:test';
 import {restoreSearchCoverageFollowupShell} from '../../tooling/tests/helpers/search-coverage-followup-shell.mjs';
 import {restoreSearchExperienceShell} from '../../tooling/tests/helpers/search-experience-shell.mjs';
 
+// Keep the historical non-root URL subset/hashes unchanged; the new common-terms
+// graph gate independently parses the complete literal array, including './'.
 const read = file => readFile(new URL('../'+file, import.meta.url), 'utf8');
 const hash = value => createHash('sha256').update(value).digest('hex');
 const freshModules = ['personal-app-v108','owner-app-v108','dictionary-entry-v109','dictionary-app-v109',
@@ -14,7 +16,7 @@ const freshModules = ['personal-app-v108','owner-app-v108','dictionary-entry-v10
   'search-experience-data','dictionary-examples-current-v4','dictionary-examples-ui-v108','entry-detail-v113',
   'entry-detail-v108','selected-common-sense','selected-legacy-examples'];
 
-test('fresh search/data/example reader closure has exact116 edges while compatible dependencies keep their versions', async () => {
+test('fresh search/data/example reader closure has exact117 edges while compatible dependencies keep their versions', async () => {
   const edges = [
     ['dictionary-entry-v109.js','dictionary-app-v109.js'],
     ...['dictionary-app-v109.js','dictionary-app.js','owner-app-v108.js','owner-app.js','personal-app-v108.js','personal-app.js','library-lookup-ui.js'].map(file=>[file,'expanded-dictionary.js']),
@@ -22,7 +24,8 @@ test('fresh search/data/example reader closure has exact116 edges while compatib
     ['library-lookup-controller.js','dictionary-app.js'],
     ['public-app-v113.js','library-lookup-ui.js'],['public-app.js','library-lookup-ui.js'],
     ['expanded-dictionary.js','everyday-lookup.js'],['expanded-dictionary.js','english-surface-variants.js'],
-    ['expanded-dictionary.js','selected-common-sense.js'],['everyday-lookup.js','everyday-lookup-data.js'],
+    ['expanded-dictionary.js','selected-common-sense.js'],['expanded-dictionary.js','dictionary-form-evidence.js'],
+    ['expanded-dictionary.js','reviewed-canonical-forms.js'],['reviewed-canonical-forms.js','reviewed-senses-data.js'],['everyday-lookup.js','everyday-lookup-data.js'],
     ['everyday-lookup-data.js','reviewed-senses-data.js'],['everyday-lookup-data.js','search-experience-data.js'],
     ['dictionary-suggestions.js','everyday-lookup.js'],['personal-lookup-flow.js','everyday-lookup.js'],
     ['personal-lookup-flow.js','selected-common-sense.js'],['selected-common-sense.js','reviewed-senses-data.js'],
@@ -37,14 +40,14 @@ test('fresh search/data/example reader closure has exact116 edges while compatib
   for(const[file,target,count=1]of edges){
     const source=await read('js/'+file);
     const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
-    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v=116'),file+' -> '+target);
+    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v=117'),file+' -> '+target);
   }
   for(const[file,target]of [['dictionary-app-v109.js','dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','dictionary-examples-current-v4.js'],['dictionary-app-v109.js','dictionary-suggestions.js'],['dictionary-app.js','dictionary-suggestions.js']]){
     const source=await read('js/'+file);
-    assert.equal(source.split('import("./'+target+'?v=116")').length,2,file+' optional current reader');
+    assert.equal(source.split('import("./'+target+'?v=117")').length,2,file+' optional current reader');
   }
   for(const[file,target]of [['expanded-dictionary.js','chinese-search.js'],['personal-lookup-flow.js','chinese-search.js'],['expanded-dictionary.js','chinese-ranking.js']]){
-    assert((await read('js/'+file)).includes('./'+target+'?v=116'),file+' current catalogue/ranking edge');
+    assert((await read('js/'+file)).includes('./'+target+'?v=117'),file+' current catalogue/ranking edge');
   }
   assert((await read('js/dictionary-app-v108.js')).includes('from "./expanded-dictionary.js?v=104"'));
   assert((await read('js/dictionary-entry.js')).includes('import "./dictionary-app.js?v=104"'));
@@ -56,8 +59,10 @@ test('additive offline graph retains exact268 old URLs and all private-network c
   const declaration=source.match(/const\s+SHELL\s*=\s*\[([\s\S]*?)\];/u)?.[1];assert(declaration);
   const urls=[...declaration.matchAll(/["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
   const fresh=['./js/public-app-v113.js?v=118',...freshModules.map(name=>'./js/'+name+'.js?v=115'),'./js/english-surface-variants.js'];
-  const priorUrls=urls.slice(31);
-  assert.deepEqual(priorUrls.slice(0,23),fresh);assert.equal(new Set(urls).size,322);
+  const prior116=urls.slice(31);
+  assert.equal(hash(JSON.stringify(prior116)),'f79ef9663a528e243bfa4ac9e64e862e8d562c381ec471b13cb64e51cc02c056','Every old322 non-root alias remains exact');
+  const priorUrls=prior116.slice(31);
+  assert.deepEqual(priorUrls.slice(0,23),fresh);assert.equal(new Set(urls).size,353);
   assert.equal(priorUrls.slice(23).length,268);
   assert.equal(hash(JSON.stringify(priorUrls.slice(23))),'483535a9752bf66f13e38f41c2ddc334412d96091b469a99178b4f41cbf1fe3e');
   const currentTail=source.slice(source.indexOf('self.addEventListener("install"')).replace(/\r\n/gu,'\n');

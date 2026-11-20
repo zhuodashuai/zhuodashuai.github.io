@@ -10,47 +10,53 @@ if (!shellDeclaration) throw new Error("Module upgrade fixture could not find th
 // Read only explicit versioned JS literals; never execute the service worker.
 const declaredModuleVersions = new Map(),cachedModuleVersions=new Map();
 const reviewedAliases=new Map([
-  ['expanded-dictionary.js',['97','103','104','111','112','114','115','116']],['dictionary-app.js',['99','103','104','111','112','114','115','116']],
-  ['library-lookup-controller.js',['99','103','104','111','112','114','115','116']],['library-lookup-ui.js',['100','103','104','111','112','114','115','116']],
+  ['expanded-dictionary.js',['97','103','104','111','112','114','115','116','117']],['dictionary-app.js',['99','103','104','111','112','114','115','116','117']],
+  ['library-lookup-controller.js',['99','103','104','111','112','114','115','116','117']],['library-lookup-ui.js',['100','103','104','111','112','114','115','116','117']],
   ['public-app.js',['101','103','104']],['personal-app.js',['100','103','104','105','107']],
   ['owner-app.js',['97','103','104']],['dictionary-entry.js',['102','103','104']],
   ['app-navigation.js',['105','107']],['app-navigation-entry.js',['105','106','107']],
-  ['personal-lookup-flow.js',['97','111','112','114','115','116']],['dictionary-suggestions.js',['89','114','115','116']],
-  ['everyday-lookup.js',['111','112','114','115','116']],
-  ['everyday-lookup-data.js',['114','115','116']],['reviewed-senses-data.js',['114','115','116']],
-  ['dictionary-app-v109.js',['114','115','116']],['dictionary-entry-v109.js',['114','115','116']],
-  ['owner-app-v108.js',['114','115','116']],['personal-app-v108.js',['114','115','116']],
-  ['english-surface-variants.js',['115','116']],['search-experience-data.js',['115','116']],
-  ['selected-common-sense.js',['115','116']],['selected-legacy-examples.js',['115','116']],
-  ['dictionary-examples-current-v4.js',['115','116']],['dictionary-examples-ui-v108.js',['115','116']],
-  ['entry-detail-v113.js',['115','116']],['entry-detail-v108.js',['115','116']],
+  ['personal-lookup-flow.js',['97','111','112','114','115','116','117']],['dictionary-suggestions.js',['89','114','115','116','117']],
+  ['everyday-lookup.js',['111','112','114','115','116','117']],
+  ['everyday-lookup-data.js',['114','115','116','117']],['reviewed-senses-data.js',['114','115','116','117']],
+  ['dictionary-app-v109.js',['114','115','116','117']],['dictionary-entry-v109.js',['114','115','116','117']],
+  ['owner-app-v108.js',['114','115','116','117']],['personal-app-v108.js',['114','115','116','117']],
+  ['english-surface-variants.js',['115','116','117']],['search-experience-data.js',['115','116','117']],
+  ['selected-common-sense.js',['115','116','117']],['selected-legacy-examples.js',['115','116','117']],
+  ['dictionary-examples-current-v4.js',['115','116','117']],['dictionary-examples-ui-v108.js',['115','116','117']],
+  ['entry-detail-v113.js',['115','116','117']],['entry-detail-v108.js',['115','116','117']],
+  ['dictionary-form-evidence.js',['114','117']],['reviewed-canonical-forms.js',['117']],
+  ['chinese-query-cache.js',['116','117']],['chinese-query-cache-release.js',['116','117']],
+  ['chinese-query-cache-format.js',['116','117']],['dictionary-offline-warm-v108.js',['116','117']],
   ['chapter-quiz-ui.js',['82','113']],['collections.js',['82','113']]
 ]);
 // Reviewed retained cache aliases and the active import graph are independent.
 // Do not derive an active version from the largest (or any other) cache alias.
 const reviewedActiveVersions=new Map([
-  ['expanded-dictionary.js','116'],['dictionary-app.js','116'],
-  ['library-lookup-controller.js','116'],['library-lookup-ui.js','116'],
+  ['expanded-dictionary.js','117'],['dictionary-app.js','117'],
+  ['library-lookup-controller.js','117'],['library-lookup-ui.js','117'],
   ['public-app.js','104'],['personal-app.js','107'],
   ['owner-app.js','104'],['dictionary-entry.js','104'],
   ['app-navigation.js','107'],['app-navigation-entry.js','107'],
-  ['personal-lookup-flow.js','116'],['dictionary-suggestions.js','116'],
-  ['everyday-lookup.js','116'],
-  ['everyday-lookup-data.js','116'],['reviewed-senses-data.js','116'],
-  ['dictionary-app-v109.js','116'],['dictionary-entry-v109.js','116'],
-  ['owner-app-v108.js','116'],['personal-app-v108.js','116'],
-  ['english-surface-variants.js','116'],['search-experience-data.js','116'],
-  ['selected-common-sense.js','116'],['selected-legacy-examples.js','116'],
-  ['dictionary-examples-current-v4.js','116'],['dictionary-examples-ui-v108.js','116'],
-  ['entry-detail-v113.js','116'],['entry-detail-v108.js','116'],
+  ['personal-lookup-flow.js','117'],['dictionary-suggestions.js','117'],
+  ['everyday-lookup.js','117'],
+  ['everyday-lookup-data.js','117'],['reviewed-senses-data.js','117'],
+  ['dictionary-app-v109.js','117'],['dictionary-entry-v109.js','117'],
+  ['owner-app-v108.js','117'],['personal-app-v108.js','117'],
+  ['english-surface-variants.js','117'],['search-experience-data.js','117'],
+  ['selected-common-sense.js','117'],['selected-legacy-examples.js','117'],
+  ['dictionary-examples-current-v4.js','117'],['dictionary-examples-ui-v108.js','117'],
+  ['entry-detail-v113.js','117'],['entry-detail-v108.js','117'],
+  ['dictionary-form-evidence.js','117'],['reviewed-canonical-forms.js','117'],
+  ['chinese-query-cache.js','117'],['chinese-query-cache-release.js','117'],
+  ['chinese-query-cache-format.js','117'],['dictionary-offline-warm-v108.js','117'],
   ['chapter-quiz-ui.js','113'],['collections.js','113']
 ]);
 // These additive APIs have compatible callers at95 or bare URLs. Account for
 // their exact cache aliases without adding them to changedApiModules/poisoning.
 const reviewedCompatibleCacheAliases=new Map([
-  ['chinese-search.js',['95','111','112','114','116']],
-  ['chinese-ranking.js',['111','112','114','116']],['public-app-v113.js',['114','115','116','117','118','119']],
-  ['public-snapshot.js',['82','114','116']]
+  ['chinese-search.js',['95','111','112','114','116','117']],
+  ['chinese-ranking.js',['111','112','114','116','117']],['public-app-v113.js',['114','115','116','117','118','119','120']],
+  ['public-snapshot.js',['82','114','116','117']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
 for (const match of shellDeclaration.matchAll(/["'](\.\/js\/[^"']+\.js\?v=\d+)["']/gu)) {
@@ -77,23 +83,24 @@ for(const[name,versions]of cachedModuleVersions){
 for(const name of reviewedAliases.keys())if(!declaredModuleVersions.has(name))throw new Error(`Missing reviewed module ${name}.`);
 for(const name of reviewedCompatibleCacheAliases.keys())expect(cachedModuleVersions.has(name)).toBe(true);
 
-// Current ranking/catalogue readers use116 and plan-only consumers retain95.
+// Current ranking/catalogue readers use117 and plan-only consumers retain95.
 // The prior115 URLs remain cache aliases; archived callers retain only the exact edges
 // below. Never infer a compatible API or current version from max(v).
 for(const[file,edges]of[
   ['dictionary-app-v109.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app.js',[['chinese-search.js','./chinese-search.js?v=95']]],
   ['dictionary-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95']]],
-  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=116',2]]],
-  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=116',2]]],
+  ['personal-app.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=117',2]]],
+  ['personal-app-v108.js',[['chinese-search.js','./chinese-search.js?v=95'],['personal-lookup-flow.js','./personal-lookup-flow.js?v=117',2]]],
   ['personal-dictionary.js',[['chinese-search.js','./chinese-search.js?v=95']]],
-  ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=116'],['everyday-lookup.js','./everyday-lookup.js?v=116'],['english-surface-variants.js','./english-surface-variants.js?v=116'],['selected-common-sense.js','./selected-common-sense.js?v=116']]],
-  ['dictionary-entry-v109.js',[['dictionary-offline-warm-v108.js','./dictionary-offline-warm-v108.js?v=116']]],
-  ['chinese-query-cache.js',[['chinese-query-cache-release.js','./chinese-query-cache-release.js?v=116'],['chinese-query-cache-format.js','./chinese-query-cache-format.js?v=116']]],
-  ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=116']]],
-  ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=116'],['everyday-lookup.js','./everyday-lookup.js?v=116']]],
-  ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js?v=116'],['selected-common-sense.js','./selected-common-sense.js?v=116'],['selected-legacy-examples.js','./selected-legacy-examples.js?v=116']]],
-  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113']]],
+  ['expanded-dictionary.js',[['chinese-search.js','./chinese-search.js?v=117'],['everyday-lookup.js','./everyday-lookup.js?v=117'],['english-surface-variants.js','./english-surface-variants.js?v=117'],['selected-common-sense.js','./selected-common-sense.js?v=117'],['dictionary-form-evidence.js','./dictionary-form-evidence.js?v=117'],['reviewed-canonical-forms.js','./reviewed-canonical-forms.js?v=117']]],
+  ['dictionary-entry-v109.js',[['dictionary-offline-warm-v108.js','./dictionary-offline-warm-v108.js?v=117']]],
+  ['chinese-query-cache.js',[['chinese-query-cache-release.js','./chinese-query-cache-release.js?v=117'],['chinese-query-cache-format.js','./chinese-query-cache-format.js?v=117']]],
+  ['reviewed-canonical-forms.js',[['reviewed-senses-data.js','./reviewed-senses-data.js?v=117']]],
+  ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=117']]],
+  ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=117'],['everyday-lookup.js','./everyday-lookup.js?v=117']]],
+  ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js?v=117'],['selected-common-sense.js','./selected-common-sense.js?v=117'],['selected-legacy-examples.js','./selected-legacy-examples.js?v=117']]],
+  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113'],['public-snapshot.js','./public-snapshot.js?v=117']]],
   ['public-app-v108.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=82'],['collections.js','./collections.js?v=82'],['library-lookup-ui.js','./library-lookup-ui.js?v=114'],['entry-detail-v108.js','./entry-detail-v108.js']]],
   ['dictionary-entry.js',[['dictionary-app.js','./dictionary-app.js?v=104']]],
   ['dictionary-app-v108.js',[['expanded-dictionary.js','./expanded-dictionary.js?v=104']]],

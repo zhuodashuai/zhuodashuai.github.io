@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/english_source_corrections_runtime_reviewer",
+  "independentOfAuthor": true,
+  "decision": "PASS — no remaining blocker in the finite source/context/form integration reviewed",
+  "filesSha256": {
+    "tooling/scripts/build-reviewed-dictionary-senses.mjs": "dd5975a274e7b19aff5ae174539a01b85499355c6e67bd89eaf8ca2cbe2a23d6",
+    "vocab/js/everyday-lookup.js": "79d72bf02f0979f058ba61854e914cd9f0b0404b2ba53ca8cd776ec2d3cd4e96",
+    "vocab/js/dictionary-examples-current-v4.js": "2f7138855bd5ad41beb396bad86fe5b4c4fe79892e86670a8aad8b43f4a7b121",
+    "vocab/js/reviewed-senses-data.js": "83c2cdb2d6935665113d3bf9f4d6b0d4e2944e89d39905c996866f7d13e02292",
+    "vocab/js/reviewed-canonical-forms.js": "fa0b71d1140daec718772a31af66db7116d6bda54feb64abb7eafdb6ac03b239",
+    "vocab/js/expanded-dictionary.js": "6c657cef653739f33018a78375b6987ad6587595e50f8e7e9949667856a39fbf"
+  },
+  "sourceAndPolicyReview": "reviews/batch-0017.json",
+  "checks": [
+    "Complete source policy is now bound to actual independently reviewed bytes and parsed content. A partial unsigned tuple subset fails; all companion/canonical-before/legacy evidence byte hashes are rechecked at load.",
+    "Every optional sense maps an explicit POS and exact numbered Chinese line to unique bilingual pairs. Exact context sets and raw-declared noun-only form projection are validated; no POS or meaning is inferred from fragments.",
+    "Only exact current-manifest/raw-ID/tuple bindings reject old wrong variants. Other variants and source identities remain possible; no head-wide or source-wide removal is authorized.",
+    "The public DTO content guard is idempotency only. Private engine parsed-record/current-manifest authority remains necessary to construct the noun plural, with source refresh/corruption/ambiguity/literal priority preserved.",
+    "New default/specific/noun contexts select their exact7/2pairs. Legacy saved contexts require the actual previous immutable example DTO and source pins; getter/mutation/cancellation checks cannot borrow new examples.",
+    "Prior207 selected objects and original source/review/retention policies remain pinned; generated210 contains only3 independently approved additions."
+  ],
+  "commands": [
+    {
+      "command": "node --test tooling/tests/source-corrections-0017.test.mjs vocab/tests/reviewed-canonical-form-projection.test.mjs tooling/tests/search-followup-content.test.mjs",
+      "pass": 27,
+      "fail": 0,
+      "skip": 0
+    }
+  ],
+  "limits": [
+    "Finite independent module/body review, not a completed full regression, deployment, or cache-admission claim.",
+    "The engine binding remains intentionally invalidated until root rebuilds cache against all frozen source changes."
+  ]
+}

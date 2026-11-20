@@ -4,6 +4,8 @@ import { EVERYDAY_LOOKUP_ENTRIES } from '../js/everyday-lookup-data.js';
 import { searchEverydayDictionary, loadEverydayExamples } from '../js/everyday-lookup.js';
 import { searchExpandedDictionary } from '../js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
+import { exactSourceCorrectionRows } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
+const correctedRows=new Map(exactSourceCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
 
 const preciseCases = [
   ['人工客服',['live agent','human agent','customer service representative']],
@@ -70,11 +72,14 @@ test('qualifiers and unrelated senses cannot be discarded while expanding everyd
 
 test('every listed Chinese alias, English head and genuine form resolves with an original bilingual example', () => {
   const heads = new Set(), examples = new Set();
+  let oldAliasChecks=0,exactCorrectionChecks=0;
   for (const row of EVERYDAY_LOOKUP_ENTRIES) {
     const key = row.term.toLowerCase();
     assert(!heads.has(key), `duplicate head: ${row.term}`); heads.add(key);
     assert(row.partOfSpeech.trim()); assert.match(row.meaning, /^①/u);
-    assert(row.chineseAliases.length); assert(row.en.trim()); assert.match(row.zh, /\p{Script=Han}/u);
+    if(correctedRows.get(row.term)===row){assert.deepEqual(row.chineseAliases,[]);exactCorrectionChecks++;}
+    else {assert(row.chineseAliases.length);oldAliasChecks++;}
+    assert(row.en.trim()); assert.match(row.zh, /\p{Script=Han}/u);
     assert(!examples.has(row.en.toLowerCase()), `duplicate example: ${row.term}`); examples.add(row.en.toLowerCase());
     for (const alias of row.chineseAliases) {
       assert(searchEverydayDictionary(alias).results.some(item => item.term === row.term), `${alias}: ${row.term}`);
@@ -84,6 +89,31 @@ test('every listed Chinese alias, English head and genuine form resolves with an
       const result = loadEverydayExamples(form);
       assert.equal(result.term, row.term, form);
       assert.deepEqual(result.senses[0].examples, [{ en: row.en, zh: row.zh }], form);
+      if(correctedRows.get(row.term)===row){
+        assert.deepEqual(result.senses,row.exampleSenses.map(sense=>({...sense,reviewer:row.exampleReviewer,source:row.exampleSource})));
+      }
     }
   }
+  assert.equal(oldAliasChecks,1268);assert.equal(exactCorrectionChecks,3);
+});
+
+test('only the three exactly reviewed corrections have empty aliases and all seven explicit POS/sense/example contexts',()=>{
+  assert.deepEqual([...correctedRows.keys()],['disastrous','disconcerting','mortuary']);
+  const counts={disconcerting:2,disastrous:2,mortuary:3};let pairCount=0;
+  for(const row of correctedRows.values()){
+    assert.deepEqual(row.chineseAliases,[]);assert.deepEqual(row.englishForms,[]);
+    assert.equal(row.exampleSenses.length,counts[row.term]);
+    assert.deepEqual(row.exampleSenses.map(sense=>sense.meaningZh),row.meaning.split('\n'));
+    for(const sense of row.exampleSenses){
+      assert(row.partOfSpeech.split(' · ').includes(sense.partOfSpeech));assert.equal(sense.examples.length,1);pairCount++;
+      assert(row.exampleContexts.some(context=>context.partOfSpeech===sense.partOfSpeech&&context.meaning===sense.meaningZh
+        &&JSON.stringify(context.senseIds)===JSON.stringify([sense.id])));
+    }
+    assert(row.exampleContexts.some(context=>context.partOfSpeech===row.partOfSpeech&&context.meaning===row.meaning
+      &&JSON.stringify(context.senseIds)===JSON.stringify(row.exampleSenses.map(sense=>sense.id))));
+  }
+  assert.equal(pairCount,7);
+  const mortuary=correctedRows.get('mortuary'),projection=mortuary.formProjections;
+  assert.deepEqual(projection,[{form:'mortuaries',partOfSpeech:'noun',meaning:mortuary.exampleSenses.slice(0,2).map(sense=>sense.meaningZh).join('\n'),
+    exampleSenseIds:mortuary.exampleSenses.slice(0,2).map(sense=>sense.id)}]);
 });

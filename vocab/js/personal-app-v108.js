@@ -13,13 +13,13 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=97";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=116";
-import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=116";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=117";
+import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=117";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
-import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=116";
+import { searchExpandedDictionary, searchRelatedChineseDictionary } from "./expanded-dictionary.js?v=117";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
-import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=116";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=117";
 import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=99";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
 import { createPersonalFolderMutation, filterPersonalFolderEntries, serializePersonalFolderExport,

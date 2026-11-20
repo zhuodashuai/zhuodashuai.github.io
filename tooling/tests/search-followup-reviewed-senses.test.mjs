@@ -3,16 +3,18 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {validateReviewedSensePack, reviewedSensePackHash,
-  validateRetainedCanonicalAlternatives, retainedCanonicalDisplay} from '../scripts/build-reviewed-dictionary-senses.mjs';
+  validateRetainedCanonicalAlternatives, retainedCanonicalDisplay, validateSourceCorrectionPolicy} from '../scripts/build-reviewed-dictionary-senses.mjs';
 import {REVIEWED_SENSE_ENTRIES} from '../../vocab/js/reviewed-senses-data.js';
 import {SEARCH_EXPERIENCE_ENTRIES} from '../../vocab/js/search-experience-data.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {historicalSelected207, historicalSearch20} from './helpers/search-common-terms-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const bytes=path=>readFile(new URL(path,import.meta.url));
 const read=async path=>JSON.parse(await bytes(path));
 const base='../dictionary/reviewed-senses/';
 const targets=['transit','warranty','progress'];
+const prior207=historicalSelected207(REVIEWED_SENSE_ENTRIES);
 
 test('the follow-up names exactly three authored noun senses and only the five-case query aliases',async()=>{
   const pack=await read(base+'source/batch-0016.json');
@@ -108,12 +110,56 @@ test('actual independent approvals admit the new senses and preserve exact licen
 test('the compiled release preserves all 204 prior selected objects and the original 16-row prefix',async()=>{
   const baseline=await read(base+'followup-0016-baseline.json'),heads=new Set(baseline.historicalReviewedHeads);
   assert.equal(heads.size,204);
-  const old=REVIEWED_SENSE_ENTRIES.filter(row=>heads.has(row.term));
+  const old=prior207.filter(row=>heads.has(row.term));
   assert.equal(old.length,204);assert.equal(hash(old),baseline.historicalReviewedRowsSha256);
-  assert.deepEqual(REVIEWED_SENSE_ENTRIES.filter(row=>!heads.has(row.term)).map(row=>row.term).sort(),[...targets].sort());
+  assert.deepEqual(prior207.filter(row=>!heads.has(row.term)).map(row=>row.term).sort(),[...targets].sort());
   assert.equal(hash(SEARCH_EXPERIENCE_ENTRIES.slice(0,16)),baseline.historicalSearchRowsSha256);
+  assert.equal(historicalSearch20(SEARCH_EXPERIENCE_ENTRIES).length,20);
   assert.equal(hash(await bytes('../dictionary/everyday-expansions/2026-11-19-search-experience/source.json')),baseline.originalSearchSourceByteSha256);
   assert.equal(hash(await bytes('../dictionary/everyday-expansions/2026-11-19-search-experience/review.json')),baseline.originalSearchReviewByteSha256);
+});
+
+test('only the exact signed three-row correction cohort extends the complete unchanged207 objects',async()=>{
+  assert.equal(prior207.length,207);
+  assert.equal(hash(prior207),'bf838a08a9d7e6d0b8f0fd0bf257384444124815f46839460268f2bb5975e7aa');
+  const sourceBytes=await bytes(base+'source/batch-0017.json'),pack=JSON.parse(sourceBytes);
+  const review=await read(base+'reviews/batch-0017.json');
+  assert.equal(hash(sourceBytes),'fc994f62c92a4653714bc9ecbab2d7633f970751e56aec67c5a23b9ac877a2f4');
+  assert.equal(hash(sourceBytes),review.sourceByteSha256);
+  assert.equal(hash(pack),review.sourceSha256);assert.notEqual(review.reviewer,pack.author);
+  assert.equal(review.independentOfAuthor,true);assert.deepEqual(review.issues,[]);
+  assert.deepEqual(pack.entries.map(row=>row.term),['disconcerting','disastrous','mortuary']);
+  const before=await read(base+'source-corrections-0017-canonical-before.json');
+  const manifestBytes=await bytes('../../vocab/data/expanded-dictionary/manifest.json'),manifest=JSON.parse(manifestBytes);
+  assert.equal(hash(manifestBytes),before.manifestByteSha256);
+  const records=new Map();
+  for(const proof of before.records){
+    const descriptor=manifest.english.shards.find(row=>row.bucket===proof.shard.bucket);
+    assert.deepEqual(descriptor,proof.shard);
+    const shardBytes=await bytes('../../vocab/data/expanded-dictionary/'+descriptor.file);
+    assert.equal(shardBytes.length,descriptor.bytes);assert.equal(hash(shardBytes),descriptor.sha256);
+    const raw=JSON.parse(shardBytes).records.find(row=>row.term===proof.term&&row.id===proof.record.id);
+    assert.deepEqual(raw,proof.record);assert.equal(hash(raw),proof.canonicalSourceSha256);
+    records.set(proof.term,raw);
+  }
+  const expected=validateReviewedSensePack(pack,review,records);
+  const policyFile='source-corrections-0017-accuracy-policy.json',policyBytes=await bytes(base+policyFile);
+  const legacy=await read(base+'source-corrections-0017-legacy-examples.json');
+  const projections=validateSourceCorrectionPolicy(JSON.parse(policyBytes),pack,review,records,manifest,hash(manifestBytes),legacy,
+    new Map(legacy.entries.map(row=>[row.term,row.expectedEntry])),{file:policyFile,bytes:policyBytes});
+  for(const row of expected)Object.assign(row,projections.get(row.term));
+  const oldHeads=new Set(prior207.map(row=>row.term));
+  const added=REVIEWED_SENSE_ENTRIES.filter(row=>!oldHeads.has(row.term));
+  assert.equal(REVIEWED_SENSE_ENTRIES.length,210);
+  assert.deepEqual(added,expected.toSorted((a,b)=>a.term.localeCompare(b.term,'en')));
+  for(const row of added){
+    const authored=pack.entries.find(source=>source.term===row.term);
+    assert.deepEqual(row.chineseAliases,[]);assert.deepEqual(row.englishForms,[]);
+    assert.deepEqual(row.exampleSenses,authored.exampleSenses);
+    assert.deepEqual(row.exampleContexts,authored.exampleContexts);
+    if(Object.hasOwn(authored,'formProjections'))assert.deepEqual(row.formProjections,authored.formProjections);
+  }
+  assert.equal(added.reduce((count,row)=>count+row.exampleSenses.reduce((sum,sense)=>sum+sense.examples.length,0),0),7);
 });
 
 test('warranty and its approved plural use the authored source without an insurance-policy reverse match',async()=>{

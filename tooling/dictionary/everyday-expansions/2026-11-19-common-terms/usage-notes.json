@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "Companion English definitions remain outside the current Chinese-only search schema; exact final admission review pending.",
+  "author": "AI/english_common_patterns_author",
+  "schemaNote": "The compile-shaped source uses exactly the prior11-row entry schema. Original English definitions and usage boundaries live in this separately reviewed companion; no unsupported compiler field or application schema change is made.",
+  "entries": [
+    {
+      "term": "apply for",
+      "definitionEn": "To ask officially for a job, place, permission, funding or another thing you hope to obtain.",
+      "grammaticalLabel": "Verb phrase: a verb followed by the preposition for, not a noun or an interchangeable family of apply constructions.",
+      "requiredObject": {
+        "preposition": "for",
+        "role": "The job, place, document, permission, support or other thing being requested.",
+        "completionRequired": true,
+        "ellipsisNote": "The two-word dictionary head labels a productive pattern. Supply its object when using the complete pattern in a sentence, unless the context independently licenses leaving it understood."
+      },
+      "scopeZh": "本条只收正式申请某事物这一用法；提出申请不等于申请已经获准。",
+      "contrasts": [
+        {
+          "pattern": "apply to + receiving person or institution",
+          "noteEn": "The recipient of the application follows to; the thing requested follows for. A complete application can specify both roles.",
+          "noteZh": "向某机构提出申请通常用 apply to；申请得到某个职位、入学名额或许可等则用 apply for。两种介词说明不同角色，可以在同一句中并用。"
+        },
+        {
+          "pattern": "apply to a university versus apply for a place or admission",
+          "noteEn": "Do not replace an institution after to with the same institution after for. A university can receive an application; a place or admission can be requested.",
+          "noteZh": "不能把“申请大学”无条件关联到 apply for，更不能教成只要把大学名称直接放在 for 后面即可。"
+        }
+      ],
+      "notAliases": [
+        "申请大学",
+        "申请学校",
+        "向大学申请",
+        "apply to",
+        "apply yourself",
+        "applicant",
+        "application"
+      ],
+      "aliasPolicy": "Only the two complete Chinese pattern labels listed in source.json are proposed. Do not follow a synonym/word-family hop or manufacture institution aliases.",
+      "originalExampleIntent": "A hypothetical funding application; no statement that it will be approved.",
+      "originalDraftRowSha256": "3575d8eb894ea23c48dbade45ba278131aed8a63423fa12d544aa40f2bcca782",
+      "admissionSourceRowSha256": "8cc3c6b42fbd09720f506e71968de332da309de2a9c30a93f012c1308f95ccf6"
+    },
+    {
+      "term": "graduate from",
+      "definitionEn": "To finish the required studies successfully at a school, college or university.",
+      "grammaticalLabel": "Verb phrase: educational graduate followed by from plus its institution, not the noun graduate.",
+      "requiredObject": {
+        "preposition": "from",
+        "role": "The school, college, university or other educational institution at which the person completed the studies.",
+        "completionRequired": true,
+        "ellipsisNote": "The stored two-word head names a pattern; from needs its educational-institution complement when that full pattern is used."
+      },
+      "scopeZh": "本条收从教育机构毕业的常见用法；美式英语也常用于中学毕业，不把它限定为大学学位。也不据此保证毕业者获得何种具体学位。",
+      "contrasts": [
+        {
+          "pattern": "graduate as a noun",
+          "noteEn": "The noun identifies a person who has completed education. That separate POS is not an inflected form of this verb phrase; noun patterns such as graduate of are outside this draft.",
+          "noteZh": "graduate 作名词时指毕业生；“毕业生”不作为本动词短语的中文别名，graduate of 这一名词结构也不作为其英文词形。"
+        },
+        {
+          "pattern": "graduate in / graduate with",
+          "noteEn": "A field of study or qualification belongs to a different complement pattern. The institution role after from is not replaced by a subject or degree label.",
+          "noteZh": "专业和所获资格使用其他结构；不要把 from 后的毕业学校与专业或学位混为一谈。"
+        },
+        {
+          "pattern": "figurative graduate from ... to ...",
+          "noteEn": "Figurative progression to another activity or level is outside the selected educational sense.",
+          "noteZh": "由某阶段发展到另一阶段等比喻义未在本条核准。"
+        }
+      ],
+      "notAliases": [
+        "毕业生",
+        "graduate of",
+        "graduate in",
+        "graduate with",
+        "升级",
+        "graduate"
+      ],
+      "aliasPolicy": "Only the whole Chinese educational pattern labels and the three explicit whole English inflections in source.json are proposed; no noun or transitive word-family expansion.",
+      "originalExampleIntent": "A hypothetical design-school graduate and later workshop; no claim about a real person or specific qualification.",
+      "originalDraftRowSha256": "945a25848d1642ef8e6825426002494136bc1a83ed6dbcfd51f0ee89ea175d33",
+      "admissionSourceRowSha256": "22f0956778cdff8647a255f26c79ad58501a63e7ada5802bbe1fc596c74a2e42"
+    }
+  ]
+}

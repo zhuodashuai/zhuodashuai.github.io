@@ -6,6 +6,7 @@ import {loadSearchExperienceContent} from '../scripts/build-search-experience-co
 import {EVERYDAY_LOOKUP_ENTRIES} from '../../vocab/js/everyday-lookup-data.js';
 import {SEARCH_EXPERIENCE_ENTRIES} from '../../vocab/js/search-experience-data.js';
 import {historicalOrdinary1044,historicalSelected204} from './helpers/search-followup-history.mjs';
+import {historicalSearch20,historicalOrdinary1048,historicalSelected207} from './helpers/search-common-terms-history.mjs';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
@@ -21,16 +22,18 @@ const forbidden=()=>{throw Error('A packaged exact English head must not wait fo
 
 test('four newly reviewed heads append after every unchanged prior ordinary and selected object',async()=>{
   const {entries,packs,module}=await loadSearchExperienceContent();
-  assert.deepEqual(packs.map(item=>item.entries.length),[16,4]);
+  const historicalEntries=historicalSearch20(entries);
+  assert.deepEqual(packs.slice(0,2).map(item=>item.entries.length),[16,4]);
+  assert.equal(packs.length,3);assert.equal(packs[2].entries.length,13);
   assert.deepEqual(pack.entries.map(row=>row.term),['payment code','leave a job','by a fluke','nuanced']);
-  assert.deepEqual(entries.slice(16),pack.entries);
+  assert.deepEqual(historicalEntries.slice(16),pack.entries);
   assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,entries);
   assert.equal(module,await readFile(new URL('../../vocab/js/search-experience-data.js',import.meta.url),'utf8'));
   assert.equal(hash(entries.slice(0,16)),baseline.searchSha256);
   assert.equal(historicalOrdinary1044(EVERYDAY_LOOKUP_ENTRIES).length,1044);
   assert.equal(historicalSelected204(EVERYDAY_LOOKUP_ENTRIES).length,204);
-  assert.equal(EVERYDAY_LOOKUP_ENTRIES.filter(row=>!row.reviewedCanonicalSense).length,1048);
-  assert.equal(EVERYDAY_LOOKUP_ENTRIES.filter(row=>row.reviewedCanonicalSense).length,207);
+  assert.equal(historicalOrdinary1048(EVERYDAY_LOOKUP_ENTRIES).length,1048);
+  assert.equal(historicalSelected207(EVERYDAY_LOOKUP_ENTRIES).length,207);
   const review=JSON.parse(await readFile(new URL('review.json',file),'utf8'));
   assert.notEqual(review.reviewer,pack.author);assert.equal(review.independentOfAuthor,true);
   assert.deepEqual(review.approvedTerms,pack.entries.map(row=>row.term));
