@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {restoreEntryDetailFocusShellIfCurrent,restoreEntryDetailFocusServiceWorkerShellIfCurrent} from './entry-detail-focus-shell.mjs';
 
 // Authenticate complete current118/public121 snapshots before reversing only
 // the declared entry URLs. Every prior117 shell/body pin remains unchanged.
@@ -113,16 +114,19 @@ function authenticate(text,pins,label){
   assert(pins.some(([length,digest])=>length===bytes.length&&digest===sha),label+': life-coverage shell snapshot changed');
 }
 export function restoreLifeCoverageShell(file,text){
+  text=restoreEntryDetailFocusShellIfCurrent(file,text);
   const entry=entries.get(file);if(!entry)return text;
   authenticate(text,entry.pins,file);
   assert.equal(text.split(entry.current).length,2,'Exactly one reviewed118 entryURL');
   return text.replace(entry.current,entry.previous);
 }
 export function restoreLifeCoverageShellIfCurrent(file,text){
+  text=restoreEntryDetailFocusShellIfCurrent(file,text);
   const entry=entries.get(file);
   return entry&&text.includes(entry.current)?restoreLifeCoverageShell(file,text):text;
 }
 export function restoreLifeCoverageServiceWorkerShell(text){
+  text=restoreEntryDetailFocusServiceWorkerShellIfCurrent(text);
   authenticate(text,workerPins,'sw.js');
   const eol=text.includes('\r\n')?'\r\n':'\n',anchor='const SHELL = ['+eol;
   const prefix=LIFE_COVERAGE_URLS.map(url=>'  '+JSON.stringify(url)+',').join(eol)+eol+eol;

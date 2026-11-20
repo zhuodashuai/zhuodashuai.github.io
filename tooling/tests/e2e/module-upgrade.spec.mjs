@@ -19,11 +19,11 @@ const reviewedAliases=new Map([
   ['everyday-lookup.js',['111','112','114','115','116','117','118']],
   ['everyday-lookup-data.js',['114','115','116','117','118']],['reviewed-senses-data.js',['114','115','116','117','118']],
   ['dictionary-app-v109.js',['114','115','116','117','118']],['dictionary-entry-v109.js',['114','115','116','117','118']],
-  ['owner-app-v108.js',['114','115','116','117','118']],['personal-app-v108.js',['114','115','116','117','118']],
+  ['owner-app-v108.js',['114','115','116','117','118','122']],['personal-app-v108.js',['114','115','116','117','118']],
   ['english-surface-variants.js',['115','116','117','118']],['search-experience-data.js',['115','116','117','118']],
   ['selected-common-sense.js',['115','116','117','118']],['selected-legacy-examples.js',['115','116','117','118']],
   ['dictionary-examples-current-v4.js',['115','116','117','118']],['dictionary-examples-ui-v108.js',['115','116','117','118']],
-  ['entry-detail-v113.js',['115','116','117','118']],['entry-detail-v108.js',['115','116','117','118']],
+  ['entry-detail-v113.js',['115','116','117','118','122']],['entry-detail-v108.js',['115','116','117','118','122']],
   ['dictionary-form-evidence.js',['114','117','118']],['reviewed-canonical-forms.js',['117','118']],
   ['chinese-query-cache.js',['116','117','118']],['chinese-query-cache-release.js',['116','117','118']],
   ['chinese-query-cache-format.js',['116','117','118']],['dictionary-offline-warm-v108.js',['116','117','118']],
@@ -42,11 +42,11 @@ const reviewedActiveVersions=new Map([
   ['everyday-lookup.js','118'],
   ['everyday-lookup-data.js','118'],['reviewed-senses-data.js','118'],
   ['dictionary-app-v109.js','118'],['dictionary-entry-v109.js','118'],
-  ['owner-app-v108.js','118'],['personal-app-v108.js','118'],
+  ['owner-app-v108.js','122'],['personal-app-v108.js','118'],
   ['english-surface-variants.js','118'],['search-experience-data.js','118'],
   ['selected-common-sense.js','118'],['selected-legacy-examples.js','118'],
   ['dictionary-examples-current-v4.js','118'],['dictionary-examples-ui-v108.js','118'],
-  ['entry-detail-v113.js','118'],['entry-detail-v108.js','118'],
+  ['entry-detail-v113.js','122'],['entry-detail-v108.js','122'],
   ['dictionary-form-evidence.js','118'],['reviewed-canonical-forms.js','118'],
   ['chinese-query-cache.js','118'],['chinese-query-cache-release.js','118'],
   ['chinese-query-cache-format.js','118'],['dictionary-offline-warm-v108.js','118'],
@@ -57,7 +57,7 @@ const reviewedActiveVersions=new Map([
 // their exact cache aliases without adding them to changedApiModules/poisoning.
 const reviewedCompatibleCacheAliases=new Map([
   ['chinese-search.js',['95','111','112','114','116','117','118']],
-  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121']],
+  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121','122']],
   ['public-snapshot.js',['82','114','116','117','118']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
@@ -103,11 +103,11 @@ for(const[file,edges]of[
   ['chinese-ranking.js',[['chinese-search.js','./chinese-search.js?v=118']]],
   ['personal-lookup-flow.js',[['chinese-search.js','./chinese-search.js?v=118'],['everyday-lookup.js','./everyday-lookup.js?v=118']]],
   ['dictionary-examples-current-v4.js',[['everyday-lookup.js','./everyday-lookup.js?v=118'],['selected-common-sense.js','./selected-common-sense.js?v=118'],['selected-legacy-examples.js','./selected-legacy-examples.js?v=118']]],
-  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113'],['public-snapshot.js','./public-snapshot.js?v=118']]],
+  ['public-app-v113.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=113'],['collections.js','./collections.js?v=113'],['public-snapshot.js','./public-snapshot.js?v=118'],['entry-detail-v113.js','./entry-detail-v113.js?v=122']]],
   ['public-app-v108.js',[['chapter-quiz-ui.js','./chapter-quiz-ui.js?v=82'],['collections.js','./collections.js?v=82'],['library-lookup-ui.js','./library-lookup-ui.js?v=114'],['entry-detail-v108.js','./entry-detail-v108.js']]],
   ['dictionary-entry.js',[['dictionary-app.js','./dictionary-app.js?v=104']]],
   ['dictionary-app-v108.js',[['expanded-dictionary.js','./expanded-dictionary.js?v=104']]],
-  ['owner-app-v108.js',[['collections.js','./collections.js?v=82']]]
+  ['owner-app-v108.js',[['collections.js','./collections.js?v=82'],['entry-detail-v108.js','./entry-detail-v108.js?v=122']]]
 ]){
   const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
   const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);

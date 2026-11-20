@@ -36,7 +36,7 @@ test("changed module APIs use one versioned browser graph before any service wor
   const version = file => ["dictionary-entry.js", "expanded-dictionary.js", "dictionary-app.js", "library-lookup-controller.js", "library-lookup-ui.js", "public-app.js", "personal-app.js", "owner-app.js"].includes(file) ? 104 : ["dictionary-offline-warm.js"].includes(file) ? 102 : ["entry-sort.js", "personal-folders.js", "personal-api.js"].includes(file) ? 100 : ["owner-public-library.js"].includes(file) ? 99 : ["dictionary-collection.js"].includes(file) ? 98 : ["personal-dictionary.js", "personal-lookup-flow.js", "member-dictionary-manifest.js"].includes(file) ? 97 : ["dictionary-examples-ui.js", "dictionary-examples.js", "entry-detail.js"].includes(file) ? 96 : ["chinese-related-common.js", "chinese-search.js"].includes(file) ? 95 : ["dictionary-suggestions.js"].includes(file) ? 89 : ["core-pos-corrections.js"].includes(file) ? 88 : ["book-passages-ui.js","book-passages.js","chapter-quiz-ui.js","chapter-quiz.js","collections.js","learning-backup-ui.js","learning-backup.js","owner-api.js","owner-backup.js","owner-storage.js","personal-storage.js","personal-selection.js","public-snapshot.js","quiz-storage.js","sync-logic.js","synonym-groups.js","synonym-view.js","wordbook-schema.js"].includes(file) ? 82
     : ["public-app.js", "dictionary-navigation.js"].includes(file) ? 80
     : ["personal-storage.js", "personal-selection.js", "member-dictionary-manifest.js"].includes(file) ? 78 : 77;
-  const currentVersion = file => ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
+  const currentVersion = file => ["entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 122 : ["english-laundry-phrase-evidence.js", "dictionary-form-evidence.js", "reviewed-canonical-forms.js", "chinese-query-cache.js", "chinese-query-cache-release.js", "chinese-query-cache-format.js", "chinese-ranking.js", "expanded-dictionary.js", "dictionary-app.js", "dictionary-app-v109.js", "library-lookup-controller.js", "library-lookup-ui.js", "personal-lookup-flow.js", "dictionary-suggestions.js", "everyday-lookup.js", "everyday-lookup-data.js", "reviewed-senses-data.js", "search-experience-data.js", "english-surface-variants.js", "selected-common-sense.js", "selected-legacy-examples.js", "dictionary-examples-current-v4.js", "dictionary-examples-ui-v108.js", "entry-detail-v113.js", "entry-detail-v108.js"].includes(file) ? 118
     : ["personal-app.js", "app-navigation.js", "app-navigation-entry.js"].includes(file) ? 107 : version(file);
   const files = await readdir(new URL("../js/", import.meta.url));
   for (const file of files.filter((name) => name.endsWith(".js"))) {
@@ -94,7 +94,7 @@ test("inline lookup, folders and existing entry points share one coherent module
   assert.match(vocabHtml, /href="library-lookup\.css\?v=99"/u);
   assert.match(vocabHtml, /href="styles\.css\?v=117"/u);
   for (const version of ["100", "117"]) assert.ok(serviceWorker.includes(`"./styles.css?v=${version}"`), "Keep both current and existing offline stylesheet URLs");
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=121"/u);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=122"/u);
   for (const file of ["public-app-v113.js?v=117", "public-app-v113.js?v=116", "public-snapshot.js?v=116", "public-app-v113.js?v=115", "public-app-v113.js?v=114", "teamwork-study-net.js", "public-snapshot.js?v=114"]) {
     assert.ok(serviceWorker.includes(`"./js/${file}"`), file);
   }
@@ -205,9 +205,9 @@ test("the PWA shell separates the public reader from the authenticated owner app
   assert.match(serviceWorker, /\.\/js\/core-dictionary\.js/);
   assert.match(serviceWorker, /\.\/js\/entry-detail\.js/);
   assert.match(serviceWorker, /url\.pathname\.startsWith\("\/api\/"\)/);
-  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=121"/);
+  assert.match(vocabHtml, /src="js\/public-app-v113\.js\?v=122"/);
   assert.match(vocabHtml, /href="styles\.css\?v=117"/);
-  assert.match(ownerHtml, /src="js\/owner-app-v108\.js\?v=118"/);
+  assert.match(ownerHtml, /src="js\/owner-app-v108\.js\?v=122"/);
   assert.match(ownerHtml, /href="styles\.css\?v=96"/);
   assert.match(guideHtml, /href="styles\.css\?v=100"/);
   assert.match(vocabHtml, /id="owner-link"[^>]*>卓的公开词本/);
@@ -312,7 +312,7 @@ test("owner publication applies the browser Chinese-quality and structured-sense
 
 test("public and owner readers share the same accessible entry detail controller", () => {
   assert.match(entryDetailSource, /export function createEntryDetailController/);
-  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail-v113\.js\?v=118"/);
+  assert.match(publicAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail-v113\.js\?v=122"/);
   assert.match(ownerAppSource, /import \{ createEntryDetailController \} from "\.\/entry-detail\.js\?v=96"/);
   assert.match(publicAppSource, /const entryDetail = createEntryDetailController\(\{/);
   assert.match(ownerAppSource, /const entryDetail = createEntryDetailController\(\{/);

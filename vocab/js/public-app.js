@@ -1,5 +1,5 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v113.js?v=118";
+import { createEntryDetailController } from "./entry-detail-v113.js?v=122";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
 import { mountLibraryLookup } from "./library-lookup-ui.js?v=118";
