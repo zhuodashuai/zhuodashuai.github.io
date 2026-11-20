@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {validateReviewedSensePack,validateSourceCorrectionPolicy} from '../../scripts/build-reviewed-dictionary-senses.mjs';
+import {historicalCommonSearch42,historicalCommonOrdinary1070,historicalCommonEveryday1283} from './common-followup-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const lifeDirectory=new URL('../../dictionary/everyday-expansions/2026-11-20-life-common-terms/',import.meta.url);
@@ -71,8 +72,11 @@ function project(rows,expected,oldCount,newCount,oldHash){
   assert.deepEqual(removed,expected);assert.equal(old.length,oldCount);assert.equal(hash(old),oldHash);return old;
 }
 
-export const historicalSearch33=rows=>project(rows,life.entries,33,42,lifeBaseline.priorSearch33Sha256);
-export const historicalOrdinary1061=rows=>project(rows.filter(row=>!row.reviewedCanonicalSense),life.entries,1061,1070,lifeBaseline.ordinary1061Sha256);
+export const historicalSearch33=rows=>project(rows.length===33?rows:historicalCommonSearch42(rows),life.entries,33,42,lifeBaseline.priorSearch33Sha256);
+export const historicalOrdinary1061=rows=>{
+  const ordinary=rows.filter(row=>!row.reviewedCanonicalSense);
+  return project(ordinary.length===1061?ordinary:historicalCommonOrdinary1070(ordinary),life.entries,1061,1070,lifeBaseline.ordinary1061Sha256);
+};
 export const historicalSelected210=rows=>project(rows.filter(row=>row.reviewedCanonicalSense),orderedMedical,210,213,medicalBaseline.historicalReviewedRowsSha256);
 
 export function exactLifeCommonTermRows(rows){
@@ -84,6 +88,7 @@ export function exactMedicalCorrectionRows(rows){
   const exact=rows.filter(row=>orderedMedical.some(expected=>expected.term===row.term));assert.deepEqual(exact,orderedMedical);return exact;
 }
 export function historicalEveryday1271(rows){
+  rows=historicalCommonEveryday1283(rows);
   const ordinary=historicalOrdinary1061(rows),selected=historicalSelected210(rows);
   const additions=[...exactLifeCommonTermRows(rows),...exactMedicalCorrectionRows(rows)];assert.equal(additions.length,12);
   assert.equal(rows.length,1283);
