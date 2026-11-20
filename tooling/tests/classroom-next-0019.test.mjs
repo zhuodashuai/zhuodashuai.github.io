@@ -6,7 +6,9 @@ import {REVIEWED_SENSE_ENTRIES as allSelected} from '../../vocab/js/reviewed-sen
 import {historicalSelected187} from './helpers/classroom-history-0187.mjs';
 const selected=historicalSelected187(allSelected);
 import {SELECTED_LEGACY_EXAMPLE_BINDINGS as legacy} from '../../vocab/js/selected-legacy-examples-data.js';
-import {DICTIONARY_EXAMPLE_CORRECTIONS as corrections} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {DICTIONARY_EXAMPLE_CORRECTIONS as allCorrections} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {historicalCorrections83} from './helpers/correction-history-0083.mjs';
+const corrections=historicalCorrections83(allCorrections);
 import {EVERYDAY_LOOKUP_ENTRIES as all,EVERYDAY_CHINESE_ALIASES as aliases} from '../../vocab/js/everyday-lookup-data.js';
 import {SELECTED_COMMON_SENSE_BINDINGS as common} from '../../vocab/js/selected-common-sense-data.js';
 import {historicalSelected183,historicalLegacy26} from './helpers/classroom-history-0183.mjs';

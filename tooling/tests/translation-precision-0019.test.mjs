@@ -2,7 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {DICTIONARY_EXAMPLE_CORRECTIONS as compiled} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {DICTIONARY_EXAMPLE_CORRECTIONS as allCorrections} from '../../vocab/js/dictionary-example-corrections-data.js';
+import {historicalCorrections83} from './helpers/correction-history-0083.mjs';
+const compiled=historicalCorrections83(allCorrections);
 import {applyExampleCorrections} from '../../vocab/js/dictionary-example-corrections.js';
 import {loadDictionaryExamples,resetDictionaryExamplesCacheForTests} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {createAdditiveExamplesLoader} from '../../vocab/js/dictionary-examples-additive.js';
@@ -15,7 +17,7 @@ const bytes=file=>fs.readFile(new URL(file,root)),read=async file=>JSON.parse(aw
 const fixtureFile='tooling/dictionary/examples/evidence/translation-precision-0019-fixture.json',fixture=await read(fixtureFile);
 const fetchImpl=async input=>new Response(await fs.readFile(new URL(input)));
 
-test('current83 is exactly the entire unchanged historical79 plus four independently approved Chinese-only corrections',async()=>{
+test('historical83 is exactly the entire unchanged historical79 plus four independently approved Chinese-only corrections',async()=>{
  assert.equal(sha(await bytes(fixtureFile)),'68ab75a6da4db87a64ba50e215d3edf8388f7b5c6b5e67f810f185c76765aea9');
  assert.deepEqual(fixture.rows.map(r=>r.term),['enlightened','gent','writhe','sulk']);
  assert.equal(fixture.baselineCorrectionRows.length,79);assert.equal(hash(fixture.baselineCorrectionRows),HISTORICAL_79_SHA256);
