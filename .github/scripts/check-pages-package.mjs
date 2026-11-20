@@ -18,6 +18,11 @@ export const OFFLINE_SOURCE_PREFIXES = Object.freeze([
 // These development-only trees remain complete in Git and CI. No vocabulary,
 // runtime, learning, old-client or dictionary payload path is excluded here.
 export const DEVELOPER_TOOL_PREFIXES = Object.freeze(['tooling/tests', 'tooling/scripts']);
+// Authoring and review inputs are compiled into vocab/js. Their complete
+// originals remain available in Git/CI; the reader fetches only runtime data.
+export const DEVELOPER_SOURCE_PREFIXES = Object.freeze([
+  'tooling/dictionary/everyday-expansions', 'tooling/dictionary/reviewed-senses',
+]);
 // These D32 proof paths have never been published. Keep them in Git and CI,
 // not in every Pages artifact. No previously served path is excluded here.
 const D32_COHORTS = ['p001', 'p002', 'p002-child', 'ive-child', 'root', 'source9-01', 'yuk-child',
@@ -347,6 +352,7 @@ export function isCopiedStatic(file) {
   if (DEFAULT_EXCLUDES.some(p => file === p || file.startsWith(`${p}/`))) return false;
   if (OFFLINE_SOURCE_PREFIXES.some(p => file === p || file.startsWith(`${p}/`))) return false;
   if (DEVELOPER_TOOL_PREFIXES.some(p => file === p || file.startsWith(`${p}/`))) return false;
+  if (DEVELOPER_SOURCE_PREFIXES.some(p => file === p || file.startsWith(`${p}/`))) return false;
   if (file === REVIEW_ONLY || UNPUBLISHED_D32_PATHS.includes(file) || UNPUBLISHED_NEXT_PATHS.includes(file) || UNPUBLISHED_D35_PATHS.includes(file) || UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.includes(file) || UNPUBLISHED_D36_PATHS.includes(file) || UNPUBLISHED_D41_PATHS.includes(file) || UNPUBLISHED_D42_D43_PATHS.includes(file) || UNPUBLISHED_QUALITY_NEXT_PATHS.includes(file) || UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.includes(file)) return false;
   // Pages preserves the raw Markdown files as well as generated HTML here.
   // Sass is generated rather than copied; this repository tracks none yet.
@@ -354,7 +360,7 @@ export function isCopiedStatic(file) {
 }
 
 export function assertOfflineSourcesAbsent(directory) {
-  for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES]) {
+  for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES, ...DEVELOPER_SOURCE_PREFIXES]) {
     assert(!fs.existsSync(path.join(directory, ...prefix.split('/'))), `Developer source tree was published: ${prefix}`);
   }
 }
@@ -367,7 +373,7 @@ export function assertPagesExclusionPolicy(text) {
     assert(entry, 'Unreviewed Pages configuration syntax');
     return entry[1].replace(/\/$/u, '');
   });
-  assert.deepEqual(actual, [...DEFAULT_EXCLUDES, ...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES,
+  assert.deepEqual(actual, [...DEFAULT_EXCLUDES, ...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES, ...DEVELOPER_SOURCE_PREFIXES,
     REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS,
     ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, ...UNPUBLISHED_D36_PATHS, ...UNPUBLISHED_D41_PATHS,
     ...UNPUBLISHED_D42_D43_PATHS, ...UNPUBLISHED_QUALITY_NEXT_PATHS, ...UNPUBLISHED_QUALITY_FOLLOWUP_PATHS],
@@ -434,7 +440,7 @@ export function verifyStatic(directory, repo) {
   for (const file of UNPUBLISHED_D42_D43_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New internal example proof was published: ${file}`);
   for (const file of UNPUBLISHED_QUALITY_NEXT_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New quality proof was published: ${file}`);
   for (const file of UNPUBLISHED_QUALITY_FOLLOWUP_PATHS) assert(!fs.existsSync(path.join(directory, file)), `New follow-up proof was published: ${file}`);
-  return { checkedStaticFiles: checked, offlineSourcePrefixes: OFFLINE_SOURCE_PREFIXES, developerToolPrefixes: DEVELOPER_TOOL_PREFIXES, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length, unpublishedQualityFollowupPaths: UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.length };
+  return { checkedStaticFiles: checked, offlineSourcePrefixes: OFFLINE_SOURCE_PREFIXES, developerToolPrefixes: DEVELOPER_TOOL_PREFIXES, developerSourcePrefixes: DEVELOPER_SOURCE_PREFIXES, unpublishedQueue: REVIEW_ONLY, unpublishedD32Paths: UNPUBLISHED_D32_PATHS.length, unpublishedNextPaths: UNPUBLISHED_NEXT_PATHS.length, unpublishedD35Paths: UNPUBLISHED_D35_PATHS.length, unpublishedForsyteArchivePaths: UNPUBLISHED_FORSYTE_ARCHIVE_PATHS.length, unpublishedD36Paths: UNPUBLISHED_D36_PATHS.length, unpublishedD41Paths: UNPUBLISHED_D41_PATHS.length, unpublishedD42D43Paths: UNPUBLISHED_D42_D43_PATHS.length, unpublishedQualityNextPaths: UNPUBLISHED_QUALITY_NEXT_PATHS.length, unpublishedQualityFollowupPaths: UNPUBLISHED_QUALITY_FOLLOWUP_PATHS.length };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
