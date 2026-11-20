@@ -19,7 +19,8 @@ const reviewedAliases=new Map([
   ['everyday-lookup.js',['111','112','114','115','116','117','118']],
   ['everyday-lookup-data.js',['114','115','116','117','118']],['reviewed-senses-data.js',['114','115','116','117','118']],
   ['dictionary-app-v109.js',['114','115','116','117','118']],['dictionary-entry-v109.js',['114','115','116','117','118']],
-  ['owner-app-v108.js',['114','115','116','117','118','122']],['personal-app-v108.js',['114','115','116','117','118','119','123']],
+  ['owner-app-v108.js',['114','115','116','117','118','122']],['personal-app-v108.js',['114','115','116','117','118','119','123','124']],
+  ['owner-public-library.js',['99','124']],
   ['english-surface-variants.js',['115','116','117','118']],['search-experience-data.js',['115','116','117','118']],
   ['selected-common-sense.js',['115','116','117','118']],['selected-legacy-examples.js',['115','116','117','118']],
   ['dictionary-examples-current-v4.js',['115','116','117','118']],['dictionary-examples-ui-v108.js',['115','116','117','118']],
@@ -43,7 +44,7 @@ const reviewedActiveVersions=new Map([
   ['everyday-lookup.js','118'],
   ['everyday-lookup-data.js','118'],['reviewed-senses-data.js','118'],
   ['dictionary-app-v109.js','118'],['dictionary-entry-v109.js','118'],
-  ['owner-app-v108.js','122'],['personal-app-v108.js','123'],
+  ['owner-app-v108.js','122'],['personal-app-v108.js','124'],['owner-public-library.js','124'],
   ['english-surface-variants.js','118'],['search-experience-data.js','118'],
   ['selected-common-sense.js','118'],['selected-legacy-examples.js','118'],
   ['dictionary-examples-current-v4.js','118'],['dictionary-examples-ui-v108.js','118'],
@@ -59,7 +60,7 @@ const reviewedActiveVersions=new Map([
 // their exact cache aliases without adding them to changedApiModules/poisoning.
 const reviewedCompatibleCacheAliases=new Map([
   ['chinese-search.js',['95','111','112','114','116','117','118']],
-  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121','122','123']],
+  ['chinese-ranking.js',['111','112','114','116','117','118']],['public-app-v113.js',['114','115','116','117','118','119','120','121','122','123','124']],
   ['public-snapshot.js',['82','114','116','117','118']]
 ]);
 expect([...reviewedActiveVersions.keys()].sort()).toEqual([...reviewedAliases.keys()].sort());
@@ -117,6 +118,15 @@ for(const[file,edges]of[
   for(const[target,expected,count=1]of edges)expect(imports.filter(specifier=>specifier.slice(2).split('?')[0]===target),file+' -> '+target).toEqual(Array(count).fill(expected));
 }
 
+// Exact current filter consumers must use124; the inline navigation function
+// and archived reader retain their99 API. A finite compatibility edge does
+// not let current filter callers silently keep a stale implementation.
+for(const[file,expected]of [['public-app.js','124'],['public-app-v113.js','124'],['personal-app.js','124'],['personal-app-v108.js','124'],['library-lookup-ui.js','99'],['public-app-v108.js','99']]){
+ const source=await readFile(new URL('../../../vocab/js/'+file,import.meta.url),'utf8');
+ const imports=[...source.matchAll(/\bfrom\s+["'](\.\/owner-public-library\.js[^"']*)["']/gu)].map(match=>match[1]);
+ expect(imports,file+' public library edge').toEqual(['./owner-public-library.js?v='+expected]);
+}
+
 test.use({ serviceWorkers: "block" });
 
 const changedApiModules = new Set([
@@ -127,7 +137,8 @@ const changedApiModules = new Set([
   "runtime-config.js", "personal-api.js", "personal-storage.js", "personal-selection.js", "personal-study.js", "personal-dictionary.js", "member-dictionary-manifest.js", "core-dictionary.js", "book-passages.js", "book-passages-ui.js",
   "owner-api.js", "owner-storage.js", "entry-detail.js", "synonym-evidence.js",
   "chapter-quiz.js", "chapter-quiz-ui.js", "quiz-storage.js",
-  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js"
+  "wordbook-schema.js", "collections.js", "owner-backup.js", "sync-logic.js",
+  "saved-card-search.js"
 ]);
 for (const name of changedApiModules) {
   if (!declaredModuleVersions.has(name)) throw new Error(`Module upgrade fixture needs an explicit SHELL version for ${name}.`);
@@ -154,7 +165,8 @@ async function poisonOldModuleUrls(page) {
     // owner collection writes use the compatible82 API. Exact caller edges
     // above pin those decisions.
     // Both remain poisoned at bare or any other non-reviewed URL.
-    const compatible = ["chapter-quiz-ui.js", "collections.js"].includes(name) ? ["82", "113"] : [declaredModuleVersions.get(name)];
+    const compatible = ["chapter-quiz-ui.js", "collections.js"].includes(name) ? ["82", "113"]
+      : name === "owner-public-library.js" ? ["99", "124"] : [declaredModuleVersions.get(name)];
     if (changedApiModules.has(name) && !compatible.includes(url.searchParams.get("v"))) {
       consumedOldUrls.push(url.pathname);
       await route.fulfill({ contentType: "text/javascript", body: 'export const oldModuleVersion = "v66";' });

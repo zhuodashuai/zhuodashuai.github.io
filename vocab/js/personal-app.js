@@ -21,7 +21,7 @@ import { createPersonalSpellingSuggestions } from "./personal-spelling.js?v=119"
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
 import { createDictionaryExamplesSection } from "./dictionary-examples-ui.js?v=96";
-import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=99";
+import { ownerPublicEntries, publicEntryUrl, reconcileOwnerPublicConfirmations } from "./owner-public-library.js?v=124";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";
 import { createPersonalFolderMutation, filterPersonalFolderEntries, serializePersonalFolderExport,
   validatePersonalFolderName, validatePersonalFolderResult, validatePersonalFolders } from "./personal-folders.js?v=100";

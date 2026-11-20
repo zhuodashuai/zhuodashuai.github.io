@@ -1,9 +1,10 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
 import { createEntryDetailController } from "./entry-detail-v113.js?v=122";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
-import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
+import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=124";
 import { mountLibraryLookup } from "./library-lookup-ui.js?v=123";
-import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
+import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
+import { createSavedCardQueryMatcher } from "./saved-card-search.js?v=124";
 import { setupPwa } from "./pwa.js?v=77";
 import { collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
 import { buildLearningCatalog, filterLearningEntries } from "./reading-card-policy.js";
@@ -492,10 +493,11 @@ function render() {
     control.setAttribute("aria-pressed", String(control.dataset.filter === state.filter));
   });
   const query = normalizePublicSearchQuery(state.query);
+  const matchesQuery = createSavedCardQueryMatcher(query);
   const displaySort = state.sort || (state.chapterId !== "all" ? "source" : "newest");
   refs.librarySort.value = displaySort;
   const queryMatches = rankExactEntryMatches(
-    sortWordbookEntries(collectionEntries.filter((entry) => publicEntryMatchesQuery(entry, query)), displaySort),
+    sortWordbookEntries(collectionEntries.filter(matchesQuery), displaySort),
     query
   );
   const filtered = queryMatches.filter((entry) => state.filter === "all" || entry.entryType === state.filter);
@@ -507,7 +509,7 @@ function render() {
       && (!group.id.startsWith("auto:") || sameSynonymSenseView(entry, collectionEntries.find((candidate) => candidate.id === entry.id))));
     if (!scopedMembers.length) return false;
     return !query || normalizePublicSearchQuery(`${group.title} ${group.note}`).includes(query)
-      || group.members.some(({ entry }) => publicEntryMatchesQuery(entry, query));
+      || group.members.some(({ entry }) => matchesQuery(entry));
   });
   const groupedView = SYNONYM_FEATURE_ENABLED && state.view === "synonyms";
   const passagesView = state.view === "passages";
@@ -611,8 +613,8 @@ function render() {
     const displayQuery = state.query.replace(/\s+/g, " ").trim().slice(0, 120);
     const limited = state.collectionId !== "all";
     refs.searchEmptyTitle.textContent = `${state.chapterId !== "all" ? "本章" : limited ? "本词本" : "已发布词库"}未找到“${displayQuery}”。`;
-    const outside = entries.filter((entry) => !scopeIds.has(entry.id) && publicEntryMatchesQuery(entry, query)).length;
-    const repeatedMatch = !state.showRepeated && recordedEntries.some(entry => publicEntryMatchesQuery(entry, query));
+    const outside = entries.filter((entry) => !scopeIds.has(entry.id) && matchesQuery(entry)).length;
+    const repeatedMatch = !state.showRepeated && recordedEntries.some(matchesQuery);
     refs.searchEmptyMessage.textContent = repeatedMatch
       ? "这个词以前已收录。打开“显示重复词”可查看本章语境，或搜索全部词本查看原卡。"
       : outside ? `其他章节或词本中找到 ${outside} 个相关词条。` : "可以检查拼写，或扩大搜索范围。";

@@ -7,7 +7,8 @@ import {fingerprintChineseQueryEngine} from '../../tooling/scripts/build-chinese
 import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-release.js';
 import {SEARCH_MATCH_CONTEXT_URLS,restoreSearchMatchContextShell,restoreSearchMatchContextServiceWorkerShell,restoreSearchMatchContextAssetIfCurrent} from '../../tooling/tests/helpers/search-match-context-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
-const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
+import {restoreSavedCardSearchAssetIfCurrent} from '../../tooling/tests/helpers/saved-card-search-shell.mjs';
+const read=async file=>restoreSavedCardSearchAssetIfCurrent(file,await readFile(new URL('../'+file,import.meta.url),'utf8'));
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const urls=text=>JSON.parse('['+text.match(/const SHELL = \[([\s\S]*?)\];/u)[1].replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']');
 

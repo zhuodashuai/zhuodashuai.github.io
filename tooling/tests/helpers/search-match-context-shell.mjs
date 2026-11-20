@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {restoreSavedCardSearchAssetIfCurrent} from './saved-card-search-shell.mjs';
 
 // Full UI123 snapshots authenticate before only the two entry URLs and
 // three additive aliases are reversed. No previous shell hash is replaced.
@@ -11,15 +12,18 @@ export const SEARCH_MATCH_CONTEXT_URLS=Object.freeze(['./js/public-app-v113.js?v
 const workerPins=[[23687,'59f7c306228eee43788e117e70eaa80e7e5137971cc3e0badfee5a88d17ebff1'],[24122,'b7d127981b218cc383d1167cd77e68d19d243e2cf00bb94ad42af52624beed2e']];
 function authenticate(text,pins,label){const bytes=Buffer.from(text),sha=createHash('sha256').update(bytes).digest('hex');assert(pins.some(([length,digest])=>bytes.length===length&&sha===digest),label+': search-match context shell snapshot changed');}
 export function restoreSearchMatchContextShell(file,text){
+ text=restoreSavedCardSearchAssetIfCurrent(file,text);
  const entry=entries.get(file);if(!entry)return text;authenticate(text,entry.pins,file);
  assert.equal(text.split(entry.current).length,2,'Exactly one UI123 entry URL');return text.replace(entry.current,entry.previous);
 }
-export function restoreSearchMatchContextShellIfCurrent(file,text){const entry=entries.get(file);return entry&&text.includes(entry.current)?restoreSearchMatchContextShell(file,text):text;}
+export function restoreSearchMatchContextShellIfCurrent(file,text){text=restoreSavedCardSearchAssetIfCurrent(file,text);const entry=entries.get(file);return entry&&text.includes(entry.current)?restoreSearchMatchContextShell(file,text):text;}
 export function restoreSearchMatchContextServiceWorkerShell(text){
+ text=restoreSavedCardSearchAssetIfCurrent('sw.js',text);
  authenticate(text,workerPins,'sw.js');const eol=text.includes('\r\n')?'\r\n':'\n',anchor='const SHELL = ['+eol;
  const prefix=SEARCH_MATCH_CONTEXT_URLS.map(url=>'  '+JSON.stringify(url)+',').join(eol)+eol+eol;
  assert.equal(text.split(anchor+prefix).length,2,'Exactly one UI123 three-URL prefix');return text.replace(anchor+prefix,anchor);
 }
 export function restoreSearchMatchContextAssetIfCurrent(file,text){
+ text=restoreSavedCardSearchAssetIfCurrent(file,text);
  return file==='sw.js'&&SEARCH_MATCH_CONTEXT_URLS.some(url=>text.includes(JSON.stringify(url)))?restoreSearchMatchContextServiceWorkerShell(text):restoreSearchMatchContextShellIfCurrent(file,text);
 }
