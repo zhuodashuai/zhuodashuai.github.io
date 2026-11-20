@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/root_lexical_accuracy_author",
+  "sourceStatement": "Original selected-source correction drafts pending independent review. Keep both existing literal identities; do not claim the separate singular/plural records are newly discovered inflections or change canonical ownership. Existing raw MIT records remain immutable. Airborne allergens are substances, not a high-altitude disease.",
+  "entries": [
+    {
+      "term": "aeroallergen",
+      "partOfSpeech": "noun",
+      "meaning": "① 气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+      "chineseAliases": [
+        "气传过敏原",
+        "空气传播过敏原",
+        "气源性致敏原"
+      ],
+      "englishForms": [],
+      "en": "Each air sample was tested for traces of a specific aeroallergen.",
+      "zh": "每份空气样本都经过检测，以寻找某种特定气传过敏原的痕迹。",
+      "references": [
+        "https://www.merriam-webster.com/medical/aeroallergen",
+        "https://www.dictionary.com/browse/aeroallergen"
+      ],
+      "canonicalId": 7215910,
+      "canonicalSourceSha256": "ad66ae7662818b660d309687dff0d3e3eace365a7db642da90a9434eaf0c9804",
+      "exampleSenses": [
+        {
+          "id": "reviewed-source-correction:aeroallergen:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "① 气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+          "examples": [
+            {
+              "en": "Each air sample was tested for traces of a specific aeroallergen.",
+              "zh": "每份空气样本都经过检测，以寻找某种特定气传过敏原的痕迹。"
+            }
+          ]
+        }
+      ],
+      "exampleContexts": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "① 气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+          "senseIds": [
+            "reviewed-source-correction:aeroallergen:1"
+          ]
+        }
+      ]
+    },
+    {
+      "term": "aeroallergens",
+      "partOfSpeech": "noun",
+      "meaning": "① （aeroallergen 的复数）气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+      "chineseAliases": [
+        "气传过敏原",
+        "空气传播过敏原",
+        "气源性致敏原"
+      ],
+      "englishForms": [],
+      "en": "The researchers compared levels of aeroallergens inside and outside the classroom.",
+      "zh": "研究人员比较了教室内外气传过敏原的含量。",
+      "references": [
+        "https://www.merriam-webster.com/medical/aeroallergen",
+        "https://www.dictionary.com/browse/aeroallergen"
+      ],
+      "canonicalId": 7216079,
+      "canonicalSourceSha256": "6254b70c345b0e7ca44040706c0645e918e327a2d59e85e547846e32e4aeea7b",
+      "exampleSenses": [
+        {
+          "id": "reviewed-source-correction:aeroallergens:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "① （aeroallergen 的复数）气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+          "examples": [
+            {
+              "en": "The researchers compared levels of aeroallergens inside and outside the classroom.",
+              "zh": "研究人员比较了教室内外气传过敏原的含量。"
+            }
+          ]
+        }
+      ],
+      "exampleContexts": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "① （aeroallergen 的复数）气传过敏原；存在于空气中、可能使敏感人群产生过敏反应的物质。",
+          "senseIds": [
+            "reviewed-source-correction:aeroallergens:1"
+          ]
+        }
+      ]
+    }
+  ],
+  "exampleSource": "原创学习例句"
+}

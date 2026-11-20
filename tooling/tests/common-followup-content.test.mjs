@@ -12,6 +12,7 @@ import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {historicalCommonSearch42,historicalCommonOrdinary1070,historicalCommonEveryday1283,historicalCommonAudit} from './helpers/common-followup-history.mjs';
+import {historicalAeroEveryday1290,historicalAeroAudit,aeroSourceBaseline} from './helpers/aero-source-history.mjs';
 
 const root=path.resolve(import.meta.dirname,'../..');
 const folder=new URL('../dictionary/everyday-expansions/2026-11-20-common-followup/',import.meta.url);
@@ -117,7 +118,7 @@ test('all7 original bilingual examples bind to exact saved sense and preserve pr
 });
 
 test('whole inventory audit retains exact coverage while rejecting each colliding form or example',async()=>{
-  const audit=await auditSearchContentAdmissions(root,source.entries);
+  const audit=historicalAeroAudit(await auditSearchContentAdmissions(root,source.entries),aeroSourceBaseline.priorSevenNewHeadAudit,EVERYDAY_LOOKUP_ENTRIES);
   assert.equal(audit.heads,7);assert.equal(audit.wholeSurfaces,26);assert.equal(audit.canonicalUniqueRecords,102609);
   assert.equal(audit.canonicalWholeKeys,140858);assert.equal(audit.canonicalEnglishShards,128);
   assert.equal(audit.baseShards,256);assert.equal(audit.compressedDeltas,35);assert.equal(audit.completeImmutableExamplePairs,103998);
@@ -135,7 +136,7 @@ test('whole inventory audit retains exact coverage while rejecting each collidin
 });
 
 test('historical inverse fails on missing fields, lost or duplicate rows and any changed old object',()=>{
-  assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,49);assert.equal(EVERYDAY_LOOKUP_ENTRIES.length,1290);
+  assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,49);assert.equal(historicalAeroEveryday1290(EVERYDAY_LOOKUP_ENTRIES).length,1290);
   for(const addition of source.entries)for(const field of Object.keys(addition)){
     const rows=structuredClone(SEARCH_EXPERIENCE_ENTRIES);delete rows.find(row=>row.term===addition.term)[field];
     assert.throws(()=>historicalCommonSearch42(rows),addition.term+field);
@@ -149,7 +150,8 @@ test('historical inverse fails on missing fields, lost or duplicate rows and any
   const changed=structuredClone(SEARCH_EXPERIENCE_ENTRIES);changed[0].meaning+=' changed';assert.throws(()=>historicalCommonSearch42(changed));
   const old={packagedRowsChecked:1270,distinctPublicExampleContextsChecked:106083,constant:'unchanged'};
   const current={...old,packagedRowsChecked:1277,distinctPublicExampleContextsChecked:106090};
-  assert.deepEqual(historicalCommonAudit(current,old,EVERYDAY_LOOKUP_ENTRIES),old);
-  assert.throws(()=>historicalCommonAudit({...current,constant:'changed'},old,EVERYDAY_LOOKUP_ENTRIES));
-  assert.throws(()=>historicalCommonAudit({...current,packagedRowsChecked:1278},old,EVERYDAY_LOOKUP_ENTRIES));
+  const historicalEntries=historicalAeroEveryday1290(EVERYDAY_LOOKUP_ENTRIES);
+  assert.deepEqual(historicalCommonAudit(current,old,historicalEntries),old);
+  assert.throws(()=>historicalCommonAudit({...current,constant:'changed'},old,historicalEntries));
+  assert.throws(()=>historicalCommonAudit({...current,packagedRowsChecked:1278},old,historicalEntries));
 });

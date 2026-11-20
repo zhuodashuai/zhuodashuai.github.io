@@ -3,6 +3,7 @@ import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {validateReviewedSensePack,validateSourceCorrectionPolicy} from '../../scripts/build-reviewed-dictionary-senses.mjs';
 import {historicalCommonSearch42,historicalCommonOrdinary1070,historicalCommonEveryday1283} from './common-followup-history.mjs';
+import {historicalAeroReviewed213} from './aero-source-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const lifeDirectory=new URL('../../dictionary/everyday-expansions/2026-11-20-life-common-terms/',import.meta.url);
@@ -77,7 +78,10 @@ export const historicalOrdinary1061=rows=>{
   const ordinary=rows.filter(row=>!row.reviewedCanonicalSense);
   return project(ordinary.length===1061?ordinary:historicalCommonOrdinary1070(ordinary),life.entries,1061,1070,lifeBaseline.ordinary1061Sha256);
 };
-export const historicalSelected210=rows=>project(rows.filter(row=>row.reviewedCanonicalSense),orderedMedical,210,213,medicalBaseline.historicalReviewedRowsSha256);
+export const historicalSelected210=rows=>{
+  const selected=rows.filter(row=>row.reviewedCanonicalSense);
+  return project(selected.length===210?selected:historicalAeroReviewed213(selected),orderedMedical,210,213,medicalBaseline.historicalReviewedRowsSha256);
+};
 
 export function exactLifeCommonTermRows(rows){
   historicalOrdinary1061(rows);

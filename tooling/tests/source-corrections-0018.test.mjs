@@ -12,6 +12,7 @@ import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-release-v4.js';
+import {historicalAeroIndex18,historicalAeroReviewed213} from './helpers/aero-source-history.mjs';
 
 const folder=new URL('../dictionary/reviewed-senses/',import.meta.url),bytes=file=>readFile(new URL(file,folder)),read=async file=>JSON.parse(await bytes(file));
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
@@ -29,7 +30,7 @@ async function all(query){const results=[];let offset=0,total;while(true){const 
 test('the old210 complete objects,17 packs and every prior policy/approval byte remain exact',async()=>{
   const baseline=await read('source-corrections-0018-baseline.json'),heads=new Set(baseline.historicalReviewedHeads);
   assert.equal(heads.size,210);const old=REVIEWED_SENSE_ENTRIES.filter(row=>heads.has(row.term));assert.equal(old.length,210);assert.equal(hash(old),baseline.historicalReviewedRowsSha256);
-  assert.deepEqual(REVIEWED_SENSE_ENTRIES.filter(row=>!heads.has(row.term)).map(row=>row.term).sort(),pack.entries.map(row=>row.term).sort());
+  assert.deepEqual(historicalAeroReviewed213(REVIEWED_SENSE_ENTRIES).filter(row=>!heads.has(row.term)).map(row=>row.term).sort(),pack.entries.map(row=>row.term).sort());
   for(const[file,pin]of Object.entries(baseline.immutableFiles))assert.equal(hash(await bytes(file)),pin,file);
   const index=await read('index.json');assert.deepEqual(index.batches.slice(0,17),baseline.priorBatches);
   assert.equal(index.retainedAlternativesPolicy,baseline.priorRetainedPolicy);assert.equal(index.sourceCorrectionPolicy,baseline.priorSourceCorrectionPolicy);
@@ -58,7 +59,7 @@ test('independent final metadata approval admits the exact three original meanin
 });
 
 test('new policy registrations cannot replace shipped0017 files or overlap evidence paths',async()=>{
-  const index=await read('index.json'),registrations=sourceCorrectionRegistrations(index);
+  const index=historicalAeroIndex18(await read('index.json')),registrations=sourceCorrectionRegistrations(index);
   assert.deepEqual(registrations,[{policy:'source-corrections-0017-accuracy-policy.json',legacyExamples:'source-corrections-0017-legacy-examples.json'},
     {policy:policyFile,legacyExamples:'source-corrections-0018-legacy-examples.json'}]);
   for(const change of[value=>delete value.sourceCorrectionPolicy,value=>value.sourceCorrectionPolicy=policyFile,

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
+import {historicalAeroEveryday1290,historicalAeroAudit} from './aero-source-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const directory=new URL('../../dictionary/everyday-expansions/2026-11-20-common-followup/',import.meta.url);
@@ -30,7 +31,7 @@ function inverse(rows,oldCount,oldHash){
 }
 export const historicalCommonSearch42=rows=>inverse(rows,42,baseline.priorSearch42Sha256);
 export const historicalCommonOrdinary1070=rows=>inverse(rows,1070,baseline.priorOrdinary1070Sha256);
-export const historicalCommonEveryday1283=rows=>inverse(rows,1283,baseline.priorEveryday1283Sha256);
+export const historicalCommonEveryday1283=rows=>inverse(rows.length===1283?rows:historicalAeroEveryday1290(rows),1283,baseline.priorEveryday1283Sha256);
 
 export function historicalCommonPacks4(packs){
   assert.equal(packs.length,5);assert.deepEqual(packs[4].entries,source.entries);
@@ -40,6 +41,11 @@ export function historicalCommonPacks4(packs){
 }
 
 export function historicalCommonAudit(audit,expectedBeforeSeven,rows){
+  if(rows.length===1292){
+    audit=historicalAeroAudit(audit,{...expectedBeforeSeven,packagedRowsChecked:expectedBeforeSeven.packagedRowsChecked+7,
+      distinctPublicExampleContextsChecked:expectedBeforeSeven.distinctPublicExampleContextsChecked+7},rows);
+    rows=historicalAeroEveryday1290(rows);
+  }
   historicalCommonEveryday1283(rows);
   assert.equal(rows.length,1290);
   assert.deepEqual(audit,{...expectedBeforeSeven,
