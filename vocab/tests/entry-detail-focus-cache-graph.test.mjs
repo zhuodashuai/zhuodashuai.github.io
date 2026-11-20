@@ -7,7 +7,8 @@ import {fingerprintChineseQueryEngine} from '../../tooling/scripts/build-chinese
 import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-release.js';
 import {ENTRY_DETAIL_FOCUS_URLS,restoreEntryDetailFocusShell,restoreEntryDetailFocusShellIfCurrent,restoreEntryDetailFocusServiceWorkerShell,restoreEntryDetailFocusServiceWorkerShellIfCurrent} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
-const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
+import {restoreMemberSpellingShellIfCurrent,restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
+const read=async file=>{const text=await readFile(new URL('../'+file,import.meta.url),'utf8');return file==='sw.js'?restoreMemberSpellingServiceWorkerShell(text):restoreMemberSpellingShellIfCurrent(file,text);};
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const urls=text=>JSON.parse('['+text.match(/const SHELL = \[([\s\S]*?)\];/u)[1].replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']');
 

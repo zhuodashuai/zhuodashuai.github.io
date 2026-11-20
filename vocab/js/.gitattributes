@@ -1,0 +1,27 @@
+# Exact byte-bound lookup modules must survive Windows automatic line endings.
+# Other historical modules and data files retain their existing policies.
+chinese-query-cache-format.js text eol=lf
+chinese-query-cache-release.js text eol=lf
+chinese-query-cache.js text eol=lf
+chinese-ranking-release.js text eol=lf
+chinese-ranking.js text eol=lf
+chinese-related-common.js text eol=lf
+chinese-search.js text eol=lf
+core-dictionary.js text eol=lf
+core-pos-corrections.js text eol=lf
+dictionary-form-evidence.js text eol=lf
+dictionary-literal-heads-data.js text eol=lf
+english-laundry-phrase-evidence.js text eol=lf
+english-surface-variants.js text eol=lf
+everyday-lookup-data.js text eol=lf
+everyday-lookup.js text eol=lf
+expanded-dictionary.js text eol=lf
+member-dictionary-manifest.js text eol=lf
+personal-dictionary.js text eol=lf
+reading-source.js text eol=lf
+reviewed-canonical-forms.js text eol=lf
+reviewed-senses-data.js text eol=lf
+search-experience-data.js text eol=lf
+selected-common-sense-data.js text eol=lf
+selected-common-sense.js text eol=lf
+wordbook-schema.js text eol=lf

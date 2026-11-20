@@ -1,3 +1,4 @@
+import {restoreMemberSpellingShellIfCurrent,restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -5,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {LIFE_COVERAGE_URLS,restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {restoreSearchCommonTermsShell} from '../../tooling/tests/helpers/search-common-terms-shell.mjs';
 import {restoreEntryDetailFocusShellIfCurrent,restoreEntryDetailFocusServiceWorkerShellIfCurrent} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
-const read=async file=>{const text=await readFile(new URL('../'+file,import.meta.url),'utf8');return file==='sw.js'?restoreEntryDetailFocusServiceWorkerShellIfCurrent(text):restoreEntryDetailFocusShellIfCurrent(file,text);};
+const read=async file=>{const text=await readFile(new URL('../'+file,import.meta.url),'utf8');return file==='sw.js'?restoreEntryDetailFocusServiceWorkerShellIfCurrent(restoreMemberSpellingServiceWorkerShell(text)):restoreEntryDetailFocusShellIfCurrent(file,restoreMemberSpellingShellIfCurrent(file,text));};
 const sha=text=>createHash('sha256').update(text).digest('hex');
 
 test('life coverage prepends only32 explicit URLs and retains every354 prior offline URL in order',async()=>{
