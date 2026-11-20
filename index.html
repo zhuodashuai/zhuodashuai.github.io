@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#30263b">
+  <meta name="theme-color" content="#0b1520">
   <meta name="author" content="Qianjun Zhuo">
   <meta name="description" content="Qianjun Zhuo studies simulation-based safety validation, learning-based control, and formal explanations for neural networks at Penn and UNSW Sydney.">
   <link rel="canonical" href="https://zhuodashuai.github.io/">
@@ -12,14 +12,15 @@
   <meta property="og:title" content="Qianjun Zhuo | Autonomous Systems &amp; Formal AI">
   <meta property="og:description" content="Research experience, projects, education, teaching and service.">
   <meta property="og:url" content="https://zhuodashuai.github.io/">
-  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-angle.png">
+  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-dark-fallback.png">
   <meta property="og:image:alt" content="A simulated pendulum angle briefly exceeds its safety limit after a disturbance.">
   <meta name="twitter:card" content="summary_large_image">
   <title>Qianjun Zhuo | Autonomous Systems &amp; Formal AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/academic-profile.css">
+  <script type="module" src="assets/pendulum-viewer.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,47 +39,66 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <div class="page">
-    <header class="sidebar">
-      <div class="sidebar-inner">
+    <header class="site-header">
+      <div class="header-inner">
         <a class="site-name" href="#profile">Qianjun Zhuo</a>
-        <p>UNSW Sydney<br>University of Pennsylvania exchange</p>
         <nav class="navigation" aria-label="Primary navigation">
-          <a href="#profile">About</a>
           <a href="#research">Research</a>
           <a href="#work">Projects</a>
           <a href="#education">Education</a>
-          <a href="#experience">Teaching &amp; service</a>
-          <a href="#recognition">Recognition</a>
+          <a href="#experience">Teaching</a>
+          <a href="#recognition">Honours</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div class="sidebar-links" aria-label="Profile links">
-          <a href="mailto:z5528306@ad.unsw.edu.au">Email</a>
-          <a href="https://github.com/zhuodashuai">GitHub</a>
-          <a href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
-        </div>
+        <a class="header-github" href="https://github.com/zhuodashuai">GitHub</a>
       </div>
     </header>
 
     <main id="main" class="content">
       <section id="profile" class="intro" aria-labelledby="profile-title">
-        <div class="intro-copy">
-          <p class="label">UNSW Sydney · Penn xLAB</p>
-          <h1 id="profile-title">Qianjun Zhuo</h1>
-          <p class="lead">Autonomous systems safety and formal explanations for neural networks</p>
-          <p>I’m an undergraduate at UNSW Sydney studying actuarial studies and mathematics, currently on a 2026–27 academic-year exchange at the Wharton School, University of Pennsylvania.</p>
-          <p>At Penn’s <a href="https://xlab.upenn.edu/">Safe Autonomous Systems Lab</a>, I use simulation and probability to study how feedback controllers behave under uncertainty. At UNSW, I study how to verify neural-network behaviour and explain individual predictions with formal guarantees.</p>
-          <div class="intro-links">
-            <a class="button primary" href="#research">Research experience</a>
-            <a class="button" href="#contact">Contact</a>
+        <div class="intro-inner">
+          <div class="intro-title">
+            <p class="label">UNSW Sydney <span aria-hidden="true">/</span> Penn xLAB</p>
+            <h1 id="profile-title">Qianjun <em>Zhuo</em></h1>
+            <p class="lead">Autonomous systems safety<br class="wide-break"> and formal explainability</p>
+          </div>
+          <figure class="hero-figure" id="trace-viewer" aria-labelledby="trace-title">
+            <div class="trace-heading">
+              <div>
+                <p class="label">Penn xLAB · Simulation case study</p>
+                <h2 id="trace-title">Inverted pendulum</h2>
+              </div>
+              <a href="assets/pendulum-safety-trace.png">Full trace</a>
+            </div>
+            <img class="trace-fallback" src="assets/pendulum-dark-fallback.png" width="1120" height="540" alt="The simulated pendulum rises to approximately 0.29 radians after a disturbance from 1 to 1.5 seconds, exceeding its 0.20-radian angle limit." fetchpriority="high">
+            <div class="trace-interactive" hidden>
+              <div class="trace-scene">
+                <canvas id="pendulum-scene" aria-hidden="true"></canvas>
+                <div class="trace-annotation">
+                  <div class="trace-angle"><output id="trace-angle" aria-label="Current angle in radians" aria-live="off">0.289</output> <span>rad</span></div>
+                  <div id="trace-status" class="trace-status">Limit exceeded</div>
+                </div>
+              </div>
+              <canvas id="pendulum-chart" role="img" aria-label="Recorded simulated pendulum angle versus time. The trace peaks at about 0.29 radians, above the 0.20-radian limit. The disturbance starts at 1 second and ends at 1.5 seconds."></canvas>
+              <div class="trace-controls">
+                <button id="trace-play" type="button">Replay</button>
+                <label class="visually-hidden" for="trace-time">Simulation time</label>
+                <input type="range" id="trace-time" min="0" max="5" step="0.01" value="1.76">
+                <output id="trace-clock" for="trace-time" aria-live="off">1.76 s</output>
+              </div>
+            </div>
+            <figcaption>The simulated angle crosses the 0.20 rad safety limit after a disturbance. The full trace includes angular velocity and applied torque.</figcaption>
+          </figure>
+          <div class="intro-details">
+            <p>I’m an undergraduate at UNSW Sydney studying actuarial studies and mathematics, currently on a 2026–27 academic-year exchange at the Wharton School, University of Pennsylvania.</p>
+            <p>At Penn’s <a href="https://xlab.upenn.edu/">Safe Autonomous Systems Lab</a>, I use simulation and probability to study how feedback controllers behave under uncertainty. At UNSW, I study how to verify neural-network behaviour and explain individual predictions with formal guarantees.</p>
+            <div class="intro-links">
+              <a class="button primary" href="#research">Research experience</a>
+              <a class="button" href="mailto:z5528306@ad.unsw.edu.au">Email</a>
+              <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
+            </div>
           </div>
         </div>
-        <figure class="hero-figure">
-          <p class="label">From the pendulum case study</p>
-          <a class="plot-link" href="assets/pendulum-safety-trace.png" aria-label="Open the full pendulum simulation trace">
-            <img src="assets/pendulum-angle.png" width="1440" height="792" alt="Pendulum angle rises to about 0.29 radians after a disturbance from 1 to 1.5 seconds, passing the 0.20-radian limit before returning towards zero." fetchpriority="high">
-          </a>
-          <figcaption>A brief disturbance drives the simulated pendulum past its angle limit. The full trace also shows angular velocity and applied torque.</figcaption>
-        </figure>
       </section>
 
       <section id="research" class="section" aria-labelledby="research-title">
@@ -122,6 +142,12 @@
             </div>
             <p class="entry-links"><a href="https://github.com/SVF-tools/ACT">ACT toolkit</a> <a href="https://arxiv.org/abs/1811.10656">Abductive explanations paper</a></p>
           </div>
+          <figure class="research-figure">
+            <a href="assets/abductive-explanations.webp" aria-label="Open the full worked Boolean example">
+              <img src="assets/abductive-explanations.webp" width="1440" height="811" alt="Worked example in which fixing c to 1 or fixing both a and b to 1 suffices to guarantee a positive Boolean prediction." loading="lazy">
+            </a>
+            <figcaption>A second worked example from my paper-reading presentation. Two feature sets suffice for the same prediction.</figcaption>
+          </figure>
         </article>
       </section>
 
