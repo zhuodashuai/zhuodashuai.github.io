@@ -161,10 +161,17 @@ test("mutable script, style and manifest assets revalidate online before using t
   assert.ok(genericCacheFirst > mutableNetworkFirst, "only immutable assets should reach cache-first");
 });
 
-test("the academic profile provides a discoverable route to the word cabinet", () => {
-  assert.match(profileHtml, /href="vocab\/"[^>]*>卓的单词本/);
+test("the academic profile provides a discoverable route to the word cabinet", async () => {
+  assert.match(profileHtml, /<a\b[^>]*href="vocab\/"[^>]*>\s*(?:Wordbook|卓的单词本)\s*<\/a>/u);
   assert.match(vocabHtml, /href="https:\/\/zhuodashuai\.github\.io\/"[^>]*>学术主页/);
-  assert.match(profileHtml, /Owner-only GitHub publishing/);
+  const ownerLogin = vocabHtml.match(/<a\b[^>]*\bid="lookup-owner-login"[^>]*>/u)?.[0];
+  assert(ownerLogin, "The public wordbook must retain its explicit owner login");
+  assert.match(ownerLogin, /href="https:\/\/zhuo-wordbook-api\.zhuo-wordbook-api\.workers\.dev\/\?auth=owner#library-lookup"/u);
+  const collect = vocabHtml.match(/<button\b[^>]*\bid="lookup-collect"[^>]*>/u)?.[0];
+  assert(collect, "The public wordbook must retain its collection control");
+  assert.match(collect, /\shidden(?:\s|>)/u, "Collection starts hidden before authentication");
+  const lookupUi = await readFile(new URL("../js/library-lookup-ui.js", import.meta.url), "utf8");
+  assert.match(lookupUi, /get\("lookup-collect"\)\.hidden = !owner \|\| !selected \|\| saved \|\| value\.pendingCount > 0/u);
   assert.doesNotMatch(profileHtml, /optional private GitHub backup/);
 });
 
