@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { expectedExampleHeadingMeaning } from './expected-example-heading.mjs';
 import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { EVERYDAY_LOOKUP_ENTRIES } from "../../../vocab/js/everyday-lookup-data.js";
@@ -35,7 +36,7 @@ test("100 new examples load under their exact headword, selected POS and Chinese
     const sense = page.locator("#dictionary-example-content .example-sense");
     await expect(sense, row.term).toHaveCount(1);
     await expect(sense.locator("summary"), row.term).toContainText(row.partOfSpeech);
-    await expect(sense.locator("summary"), row.term).toContainText(row.meaningZh);
+    await expect(sense.locator("summary"), row.term).toContainText(expectedExampleHeadingMeaning(row.meaningZh));
     await expect(sense.locator('[lang="en"]'), row.term).toHaveText(row.en);
     await expect(sense.locator('[lang="zh-CN"]'), row.term).toHaveText(row.zh);
   }

@@ -1,4 +1,5 @@
 import { queryRequiredDictionaryResult } from './required-dictionary-result.mjs';
+import { expectedExampleHeadingMeaning } from './expected-example-heading.mjs';
 
 // These two reviewed queries select their retained canonical source sense, not
 // the newer editorial whole card. The old identities and complete DTOs below
@@ -53,7 +54,7 @@ export async function verifyIntentViewport({ context, base, fixture, ordinaryRow
       await expect(page.locator('#dictionary-example-panel')).toBeVisible({ timeout: 20000 });
       const detail = page.locator('#dictionary-example-content details');
       await expect(detail).toHaveCount(1, { timeout: 20000 });
-      await expect(detail.locator('summary')).toHaveText('1. ' + expected.example.partOfSpeech + ' · ' + expected.example.meaningZh);
+      await expect(detail.locator('summary')).toHaveText('1. ' + expected.example.partOfSpeech + ' · ' + expectedExampleHeadingMeaning(expected.example.meaningZh));
       if (!await detail.evaluate(n => n.open)) await detail.locator('summary').click();
       await expect(detail.locator('p[lang=en]')).toHaveText(expected.example.examples.map(pair => pair.en));
       await expect(detail.locator('p[lang="zh-CN"]')).toHaveText(expected.example.examples.map(pair => pair.zh));

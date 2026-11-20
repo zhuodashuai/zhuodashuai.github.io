@@ -1,4 +1,5 @@
 import { queryRequiredDictionaryResult } from './required-dictionary-result.mjs';
+import { expectedExampleHeadingMeaning } from './expected-example-heading.mjs';
 import { createHash } from 'node:crypto';
 
 // Read-only browser checks for the exact independent twelve-head fixture.
@@ -248,7 +249,7 @@ export async function verifyClassroomViewport({ context, base, fixture, modules,
       await expect(page.locator('#dictionary-source')).toHaveText('来源：' + row.primary.source + ' · ' + row.primary.license);
       await expect(page.locator('#dictionary-example-panel')).toBeVisible({ timeout: 20000 });
       const details = page.locator('#dictionary-example-content details'); await expect(details).toHaveCount(1, { timeout: 20000 });
-      await expect(details.locator('summary')).toHaveText('1. ' + row.example.partOfSpeech + ' · ' + row.example.meaning);
+      await expect(details.locator('summary')).toHaveText('1. ' + row.example.partOfSpeech + ' · ' + expectedExampleHeadingMeaning(row.example.meaning));
       if (!await details.evaluate(node => node.open)) await details.locator('summary').click();
       await expect(details.locator('p[lang=en]')).toHaveText(row.example.pairs.map(p => p.en));
       await expect(details.locator('p[lang="zh-CN"]')).toHaveText(row.example.pairs.map(p => p.zh));
