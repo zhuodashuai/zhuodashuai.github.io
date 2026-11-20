@@ -1,5 +1,5 @@
 import { getHealth, getOwnerWordbook, getSession, logout, organizeWithAi, ownerLoginUrl, OwnerApiError, publishMutation, recognizeEntrySynonyms } from "./owner-api.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v108.js?v=118";
+import { createEntryDetailController } from "./entry-detail-v108.js?v=122";
 import {
   claimNextOperation,
   completeOperation,

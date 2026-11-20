@@ -409,7 +409,12 @@ export function createEntryDetailController({ root = document, getEntries = () =
       : null;
     returnFocus = null;
     returnFocusKey = null;
-    target?.focus({ preventScroll: true });
+    // The native close event is queued. Restore an abandoned focus, but do
+    // not overwrite a new control the reader already chose after closing.
+    const focused = root.activeElement;
+    if (!focused || focused === root.body || refs.entryDialog.contains(focused)) {
+      target?.focus({ preventScroll: true });
+    }
   });
 
   return {

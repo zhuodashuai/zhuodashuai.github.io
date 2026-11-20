@@ -27,6 +27,11 @@ const SHELL = [
   "./js/personal-app-v108.js?v=119",
   "./js/personal-spelling.js?v=119",
 
+  "./js/public-app-v113.js?v=122",
+  "./js/owner-app-v108.js?v=122",
+  "./js/entry-detail-v113.js?v=122",
+  "./js/entry-detail-v108.js?v=122",
+
   "./js/public-app-v113.js?v=121",
   "./js/personal-app-v108.js?v=118",
   "./js/owner-app-v108.js?v=118",

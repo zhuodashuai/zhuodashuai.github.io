@@ -8,17 +8,26 @@ import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-
 import {MEMBER_SPELLING_PANEL_LINE,MEMBER_SPELLING_URLS,restoreMemberSpellingShell,
  restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
+import {ENTRY_DETAIL_FOCUS_URLS,restoreEntryDetailFocusServiceWorkerShell} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
 const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 
-test('member spelling adds only two fresh119 URLs before all386 unchanged offline aliases',async()=>{
+test('the combined392 shell keeps member119, parent focus122 and all386 unchanged offline aliases in exact order',async()=>{
  const sw=await read('sw.js'),body=sw.match(/const SHELL = \[([\s\S]*?)\];/u)?.[1];assert(body);
  const urls=JSON.parse('['+body.replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']');
- assert.equal(urls.length,388);assert.equal(new Set(urls).size,388);assert.deepEqual(urls.slice(0,2),MEMBER_SPELLING_URLS);
- assert.equal(sha(JSON.stringify(urls.slice(2))),'488020e20f0a4f7af43463279a932c8959fdd72d852a3afedd8e762cdb646a0b');
+ assert.equal(urls.length,392);assert.equal(new Set(urls).size,392);assert.deepEqual(urls.slice(0,2),MEMBER_SPELLING_URLS);
+ assert.deepEqual(urls.slice(2,6),ENTRY_DETAIL_FOCUS_URLS);
+ assert.equal(sha(JSON.stringify(urls.slice(6))),'488020e20f0a4f7af43463279a932c8959fdd72d852a3afedd8e762cdb646a0b');
  assert(sw.includes('const CACHE_NAME = "zhuo-wordbook-v100";'));assert(!urls.some(url=>url.includes('/api/')||url.includes('/data/chinese-query-cache/')));
  assert(!urls.includes('./js/personal-spelling.js'),'No old bare consumer exists for this new helper');
- const prior=restoreMemberSpellingServiceWorkerShell(sw);assert.doesNotThrow(()=>restoreLifeCoverageServiceWorkerShell(sw));
+ const prior=restoreMemberSpellingServiceWorkerShell(sw);assert.equal(urls.length-2,390);
+ const old386=restoreEntryDetailFocusServiceWorkerShell(prior);assert.equal(JSON.parse('['+old386.match(/const SHELL = \[([\s\S]*?)\];/u)[1].replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']').length,386);
+ const eol=old386.includes('\r\n')?'\r\n':'\n',anchor='const SHELL = ['+eol;
+ const memberPrefix=MEMBER_SPELLING_URLS.map(url=>'  '+JSON.stringify(url)+',').join(eol)+eol+eol;
+ const historical388=old386.replace(anchor,anchor+memberPrefix);
+ assert.equal(restoreMemberSpellingServiceWorkerShell(historical388),old386,'The exact original388 worker pins still authenticate');
+ assert.equal(restoreMemberSpellingServiceWorkerShell(historical388.replace(/\r\n/gu,'\n').replace(/\n/gu,'\r\n')),old386.replace(/\r\n/gu,'\n').replace(/\n/gu,'\r\n'));
+ assert.doesNotThrow(()=>restoreLifeCoverageServiceWorkerShell(sw));
  assert.equal(restoreMemberSpellingServiceWorkerShell(sw.replace(/\n/gu,'\r\n')),prior.replace(/\n/gu,'\r\n'));
  for(const changed of [sw+'// other\n',sw.replace('zhuo-wordbook-v100','zhuo-wordbook-v101'),sw.replace('personal-spelling.js?v=119','personal-spelling.js?v=118')])assert.throws(()=>restoreMemberSpellingServiceWorkerShell(changed),/snapshot changed/u);
 });

@@ -33,15 +33,15 @@ test('fresh search/data/example reader closure has exact118 edges while compatib
     ['selected-legacy-examples.js','reviewed-senses-data.js'],
     ['dictionary-examples-current-v4.js','everyday-lookup.js'],['dictionary-examples-current-v4.js','selected-common-sense.js'],
     ['dictionary-examples-current-v4.js','selected-legacy-examples.js'],
-    ['public-app-v113.js','entry-detail-v113.js'],['public-app.js','entry-detail-v113.js'],
-    ['owner-app-v108.js','entry-detail-v108.js'],['personal-app-v108.js','dictionary-examples-ui-v108.js'],
+    ['public-app-v113.js','entry-detail-v113.js',1,122],['public-app.js','entry-detail-v113.js',1,122],
+    ['owner-app-v108.js','entry-detail-v108.js',1,122],['personal-app-v108.js','dictionary-examples-ui-v108.js'],
     ['entry-detail-v113.js','dictionary-examples-ui-v108.js'],['entry-detail-v108.js','dictionary-examples-ui-v108.js'],
     ['personal-app-v108.js','personal-lookup-flow.js',2],['personal-app.js','personal-lookup-flow.js',2],
   ];
-  for(const[file,target,count=1]of edges){
+  for(const[file,target,count=1,version=118]of edges){
     const source=await read('js/'+file);
     const imports=[...source.matchAll(/\b(?:from\s+|import\s*)["'](\.\/[^"']+)["']/gu)].map(match=>match[1]);
-    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v=118'),file+' -> '+target);
+    assert.deepEqual(imports.filter(url=>url.slice(2).split('?')[0]===target),Array(count).fill('./'+target+'?v='+version),file+' -> '+target);
   }
   for(const[file,target]of [['dictionary-app-v109.js','dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','dictionary-examples-current-v4.js'],['dictionary-app-v109.js','dictionary-suggestions.js'],['dictionary-app.js','dictionary-suggestions.js']]){
     const source=await read('js/'+file);
