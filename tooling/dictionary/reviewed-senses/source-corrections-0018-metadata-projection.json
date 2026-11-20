@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "status": "Final metadata/context projection only; no independent approval copied into new compiler review",
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "originalSourceByteSha256": "f05373f774a5ead9fd44df7aac748386b9d2e4fc67cf4cc59b70c94c8d79e62f",
+  "originalCompanionByteSha256": "746544be4ec16686e5e77272ae36d57cc469bae03dc097a02dc79477f1f07ba0",
+  "originalIndependentLanguageReviewByteSha256": "5d68a846f14f099abf189581ba685d6f4ab7eb975fd58b9bb145c42120834297",
+  "sourceByteSha256": "73cb80ab94162ca86a1a6b6918a5de39b69117f925df5f72e160080cc32efc96",
+  "sourceSha256": "2469757d604d95eafbcb990ba54cedd8ed2ea87eedcc2e8e26f41c64d3aa5769",
+  "allowedDifferences": [
+    "Remove author-draft status/reviewer/approval fields from pack metadata",
+    "Add exact1sense/1context metadata per unchanged original meaning/POS/pair",
+    "No lexical/POS/alias/form/example/reference/canonicalID/hash changes"
+  ],
+  "old210PreservedSha256": "2e71b7adae4a1a0f94e24d23832f381df8a18ba19775679e6691030eee56b737",
+  "reviewer": "PENDING separate exact final review",
+  "entries": 3,
+  "newPairs": 3
+}

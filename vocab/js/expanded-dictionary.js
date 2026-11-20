@@ -1,23 +1,25 @@
 import { canonicalizeLookupInput } from "./wordbook-schema.js?v=82";
 import { personalDictionaryResult } from "./personal-dictionary.js?v=97";
-import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=117";
+import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChineseSearchEntry, matchesChineseSearchMeaning, requiresWholeChineseSourceAtom, matchesWholeChineseSourceAtom } from "./chinese-search.js?v=118";
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
   literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery,
-  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=117";
+  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=118";
 import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
-  createChineseRankingContext } from "./chinese-ranking.js?v=117";
+  createChineseRankingContext } from "./chinese-ranking.js?v=118";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=117';
-import { rejectedReviewedDictionaryForms } from './dictionary-form-evidence.js?v=117';
-import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=117';
-import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=117';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=118';
+import { rejectedReviewedDictionaryForms } from './dictionary-form-evidence.js?v=118';
+import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=118';
+import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=118';
 import { reviewedCanonicalFormTarget, isReviewedCanonicalFormCandidate,
-  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=117';
+  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=118';
+import { isLaundryHangSourceCandidate, authenticatedLaundryHangSource,
+  rejectsLaundryPhraseRecovery, authenticatedLaundryPhraseTarget } from './english-laundry-phrase-evidence.js?v=118';
 
 // Generated from this engine's complete source/import closure and catalogue
 // inputs. The builder zeroes only this exact marker while computing its hash.
-export const CHINESE_QUERY_ENGINE_BINDING = "417d953545cd58d0858ea59eb7be8bd6ccc34caa4d7e57b8218050fe634918eb";
+export const CHINESE_QUERY_ENGINE_BINDING = "81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
@@ -41,6 +43,7 @@ const rejectedFormRecords = new WeakMap();
 const reviewedSurfaceRecords = new WeakMap();
 const reviewedCanonicalFormRecords = new WeakMap();
 const reviewedCanonicalFormResults = new WeakSet();
+const laundryHangRecords = new WeakMap();
 // Only this module's exact packaged lookups can authorize a formatting-only
 // recovery. Caller-provided DTO fields cannot grant the same permission.
 const packagedEnglishResults = new WeakSet();
@@ -151,6 +154,11 @@ function parseEnglish(payload, manifest, descriptor) {
       meaning: row.meaning, forms: Object.freeze([...row.forms]), source: row.source, variants: Object.freeze(variants) });
     const rejectedForms = rejectedReviewedDictionaryForms(row,manifest.version);
     if (rejectedForms.length) rejectedFormRecords.set(parsed,new Set(rejectedForms));
+    if (isLaundryHangSourceCandidate(row.id,row.term)
+      && authenticatedLaundryHangSource(JSON.stringify(row),manifest.version,manifest.integritySha256,
+        JSON.stringify(descriptor),JSON.stringify(manifest.sources.get(row.source)))) {
+      laundryHangRecords.set(parsed,manifest.integritySha256);
+    }
     if (isReviewedEnglishSurfaceCandidate(row.id, row.term)) {
       const surface = authenticatedEnglishSurface(JSON.stringify(row), manifest.version, manifest.integritySha256,
         JSON.stringify(descriptor), JSON.stringify(manifest.sources.get(row.source)));
@@ -470,15 +478,26 @@ async function inflectedEnglishPhrase(query, value, context) {
   if (!parts || value.split(/\s+/u).length > 8) return { query, results: [], hasMore: false };
   const first = fold(parts[1]), { manifest, client, fetchImpl, timeoutMs } = context;
   const shard = await shardFor("en", bucketFor(first), manifest, client, fetchImpl, timeoutMs);
-  const lemmas = new Set((shard.lookup.get(first) || []).filter(ref => ref.kind === "form"
+  const sourceRecords = (shard.lookup.get(first) || []).filter(ref => ref.kind === "form"
       && !rejectedFormRecords.get(shard.records.get(ref.id))?.has(first))
-    .map(ref => shard.records.get(ref.id)).filter(record => verbRole(record.partOfSpeech) && fold(record.term) !== first)
-    .map(record => record.term));
+    .map(ref => shard.records.get(ref.id)).filter(record => verbRole(record.partOfSpeech) && fold(record.term) !== first);
+  const lemmas = new Set(sourceRecords.map(record=>record.term));
   const matches = new Map();
   for (const lemma of lemmas) {
     if (context.signal?.aborted) throw stopped();
     const found = await exactEnglishTarget(`${lemma} ${parts[2]}`, context);
     if (!found.results.length || !found.results.every(row => verbRole(row.partOfSpeech))) continue;
+    // A genuine execution-sense hanged relation cannot authorize laundry
+    // drying. This private source proof applies only to the exact new phrase;
+    // complete literal/form matches and every other hang context run unchanged.
+    if (packagedEnglishResults.has(found) && rejectsLaundryPhraseRecovery(first,fold(`${lemma} ${parts[2]}`))) {
+      if (!authenticatedLaundryPhraseTarget() || !sourceRecords.filter(record=>record.term===lemma)
+        .every(record=>laundryHangRecords.get(record)===manifest.integritySha256)) {
+        const error=new Error('该短语词形的完整语境尚未核对，请输入英文原形查询。');
+        error.code='unreviewed_dictionary_form';throw error;
+      }
+      continue;
+    }
     // A new derivation cannot borrow a closed, newly selected reviewed sense.
     // Its old-source identity must pass the existing form guard as well.
     const allowed = guardLegacySupplementaryResult(found);

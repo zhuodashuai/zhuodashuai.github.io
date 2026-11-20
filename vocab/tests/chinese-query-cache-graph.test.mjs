@@ -1,4 +1,5 @@
 import {restoreSearchCommonTermsShell} from '../../tooling/tests/helpers/search-common-terms-shell.mjs';
+import {restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {dictionaryOfflineWarmUrl} from '../js/dictionary-offline-warm-v108.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -7,7 +8,7 @@ import {createHash} from 'node:crypto';
 import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese-query-cache-shell.mjs';
 import {restoreSearchCoverageFollowupShell} from '../../tooling/tests/helpers/search-coverage-followup-shell.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
-const read=async name=>readFile(new URL('../'+name,import.meta.url),'utf8');
+const read=async name=>{const text=await readFile(new URL('../'+name,import.meta.url),'utf8');return name==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
 // Keep the historical non-root URL subset/hashes unchanged; the new common-terms
 // graph gate independently parses the complete literal array, including './'.
 const sw=await read('sw.js');
@@ -72,20 +73,20 @@ test('cache corruption reload bypasses stored packets while private APIs remain 
  assert.match(sw.slice(reload,reload+460),/reloadPublicShard\(request, event\)/u);
 });
 
-test('current117 imports are explicit and archived104,114 andplan-only95 edges stay finite',async()=>{
+test('current118 imports are explicit and archived104,114 andplan-only95 edges stay finite',async()=>{
  for(const[file,targets]of[
-  ['js/dictionary-entry-v109.js',['./dictionary-app-v109.js?v=117','./dictionary-offline-warm-v108.js?v=117']],
-  ['js/dictionary-app-v109.js',['./expanded-dictionary.js?v=117','./dictionary-suggestions.js?v=117']],
-  ['js/dictionary-app.js',['./expanded-dictionary.js?v=117','./dictionary-suggestions.js?v=117']],
-  ['js/expanded-dictionary.js',['./chinese-query-cache.js?v=117','./chinese-search.js?v=117','./chinese-ranking.js?v=117','./everyday-lookup.js?v=117','./dictionary-form-evidence.js?v=117','./reviewed-canonical-forms.js?v=117']],
-  ['js/chinese-ranking.js',['./chinese-search.js?v=117']],
-  ['js/personal-lookup-flow.js',['./chinese-search.js?v=117','./everyday-lookup.js?v=117']],
-  ['js/public-app-v113.js',['./library-lookup-ui.js?v=117','./entry-detail-v113.js?v=117']],
+  ['js/dictionary-entry-v109.js',['./dictionary-app-v109.js?v=118','./dictionary-offline-warm-v108.js?v=118']],
+  ['js/dictionary-app-v109.js',['./expanded-dictionary.js?v=118','./dictionary-suggestions.js?v=118']],
+  ['js/dictionary-app.js',['./expanded-dictionary.js?v=118','./dictionary-suggestions.js?v=118']],
+  ['js/expanded-dictionary.js',['./chinese-query-cache.js?v=118','./chinese-search.js?v=118','./chinese-ranking.js?v=118','./everyday-lookup.js?v=118','./dictionary-form-evidence.js?v=118','./reviewed-canonical-forms.js?v=118']],
+  ['js/chinese-ranking.js',['./chinese-search.js?v=118']],
+  ['js/personal-lookup-flow.js',['./chinese-search.js?v=118','./everyday-lookup.js?v=118']],
+  ['js/public-app-v113.js',['./library-lookup-ui.js?v=118','./entry-detail-v113.js?v=118']],
   ['js/public-app-v108.js',['./library-lookup-ui.js?v=114']],
   ['js/dictionary-app-v108.js',['./expanded-dictionary.js?v=104']],
   ['js/dictionary-entry.js',['./dictionary-app.js?v=104']],
   ['js/dictionary-app.js',['./chinese-search.js?v=95']],
-  ['js/personal-app-v108.js',['./chinese-search.js?v=95','./personal-lookup-flow.js?v=117']]
+  ['js/personal-app-v108.js',['./chinese-search.js?v=95','./personal-lookup-flow.js?v=118']]
  ]){
   const source=await read(file);for(const target of targets)assert(source.includes(target),file+'→'+target);
  }

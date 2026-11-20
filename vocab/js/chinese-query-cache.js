@@ -1,5 +1,5 @@
-import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=117';
-import { normalizeChineseQueryCacheQuery, chineseQueryCacheBucket } from './chinese-query-cache-format.js?v=117';
+import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=118';
+import { normalizeChineseQueryCacheQuery, chineseQueryCacheBucket } from './chinese-query-cache-format.js?v=118';
 
 // Build-authenticated complete public results, not another translation source.
 // This module creates no private English-parser origin or collection authority.

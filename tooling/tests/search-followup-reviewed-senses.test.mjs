@@ -8,6 +8,7 @@ import {REVIEWED_SENSE_ENTRIES} from '../../vocab/js/reviewed-senses-data.js';
 import {SEARCH_EXPERIENCE_ENTRIES} from '../../vocab/js/search-experience-data.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {historicalSelected207, historicalSearch20} from './helpers/search-common-terms-history.mjs';
+import {historicalSelected210} from './helpers/life-coverage-history.mjs';
 
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const bytes=path=>readFile(new URL(path,import.meta.url));
@@ -15,6 +16,7 @@ const read=async path=>JSON.parse(await bytes(path));
 const base='../dictionary/reviewed-senses/';
 const targets=['transit','warranty','progress'];
 const prior207=historicalSelected207(REVIEWED_SENSE_ENTRIES);
+const prior210=historicalSelected210(REVIEWED_SENSE_ENTRIES);
 
 test('the follow-up names exactly three authored noun senses and only the five-case query aliases',async()=>{
   const pack=await read(base+'source/batch-0016.json');
@@ -149,8 +151,8 @@ test('only the exact signed three-row correction cohort extends the complete unc
     new Map(legacy.entries.map(row=>[row.term,row.expectedEntry])),{file:policyFile,bytes:policyBytes});
   for(const row of expected)Object.assign(row,projections.get(row.term));
   const oldHeads=new Set(prior207.map(row=>row.term));
-  const added=REVIEWED_SENSE_ENTRIES.filter(row=>!oldHeads.has(row.term));
-  assert.equal(REVIEWED_SENSE_ENTRIES.length,210);
+  const added=prior210.filter(row=>!oldHeads.has(row.term));
+  assert.equal(prior210.length,210);
   assert.deepEqual(added,expected.toSorted((a,b)=>a.term.localeCompare(b.term,'en')));
   for(const row of added){
     const authored=pack.entries.find(source=>source.term===row.term);

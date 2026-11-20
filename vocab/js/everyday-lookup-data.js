@@ -1,5 +1,5 @@
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=117';
-import { SEARCH_EXPERIENCE_ENTRIES } from './search-experience-data.js?v=117';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=118';
+import { SEARCH_EXPERIENCE_ENTRIES } from './search-experience-data.js?v=118';
 // Extra exact Chinese names for existing entries keep their reviewed source
 // definitions and examples intact. Each target must be an existing head.
 export const EVERYDAY_CHINESE_ALIASES = Object.freeze([

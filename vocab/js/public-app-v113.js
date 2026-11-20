@@ -1,8 +1,8 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v113.js?v=117";
+import { createEntryDetailController } from "./entry-detail-v113.js?v=118";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=99";
-import { mountLibraryLookup } from "./library-lookup-ui.js?v=117";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=118";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, publicEntryMatchesQuery, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { setupPwa } from "./pwa.js?v=77";
 import { collectionContextForEntry, filterEntriesByCollection, splitChineseMeaningPoints, visibleEntryTags } from "./collections.js?v=113";
@@ -15,7 +15,7 @@ import { sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidenc
 import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupChapterQuiz } from "./chapter-quiz-ui.js?v=113";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
-import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=117";
+import { fetchPublicSnapshot, readPublicCacheWithDeadline } from "./public-snapshot.js?v=118";
 import { setupLearningBackup } from "./learning-backup-ui.js?v=82";
 import { createBookPassagesView } from "./book-passages-ui.js?v=82";
 import { normalizeEntrySort, sortWordbookEntries } from "./entry-sort.js?v=100";

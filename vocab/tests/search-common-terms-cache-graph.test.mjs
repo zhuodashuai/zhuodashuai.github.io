@@ -2,9 +2,10 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import test from 'node:test';
+import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {restoreSearchCommonTermsShell} from '../../tooling/tests/helpers/search-common-terms-shell.mjs';
 import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese-query-cache-shell.mjs';
-const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
+const read=async file=>{const text=await readFile(new URL('../'+file,import.meta.url),'utf8');return file==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):restoreLifeCoverageShell(file,text);};
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const names=['personal-app-v108','owner-app-v108','dictionary-entry-v109','dictionary-app-v109','dictionary-app',
   'library-lookup-controller','library-lookup-ui','personal-lookup-flow','dictionary-suggestions','expanded-dictionary',
@@ -30,11 +31,11 @@ test('finite form rejection and canonical noun projection use the same fresh cur
   const engine=await read('js/expanded-dictionary.js');
   for(const target of ['dictionary-form-evidence','reviewed-canonical-forms','english-surface-variants','chinese-query-cache','everyday-lookup']){
     const urls=[...engine.matchAll(/\bfrom\s+["'](\.\/[^"']+)["']/gu)].map(m=>m[1]).filter(url=>url.startsWith('./'+target+'.js'));
-    assert.deepEqual(urls,['./'+target+'.js?v=117']);
+    assert.deepEqual(urls,['./'+target+'.js?v=118']);
   }
-  assert((await read('js/reviewed-canonical-forms.js')).includes("from './reviewed-senses-data.js?v=117'"));
-  assert((await read('js/public-app-v113.js')).includes('from "./public-snapshot.js?v=117"'));
-  for(const target of ['chinese-query-cache-release','chinese-query-cache-format'])assert((await read('js/chinese-query-cache.js')).includes("from './"+target+".js?v=117'"));
+  assert((await read('js/reviewed-canonical-forms.js')).includes("from './reviewed-senses-data.js?v=118'"));
+  assert((await read('js/public-app-v113.js')).includes('from "./public-snapshot.js?v=118"'));
+  for(const target of ['chinese-query-cache-release','chinese-query-cache-format'])assert((await read('js/chinese-query-cache.js')).includes("from './"+target+".js?v=118'"));
 });
 
 test('the new whole-shell bridge reverses exactly120/117URLs before all unchanged116historical pins',async()=>{

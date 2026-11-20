@@ -69,6 +69,10 @@
     {
       "source": "batch-0017.json",
       "review": "batch-0017.json"
+    },
+    {
+      "source": "batch-0018.json",
+      "review": "batch-0018.json"
     }
   ],
   "retainLegacyChineseHeads": [
@@ -77,5 +81,11 @@
   "retentionNote": "bin liner has a compatible original noun definition for a bag lining a bin. Preserve its honest broad garbage-bag reverse matches while removing baggie and other superseded wrong-source postings. This does not authorize unreviewed senses.",
   "retainedAlternativesPolicy": "retained-alternatives-search-followup-0016.json",
   "sourceCorrectionPolicy": "source-corrections-0017-accuracy-policy.json",
-  "sourceCorrectionLegacyExamples": "source-corrections-0017-legacy-examples.json"
+  "sourceCorrectionLegacyExamples": "source-corrections-0017-legacy-examples.json",
+  "additionalSourceCorrectionPolicies": [
+    {
+      "policy": "source-corrections-0018-accuracy-policy.json",
+      "legacyExamples": "source-corrections-0018-legacy-examples.json"
+    }
+  ]
 }

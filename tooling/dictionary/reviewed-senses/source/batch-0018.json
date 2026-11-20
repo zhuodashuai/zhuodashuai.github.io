@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "exampleSource": "原创学习例句",
+  "entries": [
+    {
+      "term": "anaphylactic",
+      "partOfSpeech": "adjective",
+      "meaning": "①（医学）严重过敏反应的；与严重全身性过敏反应有关的。",
+      "chineseAliases": [
+        "严重全身性过敏反应的"
+      ],
+      "englishForms": [],
+      "en": "The case report described an anaphylactic reaction after an insect sting.",
+      "zh": "这份病例报告描述了昆虫蜇伤后出现的一次严重全身性过敏反应。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/anaphylactic",
+        "https://www.nhs.uk/conditions/anaphylaxis/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "canonicalId": 4581436,
+      "canonicalSourceSha256": "49bc26a0be9ab1f9191e55af6c241338b626b47ea57dc9ebad43a52bf819a16e",
+      "exampleSenses": [
+        {
+          "id": "reviewed-source-correction:anaphylactic:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "①（医学）严重过敏反应的；与严重全身性过敏反应有关的。",
+          "examples": [
+            {
+              "en": "The case report described an anaphylactic reaction after an insect sting.",
+              "zh": "这份病例报告描述了昆虫蜇伤后出现的一次严重全身性过敏反应。"
+            }
+          ]
+        }
+      ],
+      "exampleContexts": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "①（医学）严重过敏反应的；与严重全身性过敏反应有关的。",
+          "senseIds": [
+            "reviewed-source-correction:anaphylactic:1"
+          ]
+        }
+      ]
+    },
+    {
+      "term": "anaphylactoid",
+      "partOfSpeech": "adjective",
+      "meaning": "①（医学）类过敏反应的；表现类似严重过敏反应或过敏性休克的。",
+      "chineseAliases": [
+        "类似严重过敏反应的",
+        "类过敏反应的"
+      ],
+      "englishForms": [],
+      "en": "The report described the episode as an anaphylactoid reaction.",
+      "zh": "报告把这次发作描述为类过敏反应。",
+      "references": [
+        "https://www.merriam-webster.com/medical/anaphylactoid",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "canonicalId": 8139492,
+      "canonicalSourceSha256": "72ba1619b3e7b39d11fc02ca5d85491b54e3cbf99b0c6f5241ec0d532a41fc97",
+      "exampleSenses": [
+        {
+          "id": "reviewed-source-correction:anaphylactoid:1",
+          "partOfSpeech": "adjective",
+          "meaningZh": "①（医学）类过敏反应的；表现类似严重过敏反应或过敏性休克的。",
+          "examples": [
+            {
+              "en": "The report described the episode as an anaphylactoid reaction.",
+              "zh": "报告把这次发作描述为类过敏反应。"
+            }
+          ]
+        }
+      ],
+      "exampleContexts": [
+        {
+          "partOfSpeech": "adjective",
+          "meaning": "①（医学）类过敏反应的；表现类似严重过敏反应或过敏性休克的。",
+          "senseIds": [
+            "reviewed-source-correction:anaphylactoid:1"
+          ]
+        }
+      ]
+    },
+    {
+      "term": "anaphylaxis",
+      "partOfSpeech": "noun",
+      "meaning": "①（医学）严重全身性过敏反应；通常迅速发生，可能危及生命。",
+      "chineseAliases": [
+        "严重全身性过敏反应",
+        "全身性严重过敏反应"
+      ],
+      "englishForms": [],
+      "en": "Anaphylaxis was noted as a risk in the patient's medical record.",
+      "zh": "患者的病历注明了发生严重全身性过敏反应的风险。",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/anaphylaxis",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/anaphylaxis",
+        "https://www.nhs.uk/conditions/anaphylaxis/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "canonicalId": 4091561,
+      "canonicalSourceSha256": "daee297be2dc8a17346badf80e1fd0226e0504f823001c924803787a2a4be3a9",
+      "exampleSenses": [
+        {
+          "id": "reviewed-source-correction:anaphylaxis:1",
+          "partOfSpeech": "noun",
+          "meaningZh": "①（医学）严重全身性过敏反应；通常迅速发生，可能危及生命。",
+          "examples": [
+            {
+              "en": "Anaphylaxis was noted as a risk in the patient's medical record.",
+              "zh": "患者的病历注明了发生严重全身性过敏反应的风险。"
+            }
+          ]
+        }
+      ],
+      "exampleContexts": [
+        {
+          "partOfSpeech": "noun",
+          "meaning": "①（医学）严重全身性过敏反应；通常迅速发生，可能危及生命。",
+          "senseIds": [
+            "reviewed-source-correction:anaphylaxis:1"
+          ]
+        }
+      ]
+    }
+  ]
+}

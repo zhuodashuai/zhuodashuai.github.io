@@ -11,6 +11,7 @@ import {searchEverydayDictionary,isSupersededChineseSenseHead,isRejectedReviewed
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
 import {dictionaryExamplesRelease} from '../../vocab/js/dictionary-examples-release-v4.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
+import {historicalSelected210} from './helpers/life-coverage-history.mjs';
 const base=new URL('../dictionary/reviewed-senses/',import.meta.url),read=async p=>JSON.parse(await readFile(new URL(p,base),'utf8'));
 const hash=v=>createHash('sha256').update(typeof v==='string'||Buffer.isBuffer(v)?v:JSON.stringify(v)).digest('hex');
 const pack=await read('source/batch-0017.json'),review=await read('reviews/batch-0017.json'),before=await read('source-corrections-0017-canonical-before.json');
@@ -18,6 +19,7 @@ const policy=await read('source-corrections-0017-accuracy-policy.json'),legacy=a
 const policyEvidence={file:'source-corrections-0017-accuracy-policy.json',bytes:await readFile(new URL('source-corrections-0017-accuracy-policy.json',base))};
 const manifestBytes=await readFile(new URL('../../vocab/data/expanded-dictionary/manifest.json',import.meta.url)),manifest=JSON.parse(manifestBytes);
 const records=new Map(before.records.map(p=>[p.term,p.record])),compiled=new Map(REVIEWED_SENSE_ENTRIES.map(r=>[r.term,r]));
+const prior210=historicalSelected210(REVIEWED_SENSE_ENTRIES);
 const originals=new Map(legacy.entries.map(p=>[p.term,p.expectedEntry]));
 const context={version:manifest.version,integritySha256:hash(manifestBytes)};
 const local=async input=>{const url=new URL(input);assert.equal(url.protocol,'file:');return new Response(await readFile(url));};
@@ -25,8 +27,8 @@ const nounProjection=()=>{const row=compiled.get('mortuary'),p=row.formProjectio
 
 test('the prior207 rows,16source/review packs and every historical retention policy remain exact',async()=>{
   const baseline=await read('source-corrections-0017-baseline.json'),heads=new Set(baseline.historicalReviewedHeads);
-  assert.equal(heads.size,207);assert.equal(hash(REVIEWED_SENSE_ENTRIES.filter(r=>heads.has(r.term))),baseline.historicalReviewedRowsSha256);
-  assert.deepEqual(REVIEWED_SENSE_ENTRIES.filter(r=>!heads.has(r.term)).map(r=>r.term).sort(),['disastrous','disconcerting','mortuary']);
+  assert.equal(heads.size,207);assert.equal(hash(prior210.filter(r=>heads.has(r.term))),baseline.historicalReviewedRowsSha256);
+  assert.deepEqual(prior210.filter(r=>!heads.has(r.term)).map(r=>r.term).sort(),['disastrous','disconcerting','mortuary']);
   for(const [file,pin]of Object.entries(baseline.immutableFiles))assert.equal(hash(await readFile(new URL(file,base))),pin,file);
   const index=await read('index.json');assert.deepEqual(index.batches.slice(0,16),baseline.priorBatches);
   assert.equal(index.retainedAlternativesPolicy,baseline.priorRetainedPolicy);

@@ -271,6 +271,66 @@ export function validateSourceCorrectionPolicy(policy,pack,review,records,manife
   return output;
 }
 
+// This already shipped approval is a historical boundary, not an editable
+// default for the next correction cohort. Additional policies have separate
+// source packs, evidence files, reviewers and disjoint corrected heads.
+const ORIGINAL_SOURCE_CORRECTION = Object.freeze({
+  policy:'source-corrections-0017-accuracy-policy.json',
+  legacyExamples:'source-corrections-0017-legacy-examples.json',
+  source:'batch-0017.json',review:'batch-0017.json',
+  policySha256:'31de8ac2249a5e6d1a8d05f9f4f4bf3f95815001302b53538fb40a7c63d1580b',
+  legacySha256:'6ff634eec90d7fe9bc0aaa9d3557d97691704ce0c10056ddc2586765ff4a6082',
+  sourceSha256:'fc994f62c92a4653714bc9ecbab2d7633f970751e56aec67c5a23b9ac877a2f4',
+  reviewSha256:'e7f27b33003950c8637c8f364821d526aef5ea9a5bad848dd54252ad2b3357ba',
+});
+
+export function sourceCorrectionRegistrations(index) {
+  index=reviewedDataSnapshot(index);
+  const original=ORIGINAL_SOURCE_CORRECTION;
+  if(index.sourceCorrectionPolicy!==original.policy
+    ||index.sourceCorrectionLegacyExamples!==original.legacyExamples)throw Error('Original source correction registration changed');
+  const extra=Object.hasOwn(index,'additionalSourceCorrectionPolicies')?index.additionalSourceCorrectionPolicies:[];
+  if(!exactArray(extra,false)||extra.length>20)throw Error('Invalid additional source correction registrations');
+  const registrations=[{policy:original.policy,legacyExamples:original.legacyExamples}];
+  const files=new Set([original.policy,original.legacyExamples]);
+  for(const entry of extra){
+    if(!exactObject(entry,['policy','legacyExamples'])
+      ||![entry.policy,entry.legacyExamples].every(file=>/^[a-z0-9-]+\.json$/u.test(file||''))
+      ||entry.policy===entry.legacyExamples||files.has(entry.policy)||files.has(entry.legacyExamples))throw Error('Overlapping source correction evidence files');
+    files.add(entry.policy);files.add(entry.legacyExamples);registrations.push({...entry});
+  }
+  return registrations;
+}
+
+export function assertHistoricalSourceCorrectionIdentity(registration,selected,evidence) {
+  const original=ORIGINAL_SOURCE_CORRECTION;
+  if(registration.policy!==original.policy){
+    if(selected.sourceFile===original.source)throw Error('An additional policy cannot reauthorize the original source correction pack');
+    return;
+  }
+  const names=['policyBytes','sourceBytes','reviewBytes','legacyBytes'];
+  if(selected.sourceFile!==original.source||selected.reviewFile!==original.review
+    ||registration.legacyExamples!==original.legacyExamples||!exactObject(evidence,names)
+    ||names.some(name=>!Buffer.isBuffer(evidence[name]))
+    ||hash(evidence.policyBytes)!==original.policySha256||hash(evidence.sourceBytes)!==original.sourceSha256
+    ||hash(evidence.reviewBytes)!==original.reviewSha256||hash(evidence.legacyBytes)!==original.legacySha256)throw Error('Original source correction approval changed');
+}
+
+/** Composition only; every input map must first pass its separate signed
+ * actual-byte policy validator. An overlap never replaces an earlier result. */
+export function mergeSourceCorrectionSets(sets) {
+  if(!Array.isArray(sets)||!sets.length)throw Error('Missing validated source correction sets');
+  const combined=new Map();
+  for(const set of sets){
+    if(!(set instanceof Map)||!set.size)throw Error('Invalid validated source correction set');
+    for(const [term,projection]of set){
+      if(typeof term!=='string'||combined.has(term))throw Error('Overlapping source correction head');
+      combined.set(term,projection);
+    }
+  }
+  return combined;
+}
+
 /** These are explicitly authored supplementary senses, not claims that a
  * frozen third-party record already contained a modern meaning or correct POS. */
 export function validateReviewedSensePack(pack, review, canonicalRecords, existingSentences = new Map(), retainedChineseHeads = new Set(), existingPairAdmission) {
@@ -365,7 +425,7 @@ export async function loadReviewedSenseBuild() {
     if (!NAME.test(batch.source) || !NAME.test(batch.review)) throw Error('Invalid selected-sense source path');
     const pack = await json(join(base, 'reviewed-senses/source', batch.source));
     const review = await json(join(base, 'reviewed-senses/reviews', batch.review));
-    packs.set(batch.source,{pack,review});
+    packs.set(batch.source,{pack,review,sourceFile:batch.source,reviewFile:batch.review});
     const existingPairAdmission=Object.hasOwn(batch,'existingPairBindings')
       ?await createReviewedExistingPairAdmission(pack,review,{sourceFile:batch.source,reviewFile:batch.review,bindingFile:batch.existingPairBindings})
       :undefined;
@@ -391,15 +451,23 @@ export async function loadReviewedSenseBuild() {
       row.retainedCanonicalAlternatives = retained.get(row.term); row.retainLegacyChinese = true;
     }
   }
-  if(Object.hasOwn(index,'sourceCorrectionPolicy')) {
-    if(!/^[a-z0-9-]+\.json$/u.test(index.sourceCorrectionPolicy||'') || !/^[a-z0-9-]+\.json$/u.test(index.sourceCorrectionLegacyExamples||''))throw Error('Invalid source correction policy path');
-    const policyBytes=await readFile(join(base,'reviewed-senses',index.sourceCorrectionPolicy)),policy=JSON.parse(policyBytes);
+  const correctionSets=[],correctionSourceFiles=new Set();
+  for(const registration of sourceCorrectionRegistrations(index)) {
+    const policyBytes=await readFile(join(base,'reviewed-senses',registration.policy)),policy=JSON.parse(policyBytes);
     const selected=packs.get(policy.sourceFile);if(!selected)throw Error('Source correction policy has no approved source pack');
+    if(correctionSourceFiles.has(policy.sourceFile))throw Error('Overlapping source correction source pack');
+    correctionSourceFiles.add(policy.sourceFile);
+    const originalEvidence=registration.policy===ORIGINAL_SOURCE_CORRECTION.policy?{
+      policyBytes,sourceBytes:await readFile(join(base,'reviewed-senses/source',selected.sourceFile)),
+      reviewBytes:await readFile(join(base,'reviewed-senses/reviews',selected.reviewFile)),
+      legacyBytes:await readFile(join(base,'reviewed-senses',registration.legacyExamples)),
+    }:undefined;
+    assertHistoricalSourceCorrectionIdentity(registration,selected,originalEvidence);
     for(const [file,pin]of Object.entries(selected.review.exactEvidence||{})) {
       if(!/^[a-z0-9-]+\.json$/u.test(file)||!HASH.test(pin)
         ||hash(await readFile(join(base,'reviewed-senses',file)))!==pin)throw Error('Source correction evidence changed after independent review');
     }
-    const legacy=await json(join(base,'reviewed-senses',index.sourceCorrectionLegacyExamples)),originals=new Map();
+    const legacy=await json(join(base,'reviewed-senses',registration.legacyExamples)),originals=new Map();
     const loader=createAdditiveExamplesLoader(dictionaryExamplesRelease,{fetchImpl:async input=>{
       const url=new URL(input),file=fileURLToPath(url),assets=join(ROOT,'vocab')+(process.platform==='win32'?'\\':'/');
       if(url.protocol!=='file:'||!file.startsWith(assets))throw Error('Source correction evidence must remain local');
@@ -408,9 +476,11 @@ export async function loadReviewedSenseBuild() {
     try{for(const row of selected.pack.entries)originals.set(row.term,await applyExampleCorrections(row.term,await loader.load(row.term,{lookupQuery:row.term})));}
     finally{loader.close();}
     const corrections=validateSourceCorrectionPolicy(policy,selected.pack,selected.review,records,manifest,hash(manifestBytes),legacy,originals,
-      {file:index.sourceCorrectionPolicy,bytes:policyBytes});
-    for(const row of rows)if(corrections.has(row.term))Object.assign(row,corrections.get(row.term));
+      {file:registration.policy,bytes:policyBytes});
+    correctionSets.push(corrections);
   }
+  const corrections=mergeSourceCorrectionSets(correctionSets);
+  for(const row of rows)if(corrections.has(row.term))Object.assign(row,corrections.get(row.term));
   rows.sort((a, b) => a.term < b.term ? -1 : a.term > b.term ? 1 : 0);
   // One JSON object per line keeps this mutable module readable without
   // duplicating indentation throughout every Pages/offline release.

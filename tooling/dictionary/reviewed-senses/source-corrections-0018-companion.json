@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "Exact final0018 source scope/context companion; independent transformed-source admission review pending",
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "sourceByteSha256": "73cb80ab94162ca86a1a6b6918a5de39b69117f925df5f72e160080cc32efc96",
+  "sourceObjectSha256": "2469757d604d95eafbcb990ba54cedd8ed2ea87eedcc2e8e26f41c64d3aa5769",
+  "examples": "All three bilingual sentences are original fictional learning examples, not quotations from actual clinical reports and not medication, diagnosis or treatment instructions.",
+  "globalBoundaries": [
+    "Allergy is a condition; allergic reaction names a reaction and can vary in severity. Neither is an unconditional anaphylaxis equivalent.",
+    "Anaphylaxis has serious systemic scope, but systemic does not mean every organ must visibly be involved. It is not a label for every local or general allergic symptom.",
+    "Anaphylactic shock is the shock-specific phrase; anaphylaxis can occur without circulatory shock. Do not equate these words unconditionally.",
+    "Allergen names a trigger/substance, not the reaction or the person. Generic poisoning and generic adverse effects are not automatically allergic reactions.",
+    "Only explicit complete positive Chinese aliases listed in source are proposed; exclusions below are semantic non-equivalences, not code to globally hide words. No global medical-adjective or source-family suppression."
+  ],
+  "entries": [
+    {
+      "term": "anaphylactic",
+      "englishScope": "Used of something connected with anaphylaxis, a serious systemic hypersensitivity reaction.",
+      "partOfSpeech": "adjective",
+      "positiveChineseAliases": [
+        "严重全身性过敏反应的"
+      ],
+      "excludedUnconditionalAliases": [
+        "过敏",
+        "过敏反应",
+        "过敏原",
+        "中毒反应",
+        "普通过敏的"
+      ],
+      "roleBoundary": "An adjective can modify reaction or shock; it is not itself the generic noun allergic reaction. The Chinese ending的 deliberately preserves adjectival role.",
+      "formBoundary": "No inflection is proposed; current canonical forms are empty. No nominal plural or guessed family members.",
+      "sourceRowSha256": "e95d3fdaaa9ac6739750e2846b5682bb345ee18a4a9a88d9eea7d0b1a6d4f4b0",
+      "approvedDraftRowSha256": "dfd23e7ff0a577fcd2c11508305f20a3d1da9bc9baa0eefd4de82fabb7acb1e1"
+    },
+    {
+      "term": "anaphylactoid",
+      "englishScope": "Describes a presentation with features resembling those of anaphylaxis or anaphylactic shock.",
+      "partOfSpeech": "adjective",
+      "positiveChineseAliases": [
+        "类似严重过敏反应的",
+        "类过敏反应的"
+      ],
+      "excludedUnconditionalAliases": [
+        "过敏",
+        "过敏反应",
+        "中毒反应",
+        "过敏原",
+        "过敏性休克"
+      ],
+      "roleBoundary": "Resemblance is essential; it does not identify every reaction as anaphylaxis or shock. The conventional类过敏反应的 label is explained with the specialized severe comparison, not used as generic过敏的.",
+      "mechanismBoundary": "No universal statement about IgE, immune/nonimmune mechanisms, mandatory diagnostic tests, current preferred terminology or historical obsolescence is proposed. Sources/terminology vary; only supported descriptive resemblance is admitted to this draft.",
+      "formBoundary": "No inflection or noun use is proposed; current canonical forms are empty.",
+      "sourceRowSha256": "40a7107436e25f8b98306d718247135f4799c1555b05ca9244fb6771ddfb785e",
+      "approvedDraftRowSha256": "2b1da61d09cb9deda2b0ff2c848da2cd7c12c73bbf8a4dc384a96ff8d3db149b"
+    },
+    {
+      "term": "anaphylaxis",
+      "englishScope": "A serious systemic hypersensitivity episode, usually beginning rapidly and capable of threatening life.",
+      "partOfSpeech": "noun",
+      "positiveChineseAliases": [
+        "严重全身性过敏反应",
+        "全身性严重过敏反应"
+      ],
+      "excludedUnconditionalAliases": [
+        "过敏",
+        "过敏反应",
+        "严重过敏反应",
+        "全身性过敏反应",
+        "过敏性休克",
+        "中毒反应",
+        "过敏原"
+      ],
+      "roleBoundary": "The complete serious/systemic context must be retained. The two shorter severe/systemic phrases are not declared unconditional equivalents on their own; every local or nonspecific allergy must not be reclassified through this noun.",
+      "shockBoundary": "The main definition is affirmative. The specialist source explicitly allows anaphylaxis without circulatory shock; the companion, not a false synonym alias, preserves that distinction.",
+      "onsetBoundary": "通常 qualifies rapid onset; do not change it into always immediate, inevitably fatal, all-body visible symptoms or mandatory multi-organ involvement.",
+      "countabilityBoundary": "Cambridge marks uncountable; Oxford also allows countable use and plural anaphylaxes. This draft labels only noun and admits no new forms; it does not assert universal uncountable-only use or that anaphylaxes is invalid. Any additional form requires separate actual source-bound review.",
+      "sourceRowSha256": "ec84de82c784e7f82344274f43c78bb869799b476a0c084d9153606c3fa0ed9a",
+      "approvedDraftRowSha256": "bae0d06ca3806aa095a56bcf1d3cab24174c49c059d373ea1e0f9821bb7d2a2f"
+    }
+  ],
+  "origin": {
+    "sourceByteSha256": "f05373f774a5ead9fd44df7aac748386b9d2e4fc67cf4cc59b70c94c8d79e62f",
+    "companionByteSha256": "746544be4ec16686e5e77272ae36d57cc469bae03dc097a02dc79477f1f07ba0",
+    "independentLanguageReviewByteSha256": "5d68a846f14f099abf189581ba685d6f4ab7eb975fd58b9bb145c42120834297"
+  }
+}

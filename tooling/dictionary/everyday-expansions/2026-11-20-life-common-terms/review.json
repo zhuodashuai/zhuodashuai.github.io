@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "c7198be9955cb87a7269bdae9993cafc95187f7ed87f2793e582fb6bf0fd50be",
+  "sourceByteSha256": "0791607eadf16c95e6f66637b3788ed760cb8eff49c5f8af857bfdf064317a78",
+  "author": "AI/english_life_common_terms_author",
+  "reviewer": "AI/chinese_life_common_terms_admission_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "delivery address",
+    "hang out the washing",
+    "take out the rubbish",
+    "take someone's temperature",
+    "allergic reaction",
+    "repeat prescription",
+    "luggage storage",
+    "shift rota",
+    "employment reference"
+  ],
+  "issues": [],
+  "reviewedRows": [
+    {
+      "term": "delivery address",
+      "rowSha256": "4a8128dd2e4e4a8ad204a4bcfc30e6fe6c80badbdb2776fca153f3c8a4833238",
+      "languageDecision": "PASS",
+      "reason": "Physical destination noun phrase, ordinary addresses plural, all3 Chinese aliases match the destination role. English replacement-keyboard example and Chinese preserve actor/time/destination meaning. Billing, email and sender addresses stay excluded."
+    },
+    {
+      "term": "hang out the washing",
+      "rowSha256": "5294af0fdeb8dcfd1721ba5a6a12d9a42268f5be345025d6566e7ac37911a45b",
+      "languageDecision": "PASS",
+      "reason": "British outdoor laundry-drying verb phrase, uncountable washing object, hung/hanging and both finite separable noun-object orders are correct. Example uses hung and matches outdoor drying; no socialising/execution alias. Whole-phrase admission guard is a separate prerequisite below."
+    },
+    {
+      "term": "take out the rubbish",
+      "rowSha256": "70a84fac400d83b28f0b84a0012ec61bb7fa95665b72a2089d8b51cc8e9790ee",
+      "languageDecision": "PASS",
+      "reason": "Household rubbish removal verb phrase and take/takes/took/taken/taking forms in both noun-object orders are correct. Kitchen-clearing example matches Chinese; American trash/garbage alternatives are deliberately not declared inflections."
+    },
+    {
+      "term": "take someone's temperature",
+      "rowSha256": "ed0f83f5a7cd35564a300fec2437fdf480b40d5a96d073004b614eadf6d32304",
+      "languageDecision": "PASS",
+      "reason": "PASS resolved broad canonical scope: Cambridge/Oxford explicitly attest someone’s/somebody’s measurement construction and Collins directly shows exact head. Every listed someone’s/somebody’s tense and concrete possessive is grammatical and finite; one’s forms are explicitly scoped to self-context without a global prohibition. Chinese any-patient meaning and nurse-took-my example now align with the title."
+    },
+    {
+      "term": "allergic reaction",
+      "rowSha256": "362f1abde033e4f88b30eb9f39f0b160229db63bb72111abf15b844064a3d186",
+      "languageDecision": "PASS",
+      "reason": "PASS positive concise generic reaction noun and plural. Severity variability and contrasts are kept in companion, not searchable main definition. Main text does not contain severe/poison/adverse-effect synonyms. All generic body-reaction and previous-week example scopes remain correct."
+    },
+    {
+      "term": "repeat prescription",
+      "rowSha256": "4240bef1a87377a994c3ffe98be4b7fefc75c7dcaa064cc9bbb2edf7c4510a1c",
+      "languageDecision": "PASS",
+      "reason": "PASS resolved ongoing-use scope: positive UK noun wording now describes obtaining established medicine under continuing prescribing, without requiring a new separate prescription for every supply. Broad续方 alias is explicitly this noun sense; refill/dispensing/renewal entitlement is not equated. Existing approval-enquiry example remains valid."
+    },
+    {
+      "term": "luggage storage",
+      "rowSha256": "c0b2943ef29cc9d57d9a212e58813155fa69a837b96ab30b855504a5de8ff8a3",
+      "languageDecision": "PASS",
+      "reason": "Uncountable temporary bag-keeping service/arrangement sense is correctly selected; no storages plural or blanket office/counter equivalence. Station/museum example matches Chinese without price, security or availability promises."
+    },
+    {
+      "term": "shift rota",
+      "rowSha256": "353c8eb761f9d6508c7fd62db4a5a1a11f18cbfd1fded5a1e26d575b88b8a05b",
+      "languageDecision": "PASS",
+      "reason": "British countable employee-shift schedule noun phrase, plural rotas and4 Chinese aliases are appropriate. Official NHS sample explicitly attests Shift rota in an employee working pattern; Cambridge supports rota duty-list role. Example checks work schedule before a social arrangement, not a class timetable."
+    },
+    {
+      "term": "employment reference",
+      "rowSha256": "0eecd73286ea03b395385f32022cc7ea147a95e2d527b5d53690376096635011",
+      "languageDecision": "PASS",
+      "reason": "Recruitment information noun phrase with ordinary plural; may be factual/basic or evaluative, work/character-related, written or oral. Chinese meaning preserves those scopes; manager-agreed example has no guarantee of positive evaluation/job offer. No unconditional letter/referee/general-certificate alias."
+    }
+  ],
+  "approvalScope": "Exact final authored lexical content/metadata admission only; independent runtime source/form/collection tests and release review remain mandatory.",
+  "usageNotesByteSha256": "adb0cfaed3542f6abf3f21c8fd5cc79ac7ff0737e4f85aad08c6070b9a646771",
+  "originalStagedSourceByteSha256": "97a28693a255ebcad06515e32bd5919cb769867a50eb9604bdbc7226f22e1ecb",
+  "originalStagedCompanionByteSha256": "970ea5bb7d3f46a21db22e3bfac48acde7aa41924a701397ce8f319ab44b5da3",
+  "originalIndependentLanguageReviewByteSha256": "1f3b1193b2d1ef73a59b1f63acede917f91058721440e65b7bdc702a7e4cd44a",
+  "metadataProjectionByteSha256": "3f6970a8e05e92d65771a1dca782a9be522e055513a88b9f627ede876a119647",
+  "baselineByteSha256": "ab66a604d811f6c4a6004f86e543fca6c90049285fa79085d8946d61579ddcb2",
+  "referenceAccessByteSha256": "d73170e3f38c91fffc919ed99a4fd5b736d05ecbd557c4d23799526ece0a3e31",
+  "independentAdmissionAudit": {
+    "file": "outputs/life-coverage-20261120/life-nine-independent-admission-audit.json",
+    "sha256": "550f3375b9953451c46d1606f552427b7453ba837962da0df43ae2a8682efa03",
+    "heads": 9,
+    "wholeSurfaces": 52,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1271,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106084,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0,
+    "pendingMedicalPairsAdditionallyChecked": 3
+  },
+  "mandatoryRuntimeBoundaries": [
+    "Admitted clothes-drying wholephrase may use only approved hung variants, never borrow hanged from another hang sense; preserve legitimate literal hanged.",
+    "Preserve whole canonical/form priority, typed word/object scope and no arbitrary possessive/object generation.",
+    "Generic allergic reaction must not be redefined as anaphylaxis, toxic reaction or any adverse effect; separate medical-source corrections require their own independent approval.",
+    "UK ongoing-prescription noun, uncountable storage service and oral/written/factual employment-reference scopes must remain explicit."
+  ],
+  "productionDeploymentApproved": false
+}

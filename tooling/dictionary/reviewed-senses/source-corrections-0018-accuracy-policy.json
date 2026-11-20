@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/chinese_medical_corrections_draft_author",
+  "status": "Independently approved exact transformed-source and indivisible raw-tuple policy; runtime verification remains separate",
+  "sourceObjectSha256": "2469757d604d95eafbcb990ba54cedd8ed2ea87eedcc2e8e26f41c64d3aa5769",
+  "sourceFile": "batch-0018.json",
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "existing0017Boundary": {
+    "policyFile": "source-corrections-0017-accuracy-policy.json",
+    "policyByteSha256": "31de8ac2249a5e6d1a8d05f9f4f4bf3f95815001302b53538fb40a7c63d1580b",
+    "legacyExamplesFile": "source-corrections-0017-legacy-examples.json",
+    "legacyExamplesByteSha256": "6ff634eec90d7fe9bc0aaa9d3557d97691704ce0c10056ddc2586765ff4a6082"
+  },
+  "entries": [
+    {
+      "term": "anaphylactic",
+      "canonicalId": 4581436,
+      "canonicalSourceSha256": "49bc26a0be9ab1f9191e55af6c241338b626b47ea57dc9ebad43a52bf819a16e",
+      "selectedRowSha256": "e95d3fdaaa9ac6739750e2846b5682bb345ee18a4a9a88d9eea7d0b1a6d4f4b0",
+      "excludedWholeRawAlternatives": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 过敏性, 过敏反应\n[医] 过敏性的",
+            "source": "mit"
+          },
+          "tupleSha256": "d1125d743721bef6e68e53287913bd420ce6645b5eaa754eefd0bdc34c5894ad",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          },
+          "sourceDescriptorSha256": "d7c0acf692bc7c60535d8a54cd398ab716b0dda52d3bc5c0d9f5bf460fe28208"
+        }
+      ],
+      "retainedRawAlternatives": [],
+      "validSensesPreserved": [
+        "①（医学）严重过敏反应的；与严重全身性过敏反应有关的。"
+      ],
+      "excludedWrongEquivalences": [
+        "过敏",
+        "过敏反应",
+        "过敏原",
+        "中毒反应",
+        "普通过敏的"
+      ],
+      "reason": "The old whole adjective tuple includes a bare generic reaction noun and generic sensitivity. Fresh original adjective retains the supported serious anaphylaxis-related scope.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/anaphylactic",
+        "https://www.nhs.uk/conditions/anaphylaxis/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "reviewer": "AI/english_medical_corrections_admission_reviewer",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "anaphylactoid",
+      "canonicalId": 8139492,
+      "canonicalSourceSha256": "72ba1619b3e7b39d11fc02ca5d85491b54e3cbf99b0c6f5241ec0d532a41fc97",
+      "selectedRowSha256": "40a7107436e25f8b98306d718247135f4799c1555b05ca9244fb6771ddfb785e",
+      "excludedWholeRawAlternatives": [
+        {
+          "tuple": {
+            "partOfSpeech": "adjective",
+            "meaning": "a. 过敏反应的, 有中毒反应的",
+            "source": "mit"
+          },
+          "tupleSha256": "d26eaaf2de2108de63b47e060be5772f92da75babe70d72b47d9dde049d1474d",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          },
+          "sourceDescriptorSha256": "d7c0acf692bc7c60535d8a54cd398ab716b0dda52d3bc5c0d9f5bf460fe28208"
+        }
+      ],
+      "retainedRawAlternatives": [],
+      "validSensesPreserved": [
+        "①（医学）类过敏反应的；表现类似严重过敏反应或过敏性休克的。"
+      ],
+      "excludedWrongEquivalences": [
+        "过敏",
+        "过敏反应",
+        "中毒反应",
+        "过敏原",
+        "过敏性休克"
+      ],
+      "reason": "The old whole adjective tuple combines overbroad allergic-reaction wording with unsupported generic poisoning. Fresh original resemblance-qualified adjective preserves the supported lexical scope.",
+      "references": [
+        "https://www.merriam-webster.com/medical/anaphylactoid",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "reviewer": "AI/english_medical_corrections_admission_reviewer",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "anaphylaxis",
+      "canonicalId": 4091561,
+      "canonicalSourceSha256": "daee297be2dc8a17346badf80e1fd0226e0504f823001c924803787a2a4be3a9",
+      "selectedRowSha256": "ec84de82c784e7f82344274f43c78bb869799b476a0c084d9153606c3fa0ed9a",
+      "excludedWholeRawAlternatives": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. 过敏性\n[医] 过敏性, 过敏症, 过敏反应",
+            "source": "mit"
+          },
+          "tupleSha256": "c0851d09c9694ccf94ce948a40c83cd505f73bca2ac75b15b0cc59bf882be767",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          },
+          "sourceDescriptorSha256": "d7c0acf692bc7c60535d8a54cd398ab716b0dda52d3bc5c0d9f5bf460fe28208"
+        }
+      ],
+      "retainedRawAlternatives": [],
+      "validSensesPreserved": [
+        "①（医学）严重全身性过敏反应；通常迅速发生，可能危及生命。"
+      ],
+      "excludedWrongEquivalences": [
+        "过敏",
+        "过敏反应",
+        "严重过敏反应",
+        "全身性过敏反应",
+        "过敏性休克",
+        "中毒反应",
+        "过敏原"
+      ],
+      "reason": "The old noun tuple omits serious systemic scope and can teach generic allergy/reaction equivalence. Fresh original serious/systemic noun retains the supported scope without requiring shock.",
+      "references": [
+        "https://dictionary.cambridge.org/dictionary/english/anaphylaxis",
+        "https://www.oxfordlearnersdictionaries.com/definition/english/anaphylaxis",
+        "https://www.nhs.uk/conditions/anaphylaxis/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7607509/"
+      ],
+      "reviewer": "AI/english_medical_corrections_admission_reviewer",
+      "independentOfAuthor": true
+    }
+  ]
+}

@@ -3,12 +3,13 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { isCopiedStatic, assertOfflineSourcesAbsent, inspectSite, checkTar, REVIEW_ONLY, OFFLINE_SOURCE_PREFIXES, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, UNPUBLISHED_D35_PATHS, UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, UNPUBLISHED_D36_PATHS, UNPUBLISHED_D41_PATHS, UNPUBLISHED_D42_D43_PATHS, UNPUBLISHED_QUALITY_NEXT_PATHS, UNPUBLISHED_QUALITY_FOLLOWUP_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
+import { isCopiedStatic, assertOfflineSourcesAbsent, assertPagesExclusionPolicy, inspectSite, checkTar, REVIEW_ONLY, OFFLINE_SOURCE_PREFIXES, DEVELOPER_TOOL_PREFIXES, GENERATED_PATHS, UNPUBLISHED_D32_PATHS, UNPUBLISHED_NEXT_PATHS, UNPUBLISHED_D35_PATHS, UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, UNPUBLISHED_D36_PATHS, UNPUBLISHED_D41_PATHS, UNPUBLISHED_D42_D43_PATHS, UNPUBLISHED_QUALITY_NEXT_PATHS, UNPUBLISHED_QUALITY_FOLLOWUP_PATHS, DEFAULT_EXCLUDES, LIMIT } from '../../.github/scripts/check-pages-package.mjs';
 
 test('Pages exclusions retain defaults, bounded developer sources and exact historical exclusions', () => {
   const text = fs.readFileSync(new URL('../../_config.yml', import.meta.url), 'utf8');
   const entries = text.split(/\r?\n/u).filter(line => /^  - /u.test(line)).map(line => line.slice(4).replace(/\/$/u, ''));
-  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, ...OFFLINE_SOURCE_PREFIXES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, ...UNPUBLISHED_D36_PATHS, ...UNPUBLISHED_D41_PATHS, ...UNPUBLISHED_D42_D43_PATHS, ...UNPUBLISHED_QUALITY_NEXT_PATHS, ...UNPUBLISHED_QUALITY_FOLLOWUP_PATHS]);
+  assert.deepEqual(entries, [...DEFAULT_EXCLUDES, ...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES, REVIEW_ONLY, ...UNPUBLISHED_D32_PATHS, ...UNPUBLISHED_NEXT_PATHS, ...UNPUBLISHED_D35_PATHS, ...UNPUBLISHED_FORSYTE_ARCHIVE_PATHS, ...UNPUBLISHED_D36_PATHS, ...UNPUBLISHED_D41_PATHS, ...UNPUBLISHED_D42_D43_PATHS, ...UNPUBLISHED_QUALITY_NEXT_PATHS, ...UNPUBLISHED_QUALITY_FOLLOWUP_PATHS]);
+  assert.doesNotThrow(() => assertPagesExclusionPolicy(text));
   assert.deepEqual(text.split(/\r?\n/u).filter(line => /^[a-z]/u.test(line)), ['exclude:']);
   for (const file of ['tooling/dictionary/examples/queues/batch-0030.json',
     'tooling/dictionary/examples/queues/batch-0031-provenance.json', 'tooling/dictionary/examples/source/batch-0031-p004.json',
@@ -67,12 +68,14 @@ test('Pages exclusions retain defaults, bounded developer sources and exact hist
 test('offline source boundaries never swallow other tooling, dictionary data or rollback URLs', () => {
   assert.deepEqual(OFFLINE_SOURCE_PREFIXES, ['tooling/dictionary/examples', 'tooling/dictionary/pos']);
   assert(Object.isFrozen(OFFLINE_SOURCE_PREFIXES));
-  for (const prefix of OFFLINE_SOURCE_PREFIXES) {
+  assert.deepEqual(DEVELOPER_TOOL_PREFIXES, ['tooling/tests', 'tooling/scripts']);
+  assert(Object.isFrozen(DEVELOPER_TOOL_PREFIXES));
+  for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES]) {
     for (const file of [prefix, prefix + '/index.json', prefix + '/old/nested/source.json']) assert(!isCopiedStatic(file));
     assert(isCopiedStatic(prefix + '-archive/source.json'));
     assert(isCopiedStatic(prefix + 'itional/source.json'));
   }
-  for (const file of ['tooling/index.html', 'tooling/scripts/build-dictionary-examples.mjs',
+  for (const file of ['tooling/index.html', 'tooling/scripts-archive/build-dictionary-examples.mjs',
     'tooling/dictionary/expanded-lookup.md', 'tooling/dictionary/source/index.json',
     'tooling/dictionary/reviewed-senses/source/batch-0001.json', 'tooling/dictionary/public-source/future.json',
     'vocab/js/dictionary-app-v108.js', 'vocab/js/dictionary-app-v109.js', 'vocab/sw.js',
@@ -81,13 +84,40 @@ test('offline source boundaries never swallow other tooling, dictionary data or 
   assert.equal(LIMIT, 1073741824);
 });
 
-test('post-Jekyll verification rejects either separated developer tree but keeps its neighbours', () => {
+test('Pages policy rejects broad runtime/data/backup exclusions and alternate YAML structures', () => {
+  const text = fs.readFileSync(new URL('../../_config.yml', import.meta.url), 'utf8');
+  for (const prefix of ['vocab', 'vocab/js', 'vocab/data', 'vocab/data/chinese-query-cache',
+    'vocab/data/dictionary-examples', 'vocab/data/member-dictionary/old', 'vocab/backups', 'tooling']) {
+    assert.throws(() => assertPagesExclusionPolicy(text + `\n  - ${prefix}\n`), /Unreviewed Pages/u);
+    assert.throws(() => assertPagesExclusionPolicy(text.replace('  - tooling/tests', `  - ${prefix}`)), /Unreviewed Pages/u);
+    assert(isCopiedStatic(`${prefix}/must-remain-public.json`), prefix);
+  }
+  for (const malformed of [text + '\nexclude: [vocab]\n', text + '\ninclude: []\n',
+    text.replace('  - tooling/tests', ' - tooling/tests'), text.replace('exclude:', 'exclude: &policy'),
+    text.replace('  - tooling/tests', '  - tooling/tests*')]) {
+    assert.throws(() => assertPagesExclusionPolicy(malformed), /Unreviewed Pages/u);
+  }
+});
+
+test('developer-only publication separation preserves all eleven other generated public pages', () => {
+  assert.deepEqual(GENERATED_PATHS, ['assets/css/style.css', 'tooling/dictionary/expanded-lookup.html',
+    'travel/west-2026/BUDGET.html', 'travel/west-2026/PLAN.html', 'travel/west-2026/PRICE-COMPARISON.html',
+    'vocab/data/THIRD_PARTY_NOTICES.html', 'tooling/index.html', 'tooling/dictionary/index.html',
+    'vocab/data/reading-lists/never-let-me-go/index.html', 'vocab/tests/index.html', 'wordbook-api/index.html']);
+  assert(fs.statSync(new URL('./fixtures/semantic-test-cases.md', import.meta.url)).size > 0,
+    'The developer fixture remains available to Git/CI');
+  for (const prefix of DEVELOPER_TOOL_PREFIXES) assert(!isCopiedStatic(`${prefix}/fixtures/example.html`));
+});
+
+test('post-Jekyll verification rejects every separated developer tree but keeps its neighbours', () => {
   const folder = fs.mkdtempSync(path.join(os.tmpdir(), 'wordbook-pages-offline-source-'));
   try {
     fs.mkdirSync(path.join(folder, 'tooling/dictionary/examples-archive'), { recursive: true });
     fs.mkdirSync(path.join(folder, 'tooling/dictionary/positional'), { recursive: true });
+    fs.mkdirSync(path.join(folder, 'tooling/tests-archive'), { recursive: true });
+    fs.mkdirSync(path.join(folder, 'tooling/scripts-archive'), { recursive: true });
     assert.doesNotThrow(() => assertOfflineSourcesAbsent(folder));
-    for (const prefix of OFFLINE_SOURCE_PREFIXES) {
+    for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES]) {
       const target = path.join(folder, ...prefix.split('/'));
       fs.mkdirSync(target, { recursive: true });
       fs.writeFileSync(path.join(target, 'source.json'), '{}');

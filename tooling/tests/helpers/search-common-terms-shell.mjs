@@ -1,3 +1,4 @@
+import {restoreLifeCoverageShellIfCurrent} from './life-coverage-shell.mjs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 
@@ -74,6 +75,7 @@ const entries=new Map([
   ]
 ]);
 export function restoreSearchCommonTermsShell(file,text){
+  text=restoreLifeCoverageShellIfCurrent(file,text);
   const entry=entries.get(file);if(!entry)return text;
   const bytes=Buffer.from(text),digest=createHash('sha256').update(bytes).digest('hex');
   assert(entry.pins.some(([size,sha])=>size===bytes.length&&sha===digest),file+': current common-terms shell snapshot changed');

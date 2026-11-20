@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "id": "life-medical-development-2026-11-20",
+  "scope": "Development cases used to investigate and author fixes. Original holdout identifiers are historical labels, not an unseen evaluation. candidateHeads are exploratory hypotheses, not approved equivalence or accuracy expectations.",
+  "sourceInputs": {
+    "daily48Sha256": "f21838ff631719d110dac4098c188192898962571fc1489414a5b93efe9321d6",
+    "medical14ReportSha256": "3827dfe0dcb4bd408e2b0b3ed5180107084d54a6cdacbb545d4257e9ff2982a8"
+  },
+  "queries": [
+    {
+      "id": "holdout-01-zh",
+      "category": "customer service",
+      "language": "zh",
+      "query": "退款政策",
+      "candidateHeads": [
+        "refund policy"
+      ],
+      "expectedScope": "Refund terms, not a promise that every payment is refundable.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-01-en",
+      "category": "customer service",
+      "language": "en",
+      "query": "refund policy",
+      "candidateHeads": [
+        "refund policy"
+      ],
+      "expectedScope": "Refund terms, not a promise that every payment is refundable.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-02-zh",
+      "category": "customer service",
+      "language": "zh",
+      "query": "退货标签",
+      "candidateHeads": [
+        "return label",
+        "returns label"
+      ],
+      "expectedScope": "Shipping label for returning goods, not a brand tag.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-02-en",
+      "category": "customer service",
+      "language": "en",
+      "query": "return label",
+      "candidateHeads": [
+        "return label",
+        "returns label"
+      ],
+      "expectedScope": "Shipping label for returning goods, not a brand tag.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-03-zh",
+      "category": "customer service",
+      "language": "zh",
+      "query": "收货地址",
+      "candidateHeads": [
+        "delivery address",
+        "shipping address"
+      ],
+      "expectedScope": "Where an order or parcel should be delivered.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-03-en",
+      "category": "customer service",
+      "language": "en",
+      "query": "delivery address",
+      "candidateHeads": [
+        "delivery address",
+        "shipping address"
+      ],
+      "expectedScope": "Where an order or parcel should be delivered.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-04-zh",
+      "category": "customer service",
+      "language": "zh",
+      "query": "包裹丢失",
+      "candidateHeads": [
+        "lost parcel",
+        "lost package"
+      ],
+      "expectedScope": "A missing parcel, not necessarily theft.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-04-en",
+      "category": "customer service",
+      "language": "en",
+      "query": "lost parcel",
+      "candidateHeads": [
+        "lost parcel",
+        "lost package"
+      ],
+      "expectedScope": "A missing parcel, not necessarily theft.",
+      "inputType": "productive descriptive noun phrase"
+    },
+    {
+      "id": "holdout-05-zh",
+      "category": "household",
+      "language": "zh",
+      "query": "洗衣液",
+      "candidateHeads": [
+        "laundry detergent",
+        "liquid detergent",
+        "liquid laundry detergent"
+      ],
+      "expectedScope": "Chinese specifies liquid; general laundry detergent is broader and may include powder.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-05-en",
+      "category": "household",
+      "language": "en",
+      "query": "laundry detergent",
+      "candidateHeads": [
+        "laundry detergent",
+        "liquid detergent",
+        "liquid laundry detergent"
+      ],
+      "expectedScope": "Chinese specifies liquid; general laundry detergent is broader and may include powder.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-06-zh",
+      "category": "household",
+      "language": "zh",
+      "query": "晾衣服",
+      "candidateHeads": [
+        "hang out the washing",
+        "hang out washing",
+        "hang up clothes"
+      ],
+      "expectedScope": "Put washing out to dry; context is laundry, not socialising.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-06-en",
+      "category": "household",
+      "language": "en",
+      "query": "hang out the washing",
+      "candidateHeads": [
+        "hang out the washing",
+        "hang out washing",
+        "hang up clothes"
+      ],
+      "expectedScope": "Put washing out to dry; context is laundry, not socialising.",
+      "inputType": "conventional verb expression"
+    },
+    {
+      "id": "holdout-07-zh",
+      "category": "household",
+      "language": "zh",
+      "query": "倒垃圾",
+      "candidateHeads": [
+        "take out the rubbish",
+        "take out the trash",
+        "take out the garbage"
+      ],
+      "expectedScope": "Carry household rubbish out for disposal.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-07-en",
+      "category": "household",
+      "language": "en",
+      "query": "take out the rubbish",
+      "candidateHeads": [
+        "take out the rubbish",
+        "take out the trash",
+        "take out the garbage"
+      ],
+      "expectedScope": "Carry household rubbish out for disposal.",
+      "inputType": "conventional verb expression"
+    },
+    {
+      "id": "holdout-08-zh",
+      "category": "household",
+      "language": "zh",
+      "query": "下水道堵了",
+      "candidateHeads": [
+        "blocked drain",
+        "clogged drain"
+      ],
+      "expectedScope": "Chinese is a productive sentence; English is a descriptive compound.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-08-en",
+      "category": "household",
+      "language": "en",
+      "query": "blocked drain",
+      "candidateHeads": [
+        "blocked drain",
+        "clogged drain"
+      ],
+      "expectedScope": "Chinese is a productive sentence; English is a descriptive compound.",
+      "inputType": "productive descriptive noun phrase"
+    },
+    {
+      "id": "holdout-09-zh",
+      "category": "health",
+      "language": "zh",
+      "query": "测体温",
+      "candidateHeads": [
+        "take one's temperature",
+        "take someone's temperature",
+        "take sb's temperature"
+      ],
+      "expectedScope": "Measure body temperature; no medical advice.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-09-en",
+      "category": "health",
+      "language": "en",
+      "query": "take one's temperature",
+      "candidateHeads": [
+        "take one's temperature",
+        "take someone's temperature",
+        "take sb's temperature"
+      ],
+      "expectedScope": "Measure body temperature; no medical advice.",
+      "inputType": "conventional verb expression"
+    },
+    {
+      "id": "holdout-10-zh",
+      "category": "health",
+      "language": "zh",
+      "query": "过敏反应",
+      "candidateHeads": [
+        "allergic reaction"
+      ],
+      "expectedScope": "An allergy-related reaction; distinguish unrelated adverse effects.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-10-en",
+      "category": "health",
+      "language": "en",
+      "query": "allergic reaction",
+      "candidateHeads": [
+        "allergic reaction"
+      ],
+      "expectedScope": "An allergy-related reaction; distinguish unrelated adverse effects.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-11-zh",
+      "category": "health",
+      "language": "zh",
+      "query": "预约看医生",
+      "candidateHeads": [
+        "doctor's appointment",
+        "medical appointment",
+        "make an appointment"
+      ],
+      "expectedScope": "A productive booking action; appointment alone is broader.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-11-en",
+      "category": "health",
+      "language": "en",
+      "query": "book a doctor's appointment",
+      "candidateHeads": [
+        "doctor's appointment",
+        "medical appointment",
+        "make an appointment"
+      ],
+      "expectedScope": "A productive booking action; appointment alone is broader.",
+      "inputType": "productive verb phrase"
+    },
+    {
+      "id": "holdout-12-zh",
+      "category": "health",
+      "language": "zh",
+      "query": "续方",
+      "candidateHeads": [
+        "repeat prescription",
+        "prescription refill"
+      ],
+      "expectedScope": "Repeat prescribing/refill terminology may vary regionally; no entitlement or dosage claims.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-12-en",
+      "category": "health",
+      "language": "en",
+      "query": "repeat prescription",
+      "candidateHeads": [
+        "repeat prescription",
+        "prescription refill"
+      ],
+      "expectedScope": "Repeat prescribing/refill terminology may vary regionally; no entitlement or dosage claims.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-13-zh",
+      "category": "travel",
+      "language": "zh",
+      "query": "行李寄存",
+      "candidateHeads": [
+        "luggage storage",
+        "left luggage",
+        "left-luggage",
+        "left-luggage office"
+      ],
+      "expectedScope": "Temporary storage of luggage, not baggage reclaim.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-13-en",
+      "category": "travel",
+      "language": "en",
+      "query": "luggage storage",
+      "candidateHeads": [
+        "luggage storage",
+        "left luggage",
+        "left-luggage",
+        "left-luggage office"
+      ],
+      "expectedScope": "Temporary storage of luggage, not baggage reclaim.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-14-zh",
+      "category": "travel",
+      "language": "zh",
+      "query": "末班车",
+      "candidateHeads": [
+        "last bus",
+        "last train"
+      ],
+      "expectedScope": "Chinese can mean the final service of different transport modes, not only a bus.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-14-en",
+      "category": "travel",
+      "language": "en",
+      "query": "last bus",
+      "candidateHeads": [
+        "last bus",
+        "last train"
+      ],
+      "expectedScope": "Chinese can mean the final service of different transport modes, not only a bus.",
+      "inputType": "productive descriptive noun phrase"
+    },
+    {
+      "id": "holdout-15-zh",
+      "category": "travel",
+      "language": "zh",
+      "query": "登机口变更",
+      "candidateHeads": [
+        "gate change",
+        "change of gate"
+      ],
+      "expectedScope": "Airport departure-gate change; not immigration gates generally.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-15-en",
+      "category": "travel",
+      "language": "en",
+      "query": "gate change",
+      "candidateHeads": [
+        "gate change",
+        "change of gate"
+      ],
+      "expectedScope": "Airport departure-gate change; not immigration gates generally.",
+      "inputType": "productive descriptive noun phrase"
+    },
+    {
+      "id": "holdout-16-zh",
+      "category": "travel",
+      "language": "zh",
+      "query": "延迟退房",
+      "candidateHeads": [
+        "late checkout",
+        "late check-out"
+      ],
+      "expectedScope": "Hotel check-out after normal time; not an automatic entitlement.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-16-en",
+      "category": "travel",
+      "language": "en",
+      "query": "late checkout",
+      "candidateHeads": [
+        "late checkout",
+        "late check-out"
+      ],
+      "expectedScope": "Hotel check-out after normal time; not an automatic entitlement.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-17-zh",
+      "category": "study",
+      "language": "zh",
+      "query": "申请延期交作业",
+      "candidateHeads": [
+        "extension request",
+        "request an extension",
+        "deadline extension"
+      ],
+      "expectedScope": "Chinese is academic-assignment specific; extension request alone is broader.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-17-en",
+      "category": "study",
+      "language": "en",
+      "query": "extension request",
+      "candidateHeads": [
+        "extension request",
+        "request an extension",
+        "deadline extension"
+      ],
+      "expectedScope": "Chinese is academic-assignment specific; extension request alone is broader.",
+      "inputType": "productive noun phrase"
+    },
+    {
+      "id": "holdout-18-zh",
+      "category": "study",
+      "language": "zh",
+      "query": "参考文献列表",
+      "candidateHeads": [
+        "reference list",
+        "bibliography"
+      ],
+      "expectedScope": "List of cited works; bibliography may also contain consulted works not cited.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-18-en",
+      "category": "study",
+      "language": "en",
+      "query": "reference list",
+      "candidateHeads": [
+        "reference list",
+        "bibliography"
+      ],
+      "expectedScope": "List of cited works; bibliography may also contain consulted works not cited.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-19-zh",
+      "category": "study",
+      "language": "zh",
+      "query": "查重工具",
+      "candidateHeads": [
+        "plagiarism checker",
+        "similarity checker"
+      ],
+      "expectedScope": "Similarity reports are not proof of plagiarism by themselves.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-19-en",
+      "category": "study",
+      "language": "en",
+      "query": "plagiarism checker",
+      "candidateHeads": [
+        "plagiarism checker",
+        "similarity checker"
+      ],
+      "expectedScope": "Similarity reports are not proof of plagiarism by themselves.",
+      "inputType": "productive noun phrase"
+    },
+    {
+      "id": "holdout-20-zh",
+      "category": "study",
+      "language": "zh",
+      "query": "校对作文",
+      "candidateHeads": [
+        "proofread",
+        "proofread an essay"
+      ],
+      "expectedScope": "A productive object phrase; a correct proofread verb can be useful without this whole literal.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-20-en",
+      "category": "study",
+      "language": "en",
+      "query": "proofread an essay",
+      "candidateHeads": [
+        "proofread",
+        "proofread an essay"
+      ],
+      "expectedScope": "A productive object phrase; a correct proofread verb can be useful without this whole literal.",
+      "inputType": "productive verb phrase"
+    },
+    {
+      "id": "holdout-21-zh",
+      "category": "work",
+      "language": "zh",
+      "query": "排班表",
+      "candidateHeads": [
+        "shift rota",
+        "rota",
+        "work schedule"
+      ],
+      "expectedScope": "Work-shift schedule; rota is especially British usage.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-21-en",
+      "category": "work",
+      "language": "en",
+      "query": "shift rota",
+      "candidateHeads": [
+        "shift rota",
+        "rota",
+        "work schedule"
+      ],
+      "expectedScope": "Work-shift schedule; rota is especially British usage.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "holdout-22-zh",
+      "category": "work",
+      "language": "zh",
+      "query": "请病假",
+      "candidateHeads": [
+        "sick leave",
+        "take sick leave",
+        "call in sick"
+      ],
+      "expectedScope": "Call in sick specifically reports inability to work; 请病假 is broader and is not always a phone call.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-22-en",
+      "category": "work",
+      "language": "en",
+      "query": "call in sick",
+      "candidateHeads": [
+        "sick leave",
+        "take sick leave",
+        "call in sick"
+      ],
+      "expectedScope": "Call in sick specifically reports inability to work; 请病假 is broader and is not always a phone call.",
+      "inputType": "conventional verb expression"
+    },
+    {
+      "id": "holdout-23-zh",
+      "category": "work",
+      "language": "zh",
+      "query": "交接笔记",
+      "candidateHeads": [
+        "handover notes",
+        "handover"
+      ],
+      "expectedScope": "Notes for transferring duties; handover alone can be an act rather than notes.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-23-en",
+      "category": "work",
+      "language": "en",
+      "query": "handover notes",
+      "candidateHeads": [
+        "handover notes",
+        "handover"
+      ],
+      "expectedScope": "Notes for transferring duties; handover alone can be an act rather than notes.",
+      "inputType": "productive noun phrase"
+    },
+    {
+      "id": "holdout-24-zh",
+      "category": "work",
+      "language": "zh",
+      "query": "雇主推荐信",
+      "candidateHeads": [
+        "reference letter",
+        "letter of reference",
+        "employment reference"
+      ],
+      "expectedScope": "Chinese specifies a letter; employment reference can be written or otherwise provided.",
+      "inputType": "natural Chinese lookup intent"
+    },
+    {
+      "id": "holdout-24-en",
+      "category": "work",
+      "language": "en",
+      "query": "employment reference",
+      "candidateHeads": [
+        "reference letter",
+        "letter of reference",
+        "employment reference"
+      ],
+      "expectedScope": "Chinese specifies a letter; employment reference can be written or otherwise provided.",
+      "inputType": "lexical noun phrase"
+    },
+    {
+      "id": "medical-control-01",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "过敏反应"
+    },
+    {
+      "id": "medical-control-02",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "过敏"
+    },
+    {
+      "id": "medical-control-03",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "严重过敏反应"
+    },
+    {
+      "id": "medical-control-04",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "全身性过敏反应"
+    },
+    {
+      "id": "medical-control-05",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "过敏性休克"
+    },
+    {
+      "id": "medical-control-06",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "过敏原"
+    },
+    {
+      "id": "medical-control-07",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "不良反应"
+    },
+    {
+      "id": "medical-control-08",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "副作用"
+    },
+    {
+      "id": "medical-control-09",
+      "category": "medical sense boundary",
+      "language": "zh",
+      "query": "中毒反应"
+    },
+    {
+      "id": "medical-control-10",
+      "category": "medical sense boundary",
+      "language": "en",
+      "query": "allergic reaction"
+    },
+    {
+      "id": "medical-control-11",
+      "category": "medical sense boundary",
+      "language": "en",
+      "query": "anaphylactic"
+    },
+    {
+      "id": "medical-control-12",
+      "category": "medical sense boundary",
+      "language": "en",
+      "query": "anaphylactoid"
+    },
+    {
+      "id": "medical-control-13",
+      "category": "medical sense boundary",
+      "language": "en",
+      "query": "anaphylaxis"
+    },
+    {
+      "id": "medical-control-14",
+      "category": "medical sense boundary",
+      "language": "en",
+      "query": "allergy"
+    }
+  ]
+}

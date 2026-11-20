@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "AI/chinese_next_nine_independent_reviewer",
+  "author": "AI/english_next_nine_draft_author",
+  "independentOfAuthor": true,
+  "checkedAtUtc": "2026-11-20T02:28:29.980Z",
+  "status": "PASS all9 exact v2 lexical drafts and companion scopes; runtime admission remains unapproved",
+  "sourceByteSha256": "97a28693a255ebcad06515e32bd5919cb769867a50eb9604bdbc7226f22e1ecb",
+  "sourceObjectSha256": "6a275790c468c1be72beb34e855081f0dd0406780c9544c671f9d6c8e48a527e",
+  "usageNotesByteSha256": "970ea5bb7d3f46a21db22e3bfac48acde7aa41924a701397ce8f319ab44b5da3",
+  "exactAuthorInputs": {
+    "source.json": "97a28693a255ebcad06515e32bd5919cb769867a50eb9604bdbc7226f22e1ecb",
+    "usage-notes.json": "970ea5bb7d3f46a21db22e3bfac48acde7aa41924a701397ce8f319ab44b5da3",
+    "reference-access.json": "d73170e3f38c91fffc919ed99a4fd5b736d05ecbd557c4d23799526ece0a3e31",
+    "diagnostic-negatives.json": "a655d1f3b0741e98cb0aa492826b15c13eef4bc62276ffd22fcde9757d303b93",
+    "revision-notes.json": "95c4d2d59b00b4efaa39339042bbb77dd1cda691c1814df5ca8033559274e38b",
+    "author-collision-audit.json": "248779ce94fe590c814d5d2e0822474923a9f4f53b0cc860f14173ed4ac9f08e",
+    "current-hanged-observation.json": "93639e74e80d80e7c4260e0af8f5dc04d07baee0f711f313e47c3ae7deed824d",
+    "draft-index.json": "c70170b6cba1e2777ecfa627d618152fb452923a0c1add9f264eda5459f597f2"
+  },
+  "gitHead": "a0933afa4b43160ddf3f5c00094344b999edbb8b",
+  "cleanWorkingTree": true,
+  "supersedesForThisNewVersionOnly": {
+    "v1ReviewFile": "../review.json",
+    "v1ReviewByteSha256": "ede9698321d45c46980c53b535ad23d16ecef1ded494b07ce392f01bb717d0c3",
+    "v1HoldsAddendumFile": "../v1-admission-holds-addendum.json",
+    "v1HoldsAddendumByteSha256": "8872a95d285d63546700fbc468dab10f2973e2fab120613d08676f98823a6f25",
+    "holdsResolved": [
+      "Primary-attested any-person temperature canonical plus finite self-context note",
+      "Positive UK ongoing-use prescription scope, without every-supply fresh-issuance implication"
+    ],
+    "allV1ArtifactsRemainUnchanged": true
+  },
+  "summary": {
+    "reviewedRows": 9,
+    "languagePass": 9,
+    "remainingLanguageHolds": 0,
+    "finiteWholeSurfaces": 52,
+    "chineseAliases": 26,
+    "originalPairs": 9,
+    "allNinePairsUnchangedFromV1": true,
+    "all26AliasesUnchanged": true,
+    "sixOtherCompleteSourceRowsUnchanged": true,
+    "collisionCount": 0
+  },
+  "reviewedRows": [
+    {
+      "term": "delivery address",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "d14bac763aeabe2fe2a2e48bbd732a9f181d8a9e6d04926ccd365d50f2f7f50f",
+      "companionRowSha256": "f2ae83a2e542d890b9aacc9077c677ad7299599ba0cb8906ac9d22b75ff836b3",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "送货地址",
+        "收货地址",
+        "配送地址"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "delivery address",
+        "delivery addresses"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "The shop asked me to confirm the delivery address before dispatching the replacement keyboard.",
+        "zh": "寄出替换用的键盘前，商店让我确认收货地址。"
+      },
+      "reason": "Physical destination noun phrase, ordinary addresses plural, all3 Chinese aliases match the destination role. English replacement-keyboard example and Chinese preserve actor/time/destination meaning. Billing, email and sender addresses stay excluded."
+    },
+    {
+      "term": "hang out the washing",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "b1cf69d820de8d6b51e5d944f1951802dacf8c935fe02f7cd20113842c2b95d7",
+      "companionRowSha256": "1d867b626149ad33f3a3bec56fc7ac24a230996dc8121f5d6a4ee0546d4d14f9",
+      "partOfSpeech": "verb phrase",
+      "chineseAliasesReviewed": [
+        "晾衣服",
+        "晾晒衣物",
+        "把洗好的衣物晾出去"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "hang out the washing",
+        "hangs out the washing",
+        "hung out the washing",
+        "hanging out the washing",
+        "hang the washing out",
+        "hangs the washing out",
+        "hung the washing out",
+        "hanging the washing out"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "Maya hung out the washing before settling down to revise for her exam.",
+        "zh": "玛雅先把洗好的衣物晾到外面，然后坐下来复习考试内容。"
+      },
+      "reason": "British outdoor laundry-drying verb phrase, uncountable washing object, hung/hanging and both finite separable noun-object orders are correct. Example uses hung and matches outdoor drying; no socialising/execution alias. Whole-phrase admission guard is a separate prerequisite below."
+    },
+    {
+      "term": "take out the rubbish",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "cbcf31db9ae21c8345f08225bca39b302e9b45efb672cf0fe71b81aef51eaf6c",
+      "companionRowSha256": "985180b7e9f92595deb59e9adc7345ee3e1b817a40652fe3f62dd34ef7ab7f61",
+      "partOfSpeech": "verb phrase",
+      "chineseAliasesReviewed": [
+        "倒垃圾",
+        "把垃圾拿出去",
+        "把垃圾拿出去倒掉"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "take out the rubbish",
+        "takes out the rubbish",
+        "took out the rubbish",
+        "taken out the rubbish",
+        "taking out the rubbish",
+        "take the rubbish out",
+        "takes the rubbish out",
+        "took the rubbish out",
+        "taken the rubbish out",
+        "taking the rubbish out"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "Leo took out the rubbish after everyone had finished clearing the kitchen.",
+        "zh": "大家把厨房收拾完后，利奥把垃圾拿出去倒掉了。"
+      },
+      "reason": "Household rubbish removal verb phrase and take/takes/took/taken/taking forms in both noun-object orders are correct. Kitchen-clearing example matches Chinese; American trash/garbage alternatives are deliberately not declared inflections."
+    },
+    {
+      "term": "take someone's temperature",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "787f55b970df3137da2e3cc0b451c49192d5f2c7c7dc22870edb50567408c105",
+      "companionRowSha256": "0c7cf448c6383e2d5f1c3bd35f32809ecdad45fb6c599d183167f40f2600b890",
+      "partOfSpeech": "verb phrase",
+      "chineseAliasesReviewed": [
+        "测体温",
+        "量体温",
+        "测量体温"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "take someone's temperature",
+        "takes someone's temperature",
+        "took someone's temperature",
+        "taken someone's temperature",
+        "taking someone's temperature",
+        "take somebody's temperature",
+        "takes somebody's temperature",
+        "took somebody's temperature",
+        "taken somebody's temperature",
+        "taking somebody's temperature",
+        "take one's temperature",
+        "takes one's temperature",
+        "took one's temperature",
+        "taken one's temperature",
+        "taking one's temperature",
+        "take my temperature",
+        "take your temperature",
+        "take his temperature",
+        "take her temperature",
+        "take our temperature",
+        "take their temperature",
+        "took my temperature",
+        "taking my temperature"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "Before recording the result, the nurse took my temperature twice.",
+        "zh": "在记下结果之前，护士给我量了两次体温。"
+      },
+      "reason": "PASS resolved broad canonical scope: Cambridge/Oxford explicitly attest someone’s/somebody’s measurement construction and Collins directly shows exact head. Every listed someone’s/somebody’s tense and concrete possessive is grammatical and finite; one’s forms are explicitly scoped to self-context without a global prohibition. Chinese any-patient meaning and nurse-took-my example now align with the title."
+    },
+    {
+      "term": "allergic reaction",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "4792095a1a0d949290227a25a37004e3d1a2b9e074d0cd1ce21c6d9aaef93529",
+      "companionRowSha256": "39177a0ec4c5da716b2b9549acb6cd37b6296123624b55933401608b365cb182",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "过敏反应"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "allergic reaction",
+        "allergic reactions"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "Nina told the nurse about an allergic reaction she had experienced the previous week.",
+        "zh": "妮娜把自己上周发生过的一次过敏反应告诉了护士。"
+      },
+      "reason": "PASS positive concise generic reaction noun and plural. Severity variability and contrasts are kept in companion, not searchable main definition. Main text does not contain severe/poison/adverse-effect synonyms. All generic body-reaction and previous-week example scopes remain correct."
+    },
+    {
+      "term": "repeat prescription",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "08f88c82227c5f66ee19147bbd0c1c88a59795b16725c32d7a54ca36b99663e5",
+      "companionRowSha256": "8bace81fa3502235cd2bceddded4fbed185db732f03a4ece292fa72dbc96e423",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "续用处方",
+        "用药续方",
+        "续方"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "repeat prescription",
+        "repeat prescriptions"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "I called the surgery to ask whether my repeat prescription had been approved.",
+        "zh": "我打电话给诊所，询问自己的续用处方是否已经获批。"
+      },
+      "reason": "PASS resolved ongoing-use scope: positive UK noun wording now describes obtaining established medicine under continuing prescribing, without requiring a new separate prescription for every supply. Broad续方 alias is explicitly this noun sense; refill/dispensing/renewal entitlement is not equated. Existing approval-enquiry example remains valid."
+    },
+    {
+      "term": "luggage storage",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "74ce41d5a3f112fd9893da7ae49bb42af067638f08ecf7bf201c5a16931cfb4e",
+      "companionRowSha256": "30a6dd494c4df3a087f781b82ee3e867df8b8baa459dfd87690dfed5d5aefd13",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "行李寄存",
+        "行李寄存服务",
+        "行李暂存"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "luggage storage"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "We booked luggage storage near the station so we could visit the museum without our bags.",
+        "zh": "我们预订了车站附近的行李寄存服务，这样就能不带行李去参观博物馆。"
+      },
+      "reason": "Uncountable temporary bag-keeping service/arrangement sense is correctly selected; no storages plural or blanket office/counter equivalence. Station/museum example matches Chinese without price, security or availability promises."
+    },
+    {
+      "term": "shift rota",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "8158ca2b7d20dcae862d67ac86a8e58ac4d69f21958608dcd7c32c3cbf708dab",
+      "companionRowSha256": "14d3e7f5a72a619e8d0d0144c7510a3d3d6b866794aea532df42f423cc7189ca",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "轮班排班表",
+        "轮班表",
+        "员工排班表",
+        "排班表"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "shift rota",
+        "shift rotas"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "I checked the shift rota before agreeing to meet friends on Friday.",
+        "zh": "答应周五和朋友见面之前，我先查看了轮班排班表。"
+      },
+      "reason": "British countable employee-shift schedule noun phrase, plural rotas and4 Chinese aliases are appropriate. Official NHS sample explicitly attests Shift rota in an employee working pattern; Cambridge supports rota duty-list role. Example checks work schedule before a social arrangement, not a class timetable."
+    },
+    {
+      "term": "employment reference",
+      "languageDecision": "PASS staged language and finite scope only",
+      "sourceRowSha256": "5a1bb3c9d1f6dfff5fe37b501f91737bbcf05eb735af40e10f0bca4689fc8cd8",
+      "companionRowSha256": "dbeba64c1759231dd916ae6effab87d860f552e549f3012c76123c350d120de9",
+      "partOfSpeech": "noun phrase",
+      "chineseAliasesReviewed": [
+        "求职推荐信息",
+        "工作推荐意见",
+        "雇佣推荐资料"
+      ],
+      "allFiniteEnglishSurfacesReviewed": [
+        "employment reference",
+        "employment references"
+      ],
+      "originalBilingualExampleReviewed": {
+        "en": "My former manager agreed to provide an employment reference for my next job application.",
+        "zh": "前任经理同意为我下一次求职提供工作推荐信息。"
+      },
+      "reason": "Recruitment information noun phrase with ordinary plural; may be factual/basic or evaluative, work/character-related, written or oral. Chinese meaning preserves those scopes; manager-agreed example has no guarantee of positive evaluation/job offer. No unconditional letter/referee/general-certificate alias."
+    }
+  ],
+  "independentAudit": {
+    "file": "independent-collision-audit.json",
+    "byteSha256": "34d2b8fc0feb12aed05862755101e449436e4ce71718ac0a766209ddd52780fb",
+    "heads": 9,
+    "wholeSurfaces": 52,
+    "canonicalManifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "canonicalEnglishShards": 128,
+    "canonicalUniqueRecords": 102609,
+    "canonicalRecordOccurrences": 143911,
+    "canonicalWholeKeys": 140858,
+    "packagedRowsChecked": 1271,
+    "baseManifestSha256": "23846f67b86c43bcd3b5b2e8b36fcf93ef19c63f2ac28ce982e989b3a13557e9",
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "catalogueSha256": "ac68127f2946c4803173e177718fad8082cc6f2a005b44da5b2f8fcbe4a24927",
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctPublicExampleContextsChecked": 106084,
+    "exampleCollisions": 0,
+    "literalFormContextCollisions": 0
+  },
+  "positiveMainGlossProof": {
+    "file": "independent-positive-gloss-probes.json",
+    "byteSha256": "96d31403854875b116f0868cb1a509e978ebc190c09e1d6b2f51498e5dd4eba1",
+    "genericReactionLiteralRank": 0,
+    "severityPoisonAdverseQueryProbesAllNull": true,
+    "scope": "Pure current classifier applied to draft strings; not an installed engine result."
+  },
+  "referenceEvidence": [
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/delivery",
+      "method": "official primary indexed entry read",
+      "support": "Explicit physical-goods delivery and delivery-address combination; not speech/computing role."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/hang-out_1",
+      "method": "direct primary page successfully opened",
+      "support": "Separable outdoor drying with washing object, distinct informal intransitive social meaning."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/hang_1",
+      "method": "official primary indexed entry read",
+      "support": "Hung for ordinary hanging; hanged belongs to a different execution sense and cannot be globally rejected."
+    },
+    {
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/c1/word-order-phrasal-verbs",
+      "method": "direct official teaching page opened",
+      "support": "Both noun-object orders for taking household rubbish out; pronoun placement distinct. No lesson examples copied."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/temperature",
+      "method": "official primary indexed entry read",
+      "support": "Explicit take someone's temperature construction; distinguishes measurement from having fever."
+    },
+    {
+      "url": "https://www.oxfordlearnersdictionaries.com/definition/english/take_1",
+      "method": "official primary indexed entry read; direct403 observed earlier",
+      "support": "Take/took/taken and explicit take somebody's temperature construction."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/allergic-reaction",
+      "method": "official primary indexed collocation page read",
+      "support": "Conventional whole combination; not represented as an independently defined dictionary head."
+    },
+    {
+      "url": "https://www.nhs.uk/conditions/allergies/",
+      "method": "direct official page opened",
+      "support": "Broad reactions vary in severity; severe anaphylaxis is narrower. No treatment instructions extracted."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/prescription",
+      "method": "official primary indexed entry read",
+      "support": "Countable prescription, further prescription for continuing same medicine; wording paraphrased, no source examples copied."
+    },
+    {
+      "url": "https://www.nhs.uk/nhs-services/prescriptions/how-to-order-a-repeat-prescription/",
+      "method": "direct official page opened",
+      "support": "Established repeat prescribing versus repeat dispensing arrangements; does not imply automatic approval."
+    },
+    {
+      "url": "https://www.nhs.uk/nhs-app/help/prescriptions/requesting-a-prescription/",
+      "method": "official primary indexed page read",
+      "support": "Some repeat-dispensing prescriptions cover a period without a separate GP request each time; workflow-specific scope cannot be collapsed into every new issue."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/storage",
+      "method": "official primary indexed entry read",
+      "support": "Uncountable keeping/storage sense; a place sense also exists, so service-only draft is selected scope, not a claim that every place sense is wrong."
+    },
+    {
+      "url": "https://www.heathrow.com/at-the-airport/airport-services/left-luggage",
+      "method": "direct official operator page opened",
+      "support": "Actual temporary luggage-storage service; no commercial promises/prices copied."
+    },
+    {
+      "url": "https://dictionary.cambridge.org/dictionary/english/rota",
+      "method": "official primary indexed entry read; direct403 observed",
+      "support": "Countable mainly British duty/work schedule, plural rotas."
+    },
+    {
+      "url": "https://www.esht.nhs.uk/medical-education/wp-content/uploads/2019/03/Sample-Generic-Work-Schedule.pdf",
+      "method": "direct official PDF text read, page1 working-pattern heading",
+      "support": "Exact Shift rota whole compound attested; no schedule/personal/sample data copied into the draft."
+    },
+    {
+      "url": "https://www.acas.org.uk/providing-a-job-reference/what-employers-can-say-in-a-reference",
+      "method": "direct official page opened",
+      "support": "Work/character, basic factual and detailed references; not necessarily positive recommendation."
+    },
+    {
+      "url": "https://www.acas.org.uk/settlement-agreements/discussing-and-negotiating-an-offer",
+      "method": "direct official page opened, Job references section",
+      "support": "Explicit written or verbal reference distinction. No legal entitlement advice copied."
+    },
+    {
+      "url": "https://www.collinsdictionary.com/dictionary/english/take-someones-temperature",
+      "method": "direct official page opened; exact phrase heading and partial parsed lexical body visible",
+      "support": "Confirms the exact broad someone’s canonical. Complete meaning is independently corroborated by readable official Oxford/Cambridge indexed measurement senses; no missing parser words were guessed or copied."
+    }
+  ],
+  "mandatoryIntegrationPrerequisites": [
+    "No admission, compiler, cache-generation, account or deployment authority is conferred by this lexical review. Project actual final reviewed row hashes again after required reviewer metadata projection.",
+    "After actual future wholephrase admission, prove hanged out the washing cannot borrow the valid authenticated hanged relation of another hang sense; valid hung finite variants and literal hanged must remain. Currenta093 completephrase is empty, so no present acceptance regression is alleged.",
+    "Preserve complete literal/form priority, exact whole declared surfaces and source-bound recovery. No arbitrary possessive substitutions or hidden phrase-object generation are authorized.",
+    "Keep generic allergic reaction distinct from severe anaphylaxis/specialist adjectives, poisoning and generic adverse effects. The3 inherited clinical-source defects in the separate medical audit remain a separate backlog; a new generic phrase alone does not establish universal medical accuracy.",
+    "Keep UK noun/countability distinctions, service-versus-location and oral/written/factual reference scope. Companion constraints must not silently become unconditional Chinese synonym aliases."
+  ],
+  "originalityScope": "Nine exact bilingual pairs independently checked against all103998 immutable pairs and106084 public contexts/overlays; no exact existing EN or ZH sentence matches. Source reads as original composition; no publisher definition/example was imported, and no global web-originality guarantee is asserted.",
+  "sourceAuthorFilesNeverEdited": true,
+  "productFilesEdited": 0,
+  "stagedLanguageApproved": true,
+  "admissionApproved": false,
+  "productionApproved": false
+}
