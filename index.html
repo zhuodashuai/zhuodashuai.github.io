@@ -1,29 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Qianjun Zhuo, an undergraduate at UNSW Sydney and exchange student at Penn. Research in simulation-based safety evaluation, neural network verification and formal explainability.">
+  <meta name="theme-color" content="#30263b">
   <meta name="author" content="Qianjun Zhuo">
-  <meta name="theme-color" content="#f8fafb">
+  <meta name="description" content="Qianjun Zhuo studies simulation-based safety validation, learning-based control, and formal explanations for neural networks at Penn and UNSW Sydney.">
   <link rel="canonical" href="https://zhuodashuai.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:site_name" content="Qianjun Zhuo">
-  <meta property="og:title" content="Qianjun Zhuo | Safe Autonomy & Explainable AI">
-  <meta property="og:description" content="Undergraduate research in simulation-based safety evaluation and formal explanations for machine learning. UNSW Sydney · Penn xLAB.">
+  <meta property="og:title" content="Qianjun Zhuo | Autonomous Systems &amp; Formal AI">
+  <meta property="og:description" content="Research experience, projects, education, teaching and service.">
   <meta property="og:url" content="https://zhuodashuai.github.io/">
-  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-safety-trace.png">
-  <meta property="og:image:width" content="1800">
-  <meta property="og:image:height" content="1350">
-  <meta property="og:image:alt" content="Angle, angular velocity and control torque from my pendulum simulation under a disturbance.">
+  <meta property="og:image" content="https://zhuodashuai.github.io/assets/pendulum-angle.png">
+  <meta property="og:image:alt" content="A simulated pendulum angle briefly exceeds its safety limit after a disturbance.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Qianjun Zhuo | Safe Autonomy & Explainable AI">
-  <meta name="twitter:description" content="Simulation-based safety evaluation, neural network verification and formal explainability.">
-  <meta name="twitter:image" content="https://zhuodashuai.github.io/assets/pendulum-safety-trace.png">
-  <title>Qianjun Zhuo | Safe Autonomy &amp; Explainable AI</title>
+  <title>Qianjun Zhuo | Autonomous Systems &amp; Formal AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/academic-profile.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,306 +31,240 @@
       {"@type": "CollegeOrUniversity", "name": "UNSW Sydney"},
       {"@type": "CollegeOrUniversity", "name": "University of Pennsylvania"}
     ],
-    "knowsAbout": ["Simulation-based safety evaluation", "Importance sampling", "Neural network verification", "Formal explainability"],
-    "description": "Undergraduate at UNSW Sydney and exchange student at the University of Pennsylvania, studying safe autonomy and formal explanations for machine learning."
+    "knowsAbout": ["Autonomous systems", "Simulation-based safety validation", "Learning-based control", "Neural network verification", "Abductive explanations"]
   }
   </script>
-  <style>
-    :root {
-      color-scheme: light;
-      --paper: #ffffff;
-      --canvas: #f8fafb;
-      --ink: #152c37;
-      --muted: #53666f;
-      --line: #d9e2e6;
-      --accent: #14635a;
-      --soft: #eaf2f0;
-      --serif: "Instrument Serif", Georgia, serif;
-      --sans: "Instrument Sans", system-ui, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
-    body { margin: 0; background: var(--canvas); color: var(--ink); font-family: var(--sans); font-size: 1rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: 1px; }
-    a:hover { color: var(--accent); }
-    a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
-    ::selection { background: #c9e6df; color: var(--ink); }
-    img { max-width: 100%; height: auto; display: block; }
-    h1, h2, h3, p, figure { margin: 0; }
-    h1, h2, h3 { font-weight: 400; }
-    .shell { width: min(1120px, calc(100% - 5rem)); margin-inline: auto; }
-    .skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 20; padding: .7rem 1rem; background: var(--ink); color: white; transform: translateY(-180%); }
-    .skip-link:focus { transform: translateY(0); }
-    .site-header { position: sticky; top: 0; z-index: 10; background: rgb(248 250 251 / 96%); border-bottom: 1px solid var(--line); }
-    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .brand { font-weight: 600; text-decoration: none; letter-spacing: -.025em; font-size: 1.125rem; }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 1.75rem; }
-    .nav-links a { font-size: .875rem; color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--accent); }
-    .hero { padding: 6.5rem 0 5rem; }
-    .eyebrow { font-size: .875rem; font-weight: 500; color: var(--accent); }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 5rem; align-items: end; }
-    h1 { font-family: var(--serif); font-size: clamp(4.4rem, 8vw, 7rem); letter-spacing: -.045em; line-height: 1.05; margin: 1rem 0 1.5rem; }
-    .hero-lead { max-width: 740px; font-size: clamp(1.4rem, 2.5vw, 1.85rem); letter-spacing: -.025em; line-height: 1.4; }
-    .hero-summary { max-width: 660px; margin-top: 1.4rem; color: var(--muted); font-size: 1.0625rem; }
-    .hero-links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2rem; }
-    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 45px; padding: .55rem 1.05rem; border: 1px solid var(--line); background: var(--paper); font-size: .875rem; font-weight: 500; text-decoration: none; border-radius: 4px; }
-    .button.primary { color: white; background: var(--ink); border-color: var(--ink); }
-    .button:hover { border-color: var(--accent); color: var(--accent); }
-    .button.primary:hover { color: white; background: var(--accent); border-color: var(--accent); }
-    .affiliations { border-top: 1px solid var(--ink); }
-    .affiliation { padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
-    .affiliation small { display: block; color: var(--muted); font-size: .875rem; margin-bottom: .25rem; }
-    .affiliation a, .affiliation strong { font-size: 1rem; font-weight: 500; text-decoration: none; }
-    .focus { display: flex; flex-wrap: wrap; column-gap: 2rem; row-gap: .4rem; padding: 1.25rem 0; border-block: 1px solid var(--line); color: var(--muted); font-size: .9375rem; }
-    .section { padding: 4.75rem 0; }
-    .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 2rem; margin-bottom: 2rem; }
-    h2 { font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -.025em; }
-    .section-heading p { max-width: 28rem; color: var(--muted); font-size: .9375rem; }
-    .research-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--paper); }
-    .research-copy { padding: 2.5rem; }
-    .meta { font-size: .875rem; color: var(--accent); margin-bottom: 1rem; }
-    h3 { font-family: var(--serif); font-size: 2rem; line-height: 1.2; letter-spacing: -.02em; }
-    .research-copy > p:not(.meta) { margin-top: 1.25rem; color: var(--muted); }
-    .research-copy ul { padding-left: 1.15rem; margin: 1.2rem 0 0; color: var(--muted); }
-    .research-copy li + li { margin-top: .65rem; }
-    .methods { margin-top: 1.4rem; font-size: .875rem; font-weight: 500; color: var(--accent); }
-    .research-figure { display: flex; flex-direction: column; justify-content: center; padding: 1.6rem; background: #f0f5f6; border-left: 1px solid var(--line); }
-    .research-figure a { display: block; background: white; border-radius: 3px; overflow: hidden; }
-    .research-figure figcaption { color: var(--muted); font-size: .875rem; margin-top: 1rem; line-height: 1.5; }
-    .research-secondary { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4rem; margin-top: 1.5rem; padding: 2.5rem; border: 1px solid var(--line); background: var(--paper); border-radius: 6px; }
-    .research-secondary .description { color: var(--muted); }
-    .research-secondary .description p + p { margin-top: 1rem; }
-    .projects-section { padding-top: 0; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
-    .project { padding: 1.75rem; border-top: 2px solid var(--line); background: var(--paper); }
-    .project h3 { font-size: 1.65rem; }
-    .project > p:not(.meta) { color: var(--muted); margin-top: 1rem; }
-    .project .methods { line-height: 1.5; }
-    .education-section { background: var(--paper); border-block: 1px solid var(--line); }
-    .education-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 4rem; }
-    .education-entry { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1.75rem; padding: 1.6rem 0; border-top: 1px solid var(--line); }
-    .education-entry:first-child { padding-top: 0; border: 0; }
-    .institution-logo { width: 110px; height: 62px; object-fit: contain; }
-    .education-entry h3 { font-family: var(--sans); font-size: 1.0625rem; font-weight: 600; letter-spacing: -.015em; }
-    .education-entry p { margin-top: .4rem; color: var(--muted); }
-    .education-entry .date { font-size: .875rem; }
-    .tools { padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); }
-    .tools strong { font-weight: 500; color: var(--ink); }
-    .contact { padding: 4.5rem 0 2rem; }
-    .contact-main { display: flex; justify-content: space-between; align-items: start; gap: 2rem; }
-    .contact-copy { max-width: 34rem; margin-top: 1rem; color: var(--muted); }
-    .contact-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .3rem; }
-    .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-    @media (min-width: 1400px) { .hero { padding-top: 7.5rem; } }
-    @media (max-width: 960px) {
-      .shell { width: calc(100% - 3rem); }
-      .hero-grid { grid-template-columns: minmax(0, 1fr) 225px; gap: 2rem; }
-      .research-copy { padding: 1.75rem; }
-      .research-figure { padding: 1rem; }
-      .research-secondary { gap: 2rem; padding: 1.75rem; }
-      .project-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .project { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 0 2rem; }
-      .project .meta, .project h3, .project .methods { grid-column: 1; }
-      .project > p:not(.meta) { grid-column: 2; grid-row: 1 / 4; margin: 0; }
-      .project .methods { margin-top: 1rem; }
-      .education-layout { grid-template-columns: 1fr 2fr; gap: 2rem; }
-      .contact-main { flex-direction: column; }
-    }
-    @media (max-width: 680px) {
-      html { scroll-padding-top: 8rem; }
-      .shell { width: calc(100% - 2.5rem); }
-      .nav { min-height: 100px; padding-block: 1rem; flex-direction: column; align-items: start; gap: .65rem; }
-      .nav-links { width: 100%; justify-content: space-between; gap: .75rem; }
-      .hero { padding: 3.25rem 0 2.5rem; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      h1 { margin-top: .7rem; font-size: clamp(3.6rem, 15vw, 5.5rem); }
-      .hero-lead { font-size: 1.4rem; }
-      .hero-summary { font-size: 1rem; }
-      .affiliations { display: grid; grid-template-columns: 1fr 1fr; }
-      .affiliation { padding-right: 1rem; }
-      .affiliation:last-child { grid-column: 1 / -1; }
-      .focus { column-gap: 1.25rem; font-size: .875rem; }
-      .section { padding-block: 3.25rem; }
-      .section-heading { flex-direction: column; gap: .75rem; margin-bottom: 1.5rem; }
-      .research-feature, .research-secondary { grid-template-columns: 1fr; }
-      .research-copy, .research-secondary { padding: 1.4rem; }
-      .research-figure { border-left: 0; border-top: 1px solid var(--line); padding: 1rem; }
-      .research-secondary { gap: 1.25rem; }
-      h3 { font-size: 1.8rem; }
-      .projects-section { padding-top: 0; }
-      .project { display: block; padding: 1.4rem; }
-      .project > p:not(.meta) { margin-top: 1rem; }
-      .education-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .education-entry { grid-template-columns: 74px minmax(0, 1fr); gap: 1.2rem; }
-      .institution-logo { width: 74px; height: 54px; }
-      .contact { padding-top: 3.25rem; }
-      .site-footer { margin-top: 2.75rem; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    @media print {
-      .site-header, .hero-links, .contact-links, .footer-links { display: none; }
-      body { background: white; }
-      .shell { width: 100%; }
-      .hero, .section, .contact { padding-block: 1.5rem; }
-      .research-feature, .research-secondary, .project, .education-entry { break-inside: avoid; }
-    }
-  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header">
-    <nav class="shell nav" aria-label="Primary navigation">
-      <a class="brand" href="#profile">Qianjun Zhuo</a>
-      <div class="nav-links">
-        <a href="#research">Research</a>
-        <a href="#work">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+  <div class="page">
+    <header class="sidebar">
+      <div class="sidebar-inner">
+        <a class="site-name" href="#profile">Qianjun Zhuo</a>
+        <p>UNSW Sydney<br>University of Pennsylvania exchange</p>
+        <nav class="navigation" aria-label="Primary navigation">
+          <a href="#profile">About</a>
+          <a href="#research">Research</a>
+          <a href="#work">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Teaching &amp; service</a>
+          <a href="#recognition">Recognition</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="sidebar-links" aria-label="Profile links">
+          <a href="mailto:z5528306@ad.unsw.edu.au">Email</a>
+          <a href="https://github.com/zhuodashuai">GitHub</a>
+          <a href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
+        </div>
       </div>
-    </nav>
-  </header>
+    </header>
 
-  <main id="main">
-    <section class="hero" id="profile" aria-labelledby="profile-title">
-      <div class="shell hero-grid">
-        <div>
-          <p class="eyebrow">Safe autonomy &amp; explainable AI</p>
+    <main id="main" class="content">
+      <section id="profile" class="intro" aria-labelledby="profile-title">
+        <div class="intro-copy">
+          <p class="label">UNSW Sydney · Penn xLAB</p>
           <h1 id="profile-title">Qianjun Zhuo</h1>
-          <p class="hero-lead">I study how autonomous systems fail and how machine-learning decisions can be explained.</p>
-          <p class="hero-summary">I’m an undergraduate studying actuarial studies and mathematics at UNSW Sydney, currently on exchange at the University of Pennsylvania. My work connects simulation, statistical safety evaluation and formal explanations for neural networks.</p>
-          <div class="hero-links" aria-label="Profile links">
+          <p class="lead">Autonomous systems safety and formal explanations for neural networks</p>
+          <p>I’m an undergraduate at UNSW Sydney studying actuarial studies and mathematics, currently on a 2026–27 academic-year exchange at the Wharton School, University of Pennsylvania.</p>
+          <p>At Penn’s <a href="https://xlab.upenn.edu/">Safe Autonomous Systems Lab</a>, I use simulation and probability to study how feedback controllers behave under uncertainty. At UNSW, I study how to verify neural-network behaviour and explain individual predictions with formal guarantees.</p>
+          <div class="intro-links">
             <a class="button primary" href="#research">Research experience</a>
-            <a class="button" href="mailto:z5528306@ad.unsw.edu.au">Email</a>
-            <a class="button" href="https://github.com/zhuodashuai">GitHub</a>
-            <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
+            <a class="button" href="#contact">Contact</a>
           </div>
         </div>
-        <aside class="affiliations" aria-label="Current affiliations">
-          <div class="affiliation"><small>Home university</small><a href="https://www.unsw.edu.au/">UNSW Sydney</a></div>
-          <div class="affiliation"><small>Academic-year exchange · 2026–27</small><a href="https://www.wharton.upenn.edu/">Wharton School, Penn</a></div>
-          <div class="affiliation"><small>Research</small><strong>Penn xLAB · UNSW Sydney</strong></div>
-        </aside>
-      </div>
-    </section>
+        <figure class="hero-figure">
+          <p class="label">From the pendulum case study</p>
+          <a class="plot-link" href="assets/pendulum-safety-trace.png" aria-label="Open the full pendulum simulation trace">
+            <img src="assets/pendulum-angle.png" width="1440" height="792" alt="Pendulum angle rises to about 0.29 radians after a disturbance from 1 to 1.5 seconds, passing the 0.20-radian limit before returning towards zero." fetchpriority="high">
+          </a>
+          <figcaption>A brief disturbance drives the simulated pendulum past its angle limit. The full trace also shows angular velocity and applied torque.</figcaption>
+        </figure>
+      </section>
 
-    <div class="shell focus" aria-label="Research interests">
-      <span>Simulation-based validation</span>
-      <span>Uncertainty quantification</span>
-      <span>Formal explainability</span>
-    </div>
+      <section id="research" class="section" aria-labelledby="research-title">
+        <header class="section-heading">
+          <h2 id="research-title">Research experience</h2>
+          <p>Safety evaluation in simulation and formal reasoning about model decisions.</p>
+        </header>
 
-    <section class="shell section" id="research" aria-labelledby="research-title">
-      <div class="section-heading">
-        <h2 id="research-title">Research experience</h2>
-        <p>Current work in autonomous-system safety and trustworthy machine learning.</p>
-      </div>
-      <div id="experience">
-        <article class="research-feature" id="safety-validation">
-          <div class="research-copy">
-            <p class="meta">Penn xLAB · Ongoing</p>
-            <h3>Simulation-based safety evaluation</h3>
-            <p>Developing a closed-loop inverted-pendulum case study to examine how sensor noise, actuator limits and external disturbances affect controller safety.</p>
-            <ul>
-              <li>Define failure through an angle safety bound and track the minimum safety margin along each trajectory.</li>
-              <li>Compare Monte Carlo and importance sampling for failure-probability estimation, logging disturbances and random seeds to replay failures.</li>
-            </ul>
-            <p class="methods">Python · Monte Carlo · Importance sampling</p>
+        <article id="safety-validation" class="research-entry">
+          <div class="entry-meta">
+            <a href="https://xlab.upenn.edu/">Penn xLAB</a>
+            <span>2026–present</span>
           </div>
-          <figure class="research-figure">
-            <a href="assets/pendulum-safety-trace.png" target="_blank" rel="noopener" aria-label="Open the full-size pendulum simulation plot">
-              <img src="assets/pendulum-safety-trace.png" width="1800" height="1350" alt="A simulated base disturbance between 1 and 1.5 seconds increases the pendulum angle, while control torque reaches its limit before the pendulum recovers." loading="lazy" decoding="async">
-            </a>
-            <figcaption>A trace from my pendulum case study. Shaded regions mark the applied disturbance. Select the plot to inspect it at full size.</figcaption>
-          </figure>
-        </article>
-
-        <article class="research-secondary" id="formal-explainability">
           <div>
-            <p class="meta">UNSW Sydney · Ongoing research study</p>
+            <h3>Simulation-based safety validation</h3>
+            <p class="question">How often does a controller violate a safety constraint, and what can we learn from the failures?</p>
+            <p>I built a closed-loop inverted pendulum case study in Python. The controller receives noisy measurements, applies torque within actuator limits and responds to a disturbance at the base. I score each trajectory by its minimum margin to the angle limit and record disturbance settings and random seeds so I can replay individual failures.</p>
+            <p>I use ordinary Monte Carlo to estimate failure probability under the specified disturbance model and importance sampling to allocate more trials to larger disturbances. Likelihood weights account for the change in sampling distribution.</p>
+            <div class="result" aria-label="Results from one pendulum simulation comparison">
+              <div><span>Monte Carlo standard error</span><strong>0.0152</strong></div>
+              <div><span>Importance sampling standard error</span><strong>0.00985</strong></div>
+              <p>Estimated standard errors from one comparison with 1,000 simulated trajectories per method. The comparison applies to the specified pendulum and disturbance model.</p>
+            </div>
+            <p class="entry-links"><a href="assets/pendulum-safety-trace.png">Full simulation trace</a> <a href="https://xlab.upenn.edu/">Penn xLAB</a></p>
+          </div>
+        </article>
+
+        <article id="formal-explainability" class="research-entry">
+          <div class="entry-meta">
+            <a href="https://www.unsw.edu.au/engineering/our-schools/computer-science-and-engineering">UNSW Sydney</a>
+            <span>2026–present</span>
+          </div>
+          <div>
             <h3>Neural network verification &amp; formal explainability</h3>
-            <p class="methods">Abductive explanations · ReLU networks · MILP</p>
-          </div>
-          <div class="description">
-            <p>Studying verification and formal explanations with Prof. Yulei Sui and Dr. Guanqin Zhang. My current focus is how a small set of input features can be sufficient to guarantee a model’s prediction.</p>
-            <p>Preparing paper-reading presentations and worked Boolean and ReLU examples, while exploring ACT, PyTorch and solver-based formulations.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="shell section projects-section" id="work" aria-labelledby="work-title">
-      <div class="section-heading"><h2 id="work-title">Selected projects &amp; study</h2></div>
-      <div class="project-grid">
-        <article class="project">
-          <p class="meta">Independent coursework</p>
-          <h3>Algorithms for Validation</h3>
-          <p>Completed three Julia projects using Stanford’s public AA228V / CS238V materials, exploring failure search, failure-probability estimation and reachability for uncertain dynamical systems.</p>
-          <div class="methods">Julia · Failure search · Reachability</div>
-        </article>
-        <article class="project">
-          <p class="meta">Control &amp; reinforcement learning</p>
-          <h3>Moving-base pendulum control</h3>
-          <p>Built a custom Gymnasium environment for a moving-base inverted pendulum. Tuned a PD baseline and compared PPO and tabular Q-learning policies under matched simulated disturbances.</p>
-          <div class="methods">Python · Gymnasium · PPO · Q-learning</div>
-        </article>
-        <article class="project">
-          <p class="meta">Actuarial modelling · Coursework</p>
-          <h3>Retirement income modelling</h3>
-          <p>Built an Excel model linking retirement accumulation and pension drawdown. Used scenario and sensitivity analysis to examine contribution timing, compounding and withdrawal assumptions.</p>
-          <div class="methods">Excel · Scenario analysis · Sensitivity analysis</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section education-section" id="education" aria-labelledby="education-title">
-      <div class="shell education-layout">
-        <h2 id="education-title">Education</h2>
-        <div>
-          <article class="education-entry">
-            <a href="https://www.upenn.edu/" aria-label="University of Pennsylvania"><img class="institution-logo" src="assets/upenn-logo.svg" width="563" height="184" alt="University of Pennsylvania" loading="lazy"></a>
-            <div>
-              <h3>University of Pennsylvania</h3>
-              <p>Academic-year exchange at the Wharton School</p>
-              <p class="date">2026–2027 · Philadelphia</p>
+            <p class="question">Which input features suffice to guarantee an individual prediction?</p>
+            <p>I study neural network verification with Prof. <a href="https://yuleisui.github.io/">Yulei Sui</a> and Dr. <a href="https://guanqin-123.github.io/">Guanqin Zhang</a>. My current work on abductive explanations asks whether fixing a subset of input features forces the same prediction across all admissible choices for the remaining features.</p>
+            <p>I prepared a paper-reading presentation with worked Boolean and ReLU examples. The examples compare removing redundant features with searching for a smallest explanation, and show how mixed-integer constraints can encode ReLU behaviour. I have also run initial ACT experiments with PyTorch models and examined VNN-LIB property specifications.</p>
+            <div class="example">
+              <span class="label">Illustrative Boolean example</span>
+              <p>For the rule <code>x₁ AND (x₂ OR x₃)</code> and input <code>(1, 1, 0)</code>, fixing <code>x₁ = x₂ = 1</code> guarantees the positive prediction for either value of <code>x₃</code>. Dropping either fixed feature allows a negative prediction.</p>
             </div>
+            <p class="entry-links"><a href="https://github.com/SVF-tools/ACT">ACT toolkit</a> <a href="https://arxiv.org/abs/1811.10656">Abductive explanations paper</a></p>
+          </div>
+        </article>
+      </section>
+
+      <section id="work" class="section" aria-labelledby="work-title">
+        <header class="section-heading">
+          <h2 id="work-title">Projects &amp; technical work</h2>
+          <p>Control experiments, verification exercises, and software I use and maintain.</p>
+        </header>
+        <div class="projects">
+          <article class="project">
+            <p class="label">Control &amp; reinforcement learning</p>
+            <h3>Moving-base inverted pendulum control</h3>
+            <p>I built a custom Gymnasium environment for an inverted pendulum on a moving base, tuned a proportional–derivative controller with a gain grid, and evaluated PPO and tabular Q-learning policies under matched simulated disturbances.</p>
+            <p class="project-note">The comparison tracks how often each policy violates the angle constraint under the same evaluation conditions.</p>
           </article>
-          <article class="education-entry">
-            <a href="https://www.unsw.edu.au/" aria-label="UNSW Sydney"><img class="institution-logo" src="assets/unsw-logo.png" width="330" height="140" alt="UNSW Sydney" loading="lazy"></a>
-            <div>
-              <h3>UNSW Sydney</h3>
-              <p>Undergraduate studies in actuarial studies and mathematics</p>
-              <p class="date">Probability · Statistics · Optimisation · Scientific computing</p>
-            </div>
+          <article class="project">
+            <p class="label">Independent study · Julia</p>
+            <h3>Algorithms for Validation</h3>
+            <p>I completed three Julia projects using Stanford’s public AA228V / CS238V materials. The projects address finding failing trajectories, estimating failure probabilities efficiently and approximating reachable states in dynamical systems.</p>
+            <p class="entry-links"><a href="https://bulletin.stanford.edu/courses/aa-228v">Course description</a> <a href="https://github.com/algorithmsbooks/validation-ancillaries">Textbook code</a></p>
           </article>
-          <p class="tools" id="recognition"><strong>Tools I use</strong> &nbsp; Python, Julia, R and Excel, with PyTorch and ACT for verification experiments and ROS 2 for robotics training.</p>
+          <article class="project">
+            <p class="label">Robotics training · ROS 2</p>
+            <h3>RoboRacer / F1TENTH</h3>
+            <p>I’m working through autonomous racing lab materials. My current practice covers ROS 2 publishers, subscribers and a relay for driving messages, alongside simulator setup and vehicle coordinate frames.</p>
+            <p class="entry-links"><a href="https://f1tenth-coursekit.readthedocs.io/en/latest/assignments/labs/index.html">RoboRacer labs</a></p>
+          </article>
+          <article class="project">
+            <p class="label">Actuarial modelling · Excel</p>
+            <h3>Retirement accumulation &amp; pension drawdown</h3>
+            <p>I built an Excel model linking contributions and investment growth to pension withdrawals. I used scenario and sensitivity analysis to examine the effects of contribution timing, compounding frequency and drawdown rules on the retirement balance.</p>
+          </article>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="shell contact" id="contact" aria-labelledby="contact-title">
-    <div class="contact-main">
-      <div>
-        <h2 id="contact-title">Get in touch</h2>
-        <p class="contact-copy">I welcome research conversations and opportunities in autonomous-system safety, simulation and formal explainability.</p>
-      </div>
-      <div class="contact-links" aria-label="Contact links">
-        <a class="button primary" href="mailto:z5528306@ad.unsw.edu.au">UNSW email</a>
-        <a class="button" href="https://github.com/zhuodashuai">GitHub</a>
-        <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
-      </div>
-    </div>
-    <div class="site-footer">
-      <span>© 2026 Qianjun Zhuo</span>
-      <div class="footer-links" id="feedback">
-        <a href="vocab/">Wordbook</a>
-        <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=suggestion.yml">Feedback</a>
-        <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=guestbook.yml">Guestbook</a>
-      </div>
-      <span>Updated November 2026</span>
-    </div>
-  </footer>
+        <aside class="software" aria-labelledby="software-title">
+          <div>
+            <p class="label">Software</p>
+            <h3 id="software-title">Wordbook <span lang="zh-Hans">· 卓的单词本</span></h3>
+          </div>
+          <div>
+            <p>I maintain an installable vocabulary and reading app. It supports public bilingual lookup, source-aware vocabulary entries and private study features such as chapter quizzes and spaced review. The editing workflow uses AI assistance, with decisions and publication handled through the owner interface.</p>
+            <p class="entry-links"><a href="vocab/">Open Wordbook</a> <a href="vocab/guide.html">User guide</a></p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="education" class="section" aria-labelledby="education-title">
+        <header class="section-heading"><h2 id="education-title">Education</h2></header>
+        <article class="education-entry">
+          <a class="institution" href="https://www.upenn.edu/" aria-label="University of Pennsylvania">
+            <img src="assets/upenn-logo.svg" width="563" height="184" alt="" loading="lazy">
+          </a>
+          <div>
+            <p class="label">2026–2027 · Philadelphia</p>
+            <h3>University of Pennsylvania</h3>
+            <p class="role">Academic-year exchange at the Wharton School</p>
+            <p>Coursework includes modern data mining, optimisation, enabling technologies, corporate finance and consumer financial decision-making.</p>
+          </div>
+        </article>
+        <article class="education-entry">
+          <a class="institution" href="https://www.unsw.edu.au/" aria-label="UNSW Sydney">
+            <img src="assets/unsw-logo.png" width="330" height="140" alt="" loading="lazy">
+          </a>
+          <div>
+            <p class="label">2024–present · Sydney</p>
+            <h3>UNSW Sydney</h3>
+            <p class="role">Undergraduate studies in actuarial studies and mathematics</p>
+            <p>High Distinction average. My mathematical training includes probability, mathematical statistics, higher linear algebra, mathematical computing and financial mathematics.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="experience" class="section" aria-labelledby="experience-title">
+        <header class="section-heading"><h2 id="experience-title">Teaching, development &amp; service</h2></header>
+        <div class="experience">
+          <article>
+            <p class="label">Warrane College · 2026</p>
+            <h3>Mathematics tutor</h3>
+            <p>Tutored six first-year university students in calculus and algebra through one-to-one and small-group sessions. Designed practice sets and study plans around gaps in each student’s understanding.</p>
+          </article>
+          <article>
+            <p class="label">UNSW Faculty of Science · 2025–2026</p>
+            <h3>Talented Students Program</h3>
+            <p>Worked on proof-based, competition-style mathematics problems under the guidance of Denis Potapov.</p>
+          </article>
+          <article>
+            <p class="label">UNSW Business School · 2026</p>
+            <h3>Career Mentoring Program</h3>
+            <p>Worked with a financial services mentor on career direction, professional communication, applications, networking and interview preparation.</p>
+          </article>
+          <article>
+            <p class="label">Little Sisters of the Poor · 2025</p>
+            <h3>Aged care volunteering</h3>
+            <p>Helped maintain communal spaces through cleaning and gardening in an aged care residence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="recognition" class="section credentials" aria-labelledby="recognition-title">
+        <div>
+          <h2 id="recognition-title">Honours &amp; memberships</h2>
+          <ul class="recognition">
+            <li><time datetime="2026">2026</time><span><strong>UNSW Exchange Scholarship</strong><br>UNSW Sydney</span></li>
+            <li><time datetime="2025">2025</time><span><strong>Warrane College Scholar</strong><br>Warrane College</span></li>
+            <li><time datetime="2025">2025</time><span><strong>Associate of CESA (ACES)</strong><br>Commercial Education Society of Australia</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Methods &amp; tools</h2>
+          <dl class="tool-list">
+            <div><dt>Simulation &amp; statistics</dt><dd>Monte Carlo, importance sampling, failure search, bootstrap, cross-validation and sensitivity analysis.</dd></div>
+            <div><dt>Verification &amp; control</dt><dd>Reachability, mixed-integer modelling for ReLU networks, PD control and reinforcement learning.</dd></div>
+            <div><dt>Scientific computing</dt><dd>Python, Julia, R and Excel. Research and training tools include ACT, PyTorch, Gymnasium and ROS 2.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <header class="section-heading">
+          <h2 id="contact-title">Contact</h2>
+          <p>For research conversations or project collaboration, please email me.</p>
+        </header>
+        <div class="contact-links">
+          <a class="button primary" href="mailto:z5528306@ad.unsw.edu.au">UNSW email</a>
+          <a class="button" href="mailto:zhuoeric3@gmail.com">Personal email</a>
+          <a class="button" href="https://github.com/zhuodashuai">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/zhuo-qianjun-155123309">LinkedIn</a>
+        </div>
+        <div id="feedback" class="feedback">
+          <h3>Feedback &amp; guestbook</h3>
+          <p>Use the public GitHub forms to suggest a correction or leave a note. Send private messages by email.</p>
+          <p class="entry-links">
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=suggestion.yml">Send a suggestion</a>
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues/new?template=guestbook.yml">Sign the guestbook</a>
+            <a href="https://github.com/zhuodashuai/zhuodashuai.github.io/issues">View public messages</a>
+          </p>
+        </div>
+      </section>
+      <footer class="footer">
+        <span>© 2026 Qianjun Zhuo</span>
+        <span>Updated November 2026</span>
+      </footer>
+    </main>
+  </div>
 </body>
 </html>
