@@ -1,5 +1,5 @@
-import { SELECTED_LEGACY_EXAMPLE_BINDINGS } from './selected-legacy-examples-data.js';
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=118';
+import { SELECTED_LEGACY_EXAMPLE_BINDINGS } from './selected-legacy-examples-data.js?v=125';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=125';
 
 // Keep these pure identity checks local: ordinary examples must not depend on
 // the separately optional canonical-repair transport graph being available.

@@ -1,4 +1,4 @@
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=118';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=125';
 
 // One reviewed noun plural, not a suffix rule. A matching authored definition
 // does not authenticate an origin: expanded-dictionary's private parser must

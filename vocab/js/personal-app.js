@@ -13,10 +13,10 @@ import { alreadySelectedSource, contextualizePersonalEntry, fetchPersonalPublicC
   personalCollectionCatalog, personalSourceContext, publicSelectionCatalog, publicSelectionEntries, selectionPayload } from "./personal-selection.js?v=82";
 import { personalRecentHistory, personalStudyQueue, personalStudySummary, validatePersonalLearning, validatePersonalReview } from "./personal-study.js?v=77";
 import { lookupPersonalDictionary, preloadPersonalDictionary, searchPersonalDictionaryChinese } from "./personal-dictionary.js?v=97";
-import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=118";
-import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=118";
+import { lookupPersonalDictionaryFast } from "./personal-lookup-flow.js?v=125";
+import { mergePersonalDictionaryPage } from "./personal-lookup-flow.js?v=125";
 import { automaticDictionaryCollection, createDictionaryCollectionQueue } from "./dictionary-collection.js?v=98";
-import { searchExpandedDictionary, searchRelatedChineseDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=118";
+import { searchExpandedDictionary, searchRelatedChineseDictionary, preloadExpandedDictionary } from "./expanded-dictionary.js?v=125";
 import { createPersonalSpellingSuggestions } from "./personal-spelling.js?v=119";
 import { matchesChineseSearchEntry } from "./chinese-search.js?v=95";
 import { createDictionaryPrefill, dictionaryQueryFromHash } from "./dictionary-navigation.js?v=80";
@@ -81,7 +81,7 @@ const state = {
 };
 const dictionarySpelling = createPersonalSpellingSuggestions({
   suggest: async (input, { signal, isCurrent }) => {
-    const module = await import("./dictionary-suggestions.js?v=118");
+    const module = await import("./dictionary-suggestions.js?v=125");
     signal.throwIfAborted();
     if (!isCurrent()) return [];
     const manifest = await preloadExpandedDictionary({ signal, timeoutMs: 3000 });
