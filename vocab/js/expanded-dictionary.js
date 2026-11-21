@@ -19,7 +19,7 @@ import { isLaundryHangSourceCandidate, authenticatedLaundryHangSource,
 
 // Generated from this engine's complete source/import closure and catalogue
 // inputs. The builder zeroes only this exact marker while computing its hash.
-export const CHINESE_QUERY_ENGINE_BINDING = "81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e";
+export const CHINESE_QUERY_ENGINE_BINDING = "906404e880562a13d1889876bc21951ef287aa8d0e7a4ec48713fe11f3e61a0d";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.
