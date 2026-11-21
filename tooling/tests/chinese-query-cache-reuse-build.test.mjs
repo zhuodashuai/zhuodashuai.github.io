@@ -50,7 +50,7 @@ export async function searchRelatedChineseDictionary(query,options){calls.push({
 async function actualReader(compiled){
   let source=await readFile(path.join(root,'vocab/js/chinese-query-cache.js'),'utf8');const assetRoot=pathToFileURL(dataRoot+path.sep);
   for(const [before,after]of [
-    ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=118';",'const CHINESE_QUERY_CACHE_RELEASE = '+JSON.stringify(compiled.release)+';'],
+    ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=125';",'const CHINESE_QUERY_CACHE_RELEASE = '+JSON.stringify(compiled.release)+';'],
     ["'./chinese-query-cache-format.js?v=118'",JSON.stringify(pathToFileURL(path.join(root,'vocab/js/chinese-query-cache-format.js')).href)],
     ["new URL('../data/chinese-query-cache/', import.meta.url)",'new URL('+JSON.stringify(assetRoot.href)+')']]){assert.equal(source.split(before).length,2);source=source.replace(before,after);}
   const reader=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64')+'#'+Math.random()),requests=[];

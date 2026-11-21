@@ -42,7 +42,7 @@ function fixture({packet:changePacket,bundle:changeBundle,entry:changeEntry,buck
   return {release,assets,expected,bundleFiles,members};
 }
 async function reader(fx){let transformed=source;for(const [before,after]of [
-  ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=118';",'const CHINESE_QUERY_CACHE_RELEASE = '+JSON.stringify(fx.release)+';'],
+  ["import { CHINESE_QUERY_CACHE_RELEASE } from './chinese-query-cache-release.js?v=125';",'const CHINESE_QUERY_CACHE_RELEASE = '+JSON.stringify(fx.release)+';'],
   ["'./chinese-query-cache-format.js?v=118'",JSON.stringify(new URL('../js/chinese-query-cache-format.js?v=118',import.meta.url).href)],
   ["new URL('../data/chinese-query-cache/', import.meta.url)",'new URL('+JSON.stringify(root.href)+')']]){assert.equal(transformed.split(before).length,2);transformed=transformed.replace(before,after);}
   transformed+='\nexport { CHINESE_QUERY_CACHE_RELEASE as fixtureRelease };';const mod=await import('data:text/javascript;base64,'+Buffer.from(transformed).toString('base64')+'#'+Math.random());live.push(mod);return mod;}

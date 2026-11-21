@@ -100,7 +100,7 @@ jobs:
           node tooling/scripts/build-search-experience-content.mjs --check
           node tooling/scripts/build-reviewed-dictionary-senses.mjs --check
       - name: Verify complete source-bound Chinese query packets
-        run: node tooling/scripts/build-chinese-query-cache.mjs --check
+        run: node tooling/scripts/build-chinese-query-cache.mjs --check --reuse-941
       - name: Check finite search regressions and critical false positives
         run: pnpm benchmark:search
       - name: Scan credential boundaries
