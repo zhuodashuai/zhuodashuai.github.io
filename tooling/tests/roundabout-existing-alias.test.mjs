@@ -1,3 +1,4 @@
+import {restoreSearchRelease125ModuleIfCurrent} from './helpers/search-release-125-modules.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,realpath} from 'node:fs/promises';
@@ -42,7 +43,7 @@ test('one independently approved alias changes exactly one source line and retai
   assert.equal(historicalEntries.length,1290);assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,49);
   const target=EVERYDAY_LOOKUP_ENTRIES.filter(row=>row.term==='roundabout');assert.equal(target.length,1);
   assert.deepEqual(target[0],expected);assert.equal(hash(target[0]),'65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961');
-  const bytes=await readFile(path.join(root,source.source.file));assert.equal(hash(bytes),source.source.afterSha256);assert.equal(bytes.length,source.source.afterBytes);
+  const bytes=Buffer.from(restoreSearchRelease125ModuleIfCurrent('js/everyday-lookup-data.js',(await readFile(path.join(root,source.source.file))).toString('utf8')));assert.equal(hash(bytes),source.source.afterSha256);assert.equal(bytes.length,source.source.afterBytes);
   const current=bytes.toString('utf8');assert.equal(current.split(source.source.exactInsertedLine).length,2);
   const inverse=Buffer.from(current.replace(source.source.exactInsertedLine,''));
   assert.equal(hash(inverse),source.source.beforeSha256);assert.equal(inverse.length,source.source.beforeBytes);

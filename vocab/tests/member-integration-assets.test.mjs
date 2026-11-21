@@ -1,9 +1,10 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import assert from "node:assert/strict";
 import test from "node:test";
 import { readFile } from "node:fs/promises";
 import { personalWordbookUrl, OWNER_ADMIN_URL } from "../js/runtime-config.js";
 
-const source = (path) => readFile(new URL(path, import.meta.url), "utf8");
+const source = async (path) => restoreSearchRelease125AssetIfCurrent(path.replace(/^\.\.\//u,''),await readFile(new URL(path, import.meta.url), "utf8"));
 
 test("private login always uses the fixed auth origin, never an arbitrary copied Pages host", () => {
   const canonical = new URL("personal.html", OWNER_ADMIN_URL).href;

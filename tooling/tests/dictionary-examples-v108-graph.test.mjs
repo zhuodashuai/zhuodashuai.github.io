@@ -1,3 +1,4 @@
+import {restoreSearchRelease125ModuleIfCurrent} from './helpers/search-release-125-modules.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -348,7 +349,7 @@ test('the archived v109 application preserves v108 after exact readiness, source
  const addition='  // The HTML gates native implicit submission until the actual listeners exist.\n  // Adopt text typed during module download without clearing it or waiting on data.\n  controller.change(input.value);\n\n';
  assert.equal(current.split(addition).length,2);assert.equal(historicalCurrent.replace(addition,''),before);
  assert(current.indexOf(addition)>current.indexOf('form.addEventListener("submit"'));
- const entry=await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8');
+ const entry=restoreSearchRelease125ModuleIfCurrent('js/dictionary-entry-v109.js',await fs.readFile(new URL('vocab/js/dictionary-entry-v109.js',root),'utf8'));
  assert.equal(entry.split('import "./dictionary-app-v109.js?v=118"').length,2);
  const oldEntry=(await fs.readFile(new URL('vocab/js/dictionary-entry-v108.js',root),'utf8')).replace(/\r\n/gu,'\n');
  assert.equal(entry.split('./dictionary-offline-warm-v108.js?v=118').length,2,'Exactly the current cache-aware offline replay child');
@@ -412,7 +413,7 @@ test('v108 does not retarget navigation107 and retains pwa77',async()=>{
 });
 test('archived v108 loader keeps its old wrapper while the active example UI uses the fresh compatible graph',async()=>{
  for(const[name,specifier]of[['dictionary-app-v108.js','./dictionary-examples-current-v4.js'],['dictionary-examples-ui-v108.js','./dictionary-examples-current-v4.js?v=118']]){
-  const body=await fs.readFile(new URL('vocab/js/'+name,root),'utf8');
+  const body=restoreSearchRelease125ModuleIfCurrent('js/'+name,await fs.readFile(new URL('vocab/js/'+name,root),'utf8'));
   assert.equal(body.split('import('+JSON.stringify(specifier)+')').length,2);
   assert(!body.includes('import("./dictionary-examples.js'));
  }

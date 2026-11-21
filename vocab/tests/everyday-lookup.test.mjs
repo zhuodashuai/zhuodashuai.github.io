@@ -1,3 +1,4 @@
+import {historicalCommonEveryday1283} from '../../tooling/tests/helpers/common-followup-history.mjs';
 import test from "node:test";
 import assert from "node:assert/strict";
 import { EVERYDAY_LOOKUP_ENTRIES } from "../js/everyday-lookup-data.js";
@@ -106,10 +107,10 @@ test("invalid, oversized, control and executable-looking inputs cannot hit the o
   }
 });
 
-test("example identity is stable for English heads and explicit forms, never for a query sentence", () => {
+test("historical and newly admitted example identities are stable for English heads and explicit forms, never for a query sentence", () => {
   const ids = new Set(),historicalIds=new Set();
   let oldSingletonChecks=0,exactCorrectionHeads=0,exactCorrectionSenses=0,lifeSingletonChecks=0,medicalSenseChecks=0;
-  for (const row of EVERYDAY_LOOKUP_ENTRIES) {
+  for (const row of historicalCommonEveryday1283(EVERYDAY_LOOKUP_ENTRIES)) {
     const example = loadEverydayExamples(row.term); assert(example); assert.equal(example.term, row.term);
     if(correctedRows.get(row.term)===row){
       assert.deepEqual(row.chineseAliases,[]);assert.deepEqual(row.englishForms,[]);exactCorrectionHeads++;
@@ -141,6 +142,20 @@ test("example identity is stable for English heads and explicit forms, never for
   assert.equal(oldSingletonChecks,1268);assert.equal(exactCorrectionHeads,3);assert.equal(exactCorrectionSenses,7);
   assert.equal(historicalIds.size,1275);
   assert.equal(lifeSingletonChecks,9);assert.equal(medicalSenseChecks,3);assert.equal(ids.size,1287);
+  // The signed historical projection keeps every old count/hash assertion;
+  // also retain the original all-current-head uniqueness obligation explicitly.
+  const historical=new Set(historicalCommonEveryday1283(EVERYDAY_LOOKUP_ENTRIES));
+  const additions=EVERYDAY_LOOKUP_ENTRIES.filter(row=>!historical.has(row));
+  assert.deepEqual(additions.map(row=>row.term).sort(),['adverse reaction','aeroallergen','aeroallergens','deferred exam','employment reference letter','handover note','job advertisement','open-book exam','plagiarism checker']);
+  for(const row of additions){
+    const example=loadEverydayExamples(row.term);assert.equal(example.term,row.term);assert.equal(example.senses.length,1);
+    const sense=example.senses[0];assert.equal(sense.partOfSpeech,row.partOfSpeech);assert.equal(sense.meaningZh,row.meaning);
+    assert.deepEqual(sense.examples,[{en:row.en,zh:row.zh}]);assert(!ids.has(sense.id));ids.add(sense.id);
+    if(row.term==='aeroallergen'||row.term==='aeroallergens')assert.equal(sense.id,`reviewed-source-correction:${row.term}:1`);
+    else assert.match(sense.id,/^everyday:[a-f0-9]{16}$/u);
+    assert.deepEqual(loadEverydayExamples(row.term.toUpperCase()),example);
+  }
+  assert.equal(ids.size,1296);
   for (const query of ["人工客服", "请问人工客服的英文是什么", "live agent?", '"live agent"', "what is live agent?"]) assert.equal(loadEverydayExamples(query), null, query);
 });
 

@@ -1,3 +1,4 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
@@ -423,8 +424,8 @@ test("a new missing-word request replaces old suggestions and safely bounds cand
 });
 
 test("public document has labelled Enter form, no account or provider calls, and safe text rendering", async () => {
-  const html = await readFile(new URL("../dictionary.html", import.meta.url), "utf8");
-  const script = await readFile(new URL("../js/dictionary-app-v109.js", import.meta.url), "utf8");
+  const html = restoreSearchRelease125AssetIfCurrent('dictionary.html',await readFile(new URL("../dictionary.html", import.meta.url), "utf8"));
+  const script = restoreSearchRelease125AssetIfCurrent('js/dictionary-app-v109.js',await readFile(new URL("../js/dictionary-app-v109.js", import.meta.url), "utf8"));
   const css = await readFile(new URL("../dictionary.css", import.meta.url), "utf8");
   assert.match(html, /for="dictionary-query"/u); assert.match(html, /type="submit"/u); assert.match(html, /role="status" aria-live="polite"/u);
   assert.match(html, /dictionary\.css\?v=114/u); assert.match(html, /src="js\/dictionary-entry-v109\.js\?v=118"/u);

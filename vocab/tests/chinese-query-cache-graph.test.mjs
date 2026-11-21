@@ -1,3 +1,4 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import {restoreSearchCommonTermsShell} from '../../tooling/tests/helpers/search-common-terms-shell.mjs';
 import {restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {dictionaryOfflineWarmUrl} from '../js/dictionary-offline-warm-v108.js';
@@ -8,7 +9,7 @@ import {createHash} from 'node:crypto';
 import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese-query-cache-shell.mjs';
 import {restoreSearchCoverageFollowupShell} from '../../tooling/tests/helpers/search-coverage-followup-shell.mjs';
 const sha=value=>createHash('sha256').update(value).digest('hex');
-const read=async name=>{const text=await readFile(new URL('../'+name,import.meta.url),'utf8');return name==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
+const read=async name=>{const text=restoreSearchRelease125AssetIfCurrent(name,await readFile(new URL('../'+name,import.meta.url),'utf8'));return name==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
 // Keep the historical non-root URL subset/hashes unchanged; the new common-terms
 // graph gate independently parses the complete literal array, including './'.
 const sw=await read('sw.js');

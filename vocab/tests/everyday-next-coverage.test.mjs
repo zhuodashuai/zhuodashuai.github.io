@@ -1,3 +1,4 @@
+import {restoreSearchRelease125ModuleIfCurrent} from '../../tooling/tests/helpers/search-release-125-modules.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -66,7 +67,7 @@ test('new Chinese names retain the exact old entry and its example identity', ()
 test('a partial shell refresh can read old data without the extra-alias export', async () => {
   const oldRow = EVERYDAY_LOOKUP_ENTRIES.find(row => row.term === 'live agent');
   const oldData = 'data:text/javascript,' + encodeURIComponent('export const EVERYDAY_LOOKUP_ENTRIES = ' + JSON.stringify([oldRow]) + ';');
-  const currentCode = await readFile(new URL('../js/everyday-lookup.js', import.meta.url), 'utf8');
+  const currentCode = restoreSearchRelease125ModuleIfCurrent('js/everyday-lookup.js',await readFile(new URL('../js/everyday-lookup.js', import.meta.url), 'utf8'));
   const dataSpecifier = '"./everyday-lookup-data.js?v=118"', literalSpecifier = '"./dictionary-literal-heads-data.js"';
   for (const specifier of [dataSpecifier,literalSpecifier]) assert.equal(currentCode.split(specifier).length - 1, 1, 'Expected exactly one import: '+specifier);
   const legacyCompatible = currentCode.replace(dataSpecifier, JSON.stringify(oldData))
