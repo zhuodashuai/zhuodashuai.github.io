@@ -1,6 +1,6 @@
 // This finite scope rejects a borrowed execution-sense form only for two
 // independently reviewed laundry phrases. Literal whole matches run first.
-import {SEARCH_EXPERIENCE_ENTRIES} from './search-experience-data.js?v=118';
+import {SEARCH_EXPERIENCE_ENTRIES} from './search-experience-data.js?v=125';
 const VERSION="cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644";
 const MANIFEST_SHA256="2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f";
 const RECORD_JSON="{\"id\":114521,\"term\":\"hang\",\"partOfSpeech\":\"noun · verb\",\"meaning\":\"n. 悬挂, 诀窍, 意义\\nvt. 悬挂, 附着, 装饰, 垂下, 踌躇, 绞死, 使悬而未决\\nvi. 悬着, 垂下, 被绞死, 悬而不决\",\"forms\":[\"hanged\",\"hanging\",\"hangs\",\"hung\"],\"source\":\"core\",\"variants\":[{\"partOfSpeech\":\"noun · verb\",\"meaning\":\"n. 悬挂, 诀窍, 意义\\nvt. 悬挂, 附着, 装饰, 垂下, 踌躇, 绞死, 使悬而未决\\nvi. 悬着, 垂下, 被绞死, 悬而不决\",\"source\":\"mit\"},{\"partOfSpeech\":\"verb\",\"meaning\":\"1. verb：悬挂；挂起，固定上端使其余部分垂下，也可指物体处于悬垂状态。此义过去式和过去分词通常为 hung。\\n2. verb：绞死；以绳索套住颈部使人死亡，尤其指处决。此义过去式和过去分词通常为 hanged。\",\"source\":\"original\"}],\"seed\":{\"rank\":894,\"forms\":[\"hanging\",\"hangs\",\"hung\"],\"workbook\":false}}";

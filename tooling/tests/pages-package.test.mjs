@@ -72,7 +72,8 @@ test('offline source boundaries never swallow other tooling, dictionary data or 
   assert(Object.isFrozen(OFFLINE_SOURCE_PREFIXES));
   assert.deepEqual(DEVELOPER_TOOL_PREFIXES, ['tooling/tests', 'tooling/scripts']);
   assert(Object.isFrozen(DEVELOPER_TOOL_PREFIXES));
-  assert.deepEqual(DEVELOPER_SOURCE_PREFIXES, ['tooling/dictionary/everyday-expansions', 'tooling/dictionary/reviewed-senses']);
+  assert.deepEqual(DEVELOPER_SOURCE_PREFIXES, ['tooling/dictionary/everyday-expansions', 'tooling/dictionary/reviewed-senses',
+    'tooling/dictionary/query-cache-origins']);
   assert(Object.isFrozen(DEVELOPER_SOURCE_PREFIXES));
   for (const prefix of [...OFFLINE_SOURCE_PREFIXES, ...DEVELOPER_TOOL_PREFIXES, ...DEVELOPER_SOURCE_PREFIXES]) {
     for (const file of [prefix, prefix + '/index.json', prefix + '/old/nested/source.json']) assert(!isCopiedStatic(file));
@@ -133,6 +134,29 @@ test('post-Jekyll verification rejects every separated developer tree but keeps 
   } finally {
     assert.equal(path.dirname(path.resolve(folder)), path.resolve(os.tmpdir()));
     assert(path.basename(folder).startsWith('wordbook-pages-offline-source-'));
+    fs.rmSync(folder, { recursive: true, force: true });
+  }
+});
+
+test('source-only query-cache archives remain in Git/CI and are rejected in a synthetic published site', () => {
+  const registry = JSON.parse(fs.readFileSync(new URL('../../tooling/dictionary/query-cache-origins/registry.json', import.meta.url), 'utf8'));
+  const archivedRelease = fs.readFileSync(new URL('../../' + registry.file, import.meta.url));
+  assert.equal(archivedRelease.length, registry.bytes, 'The original source release remains available to CI');
+  const folder = fs.mkdtempSync(path.join(os.tmpdir(), 'wordbook-pages-query-origin-'));
+  try {
+    const target = path.join(folder, ...registry.file.split('/'));
+    assert(path.resolve(target).startsWith(path.resolve(folder) + path.sep));
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, archivedRelease);
+    assert.throws(() => assertOfflineSourcesAbsent(folder), /Developer source tree was published.*query-cache-origins/u);
+    assert(!isCopiedStatic(registry.file));
+    assert(!isCopiedStatic('tooling/dictionary/query-cache-origins/' + registry.origin.buildVersion + '/kernel/vocab/js/expanded-dictionary.js'));
+    for (const file of ['tooling/dictionary/query-cache-origins-archive/source.json',
+      'vocab/data/chinese-query-cache/' + registry.origin.buildVersion + '/old-client.bin',
+      'vocab/js/chinese-query-cache-release.js']) assert(isCopiedStatic(file), file);
+  } finally {
+    assert.equal(path.dirname(path.resolve(folder)), path.resolve(os.tmpdir()));
+    assert(path.basename(folder).startsWith('wordbook-pages-query-origin-'));
     fs.rmSync(folder, { recursive: true, force: true });
   }
 });

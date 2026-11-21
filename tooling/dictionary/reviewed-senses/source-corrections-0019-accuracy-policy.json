@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/root_lexical_accuracy_author",
+  "status": "Exact two-source-tuple correction policy; optional rawContexts requires separate pinned legacy bytes and exact source-derived raw context validation.",
+  "sourceObjectSha256": "01ecb1264138aace8657be5778c0fc09ab96de72afdb77920e99c3c63ccf05b0",
+  "sourceFile": "batch-0019.json",
+  "legacyExamplesFile": "source-corrections-0019-legacy-examples.json",
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "entries": [
+    {
+      "term": "aeroallergen",
+      "canonicalId": 7215910,
+      "canonicalSourceSha256": "ad66ae7662818b660d309687dff0d3e3eace365a7db642da90a9434eaf0c9804",
+      "selectedRowSha256": "a6a967e0a761b1613ca5285ccac991bff2637a590738959d7f72c0ea7744a4dd",
+      "excludedWholeRawAlternatives": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. [医]高空过敏症, 气源性致敏原",
+            "source": "mit"
+          },
+          "tupleSha256": "859d0be555400380afb8d2794f235fae31cf4b10bbf799295fc2c66850fb5ba5",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          },
+          "sourceDescriptorSha256": "d7c0acf692bc7c60535d8a54cd398ab716b0dda52d3bc5c0d9f5bf460fe28208"
+        }
+      ],
+      "retainedRawAlternatives": [],
+      "validSensesPreserved": [
+        "The supported 气源性致敏原 substance component is represented by the new positive original 气传过敏原 definition."
+      ],
+      "excludedWrongEquivalences": [
+        "高空过敏症"
+      ],
+      "reason": "The exact complete MIT tuple conflates an airborne-allergen substance with a high-altitude allergy disease. Reject that entire tuple only from new selected display; retain immutable raw data, literal identity and exact prior saved contexts with their correct original substance examples.",
+      "references": [
+        "https://www.merriam-webster.com/medical/aeroallergen",
+        "https://www.dictionary.com/browse/aeroallergen"
+      ],
+      "reviewer": "AI/independent_aeroallergen_language_policy_reviewer",
+      "independentOfAuthor": true
+    },
+    {
+      "term": "aeroallergens",
+      "canonicalId": 7216079,
+      "canonicalSourceSha256": "6254b70c345b0e7ca44040706c0645e918e327a2d59e85e547846e32e4aeea7b",
+      "selectedRowSha256": "5c792cf51036fa5403e53ffea15ae96112fb98c4fa68cf0078acd75e78e48806",
+      "excludedWholeRawAlternatives": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. 高空过敏症；[医] 气源性致敏原",
+            "source": "mit"
+          },
+          "tupleSha256": "2276b59a8b537f4aa9514a9678d2da322000404c08695043ca85e36e27dfa980",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          },
+          "sourceDescriptorSha256": "d7c0acf692bc7c60535d8a54cd398ab716b0dda52d3bc5c0d9f5bf460fe28208"
+        }
+      ],
+      "retainedRawAlternatives": [],
+      "validSensesPreserved": [
+        "The supported 气源性致敏原 substance component is represented by the new positive original 气传过敏原 definition."
+      ],
+      "excludedWrongEquivalences": [
+        "高空过敏症"
+      ],
+      "reason": "The exact complete MIT tuple conflates an airborne-allergen substance with a high-altitude allergy disease. Reject that entire tuple only from new selected display; retain immutable raw data, literal identity and exact prior saved contexts with their correct original substance examples.",
+      "references": [
+        "https://www.merriam-webster.com/medical/aeroallergen",
+        "https://www.dictionary.com/browse/aeroallergen"
+      ],
+      "reviewer": "AI/independent_aeroallergen_language_policy_reviewer",
+      "independentOfAuthor": true
+    }
+  ]
+}

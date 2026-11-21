@@ -5,7 +5,7 @@ import { renderSynonymGroups } from "./synonym-view.js?v=82";
 import { setupPronunciationUI } from "./pronunciation-ui.js";
 import { candidateSynonymFingerprint, entrySynonymFingerprint, sameSynonymSenseView, SYNONYM_FEATURE_ENABLED } from "./synonym-evidence.js?v=77";
 import { createSourcePassageSection } from "./book-passages-ui.js?v=82";
-import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=118";
+import { createDictionaryExamplesSection } from "./dictionary-examples-ui-v108.js?v=125";
 import { recordedReadingSources } from "./reading-card-policy.js";
 import { readingFrequencyText } from "./reading-frequency.js";
 

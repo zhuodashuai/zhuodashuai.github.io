@@ -1,3 +1,4 @@
+import {loadHistorical941Kernel} from '../../tooling/tests/helpers/historical-query-kernel-941.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -18,12 +19,30 @@ async function expectedPackets(){
   if(!expectedPromise)expectedPromise=(async()=>{
     assert(release.members.length>0,'The final source-compiled catalogue must replace the empty bootstrap.');
     assert.equal(release.engineBinding,CHINESE_QUERY_ENGINE_BINDING);
+    const origins=new Map([[release.buildVersion,release]]);
+    assert([1,2].includes(release.schemaVersion));
+    if(release.schemaVersion===2){
+      const {release:historical}=await loadHistorical941Kernel();
+      const origin={buildVersion:historical.buildVersion,dictionaryVersion:historical.dictionaryVersion,
+        sourceManifestSha256:historical.sourceManifestSha256,engineBinding:historical.engineBinding,
+        releaseFileSha256:'ac57572f62c413787165ba041a69e14ee517e19db854adea45cbe10ab64c80ef',selectionSources:historical.selectionSources};
+      assert.deepEqual(release.legacyOrigins,[origin],'Only the exact authenticated historical941 origin may own reused envelopes');
+      assert.equal(release.authorization.kind,'complete-source-and-related-replay');
+      assert.equal(release.authorization.currentSourceCompileEngineBinding,release.engineBinding);
+      origins.set(origin.buildVersion,origin);
+    }
+    const packetDigest=packet=>{
+      const canonical=value=>Array.isArray(value)?'['+value.map(canonical).join(',')+']':value&&typeof value==='object'
+        ?'{'+Object.keys(value).sort().map(key=>JSON.stringify(key)+':'+canonical(value[key])).join(',')+'}':JSON.stringify(value);
+      return sha(canonical(packet));
+    };
     const bundles=new Map(),queries=new Map();
     for(const bucket of release.buckets){
       const compressed=await readFile(new URL(bucket.file,root));
       assert.equal(compressed.length,bucket.bytes);assert.equal(sha(compressed),bucket.sha256);
       const decoded=gunzipSync(compressed);assert.equal(decoded.length,bucket.uncompressedBytes);
       const index=JSON.parse(decoded);assert.equal(index.bucket,bucket.bucket);
+      assert.equal(index.schemaVersion,release.schemaVersion);assert.equal(index.dictionaryVersion,release.dictionaryVersion);assert.equal(index.engineBinding,release.engineBinding);
       for(const descriptor of index.entries){
         let bundle=bundles.get(descriptor.file);
         if(!bundle){
@@ -31,13 +50,17 @@ async function expectedPackets(){
           assert.equal(bytes.length,descriptor.bytes);assert.equal(sha(bytes),descriptor.sha256);
           const body=gunzipSync(bytes);assert.equal(body.length,descriptor.uncompressedBytes);
           const payload=JSON.parse(body);
-          assert.equal(payload.dictionaryVersion,release.dictionaryVersion);assert.equal(payload.engineBinding,release.engineBinding);
+          const namespace=descriptor.file.split('/')[0],origin=origins.get(namespace);
+          assert(origin,'Every envelope must have an exact current or authenticated historical owner');
+          assert.equal(descriptor.file,namespace+'/'+descriptor.sha256+'.bin');
+          assert.equal(payload.schemaVersion,1);assert.equal(payload.dictionaryVersion,origin.dictionaryVersion);assert.equal(payload.engineBinding,origin.engineBinding);
           assert(payload.packets.length>=1&&payload.packets.length<=16);
           bundle={file:descriptor.file,packets:payload.packets};bundles.set(descriptor.file,bundle);
         }
         const packet=bundle.packets.find(row=>row.query===descriptor.query);
         assert(packet,'Every indexed query has its own inner response, not the first bundle response.');
         assert.equal(packet.results.length,descriptor.total);assert.equal(packet.metadata.total,descriptor.total);
+        if(release.schemaVersion===2)assert.equal(packetDigest(packet),descriptor.packetSha256,'The complete inner response retains its freshly compiled current authorization');
         assert(!queries.has(packet.query));queries.set(packet.query,packet);
       }
     }

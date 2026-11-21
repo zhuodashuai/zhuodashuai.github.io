@@ -1,4 +1,4 @@
-import "./dictionary-app-v109.js?v=118";
+import "./dictionary-app-v109.js?v=125";
 import { setupPwa } from "./pwa.js?v=77";
 import { installDictionaryOfflineWarm } from "./dictionary-offline-warm-v108.js?v=118";
 

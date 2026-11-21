@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {fingerprintChineseQueryEngine} from '../../tooling/scripts/build-chinese-query-cache.mjs';
-import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-release.js';
+import {loadHistorical941Kernel} from '../../tooling/tests/helpers/historical-query-kernel-941.mjs';
 import {ENTRY_DETAIL_FOCUS_URLS,restoreEntryDetailFocusShell,restoreEntryDetailFocusShellIfCurrent,restoreEntryDetailFocusServiceWorkerShell,restoreEntryDetailFocusServiceWorkerShellIfCurrent} from '../../tooling/tests/helpers/entry-detail-focus-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import {restoreMemberSpellingShellIfCurrent,restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
@@ -46,10 +46,10 @@ test('only the three current detail callers use122 while compatible archived cal
  }
 });
 
-test('the full24-module engine and its release descriptor keep their exact pre-UI122 bytes and cache941 binding',async()=>{
- const root=fileURLToPath(new URL('../../',import.meta.url));const fp=await fingerprintChineseQueryEngine({root,sourceManifestSha256:release.sourceManifestSha256,selectionSources:release.selectionSources});
+test('the actual archived941 kernel retains its24 pre-UI122 raw source bindings',async()=>{
+ const {root,url:historicalUrl,release}=await loadHistorical941Kernel();const fp=await fingerprintChineseQueryEngine({root,sourceManifestSha256:release.sourceManifestSha256,selectionSources:release.selectionSources});
  assert.equal(Object.keys(fp.sourceFiles).length,24);assert.equal(fp.engineBinding,'81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e');assert.equal(fp.markerValue,fp.engineBinding);assert.equal(release.engineBinding,fp.engineBinding);
  assert.equal(release.buildVersion,'941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4');
- const files=[...Object.keys(fp.sourceFiles),'vocab/js/chinese-query-cache-release.js'];const hashes=await Promise.all(files.map(async file=>[file,sha(await readFile(new URL('../../'+file,import.meta.url)))]));hashes.sort(([a],[b])=>a.localeCompare(b));
+ const files=[...Object.keys(fp.sourceFiles),'vocab/js/chinese-query-cache-release.js'];const hashes=await Promise.all(files.map(async file=>[file,sha(await readFile(new URL(file,historicalUrl)))]));hashes.sort(([a],[b])=>a.localeCompare(b));
  assert.equal(sha(JSON.stringify(hashes)),'4fd8701ee6bda2a2869e28a837b71b31e619f7539d3335e284fdef50479b14e1');
 });

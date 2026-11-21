@@ -1,8 +1,8 @@
 import { getPublicCache, getReviewState, listReviewStates, putPublicCache, putReviewState, ReviewStateConflictError, subscribeStorageChanges } from "./owner-storage.js?v=82";
-import { createEntryDetailController } from "./entry-detail-v113.js?v=122";
+import { createEntryDetailController } from "./entry-detail-v113.js?v=125";
 import { personalWordbookUrl, publicSnapshotUrl } from "./runtime-config.js?v=77";
 import { ownerLibraryLink, ownerPublicEntries, reconcileOwnerPublicConfirmations, publicEntryIdFromUrl } from "./owner-public-library.js?v=124";
-import { mountLibraryLookup } from "./library-lookup-ui.js?v=123";
+import { mountLibraryLookup } from "./library-lookup-ui.js?v=125";
 import { contextualizeReadingEntry, formatMeaningForDisplay, normalizePublicSearchQuery, parsePublicSnapshot, rankExactEntryMatches } from "./wordbook-schema.js?v=82";
 import { createSavedCardQueryMatcher } from "./saved-card-search.js?v=124";
 import { setupPwa } from "./pwa.js?v=77";

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_EXACT_EXISTING_PACKAGED_NOUN_ALIAS_V2_WITH_INLINE_TARGET_HASH_ONLY_NOT_CACHE_OR_RELEASE_APPROVAL",
+  "reviewedAtUTC": "2026-11-20T13:40:58.994Z",
+  "author": "AI/root_existing_alias_projection_author",
+  "reviewer": "AI/roundabout_existing_alias_admission_reviewer",
+  "independentOfAuthor": true,
+  "sourceByteSha256": "14b3ac625d38786ec614b5ba02aae589354c15c20cd6c47b9d02ef5da5849e11",
+  "sourceSha256": "a60292145f58589b697be646ccce9c4928a312162271929274c4a98fad8bbe08",
+  "issues": [],
+  "approvedTerms": [
+    "roundabout"
+  ],
+  "approvedAliasRows": [
+    {
+      "term": "roundabout",
+      "row": {
+        "term": "roundabout",
+        "aliases": [
+          "环岛路口"
+        ],
+        "targetEntrySha256": "65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961"
+      },
+      "rowSha256": "3da421d72494af48f2d1e8aea2be13e127aed3b638dafddf0d5469a3d3cd12b4",
+      "languageDecision": "PASS",
+      "targetEntrySha256": "65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961",
+      "fullExistingTarget": {
+        "term": "roundabout",
+        "partOfSpeech": "noun",
+        "meaning": "① 交通环岛；多条道路相交、车辆绕中央圆形区域行驶的路口。",
+        "chineseAliases": [
+          "环岛",
+          "交通环岛"
+        ],
+        "englishForms": [
+          "roundabouts"
+        ],
+        "en": "The bakery is just beyond the roundabout.",
+        "zh": "面包店就在环岛过去一点的地方。",
+        "references": [
+          "https://dictionary.cambridge.org/us/dictionary/english/roundabout"
+        ]
+      },
+      "actualExampleSenseId": "everyday:8c487edc01acbcc8",
+      "reason": "环岛路口 accurately names the existing packaged countable traffic-junction noun. The whole noun definition, complete source row, original bilingual bakery example and real stable example identity remain unchanged. The expanded ID806216 expresses indirectness/indirect route instead and is explicitly not this alias target."
+    }
+  ],
+  "exactAllowedSourceChange": {
+    "file": "vocab/js/everyday-lookup-data.js",
+    "beforeBytes": 509689,
+    "beforeSha256": "efd5e87c1a4165f2e6b8436cdf82f4a0aa3d2f0b9d309a76112761d22ffecd53",
+    "afterBytes": 509828,
+    "afterSha256": "6249bc7e850494f4411b4948071b7f3a58da487bdfc3af3a1f2383f7266519d3",
+    "exactInsertedLine": "  {\"term\":\"roundabout\",\"aliases\":[\"环岛路口\"],\"targetEntrySha256\":\"65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961\"},\n",
+    "anchor": "].map(row => Object.freeze({ ...row, aliases: Object.freeze(row.aliases) })));",
+    "wholeByteInverse": true
+  },
+  "priorAliasCount": 47,
+  "priorAliasArraySha256": "9625af76bacc7ed9d96029e4ba3722cc5d3b3492e577dae1d922d64051bafa5f",
+  "resultingAliasCount": 48,
+  "resultingAliasArraySha256": "ee26425285b46c5ec9c754e6b6df4c547084920a21725f250167558c9dc8fa9f",
+  "preserveAllEntryArraySha256": "a63708dfcb6a7da22e1825aab6eb442ba4c5427c209c14372e531da8474c03fb",
+  "englishIdentityChanges": 0,
+  "englishFormChanges": 0,
+  "newMeaningOrExample": 0,
+  "primaryEvidence": {
+    "url": "https://dictionary.cambridge.org/dictionary/english/roundabout",
+    "access": "PRIMARY_PUBLISHER_INDEXED_CONTENT_PREVIOUSLY_INDEPENDENTLY_READ_THIS_SESSION",
+    "priorLanguageReview": "outputs/next-holdout-fixes-20261120/independent-language-review.json",
+    "scope": "Road-junction noun only; not playground equipment or indirectness adjective."
+  },
+  "excludedExpandedCanonical": {
+    "record": {
+      "id": 806216,
+      "term": "roundabout",
+      "partOfSpeech": "adjective · noun",
+      "meaning": "a. 迂回的, 委婉的\nn. 迂回路线",
+      "forms": [
+        "roundabouts"
+      ],
+      "source": "mit",
+      "seed": {
+        "rank": 6298,
+        "forms": [
+          "roundabouts"
+        ],
+        "workbook": true
+      }
+    },
+    "rawRecordSha256": "1da101b4b331a35b17b3416ea372b8c91f1e89b013e384593ddafb42778ffe4d",
+    "targetRejected": true,
+    "reason": "Different source meaning, not the traffic-junction noun."
+  },
+  "limits": [
+    "Only the exact one Chinese alias row may be appended. No old alias row, target definition/POS/source/example or other entry may change.",
+    "Keep every existing English canonical/form/context identity and immutable expanded source record unchanged.",
+    "Actual after-change runtime, full125 source/cache binding and release verification are separate pending work. No other existing-head alias or coach/medical correction is approved here."
+  ],
+  "revision": {
+    "previousReviewByteSha256": "c8868a9fd52b701a291c5581e3ffc56ee26a94c0ee02ae9618609a6ecf8f6051",
+    "previousProposalByteSha256": "dd4c447d9196e491e365607bebe35af2056b64126a43ff1924b36ca83b9ecd3d",
+    "languageAndTargetUnchanged": true,
+    "inlineTargetHashVerified": true,
+    "originalEveryAliasHashCheckRestored": true
+  }
+}

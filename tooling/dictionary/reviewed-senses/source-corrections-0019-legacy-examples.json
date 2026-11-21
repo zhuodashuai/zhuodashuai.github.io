@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "author": "AI/root_lexical_accuracy_author",
+  "scope": "Exact preserved correct substance examples for the actual formatted and optional raw canonical saved contexts. Raw contexts are explicit source-derived additions, not approval of the old wrong display.",
+  "entries": [
+    {
+      "term": "aeroallergen",
+      "canonicalId": 7215910,
+      "canonicalSourceSha256": "ad66ae7662818b660d309687dff0d3e3eace365a7db642da90a9434eaf0c9804",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "aeroallergen",
+          "partOfSpeech": "noun",
+          "meaning": "① n. [医]高空过敏症, 气源性致敏原"
+        }
+      ],
+      "rawContexts": [
+        {
+          "term": "aeroallergen",
+          "partOfSpeech": "noun",
+          "meaning": "n. [医]高空过敏症, 气源性致敏原"
+        }
+      ],
+      "expectedEntry": {
+        "term": "aeroallergen",
+        "senses": [
+          {
+            "id": "example:aeroallergen",
+            "partOfSpeech": "noun",
+            "meaningZh": "气源性致敏原",
+            "examples": [
+              {
+                "en": "The survey identified grass pollen as the main aeroallergen in those samples.",
+                "zh": "那项调查确定，草花粉是那些样本中的主要气源性致敏原。"
+              }
+            ],
+            "reviewer": "AI/examples18_reviewer_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "2cb88e48e3b699b7b741053155e013237b234b0386e421b2226e3c1d0f11a180"
+    },
+    {
+      "term": "aeroallergens",
+      "canonicalId": 7216079,
+      "canonicalSourceSha256": "6254b70c345b0e7ca44040706c0645e918e327a2d59e85e547846e32e4aeea7b",
+      "sourcePins": {
+        "version": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+        "manifestSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f"
+      },
+      "contexts": [
+        {
+          "term": "aeroallergens",
+          "partOfSpeech": "noun",
+          "meaning": "① n. 高空过敏症；[医] 气源性致敏原"
+        }
+      ],
+      "rawContexts": [
+        {
+          "term": "aeroallergens",
+          "partOfSpeech": "noun",
+          "meaning": "n. 高空过敏症；[医] 气源性致敏原"
+        }
+      ],
+      "expectedEntry": {
+        "term": "aeroallergens",
+        "senses": [
+          {
+            "id": "example:aeroallergens",
+            "partOfSpeech": "noun",
+            "meaningZh": "气源性致敏原〔复数〕",
+            "examples": [
+              {
+                "en": "The study compared outdoor aeroallergens collected at two sites during spring.",
+                "zh": "该研究比较了春季在两个地点采集的室外气源性致敏原。"
+              }
+            ],
+            "reviewer": "AI/examples18_reviewer_b",
+            "source": "原创例句·AI复核（精选义项）"
+          }
+        ]
+      },
+      "expectedEntrySha256": "2f13f865f8d2afa9358af93efa5ad265c6375367330389abb2e5d0341cc3bc1c"
+    }
+  ]
+}

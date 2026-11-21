@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "manifestByteSha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+  "records": [
+    {
+      "term": "aeroallergen",
+      "record": {
+        "id": 7215910,
+        "term": "aeroallergen",
+        "partOfSpeech": "noun",
+        "meaning": "n. [医]高空过敏症, 气源性致敏原",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 56421,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "ad66ae7662818b660d309687dff0d3e3eace365a7db642da90a9434eaf0c9804",
+      "shard": {
+        "bucket": 38,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-038.json",
+        "sha256": "6c2535164250bda903f86d3bf1a74762e190593124288a7c90960bc8015a5079",
+        "bytes": 339520,
+        "count": 1064
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. [医]高空过敏症, 气源性致敏原",
+            "source": "mit"
+          },
+          "sha256": "859d0be555400380afb8d2794f235fae31cf4b10bbf799295fc2c66850fb5ba5",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    },
+    {
+      "term": "aeroallergens",
+      "record": {
+        "id": 7216079,
+        "term": "aeroallergens",
+        "partOfSpeech": "noun",
+        "meaning": "n. 高空过敏症；[医] 气源性致敏原",
+        "forms": [],
+        "source": "mit",
+        "seed": {
+          "rank": 56422,
+          "forms": [],
+          "workbook": false
+        }
+      },
+      "canonicalSourceSha256": "6254b70c345b0e7ca44040706c0645e918e327a2d59e85e547846e32e4aeea7b",
+      "shard": {
+        "bucket": 79,
+        "file": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644/en-079.json",
+        "sha256": "147d094f33f859c3dc565b9c34acd658469fe743a20088514e95a52cd4673f32",
+        "bytes": 349468,
+        "count": 1084
+      },
+      "tuples": [
+        {
+          "tuple": {
+            "partOfSpeech": "noun",
+            "meaning": "n. 高空过敏症；[医] 气源性致敏原",
+            "source": "mit"
+          },
+          "sha256": "2276b59a8b537f4aa9514a9678d2da322000404c08695043ca85e36e27dfa980",
+          "sourceDescriptor": {
+            "name": "ECDICT",
+            "license": "MIT",
+            "url": "https://github.com/skywind3000/ECDICT",
+            "commit": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+            "sha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf"
+          }
+        }
+      ]
+    }
+  ]
+}

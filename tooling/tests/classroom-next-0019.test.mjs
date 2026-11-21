@@ -1,3 +1,4 @@
+import {historicalRoundaboutAliases47} from './helpers/roundabout-alias-history.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -28,7 +29,7 @@ test('current187 is exactly unchanged historical183 plus four reviewed classroom
  assert.equal(legacy.length,30);historicalLegacy26(legacy);assert.deepEqual(legacy.slice(26).map(r=>r.term),review.approvedTerms);assert.equal(corrections.length,83);assert.equal(hash(corrections),fixture.baseline.corrections83Sha256);
  // This historical release binds its original 1,025 complete ordinary rows;
  // later independently reviewed append-only phrases have their own fixture.
- assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(aliases),fixture.baseline.aliasesSha256);assert.equal(hash(common),fixture.baseline.commonSha256);
+ assert(all.filter(r=>!r.reviewedCanonicalSense).length>=1025);assert.equal(hash(all.filter(r=>!r.reviewedCanonicalSense).slice(0,1025)),fixture.baseline.ordinarySha256);assert.equal(hash(historicalRoundaboutAliases47(aliases)),fixture.baseline.aliasesSha256);assert.equal(hash(common),fixture.baseline.commonSha256);
  assert.equal(approved.reduce((n,r)=>n+r.meaning.split('\n').length,0),22);assert.equal(approved.reduce((n,r)=>n+r.englishForms.length,0),9);assert.equal(approved.reduce((n,r)=>n+r.chineseAliases.length,0),8);
 });
 

@@ -1,5 +1,5 @@
 import { COMMON_CHINESE_GROUPS } from './chinese-related-common.js?v=95';
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=118';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=125';
 import { SELECTED_COMMON_SENSE_BINDINGS } from './selected-common-sense-data.js';
 
 // These are finite build-authenticated identities. No caller flag, text overlap

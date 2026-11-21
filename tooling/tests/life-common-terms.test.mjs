@@ -11,6 +11,7 @@ import {REVIEWED_SENSE_ENTRIES} from '../../vocab/js/reviewed-senses-data.js';
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
+import {historicalCommonSearch42,historicalCommonOrdinary1070,historicalCommonPacks4} from './helpers/common-followup-history.mjs';
 const root=resolve(import.meta.dirname,'../..');
 const folder=new URL('../dictionary/everyday-expansions/2026-11-20-life-common-terms/',import.meta.url);
 const read=async name=>JSON.parse(await readFile(new URL(name,folder),'utf8'));
@@ -45,12 +46,13 @@ test('all9 final source rows have fresh independent exact metadata admission, no
 });
 
 test('the9 appended rows preserve all33 old additions, ordinary1061 objects and reviewed210 objects exactly',async()=>{
-  const compiled=await loadSearchExperienceContent();assert.deepEqual(compiled.packs.map(pack=>pack.entries.length),[16,4,13,9]);
-  assert.equal(SEARCH_EXPERIENCE_ENTRIES.length,42);assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,compiled.entries);
-  assert.equal(hash(SEARCH_EXPERIENCE_ENTRIES.slice(0,33)),baseline.priorSearch33Sha256);
-  assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES.slice(33),source.entries);
+  const compiled=await loadSearchExperienceContent();assert.deepEqual(historicalCommonPacks4(compiled.packs).map(pack=>pack.entries.length),[16,4,13,9]);
+  const historicalSearch=historicalCommonSearch42(SEARCH_EXPERIENCE_ENTRIES);
+  assert.equal(historicalSearch.length,42);assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,compiled.entries);
+  assert.equal(hash(historicalSearch.slice(0,33)),baseline.priorSearch33Sha256);
+  assert.deepEqual(historicalSearch.slice(33),source.entries);
   for(const[file,pin]of Object.entries(baseline.priorSourceAndReviewBytes))assert.equal(hash(await readFile(resolve(root,file))),pin,file);
-  const ordinary=EVERYDAY_LOOKUP_ENTRIES.filter(row=>!row.reviewedCanonicalSense),newHeads=new Set(source.entries.map(row=>row.term));
+  const ordinary=historicalCommonOrdinary1070(EVERYDAY_LOOKUP_ENTRIES.filter(row=>!row.reviewedCanonicalSense)),newHeads=new Set(source.entries.map(row=>row.term));
   assert.equal(ordinary.length,1070);const old=ordinary.filter(row=>!newHeads.has(row.term));
   assert.equal(old.length,1061);assert.deepEqual(old.map(row=>row.term),baseline.ordinary1061Heads);assert.equal(hash(old),baseline.ordinary1061Sha256);
   const prior=new Set(baseline.reviewed210Heads),selected=REVIEWED_SENSE_ENTRIES.filter(row=>prior.has(row.term));

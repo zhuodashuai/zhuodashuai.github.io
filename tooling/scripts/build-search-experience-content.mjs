@@ -13,6 +13,7 @@ export const SEARCH_CONTENT_PACKS=Object.freeze([
   {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-19-search-followup'),count:4},
   {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-19-common-terms'),count:13,admission:true},
   {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-20-life-common-terms'),count:9,admission:true},
+  {directory:join(ROOT,'tooling/dictionary/everyday-expansions/2026-11-20-common-followup'),count:7,admission:true},
 ].map(Object.freeze));
 const hash=value=>createHash('sha256').update(typeof value==='string'||Buffer.isBuffer(value)?value:JSON.stringify(value)).digest('hex');
 const read=async file=>JSON.parse(await readFile(file,'utf8'));

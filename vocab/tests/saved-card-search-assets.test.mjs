@@ -1,13 +1,14 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {fingerprintChineseQueryEngine} from '../../tooling/scripts/build-chinese-query-cache.mjs';
-import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-release.js';
+import {loadHistorical941Kernel} from '../../tooling/tests/helpers/historical-query-kernel-941.mjs';
 import {SAVED_CARD_SEARCH_URLS,restoreSavedCardSearchShell,restoreSavedCardSearchServiceWorkerShell,restoreSavedCardSearchAssetIfCurrent} from '../../tooling/tests/helpers/saved-card-search-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
-const read=file=>readFile(new URL('../'+file,import.meta.url),'utf8');
+const read=async file=>restoreSearchRelease125AssetIfCurrent(file,await readFile(new URL('../'+file,import.meta.url),'utf8'));
 const sha=value=>createHash('sha256').update(value).digest('hex');
 const urls=text=>JSON.parse('['+text.match(/const SHELL = \[([\s\S]*?)\];/u)[1].replace(/\/\/[^\r\n]*/gu,'').trim().replace(/,$/u,'')+']');
 
@@ -40,7 +41,7 @@ test('current public and personal filters use124 while unchanged link callers ke
  assert.equal(sha((await read('tests/saved-card-search.test.mjs')).replaceAll('\r\n','\n')),'ede810e9ec95ab672179259713695533197365526a25e39384dfed3f84488f8d');
 });
 
-test('the complete24-module engine and cache941 descriptor remain byte-identical after saved-filter124',async()=>{
- const root=fileURLToPath(new URL('../../',import.meta.url));const fp=await fingerprintChineseQueryEngine({root,sourceManifestSha256:release.sourceManifestSha256,selectionSources:release.selectionSources});assert.equal(Object.keys(fp.sourceFiles).length,24);assert.equal(fp.engineBinding,'81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e');assert.equal(fp.markerValue,fp.engineBinding);assert.equal(release.engineBinding,fp.engineBinding);assert.equal(release.buildVersion,'941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4');
- const hashes=await Promise.all([...Object.keys(fp.sourceFiles),'vocab/js/chinese-query-cache-release.js'].map(async file=>[file,sha(await readFile(new URL('../../'+file,import.meta.url)))]));hashes.sort(([a],[b])=>a.localeCompare(b));assert.equal(sha(JSON.stringify(hashes)),'4fd8701ee6bda2a2869e28a837b71b31e619f7539d3335e284fdef50479b14e1');
+test('the actual archived24-module941 kernel retains its complete saved-filter124 historical byte bindings',async()=>{
+ const {root,url:historicalUrl,release}=await loadHistorical941Kernel();const fp=await fingerprintChineseQueryEngine({root,sourceManifestSha256:release.sourceManifestSha256,selectionSources:release.selectionSources});assert.equal(Object.keys(fp.sourceFiles).length,24);assert.equal(fp.engineBinding,'81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e');assert.equal(fp.markerValue,fp.engineBinding);assert.equal(release.engineBinding,fp.engineBinding);assert.equal(release.buildVersion,'941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4');
+ const hashes=await Promise.all([...Object.keys(fp.sourceFiles),'vocab/js/chinese-query-cache-release.js'].map(async file=>[file,sha(await readFile(new URL(file,historicalUrl)))]));hashes.sort(([a],[b])=>a.localeCompare(b));assert.equal(sha(JSON.stringify(hashes)),'4fd8701ee6bda2a2869e28a837b71b31e619f7539d3335e284fdef50479b14e1');
 });

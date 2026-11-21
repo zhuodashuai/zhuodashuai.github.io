@@ -73,6 +73,10 @@
     {
       "source": "batch-0018.json",
       "review": "batch-0018.json"
+    },
+    {
+      "source": "batch-0019.json",
+      "review": "batch-0019.json"
     }
   ],
   "retainLegacyChineseHeads": [
@@ -86,6 +90,10 @@
     {
       "policy": "source-corrections-0018-accuracy-policy.json",
       "legacyExamples": "source-corrections-0018-legacy-examples.json"
+    },
+    {
+      "policy": "source-corrections-0019-accuracy-policy.json",
+      "legacyExamples": "source-corrections-0019-legacy-examples.json"
     }
   ]
 }

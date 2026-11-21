@@ -6,6 +6,7 @@ import { searchExpandedDictionary } from '../js/expanded-dictionary.js';
 import { lookupPersonalDictionaryFast } from '../js/personal-lookup-flow.js';
 import { exactSourceCorrectionRows } from '../../tooling/tests/helpers/search-common-terms-history.mjs';
 import {exactLifeCommonTermRows,exactMedicalCorrectionRows} from '../../tooling/tests/helpers/life-coverage-history.mjs';
+import {historicalCommonEveryday1283} from '../../tooling/tests/helpers/common-followup-history.mjs';
 const correctedRows=new Map(exactSourceCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
 const lifeRows=new Set(exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
 const medicalRows=new Map(exactMedicalCorrectionRows(EVERYDAY_LOOKUP_ENTRIES).map(row=>[row.term,row]));
@@ -76,7 +77,7 @@ test('qualifiers and unrelated senses cannot be discarded while expanding everyd
 test('every listed Chinese alias, English head and genuine form resolves with an original bilingual example', () => {
   const heads = new Set(), examples = new Set();
   let oldAliasChecks=0,exactCorrectionChecks=0,lifeAliasChecks=0,medicalAliasChecks=0;
-  for (const row of EVERYDAY_LOOKUP_ENTRIES) {
+  for (const row of historicalCommonEveryday1283(EVERYDAY_LOOKUP_ENTRIES)) {
     const key = row.term.toLowerCase();
     assert(!heads.has(key), `duplicate head: ${row.term}`); heads.add(key);
     assert(row.partOfSpeech.trim()); assert.match(row.meaning, /^①/u);

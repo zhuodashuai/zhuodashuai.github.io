@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "01ecb1264138aace8657be5778c0fc09ab96de72afdb77920e99c3c63ccf05b0",
+  "sourceByteSha256": "85bc0125dd69bb5376fb116651d1f0d4c2baba3c79bdef02b0b881d72626d0fb",
+  "author": "AI/root_lexical_accuracy_author",
+  "reviewer": "AI/independent_aeroallergen_language_policy_reviewer",
+  "independentOfAuthor": true,
+  "approvedTerms": [
+    "aeroallergen",
+    "aeroallergens"
+  ],
+  "issues": [],
+  "reviewScope": "Fresh exact0019 compiler-format metadata/source-policy/legacy raw-context extension review, grounded in prior independent language and new actual source/example replay. Not reuse of old approval as new-field authority.",
+  "reviewedRows": [
+    {
+      "term": "aeroallergen",
+      "rowSha256": "a6a967e0a761b1613ca5285ccac991bff2637a590738959d7f72c0ea7744a4dd",
+      "canonicalId": 7215910,
+      "canonicalSourceSha256": "ad66ae7662818b660d309687dff0d3e3eace365a7db642da90a9434eaf0c9804",
+      "languageDecision": "PASS",
+      "reason": "PASS: an airborne allergy-triggering substance, not an illness or an altitude-specific condition. 气传过敏原/空气传播过敏原 are accurate sense-bound aliases. Sensitivity is appropriately qualified rather than claiming that every person reacts.",
+      "metadataProjectionVerified": true,
+      "preservedOriginalChineseAlias": "气源性致敏原"
+    },
+    {
+      "term": "aeroallergens",
+      "rowSha256": "5c792cf51036fa5403e53ffea15ae96112fb98c4fa68cf0078acd75e78e48806",
+      "canonicalId": 7216079,
+      "canonicalSourceSha256": "6254b70c345b0e7ca44040706c0645e918e327a2d59e85e547846e32e4aeea7b",
+      "languageDecision": "PASS",
+      "reason": "PASS: the same substance category in the explicitly labelled plural of aeroallergen; noun POS plus the visible plural explanation is accurate. Both aliases can legitimately retrieve either preserved literal identity.",
+      "metadataProjectionVerified": true,
+      "preservedOriginalChineseAlias": "气源性致敏原"
+    }
+  ],
+  "exactEvidence": {
+    "source-corrections-0019-canonical-before.json": "16b0a2ebf04ea8b6476be0fab1d3774ef8753fb8b2388a9bde337bffcba2cbdf",
+    "source-corrections-0019-legacy-examples.json": "f38f3f293c20781ffed80d6f6f929b76f83e210900f532c15665a76d03eb0079",
+    "source-corrections-0019-accuracy-policy.json": "8398b2219e0463223c1611b0f47530a16e907afc0033d45c7207771cae2350ad",
+    "source-corrections-0019-companion.json": "b1a8622be0202c39a9fa7b9b6050282b1d4cd6a19b51b22fc5cec48f1b8478f5",
+    "source-corrections-0019-baseline.json": "ce46c4d5c703cb6e433e96b1c831394ad62b6f6b878033dd8d67e136de2f3baa",
+    "source-corrections-0019-example-audit.json": "3c275924d69a18a6879956f14310454da4d36f9c6c46a807a3901430a8b362b5"
+  },
+  "approvedLegacyRawContextCounts": {
+    "aeroallergen": 1,
+    "aeroallergens": 1
+  },
+  "approvedLegacyFormattedContextCounts": {
+    "aeroallergen": 1,
+    "aeroallergens": 1
+  },
+  "oldPairReview": [
+    {
+      "term": "aeroallergen",
+      "expectedEntrySha256": "2cb88e48e3b699b7b741053155e013237b234b0386e421b2226e3c1d0f11a180",
+      "languageDecision": "PASS",
+      "reason": "Grass pollen as the main airborne-allergen substance in sampled air is semantically valid; Chinese preserves investigation, main substance and sample scope. No disease meaning or treatment claim.",
+      "rawAndFormattedContextsIndependentlyReplayed": 2,
+      "privateFieldsPreserved": true
+    },
+    {
+      "term": "aeroallergens",
+      "expectedEntrySha256": "2f13f865f8d2afa9358af93efa5ad265c6375367330389abb2e5d0341cc3bc1c",
+      "languageDecision": "PASS",
+      "reason": "Comparing outdoor airborne allergens from two locations during spring is semantically valid; Chinese preserves comparison, outdoor substances, sites and season. No disease meaning or treatment claim.",
+      "rawAndFormattedContextsIndependentlyReplayed": 2,
+      "privateFieldsPreserved": true
+    }
+  ],
+  "independentLanguageReviewSha256": "e1c0940c44ac6b99d85d7fb36a0381acf83e053e011aeec725d15b6d67b375f5",
+  "collisionAudit": {
+    "schemaVersion": 1,
+    "status": "EXISTING_HEAD_NEW_EXAMPLE_EN_ZH_COLLISION_AUDIT_PASS_NOT_NEW_HEAD_ADMISSION",
+    "at": "2026-11-20T13:49:48.409Z",
+    "sourceHead": "75729ae858bd1de842a7ad2513bd802fb3a74afb",
+    "newHeads": 0,
+    "correctedExistingHeads": 2,
+    "newBilingualPairs": 2,
+    "packagedRowsChecked": 1290,
+    "includesSevenNewSourcePairs": true,
+    "baseShards": 256,
+    "baseHeads": 86415,
+    "basePairs": 87804,
+    "compressedDeltas": 35,
+    "deltaHeads": 16194,
+    "deltaPairs": 16194,
+    "completeImmutableExampleHeads": 102609,
+    "completeImmutableExamplePairs": 103998,
+    "distinctContextsChecked": 106103,
+    "collisions": 0
+  },
+  "implementationReviewStillRequired": true,
+  "previousMetadataReviewByteSha256": "8efe161ebc1a641176780fb9f016531bc73e72bc53c99a67ff606b5e7446fe0b",
+  "aliasRevisionIndependentlyVerified": true
+}

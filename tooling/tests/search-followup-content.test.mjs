@@ -11,6 +11,7 @@ import {historicalSearch33,exactLifeCommonTermRows} from './helpers/life-coverag
 import {searchExpandedDictionary} from '../../vocab/js/expanded-dictionary.js';
 import {lookupPersonalDictionaryFast} from '../../vocab/js/personal-lookup-flow.js';
 import {loadDictionaryExamples} from '../../vocab/js/dictionary-examples-current-v4.js';
+import {historicalCommonPacks4} from './helpers/common-followup-history.mjs';
 const hash=value=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const file=new URL('../dictionary/everyday-expansions/2026-11-19-search-followup/',import.meta.url);
 const pack=JSON.parse(await readFile(new URL('source.json',file),'utf8'));
@@ -27,7 +28,7 @@ test('four newly reviewed heads append after every unchanged prior ordinary and 
   const historicalEntries=historicalSearch20(entries);
   assert.deepEqual(packs.slice(0,2).map(item=>item.entries.length),[16,4]);
   assert.equal(packs.slice(0,3).length,3);assert.equal(packs[2].entries.length,13);
-  assert.equal(packs.length,4);assert.deepEqual(packs[3].entries,exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
+  assert.equal(historicalCommonPacks4(packs).length,4);assert.deepEqual(packs[3].entries,exactLifeCommonTermRows(EVERYDAY_LOOKUP_ENTRIES));
   assert.deepEqual(pack.entries.map(row=>row.term),['payment code','leave a job','by a fluke','nuanced']);
   assert.deepEqual(historicalEntries.slice(16),pack.entries);
   assert.deepEqual(SEARCH_EXPERIENCE_ENTRIES,entries);

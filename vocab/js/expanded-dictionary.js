@@ -4,22 +4,22 @@ import { chineseSearchPlan, chineseSearchHeads, chineseSearchSense, matchesChine
 import { searchEverydayDictionary, isSupersededChineseSenseHead, guardLegacySupplementaryResult,
   isRetainedCanonicalSenseHead, matchesRetainedCanonicalAlternative, sanitizeRetainedCanonicalResult,
   literalDictionarySpelling, everydayChineseEntries, everydayChineseQuery,
-  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=118";
+  isRejectedReviewedCanonicalVariant } from "./everyday-lookup.js?v=125";
 import { chineseVariantRank, chineseVariantEvidence, parseChineseRanking, normalizeChineseRankingQuery,
   createChineseRankingContext } from "./chinese-ranking.js?v=118";
 import { CHINESE_RANKING_RELEASE } from "./chinese-ranking-release.js?v=111";
-import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=118';
+import { hasSelectedCommonSensePlan, selectedCommonSenseCandidate, isSelectedCommonSenseCanonicalCandidate } from './selected-common-sense.js?v=125';
 import { rejectedReviewedDictionaryForms } from './dictionary-form-evidence.js?v=118';
 import { reviewedEnglishSurfaceTarget, isReviewedEnglishSurfaceCandidate, authenticatedEnglishSurface } from './english-surface-variants.js?v=118';
-import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=118';
+import { readChineseQueryPacket, resetChineseQueryPacketCacheForTests } from './chinese-query-cache.js?v=125';
 import { reviewedCanonicalFormTarget, isReviewedCanonicalFormCandidate,
-  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=118';
+  authenticatedReviewedCanonicalForm, reviewedCanonicalFormContent } from './reviewed-canonical-forms.js?v=125';
 import { isLaundryHangSourceCandidate, authenticatedLaundryHangSource,
-  rejectsLaundryPhraseRecovery, authenticatedLaundryPhraseTarget } from './english-laundry-phrase-evidence.js?v=118';
+  rejectsLaundryPhraseRecovery, authenticatedLaundryPhraseTarget } from './english-laundry-phrase-evidence.js?v=125';
 
 // Generated from this engine's complete source/import closure and catalogue
 // inputs. The builder zeroes only this exact marker while computing its hash.
-export const CHINESE_QUERY_ENGINE_BINDING = "81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e";
+export const CHINESE_QUERY_ENGINE_BINDING = "906404e880562a13d1889876bc21951ef287aa8d0e7a4ec48713fe11f3e61a0d";
 
 // Only versioned, public first-party files are read. No query, cookies, private
 // cards or learning records are written to this cache or sent to a provider.

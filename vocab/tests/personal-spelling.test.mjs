@@ -1,3 +1,4 @@
+import {restoreSearchRelease125ModuleIfCurrent} from '../../tooling/tests/helpers/search-release-125-modules.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -116,7 +117,7 @@ test('the actual authenticated shipped catalogue suggests happy for heppy, using
 });
 
 test('personal app copies keep their sole existing examples import difference and the optional reader stays lazy',async()=>{
-  const app=await readFile(new URL('../js/personal-app-v108.js',import.meta.url),'utf8'),bare=await readFile(new URL('../js/personal-app.js',import.meta.url),'utf8');
+  const app=restoreSearchRelease125ModuleIfCurrent('js/personal-app-v108.js',await readFile(new URL('../js/personal-app-v108.js',import.meta.url),'utf8')),bare=restoreSearchRelease125ModuleIfCurrent('js/personal-app.js',await readFile(new URL('../js/personal-app.js',import.meta.url),'utf8'));
   assert.equal(app.replace('"./dictionary-examples-ui-v108.js?v=118"','"./dictionary-examples-ui.js?v=96"'),bare);
   assert.match(app,/await import\("\.\/dictionary-suggestions\.js\?v=118"\)/u);
   assert(!/^import[^\n]*dictionary-suggestions/mu.test(app));

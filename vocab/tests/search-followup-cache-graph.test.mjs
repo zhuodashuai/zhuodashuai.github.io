@@ -1,3 +1,4 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import {restoreChineseQueryCacheShell} from '../../tooling/tests/helpers/chinese-query-cache-shell.mjs';
 import {restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
 import assert from 'node:assert/strict';
@@ -9,7 +10,7 @@ import {restoreSearchExperienceShell} from '../../tooling/tests/helpers/search-e
 
 // Keep the historical non-root URL subset/hashes unchanged; the new common-terms
 // graph gate independently parses the complete literal array, including './'.
-const read = async file => {const text=await readFile(new URL('../'+file, import.meta.url), 'utf8');return file==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
+const read = async file => {const text=restoreSearchRelease125AssetIfCurrent(file,await readFile(new URL('../'+file, import.meta.url), 'utf8'));return file==='sw.js'?restoreLifeCoverageServiceWorkerShell(text):text;};
 const hash = value => createHash('sha256').update(value).digest('hex');
 const freshModules = ['personal-app-v108','owner-app-v108','dictionary-entry-v109','dictionary-app-v109',
   'dictionary-app','library-lookup-controller','library-lookup-ui','personal-lookup-flow','dictionary-suggestions',

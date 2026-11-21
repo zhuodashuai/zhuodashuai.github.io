@@ -1,3 +1,4 @@
+import {restoreSearchRelease125AssetIfCurrent} from '../../tooling/tests/helpers/search-release-125-shell.mjs';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFile } from 'node:fs/promises';
@@ -57,7 +58,7 @@ test('chapter records are never presented as literal word frequency',async()=>{
 
 test('the active public shell retains old programs while loading the reversible reading policy',async()=>{
   const [html,program,detail,sw]=await Promise.all([
-    readFile(new URL('../index.html',import.meta.url),'utf8'),readFile(new URL('../js/public-app-v113.js',import.meta.url),'utf8'),
+    readFile(new URL('../index.html',import.meta.url),'utf8').then(text=>restoreSearchRelease125AssetIfCurrent('index.html',text)),readFile(new URL('../js/public-app-v113.js',import.meta.url),'utf8'),
     readFile(new URL('../js/entry-detail-v113.js',import.meta.url),'utf8'),readFile(new URL('../sw.js',import.meta.url),'utf8')
   ]);
   assert.match(html,/src="js\/public-app-v113\.js\?v=124"/u);

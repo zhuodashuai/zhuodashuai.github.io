@@ -1,5 +1,5 @@
-import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=118';
-import { SEARCH_EXPERIENCE_ENTRIES } from './search-experience-data.js?v=118';
+import { REVIEWED_SENSE_ENTRIES } from './reviewed-senses-data.js?v=125';
+import { SEARCH_EXPERIENCE_ENTRIES } from './search-experience-data.js?v=125';
 // Extra exact Chinese names for existing entries keep their reviewed source
 // definitions and examples intact. Each target must be an existing head.
 export const EVERYDAY_CHINESE_ALIASES = Object.freeze([
@@ -50,6 +50,7 @@ export const EVERYDAY_CHINESE_ALIASES = Object.freeze([
   {"term":"sink like a stone","aliases":["急剧下降"],"targetEntrySha256":"a4bab8f777acf795c29937901e1a2540a3ea53c373daa13f765ba4e1d7b8b282"},
   {"term":"pickup code","aliases":["取件码"],"targetEntrySha256":"6a4c826e4bb818c385e8331ca7e07461d51a6d557da266723c4e314f5a972754"},
   {"term":"hand sanitizer","aliases":["手消毒液"],"targetEntrySha256":"3427e9ebd4447a032b4249b282bd6bb6a184932b4e385e721e51905589e49e9e"},
+  {"term":"roundabout","aliases":["环岛路口"],"targetEntrySha256":"65a6675a35eca4785fe6ec54d5db727e8ade24ce8827f1544f249cb819397961"},
 ].map(row => Object.freeze({ ...row, aliases: Object.freeze(row.aliases) })));
 export const EVERYDAY_LOOKUP_ENTRIES = Object.freeze([
   {term:"live agent",partOfSpeech:"noun phrase",meaning:"① 人工客服；真人客服。指实际接待或处理问题的工作人员，区别于聊天机器人。",chineseAliases:["人工客服","真人客服","人工客服人员","转人工","转接人工客服","找人工客服"],englishForms:["live agents"],en:"A live agent helped me correct the delivery address.",zh:"人工客服帮我更正了收货地址。",references:["https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-hand-off"],},
