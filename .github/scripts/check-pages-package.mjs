@@ -18,10 +18,11 @@ export const OFFLINE_SOURCE_PREFIXES = Object.freeze([
 // These development-only trees remain complete in Git and CI. No vocabulary,
 // runtime, learning, old-client or dictionary payload path is excluded here.
 export const DEVELOPER_TOOL_PREFIXES = Object.freeze(['tooling/tests', 'tooling/scripts']);
-// Authoring and review inputs are compiled into vocab/js. Their complete
-// originals remain available in Git/CI; the reader fetches only runtime data.
+// Authoring/review inputs and authenticated historical compiler snapshots stay
+// complete in Git/CI. Readers fetch runtime modules and immutable public data.
 export const DEVELOPER_SOURCE_PREFIXES = Object.freeze([
   'tooling/dictionary/everyday-expansions', 'tooling/dictionary/reviewed-senses',
+  'tooling/dictionary/query-cache-origins',
 ]);
 // These D32 proof paths have never been published. Keep them in Git and CI,
 // not in every Pages artifact. No previously served path is excluded here.
