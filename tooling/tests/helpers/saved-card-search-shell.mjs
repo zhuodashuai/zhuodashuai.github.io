@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
+import {restoreSearchRelease125AssetIfCurrent} from './search-release-125-shell.mjs';
 
 // Authenticate complete saved-filter124 shells before reversing only their
 // two entry URLs and four additive aliases into unchanged123 snapshots.
@@ -11,15 +12,18 @@ export const SAVED_CARD_SEARCH_URLS=Object.freeze(['./js/public-app-v113.js?v=12
 const workerPins=[[23837,'bd7231ef8df5df43e55fff5c7a6b90a37091bfdd48610760361346b623fd26c4'],[24277,'4ee854888e728b0e7569d9098cf2ccdde79b3d37c2d5999f9a5880c557c945bb']];
 function authenticate(text,pins,label){const bytes=Buffer.from(text),sha=createHash('sha256').update(bytes).digest('hex');assert(pins.some(([length,digest])=>bytes.length===length&&sha===digest),label+': saved-card search shell snapshot changed');}
 export function restoreSavedCardSearchShell(file,text){
+ text=restoreSearchRelease125AssetIfCurrent(file,text);
  const entry=entries.get(file);if(!entry)return text;authenticate(text,entry.pins,file);
  assert.equal(text.split(entry.current).length,2,'Exactly one saved-filter124 entry URL');return text.replace(entry.current,entry.previous);
 }
 export function restoreSavedCardSearchServiceWorkerShell(text){
+ text=restoreSearchRelease125AssetIfCurrent('sw.js',text);
  authenticate(text,workerPins,'sw.js');const eol=text.includes('\r\n')?'\r\n':'\n',anchor='const SHELL = ['+eol;
  const prefix=SAVED_CARD_SEARCH_URLS.map(url=>'  '+JSON.stringify(url)+',').join(eol)+eol+eol;
  assert.equal(text.split(anchor+prefix).length,2,'Exactly one saved-filter124 four-URL prefix');return text.replace(anchor+prefix,anchor);
 }
 export function restoreSavedCardSearchAssetIfCurrent(file,text){
+ text=restoreSearchRelease125AssetIfCurrent(file,text);
  const entry=entries.get(file);if(entry&&text.includes(entry.current))return restoreSavedCardSearchShell(file,text);
  return file==='sw.js'&&SAVED_CARD_SEARCH_URLS.some(url=>text.includes(JSON.stringify(url)))?restoreSavedCardSearchServiceWorkerShell(text):text;
 }

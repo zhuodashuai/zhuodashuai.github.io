@@ -5,7 +5,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {fingerprintChineseQueryEngine} from '../../tooling/scripts/build-chinese-query-cache.mjs';
-import {CHINESE_QUERY_CACHE_RELEASE as release} from '../js/chinese-query-cache-release.js';
+import {loadHistorical941Kernel} from '../../tooling/tests/helpers/historical-query-kernel-941.mjs';
 import {MEMBER_SPELLING_PANEL_LINE,MEMBER_SPELLING_URLS,restoreMemberSpellingShell,
  restoreMemberSpellingServiceWorkerShell} from '../../tooling/tests/helpers/member-spelling-shell.mjs';
 import {restoreLifeCoverageShell,restoreLifeCoverageServiceWorkerShell} from '../../tooling/tests/helpers/life-coverage-shell.mjs';
@@ -55,8 +55,8 @@ test('both personal programs share helper119 while the original lookup and norma
  assert(!helper.includes('owner-api')&&!helper.includes('personal-api'),'The sidecar has no account or collection authority');
 });
 
-test('a personal UI release keeps the complete24-file engine raw bytes and current cache binding unchanged',async()=>{
- const root=resolve(import.meta.dirname,'../..');
+test('the archived941 kernel authenticates all24 raw engine bytes from the personal119 release',async()=>{
+ const {root,release}=await loadHistorical941Kernel();
  const graph=await fingerprintChineseQueryEngine({root,sourceManifestSha256:release.sourceManifestSha256,selectionSources:release.selectionSources});
  assert.equal(graph.engineBinding,'81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e');
  assert.equal(graph.markerValue,graph.engineBinding);assert.equal(release.engineBinding,graph.engineBinding);

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "kind": "exact-historical941-kernel",
+  "baseCommit": "95c8b025ebbd5d3321d7af59fdb79576ea5c2ddb",
+  "baseTree": "8226695aec6818f9c127d7060cb0111be1dda659",
+  "ui124Commit": "e6aa9cc5c4a7359fd7e5f813a0f1311610dd7fb4",
+  "ui124Tree": "60d636076f676034498817b0369e314fc2ca15e8",
+  "all25RawBlobsEqualBetweenCommits": true,
+  "engineBinding": "81a773934d49ddc17a157e06e208026fc5760ea8389ab5b6ca897c542a5da28e",
+  "buildVersion": "941690147b97bfd319bda06acf260e0d2c68968f96d44e67d68c43926ef7e8b4",
+  "dictionaryVersion": "cabcf549c1b4b4ebaff5aef42eb2bc2ff893779a3b51599850b413dba1327644",
+  "sourceManifest": {
+    "file": "context/source-manifest.json",
+    "originalFile": "vocab/data/expanded-dictionary/manifest.json",
+    "bytes": 55060,
+    "sha256": "2ef468b0443d76996e31fb910a904a3e05cb677d695715cfc325ad46c8a8bf3f",
+    "gitBlob": "a778e3255eaabad88e4eabc48ffa165b8924d9b6"
+  },
+  "selectionSources": [
+    {
+      "file": "vocab/data/ecdict-core.json",
+      "sha256": "eb430465c024ce3fd6c1ace668eb437135ed8b52ecffcacf8be05b49e070f5f6",
+      "bytes": 1963099,
+      "entries": 7502,
+      "license": "MIT"
+    }
+  ],
+  "selectionSourceRawGitCheck": {
+    "file": "vocab/data/ecdict-core.json",
+    "bytes": 1963099,
+    "sha256": "eb430465c024ce3fd6c1ace668eb437135ed8b52ecffcacf8be05b49e070f5f6",
+    "gitBlob": "ed5d4c5f3c035b11f7aafa6b058984bf23e385ad",
+    "retainedAsContextNotSecondRuntimeCorpus": true
+  },
+  "files": [
+    {
+      "file": "vocab/js/chinese-query-cache-format.js",
+      "bytes": 934,
+      "sha256": "f1782d0ad0ac808552c637f55b83c7fb2c43c37a79c5e60df4f9d39724bbe510",
+      "gitBlob": "7ed022034b95a3701a347df57cb7c9186cdc0923",
+      "equalUi124Blob": "7ed022034b95a3701a347df57cb7c9186cdc0923"
+    },
+    {
+      "file": "vocab/js/chinese-query-cache-release.js",
+      "bytes": 449739,
+      "sha256": "ac57572f62c413787165ba041a69e14ee517e19db854adea45cbe10ab64c80ef",
+      "gitBlob": "c7e220193704a15b1a14b2ac9a377f256c2e2ab2",
+      "equalUi124Blob": "c7e220193704a15b1a14b2ac9a377f256c2e2ab2"
+    },
+    {
+      "file": "vocab/js/chinese-query-cache.js",
+      "bytes": 18141,
+      "sha256": "49e27aaf3abde859d919a08dd28ed09d0ea24505c8f78716eb23dc03d1f6a4d7",
+      "gitBlob": "2f987c928150f1cc6a8550841a3f06e4f74b19da",
+      "equalUi124Blob": "2f987c928150f1cc6a8550841a3f06e4f74b19da"
+    },
+    {
+      "file": "vocab/js/chinese-ranking-release.js",
+      "bytes": 632,
+      "sha256": "59b7ced66bb15b37f7b71d68a217a091041a25ffe7d3fc7bc662f26a16cf1d04",
+      "gitBlob": "7f940d421e29e6f715ebbcfeb6e485d100eda4f0",
+      "equalUi124Blob": "7f940d421e29e6f715ebbcfeb6e485d100eda4f0"
+    },
+    {
+      "file": "vocab/js/chinese-ranking.js",
+      "bytes": 17208,
+      "sha256": "abde8c3d84ac8ab3d184eced3650c9fec7e0baa8e89a67c62b10a86a62844ac9",
+      "gitBlob": "28c032da156a8472c1f4a14ece5bbe0550c8646e",
+      "equalUi124Blob": "28c032da156a8472c1f4a14ece5bbe0550c8646e"
+    },
+    {
+      "file": "vocab/js/chinese-related-common.js",
+      "bytes": 1141750,
+      "sha256": "39fe6598ccdc1196e775d5042ed3d9eb21939398b52540352fbe053576d8e349",
+      "gitBlob": "34598cfa9f1bd1ed272c6242aca55ccd310c28cc",
+      "equalUi124Blob": "34598cfa9f1bd1ed272c6242aca55ccd310c28cc"
+    },
+    {
+      "file": "vocab/js/chinese-search.js",
+      "bytes": 27716,
+      "sha256": "383b4b20092174a04b4ab5994d57822775c75a1cf76e679d232f25f2ac9d0caf",
+      "gitBlob": "bfc91e629a2346cfdb0ec22fc538bb6ef18674e0",
+      "equalUi124Blob": "bfc91e629a2346cfdb0ec22fc538bb6ef18674e0"
+    },
+    {
+      "file": "vocab/js/core-dictionary.js",
+      "bytes": 5824,
+      "sha256": "38f42a482336a4c9a82287b3bf7f5db83c060a4fa393d55a9a11e72aa2574dfa",
+      "gitBlob": "244064cd1dc7b4058da1cb8c8a7d55937b6850a8",
+      "equalUi124Blob": "244064cd1dc7b4058da1cb8c8a7d55937b6850a8"
+    },
+    {
+      "file": "vocab/js/core-pos-corrections.js",
+      "bytes": 46090,
+      "sha256": "ac165af37a638475b23f51ed275e13063682f79045ae61f70ed0c8cfc5fabbaf",
+      "gitBlob": "3aa02ecca85e7b53dfcba1b17d701f2c05b74ac0",
+      "equalUi124Blob": "3aa02ecca85e7b53dfcba1b17d701f2c05b74ac0"
+    },
+    {
+      "file": "vocab/js/dictionary-form-evidence.js",
+      "bytes": 2187,
+      "sha256": "27935d89e9f4e9e78b9772dd6a4558c40009e9cd3d8fb9f857788b3cd10c3988",
+      "gitBlob": "18e3e4b2b5a8a378bfee315e40c5731ebe338172",
+      "equalUi124Blob": "18e3e4b2b5a8a378bfee315e40c5731ebe338172"
+    },
+    {
+      "file": "vocab/js/dictionary-literal-heads-data.js",
+      "bytes": 156,
+      "sha256": "bdc23caf383ee641e1f4f17404917c351bd20c87cd275d70a0b4556f671ce9de",
+      "gitBlob": "c0dbaf64d03afd9a7a18b71e3c2605bd63c78cad",
+      "equalUi124Blob": "c0dbaf64d03afd9a7a18b71e3c2605bd63c78cad"
+    },
+    {
+      "file": "vocab/js/english-laundry-phrase-evidence.js",
+      "bytes": 3654,
+      "sha256": "cd6bfcd4ef038d8fd88aa42a2602c11473fb203238116d84d3821e3bd00215dd",
+      "gitBlob": "0ef6230281367538da3ae1a2b7ae607dfa555375",
+      "equalUi124Blob": "0ef6230281367538da3ae1a2b7ae607dfa555375"
+    },
+    {
+      "file": "vocab/js/english-surface-variants.js",
+      "bytes": 3767,
+      "sha256": "c3f44a5e758446fe4ca3122fae628a4e1fce75d0de238b3cca35531f356f3e26",
+      "gitBlob": "f63b6d57aaad4fb4156779dbee275d75bd5f789e",
+      "equalUi124Blob": "f63b6d57aaad4fb4156779dbee275d75bd5f789e"
+    },
+    {
+      "file": "vocab/js/everyday-lookup-data.js",
+      "bytes": 509689,
+      "sha256": "efd5e87c1a4165f2e6b8436cdf82f4a0aa3d2f0b9d309a76112761d22ffecd53",
+      "gitBlob": "b1058cbc486d2c388f8e21491489f53edd010b45",
+      "equalUi124Blob": "b1058cbc486d2c388f8e21491489f53edd010b45"
+    },
+    {
+      "file": "vocab/js/everyday-lookup.js",
+      "bytes": 24414,
+      "sha256": "a75cba85cfe4ee8ba2bcd791023a18100ea5b9e20a052a50bac5f15adaf17806",
+      "gitBlob": "64ffbe7e81b50d67d85a92eb924259a801f119e0",
+      "equalUi124Blob": "64ffbe7e81b50d67d85a92eb924259a801f119e0"
+    },
+    {
+      "file": "vocab/js/expanded-dictionary.js",
+      "bytes": 64448,
+      "sha256": "736c52c06d86367a188281511dd977bcfd1e52f94df9545839e7663e6e187cd4",
+      "gitBlob": "51a3bd960e84657078e140c1398cc39641edd5fa",
+      "equalUi124Blob": "51a3bd960e84657078e140c1398cc39641edd5fa"
+    },
+    {
+      "file": "vocab/js/member-dictionary-manifest.js",
+      "bytes": 471,
+      "sha256": "22c01b844b3de52078cddea140756418a7670efea6773182cb029220cabdb822",
+      "gitBlob": "aff4f3f67ba24d042784e945f09867f8ebe18879",
+      "equalUi124Blob": "aff4f3f67ba24d042784e945f09867f8ebe18879"
+    },
+    {
+      "file": "vocab/js/personal-dictionary.js",
+      "bytes": 19635,
+      "sha256": "b256436b5dccda0a2de96462f99be07b6d28908c2218b590e7b9261d6e39fe4e",
+      "gitBlob": "2724f12c61924086e7f6fd4cc6a3acc2779830fe",
+      "equalUi124Blob": "2724f12c61924086e7f6fd4cc6a3acc2779830fe"
+    },
+    {
+      "file": "vocab/js/reading-source.js",
+      "bytes": 552,
+      "sha256": "316ab295a9c92dcc54c6b339ed7b72635be1a33f013fd7bcb84ac62ab73abf2e",
+      "gitBlob": "5abeff00989eea9d87ab34919480f4768093001b",
+      "equalUi124Blob": "5abeff00989eea9d87ab34919480f4768093001b"
+    },
+    {
+      "file": "vocab/js/reviewed-canonical-forms.js",
+      "bytes": 4789,
+      "sha256": "54352fd30f248e45310109d8ddc26fe5b18a29b7e7df8783e42b0e87b46c4980",
+      "gitBlob": "b72fb88d224382351c254b08d6792d101a6e331b",
+      "equalUi124Blob": "b72fb88d224382351c254b08d6792d101a6e331b"
+    },
+    {
+      "file": "vocab/js/reviewed-senses-data.js",
+      "bytes": 233847,
+      "sha256": "82d87288c7a0687e6f8eb2897b5e00e6d112b3ea14d3366ffbaac0314c106014",
+      "gitBlob": "0d4e6a85bdb308ea39e0d463d573a56d7ec1a9b0",
+      "equalUi124Blob": "0d4e6a85bdb308ea39e0d463d573a56d7ec1a9b0"
+    },
+    {
+      "file": "vocab/js/search-experience-data.js",
+      "bytes": 30365,
+      "sha256": "b6e65e6aa9fb47b84fefe93c804ba496b71cbc1b24e308b5a628b10393a656ae",
+      "gitBlob": "c1c207457e130539ca4de2ea5ad4e9d86c78650d",
+      "equalUi124Blob": "c1c207457e130539ca4de2ea5ad4e9d86c78650d"
+    },
+    {
+      "file": "vocab/js/selected-common-sense-data.js",
+      "bytes": 9027,
+      "sha256": "f00620e156420b6adac27a1f3879880fe2ff070d5a3001850c49171647a886a4",
+      "gitBlob": "d0ca222688c43ede468b4ab4faa60a37bca59cad",
+      "equalUi124Blob": "d0ca222688c43ede468b4ab4faa60a37bca59cad"
+    },
+    {
+      "file": "vocab/js/selected-common-sense.js",
+      "bytes": 4406,
+      "sha256": "a5b1fb4263d18c49e206001f02e1302691bbd50f4e106792070f8d93d40b1d10",
+      "gitBlob": "e453642475247ded2c9febf7b29e30862a2bc889",
+      "equalUi124Blob": "e453642475247ded2c9febf7b29e30862a2bc889"
+    },
+    {
+      "file": "vocab/js/wordbook-schema.js",
+      "bytes": 56893,
+      "sha256": "11172017df00c63c4d3faaf871f36f17dd6c5e7da3bffc7d3581ed94139e8d16",
+      "gitBlob": "c05de4a3d00b39ceb3ebe5f69941e12482cf4176",
+      "equalUi124Blob": "c05de4a3d00b39ceb3ebe5f69941e12482cf4176"
+    }
+  ],
+  "rawModuleSetAggregateSha256": "4fd8701ee6bda2a2869e28a837b71b31e619f7539d3335e284fdef50479b14e1",
+  "sourceFiles": {
+    "vocab/js/chinese-query-cache-format.js": "f1782d0ad0ac808552c637f55b83c7fb2c43c37a79c5e60df4f9d39724bbe510",
+    "vocab/js/chinese-query-cache.js": "49e27aaf3abde859d919a08dd28ed09d0ea24505c8f78716eb23dc03d1f6a4d7",
+    "vocab/js/chinese-ranking-release.js": "59b7ced66bb15b37f7b71d68a217a091041a25ffe7d3fc7bc662f26a16cf1d04",
+    "vocab/js/chinese-ranking.js": "abde8c3d84ac8ab3d184eced3650c9fec7e0baa8e89a67c62b10a86a62844ac9",
+    "vocab/js/chinese-related-common.js": "39fe6598ccdc1196e775d5042ed3d9eb21939398b52540352fbe053576d8e349",
+    "vocab/js/chinese-search.js": "383b4b20092174a04b4ab5994d57822775c75a1cf76e679d232f25f2ac9d0caf",
+    "vocab/js/core-dictionary.js": "38f42a482336a4c9a82287b3bf7f5db83c060a4fa393d55a9a11e72aa2574dfa",
+    "vocab/js/core-pos-corrections.js": "ac165af37a638475b23f51ed275e13063682f79045ae61f70ed0c8cfc5fabbaf",
+    "vocab/js/dictionary-form-evidence.js": "27935d89e9f4e9e78b9772dd6a4558c40009e9cd3d8fb9f857788b3cd10c3988",
+    "vocab/js/dictionary-literal-heads-data.js": "bdc23caf383ee641e1f4f17404917c351bd20c87cd275d70a0b4556f671ce9de",
+    "vocab/js/english-laundry-phrase-evidence.js": "cd6bfcd4ef038d8fd88aa42a2602c11473fb203238116d84d3821e3bd00215dd",
+    "vocab/js/english-surface-variants.js": "c3f44a5e758446fe4ca3122fae628a4e1fce75d0de238b3cca35531f356f3e26",
+    "vocab/js/everyday-lookup-data.js": "efd5e87c1a4165f2e6b8436cdf82f4a0aa3d2f0b9d309a76112761d22ffecd53",
+    "vocab/js/everyday-lookup.js": "a75cba85cfe4ee8ba2bcd791023a18100ea5b9e20a052a50bac5f15adaf17806",
+    "vocab/js/expanded-dictionary.js": "da8ee836b20cbda0e7237378918ffad3d6c76e6dc0686553a64557aaac4eab81",
+    "vocab/js/member-dictionary-manifest.js": "22c01b844b3de52078cddea140756418a7670efea6773182cb029220cabdb822",
+    "vocab/js/personal-dictionary.js": "b256436b5dccda0a2de96462f99be07b6d28908c2218b590e7b9261d6e39fe4e",
+    "vocab/js/reading-source.js": "316ab295a9c92dcc54c6b339ed7b72635be1a33f013fd7bcb84ac62ab73abf2e",
+    "vocab/js/reviewed-canonical-forms.js": "54352fd30f248e45310109d8ddc26fe5b18a29b7e7df8783e42b0e87b46c4980",
+    "vocab/js/reviewed-senses-data.js": "82d87288c7a0687e6f8eb2897b5e00e6d112b3ea14d3366ffbaac0314c106014",
+    "vocab/js/search-experience-data.js": "b6e65e6aa9fb47b84fefe93c804ba496b71cbc1b24e308b5a628b10393a656ae",
+    "vocab/js/selected-common-sense-data.js": "f00620e156420b6adac27a1f3879880fe2ff070d5a3001850c49171647a886a4",
+    "vocab/js/selected-common-sense.js": "a5b1fb4263d18c49e206001f02e1302691bbd50f4e106792070f8d93d40b1d10",
+    "vocab/js/wordbook-schema.js": "11172017df00c63c4d3faaf871f36f17dd6c5e7da3bffc7d3581ed94139e8d16"
+  },
+  "scope": "Developer-only historical evidence. No current runtime import or authority. The independently generated125 graph/cache requires its own current proof."
+}
